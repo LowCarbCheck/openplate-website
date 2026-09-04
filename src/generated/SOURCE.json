@@ -2,19 +2,19 @@
   "app": {
     "repo": "https://github.com/LowCarbCheck/openplate",
     "ref": "main",
-    "commit": "5763d4ccbcf53d1260ad38086eabc427bb2b4d9b",
-    "syncedAt": "2026-09-04T21:31:19.788Z"
+    "commit": "aad0aea14ac7ee4b12e0d1d368186154b6449bd4",
+    "syncedAt": "2026-09-04T21:55:46.068Z"
   },
   "sync": {
     "repo": "https://github.com/LowCarbCheck/openplate-sync",
     "ref": "main",
-    "commit": "70eb3969568c63aa8aebf129ddf81a13077210c3",
-    "syncedAt": "2026-09-04T21:31:19.788Z"
+    "commit": "1c8b1fa60357fbb0aa3424233ad29ee37edf6583",
+    "syncedAt": "2026-09-04T21:55:46.068Z"
   },
   "inference": {
     "repo": "https://github.com/LowCarbCheck/openplate-inference",
     "ref": "main",
-    "commit": "0cf701a6fc9bfe9d04fbb3b78a70036591b293ba",
-    "syncedAt": "2026-09-04T21:31:19.788Z"
+    "commit": "3079e84f4571b03e8404b54c30e6ce2317cafc07",
+    "syncedAt": "2026-09-04T21:55:46.068Z"
   }
 }

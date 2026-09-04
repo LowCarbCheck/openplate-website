@@ -63,8 +63,15 @@ export function SiteLayout({
    * A page whose own content needs the full window rather than one reading
    * column, which so far is the documentation alone: it carries a file list on
    * one side and a contents rail on the other, and at 48rem neither fits beside
-   * the text. The header and the footer keep the narrow measure either way, so
-   * the chrome does not change width from page to page.
+   * the text.
+   *
+   * THE HEADER FOLLOWS THE PAGE. It used to keep the narrow measure on every
+   * page, which put the wordmark and the nav in the middle of a documentation
+   * page whose own content starts at the left edge of an 88rem grid, so the
+   * chrome looked unrelated to the page under it. Matching the measure lines
+   * the wordmark up with the file list beneath it. The footer stays on the
+   * reading measure: it is a short row of links and an end-cap, not something
+   * a column has to line up with.
    */
   wide?: boolean;
 }) {
@@ -81,7 +88,13 @@ export function SiteLayout({
       </a>
 
       <header className="border-b border-border">
-        <div className="mx-auto flex w-full max-w-3xl flex-wrap items-baseline gap-x-6 gap-y-2 px-5 py-5">
+        <div
+          className={
+            wide ?
+              'mx-auto flex w-full max-w-[88rem] flex-wrap items-baseline gap-x-6 gap-y-2 px-6 py-5'
+            : 'mx-auto flex w-full max-w-3xl flex-wrap items-baseline gap-x-6 gap-y-2 px-5 py-5'
+          }
+        >
           <SiteLink to="/" className="font-display text-xl font-semibold tracking-tight text-primary">
             {t('site.name')}
           </SiteLink>

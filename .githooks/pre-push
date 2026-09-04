@@ -5,7 +5,7 @@
 # from the workstation are what trigger the build and deploy, so the tests
 # belong in front of the push rather than after it. A green push IS the signal.
 #
-# Runs: lint -> typecheck -> unit tests -> production build.
+# Runs: lint -> typecheck -> unit tests -> generated-docs staleness -> build.
 #
 # Lint runs first because oxlint is the fast tier: a finding fails the gate in
 # under a second rather than after a full build. The pre-commit hook lints only
@@ -32,7 +32,8 @@
 # fresh: run `make hooks` first.
 #
 # Escape hatch (use deliberately, it pushes untested code):
-#   SKIP_TESTS=1 git push
+#   SKIP_TESTS=1 git push        skip the whole gate
+#   SKIP_SYNC=1 git push         skip only the staleness check (it needs the network)
 set -e
 
 if [ "${SKIP_TESTS:-0}" = "1" ]; then
@@ -74,6 +75,50 @@ run pnpm typecheck
 
 echo "▶ pre-push: unit tests"
 run pnpm test:unit
+
+# ── THE GENERATED TREE MUST MATCH ITS SOURCES ───────────────────────────────
+# `src/generated/` is quoted from three other repositories, and it is committed
+# rather than built. Committed generated output goes stale in one direction that
+# nothing else here can see: an edit made by hand to a generated file, or a
+# sync that was run and then only half committed, builds and tests perfectly and
+# publishes words the source repositories do not contain.
+#
+# So the sync is run again, against the refs `src/generated/SOURCE.json` already
+# records, and any diff under `src/generated/` fails the push. Re-running at the
+# RECORDED refs, not at the latest tags, is what makes this a staleness check
+# and not a release check: a new tag upstream is the sync workflow's business,
+# not this push's.
+#
+# IT NEEDS THE NETWORK. The sync clones the three repositories, so this tier is
+# the one that fails on a plane.
+#
+# Escape hatch (it pushes a tree nobody checked against its sources):
+#   SKIP_SYNC=1 git push
+if [ "${SKIP_SYNC:-0}" = "1" ]; then
+  echo "⚠ pre-push: generated-docs staleness check SKIPPED explicitly (SKIP_SYNC=1)"
+else
+  echo "▶ pre-push: re-quoting the docs at the refs SOURCE.json records (needs the network)"
+  # One `-e` per source, read out of the file rather than written down here.
+  sync_env=$(run node -e '
+    const source = require("node:fs").readFileSync("src/generated/SOURCE.json", "utf8");
+    const env = { app: "OPENPLATE_APP_REF", sync: "OPENPLATE_SYNC_REF", inference: "OPENPLATE_INFERENCE_REF" };
+    const out = Object.entries(JSON.parse(source)).map(([key, value]) => `${env[key]}=${value.ref}`);
+    process.stdout.write(out.join(" "));
+  ')
+  run env $sync_env pnpm sync:docs
+  # WHAT THE SYNC WRITES, AND NOTHING ELSE. `src/generated/docs-i18n/` is the
+  # translation memory, written by `translate:docs`, which this tier does not
+  # run and could not run offline. Included, an untranslated sentence would be
+  # reported as a stale sync, which is a different fault with a different fix.
+  scope="src/generated public/SOURCE.json :(exclude)src/generated/docs-i18n"
+  if [ -n "$(git status --porcelain $scope)" ]; then
+    echo "✖ pre-push: the generated docs do not match their sources at the recorded refs:"
+    git status --porcelain $scope
+    echo "  Commit what the sync just wrote, or run 'git checkout -- src/generated public/SOURCE.json'"
+    echo "  and find out who edited it by hand. Bypass once with: SKIP_SYNC=1 git push"
+    exit 1
+  fi
+fi
 
 echo "▶ pre-push: production build"
 run pnpm build

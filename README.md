@@ -57,13 +57,76 @@ git config core.hooksPath .githooks
 
 ## The gate
 
-`.githooks/pre-push` runs lint, typecheck, unit tests and the production build,
-in that order. There is no cloud test runner: a push from the workstation is
+`.githooks/pre-push` runs lint, typecheck, unit tests, the staleness check and
+the production build, in that order. There is no cloud test runner: a push from the workstation is
 what triggers the deploy, so the gate sits in front of it. The build tier is the
 one that matters most here, because prerendering happens there and nowhere else.
 
+The staleness tier re-runs `sync:docs` at the refs `src/generated/SOURCE.json`
+records and fails on any diff under `src/generated/`, so a generated file edited
+by hand, or a sync run and only half committed, cannot be pushed. It clones the
+three repositories, so it needs the network. `SKIP_SYNC=1 git push` skips that
+tier alone; `SKIP_TESTS=1 git push` skips the whole gate.
+
 Copy `.env.example` to `.env` if you need it. The running site needs no secret;
 the only key in there is read by the translation script.
+
+## The release chain
+
+The three source repositories tell this one when they publish, and this one
+re-quotes them. Nobody runs anything.
+
+**The dispatch.** Each source repository's `.github/workflows/release-image.yml`
+has a `dispatch-website` job. It runs on a `v*` tag that is not a prerelease,
+beside the image build rather than after it, and posts a `repository_dispatch`
+to `LowCarbCheck/openplate-website`:
+
+```
+event_type:     openplate-released
+client_payload: { "repo": "openplate-sync", "tag": "v0.6.0" }
+```
+
+The payload says which release woke the run and nothing more. Which release the
+site documents is decided in one place, `highestTag` in `scripts/sync-docs.ts`,
+which takes the highest `vX.Y.Z` tag each repository has. Every run syncs all
+three sources, so a dispatch that is lost is healed by the next release or by
+the schedule.
+
+**The workflow.** `.github/workflows/sync-docs.yml` runs on that dispatch, daily
+at 06:41 UTC, and by hand. It syncs, translates what changed, runs the same four
+tiers the push gate runs, builds, commits as `openplate-docs-bot`, pushes, and
+then waits for the live site to serve the new commits in `SOURCE.json`. While
+`vars.OPENPLATE_WEBSITE_ORIGIN` is unset there is no deployed site to poll and
+that last step says so and passes; M194 sets the variable.
+
+Run it by hand from a terminal, which is how you approve a translation the
+budget refused, or pin one source to an unreleased ref:
+
+```bash
+gh workflow run sync-docs.yml -f budget=0.50
+gh workflow run sync-docs.yml -f budget=0 -f app_ref=main
+gh run list --workflow sync-docs.yml --limit 5
+```
+
+`budget` is the spend ceiling in US dollars for the whole run; `0` buys nothing
+and re-quotes the English. `app_ref`, `sync_ref` and `inference_ref` each
+override one source's ref.
+
+**The secrets.** Two in this repository, one in each source repository. All
+three are already set; they are listed here because a fine-grained PAT expires
+inside a year and the failure is silent until someone reads this.
+
+| Secret | Where | What it is for |
+| --- | --- | --- |
+| `OPENPLATE_WEBSITE_PUSH_TOKEN` | this repository | Checkout and push. A PAT and not `GITHUB_TOKEN`: a push made with `GITHUB_TOKEN` triggers no workflow, so no gate would run on the bot's commit. |
+| `OPENROUTER_API_KEY` | this repository | The translation model. |
+| `OPENPLATE_WEBSITE_DISPATCH_TOKEN` | each source repository | Posting the dispatch to this repository. Contents write, on this repository only. |
+
+```bash
+gh secret set OPENPLATE_WEBSITE_PUSH_TOKEN --repo LowCarbCheck/openplate-website
+gh secret set OPENROUTER_API_KEY --repo LowCarbCheck/openplate-website
+gh secret set OPENPLATE_WEBSITE_DISPATCH_TOKEN --repo LowCarbCheck/openplate
+```
 
 ## License
 

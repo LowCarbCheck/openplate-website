@@ -1,0 +1,242 @@
+# Re-quote openplate's documentation on this site, and translate what changed.
+#
+# ── THE ONLY WRITER OF THE GENERATED DOCS ──
+# `src/generated/` is written here and nowhere else in CI. Two reasons, and the
+# second is the hard one:
+#
+#   * Committing generated output was meant to put "what this site CLAIMS
+#     openplate does" through code review. A bot commit skips that review. The
+#     trade is accepted: the review happened in the source repository when the
+#     docs merged, and one person owns all four.
+#   * Translation is NOT DETERMINISTIC. Ask twice, get two different German
+#     sentences, both correct. If a laptop and this job both write the memory,
+#     the diff is two good translations of one sentence and nobody can
+#     adjudicate it. `translate-docs.ts` refuses to write outside CI for exactly
+#     this reason.
+#
+# ── WHY THIS PUSHES WITH A PAT ──
+# A push made with the default `GITHUB_TOKEN` does not trigger workflows. That
+# is GitHub's loop guard, and it would mean no gate ever runs on anything this
+# job commits, and no deploy on the one commit that changed what readers see.
+#
+# ── WHY THE SCHEDULE EXISTS EVEN THOUGH THE THREE REPOS DISPATCH ──
+# A dispatch can be missed: the token expires, a run is cancelled, a release is
+# cut by hand. A daily pass heals that within 24 hours. It also keeps this
+# repository active, which matters — GitHub disables a scheduled workflow after
+# 60 days of inactivity, and a project site can be quiet that long.
+name: Sync docs
+
+on:
+  # Fired by release-image.yml in openplate, openplate-sync and
+  # openplate-inference, with the repository and the tag they just published.
+  repository_dispatch:
+    types: [openplate-released]
+  # 06:41, not on the hour: the hour is when every scheduled workflow on GitHub
+  # queues at once and a run can wait tens of minutes for a runner.
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: 'Spend ceiling in USD for the whole run, all locales together'
+        default: '0.25'
+      app_ref:
+        description: 'An openplate ref to sync instead of its highest tag'
+        default: ''
+      sync_ref:
+        description: 'An openplate-sync ref to sync instead of its highest tag'
+        default: ''
+      inference_ref:
+        description: 'An openplate-inference ref to sync instead of its highest tag'
+        default: ''
+
+# Never two at once, and never cancel one mid-flight: a cancelled run has
+# already paid for the sentences it bought, and they are only saved at the end
+# of each chunk. Two dispatches, one per repository released minutes apart,
+# queue and the second sees the first one's tree.
+concurrency:
+  group: sync-docs
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The PAT, not GITHUB_TOKEN. See the header.
+          token: ${{ secrets.OPENPLATE_WEBSITE_PUSH_TOKEN }}
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Re-quote the three repositories' docs
+        env:
+          # ── THE DISPATCH DOES NOT CHOOSE THE REF, AND THAT IS DELIBERATE ──
+          # A release job could hand us the tag it just cut, and it sends it for
+          # the record. Using it would put "which release does the site
+          # document" in two places: here, and `highestTag` in sync-docs.ts,
+          # which takes the highest vX.Y.Z tag. They would agree until the day
+          # they did not — a prerelease, or a hotfix published on an older line
+          # after a newer major.
+          #
+          # ALL THREE SOURCES EVERY RUN, whichever one was released. A dispatch
+          # missed for one repository is then healed by the next repository's
+          # release, or by the daily pass. The payload says only WHY this run
+          # exists.
+          #
+          # Empty on a dispatch and on a schedule. The workflow_dispatch inputs
+          # are the one override, for a docs-only fix that cannot wait for a
+          # release.
+          OPENPLATE_APP_REF: ${{ inputs.app_ref }}
+          OPENPLATE_SYNC_REF: ${{ inputs.sync_ref }}
+          OPENPLATE_INFERENCE_REF: ${{ inputs.inference_ref }}
+        run: pnpm run sync:docs
+
+      - name: Translate what changed
+        id: translate
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set +e
+          pnpm run translate:docs --budget "${{ inputs.budget || '0.25' }}" | tee "$RUNNER_TEMP/translate.log"
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          # 2 is "refused on cost". The English docs above are correct and
+          # current and still worth shipping; only the translation waits for
+          # someone to approve the number. Anything else non-zero is a real
+          # break and stops the job here.
+          [ "$code" -eq 0 ] || [ "$code" -eq 2 ]
+
+      # The repo's own gate, tier by tier. There is no `check` script: the
+      # pre-push hook runs these four, and this job runs the same four so that
+      # what a laptop refuses to push, this job refuses to commit.
+      - run: pnpm run lint
+      - run: pnpm run typecheck
+      - run: pnpm run test:unit
+      - run: pnpm run build
+
+      - name: Commit
+        id: commit
+        run: |
+          set -euo pipefail
+          paths="src/generated public/SOURCE.json"
+          # `set -e` and a bare `[ ... ] && ...` do not mix: a false test is a
+          # non-zero status and would end the step here, silently, without a
+          # commit. Written as an `if` for that reason alone.
+          if [ -d public/docs ]; then paths="$paths public/docs"; fi
+          if [ -z "$(git status --porcelain $paths)" ]; then
+            echo "changed=0" >> "$GITHUB_OUTPUT"
+            echo "Nothing moved. The docs are already quoted correctly." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+
+          # WHICH REPOSITORY AND WHICH TAG, for the subject line only. The
+          # dispatch payload names the release that woke this run; a scheduled
+          # or manual run has no payload, so the subject is built from the refs
+          # the sync actually resolved.
+          repo='${{ github.event.client_payload.repo }}'
+          tag='${{ github.event.client_payload.tag }}'
+          if [ -n "$repo" ] && [ -n "$tag" ]; then
+            subject="chore(docs): re-quote $repo at $tag"
+          else
+            subject="chore(docs): re-quote $(jq -r '[to_entries[] | "\(.key) at \(.value.ref)"] | join(", ")' src/generated/SOURCE.json)"
+          fi
+
+          git config user.name "openplate-docs-bot"
+          git config user.email "partners@sportsight.de"
+          # `git add`, never `-A`: this job owns the generated tree and nothing
+          # else. For a tracked path it still stages deletions, which is how a
+          # guide removed upstream stops being published.
+          git add $paths
+          git commit -m "$subject"
+          # Rebase-retry, because a person may have pushed while this ran. The
+          # gate above ran on the pre-rebase tree; it runs again on the pushed
+          # commit, which is the reason for the PAT.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
+
+      # ── CLOSE THE LOOP ──
+      # The push above goes into a deploy system that is known to stall
+      # SILENTLY (Bay: memory `project_bay_pull_deploy_stale_image_trap`), and
+      # there is no human watching it. `SOURCE.json` is served by the site
+      # itself and records the three commits its pages were generated from, so
+      # asking the running site for it is the one check that distinguishes
+      # "deployed" from "the build queue quietly stopped".
+      #
+      # THE ORIGIN IS A REPOSITORY VARIABLE, not a constant, because the site is
+      # not on Bay yet. Until M194 sets `vars.OPENPLATE_WEBSITE_ORIGIN` there is
+      # nothing to poll, and this step says so and passes: an unrolled-out
+      # commit is not a broken one while there is no rollout.
+      #   gh variable set OPENPLATE_WEBSITE_ORIGIN --body https://openplate.de
+      - name: Wait for the deploy to carry the new commit
+        if: steps.commit.outputs.changed == '1'
+        env:
+          SITE_ORIGIN: ${{ vars.OPENPLATE_WEBSITE_ORIGIN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SITE_ORIGIN:-}" ]; then
+            echo "::notice::No OPENPLATE_WEBSITE_ORIGIN set, so there is no live site to poll. The commit is pushed. Set the variable when the site is on Bay (M194)."
+            exit 0
+          fi
+          want="$(jq -Sc '[.app.commit, .sync.commit, .inference.commit]' src/generated/SOURCE.json)"
+          echo "waiting for ${SITE_ORIGIN} to serve ${want}"
+          # 30 MINUTES. Bay builds the image and rolls it out as two steps, and
+          # the gap between them is not small. A false alarm here is worse than
+          # a slow job, because the whole point of the step is that a red run
+          # means something.
+          for attempt in $(seq 1 60); do
+            live="$(curl -fsS --max-time 10 "${SITE_ORIGIN}/SOURCE.json" 2>/dev/null | jq -Sc '[.app.commit, .sync.commit, .inference.commit]' 2>/dev/null || true)"
+            if [ "$live" = "$want" ]; then
+              echo "${SITE_ORIGIN} is serving the new commits after $((attempt * 30))s"
+              exit 0
+            fi
+            # LOGGED, because a silent poll gives no way to tell a stalled
+            # deploy from a checker that cannot read the answer. If this prints
+            # `nothing` for the whole window, suspect a CrowdSec ban on the
+            # runner before suspecting Bay (memory: the probe trips CrowdSec).
+            [ $((attempt % 5)) -eq 1 ] && echo "  attempt ${attempt}: serving ${live:-nothing}"
+            sleep 30
+          done
+          echo "::error::30 minutes after the push, ${SITE_ORIGIN} is still not serving ${want}." >&2
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Sync docs"
+            echo
+            echo "Triggered by \`${{ github.event_name }}\`${{ github.event.client_payload.tag && format(', after {0} {1}', github.event.client_payload.repo, github.event.client_payload.tag) || '' }}."
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/translate.log" 2>/dev/null || echo "(the translator did not run)"
+            echo '```'
+            if [ "${{ steps.translate.outputs.code }}" = "2" ]; then
+              echo
+              echo "### Refused on cost"
+              echo
+              echo "The English docs were committed. The translation was not."
+              echo "Approve it by running this workflow again with a higher \`budget\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # LAST, so the commit above still happens. Over budget is a red run that
+      # the operator clears with one click, not a reason to leave the site
+      # quoting a release it no longer tracks.
+      - name: Fail if the translation was refused on cost
+        if: steps.translate.outputs.code == '2'
+        run: |
+          echo "translate:docs refused the spend. English shipped; the translation is waiting." >&2
+          exit 1

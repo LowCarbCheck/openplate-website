@@ -8,11 +8,14 @@
  * canonical paths are listed here instead, and `tests/unit/sitemap.test.ts`
  * checks the list against the route table so the two cannot drift.
  *
- * TODO: add the documentation and release-notes URLs once the docs sync commits
- * `src/generated/docs-index` (M193 spec 02). Until that module exists the
- * sitemap covers the static pages only.
+ * The two parameterised routes are not listed here at all. `docPaths()` already
+ * enumerates every documentation and release-notes URL out of
+ * `src/generated/docs-index`, because the prerenderer needs the same list to
+ * emit their files, and a sitemap that named them a second time would go stale
+ * the first time a guide was added upstream.
  */
 import { SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '#app/i18n/language';
+import { docPaths } from '#app/prerender';
 import { SITE_ORIGIN } from '#app/site';
 
 /** Every page with a fixed path, in the canonical English-rooted form. */
@@ -45,7 +48,9 @@ function urlEntry(page: { canonicalPath: string; language: LanguageCode }): stri
 export function buildSitemapXml(): string {
   const entries: string[] = [];
 
-  for (const path of STATIC_PATHS) {
+  // The generated pages come first in the file only because they come last in
+  // the list; order carries no meaning to a crawler.
+  for (const path of [...STATIC_PATHS, ...docPaths()]) {
     for (const language of SUPPORTED_LANGUAGES) {
       entries.push(urlEntry({ canonicalPath: path, language }));
     }
