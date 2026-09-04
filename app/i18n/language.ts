@@ -71,3 +71,19 @@ export function localizePath(path: string, language: LanguageCode): string {
   if (!prefix) return path;
   return path === '/' ? prefix : `${prefix}${path}`;
 }
+
+/**
+ * The canonical, English-rooted path of an already-localized pathname.
+ *
+ * The inverse of `localizePath`, and the piece the language switcher needs:
+ * it holds a German URL and has to name the same page in English before it can
+ * localize it again. `/de/sync` becomes `/sync`, `/de` becomes `/`, and an
+ * unprefixed path is already canonical.
+ */
+export function canonicalizePath(pathname: string): string {
+  const prefix = LANGUAGE_PREFIXES[languageFromPathname(pathname)];
+  if (!prefix) return pathname;
+
+  const rest = pathname.slice(prefix.length);
+  return rest === '' ? '/' : rest;
+}

@@ -9,6 +9,7 @@ import { describe, it } from 'node:test';
 
 import {
   DEFAULT_LANGUAGE,
+  canonicalizePath,
   LANGUAGE_PREFIXES,
   PREFIXED_LANGUAGES,
   SUPPORTED_LANGUAGES,
@@ -63,6 +64,28 @@ describe('the language table', () => {
     for (const language of PREFIXED_LANGUAGES) {
       assert.notEqual(language, DEFAULT_LANGUAGE);
       assert.match(LANGUAGE_PREFIXES[language], /^\/[a-z-]+$/);
+    }
+  });
+});
+
+describe('canonicalizePath', () => {
+  it('strips a language prefix and leaves an unprefixed path alone', () => {
+    assert.equal(canonicalizePath('/de/sync'), '/sync');
+    assert.equal(canonicalizePath('/sync'), '/sync');
+  });
+
+  it('turns a language root back into the site root', () => {
+    assert.equal(canonicalizePath('/de'), '/');
+    assert.equal(canonicalizePath('/'), '/');
+  });
+
+  it('undoes localizePath for every page in every language', () => {
+    const pages = ['/', '/app', '/sync', '/docs/app/getting-started'];
+
+    for (const language of SUPPORTED_LANGUAGES) {
+      for (const page of pages) {
+        assert.equal(canonicalizePath(localizePath(page, language)), page);
+      }
     }
   });
 });

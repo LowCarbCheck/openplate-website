@@ -1,0 +1,5 @@
+# Every page here is public, prerendered and meant to be indexed.
+User-agent: *
+Allow: /
+
+Sitemap: https://openplate.de/sitemap.xml

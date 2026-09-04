@@ -17,8 +17,11 @@ import { LANGUAGE_PREFIXES, PREFIXED_LANGUAGES, type LanguageCode } from './i18n
 /**
  * `path` is the path relative to the language root. `undefined` means this page
  * IS the language root, so it is registered as the index route.
+ *
+ * Exported because the sitemap needs the same list and must not drift from it:
+ * `tests/unit/sitemap.test.ts` checks the two against each other.
  */
-const PAGES = [
+export const PAGES = [
   { id: 'home', path: undefined, file: 'routes/home.tsx' },
   { id: 'app', path: 'app', file: 'routes/app.tsx' },
   { id: 'sync', path: 'sync', file: 'routes/sync.tsx' },
@@ -52,4 +55,7 @@ function pagesForPrefixedLanguage(language: LanguageCode): RouteConfigEntry[] {
 export default [
   ...pagesForDefaultLanguage(),
   ...PREFIXED_LANGUAGES.flatMap(pagesForPrefixedLanguage),
+  // One file for the whole site, in no language: it lists every page in every
+  // language and is registered once, outside PAGES.
+  route('sitemap.xml', 'routes/sitemap.xml.ts'),
 ] satisfies RouteConfig;

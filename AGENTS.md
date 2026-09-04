@@ -50,7 +50,7 @@ questions here:
 ## Adding a page
 
 One row in `PAGES` in `app/routes.ts` registers the page in **every** language,
-and one key per language in `app/locales/<lang>/common.json` gives it its copy.
+and one key per language in `app/i18n/locales/<lang>/common.json` gives it its copy.
 Do not register a language variant by hand: a page that exists in English and
 not in German is a 404 that no test will catch.
 

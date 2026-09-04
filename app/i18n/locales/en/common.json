@@ -1,0 +1,145 @@
+{
+  "site": {
+    "name": "openplate",
+    "tagline": "An open-source food diary that runs on your device.",
+    "skipToContent": "Skip to content",
+    "nav": {
+      "app": "App",
+      "sync": "Sync server",
+      "inference": "Inference runtime",
+      "docs": "Docs"
+    },
+    "footer": {
+      "sourceCode": "Source code"
+    },
+    "language": {
+      "label": "Language"
+    },
+    "links": {
+      "docsLabel": "Docs",
+      "releasesLabel": "Releases"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "openplate",
+      "hero": {
+        "body": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server."
+      },
+      "whatItIs": {
+        "heading": "What openplate is",
+        "diary": "The diary is the app. You log food by search or by photo. Everything you log, your weights, your goals, your settings, is written to your browser's own storage on the device you used. On your own install, there is no sign-up to open it. Whoever opens the app on a device is that device's user. On the hosted instance at openplate.de, you sign in with the email address where your invitation was sent.",
+        "photo": "The photo estimate is optional. Point the camera at a plate, and an AI provider names the foods and estimates the grams. The macros are looked up in a food database by name, not invented by the model. A wrong guess at the food name is the only way a number goes wrong. You bring your own AI key, and the photo goes from your browser straight to that provider. On a hosted instance, the operator connects a provider, and the photo goes through the sync server instead, within a daily allowance.",
+        "sync": "Sync is the only feature that needs an account. If you want the same diary on your phone and your laptop, openplate-sync carries an encrypted copy between them. It is a separate service. Skip it and export a JSON backup instead; nothing about the diary changes either way."
+      },
+      "stack": {
+        "heading": "The stack",
+        "app": {
+          "name": "App",
+          "body": "The tracker itself: diary, search, photo scan, goals. It stores nothing on a server, so a container can be destroyed and restarted with no data lost."
+        },
+        "sync": {
+          "name": "Sync server",
+          "body": "Moves your diary between your own devices. It holds an email address and an encrypted blob it cannot read, plus a recovery code it can, in the one case a forgotten password needs it."
+        },
+        "inference": {
+          "name": "Inference runtime",
+          "body": "A self-hosted photo scanner for people who want to run the model themselves instead of sending photos to a cloud provider. It is not part of the hosted instance at openplate.de; you install it on your own hardware."
+        }
+      },
+      "access": {
+        "heading": "Access",
+        "body": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>."
+      },
+      "openSource": {
+        "heading": "Open source",
+        "body": "openplate and openplate-sync are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      }
+    },
+    "app": {
+      "title": "The app",
+      "lead": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
+      "stores": {
+        "heading": "What it stores on the device",
+        "body": "The whole diary, your weights, your goals, your AI provider key if you set one, and a short-lived local cache of a plate photo so you can see it again on that entry. It is stored in your browser's own storage, in the clear, because it is your device."
+      },
+      "leaves": {
+        "heading": "What leaves the device",
+        "body": "With your own key, a plate photo goes straight from your browser to the AI provider you connected. It does not pass through the openplate app server. On a hosted instance, it goes to the sync server, which forwards it to the operator's provider and keeps neither the photo nor the answer. A food-name search sends only the name, never the photo, to look up nutrition data. If you turn on sync, an encrypted copy of your diary leaves for the sync server; nothing else does."
+      },
+      "links": {
+        "architecture": "architecture",
+        "selfHosting": "self-hosting"
+      }
+    },
+    "sync": {
+      "title": "The sync server",
+      "lead": "openplate-sync carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+      "reads": {
+        "heading": "What it can and cannot read",
+        "body": "It cannot read your diary. The encryption key never leaves your device; what reaches the server is ciphertext and operational data, such as blob size, write timestamps, and version numbers. It can, however, restore your diary if you forget your password: the server holds your recovery code in escrow, sealed under a key the operator controls. That means the operator of a hosted instance holds what it takes to open any account on it, and can, in principle, read it. This is stated plainly: trust it accordingly, or run your own instance and be your own operator."
+      },
+      "invites": {
+        "heading": "Invites and admin",
+        "body": "Signing up requires an invitation from an administrator; there is no open registration. An administrator manages accounts, invitations, and each person's AI allowance from the app at `/admin`."
+      },
+      "proxy": {
+        "heading": "AI proxy",
+        "body": "If the operator has connected an AI provider, this service can forward a plate photo to that provider on a person's behalf, within a daily allowance the administrator sets. An account with no allowance gets no AI access until one is granted."
+      },
+      "history": {
+        "heading": "History",
+        "body": "From August 2026 to 2026-09-04, a separate service called openplate-gateway handled shared AI access and per-person quotas. It has been retired, and everything it did now lives in openplate-sync."
+      },
+      "links": {
+        "protocol": "protocol",
+        "releases": "release notes"
+      }
+    },
+    "inference": {
+      "title": "The inference runtime",
+      "lead": "openplate-inference is a plate-photo scanner you run on your own hardware. It names the foods on a plate and estimates the grams, then looks up the macros in a bundled food database rather than inventing numbers.",
+      "hardware": {
+        "heading": "Hardware",
+        "body": "A CPU-only machine can run the `lite` profile, slowly; a GPU handles the larger profile at speed. Read the project's hardware guide before you provision anything, since CPU scans take real time and do not speed up with concurrency."
+      },
+      "privacy": {
+        "heading": "Privacy",
+        "body": "A photo is decoded in memory, sent to the model, and dropped when the request ends. It is never written to disk and never logged. The only outbound request the container makes on its own is a one-time model-weight download."
+      },
+      "audience": {
+        "heading": "Who it is for",
+        "body": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de."
+      },
+      "links": {
+        "hardware": "hardware",
+        "privacy": "privacy"
+      }
+    },
+    "docs": {
+      "title": "Documentation",
+      "intro": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing."
+    },
+    "docsPage": {
+      "title": "Documentation page"
+    },
+    "releases": {
+      "title": "Release notes"
+    },
+    "imprint": {
+      "title": "Imprint",
+      "operator": "[OPERATOR NAME]",
+      "address": "[ADDRESS]",
+      "email": "[CONTACT EMAIL]",
+      "vat": "[VAT ID, if applicable]",
+      "note": "Placeholder markers above; will be filled in before publishing."
+    },
+    "privacy": {
+      "title": "Privacy",
+      "body": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app."
+    },
+    "notFound": {
+      "title": "Page not found"
+    }
+  }
+}

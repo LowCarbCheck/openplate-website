@@ -1,0 +1,145 @@
+{
+  "site": {
+    "name": "openplate",
+    "tagline": "Ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft.",
+    "skipToContent": "Zum Inhalt springen",
+    "nav": {
+      "app": "App",
+      "sync": "Sync-Server",
+      "inference": "Inference-Runtime",
+      "docs": "Doku"
+    },
+    "footer": {
+      "sourceCode": "Quellcode"
+    },
+    "language": {
+      "label": "Sprache"
+    },
+    "links": {
+      "docsLabel": "Doku",
+      "releasesLabel": "Releases"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "openplate",
+      "hero": {
+        "body": "openplate ist ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft, mit einem optionalen Fotoscan, der die Makronährstoffe auf deinem Teller schätzt. Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken."
+      },
+      "whatItIs": {
+        "heading": "Was openplate ist",
+        "diary": "Das Tagebuch ist die App. Du trägst Mahlzeiten über die Suche oder per Foto ein. Alles, was du erfasst, deine Gewichte, deine Ziele, deine Einstellungen, wird direkt im Speicher deines Browsers auf dem jeweiligen Gerät abgelegt. Bei einer eigenen Installation gibt es keine Registrierung. Wer die App auf einem Gerät öffnet, ist die nutzende Person auf diesem Gerät. Auf der gehosteten Instanz unter openplate.de meldest du dich mit der E-Mail-Adresse an, an die deine Einladung ging.",
+        "photo": "Die Schätzung per Foto ist optional. Richte die Kamera auf einen Teller, und ein KI-Anbieter benennt die Lebensmittel und schätzt das Gewicht in Gramm. Die Makronährstoffe werden anhand des Namens in einer Lebensmitteldatenbank nachgeschlagen und nicht vom Modell erfunden. Nur wenn der Name falsch bestimmt wird, weicht ein Wert ab. Du nutzt deinen eigenen KI-Schlüssel, und das Foto gelangt direkt aus deinem Browser zu diesem Anbieter. Auf einer gehosteten Instanz bindet der Betreiber einen Anbieter an, und das Foto läuft stattdessen im Rahmen eines Tageskontingents über den Sync-Server.",
+        "sync": "Die Synchronisation ist die einzige Funktion, die ein Konto voraussetzt. Wenn du dasselbe Tagebuch auf deinem Smartphone und deinem Laptop nutzen möchtest, überträgt openplate-sync eine verschlüsselte Kopie zwischen ihnen. Es ist ein separater Dienst. Du kannst ihn weglassen und stattdessen ein JSON-Backup exportieren, am Tagebuch selbst ändert sich dadurch nichts."
+      },
+      "stack": {
+        "heading": "Der Stack",
+        "app": {
+          "name": "App",
+          "body": "Der Tracker selbst: Tagebuch, Suche, Fotoscan, Ziele. Er speichert nichts auf einem Server, ein Container kann also ohne Datenverlust gelöscht und neu gestartet werden."
+        },
+        "sync": {
+          "name": "Sync-Server",
+          "body": "Überträgt dein Tagebuch zwischen deinen eigenen Geräten. Er speichert eine E-Mail-Adresse und ein verschlüsseltes Datenpaket, das er nicht lesen kann, sowie einen Wiederherstellungscode, den er lesen kann, falls ein vergessenes Passwort ihn erfordert."
+        },
+        "inference": {
+          "name": "Inference-Runtime",
+          "body": "Ein selbst gehosteter Fotoscan für alle, die das Modell selbst ausführen möchten, statt Fotos an einen Cloud-Anbieter zu senden. Er ist nicht Teil der gehosteten Instanz unter openplate.de, du installierst ihn auf eigener Hardware."
+        }
+      },
+      "access": {
+        "heading": "Zugang",
+        "body": "Die gehostete Instanz unter openplate.de ist nur auf Einladung zugänglich. Eine Einladung wird durch die Administration verschickt, eine offene Registrierung gibt es nicht. Wenn du lieber deine eigene Kopie betreiben möchtest, siehe <selfHosting>Self-Hosting</selfHosting>."
+      },
+      "openSource": {
+        "heading": "Open Source",
+        "body": "openplate und openplate-sync stehen unter der MIT-Lizenz. openplate-inference hat eigene Bedingungen, die sich nach den mitgelieferten Modellgewichten richten; der Lizenzleitfaden listet sie auf. Lies den Code, ändere ihn, betreibe ihn selbst: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      }
+    },
+    "app": {
+      "title": "Die App",
+      "lead": "openplate erfasst Mahlzeiten und schätzt auf Wunsch die Makronährstoffe auf einem Teller anhand eines Fotos. Suche nach einem Lebensmittel oder scanne einen Teller, und der Eintrag landet in deinem Tagebuch für den Tag. Bei einer eigenen Installation gibt es keinen Registrierungsbildschirm: Öffne die App und leg los. Auf der gehosteten Instanz meldest du dich zuerst an.",
+      "stores": {
+        "heading": "Was auf dem Gerät gespeichert wird",
+        "body": "Das gesamte Tagebuch, deine Gewichte, deine Ziele, dein KI-Anbieterschlüssel, falls du einen hinterlegt hast, und ein kurzlebiger lokaler Cache des Tellerfotos, damit du es bei diesem Eintrag wieder sehen kannst. Die Daten liegen unverschlüsselt im Speicher deines Browsers, denn es ist dein Gerät."
+      },
+      "leaves": {
+        "heading": "Was das Gerät verlässt",
+        "body": "Mit deinem eigenen Schlüssel geht ein Tellerfoto direkt aus deinem Browser an den von dir angebundenen KI-Anbieter. Es läuft nicht über den openplate-App-Server. Auf einer gehosteten Instanz geht es an den Sync-Server, der es an den Anbieter des Betreibers weiterleitet und weder das Foto noch die Antwort behält. Eine Suche nach Lebensmittelnamen sendet nur den Namen, nie das Foto, um Nährwertdaten nachzuschlagen. Wenn du den Sync aktivierst, geht eine verschlüsselte Kopie deines Tagebuchs an den Sync-Server; sonst nichts."
+      },
+      "links": {
+        "architecture": "Architektur",
+        "selfHosting": "Self-Hosting"
+      }
+    },
+    "sync": {
+      "title": "Der Sync-Server",
+      "lead": "openplate-sync überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst.",
+      "reads": {
+        "heading": "Was gelesen werden kann und was nicht",
+        "body": "Er kann dein Tagebuch nicht lesen. Der Verschlüsselungsschlüssel verlässt nie dein Gerät; was den Server erreicht, sind Chiffretext und Betriebsdaten wie Blob-Größe, Schreibzeitstempel und Versionsnummern. Er kann dein Tagebuch jedoch wiederherstellen, wenn du dein Passwort vergisst: Der Server verwahrt deinen Wiederherstellungscode treuhänderisch, versiegelt mit einem Schlüssel, den der Betreiber kontrolliert. Das bedeutet, dass der Betreiber einer gehosteten Instanz alles hat, was man zum Öffnen jedes Kontos darauf braucht, und es im Prinzip mitlesen kann. Das sei klar gesagt: Vertraue dem Dienst entsprechend, oder betreibe deine eigene Instanz und sei dein eigener Betreiber."
+      },
+      "invites": {
+        "heading": "Einladungen und Verwaltung",
+        "body": "Die Registrierung erfordert eine Einladung durch einen Administrator; es gibt keine offene Registrierung. Ein Administrator verwaltet Konten, Einladungen und das KI-Kontingent der einzelnen Personen direkt in der App unter `/admin`."
+      },
+      "proxy": {
+        "heading": "KI-Proxy",
+        "body": "Wenn der Betreiber einen KI-Anbieter angebunden hat, kann dieser Dienst ein Tellerfoto im Namen einer Person an diesen Anbieter weiterleiten, innerhalb eines vom Administrator festgelegten Tageskontingents. Ein Konto ohne Kontingent erhält keinen KI-Zugriff, bis ein solches gewährt wird."
+      },
+      "history": {
+        "heading": "Historie",
+        "body": "Von August 2026 bis zum 2026-09-04 übernahm ein separater Dienst namens openplate-gateway den geteilten KI-Zugriff und die Quoten pro Person. Er wurde eingestellt, und all seine Aufgaben liegen nun in openplate-sync."
+      },
+      "links": {
+        "protocol": "Protokoll",
+        "releases": "Versionshinweise"
+      }
+    },
+    "inference": {
+      "title": "Die Inferenz-Laufzeit",
+      "lead": "openplate-inference ist ein Tellerfoto-Scanner, den du auf eigener Hardware betreibst. Er benennt die Lebensmittel auf einem Teller, schätzt das Gewicht in Gramm und schlägt die Makronährstoffe in einer mitgelieferten Lebensmitteldatenbank nach, statt Zahlen zu erfinden.",
+      "hardware": {
+        "heading": "Hardware",
+        "body": "Eine reine CPU-Maschine kann das `lite`-Profil ausführen, allerdings langsam; eine GPU bewältigt das größere Profil zügig. Lies den Hardware-Leitfaden des Projekts, bevor du etwas bereitstellst, da CPU-Scans spürbar Zeit kosten und durch Nebenläufigkeit nicht schneller werden."
+      },
+      "privacy": {
+        "heading": "Datenschutz",
+        "body": "Ein Foto wird im Arbeitsspeicher dekodiert, an das Modell gesendet und nach Abschluss der Anfrage verworfen. Es wird nie auf die Festplatte geschrieben und nie protokolliert. Die einzige ausgehende Anfrage, die der Container von sich aus stellt, ist ein einmaliger Download der Modellgewichte."
+      },
+      "audience": {
+        "heading": "Für wen das gedacht ist",
+        "body": "Self-Hoster, die Teller-Scans ohne Cloud-KI-Konto wollen, ohne dass ein Foto das eigene Netzwerk verlässt. Es ist nicht Teil der gehosteten Instanz auf openplate.de."
+      },
+      "links": {
+        "hardware": "Hardware",
+        "privacy": "Datenschutz"
+      }
+    },
+    "docs": {
+      "title": "Dokumentation",
+      "intro": "Diese Seiten dokumentieren alle drei Dienste: die App, den Sync-Server und die selbstgehostete Inferenz-Runtime. Starte mit dem Dienst, den du betreibst, oder mit Self-Hosting, wenn du bei null anfängst."
+    },
+    "docsPage": {
+      "title": "Dokumentationsseite"
+    },
+    "releases": {
+      "title": "Versionshinweise"
+    },
+    "imprint": {
+      "title": "Impressum",
+      "operator": "[OPERATOR NAME]",
+      "address": "[ADDRESS]",
+      "email": "[CONTACT EMAIL]",
+      "vat": "[VAT ID, if applicable]",
+      "note": "Platzhalter oben; wird vor der Veröffentlichung ausgefüllt."
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "body": "Diese Website nutzt Matomo ohne Cookies, um Besuche zu zählen; sie trackt dich nicht websiteübergreifend und erstellt kein Profil über dich. Auf dieser Website selbst gibt es keine Konten; Accounts auf Einladung gehören zur gehosteten App, nicht zu openplate.de. Was die App speichert und sendet, findest du auf der Datenschutzseite der App selbst, die in der App verlinkt ist."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden"
+    }
+  }
+}
