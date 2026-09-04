@@ -13,19 +13,45 @@ import { useLoaderData } from 'react-router';
 
 import { DocPage } from '#app/components/docs/doc-page';
 import { SiteLayout } from '#app/components/site-layout';
-import { findComponent, findDoc } from '#app/lib/docs';
+import { languageFromPathname } from '#app/i18n/language';
+import { coverage, translateDoc, translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
+import { findComponent, findDoc, slugify } from '#app/lib/docs';
 import { DOCS_INDEX } from '../../src/generated/docs-index';
 import { DOCS } from '../../src/generated/docs-registry';
 import type { Route } from './+types/docs.$component.$slug';
 
-export function loader({ params }: Route.LoaderArgs) {
+/**
+ * THE TRANSLATION HAPPENS HERE, IN THE LOADER, AND NOT IN THE COMPONENT.
+ *
+ * The German page is the English block tree rebuilt against the memory in
+ * `src/generated/docs-i18n/de.json` — see `app/lib/docs-i18n.server.ts`. Doing
+ * it in the loader is what keeps the memory and the hashing out of the browser
+ * bundle, and the site is prerendered, so this runs at build time and the reader
+ * is sent finished German.
+ *
+ * The file list and the previous/next links are translated on the same line, out
+ * of the same memory, because a German page with an English sidebar is a page
+ * that looks broken rather than partly translated.
+ */
+export function loader({ params, request }: Route.LoaderArgs) {
   const component = findComponent(params.component);
   // A URL segment is a string a reader can type. Both halves are checked here,
   // at the boundary, so everything below this line has a component and a page.
   if (component === null) throw new Response('Not Found', { status: 404 });
   const doc = findDoc(DOCS, component, params.slug);
   if (doc === null) throw new Response('Not Found', { status: 404 });
-  return { doc };
+
+  const language = languageFromPathname(new URL(request.url).pathname);
+  const memory = translationsFor(language);
+  return {
+    doc: translateDoc(doc, memory),
+    docs: translateEntries(DOCS_INDEX[component], memory),
+    // THE ANCHOR STAYS ENGLISH, like every heading id on the page. A doc that
+    // links to another one by its title lands on the h1, and a translated id
+    // would send that link nowhere on the German page alone.
+    titleId: slugify(doc.title),
+    translated: coverage(doc, memory) > 0,
+  };
 }
 
 export function meta({ loaderData }: Route.MetaArgs) {
@@ -35,11 +61,11 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export default function DocsPageRoute() {
-  const { doc } = useLoaderData<typeof loader>();
+  const { doc, docs, titleId, translated } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout wide>
-      <DocPage doc={doc} docs={DOCS_INDEX[doc.component]} />
+      <DocPage doc={doc} docs={docs} titleId={titleId} translated={translated} />
     </SiteLayout>
   );
 }

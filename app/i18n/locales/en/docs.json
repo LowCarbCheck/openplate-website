@@ -6,6 +6,7 @@
   "edit": "Edit this page on GitHub",
   "releases": "Release notes",
   "noReleases": "This component has not published release notes yet.",
+  "machineTranslated": "This page is machine translated from the English documentation.",
   "untranslated": "This page is not translated yet. It is shown in English.",
   "components": {
     "app": "The app",

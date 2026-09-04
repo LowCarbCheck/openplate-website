@@ -14,16 +14,30 @@ import { SiteLayout } from '#app/components/site-layout';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { DocsShell } from '#app/components/docs/docs-shell';
 import { UntranslatedNotice } from '#app/components/docs/untranslated-notice';
+import { languageFromPathname } from '#app/i18n/language';
 import { translatedTitle } from '#app/lib/doc-meta';
+import { translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
 import { findComponent } from '#app/lib/docs';
 import { DOCS_INDEX } from '../../src/generated/docs-index';
 import { RELEASES } from '../../src/generated/releases-registry';
 import type { Route } from './+types/releases.$component';
 
-export function loader({ params }: Route.LoaderArgs) {
+/**
+ * The file list is translated; the notes themselves are not, and the page says
+ * so.
+ *
+ * A changelog line names a flag, a route and a version, and the sentence around
+ * it is four words long — the three CHANGELOGs together are a third of the
+ * corpus and the part of it a German reader gains least from. So the budget goes
+ * on the guides. The sidebar still has to be German, because it is the same
+ * sidebar the guides draw and a page that switches language between its two
+ * columns reads as broken.
+ */
+export function loader({ params, request }: Route.LoaderArgs) {
   const component = findComponent(params.component);
   if (component === null) throw new Response('Not Found', { status: 404 });
-  return { releases: RELEASES[component] };
+  const language = languageFromPathname(new URL(request.url).pathname);
+  return { releases: RELEASES[component], docs: translateEntries(DOCS_INDEX[component], translationsFor(language)) };
 }
 
 export function meta({ location }: Route.MetaArgs) {
@@ -31,9 +45,8 @@ export function meta({ location }: Route.MetaArgs) {
 }
 
 export default function ReleasesRoute() {
-  const { releases } = useLoaderData<typeof loader>();
+  const { releases, docs } = useLoaderData<typeof loader>();
   const { t } = useTranslation('docs');
-  const docs = DOCS_INDEX[releases.component];
 
   return (
     <SiteLayout wide>

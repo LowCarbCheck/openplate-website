@@ -32,7 +32,25 @@ import { DocsShell } from './docs-shell';
 import { DocsToc, sectionsOf } from './docs-toc';
 import { UntranslatedNotice } from './untranslated-notice';
 
-export function DocPage({ doc, docs }: { doc: DocFile; docs: ComponentDocs }) {
+export function DocPage({
+  doc,
+  docs,
+  titleId,
+  translated,
+}: {
+  doc: DocFile;
+  docs: ComponentDocs;
+  /**
+   * The h1's anchor, which is the ENGLISH slug of the title and is passed in
+   * rather than derived here. A doc that links to another one by its title —
+   * `sync.md#sync-across-devices` — has to land on the h1 in both languages, and
+   * `slugify` of a translated title would move the German page's anchor out from
+   * under every one of those links.
+   */
+  titleId?: string;
+  /** Whether the memory covers this page at all. See `UntranslatedNotice`. */
+  translated?: boolean;
+}) {
   const language = useLanguage();
   const { t } = useTranslation('docs');
   const sections = sectionsOf(doc.blocks);
@@ -49,7 +67,7 @@ export function DocPage({ doc, docs }: { doc: DocFile; docs: ComponentDocs }) {
           an id here that link arrives at the top of the page and scrolls
           nowhere. */}
       <h1
-        id={slugify(doc.title)}
+        id={titleId ?? slugify(doc.title)}
         className="mt-4 scroll-mt-20 text-balance font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]"
       >
         {doc.title}
@@ -64,7 +82,7 @@ export function DocPage({ doc, docs }: { doc: DocFile; docs: ComponentDocs }) {
         </p>
       )}
 
-      <UntranslatedNotice />
+      <UntranslatedNotice translated={translated} />
 
       <div className="mt-8 border-t border-border" />
 
