@@ -1,0 +1,17 @@
+{
+  "site": {
+    "name": "openplate"
+  },
+  "pages": {
+    "home": { "title": "openplate" },
+    "app": { "title": "Die App" },
+    "sync": { "title": "Der Sync-Server" },
+    "inference": { "title": "Die Inferenz-Laufzeit" },
+    "docs": { "title": "Dokumentation" },
+    "docsPage": { "title": "Dokumentationsseite" },
+    "releases": { "title": "Versionshinweise" },
+    "imprint": { "title": "Impressum" },
+    "privacy": { "title": "Datenschutz" },
+    "notFound": { "title": "Seite nicht gefunden" }
+  }
+}

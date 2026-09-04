@@ -1,0 +1,12 @@
+node_modules
+.pnpm-store
+*.log
+.env
+.DS_Store
+
+# React Router
+/.react-router/
+/build/
+
+# Claude Code agent worktrees (transient)
+.claude/worktrees/
