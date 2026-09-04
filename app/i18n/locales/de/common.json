@@ -128,11 +128,10 @@
     },
     "imprint": {
       "title": "Impressum",
-      "operator": "[OPERATOR NAME]",
-      "address": "[ADDRESS]",
-      "email": "[CONTACT EMAIL]",
-      "vat": "[VAT ID, if applicable]",
-      "note": "Platzhalter oben; wird vor der Veröffentlichung ausgefüllt."
+      "representedBy": "Vertreten durch",
+      "register": "Handelsregister",
+      "vatId": "USt-IdNr.",
+      "email": "E-Mail"
     },
     "privacy": {
       "title": "Datenschutz",

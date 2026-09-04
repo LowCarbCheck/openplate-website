@@ -3,7 +3,7 @@
 The project site at [openplate.de](https://openplate.de): what openplate is, the
 three components it is built from (the app, the sync server, the inference
 runtime), and each component's documentation, in English and German. The app
-itself lives at `app.openplate.de` and is a separate repository.
+itself lives at `beta.openplate.de` and is a separate repository.
 
 The site is a React Router 7 project in framework mode, prerendered at build
 time. `pnpm build` writes one static HTML file per URL under `build/client/`.

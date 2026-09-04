@@ -128,11 +128,10 @@
     },
     "imprint": {
       "title": "Imprint",
-      "operator": "[OPERATOR NAME]",
-      "address": "[ADDRESS]",
-      "email": "[CONTACT EMAIL]",
-      "vat": "[VAT ID, if applicable]",
-      "note": "Placeholder markers above; will be filled in before publishing."
+      "representedBy": "Represented by",
+      "register": "Commercial register",
+      "vatId": "VAT ID",
+      "email": "Email"
     },
     "privacy": {
       "title": "Privacy",
