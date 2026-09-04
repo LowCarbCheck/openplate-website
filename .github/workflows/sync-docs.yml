@@ -161,8 +161,15 @@ jobs:
           # Rebase-retry, because a person may have pushed while this ran. The
           # gate above ran on the pre-rebase tree; it runs again on the pushed
           # commit, which is the reason for the PAT.
+          #
+          # SKIP_TESTS=1 is the hook's own escape hatch, and here it is the
+          # right one: `pnpm install` ran the `prepare` script, which pointed
+          # core.hooksPath at .githooks, and the pre-push gate refuses to run
+          # without the ts-dev toolbox (it failed every push of this job on
+          # 2026-09-04). The tiers it would run, lint, typecheck, unit tests,
+          # staleness and build, are the steps above this one.
           for attempt in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git pull --rebase origin main && SKIP_TESTS=1 git push origin HEAD:main && exit 0
             sleep 5
           done
           exit 1
