@@ -7,7 +7,7 @@ export const RELEASES: ComponentReleases = {
   "component": "inference",
   "source": {
     "repo": "https://github.com/LowCarbCheck/openplate-inference",
-    "ref": "main",
+    "ref": "v0.1.1",
     "editRef": "main",
     "sha": "122b14b5516a9e6d9127e3c4060fc0f7ff2a4a0c",
     "committedAt": "2026-09-05"

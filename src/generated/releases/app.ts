@@ -7,7 +7,7 @@ export const RELEASES: ComponentReleases = {
   "component": "app",
   "source": {
     "repo": "https://github.com/LowCarbCheck/openplate",
-    "ref": "main",
+    "ref": "v0.10.2",
     "editRef": "main",
     "sha": "3c3cc441ea65750bbb20dd067acdebadbb4f0a66",
     "committedAt": "2026-09-05"
