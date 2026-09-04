@@ -1,0 +1,15 @@
+{
+  "title": "Dokumentation",
+  "intro": "Jede Anleitung hier ist die Datei, die das Repository selbst pflegt, ausgelesen im jeweiligen Release-Stand und unverändert veröffentlicht.",
+  "nav": "Dokumentation",
+  "onThisPage": "Auf dieser Seite",
+  "edit": "Diese Seite auf GitHub bearbeiten",
+  "releases": "Versionshinweise",
+  "noReleases": "Für diese Komponente wurden noch keine Versionshinweise veröffentlicht.",
+  "untranslated": "Diese Seite ist noch nicht übersetzt. Sie wird auf Englisch angezeigt.",
+  "components": {
+    "app": "Die App",
+    "sync": "Der Sync-Server",
+    "inference": "Die Inference-Runtime"
+  }
+}

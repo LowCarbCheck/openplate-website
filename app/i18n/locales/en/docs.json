@@ -1,0 +1,15 @@
+{
+  "title": "Documentation",
+  "intro": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
+  "nav": "Documentation",
+  "onThisPage": "On this page",
+  "edit": "Edit this page on GitHub",
+  "releases": "Release notes",
+  "noReleases": "This component has not published release notes yet.",
+  "untranslated": "This page is not translated yet. It is shown in English.",
+  "components": {
+    "app": "The app",
+    "sync": "The sync server",
+    "inference": "The inference runtime"
+  }
+}

@@ -2,27 +2,43 @@
  * The paths the prerenderer cannot work out for itself.
  *
  * `getStaticPaths()` in `react-router.config.ts` enumerates every route whose
- * path has no parameters. Two routes do have parameters, `/docs/:component/:slug`
- * and `/releases/:component`, so their URLs have to be named here or the build
- * emits no file for them.
+ * path has no parameters. Two routes do have parameters,
+ * `/docs/:component/:slug` and `/releases/:component`, so their URLs have to be
+ * named here or the build emits no file for them.
  *
- * TEMPORARY SHAPE. The real list is one path per documentation page and one per
- * component's release notes, derived from the generated modules the docs sync
- * commits under `src/generated/`. That sync does not exist yet (M193 spec 02),
- * so this returns one sample path per dynamic route: enough for the build to
- * prove the mechanism works, and it fails loudly if it ever stops working,
- * because the checked-in path would stop producing a file.
+ * THEY ARE NOT NAMED BY HAND. Every path comes from `src/generated/docs-index.ts`,
+ * which `pnpm sync:docs` writes out of the three repositories' own README
+ * tables. A guide added upstream is prerendered on the next sync, and a guide
+ * removed upstream stops being written, without an edit here — the same rule the
+ * nav and the sidebar already follow.
+ *
+ * Every path is emitted once per language. German renders the English blocks
+ * until spec 03 translates them, and it says so on the page; a document that
+ * exists in one language and 404s in the other would be a worse answer than a
+ * translated-later notice.
  */
 import { PREFIXED_LANGUAGES, localizePath } from './i18n/language';
+import { docRoute, releasesRoute } from './lib/doc-routes';
+import { DOC_COMPONENTS } from './lib/docs';
+import { DOCS_INDEX } from '../src/generated/docs-index';
 
-/** One sample per dynamic route, in the canonical English-rooted form. */
-const SAMPLE_PATHS = ['/docs/app/getting-started', '/releases/app'];
+/** Every generated page, in the canonical English-rooted form. */
+export function docPaths(): string[] {
+  const paths: string[] = [];
+
+  for (const component of DOC_COMPONENTS) {
+    for (const entry of DOCS_INDEX[component].entries) paths.push(docRoute(component, entry.slug));
+    paths.push(releasesRoute(component));
+  }
+
+  return paths;
+}
 
 /** Every dynamic path, in every language the site is built in. */
 export function prerenderDynamicPaths(): string[] {
   const paths: string[] = [];
 
-  for (const path of SAMPLE_PATHS) {
+  for (const path of docPaths()) {
     paths.push(path);
     for (const language of PREFIXED_LANGUAGES) {
       paths.push(localizePath(path, language));

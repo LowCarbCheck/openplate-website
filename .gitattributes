@@ -1,0 +1,7 @@
+# The documentation pipeline's output. `pnpm sync:docs` writes every one of
+# these out of the three source repositories' own files; none of them is edited
+# here. Marking them generated keeps them out of GitHub's language statistics
+# and collapses them in a diff, where a reviewer wants to see the sync's
+# summary and not 700 KB of parsed block trees.
+src/generated/** linguist-generated=true
+public/SOURCE.json linguist-generated=true

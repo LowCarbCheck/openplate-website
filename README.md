@@ -34,6 +34,20 @@ toolbox run -c ts-dev env CI=true pnpm build    # build/client/**/*.html
 toolbox run -c ts-dev env CI=true pnpm start    # serve the build
 ```
 
+To move the documentation forward, run the sync. It reads each source
+repository at its highest release tag, or at a checkout you already have:
+
+```bash
+toolbox run -c ts-dev env CI=true pnpm sync:docs
+OPENPLATE_APP_REPO=../openplate pnpm sync:docs      # read a checkout in place
+OPENPLATE_SYNC_REF=v0.6.0 pnpm sync:docs            # pin one source to a ref
+```
+
+`OPENPLATE_APP_*`, `OPENPLATE_SYNC_*` and `OPENPLATE_INFERENCE_*` are the three
+pairs. A repository given as a path on disk is read where it stands, at whatever
+it says today, which is what makes a documentation table written five minutes
+ago testable. Everything it writes under `src/generated/` is committed.
+
 `pnpm install` runs `prepare`, which points git at the in-repo hooks. After a
 clone that has not installed yet, enable the gate by hand:
 

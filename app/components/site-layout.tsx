@@ -42,7 +42,11 @@ function LanguageSwitcher({ current }: { current: LanguageCode }) {
           <span key={language} aria-current="true" className="text-foreground">
             {LANGUAGE_LABELS[language]}
           </span>
-        : <Link key={language} to={localizePath(canonical, language)} className="text-muted-foreground hover:text-foreground">
+        : <Link
+            key={language}
+            to={localizePath(canonical, language)}
+            className="text-muted-foreground hover:text-foreground"
+          >
             {LANGUAGE_LABELS[language]}
           </Link>,
       )}
@@ -50,13 +54,29 @@ function LanguageSwitcher({ current }: { current: LanguageCode }) {
   );
 }
 
-export function SiteLayout({ children }: { children: ReactNode }) {
+export function SiteLayout({
+  children,
+  wide = false,
+}: {
+  children: ReactNode;
+  /**
+   * A page whose own content needs the full window rather than one reading
+   * column, which so far is the documentation alone: it carries a file list on
+   * one side and a contents rail on the other, and at 48rem neither fits beside
+   * the text. The header and the footer keep the narrow measure either way, so
+   * the chrome does not change width from page to page.
+   */
+  wide?: boolean;
+}) {
   const { t } = useTranslation();
   const language = useLanguage();
 
   return (
     <div className="flex min-h-screen flex-col">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:m-3 focus:rounded focus:bg-card focus:p-2">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:m-3 focus:rounded focus:bg-card focus:p-2"
+      >
         {t('site.skipToContent')}
       </a>
 
@@ -75,7 +95,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      <main id="main" className="mx-auto w-full max-w-3xl grow px-5 py-12">
+      <main id="main" className={wide ? 'w-full grow' : 'mx-auto w-full max-w-3xl grow px-5 py-12'}>
         {children}
       </main>
 
