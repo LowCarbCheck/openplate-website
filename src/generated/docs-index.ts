@@ -11,8 +11,8 @@ export const DOCS_INDEX: DocsIndex = {
       "repo": "https://github.com/LowCarbCheck/openplate",
       "ref": "main",
       "editRef": "main",
-      "sha": "da5cd9b34c9f1bd02b5145a325cb53bf33066dba",
-      "committedAt": "2026-09-06"
+      "sha": "f47e78c2361b742dcbd0522d70283ed3344e24bb",
+      "committedAt": "2026-09-07"
     },
     "lead": [
       {
@@ -33,7 +33,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": ". Snap a photo of your plate and your own AI provider — OpenRouter, Mistral, any OpenAI-compatible endpoint, or Anthropic — estimates the macros. Your key, your provider, your data."
+            "text": ". Snap a photo of your plate and your own AI provider (OpenRouter, Mistral, any OpenAI-compatible endpoint, or Anthropic) estimates the macros. Your key, your provider, your data."
           }
         ]
       },
@@ -51,7 +51,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all — one stateless container, no secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
+            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
           }
         ]
       }
@@ -142,8 +142,8 @@ export const DOCS_INDEX: DocsIndex = {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
       "ref": "main",
       "editRef": "main",
-      "sha": "e7468e60a65b290bd8cdb8b7b2ab74c275e69acf",
-      "committedAt": "2026-09-06"
+      "sha": "50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1",
+      "committedAt": "2026-09-07"
     },
     "lead": [
       {
@@ -196,7 +196,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " — not through an endpoint, there is none, but by reading that column with "
+            "text": ", not through an endpoint, there is none, but by reading that column with "
           },
           {
             "kind": "code",
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/e7468e60a65b290bd8cdb8b7b2ab74c275e69acf/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -244,7 +244,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": ", so the photograph and the model's answer cross this process. Neither is written, cached or logged — not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. This is also the one route where the zero-knowledge claim genuinely does not hold: the blob store cannot read what it holds, and the proxy can see everything that passes through it. Leave "
+            "text": ", so the photograph and the model's answer cross this process. Neither is written, cached or logged: not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. This is also the one route where the zero-knowledge claim genuinely does not hold: the blob store cannot read what it holds, and the proxy can see everything that passes through it. Leave "
           },
           {
             "kind": "code",
@@ -284,7 +284,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " It is the normative specification of the wire protocol, written so a third party can implement either side of it without reading this code — an alternative client against this service, or an alternative server that an openplate client can be pointed at with "
+            "text": " It is the normative specification of the wire protocol, written so a third party can implement either side of it without reading this code: an alternative client against this service, or an alternative server that an openplate client can be pointed at with "
           },
           {
             "kind": "code",
@@ -338,7 +338,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/e7468e60a65b290bd8cdb8b7b2ab74c275e69acf/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1/LICENSE"
           },
           {
             "kind": "text",
@@ -389,8 +389,8 @@ export const DOCS_INDEX: DocsIndex = {
       "repo": "https://github.com/LowCarbCheck/openplate-inference",
       "ref": "main",
       "editRef": "main",
-      "sha": "52a9b4bdc8a74574fb1750bb3c7143eb618b24ce",
-      "committedAt": "2026-09-06"
+      "sha": "9aa2150dde66b85698212b9db81619684985b847",
+      "committedAt": "2026-09-07"
     },
     "lead": [
       {
@@ -407,7 +407,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " Point your phone at dinner, get back a list of foods with portion estimates in grams — computed on your hardware, from open-weight models, with no account, no API key from anybody, and no photo leaving your network."
+            "text": " Point your phone at dinner, get back a list of foods with portion estimates in grams, computed on your hardware, from open-weight models, with no account, no API key from anybody, and no photo leaving your network."
           }
         ]
       },
