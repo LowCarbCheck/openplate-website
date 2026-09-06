@@ -11,7 +11,9 @@ import { useLoaderData } from 'react-router';
 
 import type { Route } from './+types/sync';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
-import { Lead, LinkRow, PageTitle, Section } from '#app/components/page';
+import { PageHero } from '#app/components/hero';
+import { SyncIcon } from '#app/components/icons';
+import { Copy, LinkRow, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageSections } from '#app/lib/stack-sections.server';
@@ -38,8 +40,7 @@ export default function SyncRoute() {
 
   return (
     <SiteLayout>
-      <PageTitle>{t('pages.sync.title')}</PageTitle>
-      <Lead text={t('pages.sync.lead')} />
+      <PageHero icon={SyncIcon} title={t('pages.sync.title')} lead={<Copy text={t('pages.sync.lead')} />} />
 
       {sections.map((entry) => (
         <Section key={entry.id} heading={t(entry.headingKey)}>

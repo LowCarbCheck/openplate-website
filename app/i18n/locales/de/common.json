@@ -3,6 +3,7 @@
     "name": "openplate",
     "tagline": "Ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft.",
     "skipToContent": "Zum Inhalt springen",
+    "exampleData": "Diese Ansichten zeigen Beispieldaten, kein echtes Tagebuch.",
     "nav": {
       "app": "App",
       "sync": "Sync-Server",
@@ -24,10 +25,38 @@
     "home": {
       "title": "openplate",
       "hero": {
-        "body": "openplate ist ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft, mit einem optionalen Fotoscan, der die Makronährstoffe auf deinem Teller schätzt. Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken."
+        "body": "openplate ist ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft, mit einem optionalen Fotoscan, der die Makronährstoffe auf deinem Teller schätzt. Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken.",
+        "lead": "Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken.",
+        "openApp": "App öffnen",
+        "readSource": "Quellcode lesen",
+        "inviteNote": "Die gehostete Instanz ist nur auf Einladung zugänglich. Für deine eigene Kopie brauchst du keine Einladung.",
+        "shotAlt": "Das openplate Tagebuch für einen Tag: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den eingetragenen Mahlzeiten unter Frühstück und Mittagessen."
       },
       "whatItIs": {
         "heading": "Was openplate ist"
+      },
+      "features": {
+        "heading": "Was du damit machst",
+        "add": {
+          "title": "Essen eintragen",
+          "body": "Durchsuche die Lebensmitteldatenbank oder wähle etwas aus, das du zuvor eingetragen hast, und der Eintrag landet beim gewählten Tag unter der jeweiligen Mahlzeit.",
+          "alt": "Die Ansicht „Essen eintragen“: ein Suchfeld, ein Button für „Teller scannen“ und eine Liste kürzlich eingetragener Lebensmittel mit ihren Netto-Kohlenhydraten."
+        },
+        "scan": {
+          "title": "Teller scannen",
+          "body": "Fotografiere den Teller und der verbundene KI-Dienst schätzt die Kohlenhydrate. Das Foto geht nur an diesen Dienst und nirgendwo sonst hin.",
+          "alt": "Die Scan-Ansicht: bietet an, einen KI-Anbieter zu verbinden, bevor ein Foto gelesen wird, sowie die Möglichkeit, das Essen ohne KI einzutragen."
+        },
+        "goals": {
+          "title": "Ziele festlegen",
+          "body": "Ein tägliches Kohlenhydratlimit und ein Eiweißziel, oder keines von beidem. Jedes Ziel ist optional und das Leeren eines Feldes entfernt es.",
+          "alt": "Die Ansicht „Ziele“: ein tägliches Limit für Netto-Kohlenhydrate mit Vorgaben und einem eigenen Feld sowie ein Eiweißziel in Gramm."
+        },
+        "overview": {
+          "title": "Den Stand des Tages sehen",
+          "body": "Wie viel vom Limit noch übrig ist, ob das Eiweißziel erreicht wurde und wie viele der letzten sieben Tage du erfasst hast.",
+          "alt": "Die Übersicht: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und einer Karte für die letzten sieben Tage."
+        }
       },
       "stack": {
         "heading": "Der Stack",
@@ -40,6 +69,9 @@
         "inference": {
           "name": "Inference-Runtime"
         }
+      },
+      "topology": {
+        "heading": "Wohin deine Daten fließen"
       },
       "holds": {
         "heading": "Wer welche Daten hält"
@@ -56,6 +88,8 @@
     "app": {
       "title": "Die App",
       "lead": "openplate erfasst Mahlzeiten und schätzt auf Wunsch die Makronährstoffe auf einem Teller anhand eines Fotos. Suche nach einem Lebensmittel oder scanne einen Teller, und der Eintrag landet in deinem Tagebuch für den Tag. Bei einer eigenen Installation gibt es keinen Registrierungsbildschirm: Öffne die App und leg los. Auf der gehosteten Instanz meldest du dich zuerst an.",
+      "shotIntro": "Das Tagebuch zeigt jeweils einen Tag: die eingetragenen Mahlzeiten, was sie vom Tageslimit verbrauchen und was davon übrig ist.",
+      "shotAlt": "Das openplate Tagebuch auf einem Smartphone: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den Mahlzeiten des Tages, gruppiert unter Frühstück und Mittagessen.",
       "stores": {
         "heading": "Was auf dem Gerät gespeichert wird"
       },

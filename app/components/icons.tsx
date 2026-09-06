@@ -112,3 +112,57 @@ export const STACK_ICONS = {
   sync: SyncIcon,
   inference: InferenceIcon,
 } satisfies Record<DocComponent, (props: IconProps) => JSX.Element>;
+
+/**
+ * One per screen the front page's feature grid shows, in the same set as the three above.
+ *
+ * ── PROVENANCE, SAME LICENCE, SAME SET ──
+ * lucide 0.475.0: `circle-plus`, `camera`, `target` and `layout-dashboard`. ISC, copyright Lucide
+ * Contributors 2022, with portions from Feather (MIT) copyright Cole Bemis 2013 to 2022. They are
+ * drawn on lucide's 24 square grid with a 2 unit round stroke, which is what keeps them a set with
+ * `AppIcon`, `SyncIcon` and `InferenceIcon` rather than four shapes that happen to be nearby.
+ *
+ * ── WHY A SECOND SET AT ALL ──
+ * The three above are keyed by `DocComponent`, and every screen in the feature grid is a screen of
+ * the SAME component, the app. Labelling four cards with `AppIcon` four times tells a reader
+ * nothing except that this site owns one icon. These name the screens instead.
+ */
+export function AddIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 12h8" />
+      <path d="M12 8v8" />
+    </svg>
+  );
+}
+
+export function ScanIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+      <circle cx="12" cy="13" r="3" />
+    </svg>
+  );
+}
+
+export function GoalsIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
+export function OverviewIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <rect width="7" height="9" x="3" y="3" rx="1" />
+      <rect width="7" height="5" x="14" y="3" rx="1" />
+      <rect width="7" height="9" x="14" y="12" rx="1" />
+      <rect width="7" height="5" x="3" y="16" rx="1" />
+    </svg>
+  );
+}

@@ -3,6 +3,7 @@
     "name": "openplate",
     "tagline": "An open-source food diary that runs on your device.",
     "skipToContent": "Skip to content",
+    "exampleData": "These screens show example data, not a real diary.",
     "nav": {
       "app": "App",
       "sync": "Sync server",
@@ -24,10 +25,38 @@
     "home": {
       "title": "openplate",
       "hero": {
-        "body": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server."
+        "body": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
+        "lead": "It is for people who want to track what they eat without sending their diary to someone else's server.",
+        "openApp": "Open the app",
+        "readSource": "Read the source",
+        "inviteNote": "The hosted instance is invite-only. Running your own copy needs no invitation.",
+        "shotAlt": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch."
       },
       "whatItIs": {
         "heading": "What openplate is"
+      },
+      "features": {
+        "heading": "What you do with it",
+        "add": {
+          "title": "Log a food",
+          "body": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
+          "alt": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs."
+        },
+        "scan": {
+          "title": "Scan a plate",
+          "body": "Photograph the plate and the AI service you connected estimates the carbs. The photo goes to that service and to nowhere else.",
+          "alt": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one."
+        },
+        "goals": {
+          "title": "Set the targets",
+          "body": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
+          "alt": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams."
+        },
+        "overview": {
+          "title": "See where the day stands",
+          "body": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
+          "alt": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days."
+        }
       },
       "stack": {
         "heading": "The stack",
@@ -40,6 +69,9 @@
         "inference": {
           "name": "Inference runtime"
         }
+      },
+      "topology": {
+        "heading": "Where your data goes"
       },
       "holds": {
         "heading": "Who holds what"
@@ -56,6 +88,8 @@
     "app": {
       "title": "The app",
       "lead": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
+      "shotIntro": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
+      "shotAlt": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
       "stores": {
         "heading": "What it stores on the device"
       },

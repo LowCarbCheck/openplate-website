@@ -86,7 +86,11 @@ export function SiteLayout({
   const language = useLanguage();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    /* `overflow-x-clip` and not `overflow-hidden`: the front page's diagram steps out of the
+       reading column with `w-screen`, and `100vw` counts the vertical scrollbar, so that block is a
+       few pixels wider than the document. Clipping horizontally swallows those pixels and leaves
+       vertical scrolling alone. See `FullWidth` in `page.tsx` for the other half of the pair. */
+    <div className="flex min-h-screen flex-col overflow-x-clip">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:m-3 focus:rounded focus:bg-card focus:p-2"

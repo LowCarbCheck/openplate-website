@@ -64,6 +64,23 @@ a reader who gets no drawing is given, and it is the only part of a diagram that
 is translated. A label longer than six words, a fence with no description, and a
 diagram inside a list item each fail the sync with the file named.
 
+Two smaller syncs pull pictures out of the application repository the same way,
+at a pinned ref, with output that is committed:
+
+```bash
+toolbox run -c ts-dev env CI=true pnpm sync:icons   # public/favicon.ico, public/icons/
+toolbox run -c ts-dev env CI=true pnpm sync:shots   # public/shots/<locale>/
+```
+
+`sync:shots` copies the product screenshots that
+`openplate/scripts/capture-landing.ts` makes, one set per interface language,
+because a German page around an English screenshot is the same defect as a
+German page around English prose. `app/lib/shots.ts` is the manifest and it is
+the same module the components read: a capture named there and missing upstream
+fails the run with every missing file listed, and anything under `public/shots/`
+that it does not name is pruned. The sync screen is captured upstream and is
+deliberately not copied; that file's header says why.
+
 `pnpm install` runs `prepare`, which points git at the in-repo hooks. After a
 clone that has not installed yet, enable the gate by hand:
 

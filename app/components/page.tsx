@@ -84,3 +84,28 @@ export function LinkRow({ label, children }: { label: string; children: ReactNod
     </p>
   );
 }
+
+/**
+ * A block that steps out of the reading column and takes the window.
+ *
+ * ── FOR DRAWINGS, AND FOR NOTHING ELSE ──
+ * This site's measure is 48rem because that is how wide a sentence can be and still be read. A
+ * DRAWING has the opposite requirement: the topology diagram is 1728px of flowchart at its natural
+ * size, and inside the reading column it renders at about 640px, which is a 2.7x reduction and
+ * puts its labels at roughly six pixels. It was legible in the source and unreadable on the page,
+ * which is the exact defect a picture is supposed to fix rather than cause.
+ *
+ * ── THE TRICK, AND THE GUARD ──
+ * `left-1/2` plus `-translate-x-1/2` re-centres the block on the viewport instead of on its parent,
+ * and `w-screen` gives it the window. `100vw` INCLUDES the vertical scrollbar in most browsers, so
+ * this element is a few pixels wider than the document and would produce a horizontal scrollbar on
+ * a page nobody has scrolled sideways in. `SiteLayout` carries `overflow-x-clip` for that, and it
+ * clips horizontally only, so vertical scrolling is untouched. The two are deliberate together:
+ * either one alone is a single point of failure for a bug with no symptom until somebody drags.
+ *
+ * The padding is the page's own, so the block lines up with the column above it at the point where
+ * the window is narrower than the column plus its margins.
+ */
+export function FullWidth({ children }: { children: ReactNode }) {
+  return <div className="relative left-1/2 w-screen max-w-[96rem] -translate-x-1/2 px-5">{children}</div>;
+}

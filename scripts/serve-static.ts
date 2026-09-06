@@ -24,6 +24,10 @@ const CONTENT_TYPES = {
   '.txt': 'text/plain; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
+  // The product screenshots. Chrome renders a WebP served as a byte stream anyway, and Safari does
+  // not, so a local review pass would show every screenshot on the front page as a broken picture
+  // in one browser and be fine in the other. The same gap the `.ico` line below was opened for.
+  '.webp': 'image/webp',
   // The site declares a `.ico` again since it wears openplate's own mark, and a browser drops a
   // favicon served as a byte stream. Local review would show an empty tab for a file that is there.
   '.ico': 'image/x-icon',

@@ -23,6 +23,16 @@ export const DOC_PATHS = {
   inferencePrivacy: '/docs/inference/privacy',
 } as const;
 
+/**
+ * The hosted application, which is a DIFFERENT HOST from this one.
+ *
+ * `openplate.de` is this site and `beta.openplate.de` is the application, split that way in M194.
+ * The front page's one filled action goes here, so this constant is the only place the app's
+ * address is written down: a marketing site that links a reader to the wrong host is a marketing
+ * site that does not work.
+ */
+export const APP_URL = 'https://beta.openplate.de';
+
 /** Release notes pages. The app's live on GitHub; the sync server's are rendered here. */
 export const SYNC_RELEASES_PATH = '/releases/sync';
 

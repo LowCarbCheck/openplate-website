@@ -123,6 +123,26 @@ export const STACK_SECTIONS = {
       from: { kind: 'readme', paragraphs: 1 },
       headingKey: 'pages.home.stack.inference.name',
     },
+    /**
+     * The topology drawing, and the two paragraphs the document introduces it with.
+     *
+     * `doc-lead` and not a heading, because the drawing IS `architecture.md`'s lead: it sits above
+     * the first `##`, where a reader of that document meets it before any of its sections. That is
+     * also the argument for putting it on the front page. It is the clearest thing this project has
+     * to say, it is already translated by the docs pipeline, and until now it was nine paragraphs
+     * deep in a file a first-time reader will never open.
+     *
+     * The two paragraphs come with it rather than the picture alone, and they are the reason it
+     * reads: "follow the two arrows that leave the device" is the instruction that turns a flowchart
+     * into an argument. A drawing dropped under a site heading with no sentence is a diagram the
+     * reader is asked to interpret unaided.
+     */
+    {
+      id: 'topology',
+      component: 'app',
+      from: { kind: 'doc-lead', slug: 'architecture' },
+      headingKey: 'pages.home.topology.heading',
+    },
     {
       id: 'holds',
       component: 'app',
