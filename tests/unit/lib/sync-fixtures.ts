@@ -37,6 +37,18 @@ export const SCRIPT = resolve(import.meta.dirname, '../../../scripts/sync-docs.t
  */
 export const TSX = import.meta.resolve('tsx');
 
+/**
+ * This repository's `tsconfig.json`, named for the child.
+ *
+ * tsx reads the path aliases out of whichever tsconfig it finds from the WORKING DIRECTORY, and the
+ * child's working directory is a scratch directory in `/tmp` that has none. `sync-docs.ts` now
+ * imports `app/lib/docs-i18n.server.ts`, which asks for `#app/i18n/language`, and without this the
+ * child dies on `ERR_PACKAGE_IMPORT_NOT_DEFINED` before it reads a single fixture. The script's own
+ * module graph is a fact about this repository, not about the directory the script was pointed at,
+ * which is the same distinction `APP_CSS` makes inside the script itself.
+ */
+export const TSCONFIG = resolve(import.meta.dirname, '../../../tsconfig.json');
+
 const scratches: string[] = [];
 
 /** Every temporary directory this module made, gone. Each test file calls it from its own `after`. */
@@ -167,6 +179,7 @@ export function sync(overrides: Overrides = {}): Run {
       OPENPLATE_APP_REPO: repos.app,
       OPENPLATE_SYNC_REPO: repos.sync,
       OPENPLATE_INFERENCE_REPO: repos.inference,
+      TSX_TSCONFIG_PATH: TSCONFIG,
     },
   });
   return { status: result.status ?? -1, output: `${result.stdout}${result.stderr}`, out };

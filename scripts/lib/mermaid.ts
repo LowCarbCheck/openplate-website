@@ -13,11 +13,20 @@
  * git beside the docs it explains. `app/` never imports mermaid and the browser
  * never sees it.
  *
- * ── TWO FILES PER DIAGRAM, BECAUSE AN SVG HAS ITS COLOURS BAKED IN ──
+ * ── FOUR FILES PER DIAGRAM, BECAUSE AN SVG BAKES IN BOTH ITS COLOURS AND ITS WORDS ──
  * The site has two appearances and no theme toggle: a `prefers-color-scheme`
  * media query and nothing else. A drawing cannot follow a CSS variable it was
  * flattened against, so light and dark are two drawings and `<picture>` picks
  * one. That costs no JavaScript and causes no swap after paint.
+ *
+ * It has two languages for the same reason and with the same answer. A label is
+ * the shortest prose the site publishes and the first thing a reader looks at,
+ * so the German page gets a German drawing, made here by substituting the
+ * translated labels into the fence before it is rendered. Two appearances times
+ * two languages is four files, and the language is in the file name because a
+ * picture cannot pick its own words either. `sync-docs.ts` does the
+ * substituting; this file is handed a name and a fence and draws what it is
+ * given.
  *
  * ── THE PALETTE IS READ OUT OF `app/app.css`, NOT WRITTEN DOWN AGAIN ──
  * `readPalettes` parses the two `:root` blocks in the stylesheet, so a token
@@ -202,16 +211,41 @@ export function fingerprint(palettes: Palettes, version: string): string {
     .slice(0, 16);
 }
 
+/**
+ * The same fingerprint, narrowed to ONE FILE, because two files of one diagram
+ * no longer hold the same words.
+ *
+ * A diagram's id is a hash of the ENGLISH fence, and it is what keeps a fence
+ * nobody touched from being redrawn. Since the labels are translated and the
+ * drawing is made once per language, that id says nothing about the words in
+ * the German copy: buying a label changes the picture without changing the
+ * fence, the id, the palette or the mermaid version. So the words actually
+ * drawn are hashed into the file's own stamp, and a German drawing made before
+ * its labels were bought is redrawn on the next sync by exactly the same
+ * mechanism a palette change already used.
+ */
+export function drawnWith(mark: string, source: string): string {
+  return `${mark}/${createHash('sha256').update(source).digest('hex').slice(0, 12)}`;
+}
+
 /** The comment every rendered file opens with, and the thing the sync reads to decide on a redraw. */
 export function stamp(id: string, mark: string): string {
   return `<!-- openplate diagram ${id}, drawn by pnpm sync:docs, palette ${mark} -->`;
 }
 
 export interface DiagramJob {
-  /** The content hash `scripts/lib/markdown.ts` gave it, and the file name it will be written under. */
+  /**
+   * The file name this drawing will be written under, without its variant or its extension.
+   *
+   * `<content hash>-<language>`, built by `sync-docs.ts`: the hash is the one `markdown.ts` gave
+   * the ENGLISH fence, and the language is there because the same fence is drawn once per language
+   * with its labels translated. This file does not know about languages and does not need to. It
+   * takes a name and a fence, and the name is also what mermaid is told to call the drawing, so it
+   * has to be unique across a run.
+   */
   id: string;
   source: string;
-  /** Where it was written, for the message when it will not parse, e.g. `app: docs/topologies.md`. */
+  /** Where it was written, for the message when it will not parse, e.g. `app: docs/topologies.md (de)`. */
   where: string;
 }
 

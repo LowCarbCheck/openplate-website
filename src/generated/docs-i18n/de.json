@@ -731,6 +731,12 @@
     "at": "2026-09-06",
     "de": "Kompatibilität ist keine Genauigkeit. Eine Laufzeitumgebung kann das Schema perfekt einhalten und trotzdem mit einem Modell gekoppelt sein, das Teller schlecht erkennt. {{0}} bewertet jeden Endpunkt anhand desselben Gold-Standards aus 50 Bildern, aus dem alle Zahlen dieser Dokumentation stammen: Richte das Werkzeug auf deinen Endpunkt, bevor du den Ausgaben vertraust."
   },
+  "108ccb10dc4c6c1b": {
+    "en": "One vision call, json_schema",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Ein Vision-Aufruf, json_schema"
+  },
   "109259618d693733": {
     "en": "{{0}} they hit their limit, or you deleted it. openplate will surface the provider's error; the fix is at the Keys page, not in the app.",
     "model": "google/gemini-3.8-flash",
@@ -790,6 +796,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "neu"
+  },
+  "116d5f9a14b0d613": {
+    "en": "Diary in this browser",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Tagebuch in diesem Browser"
   },
   "11771928c8c47f2b": {
     "en": "enforced",
@@ -935,6 +947,12 @@
     "at": "2026-09-04",
     "de": "5.12 {{0}} und {{1}}, das Zurücksetzen per Mail"
   },
+  "15af50a07d8a6785": {
+    "en": "Laptop",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Laptop"
+  },
   "161b9df3be9b40ad": {
     "en": "THIS ENDPOINT WRITES NOTHING TO THE ACCOUNT",
     "model": "google/gemini-3.8-flash",
@@ -1024,6 +1042,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} nimmt {{1}} → {{2}} {{3}} entgegen. Der Schlüssel MUSS vorhanden sein, selbst als {{4}}: Ein fehlender Schlüssel ist ein {{5}}, dieselbe Regel, der {{6}} und {{7}} folgen, da ein PATCH, der bei einem falsch geschriebenen Feldnamen stillschweigend nichts tat, eine Änderung ist, von deren Durchführung der Client ausgeht."
+  },
+  "18583c07f678d5fd": {
+    "en": "Bundled USDA food data",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Gebündelte USDA-Lebensmitteldaten"
   },
   "188f2b4e712f5b45": {
     "en": "The whole submission commits in one transaction",
@@ -1276,6 +1300,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Blob-Größe"
+  },
+  "1e379459f529bec6": {
+    "en": "grammar constrained decoding",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Grammatikgestützte Dekodierung"
   },
   "1ea442a134b2a184": {
     "en": "No",
@@ -1589,6 +1619,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Eine fehlende Art ist ein {{1}}, niemals eine stillschweigende Teilrotation: Würde nur die {{2}}-Verpackung übertragen, verpackte der {{3}}-Eintrag weiterhin einen DEK, der nichts mehr öffnet, sodass der Wiederherstellungscode das Konto zwar noch anmeldet, aber nie wieder entschlüsselt. Jeder Eintrag folgt den Regeln aus §5.4 (ein {{4}}-Deskriptor muss {{5}} sein, ein {{6}}-Deskriptor darf es nicht sein). Es gibt kein {{7}} pro Eintrag: Die Übertragung selbst bildet die Einheit für die Nebenläufigkeit."
   },
+  "24ce57db6340cb43": {
+    "en": "names and grams, no macros",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Namen und Gramm, keine Makronährstoffe"
+  },
   "24cfaa21157136a4": {
     "en": "Rung",
     "model": "google/gemini-3.8-flash",
@@ -1841,6 +1877,12 @@
     "at": "2026-09-04",
     "de": "1. Die Zusammenfassung in einem Absatz"
   },
+  "2b9b2ac4b8a6ee06": {
+    "en": "Diary, plaintext, never leaves",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Tagebuch, Klartext, verlässt das Gerät nie"
+  },
   "2ba4b43ad7886d87": {
     "en": "What it needs",
     "model": "google/gemini-3.8-flash",
@@ -2032,6 +2074,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}}, er ist im HTML der Seite eingebettet und über den Quelltext für jeden lesbar, der die App öffnen kann. Die vollständige Regel ist der zweite Punkt unten. Lies ihn zuerst."
+  },
+  "305531dcc50ebca3": {
+    "en": "ciphertext",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Chiffretext"
   },
   "30715f21bd806832": {
     "en": "{{0}} Without it every path below answers the ordinary unknown-route {{1}}, to every caller, credentialed or not; the terminator is mounted {{2}} of authentication, so an unconfigured instance is indistinguishable from one where the feature was never written.",
@@ -2561,6 +2609,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Keine Umsatzgrenze, keine Nutzungsbeschränkungen, kommerzielle Nutzung erlaubt. Quelle: {{1}}. Für den kommerziellen Einsatz ist dies der empfohlene Pfad."
   },
+  "3ddff70d6d58375c": {
+    "en": "photo and your key",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Foto und dein Schlüssel"
+  },
   "3deb116d4d576a55": {
     "en": "Unknown, malformed, wrong-service, expired, revoked and spent tokens are ONE {{0}}, after identical work: the token is hashed and the table is queried on every branch. A valid lookup consumes nothing, so a person who opens the link twice still has an invitation.",
     "model": "google/gemini-3.8-flash",
@@ -2825,6 +2879,12 @@
     "at": "2026-09-04",
     "de": "Hardware & gemessene Latenz"
   },
+  "44368adad746bc27": {
+    "en": "Postgres",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Postgres"
+  },
   "4475930a8570f4f2": {
     "en": "identical work",
     "model": "google/gemini-3.8-flash",
@@ -2950,6 +3010,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Der Widerruf löscht auf dieser Seite tatsächlich."
+  },
+  "46c49d46a1da7973": {
+    "en": "openplate app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-App"
   },
   "46c4d3e5d99354a0": {
     "en": "No access token, or one that is expired or revoked",
@@ -3112,6 +3178,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} ist die UTF-8-Codierung eines kanonischen JSON-Objekts mit fester Schlüsselreihenfolge:"
+  },
+  "4a15491dbeec944d": {
+    "en": "openplate app server, holds nothing",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-App-Server, speichert nichts"
   },
   "4a36f89dafb0a101": {
     "en": "Verdict",
@@ -3605,6 +3677,12 @@
     "at": "2026-09-04",
     "de": "Dein Tagebuch auf zwei Geräten und, auf einer verwalteten Instanz, eine geteilte KI-Abrechnung für einen Haushalt oder eine Organisation"
   },
+  "55c64d0fcd6f9d5f": {
+    "en": "photo",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Foto"
+  },
   "55d6909a6afd837b": {
     "en": "This rung is for two kinds of people:",
     "model": "google/gemini-3.8-flash",
@@ -3821,6 +3899,12 @@
     "at": "2026-09-04",
     "de": "Das Foto, das du übermittelt hast, für die Dauer der Anfrage. Außer dem einmaligen Herunterladen der Gewichte erfolgen keine ausgehenden Aufrufe."
   },
+  "5b6590608008b0bb": {
+    "en": "ciphertext, no key sent",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Chiffretext, kein Schlüssel übertragen"
+  },
   "5b9ac5ececf14626": {
     "en": "✅ {{0}} — see the readiness note below",
     "model": "google/gemini-3.8-flash",
@@ -4025,6 +4109,12 @@
     "at": "2026-09-06",
     "de": "{{0}}, nur dass sie vorhanden und begrenzt ist. Er kann sie nicht verifizieren (dazu bräuchte er den Root-Schlüssel des Beitragenden), und eine Strukturprüfung würde eine Autorität vortäuschen, die er nicht besitzt."
   },
+  "60762dd575a3d251": {
+    "en": "Look up macros, food source",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Makronährstoffe und Lebensmittelquelle nachschlagen"
+  },
   "60c49811773150a7": {
     "en": "{{0}} Absent, every path below answers the ordinary unknown-route 404 to every caller, credentialed or not, with the terminator mounted ahead of authentication. Independent of {{1}}; neither flag implies the other.",
     "model": "google/gemini-3.8-flash",
@@ -4115,6 +4205,12 @@
     "at": "2026-09-04",
     "de": "{{0}} 1 komprimiert den Klartext mit gzip. Bei derart repetitivem JSON (dieselben Schlüsselnamen in Tausenden von Datensätzen) bringt das ungefähr eine Größenordnung Gewinn und schiebt die Grenze weit genug hinaus, damit sie kurzfristig kein Problem darstellt. Die Grenze verschwindet dadurch nicht."
   },
+  "62f19519bed8904f": {
+    "en": "Cloud provider, or inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Cloud-Anbieter oder Inferenz"
+  },
   "62fa5a5b0d3c3188": {
     "en": "Path",
     "model": "google/gemini-3.8-flash",
@@ -4168,6 +4264,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "{{0}} und werden in dem Moment zu totem Ballast, in dem eine Rotation festgeschrieben wird, unlesbar für jeden, einschließlich ihres Besitzers. Sie werden hier nicht gelöscht: Die Bereinigung entfernt sie innerhalb von fünf weiteren Übertragungen, und sie während einer Rotation zu verwerfen, nähme dem Besitzer die einzige Verteidigung gegen einen fehlerhaften Schreibvorgang des Clients in derselben Operation."
+  },
+  "63dceb8800b2dd4a": {
+    "en": "Phone",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Telefon"
   },
   "643042deedcfc59f": {
     "en": "{{0}} This inverts §5.14, where an untouched key record is kept — deliberately, because these rows are somebody else's capability on the caller's diary and silence must be the safe default. {{1}} therefore revokes everything, and is valid; an {{2}} {{3}} key is a {{4}}, for the reason §5.4 requires {{5}} to be written out. On a deployment without {{6}} the list must be empty — a non-empty one is a {{7}}, since it asserts state that instance cannot hold.",
@@ -4397,6 +4499,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Eine Transaktion: Lösche die Zeile endgültig, füge einen mit dem Pseudonym indizierten Tombstone ein. {{1}}, idempotent."
   },
+  "6841667f7929d18c": {
+    "en": "Member's browser",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Browser des Mitglieds"
+  },
   "684d93af594775b1": {
     "en": "The app on its own",
     "model": "google/gemini-3.8-flash",
@@ -4420,6 +4528,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Nichts davon ist eine abgespeckte Edition. Local-first-Erfassung, BYOK-KI-Teller-Scan, PWA-Installation, JSON-Export/-Import, die gesamte Benutzeroberfläche: identisch mit der gehosteten Instanz, da es dasselbe Image ist. Das einzige Extra der gehosteten Bereitstellung besteht darin, dass wir den optionalen Synchronisierungsdienst für dich betreiben, und dieser ist ebenfalls Open Source, sodass du ihn selbst betreiben kannst."
+  },
+  "688c4320427d44df": {
+    "en": "Downscale to 896 px",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Auf 896 px herunterskalieren"
   },
   "68a8e386d0035521": {
     "en": "{{0}}: the sync screens appear and talk to that URL. Its origin is added to the production CSP's {{1}} automatically — you do not need {{2}} for it.",
@@ -4841,6 +4955,12 @@
     "at": "2026-09-04",
     "de": "OpenRouter-Schlüsseleinstellungen"
   },
+  "7236453292674595": {
+    "en": "Key, rate limit, admission",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Schlüssel, Ratenbegrenzung, Einlass"
+  },
   "7278e4c4e68ec8fe": {
     "en": "A recovery code on the wire is Crockford base32 TEXT",
     "model": "google/gemini-3.8-flash",
@@ -5189,6 +5309,12 @@
     "at": "2026-09-04",
     "de": "Diese Nummern wurden in 0.5.0 ausgemustert, als {{0}} und {{1}} mit dem Mailer wegfielen. Protokoll 2 verwendet sie wieder, und sie wiederzuverwenden statt zwei neue zu nehmen, ist Absicht: Was hier nun steht, ist die Antwort auf das, was vorher hier stand, und wer einem {{2}}-Verweis aus einem Quelltextkommentar folgt, soll bei der Lösung landen statt auf einem Grabstein."
   },
+  "7a88260baa215cc1": {
+    "en": "Someone else's instance",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Instanz einer anderen Person"
+  },
   "7abe297ad9137152": {
     "en": "No resolution. Every item comes back with null macros.",
     "model": "google/gemini-3.8-flash",
@@ -5489,6 +5615,12 @@
     "at": "2026-09-04",
     "de": "Der gefährliche Fehler ist nicht das Ablehnen, sondern das Akzeptieren und Ignorieren: Eine Laufzeitumgebung nimmt das Feld {{0}} entgegen, verwirft es und liefert plausibles JSON zurück, das die Vorgaben verletzt. Das fällt nicht als Fehler auf, sondern führt zu leicht falschen Grammangaben."
   },
+  "83f19acbf023ff18": {
+    "en": "Plate photo",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Tellerfoto"
+  },
   "8401e7d7bff1b6ad": {
     "en": "Total bound on one completion call; {{0}} = disabled. Liveness, not latency policy: it releases a worker slot a wedged runtime will never return. Applies in bundled mode too. See {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -5578,6 +5710,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Lege direkt ein Ausgabenlimit fest."
+  },
+  "86b53b77972c614c": {
+    "en": "openplate app, your box",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-App, dein Server"
   },
   "86e0fbefcedf1dae": {
     "en": "null}`.",
@@ -6101,6 +6239,12 @@
     "at": "2026-09-06",
     "de": "{{0}} Gemessen: Zwei gleichzeitige Anfragen kosten das 0,75- bis 0,83-Fache derselben zwei nacheinander ausgeführten Anfragen, ein Durchsatzgewinn von 1,2 bis 1,3× bei 2-fachem Fan-Out, vollständig bezahlt mit Latenz pro Anfrage (eine einzelne Anfrage 2,5 s; zwei parallele Anfragen je 3,7 s). Plane Kapazitäten so, als liefe das System rein seriell."
   },
+  "942738baac95196c": {
+    "en": "managed instances only",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Nur verwaltete Instanzen"
+  },
   "942ce4a17080bd8b": {
     "en": "counterpart's account id",
     "model": "google/gemini-3.8-flash",
@@ -6274,6 +6418,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} ({{1}}), das auch dann weiterfunktioniert, wenn jedes Konto gesperrt ist."
+  },
+  "974e7a444ac282c6": {
+    "en": "photo, POST /v1/chat/completions",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Foto, POST /v1/chat/completions"
   },
   "9752585e798ea528": {
     "en": "{{0}}, and that sentence is the whole difference from the flow §5.13 used to document. It hands back the recovery code the server already holds in escrow (§3.1); the client then runs the ORDINARY §5.14 {{1}} ceremony with it — prove the code, set a new passphrase, re-wrap the DEK, mint a new code, re-escrow it, one transaction. Without the key records, what this returns is a string. A future change that let this path touch a verifier or a key record would have rebuilt the account-takeover flow ADR-0004 deleted, whatever it was called.",
@@ -6809,6 +6959,12 @@
     "at": "2026-09-04",
     "de": "standardmäßig deaktiviert"
   },
+  "a25bad1f4e431731": {
+    "en": "Your device",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Dein Gerät"
+  },
   "a2668925db5d2f6e": {
     "en": "Same version, opposite outcomes: it is the CPU build specifically.",
     "model": "google/gemini-3.8-flash",
@@ -7097,6 +7253,12 @@
     "at": "2026-09-04",
     "de": "Jede Zeichenkette, die vom Upstream-Netzwerk empfangen wurde, wird bereinigt"
   },
+  "a97fe4405feb74ee": {
+    "en": "one plate, as JSON",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Ein Teller, als JSON"
+  },
   "a9b6c09290498aed": {
     "en": "moondream on Ollama",
     "model": "google/gemini-3.8-flash",
@@ -7120,6 +7282,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Er enthält keine Datenbank und speichert keinen Zustand, bei einem zerstörten App-Container geht also nichts verloren."
+  },
+  "aa6496055b84f8e1": {
+    "en": "openplate-sync, managed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-sync, verwaltet"
   },
   "aa7247b3c4264a9f": {
     "en": "You want revocation to be one action in the admin screen rather than a shared key everyone re-pastes.",
@@ -7684,6 +7852,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "CAS pro Konto und Typ auf Schlüsseldatensätzen über {{0}}, mit derselben Regel: „Fehlendes Feld ist ein {{1}}“."
+  },
+  "b68a73eeb07034f2": {
+    "en": "Daily allowance per account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Tageskontingent pro Konto"
   },
   "b68f3985245f7e74": {
     "en": "3. Cryptography (client-side; the server implements none of it)",
@@ -8939,6 +9113,12 @@
     "at": "2026-09-04",
     "de": "Hier wird kein Tagebuch geteilt."
   },
+  "d31de1a5c5c8ba2a": {
+    "en": "Browser",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Browser"
+  },
   "d34a569ab7aaa54d": {
     "en": "family",
     "model": "google/gemini-3.8-flash",
@@ -9094,6 +9274,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Gemessen: Zwei gleichzeitige Anfragen kosten das 0,75- bis 0,83-Fache derselben zwei nacheinander ausgeführten Anfragen, ein Durchsatzgewinn um das 1,2- bis 1,3-Fache bei doppelter Auffächerung, der vollständig mit Latenz pro Anfrage bezahlt wird (eine Anfrage allein 2,5 s; zwei gleichzeitig, jeweils 3,7 s). Plane Kapazitäten so, als liefe das System rein seriell."
+  },
+  "d6ed718462ddb741": {
+    "en": "openplate-sync, email and ciphertext",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-sync, E-Mail und Chiffretext"
   },
   "d728b87ba5c07f49": {
     "en": "The write is accepted {{0}} {{1}} equals the account's current version. This is the entire concurrency model. There is no force-push and no {{2}}-less write.",
@@ -9719,6 +9905,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Ein Beitrag, den die Studie noch nicht abgerufen hat, erreicht niemanden. Was die Studie bereits abgerufen hat, lässt sich nicht zurückholen, der Löschmarker enthält die Anweisung, und ihn zu respektieren ist eine ethische Verpflichtung, die dieses System festhält, aber nicht erzwingen kann."
   },
+  "e6e079963043c4b5": {
+    "en": "photo, browser reachable address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Foto, über den Browser erreichbare Adresse"
+  },
   "e700781cd07f45ad": {
     "en": "{{0}}, and serves only the caller's own share row, the grantor's current blob, and {{1}}. Never the grantor's key records, KDF descriptor, verifier, escrow, email or display name. A grantee who could pull the grantor's {{2}} wrapped DEK would be one brute-forced recovery code away from rotation authority over that account.",
     "model": "google/gemini-3.8-flash",
@@ -9748,6 +9940,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Umschlagversion: 1"
+  },
+  "e7632e157ca31883": {
+    "en": "Your model runtime",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Deine Modell-Laufzeitumgebung"
   },
   "e799f2b5ecf7fb69": {
     "en": "There is no per-key spend or rate limit.",
@@ -10319,6 +10517,12 @@
     "at": "2026-09-06",
     "de": "Sobald es läuft, kannst du entweder jeder Person einen Schlüssel geben ({{0}}) oder {{1}} und verwandte Variablen setzen, damit alle Besucher mit einem Fingertipp verbunden sind, allerdings mit der Einschränkung, dass {{2}} im Quelltext der Seite eingebettet und für jeden lesbar ist, der die App öffnen kann. Siehe {{3}}."
   },
+  "f6aa047362cc4ff5": {
+    "en": "openplate-inference, your hardware",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "openplate-inference, deine Hardware"
+  },
   "f6ed156e4bf5c791": {
     "en": "SECURITY.md",
     "model": "google/gemini-3.8-flash",
@@ -10360,6 +10564,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Das Setzen von {{1}} auf openplate ermöglicht allen den Zugriff mit einem Fingertipp, ohne Schlüssel zum Einfügen. Dieser Schlüssel ist jedoch im HTML der Seite eingebettet und über den Quelltext für jeden lesbar, der die App öffnen kann, womit es wieder ein geteilter Schlüssel mit dem ursprünglichen Problem ist. Das genügt für ein LAN oder Tailnet, wo du allen Zugriffsberechtigten vertraust, ist aber überall sonst falsch. Siehe {{2}}."
+  },
+  "f815a39fd880668f": {
+    "en": "HTML and JS",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "HTML und JS"
   },
   "f869baa02717b726": {
     "en": "{{0}} Substitution attacks the key, so the key is what the binding names — and the grantee reconstructs the AAD from a fingerprint computed locally, so no server-supplied value enters the trust path.",
@@ -10432,6 +10642,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Profile, gemessene GPU- und CPU-Werte, VRAM- und RAM-Untergrenzen, Mindestanforderungen an den Rechner"
+  },
+  "fa9cc7a4be1f5144": {
+    "en": "Model runtime and weights",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-06",
+    "de": "Modell-Laufzeitumgebung und Gewichte"
   },
   "faa12fb082d5cc8a": {
     "en": "{{0}}: an {{1}}, an optional display name, a role, a daily AI allowance, a suspension instant, an authentication verifier (a keyed hash of a keyed hash of the passphrase, see §5.8), a second verifier of the same construction over the recovery proof, and the account's KDF parameters. {{2}}, which is a class of personal data 0.5.0 removed and 0.6.0 deliberately put back (ADR-0005): an organization's people are identified by the address their invitation arrived at, because that is the identifier they will still know in a month.",

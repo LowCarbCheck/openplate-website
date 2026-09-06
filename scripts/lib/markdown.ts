@@ -231,6 +231,44 @@ const LABELS = /\[([^\]]*)\]|\{([^}]*)\}|\(([^)]*)\)|\|([^|]*)\||"([^"]*)"/g;
 /** A sequence diagram's message, `Client ->> Server: text`, where the text is the label. */
 const MESSAGE = /^\s*\S+\s*-{1,2}[->x)]{1,2}\s*\S+\s*:\s*(?<label>.+?)\s*$/;
 
+/**
+ * The diagram families whose labels this site QUOTES, and therefore translates.
+ *
+ * A drawing is rendered once per language, and the way that is done is to lift the quoted labels
+ * out of the fence, translate them as text and put them back between the same quotes. See
+ * `diagramLabels` in `app/lib/docs.ts` for why quoting, and only quoting, makes that safe.
+ *
+ * A flowchart can quote every label it writes, so here it must, and the check below fails the sync
+ * when it does not. The other families cannot: a sequence diagram writes its messages after a colon
+ * and a `Note over C:` line ends at the end of the line, so quotes there would be printed as
+ * characters. Those fences are left alone rather than guessed at, and they render in English in
+ * every language. That is a smaller wrong than a diagram that lost a word to a regex, and it is
+ * visible in the drawing rather than hidden in it.
+ */
+const QUOTES_ITS_LABELS = new Set(['flowchart', 'graph']);
+
+/** The kind of diagram a fence draws, which is the first word of its first line that is not a comment. */
+function family(source: string): string {
+  for (const line of source.split('\n')) {
+    const trimmed = line.trim();
+    if (trimmed === '' || trimmed.startsWith('%%')) continue;
+    return trimmed.split(/\s/)[0] ?? '';
+  }
+  return '';
+}
+
+/**
+ * A label with the node brackets mermaid draws it in taken off it.
+ *
+ * `db[("Postgres")]` is a cylinder and `LABELS` hands back `("Postgres")`, parentheses and all.
+ * They are shape, not text, so they come off before the quoting rule looks at what is left. The
+ * strip stops at the first character that is not a bracket, which a quoted label's opening `"`
+ * always is.
+ */
+function withoutNodeBrackets(label: string): string {
+  return label.replace(/^[\s([{>]+/, '').replace(/[\s)\]}]+$/, '');
+}
+
 /** How many words a label is made of, with mermaid's shape punctuation stripped off it. */
 function words(label: string): string[] {
   return label
@@ -254,12 +292,23 @@ function diagram(body: string[], base: LinkBase, problems: string[]): Block {
     problems.push('a mermaid fence with no `%% alt:` first line, and a drawing with no description is not shippable');
   }
 
+  const quotesItsLabels = QUOTES_ITS_LABELS.has(family(source));
   for (const line of source.split('\n')) {
     if (line.trim().startsWith('%%')) continue;
     const found = [...line.matchAll(LABELS)].flatMap((match) => match.slice(1).filter((group) => group !== undefined));
     const message = MESSAGE.exec(line)?.groups?.['label'];
     if (message !== undefined) found.push(message);
     for (const label of found) {
+      // THE QUOTES ARE WHAT MAKE THE GERMAN DRAWING POSSIBLE, so the sync stops on a label without
+      // them and prints it. The alternative is a rule that works out for itself where an unquoted
+      // label starts and ends, and a rule like that is how a drawing quietly loses its last word to
+      // a bracket somebody wrote inside it. Two characters from the author buy a diagram that reads.
+      if (quotesItsLabels && !/^"[^"]*"$/.test(withoutNodeBrackets(label))) {
+        problems.push(
+          `a mermaid label that is not in double quotes, ${label.trim()}, and an unquoted label cannot be translated`,
+        );
+        continue;
+      }
       const count = words(label).length;
       if (count <= LABEL_WORDS) continue;
       problems.push(

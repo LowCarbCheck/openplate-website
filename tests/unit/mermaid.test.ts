@@ -16,7 +16,8 @@ import { describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import type { Block } from '../../app/lib/docs';
-import { spansText } from '../../app/lib/docs';
+import { diagramLabels, spansText, withDiagramLabels } from '../../app/lib/docs';
+import { hash, translateDiagram } from '../../app/lib/docs-i18n.server';
 import { type LinkBase, parseBlocks } from '../../scripts/lib/markdown';
 import { hslToHex, readPalettes, renderDiagrams, themeVariables } from '../../scripts/lib/mermaid';
 
@@ -49,8 +50,8 @@ function drawn(markdown: string): Extract<Block, { kind: 'diagram' }> {
 const GOOD = fence(`
 %% alt: The app writes to the sync server, which stores an encrypted snapshot.
 graph LR
-  App[The app] --> Sync[Sync server]
-  Sync --> Store[(Snapshot)]
+  App["The app"] --> Sync["Sync server"]
+  Sync --> Store[("Snapshot")]
 `);
 
 describe('a mermaid fence, read', () => {
@@ -74,7 +75,7 @@ describe('a mermaid fence, read', () => {
   });
 
   it('refuses a fence with no `%% alt:` line', () => {
-    const source = fence('graph LR\n  A[App] --> B[Sync]');
+    const source = fence('graph LR\n  A["App"] --> B["Sync"]');
     const { problems } = parseBlocks(source, BASE);
     assert.equal(problems.length, 1);
     assert.match(problems[0] ?? '', /%% alt:/);
@@ -86,7 +87,7 @@ describe('a mermaid fence, read', () => {
       fence(`
 %% alt: One box explains itself at length.
 graph LR
-  A[The app writes every change straight to the local store] --> B[Sync]
+  A["The app writes every change straight to the local store"] --> B["Sync"]
 `),
       BASE,
     );
@@ -100,7 +101,7 @@ graph LR
       fence(`
 %% alt: Six words is a label, not a claim.
 graph LR
-  A[One two three four five six] --> B[Sync]
+  A["One two three four five six"] --> B["Sync"]
 `),
       BASE,
     );
@@ -109,13 +110,50 @@ graph LR
 
   it('refuses a diagram inside a list item', () => {
     const { problems } = parseBlocks(
-      ['1. Read the topology:', '', '   ```mermaid', '   %% alt: A box.', '   graph LR', '     A[App]', '   ```'].join(
+      ['1. Read the topology:', '', '   ```mermaid', '   %% alt: A box.', '   graph LR', '     A["App"]', '   ```'].join(
         '\n',
       ),
       BASE,
     );
     assert.equal(problems.length, 1);
     assert.match(problems[0] ?? '', /inside a list item/);
+  });
+
+  it('refuses a flowchart label that is not in double quotes', () => {
+    // THE SYNC STOPS RATHER THAN GUESSING. Everything downstream of here reads a
+    // label as the text between two quote characters, which is the only reading
+    // that cannot lose a word: a rule that worked out for itself where
+    // `A[Your device (this one)]` ended would hand the translator half a label
+    // and draw the other half in English.
+    const { problems } = parseBlocks(
+      fence(`
+%% alt: One box with a bare label.
+graph LR
+  A[Your device] --> B["Sync"]
+`),
+      BASE,
+    );
+    assert.equal(problems.length, 1);
+    assert.match(problems[0] ?? '', /not in double quotes/);
+    assert.match(problems[0] ?? '', /Your device/);
+  });
+
+  it('asks nothing of a family that cannot quote its labels', () => {
+    // A sequence diagram writes its message after a colon and its note to the end
+    // of the line. Quotes there are printed as characters, so the rule above does
+    // not apply and neither does the translation: the fence is left alone and the
+    // drawing is English on every page, which is visible rather than hidden.
+    const { problems } = parseBlocks(
+      fence(`
+%% alt: The client asks the server which protocol it speaks.
+sequenceDiagram
+    participant C as Client
+    C->>S: GET /health
+    Note over C: no push, no pull
+`),
+      BASE,
+    );
+    assert.deepEqual(problems, []);
   });
 
   it('leaves every other fence a fence', () => {
@@ -190,5 +228,58 @@ describe('a mermaid fence, drawn', () => {
 
   it('draws nothing, and starts no browser, when there is nothing to draw', () => {
     assert.equal(renderDiagrams({ jobs: [], palettes: readPalettes(APP_CSS) }).size, 0);
+  });
+});
+
+describe('the labels, lifted out of a fence and put back', () => {
+  const SOURCE = [
+    'flowchart LR',
+    '  %% "not a label" lives in a comment and is nobody\'s words',
+    '  device["Your device"] -->|"ciphertext"| sync["openplate-sync"]',
+    '  device -->|"ciphertext"| store[("Postgres")]',
+  ].join('\n');
+
+  it('reads each quoted label once, in the order the fence wrote them', () => {
+    assert.deepEqual(diagramLabels(SOURCE), ['Your device', 'ciphertext', 'openplate-sync', 'Postgres']);
+  });
+
+  it('changes the words and nothing else', () => {
+    const german = withDiagramLabels(SOURCE, new Map([['Your device', 'Dein Gerät']]));
+    assert.ok(german.includes('device["Dein Gerät"]'), 'the label is German');
+    // NODE IDS, ARROW KINDS AND COMMENTS ARE STRUCTURE. Substituting a label may
+    // not touch one, and the second and fourth lines are here to say so byte for
+    // byte rather than by assertion about a shape.
+    assert.equal(german.split('\n')[0], 'flowchart LR');
+    assert.equal(german.split('\n')[1], SOURCE.split('\n')[1]);
+    assert.equal(german.split('\n')[3], SOURCE.split('\n')[3]);
+    assert.ok(german.includes('-->|"ciphertext"|'), 'a label with no translation keeps its English');
+  });
+
+  it('renders the whole fence in English when one label is missing', () => {
+    // PER DIAGRAM, NOT PER LABEL. Half a drawing in German reads as a bug in the
+    // software; a whole one in English reads as a diagram nobody has got to yet.
+    const nearly = new Map([
+      [hash('Your device'), 'Dein Gerät'],
+      [hash('ciphertext'), 'Geheimtext'],
+      [hash('openplate-sync'), 'openplate-sync'],
+    ]);
+    assert.equal(translateDiagram(SOURCE, nearly), null, 'Postgres was never bought');
+
+    const whole = new Map([...nearly, [hash('Postgres'), 'Postgres']]);
+    const german = translateDiagram(SOURCE, whole);
+    assert.ok(german !== null && german.includes('Dein Gerät') && german.includes('Geheimtext'));
+  });
+
+  it('refuses a translation that would end the label early', () => {
+    assert.throws(
+      () => translateDiagram('flowchart LR\n  a["Your device"]', new Map([[hash('Your device'), 'Dein "Gerät"']])),
+      /quote or a line break/,
+    );
+  });
+
+  it('leaves a fence that quotes nothing in English', () => {
+    const source = 'sequenceDiagram\n    C->>S: GET /health';
+    assert.deepEqual(diagramLabels(source), []);
+    assert.equal(translateDiagram(source, new Map([[hash('GET /health'), 'nein']])), null);
   });
 });

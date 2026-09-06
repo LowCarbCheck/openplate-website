@@ -109,6 +109,12 @@ export function Spans({ spans }: { spans: Inline[] }) {
 
 export function DocBlocks({ blocks }: { blocks: Block[] }) {
   const { t } = useTranslation('docs');
+  // THE DIAGRAM FILES ARE PER LANGUAGE, so this page has to say which one it is.
+  // The labels inside a drawing are translated at sync time and baked into the
+  // SVG, so picking the file is the whole of the client's part in it: there is
+  // one committed pair of files per language and the reader gets the pair that
+  // matches the words around it.
+  const language = useLanguage();
 
   return (
     <>
@@ -226,11 +232,14 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
             );
           }
           case 'diagram': {
-            // ALREADY DRAWN, TWICE, AND COMMITTED. `sync:docs` renders the fence
-            // with a headless browser and writes a light copy and a dark one,
-            // because an SVG has its colours baked in and this site's two
-            // appearances are a media query. <picture> is what picks one: no
-            // JavaScript, no swap after paint, and nothing here imports mermaid.
+            // ALREADY DRAWN, FOUR TIMES, AND COMMITTED. `sync:docs` renders the
+            // fence with a headless browser and writes a light copy and a dark
+            // one for each language the site publishes: an SVG has its colours
+            // baked in and this site's two appearances are a media query, and it
+            // has its words baked in too, which is why the language is in the
+            // name rather than in a stylesheet. <picture> picks the appearance,
+            // the URL picks the language: no JavaScript, no swap after paint,
+            // and nothing here imports mermaid.
             //
             // The description is the <img> alt and not a caption. A caption
             // repeats to a sighted reader what the drawing beside it already
@@ -248,12 +257,12 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                 <div className="overflow-x-auto rounded-sm border border-border bg-card p-4">
                   <picture>
                     <source
-                      srcSet={`/docs/diagrams/${block.id}-dark.svg`}
+                      srcSet={`/docs/diagrams/${block.id}-${language}-dark.svg`}
                       media="(prefers-color-scheme: dark)"
                       type="image/svg+xml"
                     />
                     <img
-                      src={`/docs/diagrams/${block.id}-light.svg`}
+                      src={`/docs/diagrams/${block.id}-${language}-light.svg`}
                       alt={spansText(block.alt)}
                       loading="lazy"
                       className="w-full min-w-[40rem]"

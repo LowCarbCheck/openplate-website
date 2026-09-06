@@ -89,9 +89,11 @@ export type Block =
    * A ```mermaid fence, ALREADY DRAWN.
    *
    * The one block whose content is not on this page. `sync:docs` renders the
-   * fence with a headless browser and commits two SVG files,
-   * `public/docs/diagrams/<id>-light.svg` and `<id>-dark.svg`; the page shows
-   * whichever one the reader's lights ask for. Mermaid has no renderer that is
+   * fence with a headless browser and commits
+   * `public/docs/diagrams/<id>-<language>-{light,dark}.svg`; the page shows the
+   * pair its own language named and, within it, whichever copy the reader's
+   * lights ask for. Four files per diagram and not two, because the labels are
+   * translated and an SVG has its words baked in as firmly as its colours. Mermaid has no renderer that is
    * not a browser, and this site prerenders every page to a file and serves it
    * from nginx, so drawing in the reader's browser would put a library larger
    * than the whole site on a documentation page. It is drawn once instead, by
@@ -110,8 +112,9 @@ export type Block =
    * and spans are the shape every other sentence in this tree is in, so
    * `collectBlock` and `rebuildBlock` in `app/lib/docs-i18n.server.ts`
    * translate it exactly like a paragraph, with no case of their own. The
-   * diagram SOURCE is never translated: a diagram carries names and arrows, and
-   * `scripts/lib/markdown.ts` refuses a label long enough to be a sentence.
+   * diagram SOURCE carried here is the ENGLISH fence, always: it is what the
+   * page offers behind its disclosure, and it is what `diagramLabels` below is
+   * read out of when the German drawing is made at sync time.
    */
   | { kind: 'diagram'; id: string; source: string; alt: Inline[] };
 
@@ -296,4 +299,73 @@ export function spansText(spans: Inline[]): string {
   return spans
     .map((span) => (span.kind === 'text' || span.kind === 'code' ? span.text : spansText(span.spans)))
     .join('');
+}
+
+/**
+ * One label inside a diagram fence: a run of text in double quotes.
+ *
+ * ── QUOTING IS THE CONTRACT, AND IT IS WHY THIS IS NOT A MERMAID PARSER ──
+ * A diagram is drawn once, at sync time, with its words baked into the SVG, so
+ * a German page showing an English drawing is a page whose picture argues with
+ * the paragraph above it. The fix is not to hand the fence to a translator: a
+ * model given a fence localises a node id, an arrow or a shell command in a
+ * click handler. It is to lift the LABELS out, translate those as text, and put
+ * them back where they came from.
+ *
+ * That substitution is only safe because a label is always quoted. Every fence
+ * this site draws is written by us, in the three openplate repositories, and
+ * `scripts/lib/markdown.ts` fails the sync for a flowchart label that is not in
+ * double quotes. So the start and the end of a label are characters and not a
+ * guess, and nothing here has to know what a subgraph, a cylinder or an arrow
+ * kind is. A regex that guessed where an unquoted label ended is how a diagram
+ * silently loses its last word.
+ */
+const DIAGRAM_LABEL = /"([^"\n]*)"/g;
+
+/** A comment line inside a fence: mermaid's own `%%`, which carries no label a reader sees. */
+const DIAGRAM_COMMENT = /^\s*%%/;
+
+/**
+ * Every label a fence puts on the drawing, in the order it wrote them, once each.
+ *
+ * Deduped, because two arrows carrying "managed instances only" are one
+ * sentence to buy and one substitution to make. Returns nothing at all for a
+ * fence that quotes nothing, which is a real and accepted case: a sequence
+ * diagram writes its messages after a colon, its grammar has no quoting, and
+ * the words in it are wire lines rather than prose. Such a diagram renders in
+ * English in every language, by the same fallback as a missing translation.
+ */
+export function diagramLabels(source: string): string[] {
+  const labels = new Set<string>();
+  for (const line of source.split('\n')) {
+    if (DIAGRAM_COMMENT.test(line)) continue;
+    for (const match of line.matchAll(DIAGRAM_LABEL)) {
+      const label = match[1] ?? '';
+      if (label.trim() !== '') labels.add(label);
+    }
+  }
+  return [...labels];
+}
+
+/**
+ * The same fence with its labels replaced, and nothing else touched.
+ *
+ * Node ids, arrow kinds, subgraph nesting, comments and every character outside
+ * a pair of quotes come through byte for byte, because the only thing this
+ * rewrites is what the regex above matched. A label with no entry in `labels`
+ * keeps its English, which is a state the caller is expected to have ruled out
+ * already: the fallback for a half translated diagram is a whole English one,
+ * and that decision belongs one level up, in `docs-i18n.server.ts`.
+ */
+export function withDiagramLabels(source: string, labels: Map<string, string>): string {
+  return source
+    .split('\n')
+    .map((line) => {
+      if (DIAGRAM_COMMENT.test(line)) return line;
+      return line.replaceAll(DIAGRAM_LABEL, (whole, label: string) => {
+        const replacement = labels.get(label);
+        return replacement === undefined ? whole : `"${replacement}"`;
+      });
+    })
+    .join('\n');
 }

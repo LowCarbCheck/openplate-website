@@ -36,7 +36,16 @@
 import { createHash } from 'node:crypto';
 
 import { SOURCE_LANGUAGE, type LanguageCode } from '#app/i18n/language';
-import { type Block, type ComponentDocs, type DocEntry, type DocFile, type Inline, spansText } from '#app/lib/docs';
+import {
+  type Block,
+  type ComponentDocs,
+  type DocEntry,
+  type DocFile,
+  type Inline,
+  diagramLabels,
+  spansText,
+  withDiagramLabels,
+} from '#app/lib/docs';
 import DE_MEMORY from '../../src/generated/docs-i18n/de.json';
 
 /**
@@ -218,14 +227,15 @@ export function rebuildBlock(block: Block, memory: Map<string, string>): Block {
     // same way a doc title is.
     case 'image':
       return { ...block, alt: one(block.alt, memory) };
-    // A DIAGRAM IS TRANSLATED BY ITS DESCRIPTION AND BY NOTHING ELSE. `id` names
-    // two committed SVG files and `source` is the fence that drew them, both
-    // English facts about a file on disk. `alt` is the sentence a reader who
-    // cannot see the drawing is given instead of it, so it is the one part that
-    // must arrive in their language, and being spans is what lets it go through
-    // `rebuild` like any paragraph. The rule that keeps this honest is upstream:
-    // `scripts/lib/markdown.ts` refuses a diagram label long enough to be a
-    // sentence, so nothing untranslatable is left inside the drawing.
+    // THE BLOCK IS UNCHANGED APART FROM ITS DESCRIPTION, and that is still true
+    // now that the drawing itself is translated. `source` is the ENGLISH fence
+    // and stays it: the page shows it behind a disclosure, and what a reader
+    // copies out of there should be the thing the three repositories actually
+    // wrote. `id` is that fence hashed, and it now names two committed SVG
+    // files per language rather than two in all, which is a question for the
+    // page and not for this tree, see `doc-blocks.tsx`. The German drawing is made once at
+    // sync time by `translateDiagram` below, out of the same memory, so nothing
+    // has to be decided again here at render time.
     case 'diagram':
       return { ...block, alt: rebuild(block.alt, memory) };
   }
@@ -275,10 +285,16 @@ export function collectBlock(block: Block, out: Map<string, Unit>): void {
     case 'image':
       add(block.alt, out);
       return;
-    // Spans, so `collect`, not `add`: see the note in `rebuildBlock` above for
-    // why the description is the only part of a diagram that is ever bought.
+    // TWO THINGS, AND THE SECOND ONE IS THE PICTURE. `alt` is spans, so it goes
+    // through `collect` like any paragraph. The LABELS are plain strings, the
+    // shortest prose the site publishes, and they are bought here so that
+    // `translateDiagram` below has something to put back into the fence. The
+    // fence itself is still never sent anywhere: what leaves is the words
+    // between the quotes and nothing else, which is the rule the diagram
+    // pipeline was built on and this does not bend it.
     case 'diagram':
       collect(block.alt, out);
+      for (const label of diagramLabels(block.source)) add(label, out);
       return;
   }
 }
@@ -351,6 +367,58 @@ export function translateEntries(docs: ComponentDocs, memory: Map<string, string
       blurb: rebuild(entry.blurb, memory),
     })),
   };
+}
+
+/**
+ * One diagram's fence in the reader's language, or `null` when it must stay English.
+ *
+ * ── WHY THE FENCE IS TRANSLATED AT ALL, HAVING SAID IT NEVER WOULD BE ──
+ * The rule this module opens with stands: a translator is handed text and never
+ * structure, because a model shown a fence localises a node id or a shell
+ * command. What was wrong was the conclusion drawn from it, that the labels
+ * therefore stay English. A label is not code. It is the shortest prose on the
+ * page, it sits inside a picture, and a picture is what a reader looks at
+ * first, so an English drawing under a German paragraph is the most visible
+ * untranslated thing the site can print. The labels come out of the fence, go
+ * through the same memory under the same hash as every other sentence, and go
+ * back between the same quotes. The translator still only ever sees words.
+ *
+ * ── THE FALLBACK IS PER DIAGRAM, NOT PER LABEL ──
+ * `rebuild` falls back one sentence at a time, and that is right for prose: a
+ * page nine tenths translated reads as a page. A drawing does not work that
+ * way. Half of its boxes in German and half in English reads as a bug in the
+ * software, where a wholly English drawing reads as a diagram nobody has got to
+ * yet. So one missing label sends the whole fence back to English, which is
+ * what returning `null` means here.
+ *
+ * ── AND IT IS ONLY EVER CALLED AT SYNC TIME ──
+ * `sync-docs.ts` calls this once per diagram per language and draws the answer
+ * into a committed SVG. No loader calls it, which is why an unusable
+ * translation THROWS rather than being quietly dropped: the person who can fix
+ * it is the one running the sync, and a label carrying a quote character would
+ * otherwise end the mermaid string early and ship a broken picture.
+ */
+export function translateDiagram(source: string, memory: Map<string, string>): string | null {
+  if (memory.size === 0) return null;
+
+  const labels = new Map<string, string>();
+  for (const label of diagramLabels(source)) {
+    const target = memory.get(hash(label));
+    if (target === undefined) return null;
+    // A QUOTE OR A LINE BREAK IS NOT A TRANSLATION, it is the end of the label
+    // and the start of whatever mermaid makes of the rest of the line. The
+    // model has never returned one; if it ever does, the sync says so with the
+    // label in its hands rather than drawing a diagram that lost half a row.
+    if (/["\n]/.test(target)) {
+      throw new Error(
+        `docs-i18n: the translation of "${label}" carries a quote or a line break, which would end the label early: ${target}`,
+      );
+    }
+    labels.set(label, target);
+  }
+  if (labels.size === 0) return null;
+
+  return withDiagramLabels(source, labels);
 }
 
 /**

@@ -47,6 +47,8 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { docRoute } from '../app/lib/doc-routes';
+import { SOURCE_LANGUAGE, SUPPORTED_LANGUAGES, type LanguageCode } from '../app/i18n/language';
+import { translateDiagram, translationsFor } from '../app/lib/docs-i18n.server';
 import type {
   Block,
   ComponentDocs,
@@ -69,6 +71,7 @@ import { IMAGES_DIR, type LinkBase, extractLead, extractSection, parseBlocks, pa
 import {
   type DiagramJob,
   type Palettes,
+  drawnWith,
   fingerprint,
   mermaidVersion,
   readPalettes,
@@ -501,11 +504,13 @@ function describeAddress(from: SectionSource): string {
  * Draw every mermaid fence the three repositories wrote, and delete the drawings nothing claims.
  *
  * ── WHAT IS NOT REDRAWN, AND WHY BOTH TESTS ARE NEEDED ──
- * A diagram's id is a hash of its source, so a fence nobody touched already has its two files on
- * disk and there is nothing to do: re-rendering it would rewrite two committed blobs on every run
- * and the pre-push "the sync produces no diff" gate would fail on a clean tree. But the source is
+ * A diagram's id is a hash of its source, so a fence nobody touched already has its files on disk
+ * and there is nothing to do: re-rendering it would rewrite committed blobs on every run and the
+ * pre-push "the sync produces no diff" gate would fail on a clean tree. But the source is
  * only half of what a drawing is made of. The palette and the mermaid version are the other half,
- * and neither is in the id, so each file carries a stamp saying what it was drawn with and a file
+ * and neither is in the id, and since M197 the WORDS are a third: the same fence is drawn once per
+ * language with its labels translated, and buying a label changes the picture without changing the
+ * fence. So each file carries a stamp saying what it was drawn with, words included, and a file
  * whose stamp has gone stale is drawn again. That is what makes a token change in `app.css` reach
  * the diagrams by itself.
  *
@@ -514,23 +519,77 @@ function describeAddress(from: SectionSource): string {
  * stops on a fence that will not parse leaves the tree exactly as it found it rather than deleting
  * the old copy of the diagram the author was in the middle of editing.
  */
+/**
+ * One drawing per diagram per language, with the labels of the fence translated.
+ *
+ * ── THE PICTURE IS PROSE, AND IT IS THE PROSE A READER SEES FIRST ──
+ * A diagram used to be drawn once and shown on both copies of a page, so the German front page
+ * carried a full width flowchart reading "Your device" directly under a German paragraph that
+ * translates the phrase. `translateDiagram` lifts the quoted labels out of the fence, looks each
+ * one up in the same memory every sentence on the site comes from, and puts them back between the
+ * same quotes. Nothing else in the fence moves, so the drawing is the same drawing.
+ *
+ * ── A DIAGRAM WITH NO GERMAN IS DRAWN IN ENGLISH, NOT LEFT OUT ──
+ * `translateDiagram` returns `null` for a fence whose labels are not all bought yet, and every
+ * language then falls back to the English source. That is what makes the ordering of the two
+ * scripts a non-issue: sync, translate, sync again is the sequence, and the first sync of a new
+ * diagram simply draws the English twice. The stamp on each file carries a hash of the words in
+ * it, so the second sync notices that the German copy is out of date and redraws only that one.
+ */
+function localise(jobs: DiagramJob[]): DiagramJob[] {
+  const memories = new Map(SUPPORTED_LANGUAGES.map((language) => [language, translationsFor(language)] as const));
+  const english = new Map<LanguageCode, number>();
+
+  const localised = jobs.flatMap((job) =>
+    SUPPORTED_LANGUAGES.map((language) => {
+      const memory = required(memories.get(language), `the ${language} translation memory`);
+      // The one throw this walk catches. An unusable translation is an operator's problem and it
+      // reads as one sentence, not as a stack through three frames of a module they did not open.
+      let translated: string | null;
+      try {
+        translated = translateDiagram(job.source, memory);
+      } catch (error) {
+        return fail(`${job.where}: ${error instanceof Error ? error.message : String(error)}`);
+      }
+      if (translated === null) english.set(language, (english.get(language) ?? 0) + 1);
+      return {
+        id: `${job.id}-${language}`,
+        source: translated ?? job.source,
+        where: `${job.where} (${language})`,
+      };
+    }),
+  );
+
+  for (const language of SUPPORTED_LANGUAGES) {
+    const untranslated = english.get(language) ?? 0;
+    if (language === SOURCE_LANGUAGE || untranslated === 0) continue;
+    console.log(`sync-docs: ${untranslated} of ${jobs.length} diagrams have no ${language} labels yet, drawn in English.`);
+  }
+  return localised;
+}
+
 function syncDiagrams(jobs: DiagramJob[]): void {
   // By id, because two documents that draw the same thing are one drawing.
   const wanted = new Map(jobs.map((job) => [job.id, job]));
+  const perLanguage = wanted.size * SUPPORTED_LANGUAGES.length;
 
   const palettes = readPalettes(APP_CSS);
   const mark = fingerprint(palettes, mermaidVersion());
-  const todo = [...wanted.values()].filter((job) =>
+  const todo = localise([...wanted.values()]).filter((job) =>
     ['light', 'dark'].some((variant) => {
       const file = join(DIAGRAMS_OUT, `${job.id}-${variant}.svg`);
-      return !existsSync(file) || !readFileSync(file, 'utf8').startsWith(stamp(job.id, mark));
+      return !existsSync(file) || !readFileSync(file, 'utf8').startsWith(stamp(job.id, drawnWith(mark, job.source)));
     }),
   );
 
   if (todo.length > 0) draw(todo, palettes, mark);
-  else if (wanted.size > 0) console.log(`sync-docs: ${wanted.size} diagrams, all already drawn at palette ${mark}.`);
+  else if (wanted.size > 0) console.log(`sync-docs: ${perLanguage} drawings, all already drawn at palette ${mark}.`);
 
-  const keep = new Set([...wanted.keys()].flatMap((id) => [`${id}-light.svg`, `${id}-dark.svg`]));
+  const keep = new Set(
+    [...wanted.keys()].flatMap((id) =>
+      SUPPORTED_LANGUAGES.flatMap((language) => [`${id}-${language}-light.svg`, `${id}-${language}-dark.svg`]),
+    ),
+  );
   for (const file of existsSync(DIAGRAMS_OUT) ? listFiles(DIAGRAMS_OUT) : []) {
     if (keep.has(file)) continue;
     unlinkSync(join(DIAGRAMS_OUT, file));
@@ -561,7 +620,10 @@ function draw(todo: DiagramJob[], palettes: Palettes, mark: string): void {
       ['light', drawing.light],
       ['dark', drawing.dark],
     ] as const) {
-      writeFileSync(join(DIAGRAMS_OUT, `${job.id}-${variant}.svg`), `${stamp(job.id, mark)}\n${svg}\n`);
+      writeFileSync(
+        join(DIAGRAMS_OUT, `${job.id}-${variant}.svg`),
+        `${stamp(job.id, drawnWith(mark, job.source))}\n${svg}\n`,
+      );
     }
     console.log(`sync-docs: ${job.where}, drawn as ${job.id}`);
   }

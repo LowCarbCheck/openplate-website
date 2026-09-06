@@ -49,9 +49,10 @@ it says today, which is what makes a documentation table written five minutes
 ago testable. Everything it writes under `src/generated/` is committed.
 
 The sync also draws the diagrams. A ```mermaid fence in a source document is
-rendered once, here, into `public/docs/diagrams/<id>-light.svg` and
-`<id>-dark.svg`, which are committed too, and the page shows one of them with a
-`<picture>`. Nothing the reader downloads knows what mermaid is. That needs a
+rendered here into `public/docs/diagrams/<id>-<language>-light.svg` and
+`<id>-<language>-dark.svg`, which are committed too, and the page shows one of
+them with a `<picture>`: the URL picks the language, the media query picks the
+appearance. Nothing the reader downloads knows what mermaid is. That needs a
 browser, because mermaid has no renderer that is not one, and it uses the
 chromium playwright has already put in `~/.cache/ms-playwright/` rather than
 downloading its own. **The toolbox cannot run that browser**: the container has
@@ -60,9 +61,25 @@ must, and says so plainly when it cannot. Point `OPENPLATE_CHROME` at a browser
 of your own to skip the search.
 
 A fence must open with `%% alt: <one short sentence>`, which is the description
-a reader who gets no drawing is given, and it is the only part of a diagram that
-is translated. A label longer than six words, a fence with no description, and a
-diagram inside a list item each fail the sync with the file named.
+a reader who gets no drawing is given. That description and the fence's LABELS
+are translated: the quoted text is lifted out, bought through the same memory
+every other sentence on the site comes from, put back between the same quotes,
+and the drawing is made again per language. The fence itself is never sent to a
+translator, so nothing can localise a node id or an arrow.
+
+That is why a flowchart label must be in double quotes: the quotes are where a
+label starts and ends, and a rule that worked it out instead would one day drop
+a word. An unquoted label, a label longer than six words, a fence with no
+description, and a diagram inside a list item each fail the sync with the file
+named. A family that cannot quote, a sequence diagram writes its messages after
+a colon, is left alone and drawn in English everywhere. So is any diagram whose
+labels are not all bought yet: half a drawing in German reads as a bug, a whole
+one in English reads as a diagram nobody has got to.
+
+The order is sync, `translate:docs`, sync again. The first sync draws a new
+diagram in English twice, the translation buys its labels, and the second sync
+notices that the German copy no longer matches the words and redraws that one
+file.
 
 Two smaller syncs pull pictures out of the application repository the same way,
 at a pinned ref, with output that is committed:
