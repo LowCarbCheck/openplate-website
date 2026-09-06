@@ -1,12 +1,12 @@
 /**
- * The German documentation, rebuilt from the translation memory at render time.
+ * The translated documentation, rebuilt from a translation memory at render time.
  *
  * PORTED FROM collie-website's `scripts/translate-docs.ts`, which holds the
  * same template, hash and rebuild functions inside the script that buys the
  * translations. They live here instead because of the one thing this site does
  * differently: collie EMITS a second set of generated modules per locale, and
- * this site rebuilds the German page from the English tree and the memory in
- * the route loader. So both sides — the script that fills the memory and the
+ * this site rebuilds the translated page from the English tree and the memory
+ * in the route loader. So both sides, the script that fills the memory and the
  * loader that reads it — need the same three functions, and a second copy of
  * the hash would be a silent way to buy every sentence twice.
  *
@@ -27,15 +27,16 @@
  * as their own templates, one level down.
  *
  * ── `.server`, AND NOT BY HABIT ──
- * `hash` is `node:crypto`, and the memory is the whole German corpus. Both
- * belong to the build: the doc routes call this from a loader, React Router
- * strips a loader from the browser bundle, and the suffix is what makes an
- * accidental import from a component fail at the build rather than ship a
- * hashing library and every German sentence to a reader who wanted one page.
+ * `hash` is `node:crypto`, and the memories are the whole corpus, once per
+ * translated language. Both belong to the build: the doc routes call this from
+ * a loader, React Router strips a loader from the browser bundle, and the
+ * suffix is what makes an accidental import from a component fail at the build
+ * rather than ship a hashing library and every translated sentence of every
+ * language to a reader who wanted one page.
  */
 import { createHash } from 'node:crypto';
 
-import { SOURCE_LANGUAGE, type LanguageCode } from '#app/i18n/language';
+import { SOURCE_LANGUAGE, type LanguageCode, type TranslatedLanguage } from '#app/i18n/language';
 import {
   type Block,
   type ComponentDocs,
@@ -46,7 +47,8 @@ import {
   spansText,
   withDiagramLabels,
 } from '#app/lib/docs';
-import DE_MEMORY from '../../src/generated/docs-i18n/de.json';
+import GERMAN from '../../src/generated/docs-i18n/de.json';
+import FRENCH from '../../src/generated/docs-i18n/fr.json';
 
 /**
  * A `{{n}}` marker stands for a child span the model must not read and must not
@@ -312,6 +314,41 @@ export function collectEntry(entry: DocEntry, out: Map<string, Unit>): void {
 // ── what a route loader calls ────────────────────────────────────────────────
 
 /**
+ * The translation memory of every language that has one, by language.
+ *
+ * ── A `Record<TranslatedLanguage, ...>` AND NOT A `Partial` ONE ──
+ * This map is the reason a fourth language cannot be added by editing one array. The key type is
+ * every supported language except the source, so `SUPPORTED_LANGUAGES` gaining an entry makes this
+ * object a type error until somebody has run the translator and committed the file it wrote. That
+ * is the whole point: the failure this replaces was a language that resolved to German's memory,
+ * missed on every hash, and rendered a page of perfectly valid ENGLISH under its own flag. A build
+ * that stops is a bug report; a page that quietly falls back is not.
+ *
+ * ── STATIC IMPORTS, NOT A READ ──
+ * They are `import`s and not `readFileSync` because this module is imported by route loaders and by
+ * `sync-docs.ts` alike, and the loaders are bundled: a path computed at runtime is a file the
+ * bundler cannot see and a prerender that dies with ENOENT. The `.server` suffix is what keeps the
+ * whole corpus, now two of them, out of the browser bundle.
+ */
+const MEMORIES = {
+  de: GERMAN,
+  fr: FRENCH,
+} satisfies Record<TranslatedLanguage, Memory>;
+
+/**
+ * One language's memory, widened to `Memory`.
+ *
+ * A `satisfies` above keeps the literal type of each imported file, which is what makes the
+ * completeness check work, and that literal type knows only the ONE locale field its own file
+ * carries. Reading `entry[language]` off it would then be a type error on the language it is not.
+ * The widening belongs here, in one place, with a name on it, rather than as an assertion at the
+ * one call site.
+ */
+function memoryFor(language: TranslatedLanguage): Memory {
+  return MEMORIES[language];
+}
+
+/**
  * The memory for a language, as the flat map everything above reads.
  *
  * The SOURCE language has none by definition: it is what the memory is keyed
@@ -319,14 +356,17 @@ export function collectEntry(entry: DocEntry, out: Map<string, Unit>): void {
  * branch at the call site. It is the source language and not the default one,
  * which are two different languages since German took the root: German is the
  * default and it is precisely the language that HAS a memory.
+ *
+ * Every other language is looked up in `MEMORIES` above. The early return is
+ * what makes that lookup total: after it, `language` is a `TranslatedLanguage`,
+ * which is exactly the key set of that object.
  */
 export function translationsFor(language: LanguageCode): Map<string, string> {
   if (language === SOURCE_LANGUAGE) return new Map();
-  // SAFETY: the file is written by `scripts/translate-docs.ts` alone and its
-  // shape is asserted there on the way out. Nothing below trusts it beyond
-  // "the values are strings": a missing locale field is a miss, and a miss
-  // renders English.
-  const memory = DE_MEMORY as Memory;
+  // The files are written by `scripts/translate-docs.ts` alone and their shape is asserted there
+  // on the way out. Nothing below trusts them beyond "the values are strings": a missing locale
+  // field is a miss, and a miss renders English.
+  const memory = memoryFor(language);
   const out = new Map<string, string>();
   for (const [key, entry] of Object.entries(memory)) {
     const target = entry[language];

@@ -30,6 +30,7 @@ import {
   type DocsIndex,
   type DocsRegistry,
 } from '../../app/lib/docs';
+import { SOURCE_LANGUAGE, SUPPORTED_LANGUAGES, type TranslatedLanguage } from '../../app/i18n/language';
 
 /**
  * The one model this site's German comes from.
@@ -77,6 +78,66 @@ const KEEP = [
 ];
 
 /**
+ * One English term, and the one word each language is to answer it with.
+ *
+ * ── WHY A GLOSSARY AT ALL ──
+ * Every chunk is an independent request. The model is free each time, nothing holds it to a choice
+ * it made twenty requests ago, and both answers are correct German, so no check downstream can tell
+ * them apart. "ciphertext" came back as Geheimtext twenty-six times and as Chiffretext twice, and
+ * one of the two was a label on the topology drawing sitting directly under a paragraph that called
+ * the same thing Geheimtext. A reader looking at that has to work out whether they are two things.
+ *
+ * ── WHY IT IS TOLD AND NOT APPLIED ──
+ * The obvious fix, replacing the losing word after the answer comes back, is worse than the defect.
+ * A German or French sentence is inflected for the noun in it: its article, its adjective endings
+ * and its pronouns all agreed with the word the model chose. Swapping the noun leaves the sentence
+ * agreeing with a word that is no longer there. So the list goes into the SYSTEM PROMPT, before the
+ * sentence is written, and the sentence is built around the agreed term from the start.
+ *
+ * ── A FULL RECORD, NOT A PARTIAL ONE ──
+ * Keyed by every translated language, so adding a fourth language does not quietly ship a corpus
+ * with no glossary at all: it does not compile until somebody has decided the fourth column.
+ *
+ * Add a term here whenever one is found to have split. The list is short on purpose; a glossary
+ * that names every noun is a prompt the model stops reading.
+ */
+export interface GlossaryTerm {
+  /** The term as the upstream English writes it. Lower case, because the prompt is not the corpus. */
+  en: string;
+  /** The agreed word, one per language that is translated at all. */
+  say: Record<TranslatedLanguage, string>;
+}
+
+export const GLOSSARY: readonly GlossaryTerm[] = [
+  // German: the majority answer of the corpus as it stood, so pinning it re-bought five units and
+  // left the other twenty-six alone. French: from wordsmith, the workspace's own prose judge.
+  { en: 'ciphertext', say: { de: 'Geheimtext', fr: 'texte chiffré' } },
+  { en: 'plate photo', say: { de: 'Tellerfoto', fr: "photo d'assiette" } },
+  { en: 'diary', say: { de: 'Tagebuch', fr: 'journal' } },
+  { en: 'allowance', say: { de: 'Kontingent', fr: 'quota' } },
+  { en: 'sync server', say: { de: 'Sync-Server', fr: 'serveur de synchronisation' } },
+  { en: 'recovery code', say: { de: 'Wiederherstellungscode', fr: 'code de récupération' } },
+];
+
+/**
+ * The glossary as the model is shown it, or nothing at all for a language it does not cover.
+ *
+ * `locale` is a plain string here because it arrives from `--locale` on the command line, and the
+ * CLI has already refused anything that is not one of the site's languages. English reaches this
+ * only from `price`, which needs the prompt's LENGTH and not its contents.
+ */
+export function glossary(locale: string): string[] {
+  const language = SUPPORTED_LANGUAGES.find((candidate) => candidate === locale);
+  if (language === undefined || language === SOURCE_LANGUAGE) return [];
+  return [
+    '',
+    'Use exactly these words for these terms, every time, whatever the surrounding sentence:',
+    ...GLOSSARY.map((term) => `  ${term.en} -> ${term.say[language]}`),
+    'Inflect them as the target grammar requires. Never substitute a synonym for one of them.',
+  ];
+}
+
+/**
  * The register this site's German is written in, and the workspace's own style
  * contract underneath it.
  *
@@ -97,6 +158,7 @@ export function style(locale: string): string {
     'Register: plain, direct, a little dry. Concrete verbs. No marketing adjectives.',
     'Never an em dash or an en dash. Use a comma instead.',
     register(locale),
+    ...glossary(locale),
     '',
     `Leave these terms in English, exactly as written: ${KEEP.join(', ')}.`,
     'Every code span, link, number, file path, flag, environment variable, URL, port and product',
@@ -110,6 +172,18 @@ function register(locale: string): string {
       'German: address the reader as "du", which is what the openplate app itself does. Follow German',
       'software-documentation convention: a real German compound noun where one exists, rather than an',
       'English loan phrase. Never a literal calque of the English clause order.',
+    ].join(' ');
+  }
+  // FRENCH TAKES "tu" FOR THE SAME REASON GERMAN TAKES "du", and it is the more arguable of the
+  // two. Plenty of French technical documentation uses "vous". But the person the reader is
+  // talking to is the application, the application says "du" in every string it ships, and a
+  // French page that switched to "vous" would be a second, more distant product describing the
+  // first one. One voice across the site is worth more here than the house style of the genre.
+  if (locale === 'fr') {
+    return [
+      'French: address the reader as "tu", which is what the openplate app itself does in its other',
+      'languages. Idiomatic French technical prose, never a calque of the English clause order, and a',
+      'real French term where one exists rather than an English loan word.',
     ].join(' ');
   }
   return "Use the register that language's own technical documentation is written in.";
@@ -214,6 +288,44 @@ export function dashOffenders(memory: Memory, locale: string): string[] {
   for (const [key, entry] of Object.entries(memory)) {
     const target = entry[locale];
     if (target !== undefined && DASH.test(target)) out.push(key);
+  }
+  return out;
+}
+
+/**
+ * Every remembered sentence that names a glossary term and answers it with some other word.
+ *
+ * ── A REPORT, NOT A REFUSAL, WHICH IS THE OPPOSITE OF `dashOffenders` ──
+ * A dash is a character: it is either there or it is not, so that check exits 1 and the pipeline
+ * stops. A term is a word in a sentence, and a good translation is allowed to leave it out. "each
+ * account carries a daily AI allowance" can be answered without the noun at all, by a verb, and
+ * that answer is right. So this cannot be a gate without failing runs that are correct.
+ *
+ * What it is instead is the thing that was missing when "ciphertext" split into two German words:
+ * a way to ASK. The split was found by reading a rendered page and noticing a diagram label
+ * disagreeing with the paragraph above it, which is not a method. This prints the hashes, and a
+ * hash is exactly what you delete from the memory to buy that sentence again.
+ *
+ * ── WHY DELETING IS THE ONLY WAY TO RE-BUY ──
+ * The memory is keyed by a hash of the ENGLISH, and adding a glossary changes the prompt and not
+ * one English sentence. So every key still hits, `missesOf` returns nothing, and a run after the
+ * glossary lands costs zero and changes nothing. Removing the entry is what makes the sentence a
+ * miss again. It is deliberate that this is a manual step: a script that dropped entries on its
+ * own would re-buy the corpus on every wording change to this list.
+ */
+export function glossaryOffenders(memory: Memory, locale: string): { key: string; term: string }[] {
+  const language = SUPPORTED_LANGUAGES.find((candidate) => candidate === locale);
+  if (language === undefined || language === SOURCE_LANGUAGE) return [];
+
+  const out: { key: string; term: string }[] = [];
+  for (const [key, entry] of Object.entries(memory)) {
+    const target = entry[language];
+    if (target === undefined) continue;
+    for (const term of GLOSSARY) {
+      if (!new RegExp(`\\b${term.en}`, 'i').test(entry.en)) continue;
+      if (target.toLowerCase().includes(term.say[language].toLowerCase())) continue;
+      out.push({ key, term: term.en });
+    }
   }
   return out;
 }

@@ -9,7 +9,7 @@
     "en": "On rung two both devices push one encrypted blob to the sync server, and the photo still goes straight to the provider.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Auf Stufe zwei übertragen beide Geräte einen verschlüsselten Blob an den Synchronisierungsserver, und das Foto geht weiterhin direkt an den Anbieter."
+    "de": "Auf Stufe zwei übertragen beide Geräte ein einzelnes verschlüsseltes Blob an den Sync-Server, und das Foto geht weiterhin direkt an den Anbieter."
   },
   "008d2eac235acfd7": {
     "en": "Binding these defeats cut-and-paste (replaying a blob into a different account) and rollback (replaying an older version, or a payload from an incompatible local-store schema). A client must present the identical triple when decrypting or the tag check fails — which is the intended behaviour, not an error to work around.",
@@ -266,8 +266,8 @@
   "057a245751bd51be": {
     "en": "The client no longer shows the recovery code to the person (§3.1), so an account created without an escrow is one no reset can ever restore, and its owner was never warned.",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Der Client zeigt der Person den Wiederherstellungsschlüssel nicht mehr an (§3.1). Ein ohne Escrow erstelltes Konto kann daher niemals durch ein Zurücksetzen wiederhergestellt werden, und der Eigentümer wurde nie gewarnt."
+    "at": "2026-09-06",
+    "de": "Der Client zeigt der Person den Wiederherstellungscode nicht mehr an (§3.1), sodass ein ohne Hinterlegung erstelltes Konto durch kein Zurücksetzen wiederhergestellt werden kann, ohne dass die Person je davor gewarnt wurde."
   },
   "05c643dec4f3523a": {
     "en": "{{0}} cannot validate {{1}} when {{2}} is open.",
@@ -501,7 +501,7 @@
     "en": "The drawing below is the whole system. Follow the two arrows that leave the device: the diary leaves as ciphertext for openplate-sync, and the photo leaves for whichever AI endpoint you configured. The app server is on neither of them. The dotted arrows are the one exception, a managed instance, where the sync server forwards the photo for an account that has an allowance.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Die Zeichnung unten zeigt das gesamte System. Folge den beiden Pfeilen, die das Gerät verlassen: Das Tagebuch geht als Geheimtext an openplate-sync, und das Foto geht an den von dir konfigurierten KI-Endpunkt. Der App-Server liegt auf keinem dieser Wege. Die gepunkteten Pfeile sind die einzige Ausnahme, eine verwaltete Instanz, bei der der Sync-Server das Foto für ein Konto mit Guthaben weiterleitet."
+    "de": "Die Zeichnung unten zeigt das gesamte System. Folge den beiden Pfeilen, die das Gerät verlassen: Das Tagebuch verlässt das Gerät als Geheimtext für openplate-sync, und das Foto geht an den KI-Endpunkt, den du eingerichtet hast. Der App-Server liegt auf keinem der beiden Pfade. Die gepunkteten Pfeile zeigen die einzige Ausnahme, eine Managed Instance, bei der der Sync-Server das Foto für ein Konto mit Kontingent weiterleitet."
   },
   "0ba0a7b9b3c0be0e": {
     "en": "See {{0}}.",
@@ -2079,7 +2079,7 @@
     "en": "ciphertext",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Chiffretext"
+    "de": "Geheimtext"
   },
   "30715f21bd806832": {
     "en": "{{0}} Without it every path below answers the ordinary unknown-route {{1}}, to every caller, credentialed or not; the terminator is mounted {{2}} of authentication, so an unconfigured instance is indistinguishable from one where the feature was never written.",
@@ -2991,7 +2991,7 @@
     "en": "{{0}} Set {{1}} and the instance becomes one an administrator runs for a household or an organization: they invite people by email from {{2}} (or the sync-api CLI), give each account a daily allowance, and every signed-in scan runs through the sync server's own AI proxy: no separate service, no separate invite link. See {{3}} and {{4}} for when this is worth turning on instead of provider sub-keys.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "{{0}} Wenn du {{1}} setzt, wird die Instanz zu einer, die eine Administratorin oder ein Administrator für einen Haushalt oder eine Organisation betreibt: Man lädt Personen per E-Mail über {{2}} (oder das sync-api-CLI) ein, weist jedem Konto ein Tageskontingent zu, und jeder Scan im angemeldeten Zustand läuft über den internen KI-Proxy des Synchronisierungsservers, ganz ohne separaten Dienst und ohne separaten Einladungslink. Unter {{3}} und {{4}} erfährst du, wann sich das gegenüber Unterschlüsseln des Anbieters lohnt."
+    "de": "{{0}} Setze {{1}}, und die Instanz wird zu einer Umgebung, die ein Administrator für einen Haushalt oder eine Organisation betreibt: Personen werden per E-Mail über {{2}} (oder die sync-api-CLI) eingeladen, jedes Konto erhält ein tägliches Kontingent, und jeder Scan im angemeldeten Zustand läuft über den KI-Proxy des Sync-Servers: kein separater Dienst, kein separater Einladungslink. Siehe {{3}} und {{4}} für Fälle, in denen sich diese Option gegenüber Sub-Keys des Anbieters lohnt."
   },
   "46641960282b7460": {
     "en": "0 = disabled. Admission policy: refuse work you cannot finish in time. See {{0}}.",
@@ -3452,8 +3452,8 @@
   "4ff89e716d605400": {
     "en": "The recovery code is ESCROWED on the server",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Der Wiederherstellungsschlüssel wird auf dem Server HINTERLEGT"
+    "at": "2026-09-06",
+    "de": "Der Wiederherstellungscode ist auf dem Server HINTERLEGT"
   },
   "50009ce1da4d15e1": {
     "en": "File",
@@ -3494,8 +3494,8 @@
   "511d42ef06f047f4": {
     "en": "An administrator invites people from the app itself, at {{0}}, or from a terminal through openplate-sync's {{1}} CLI (see the workspace's admin notes). The invite is mailed, never printed to a console. A forgotten password is reset by a mailed link; the server holds an escrowed recovery code that unwraps the data key after the reset (see {{2}}).",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Ein Administrator lädt Personen direkt aus der App unter {{0}} ein oder über das Terminal mit der {{1}}-CLI von openplate-sync (siehe die Admin-Hinweise im Workspace). Die Einladung wird per Mail verschickt, nie in der Konsole ausgegeben. Ein vergessenes Passwort wird über einen per Mail gesendeten Link zurückgesetzt, der Server verwahrt einen Recovery-Code, der den Datenschlüssel nach dem Zurücksetzen wieder entschlüsselt (siehe {{2}})."
+    "at": "2026-09-06",
+    "de": "Ein Administrator lädt Personen direkt aus der App unter {{0}} ein oder über das Terminal mit der {{1}}-CLI von openplate-sync (siehe die Admin-Hinweise des Workspace). Die Einladung wird per E-Mail verschickt, nie auf einer Konsole ausgegeben. Ein vergessenes Passwort wird über einen per E-Mail gesendeten Link zurückgesetzt; der Server hält einen hinterlegten Wiederherstellungscode vor, der den Datenschlüssel nach dem Zurücksetzen entschlüsselt (siehe {{2}})."
   },
   "512afbae9d678190": {
     "en": "There is nothing new to learn at this rung. It is the union of the two above, with the same {{0}}, the same backup obligation, and the same hardware floor.",
@@ -3723,7 +3723,7 @@
     "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. This is what openplate.de is, and it is off by default: a self-hoster who sets nothing gets the open app.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Eine Instanz, die {{0}} setzt, ist eine {{1}}: Eine Administration lädt Personen per E-Mail ein, und jedes Konto enthält ein tägliches KI-Guthaben, sodass die Anmeldung einer Person Tagebuch und KI in einem Schritt bereitstellt. Genau das ist openplate.de, und es ist standardmäßig deaktiviert: Ein Self-Hoster, der nichts einstellt, erhält die offene App."
+    "de": "Eine Instanz, die {{0}} setzt, ist eine {{1}}: Ein Administrator lädt Personen per E-Mail ein, und jedes Konto hat ein tägliches KI-Kontingent, sodass die Anmeldung einer Person sowohl das Tagebuch als auch die KI in einem Schritt bereitstellt. Das ist das Modell von openplate.de, und es ist standardmäßig deaktiviert: Wer selbst hostet und nichts einstellt, erhält die offene App."
   },
   "56463407cd5f101f": {
     "en": "one integer per account per UTC day",
@@ -3903,7 +3903,7 @@
     "en": "ciphertext, no key sent",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Chiffretext, kein Schlüssel übertragen"
+    "de": "Geheimtext, kein Schlüssel gesendet"
   },
   "5b9ac5ececf14626": {
     "en": "✅ {{0}} — see the readiness note below",
@@ -3920,8 +3920,8 @@
   "5bda8302b5ecf4d3": {
     "en": "Recovery code",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Wiederherstellungsschlüssel"
+    "at": "2026-09-06",
+    "de": "Wiederherstellungscode"
   },
   "5bdfcd39f67bc314": {
     "en": "Both recovery endpoints share {{0}} throttle bucket per (IP, email), and neither clears it on success. They authenticate the same secret, so a separate allowance for each would halve the cost of guessing it, and a legitimate recovery happens once, so no honest client needs its allowance back. {{1}} is throttled under the same rule.",
@@ -4239,7 +4239,7 @@
     "en": "{{0}} An email address, an opaque ciphertext blob per account, wrapped key records it cannot unwrap, and each account's recovery code sealed under a key in the environment. It cannot read the ciphertext, not as a policy, but as a consequence of never receiving a key: your passphrase never leaves your device, and what reaches the server is a derived value that authenticates you and decrypts nothing. The escrowed recovery code is the deliberate exception, and it is what makes \"forgot password\" restore the diary rather than only the login. {{1}}, not through an endpoint, there is none, but by reading that column with {{2}} in hand. A self-hosted instance is its own operator. The full argument, including what it costs and why it was taken, is {{3}}.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "{{0}} Eine E-Mail-Adresse, ein opaker Chiffretext-Blob pro Konto, verpackte Schlüsseldatensätze, die er nicht entpacken kann, und der mit einem Schlüssel aus der Umgebung versiegelte Wiederherstellungscode jedes Kontos. Er kann den Chiffretext nicht lesen, nicht aus Prinzip, sondern weil er schlicht keinen Schlüssel erhält: Deine Passphrase verlässt nie dein Gerät, und den Server erreicht ein abgeleiteter Wert, der dich authentifiziert und nichts entschlüsselt. Der hinterlegte Wiederherstellungscode ist die bewusste Ausnahme, und er sorgt dafür, dass „Passwort vergessen“ das Tagebuch wiederherstellt und nicht nur die Anmeldung. {{1}}, nicht über einen Endpunkt, denn es gibt keinen, sondern indem man diese Spalte liest, wenn man {{2}} besitzt. Eine selbstgehostete Instanz betreibt sich selbst. Die vollständige Begründung, einschließlich der Kosten und warum diese Entscheidung getroffen wurde, steht in {{3}}."
+    "de": "{{0}} Eine E-Mail-Adresse, ein opakes Geheimtext-Blob pro Konto, verschlüsselte Schlüsseldatensätze, die er nicht entschlüsseln kann, und der Wiederherstellungscode jedes Kontos, versiegelt mit einem Schlüssel aus der Umgebung. Er kann den Geheimtext nicht lesen, nicht aus Richtliniengründen, sondern weil er schlicht nie einen Schlüssel erhält: Deine Passphrase verlässt dein Gerät nie, und der Server empfängt lediglich einen abgeleiteten Wert, der dich authentifiziert und nichts entschlüsselt. Der hinterlegte Wiederherstellungscode ist die bewusste Ausnahme; er sorgt dafür, dass \"Passwort vergessen\" das Tagebuch wiederherstellt und nicht nur den Zugang. {{1}}, nicht über einen Endpunkt, es gibt keinen, sondern durch Auslesen dieser Spalte mit {{2}}. Eine selbst gehostete Instanz verwaltet sich selbst. Die vollständige Begründung samt Kosten und Beweggründen findest du unter {{3}}."
   },
   "634be19187bd999f": {
     "en": "Rung 1 changes one box. The page comes from a container you run, and the photo path is exactly the one above.",
@@ -5655,7 +5655,7 @@
     "en": "On a managed instance the signed-in member scans through the sync server's AI proxy, which counts the request against a daily allowance.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Auf einer verwalteten Instanz scannt das angemeldete Mitglied über den KI-Proxy des Synchronisierungsservers, der die Anfrage auf ein Tageskontingent anrechnet."
+    "de": "Auf einer Managed Instance scannt das angemeldete Mitglied über den KI-Proxy des Sync-Servers, der die Anfrage auf ein tägliches Kontingent anrechnet."
   },
   "850994dc8d037140": {
     "en": "{{0}}: the sync terms, including the claim that deletion is immediate with no grace period. Confirm that matches what the product does before relying on it.",
@@ -5942,8 +5942,8 @@
   "8cc3a0ff8e98c6e7": {
     "en": "Your password never leaves your browser. It is stretched with Argon2id and split by HKDF into two independent branches: one wraps the data key and stays on the device, the other is sent to the service as the login credential. The two are cryptographic siblings, not parent and child, so holding one reveals nothing about the other. Your diary is encrypted on the device before it is uploaded and stays encrypted in transit; the service stores opaque ciphertext, and what it sees beside that is an email address plus the size and timing of your uploads.",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Dein Passwort verlässt deinen Browser nie. Es wird mit Argon2id gestreckt und per HKDF in zwei unabhängige Zweige aufgeteilt: Einer verpackt den Datenschlüssel und verbleibt auf dem Gerät, der andere wird als Anmeldedaten an den Dienst gesendet. Beide sind kryptografische Geschwister, nicht Elternteil und Kind, sodass der Besitz des einen nichts über den anderen verrät. Dein Tagebuch wird vor dem Hochladen auf dem Gerät verschlüsselt und bleibt während der Übertragung verschlüsselt; der Dienst speichert opaken Chiffretext, und abgesehen davon sieht er nur eine E-Mail-Adresse sowie Größe und Zeitpunkt deiner Uploads."
+    "at": "2026-09-06",
+    "de": "Dein Passwort verlässt deinen Browser nie. Es wird mit Argon2id gestreckt und per HKDF in zwei unabhängige Zweige getrennt: Einer verschlüsselt den Datenschlüssel und bleibt auf dem Gerät, der andere wird als Anmeldedaten an den Dienst gesendet. Beide Zweige sind kryptografische Geschwister, keine Eltern-Kind-Beziehung, sodass der Besitz des einen nichts über den anderen verrät. Dein Tagebuch wird vor dem Hochladen auf dem Gerät verschlüsselt und bleibt bei der Übertragung verschlüsselt; der Dienst speichert opaken Geheimtext und sieht darüber hinaus nur eine E-Mail-Adresse sowie Größe und Zeitpunkt deiner Uploads."
   },
   "8ce9f3a72ceababf": {
     "en": "Macros are resolved from a food database, by name, never generated by the model.",
@@ -6117,7 +6117,7 @@
     "en": "{{0}} With a prompt the model cannot answer in the required shape, we saw it emit {{1}} followed by whitespace until it hit the token cap: the grammar holds (it never produced prose, even when explicitly asked for a haiku), but the model fills the unconstrained whitespace instead of the content. That surfaces here as the {{2}} error, which names the token cap. A real plate photo did not trigger it; an off-task prompt did.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "{{0}} Bei einem Prompt, den das Modell nicht im geforderten Format beantworten kann, gab es {{1}} gefolgt von Whitespace aus, bis das Token-Limit erreicht war: Die Grammatik hält stand (es erzeugte nie Fließtext, selbst bei der expliziten Bitte um ein Haiku), aber das Modell füllt den unbeschränkten Whitespace statt des Inhalts. Das äußert sich hier als Fehler {{2}}, der das Token-Limit nennt. Ein echtes Foto eines Tellers löste dies nicht aus, ein unpassender Prompt hingegen schon."
+    "de": "{{0}} Bei einem Prompt, den das Modell nicht in der geforderten Struktur beantworten kann, gab es {{1}} gefolgt von Whitespace aus, bis das Token-Limit erreicht war: Die Grammatik greift (es entstand nie Fließtext, selbst bei expliziter Aufforderung zu einem Haiku), aber das Modell füllt den unbeschränkten Leerraum statt des Inhalts. Das äußert sich hier als Fehler {{2}}, der das Token-Limit nennt. Ein echtes Tellerfoto löste dies nicht aus, ein themenfremder Prompt hingegen schon."
   },
   "91bb874622509a5e": {
     "en": "A remote endpoint",
@@ -7060,12 +7060,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} muss vorhanden sein"
-  },
-  "a4abf34499afe9d6": {
-    "en": "The app always carries a {{0}} route, and it is inert on an ordinary instance. It comes to life only when the sync service it talks to has {{1}}, which is {{2}} — an instance you stand up without touching that flag runs no study, holds no study graph, and offers nothing to enrol in. Read {{3}}'s {{4}} before turning it on: it makes the server hold health-adjacent personal data, which is a different undertaking from holding ciphertext it cannot read.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Die App enthält immer eine {{0}}-Route, die auf einer gewöhnlichen Instanz inaktiv ist. Sie wird erst lebendig, wenn der Sync-Dienst, mit dem sie kommuniziert, {{1}} hat, was {{2}} ist, eine Instanz, die du aufsetzt, ohne dieses Flag anzurühren, führt keine Studie durch, speichert keinen Studiengraph und bietet nichts an, wofür man sich anmelden könnte. Lies die {{4}} von {{3}}, bevor du es aktivierst: Dadurch speichert der Server gesundheitsbezogene personenbezogene Daten, was eine andere Aufgabe ist, als Chiffretext vorzuhalten, den er nicht lesen kann."
   },
   "a4d99bfe7fb9c467": {
     "en": "bundled mode too",
@@ -8162,8 +8156,8 @@
   "bd12510c997e61db": {
     "en": "{{0}} runs one ceremony: the invite is redeemed by the signup request itself, in one transaction, and the account carries both the diary and the allowance from that point on. The \"Skip, I already have an account\" action is gone, because on such an instance the person offered it has neither.",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}} führt eine einzige Zeremonie aus: Die Einladung wird direkt durch die Registrierungsanfrage in einer Transaktion eingelöst, und das Konto enthält ab diesem Zeitpunkt sowohl das Tagebuch als auch das Guthaben. Die Aktion \"Überspringen, ich habe bereits ein Konto\" entfällt, da die angesprochene Person auf einer solchen Instanz weder das eine noch das andere besitzt."
+    "at": "2026-09-06",
+    "de": "{{0}} führt eine einzige Zeremonie aus: Die Einladung wird direkt durch die Registrierungsanfrage in einer Transaktion eingelöst, und das Konto enthält ab diesem Moment sowohl das Tagebuch als auch das Kontingent. Die Aktion \"Überspringen, ich habe bereits ein Konto\" entfällt, da der Person auf einer solchen Instanz beides fehlt."
   },
   "bd17cf36c893750c": {
     "en": "The grantor's own grants. {{0}} — a blob addressed to somebody else's key has no use here, so it does not travel where nobody needs it.",
@@ -8360,8 +8354,8 @@
   "c31a0e7c295cca12": {
     "en": "The service cannot read a single entry, which also means it cannot recover one on its own: a forgotten password is reset by a mailed link, and the server holds an escrowed recovery code that unwraps the data key after the reset. {{0}} states that trade-off in full, and so does the app before you finish setting sync up.",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Der Dienst kann keinen einzigen Eintrag lesen. Das bedeutet auch, dass er einen Eintrag nicht von sich aus wiederherstellen kann: Ein vergessenes Passwort wird über einen per E-Mail versendeten Link zurückgesetzt, und der Server verwahrt einen Treuhand-Wiederherstellungsschlüssel, der den Datenschlüssel nach dem Zurücksetzen entsperrt. {{0}} beschreibt diesen Kompromiss ausführlich, und die App tut dies ebenfalls, bevor du das Einrichten der Synchronisierung abschließt."
+    "at": "2026-09-06",
+    "de": "Der Dienst kann keinen einzigen Eintrag lesen, was auch bedeutet, dass er Einträge nicht selbstständig wiederherstellen kann: Ein vergessenes Passwort wird über einen per E-Mail gesendeten Link zurückgesetzt, und der Server hält einen hinterlegten Wiederherstellungscode vor, der den Datenschlüssel nach dem Zurücksetzen entschlüsselt. {{0}} beschreibt diesen Kompromiss ausführlich, und die App tut dies ebenfalls, bevor du die Einrichtung des Syncs abschließt."
   },
   "c322b6a1ed0a320c": {
     "en": "With {{0}} configured nor matching, the whole subtree answers the same {{1}} any unknown path does, to everybody. An instance that never configured an operator token is indistinguishable from one built before the feature existed. A {{2}} there would announce that a credential exists and is merely locked.",
@@ -8456,8 +8450,8 @@
   "c5efeb71858058fa": {
     "en": "This instance preset ({{0}}) is set by this instance's own operator for every visitor. {{1}} is a related, now-legacy value: it marked an AI settings row handed out by the old openplate-gateway invite flow, retired in M192. A managed instance no longer writes that row at all: the account itself carries the allowance, and the AI proxy is reached through {{2}}, not a separate settings entry.",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Diese Instanz-Voreinstellung ({{0}}) wird von der Leitung dieser Instanz für jeden Besucher festgelegt. {{1}} ist ein verwandter, inzwischen veralteter Wert: Er markierte eine Zeile in den KI-Einstellungen, die über den alten Einladungsablauf von openplate-gateway vergeben und in M192 eingestellt wurde. Eine verwaltete Instanz schreibt diese Zeile überhaupt nicht mehr: Das Konto selbst trägt das Guthaben, und der KI-Proxy wird über {{2}} erreicht, nicht über einen separaten Eintrag in den Einstellungen."
+    "at": "2026-09-06",
+    "de": "Diese Instanz-Voreinstellung ({{0}}) legt die betreibende Person dieser Instanz für alle Besucher fest. {{1}} ist ein verwandter, veralteter Wert: Er kennzeichnete eine KI-Einstellungszeile aus dem alten Einladungsablauf von openplate-gateway, der in M192 entfernt wurde. Eine Managed Instance schreibt diese Zeile überhaupt nicht mehr: Das Konto selbst trägt das Kontingent, und der KI-Proxy wird über {{2}} erreicht, nicht über einen separaten Eintrag in den Einstellungen."
   },
   "c5f5571c2c9c4374": {
     "en": "pull",
@@ -9279,7 +9273,7 @@
     "en": "openplate-sync, email and ciphertext",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "openplate-sync, E-Mail und Chiffretext"
+    "de": "openplate-sync, E-Mail und Geheimtext"
   },
   "d728b87ba5c07f49": {
     "en": "The write is accepted {{0}} {{1}} equals the account's current version. This is the entire concurrency model. There is no force-push and no {{2}}-less write.",
@@ -9411,7 +9405,7 @@
     "en": "If your reason for climbing this ladder was \"my household needs more than one AI key\", the first answer is not a rung at all. It is solved at the provider, with per-person keys and per-person spend limits, and it needs no extra software. {{0}} has the steps, and, when your provider will not issue capped sub-keys, a managed sync server as the fallback (rung 2, with {{1}}).",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
-    "de": "Wenn dein Grund für diesen Weg war, dass dein Haushalt mehr als einen KI-Schlüssel braucht, liegt die erste Lösung auf gar keiner Stufe. Sie wird direkt beim Anbieter gelöst, über eigene Schlüssel und Ausgabenlimits pro Person, ganz ohne zusätzliche Software. {{0}} beschreibt die Schritte, und, falls dein Anbieter keine begrenzten Unterschlüssel ausstellt, einen verwalteten Synchronisierungsserver als Rückfallebene (Stufe 2 mit {{1}})."
+    "de": "War dein Grund für diesen Schritt die Anforderung \"mein Haushalt braucht mehr als einen KI-Schlüssel\", liegt die primäre Lösung gar nicht auf dieser Skala. Das Problem lässt sich beim Anbieter lösen, mit Schlüsseln und Ausgabenlimits pro Person, ganz ohne zusätzliche Software. {{0}} beschreibt die Schritte und nennt für Fälle, in denen dein Anbieter keine begrenzten Sub-Keys bereitstellt, einen verwalteten Sync-Server als Ausweichlösung (Stufe 2, mit {{1}})."
   },
   "d9e4dff12b40d263": {
     "en": "The client holds all the keys. It serializes its whole local store, gzips it, encrypts it with AES-256-GCM under a key the server has never seen, and pushes the result as one opaque blob. The server stores bytes, versions them, and refuses writes that would clobber another device's. It also stores two small {{0}} (the same data-encryption key wrapped under two different key-encryption keys, one derived from the user's passphrase and one from a recovery code) so a second device can bootstrap. The server cannot decrypt any of it. That is not a policy; it is what the math permits.",
@@ -10630,12 +10624,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das Rotieren des Wiederherstellungscodes ist ein Alles-oder-Nichts-Vorgang, und in Protokoll 2 ist das eine DREI-Wege-Regel."
-  },
-  "fa8c3ef1d679b5df": {
-    "en": "{{0}} Set {{1}} and the instance becomes one an administrator runs for a household or an organization: they invite people by email from {{2}} (or the sync-api CLI), give each account a daily allowance, and every signed-in scan runs through the sync server's own AI proxy — no separate service, no separate invite link. See {{3}} and {{4}} for when this is worth turning on instead of provider sub-keys.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}} Setze {{1}}, und die Instanz wird zu einer, die ein Administrator für einen Haushalt oder eine Organisation betreibt: Er lädt Personen per E-Mail über {{2}} (oder das sync-api-CLI) ein, weist jedem Konto ein Tagesbudget zu, und jeder Scan angemeldeter Nutzer läuft über den KI-Proxy des Sync-Servers selbst, kein eigener Dienst, kein separater Einladungslink. Wann sich das gegenüber Provider-Subschlüsseln lohnt, steht in {{3}} und {{4}}."
   },
   "fa97ed5ae7840921": {
     "en": "Profiles, measured GPU and CPU numbers, VRAM and RAM floors, minimum box",

@@ -37,10 +37,22 @@ describe('the language of the picture', () => {
    * fallback is broken": it is "the site now ships a language whose readers will see English
    * screenshots". Somebody decides between capturing the set and accepting that, and writes the
    * decision down. What is forbidden is finding out from a reader.
+   *
+   * ── THE DECISION, TAKEN FOR FRENCH IN M197 ──
+   * Accepted, deliberately, and it is the first time this list has had a member. The captures come
+   * from `openplate/scripts/capture-landing.ts`, which renders the APPLICATION, and the application
+   * ships German and English interfaces and no French one. There is no French screenshot to sync
+   * because there is no French screen to photograph, so capturing the set is not a job on this
+   * repository at all: it is a translation of the app, and it is not what this milestone is. Until
+   * then a French page shows the English captures under French prose, which is a visible seam and
+   * is written down here rather than found by a reader. Remove `fr` from this list the day the app
+   * speaks it.
    */
-  it('has captures for every language the site ships copy for', () => {
+  const SHOWN_ENGLISH_CAPTURES = ['fr'];
+
+  it('has captures for every language the site ships copy for, or a decision on record', () => {
     const uncaptured = SUPPORTED_LANGUAGES.filter((language) => shotLocale(language) !== language);
-    assert.deepEqual([...uncaptured], [], 'these languages would be shown English screenshots');
+    assert.deepEqual([...uncaptured], SHOWN_ENGLISH_CAPTURES, 'these languages would be shown English screenshots');
   });
 });
 

@@ -1,0 +1,164 @@
+{
+  "site": {
+    "name": "openplate",
+    "tagline": "Un journal alimentaire open source qui tourne sur ton appareil.",
+    "skipToContent": "Aller au contenu",
+    "exampleData": "Ces écrans affichent des données d'exemple, pas un vrai journal.",
+    "nav": {
+      "app": "Application",
+      "sync": "Serveur de synchronisation",
+      "inference": "Moteur d'inférence",
+      "docs": "Documentation"
+    },
+    "footer": {
+      "sourceCode": "Code source"
+    },
+    "language": {
+      "label": "Langue"
+    },
+    "links": {
+      "docsLabel": "Documentation",
+      "releasesLabel": "Versions"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "openplate",
+      "hero": {
+        "body": "openplate est un journal alimentaire open source qui tourne sur ton appareil, avec une analyse photo facultative pour estimer les macros dans ton assiette. Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers.",
+        "lead": "Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers.",
+        "openApp": "Ouvrir l'application",
+        "readSource": "Consulter le code",
+        "inviteNote": "L'instance hébergée est accessible sur invitation. Déployer ta propre copie ne demande aucune invitation.",
+        "shotAlt": "Le journal openplate pour une journée : un anneau affichant les glucides nets restants sur la limite quotidienne, le total de protéines et les repas saisis au petit-déjeuner et au déjeuner."
+      },
+      "whatItIs": {
+        "heading": "Ce qu'est openplate"
+      },
+      "features": {
+        "heading": "Ce que tu fais avec",
+        "add": {
+          "title": "Enregistrer un aliment",
+          "body": "Cherche dans la base d'aliments ou choisis un aliment déjà saisi, et l'entrée s'ajoute à la journée sous le repas sélectionné.",
+          "alt": "L'écran d'ajout d'aliment : un champ de recherche, un bouton pour scanner l'assiette à la place et une liste d'aliments récents avec leurs glucides nets."
+        },
+        "scan": {
+          "title": "Scanner une assiette",
+          "body": "Prends l'assiette en photo et le service d'IA que tu as connecté estime les glucides. La photo est envoyée à ce service et nulle part ailleurs.",
+          "alt": "L'écran de scan, qui propose de connecter un fournisseur d'IA avant d'analyser une photo, et un moyen de consigner l'aliment sans IA."
+        },
+        "goals": {
+          "title": "Fixer les objectifs",
+          "body": "Une limite quotidienne de glucides et un objectif de protéines, ou aucun des deux. Chaque objectif est facultatif, vider un champ le supprime.",
+          "alt": "L'écran des objectifs : une limite quotidienne de glucides nets avec des choix prédéfinis et un champ personnalisé, ainsi qu'un objectif de protéines en grammes."
+        },
+        "overview": {
+          "title": "Suivre la journée",
+          "body": "Ce qu'il reste de la limite, si l'objectif de protéines est atteint, et combien de jours tu as enregistrés sur les sept derniers.",
+          "alt": "L'écran de vue d'ensemble : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et une carte pour les sept derniers jours."
+        }
+      },
+      "stack": {
+        "heading": "La stack",
+        "app": {
+          "name": "Application"
+        },
+        "sync": {
+          "name": "Serveur de synchronisation"
+        },
+        "inference": {
+          "name": "Moteur d'inférence"
+        }
+      },
+      "topology": {
+        "heading": "Où vont tes données"
+      },
+      "holds": {
+        "heading": "Qui détient quoi"
+      },
+      "access": {
+        "heading": "Accès",
+        "body": "L'instance hébergée sur openplate.de est accessible uniquement sur invitation. Un administrateur envoie l'invitation ; il n'y a pas d'inscription libre. Si tu préfères exécuter ta propre instance, consulte <selfHosting>Auto-hébergement</selfHosting>."
+      },
+      "openSource": {
+        "heading": "Open source",
+        "body": "openplate et openplate-sync sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      }
+    },
+    "app": {
+      "title": "L'application",
+      "lead": "openplate enregistre les aliments et, si tu le souhaites, estime les macronutriments à partir d'une photo d'assiette. Cherche un aliment ou scanne une assiette, et l'entrée s'ajoute à ton journal du jour. Sur ta propre installation, aucun écran d'inscription : ouvre l'application et commence à consigner. Sur l'instance hébergée, tu te connectes d'abord.",
+      "shotIntro": "Le journal fonctionne jour par jour : les repas enregistrés, ce qu'ils consomment sur la limite du jour, et ce qu'il en reste.",
+      "shotAlt": "Le journal d'openplate sur un téléphone : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et les repas du jour regroupés sous petit-déjeuner et déjeuner.",
+      "stores": {
+        "heading": "Ce qui est stocké sur l'appareil"
+      },
+      "leaves": {
+        "heading": "Ce qui quitte l'appareil"
+      },
+      "links": {
+        "architecture": "architecture",
+        "selfHosting": "auto-hébergement"
+      }
+    },
+    "sync": {
+      "title": "Le serveur de synchronisation",
+      "lead": "openplate-sync transmet ton journal entre tes propres appareils. Il stocke une adresse e-mail, un bloc chiffré de ton journal qu'il ne peut pas lire, et un code de récupération scellé pour le seul cas où un mot de passe oublié le nécessiterait.",
+      "reads": {
+        "heading": "Ce qu'il ne peut pas lire"
+      },
+      "knows": {
+        "heading": "Ce qu'il sait"
+      },
+      "tenancy": {
+        "heading": "Instances gérées"
+      },
+      "links": {
+        "protocol": "protocole",
+        "releases": "notes de version"
+      }
+    },
+    "inference": {
+      "title": "Le moteur d'inférence",
+      "lead": "openplate-inference est un scanner de photo d'assiette que tu fais tourner sur ton propre matériel. Il identifie les aliments dans l'assiette et estime leur poids en grammes, puis consulte les macronutriments dans une base de données intégrée plutôt que d'inventer des chiffres.",
+      "hardware": {
+        "heading": "Matériel"
+      },
+      "privacy": {
+        "heading": "Confidentialité"
+      },
+      "audience": {
+        "heading": "À qui cela s'adresse",
+        "body": "Aux personnes qui s'auto-hébergent et veulent analyser leurs photos d'assiette sans compte d'IA dans le cloud et sans qu'aucune photo ne quitte leur réseau. Il ne fait pas partie de l'instance hébergée sur openplate.de."
+      },
+      "links": {
+        "hardware": "matériel",
+        "privacy": "confidentialité"
+      }
+    },
+    "docs": {
+      "title": "Documentation",
+      "intro": "Ces pages documentent les trois services : l'application, le serveur de synchronisation et le moteur d'inférence auto-hébergé. Commence par le service que tu utilises, ou par Auto-hébergement si tu pars de zéro."
+    },
+    "docsPage": {
+      "title": "Page de documentation"
+    },
+    "releases": {
+      "title": "Notes de version"
+    },
+    "imprint": {
+      "title": "Mentions légales",
+      "representedBy": "Représentée par",
+      "register": "Registre du commerce",
+      "vatId": "Numéro de TVA",
+      "email": "E-mail"
+    },
+    "privacy": {
+      "title": "Confidentialité",
+      "body": "Ce site utilise Matomo sans cookies pour compter les visites ; il ne te suit pas d'un site à l'autre et n'établit aucun profil te concernant. Ce site ne gère aucun compte en soi ; les comptes accessibles sur invitation appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application stocke et envoie, consulte sa propre page de confidentialité, accessible depuis l'application."
+    },
+    "notFound": {
+      "title": "Page introuvable"
+    }
+  }
+}

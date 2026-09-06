@@ -1,7 +1,7 @@
 /**
  * i18n.ts, the shared i18next singleton.
  *
- * Both locale bundles are inline ESM imports, so they are part of the app
+ * Every locale bundle is an inline ESM import, so they are part of the app
  * bundle: no runtime fetch and no loading state. That matters more here than in
  * an ordinary app, because the pages are prerendered: a bundle that had to be
  * fetched would leave every static HTML file with untranslated markup.
@@ -25,11 +25,14 @@ import deCommon from './locales/de/common.json';
 import deDocs from './locales/de/docs.json';
 import enCommon from './locales/en/common.json';
 import enDocs from './locales/en/docs.json';
+import frCommon from './locales/fr/common.json';
+import frDocs from './locales/fr/docs.json';
 
 void i18next.use(initReactI18next).init({
   resources: {
     en: { common: enCommon, docs: enDocs },
     de: { common: deCommon, docs: deDocs },
+    fr: { common: frCommon, docs: frDocs },
   },
   // Two different languages, and they used to be one. `lng` is the language of
   // the document being rendered before `I18nProvider` says otherwise, so it

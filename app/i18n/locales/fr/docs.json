@@ -1,0 +1,17 @@
+{
+  "title": "Documentation",
+  "intro": "Chaque guide ici est le fichier maintenu par le dépôt lui-même, extrait dans sa version publiée et diffusé tel quel.",
+  "nav": "Documentation",
+  "onThisPage": "Sur cette page",
+  "diagramSource": "Source du schéma",
+  "edit": "Modifier cette page sur GitHub",
+  "releases": "Notes de version",
+  "noReleases": "Ce composant n'a pas encore publié de notes de version.",
+  "machineTranslated": "Cette page est traduite automatiquement à partir de la documentation en anglais.",
+  "untranslated": "Cette page n'est pas encore traduite. Elle est affichée en anglais.",
+  "components": {
+    "app": "L'application",
+    "sync": "Le serveur de synchronisation",
+    "inference": "Le moteur d'inférence"
+  }
+}

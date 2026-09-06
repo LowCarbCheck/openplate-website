@@ -14,6 +14,7 @@ import {
   LANGUAGE_PREFIXES,
   PREFIXED_LANGUAGES,
   SUPPORTED_LANGUAGES,
+  TRANSLATED_LANGUAGES,
   languageFromPathname,
   languageFromRequest,
   localizePath,
@@ -29,6 +30,8 @@ describe('languageFromPathname', () => {
   it('reads a prefixed language from its own root and from a page under it', () => {
     assert.equal(languageFromPathname('/en'), 'en');
     assert.equal(languageFromPathname('/en/docs'), 'en');
+    assert.equal(languageFromPathname('/fr'), 'fr');
+    assert.equal(languageFromPathname('/fr/docs/app/architecture'), 'fr');
   });
 
   it('matches the prefix as a whole segment, not as a string prefix', () => {
@@ -66,7 +69,8 @@ describe('the language table', () => {
     assert.equal(DEFAULT_LANGUAGE, 'de');
     assert.equal(LANGUAGE_PREFIXES.de, '');
     assert.equal(LANGUAGE_PREFIXES.en, '/en');
-    assert.deepEqual([...SUPPORTED_LANGUAGES], ['de', 'en']);
+    assert.equal(LANGUAGE_PREFIXES.fr, '/fr');
+    assert.deepEqual([...SUPPORTED_LANGUAGES], ['de', 'en', 'fr']);
   });
 
   it('keeps the source language apart from the default one', () => {
@@ -79,6 +83,19 @@ describe('the language table', () => {
 
   it('names German first, because the switcher shows them in this order', () => {
     assert.equal(SUPPORTED_LANGUAGES[0], 'de');
+  });
+
+  it('asks a translator for every language except the source one', () => {
+    // TRANSLATED_LANGUAGES and PREFIXED_LANGUAGES differ by one member each way, which is the
+    // reason both exist: German is unprefixed and translated, English is prefixed and is the
+    // source. A caller that reads the wrong list gets a plausible answer and the wrong work.
+    //
+    // There is no case here for "the source language is absent". The predicate on the filter
+    // narrows the element type to `TranslatedLanguage`, so `=== SOURCE_LANGUAGE` does not
+    // compile: the compiler already refuses the mistake, and a test for it would only pin that
+    // the compiler still works.
+    assert.deepEqual([...TRANSLATED_LANGUAGES], ['de', 'fr']);
+    assert.notDeepEqual([...TRANSLATED_LANGUAGES], [...PREFIXED_LANGUAGES]);
   });
 
   it('gives the default language no prefix and every other language one', () => {

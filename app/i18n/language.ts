@@ -3,10 +3,11 @@
  *
  * This site is prerendered to static HTML at build time, so the language cannot
  * come from a cookie, a header or a stored preference: those are read at
- * request time, and there is no request. Every page therefore exists twice, at
- * its German path and again under the `/en` prefix, and the prefix in the URL
- * IS the language. A crawler, a shared link and a browser back button all agree
- * on which document they are looking at, and both copies are cacheable forever.
+ * request time, and there is no request. Every page therefore exists once per
+ * language, at its German path and again under `/en` and `/fr`, and the prefix
+ * in the URL IS the language. A crawler, a shared link and a browser back
+ * button all agree on which document they are looking at, and every copy is
+ * cacheable forever.
  *
  * ── THE DEFAULT LANGUAGE AND THE SOURCE LANGUAGE ARE NOT THE SAME THING ──
  * They were the same value while both were `en`, and reading one where the
@@ -32,7 +33,7 @@
  */
 
 /** The languages the site ships copy for, in the order the switcher names them. */
-export const SUPPORTED_LANGUAGES = ['de', 'en'] as const;
+export const SUPPORTED_LANGUAGES = ['de', 'en', 'fr'] as const;
 
 export type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number];
 
@@ -53,6 +54,7 @@ export const SOURCE_LANGUAGE = 'en' satisfies LanguageCode;
 export const LANGUAGE_LABELS = {
   de: 'Deutsch',
   en: 'English',
+  fr: 'Français',
 } satisfies Record<LanguageCode, string>;
 
 /**
@@ -63,7 +65,30 @@ export const LANGUAGE_LABELS = {
 export const LANGUAGE_PREFIXES = {
   de: '',
   en: '/en',
+  fr: '/fr',
 } satisfies Record<LanguageCode, string>;
+
+/**
+ * A language whose words are made from another language's, i.e. every one except the source.
+ *
+ * The type, not the list, so that a `Record` keyed by it is a COMPILE ERROR the day a fourth
+ * language is added without the file that language needs. `docs-i18n.server.ts` keys its map of
+ * translation memories by this, which is what turns "a language with no memory" from a page that
+ * silently renders English into a build that refuses to finish.
+ */
+export type TranslatedLanguage = Exclude<LanguageCode, typeof SOURCE_LANGUAGE>;
+
+/**
+ * Every language a translator has to be paid for, in the switcher's order.
+ *
+ * Separate from PREFIXED_LANGUAGES, and the two lists happen to differ by exactly one member each
+ * way: German is not prefixed but is translated, English is prefixed but is not translated. They
+ * answer different questions, so a caller that reads the wrong one gets a plausible list and the
+ * wrong work. The route table wants the prefixed ones; the translator wants these.
+ */
+export const TRANSLATED_LANGUAGES = SUPPORTED_LANGUAGES.filter(
+  (language): language is TranslatedLanguage => language !== SOURCE_LANGUAGE,
+);
 
 /** Every prefixed language, i.e. every one except the default. Drives the route table. */
 export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter(

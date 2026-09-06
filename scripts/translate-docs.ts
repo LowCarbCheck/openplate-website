@@ -29,12 +29,19 @@
  * sentence is retranslated and every other stays put. A sentence with no
  * translation renders its English, never a blank.
  *
- * ── ONE LANGUAGE, WHERE COLLIE HAS SIX ──
+ * ── ONE LANGUAGE PER RUN, AND THE BUDGET IS THE RUN'S ──
  * collie's script takes every locale at once, because a per-locale ceiling is
  * not a ceiling: five invocations of "at most $0.25" is a run that may spend
- * $1.25. This site publishes one language besides English, so `--locale` takes
- * one and the budget is the run's. When a second language arrives, that is the
- * reason to take collie's loop back rather than to invoke this twice.
+ * $1.25. A second language did arrive, and this still takes one `--locale`,
+ * because the two properties that matter here are per language and not per
+ * run. A German chunk that comes back short is retried and split against the
+ * German memory, and the memory it is written to is a file per language; a
+ * loop inside one process would share a budget, an exit code and a partial
+ * write across corpora that have nothing to do with each other, so a French
+ * outage would stop the German pass from saving what it had already bought.
+ * The loop lives in `.github/workflows/sync-docs.yml` instead, where each
+ * locale is its own step, its own ceiling and its own reported number, and
+ * where the SUM of the ceilings is written down beside them.
  *
  * PORTED FROM collie-website's `scripts/translate-docs.ts`, bun to node. The
  * paid half is in `scripts/lib/translate.ts`; the reason for the cut is written
@@ -54,6 +61,7 @@ import {
   collectUnits,
   dashOffenders,
   fill,
+  glossaryOffenders,
   loadMemory,
   lookup,
   markerInSource,
@@ -126,7 +134,7 @@ const words = misses.reduce((sum, unit) => sum + unit.source.split(/\s+/).length
 
 console.log(
   `translate-docs: ${LOCALE} — ${units.size} sentences, ${done.size} in memory, ` +
-    `${misses.length} to translate (~${words} words).`,
+    `${misses.length} misses to translate (~${words} words).`,
 );
 
 /**
@@ -160,6 +168,29 @@ if (quote.requests > 0) {
   );
 } else {
   console.log('translate-docs: nothing to translate, 0.0000 USD.');
+}
+
+/**
+ * ── THE GLOSSARY PASS: A LIST, AND NOT AN EXIT CODE ──
+ * The dash check at the bottom of this file refuses the run, because a dash is a character and its
+ * presence is a fact.
+ * A term is a word in a sentence and a correct translation may legitimately not use it, so this
+ * one only reports. It exists so that a term splitting into two words is something an operator can
+ * ASK about rather than something found by reading a rendered page, which is how the first one was
+ * found. The hashes are the answer: delete them and the next run buys those sentences again, this
+ * time with the glossary in the prompt.
+ *
+ * It runs BEFORE the dry-run exit, unlike the dash pass, because it reads the memory on disk and
+ * sends nothing. A dry run is exactly the moment somebody is looking before they pay.
+ */
+const drifted = glossaryOffenders(memory, LOCALE);
+if (drifted.length > 0) {
+  console.log(
+    `translate-docs: ${drifted.length} translations do not use the agreed word for a glossary term. ` +
+      `Some of those are fine, a sentence may answer a term without the noun. Read them, and delete ` +
+      `the hashes of the ones that picked a synonym:`,
+  );
+  for (const { key, term } of drifted) console.log(`  ${key}  ${term}`);
 }
 
 if (DRY) {

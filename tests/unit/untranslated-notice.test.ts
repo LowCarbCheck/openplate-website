@@ -26,6 +26,14 @@ describe('needsLanguageNotice', () => {
     assert.equal(needsLanguageNotice('en'), false);
   });
 
+  it('fires on a French page, which is the third language and not the second source', () => {
+    // A third language is where a "is this the other one" rule would have been found out. The
+    // predicate has never been a comparison against German, but a reader of the notice cannot
+    // tell that from one case, and the whole failure this file exists for renders a page either
+    // way.
+    assert.equal(needsLanguageNotice('fr'), true);
+  });
+
   it('fires on the default language, because the default is no longer the source', () => {
     // Written against the constants rather than the strings, so this case
     // follows the site if another language ever takes the root.

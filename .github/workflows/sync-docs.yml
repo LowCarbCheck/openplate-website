@@ -100,20 +100,59 @@ jobs:
           OPENPLATE_INFERENCE_REF: ${{ inputs.inference_ref }}
         run: pnpm run sync:docs
 
-      - name: Translate what changed
+      # ── ONE PASS PER LANGUAGE, AND THE BUDGET IS PER LANGUAGE TOO ──
+      # `translate-docs.ts` takes one `--locale` on purpose; the note at the top
+      # of it says why, and the short version is that a shared budget, a shared
+      # exit code and a shared partial write across two unrelated corpora means
+      # a French outage stops the German pass from saving what it bought. So the
+      # loop is here.
+      #
+      # THE CONSEQUENCE IS WRITTEN DOWN RATHER THAN HIDDEN: `budget` is the
+      # ceiling for ONE language, so the most this step can spend is that number
+      # times the number of languages. At the default that is 2 x $0.25 = $0.50.
+      # A run that pays anything like that is a first corpus or a re-segmentation,
+      # never a release, and the per-locale numbers below say which locale it was.
+      #
+      # The list comes from `app/i18n/language.ts` and not from a line in this
+      # file. A third language must not need a workflow edit to be translated,
+      # because the edit that would be forgotten is exactly this one, and what it
+      # ships is a language whose pages are silently English.
+      - name: Translate what changed, one language at a time
         id: translate
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           set +e
-          pnpm run translate:docs --budget "${{ inputs.budget || '0.25' }}" | tee "$RUNNER_TEMP/translate.log"
-          code=${PIPESTATUS[0]}
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-          # 2 is "refused on cost". The English docs above are correct and
-          # current and still worth shipping; only the translation waits for
-          # someone to approve the number. Anything else non-zero is a real
-          # break and stops the job here.
-          [ "$code" -eq 0 ] || [ "$code" -eq 2 ]
+          locales=$(node --import tsx --input-type=module \
+            -e "import { TRANSLATED_LANGUAGES } from './app/i18n/language.ts'; console.log(TRANSLATED_LANGUAGES.join(' '));")
+          if [ -z "$locales" ]; then
+            echo "could not read the language list" >&2
+            exit 1
+          fi
+          : > "$RUNNER_TEMP/translate.log"
+          worst=0
+          for locale in $locales; do
+            echo "── $locale ──" | tee -a "$RUNNER_TEMP/translate.log"
+            pnpm run translate:docs --locale "$locale" --budget "${{ inputs.budget || '0.25' }}" \
+              | tee -a "$RUNNER_TEMP/translate.log"
+            code=${PIPESTATUS[0]}
+            echo "translate:docs --locale $locale exited $code" | tee -a "$RUNNER_TEMP/translate.log"
+            # 2 is "refused on cost". The English docs above are correct and
+            # current and still worth shipping; only the translation waits for
+            # someone to approve the number. Anything else non-zero is a real
+            # break and stops the job here.
+            #
+            # A REFUSAL ON ONE LANGUAGE DOES NOT STOP THE NEXT ONE. They are
+            # separate corpora and separate files: a French rebuild that nobody
+            # has approved yet is no reason to leave the German page quoting a
+            # release it no longer tracks.
+            if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then
+              echo "code=$code" >> "$GITHUB_OUTPUT"
+              exit 1
+            fi
+            if [ "$code" -eq 2 ]; then worst=2; fi
+          done
+          echo "code=$worst" >> "$GITHUB_OUTPUT"
 
       # The repo's own gate, tier by tier. There is no `check` script: the
       # pre-push hook runs these four, and this job runs the same four so that
