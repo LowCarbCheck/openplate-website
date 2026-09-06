@@ -12,17 +12,17 @@
  * removed upstream stops being written, without an edit here — the same rule the
  * nav and the sidebar already follow.
  *
- * Every path is emitted once per language. German renders the English blocks
- * until spec 03 translates them, and it says so on the page; a document that
- * exists in one language and 404s in the other would be a worse answer than a
- * translated-later notice.
+ * Every path is emitted once per language. A German page renders the English
+ * blocks until the translator has been over them, and it says so on the page; a
+ * document that exists in one language and 404s in the other would be a worse
+ * answer than a translated-later notice.
  */
 import { PREFIXED_LANGUAGES, localizePath } from './i18n/language';
 import { docRoute, releasesRoute } from './lib/doc-routes';
 import { DOC_COMPONENTS } from './lib/docs';
 import { DOCS_INDEX } from '../src/generated/docs-index';
 
-/** Every generated page, in the canonical English-rooted form. */
+/** Every generated page, in the canonical unprefixed form. */
 export function docPaths(): string[] {
   const paths: string[] = [];
 

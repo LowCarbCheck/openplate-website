@@ -9,6 +9,7 @@ import { describe, it } from 'node:test';
 
 import {
   DEFAULT_LANGUAGE,
+  SOURCE_LANGUAGE,
   canonicalizePath,
   LANGUAGE_PREFIXES,
   PREFIXED_LANGUAGES,
@@ -25,14 +26,14 @@ describe('languageFromPathname', () => {
   });
 
   it('reads a prefixed language from its own root and from a page under it', () => {
-    assert.equal(languageFromPathname('/de'), 'de');
-    assert.equal(languageFromPathname('/de/docs'), 'de');
+    assert.equal(languageFromPathname('/en'), 'en');
+    assert.equal(languageFromPathname('/en/docs'), 'en');
   });
 
   it('matches the prefix as a whole segment, not as a string prefix', () => {
-    // '/design' starts with '/de'. It is an English page and must stay one.
-    assert.equal(languageFromPathname('/design'), DEFAULT_LANGUAGE);
-    assert.equal(languageFromPathname('/dependencies/de'), DEFAULT_LANGUAGE);
+    // '/enterprise' starts with '/en'. It is a German page and must stay one.
+    assert.equal(languageFromPathname('/enterprise'), DEFAULT_LANGUAGE);
+    assert.equal(languageFromPathname('/dependencies/en'), DEFAULT_LANGUAGE);
   });
 });
 
@@ -43,7 +44,7 @@ describe('localizePath', () => {
   });
 
   it('does not leave a trailing slash on a language root', () => {
-    assert.equal(localizePath('/', 'de'), '/de');
+    assert.equal(localizePath('/', 'en'), '/en');
   });
 
   it('round-trips: every page in every language reads back as that language', () => {
@@ -58,6 +59,27 @@ describe('localizePath', () => {
 });
 
 describe('the language table', () => {
+  it('serves German from the root and English from a prefix', () => {
+    // The whole of spec 01 in four lines. A regression here is not a broken
+    // link, it is the site answering the wrong language at every URL it has.
+    assert.equal(DEFAULT_LANGUAGE, 'de');
+    assert.equal(LANGUAGE_PREFIXES.de, '');
+    assert.equal(LANGUAGE_PREFIXES.en, '/en');
+    assert.deepEqual([...SUPPORTED_LANGUAGES], ['de', 'en']);
+  });
+
+  it('keeps the source language apart from the default one', () => {
+    // They were one value while both were English. English is still the
+    // hand-written bundle and the language the translator reads from, so it is
+    // still the source; it is no longer the language of the root URL.
+    assert.equal(SOURCE_LANGUAGE, 'en');
+    assert.notEqual(SOURCE_LANGUAGE, DEFAULT_LANGUAGE);
+  });
+
+  it('names German first, because the switcher shows them in this order', () => {
+    assert.equal(SUPPORTED_LANGUAGES[0], 'de');
+  });
+
   it('gives the default language no prefix and every other language one', () => {
     assert.equal(LANGUAGE_PREFIXES[DEFAULT_LANGUAGE], '');
 
@@ -70,12 +92,12 @@ describe('the language table', () => {
 
 describe('canonicalizePath', () => {
   it('strips a language prefix and leaves an unprefixed path alone', () => {
-    assert.equal(canonicalizePath('/de/sync'), '/sync');
+    assert.equal(canonicalizePath('/en/sync'), '/sync');
     assert.equal(canonicalizePath('/sync'), '/sync');
   });
 
   it('turns a language root back into the site root', () => {
-    assert.equal(canonicalizePath('/de'), '/');
+    assert.equal(canonicalizePath('/en'), '/');
     assert.equal(canonicalizePath('/'), '/');
   });
 

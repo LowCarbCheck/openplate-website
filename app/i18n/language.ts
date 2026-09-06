@@ -4,38 +4,65 @@
  * This site is prerendered to static HTML at build time, so the language cannot
  * come from a cookie, a header or a stored preference: those are read at
  * request time, and there is no request. Every page therefore exists twice, at
- * its English path and again under the `/de` prefix, and the prefix in the URL
+ * its German path and again under the `/en` prefix, and the prefix in the URL
  * IS the language. A crawler, a shared link and a browser back button all agree
  * on which document they are looking at, and both copies are cacheable forever.
+ *
+ * ── THE DEFAULT LANGUAGE AND THE SOURCE LANGUAGE ARE NOT THE SAME THING ──
+ * They were the same value while both were `en`, and reading one where the
+ * other was meant cost nothing. German now owns the root, so the two have come
+ * apart and every reader of this module has to say which one it wants:
+ *
+ *   DEFAULT_LANGUAGE  German. It owns the unprefixed URLs, so `openplate.de/docs`
+ *                     IS the German document, and it is the language of any path
+ *                     that carries no prefix. This is a question about the URL.
+ *   SOURCE_LANGUAGE   English. It is the hand-written bundle, it is the language
+ *                     the upstream repositories write their documentation in,
+ *                     and it is the key the translation memory is stored under.
+ *                     So it stays the fallback for a missing key and the text a
+ *                     translation is made from. This is a question about the
+ *                     words, not about where they are served.
+ *
+ * The rule of thumb: ask for DEFAULT_LANGUAGE when you are routing, ask for
+ * SOURCE_LANGUAGE when you are translating. A check that reads "is this the
+ * default language" and means "is this page untranslated" is now backwards, and
+ * it fails silently, because both branches still render.
  *
  * Client- and server-safe: plain string work, no `document`, no server imports.
  */
 
-/** The languages the site ships copy for. `en` is the fallback for every missing key. */
-export const SUPPORTED_LANGUAGES = ['en', 'de'] as const;
+/** The languages the site ships copy for, in the order the switcher names them. */
+export const SUPPORTED_LANGUAGES = ['de', 'en'] as const;
 
 export type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number];
 
 /**
- * The language that owns the unprefixed paths, and the one answer when the
- * answer is otherwise unknown. `en` is the reference bundle, so it is both.
+ * The language that owns the unprefixed paths, and the one answer when a path
+ * names no language at all.
  */
-export const DEFAULT_LANGUAGE = 'en' satisfies LanguageCode;
+export const DEFAULT_LANGUAGE = 'de' satisfies LanguageCode;
+
+/**
+ * The language every other language is made from, and the fallback for a key
+ * that is missing everywhere else. See the module note above: this is the
+ * hand-written bundle, not the language of the root URL.
+ */
+export const SOURCE_LANGUAGE = 'en' satisfies LanguageCode;
 
 /** Native display names. A language is always named in its own language, never translated. */
 export const LANGUAGE_LABELS = {
-  en: 'English',
   de: 'Deutsch',
+  en: 'English',
 } satisfies Record<LanguageCode, string>;
 
 /**
  * The URL prefix each language lives under. The default language has none, so
- * `openplate.de/docs` stays the canonical English URL rather than redirecting
- * to `/en/docs`.
+ * `openplate.de/docs` stays the canonical German URL rather than redirecting
+ * to `/de/docs`, and English answers at `/en/docs`.
  */
 export const LANGUAGE_PREFIXES = {
-  en: '',
-  de: '/de',
+  de: '',
+  en: '/en',
 } satisfies Record<LanguageCode, string>;
 
 /** Every prefixed language, i.e. every one except the default. Drives the route table. */
@@ -46,8 +73,8 @@ export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter(
 /**
  * The language a pathname is written in.
  *
- * Matches the prefix as a whole segment, so `/design` is English and only
- * `/de` and `/de/...` are German. Anything unrecognised is the default, which
+ * Matches the prefix as a whole segment, so `/enterprise` is German and only
+ * `/en` and `/en/...` are English. Anything unrecognised is the default, which
  * is also what the router does with the same path.
  */
 export function languageFromPathname(pathname: string): LanguageCode {
@@ -61,8 +88,8 @@ export function languageFromPathname(pathname: string): LanguageCode {
 /**
  * The same page, addressed in `language`.
  *
- * `path` is always the canonical English-rooted path (`/docs`, `/`), because
- * that is what the route table is written in. Passing an already-prefixed path
+ * `path` is always the canonical unprefixed path (`/docs`, `/`), because that
+ * is what the route table is written in. Passing an already-prefixed path
  * would double the prefix, so callers hold the canonical form and localise at
  * the point of use.
  */
@@ -73,11 +100,11 @@ export function localizePath(path: string, language: LanguageCode): string {
 }
 
 /**
- * The canonical, English-rooted path of an already-localized pathname.
+ * The canonical, unprefixed path of an already-localized pathname.
  *
  * The inverse of `localizePath`, and the piece the language switcher needs:
- * it holds a German URL and has to name the same page in English before it can
- * localize it again. `/de/sync` becomes `/sync`, `/de` becomes `/`, and an
+ * it holds an English URL and has to name the same page unprefixed before it
+ * can localize it again. `/en/sync` becomes `/sync`, `/en` becomes `/`, and an
  * unprefixed path is already canonical.
  */
 export function canonicalizePath(pathname: string): string {

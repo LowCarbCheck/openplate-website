@@ -35,7 +35,7 @@
  */
 import { createHash } from 'node:crypto';
 
-import { DEFAULT_LANGUAGE, type LanguageCode } from '#app/i18n/language';
+import { SOURCE_LANGUAGE, type LanguageCode } from '#app/i18n/language';
 import { type Block, type ComponentDocs, type DocEntry, type DocFile, type Inline, spansText } from '#app/lib/docs';
 import DE_MEMORY from '../../src/generated/docs-i18n/de.json';
 
@@ -283,12 +283,14 @@ export function collectEntry(entry: DocEntry, out: Map<string, Unit>): void {
 /**
  * The memory for a language, as the flat map everything above reads.
  *
- * The default language has none by definition: it is what the memory is keyed
+ * The SOURCE language has none by definition: it is what the memory is keyed
  * BY, and an empty map makes every `rebuild` return its English without a
- * branch at the call site.
+ * branch at the call site. It is the source language and not the default one,
+ * which are two different languages since German took the root: German is the
+ * default and it is precisely the language that HAS a memory.
  */
 export function translationsFor(language: LanguageCode): Map<string, string> {
-  if (language === DEFAULT_LANGUAGE) return new Map();
+  if (language === SOURCE_LANGUAGE) return new Map();
   // SAFETY: the file is written by `scripts/translate-docs.ts` alone and its
   // shape is asserted there on the way out. Nothing below trusts it beyond
   // "the values are strings": a missing locale field is a miss, and a miss

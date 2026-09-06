@@ -14,7 +14,7 @@ import { PAGES } from '../../app/routes';
 import { STATIC_PATHS, buildSitemapXml } from '../../app/sitemap';
 import { SITE_ORIGIN } from '../../app/site';
 
-/** Every route whose path has no parameter, in the canonical English-rooted form. */
+/** Every route whose path has no parameter, in the canonical unprefixed form. */
 const staticRoutePaths = PAGES.filter((page) => !page.path?.includes(':')).map((page) =>
   page.path === undefined ? '/' : `/${page.path}`,
 );
@@ -40,6 +40,10 @@ describe('buildSitemapXml', () => {
     }
   });
 
+  it('points x-default at the unprefixed URL, which is now the German one', () => {
+    assert.ok(xml.includes(`hreflang="x-default" href="${SITE_ORIGIN}/sync"`));
+  });
+
   it('gives every entry an alternate for each language and an x-default', () => {
     const locations = xml.match(/<loc>/g) ?? [];
     const german = xml.match(/hreflang="de"/g) ?? [];
@@ -54,12 +58,17 @@ describe('buildSitemapXml', () => {
     // Named rather than counted: a sitemap that lost every doc URL would still
     // satisfy a count taken from the same list it was built from.
     assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/docs/sync/protocol</loc>`));
-    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/de/releases/app</loc>`));
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/en/releases/app</loc>`));
     assert.ok(docPaths().length > 0);
   });
 
-  it('addresses a German page under its own prefix, not the English one', () => {
-    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/de/sync</loc>`));
-    assert.ok(!xml.includes(`${SITE_ORIGIN}/de/de`));
+  it('addresses the German page at the root and the English one under /en', () => {
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/sync</loc>`));
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/en/sync</loc>`));
+    assert.ok(!xml.includes(`${SITE_ORIGIN}/en/en`));
+    // The prefix moved with the default. Nothing may still be published at the
+    // old German URLs: nginx 301s them, and a sitemap that named them would be
+    // asking a crawler to walk into the redirect on every page of the site.
+    assert.ok(!xml.includes(`${SITE_ORIGIN}/de/`));
   });
 });

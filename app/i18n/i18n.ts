@@ -20,7 +20,7 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './language';
+import { DEFAULT_LANGUAGE, SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from './language';
 import deCommon from './locales/de/common.json';
 import deDocs from './locales/de/docs.json';
 import enCommon from './locales/en/common.json';
@@ -31,8 +31,15 @@ void i18next.use(initReactI18next).init({
     en: { common: enCommon, docs: enDocs },
     de: { common: deCommon, docs: deDocs },
   },
+  // Two different languages, and they used to be one. `lng` is the language of
+  // the document being rendered before `I18nProvider` says otherwise, so it
+  // follows the URL and is German. The fallback is the language a missing key
+  // is answered from, so it follows the hand-written bundle and is English:
+  // fallbackLng: 'en', for as long as English is the source the German file is
+  // written from. Reading DEFAULT_LANGUAGE for both would make a missing German
+  // key render nothing at all rather than its English.
   lng: DEFAULT_LANGUAGE,
-  fallbackLng: DEFAULT_LANGUAGE,
+  fallbackLng: SOURCE_LANGUAGE,
   supportedLngs: [...SUPPORTED_LANGUAGES],
   defaultNS: 'common',
   ns: ['common', 'docs'],

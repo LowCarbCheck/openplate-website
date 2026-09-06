@@ -7,6 +7,13 @@
  * script. It is built by canonicalizing the current path and localizing it
  * again, which keeps a reader on the same page rather than dropping them on a
  * language root.
+ *
+ * It names German first, and it does that by iterating SUPPORTED_LANGUAGES in
+ * declared order rather than by sorting or by a list of its own. This is a
+ * German site: German is the first language of the switcher for the same reason
+ * it owns the unprefixed URLs. The order therefore lives in one place,
+ * `app/i18n/language.ts`, and a language added there arrives here in the
+ * position it was written in.
  */
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';

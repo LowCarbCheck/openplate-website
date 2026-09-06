@@ -18,13 +18,13 @@ import { SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '#app/i18n/
 import { docPaths } from '#app/prerender';
 import { SITE_ORIGIN } from '#app/site';
 
-/** Every page with a fixed path, in the canonical English-rooted form. */
+/** Every page with a fixed path, in the canonical unprefixed form. */
 export const STATIC_PATHS = ['/', '/app', '/sync', '/inference', '/docs', '/imprint', '/privacy'] as const;
 
 /**
  * One `<url>` block: the page in `language`, with every language listed as an
- * alternate. `canonicalPath` is the English-rooted path, because every URL in
- * the block is derived from it.
+ * alternate. `canonicalPath` is the unprefixed path, because every URL in the
+ * block is derived from it.
  */
 function urlEntry(page: { canonicalPath: string; language: LanguageCode }): string {
   const { canonicalPath, language } = page;

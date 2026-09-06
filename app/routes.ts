@@ -1,11 +1,12 @@
 /**
  * The route table, written once and registered once per language.
  *
- * Every page exists at its English path and again under each prefixed
- * language's path (`/de/...`), as two real routes with distinct ids rather than
- * one route with a `:lang` parameter. The reason is the build: `prerender`
- * writes a static file per URL, and a parameterised language would make every
- * page a dynamic route whose paths have to be enumerated by hand anyway.
+ * Every page exists at its unprefixed, German path and again under each
+ * prefixed language's path (`/en/...`), as two real routes with distinct ids
+ * rather than one route with a `:lang` parameter. The reason is the build:
+ * `prerender` writes a static file per URL, and a parameterised language would
+ * make every page a dynamic route whose paths have to be enumerated by hand
+ * anyway.
  *
  * Adding a page means adding one row to PAGES. Adding a language means adding
  * one entry to `LANGUAGE_PREFIXES`; nothing here changes.
@@ -41,7 +42,7 @@ function pagesForDefaultLanguage(): RouteConfigEntry[] {
 }
 
 function pagesForPrefixedLanguage(language: LanguageCode): RouteConfigEntry[] {
-  // Sliced because LANGUAGE_PREFIXES holds URL prefixes ('/de') while the
+  // Sliced because LANGUAGE_PREFIXES holds URL prefixes ('/en') while the
   // router wants a path segment ('de'). A prefixed language always has one.
   const segment = LANGUAGE_PREFIXES[language].slice(1);
 
