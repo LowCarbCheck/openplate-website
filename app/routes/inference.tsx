@@ -1,11 +1,27 @@
+/**
+ * The inference runtime's page.
+ *
+ * The hardware profiles and the privacy claim are quoted from the runtime's own
+ * documentation. "Who it is for" stays written here: it says who should install
+ * this and what the hosted instance does not include, which is the site placing
+ * a component rather than the component describing itself.
+ */
 import { useTranslation } from 'react-i18next';
+import { useLoaderData } from 'react-router';
 
 import type { Route } from './+types/inference';
+import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { Copy, Lead, LinkRow, PageTitle, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
+import { pageSections } from '#app/lib/stack-sections.server';
 import { pageMeta } from '#app/seo';
 import { DOC_PATHS } from '#app/site';
+
+/** See `home.tsx`: the loader is what keeps the synced tree out of the browser. */
+export function loader({ request }: Route.LoaderArgs) {
+  return { sections: pageSections('inference', request.url) };
+}
 
 export function meta({ location }: Route.MetaArgs) {
   return pageMeta({
@@ -18,19 +34,18 @@ export function meta({ location }: Route.MetaArgs) {
 
 export default function InferenceRoute() {
   const { t } = useTranslation();
+  const { sections } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout>
       <PageTitle>{t('pages.inference.title')}</PageTitle>
       <Lead text={t('pages.inference.lead')} />
 
-      <Section heading={t('pages.inference.hardware.heading')}>
-        <Copy text={t('pages.inference.hardware.body')} />
-      </Section>
-
-      <Section heading={t('pages.inference.privacy.heading')}>
-        <Copy text={t('pages.inference.privacy.body')} />
-      </Section>
+      {sections.map((entry) => (
+        <Section key={entry.id} heading={t(entry.headingKey)}>
+          <DocBlocks blocks={entry.blocks} />
+        </Section>
+      ))}
 
       <Section heading={t('pages.inference.audience.heading')}>
         <Copy text={t('pages.inference.audience.body')} />

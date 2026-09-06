@@ -109,6 +109,18 @@ describe('parseBlocks', () => {
     assert.equal(dropped.length, 1);
     assert.match(dropped[0] ?? '', /raw html <div>/);
   });
+  it('drops a thematic break rather than publishing it as three hyphens of prose', () => {
+    // PROTOCOL.md's lead ends with one, and the front page quotes that lead. Read
+    // as prose it is a paragraph whose entire text is `---`, which is what the
+    // reader saw. There is no rule block in the tree on purpose: a document's own
+    // section breaks are its layout, and this site lays the blocks out itself.
+    const { blocks, dropped } = parseBlocks('Before it.\n\n---\n\nAfter it.\n', BASE);
+    assert.deepEqual(
+      blocks.map((block) => (block.kind === 'paragraph' ? spansText(block.spans) : block.kind)),
+      ['Before it.', 'After it.'],
+    );
+    assert.deepEqual(dropped, ['thematic break at line 3']);
+  });
 });
 
 describe('parseInline', () => {

@@ -173,6 +173,20 @@ export interface DocSource {
 export interface ComponentDocs {
   component: DocComponent;
   source: DocSource;
+  /**
+   * The repository's README lead: every block between its `# ` title and its first `##`.
+   *
+   * THE ONE PARAGRAPH A REPOSITORY WRITES FOR SOMEBODY WHO HAS NEVER HEARD OF IT. Every other
+   * thing this site quotes is written for a reader who has already arrived, and a flagship
+   * document's own lead is the worst of them: PROTOCOL.md opens by telling you it is normative and
+   * where its machine-readable counterpart lives, because its reader is implementing the wire
+   * protocol. A README's first paragraph is the only text in these repositories aimed at a
+   * newcomer, so it is the only text fit for the front page. See `app/lib/stack-sections.ts`.
+   *
+   * Kept whole rather than trimmed to the first paragraph here, because what is quoted is a
+   * decision for the page and not for the sync.
+   */
+  lead: Block[];
   /** The README documentation table, in the README's order. */
   entries: DocEntry[];
 }

@@ -350,6 +350,18 @@ export function parseBlocks(markdown: string, base: LinkBase): ParseResult {
       continue;
     }
 
+    // A THEMATIC BREAK IS TYPOGRAPHY, AND IT DOES NOT SURVIVE THE TRIP. `---` on its own line is
+    // a horizontal rule in the source document; parsed as prose it becomes a paragraph whose text
+    // is three hyphens, which is what PROTOCOL.md's lead was putting on this site's front page.
+    // There is no rule block in the tree and there should not be: a document's own section breaks
+    // are its layout, and this site lays the blocks out itself.
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(line.trim())) {
+      flushParagraph(paragraph);
+      dropped.push(`thematic break at line ${i + 1}`);
+      i += 1;
+      continue;
+    }
+
     // Raw HTML. Skipped whole, and named in `dropped` — the README uses it for the centred hero
     // image, which this site already shows in its own hero.
     if (/^\s*<[a-z]/i.test(line)) {
@@ -562,6 +574,24 @@ export function extractSection(markdown: string, heading: string): string | null
     end += 1;
   }
   return lines.slice(start, end).join('\n');
+}
+
+/**
+ * Everything between a README's `# ` title and its first `##`.
+ *
+ * Cut as TEXT and parsed by the caller, rather than parsing the whole README and slicing blocks
+ * off the front. A README's later sections carry shapes this reader deliberately drops or refuses,
+ * and none of that is any business of the two paragraphs at the top.
+ *
+ * Returns null when the file has no `# ` title, which is the same fatal case a guide has.
+ */
+export function extractLead(markdown: string): string | null {
+  const lines = markdown.split('\n');
+  const start = lines.findIndex((line) => line.startsWith('# '));
+  if (start === -1) return null;
+  let end = start + 1;
+  while (end < lines.length && !lines[end].startsWith('## ')) end += 1;
+  return lines.slice(start + 1, end).join('\n');
 }
 
 /**

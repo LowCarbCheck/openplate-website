@@ -204,15 +204,6 @@ export const DOC: DocFile = {
       ]
     },
     {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
-        }
-      ]
-    },
-    {
       "kind": "heading",
       "level": 2,
       "text": "Rung 0 — run nothing",
@@ -1251,15 +1242,6 @@ export const DOC: DocFile = {
         {
           "kind": "text",
           "text": ", the same backup obligation, and the same hardware floor."
-        }
-      ]
-    },
-    {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
         }
       ]
     },

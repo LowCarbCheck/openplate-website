@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { SiteLayout } from '#app/components/site-layout';
 
 import { Spans } from '#app/components/docs/doc-blocks';
-import { languageFromPathname, localizePath } from '#app/i18n/language';
+import { languageFromRequest, localizePath } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
 import { translatedTitle } from '#app/lib/doc-meta';
 import { translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
@@ -29,7 +29,7 @@ import type { Route } from './+types/docs';
  * its own copy plus those rows, and both are German.
  */
 export function loader({ request }: Route.LoaderArgs) {
-  const memory = translationsFor(languageFromPathname(new URL(request.url).pathname));
+  const memory = translationsFor(languageFromRequest(request.url));
   return { tables: Object.fromEntries(DOC_COMPONENTS.map((c) => [c, translateEntries(DOCS_INDEX[c], memory)])) };
 }
 

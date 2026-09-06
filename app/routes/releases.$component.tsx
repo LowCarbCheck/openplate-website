@@ -14,7 +14,7 @@ import { SiteLayout } from '#app/components/site-layout';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { DocsShell } from '#app/components/docs/docs-shell';
 import { UntranslatedNotice } from '#app/components/docs/untranslated-notice';
-import { languageFromPathname } from '#app/i18n/language';
+import { languageFromRequest } from '#app/i18n/language';
 import { translatedTitle } from '#app/lib/doc-meta';
 import { translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
 import { findComponent } from '#app/lib/docs';
@@ -36,7 +36,7 @@ import type { Route } from './+types/releases.$component';
 export function loader({ params, request }: Route.LoaderArgs) {
   const component = findComponent(params.component);
   if (component === null) throw new Response('Not Found', { status: 404 });
-  const language = languageFromPathname(new URL(request.url).pathname);
+  const language = languageFromRequest(request.url);
   return { releases: RELEASES[component], docs: translateEntries(DOCS_INDEX[component], translationsFor(language)) };
 }
 

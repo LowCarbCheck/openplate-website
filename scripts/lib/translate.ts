@@ -129,6 +129,11 @@ function register(locale: string): string {
 export function collectUnits(index: DocsIndex, docs: DocsRegistry): Map<string, Unit> {
   const units = new Map<string, Unit>();
   for (const component of DOC_COMPONENTS) {
+    // The README lead, first, because it is the highest-traffic English on the site: the three
+    // cards on the front page are these three paragraphs. It arrived with the stack pages and it
+    // is easy to leave out of this walk, and leaving it out means a German front page whose one
+    // description of each component is in English.
+    for (const block of index[component].lead) collectBlock(block, units);
     for (const entry of index[component].entries) collectEntry(entry, units);
     for (const doc of Object.values(docs[component])) collectDoc(doc, units);
   }

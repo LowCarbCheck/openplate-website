@@ -41,6 +41,7 @@
     "prepare": "git config core.hooksPath .githooks || true",
     "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
     "sync:docs": "tsx scripts/sync-docs.ts",
+    "sync:icons": "tsx scripts/sync-icons.ts",
     "test": "pnpm run test:unit",
     "test:unit": "node --import tsx --test \"tests/unit/**/*.test.ts\"",
     "translate:docs": "tsx scripts/translate-docs.ts",

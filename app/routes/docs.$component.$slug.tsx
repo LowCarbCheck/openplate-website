@@ -13,7 +13,7 @@ import { useLoaderData } from 'react-router';
 
 import { DocPage } from '#app/components/docs/doc-page';
 import { SiteLayout } from '#app/components/site-layout';
-import { languageFromPathname } from '#app/i18n/language';
+import { languageFromRequest } from '#app/i18n/language';
 import { coverage, translateDoc, translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
 import { findComponent, findDoc, slugify } from '#app/lib/docs';
 import { DOCS_INDEX } from '../../src/generated/docs-index';
@@ -41,7 +41,7 @@ export function loader({ params, request }: Route.LoaderArgs) {
   const doc = findDoc(DOCS, component, params.slug);
   if (doc === null) throw new Response('Not Found', { status: 404 });
 
-  const language = languageFromPathname(new URL(request.url).pathname);
+  const language = languageFromRequest(request.url);
   const memory = translationsFor(language);
   return {
     doc: translateDoc(doc, memory),

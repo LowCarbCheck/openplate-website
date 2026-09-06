@@ -12,7 +12,14 @@ import { Link } from 'react-router';
 import { localizePath } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
 
-const LINK_CLASS = 'text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary';
+/**
+ * Exported so a caller can ADD to it rather than replace it.
+ *
+ * `className` on the two components below overrides this string wholesale, which is right for a
+ * link that is styled as something else entirely and wrong for one that wants the ordinary link
+ * plus one property. A second copy of these four classes is a second thing to keep in step.
+ */
+export const LINK_CLASS = 'text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary';
 
 /**
  * `children` is optional because `<Trans>` supplies it: a link inside a

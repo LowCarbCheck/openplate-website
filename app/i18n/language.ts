@@ -86,6 +86,30 @@ export function languageFromPathname(pathname: string): LanguageCode {
 }
 
 /**
+ * React Router's single-fetch suffix, which a loader's own URL carries and a reader's never does.
+ *
+ * A loader is called at `<path>.data`, not at `<path>`, and that turns the language root into the
+ * one URL on this site whose language cannot be read off it: `/en/app.data` still starts with
+ * `/en/`, but `/en.data` is neither `/en` nor a path under it, so the language of the ENGLISH FRONT
+ * PAGE came back as German. The page then rendered an English frame around German paragraphs,
+ * which is exactly the kind of wrong that no test sees and one screenshot does.
+ */
+const DATA_SUFFIX = '.data';
+
+/**
+ * The language of the URL a LOADER was handed.
+ *
+ * Every loader that reads the language must use this and not `languageFromPathname` on its own
+ * `request.url`. It is separate rather than folded into that function because a pathname is a
+ * pathname: `/en.data` is a fact about React Router's data protocol, not about what a language
+ * prefix means, and the browser router asks the other question about a real path.
+ */
+export function languageFromRequest(url: string): LanguageCode {
+  const { pathname } = new URL(url);
+  return languageFromPathname(pathname.endsWith(DATA_SUFFIX) ? pathname.slice(0, -DATA_SUFFIX.length) : pathname);
+}
+
+/**
  * The same page, addressed in `language`.
  *
  * `path` is always the canonical unprefixed path (`/docs`, `/`), because that

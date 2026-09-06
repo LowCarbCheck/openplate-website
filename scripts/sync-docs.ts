@@ -56,9 +56,16 @@ import type {
   DocFile,
   DocSource,
 } from '../app/lib/docs';
+import {
+  STACK_PAGES,
+  STACK_SECTIONS,
+  type DocumentSource,
+  type SectionSource,
+  sectionBlocks,
+} from '../app/lib/stack-sections';
 import { parseChangelog } from './lib/changelog';
 import { cloneAt } from './lib/clone';
-import { IMAGES_DIR, type LinkBase, extractSection, parseBlocks, parseInline } from './lib/markdown';
+import { IMAGES_DIR, type LinkBase, extractLead, extractSection, parseBlocks, parseInline } from './lib/markdown';
 import {
   type DiagramJob,
   type Palettes,
@@ -435,13 +442,59 @@ function syncSource(source: Source, tree: Worktree): Synced {
   if (dropped.length > 0) console.log(`sync-docs: ${component} dropped —\n  ${dropped.join('\n  ')}`);
   if (copiedImages.length > 0) console.log(`sync-docs: ${component} — ${copiedImages.length} images into ${imagesOut}`);
 
+  // THE README LEAD, which is the front page's account of this component. Read here, beside the
+  // table, because the file is already open and its links resolve against the same base every doc
+  // in it does. A repository whose lead is empty fails the sync: the home page has a card for each
+  // of these three, and a card with no words in it is not a smaller page, it is a broken one.
+  const leadMarkdown = extractLead(readme);
+  if (leadMarkdown === null) fail(`${component}: README.md has no \`# \` title, so it has no lead.`);
+  const readmeBase: LinkBase = { repo: source.web, sha: tree.sha, dir: '', routes, imageRoute };
+  const lead = parseBlocks(leadMarkdown, readmeBase).blocks;
+  if (!lead.some((block) => block.kind === 'paragraph')) {
+    fail(`${component}: README.md says nothing between its title and its first \`##\`.`);
+  }
+
   return {
-    docs: { component, source: provenance, entries },
+    docs: { component, source: provenance, lead, entries },
     releases: readReleases(source, tree, provenance, { repo: source.web, sha: tree.sha, dir: '', routes, imageRoute }),
     files,
     imageCount: copiedImages.length,
     diagrams,
   };
+}
+
+/**
+ * Check that every section the four stack pages quote is still in the tree just read.
+ *
+ * ── THE SAME BARGAIN THE REST OF THIS SCRIPT TAKES ──
+ * `/`, `/app`, `/sync` and `/inference` no longer describe openplate in their own words: they show
+ * blocks cut out of these documents by heading. A heading is a string in `app/lib/stack-sections.ts`
+ * and headings get reworded upstream, which is nobody's mistake and this script's problem. Left
+ * unchecked it is the quietest kind of breakage, a heading nobody can see missing, so it fails here
+ * with the page, the file and the heading printed, and the tree stays as it was found.
+ *
+ * It runs after all three sources are read because one page quotes two of them.
+ */
+function checkStackSections(synced: Map<DocComponent, Synced>): void {
+  const source: DocumentSource = {
+    page: (component, slug) => synced.get(component)?.files.find((file) => file.slug === slug) ?? null,
+    readme: (component) => synced.get(component)?.docs.lead ?? [],
+  };
+
+  for (const page of STACK_PAGES) {
+    for (const address of STACK_SECTIONS[page]) {
+      if (sectionBlocks(address, source) !== null) continue;
+      fail(`${address.component}: the ${page} page quotes ${describeAddress(address.from)}, which is not there.`);
+    }
+  }
+  console.log('sync-docs: every section the stack pages quote resolved.');
+}
+
+/** An address, in the words the person reading the failure has to go and look for. */
+function describeAddress(from: SectionSource): string {
+  if (from.kind === 'readme') return `the first ${from.paragraphs} paragraph(s) of README.md`;
+  if (from.kind === 'doc-lead') return `the lead of the ${from.slug} page`;
+  return `"${from.heading}" in the ${from.slug} page`;
 }
 
 /**
@@ -602,6 +655,7 @@ try {
     synced.set(source.component, syncSource(source, tree));
   }
 
+  checkStackSections(synced);
   syncDiagrams([...synced.values()].flatMap((result) => result.diagrams));
 
   rmSync(join(OUT, 'docs'), { recursive: true, force: true });

@@ -1,11 +1,27 @@
+/**
+ * The sync server's page.
+ *
+ * What the server can read is quoted from the protocol specification itself, and
+ * what a managed instance adds is quoted from the app's architecture document.
+ * The title, the lead and the link row are the site's own. See
+ * `app/lib/stack-sections.ts`.
+ */
 import { useTranslation } from 'react-i18next';
+import { useLoaderData } from 'react-router';
 
 import type { Route } from './+types/sync';
-import { Copy, Lead, LinkRow, PageTitle, Section } from '#app/components/page';
+import { DocBlocks } from '#app/components/docs/doc-blocks';
+import { Lead, LinkRow, PageTitle, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
+import { pageSections } from '#app/lib/stack-sections.server';
 import { pageMeta } from '#app/seo';
 import { DOC_PATHS, SYNC_RELEASES_PATH } from '#app/site';
+
+/** See `home.tsx`: the loader is what keeps the synced tree out of the browser. */
+export function loader({ request }: Route.LoaderArgs) {
+  return { sections: pageSections('sync', request.url) };
+}
 
 export function meta({ location }: Route.MetaArgs) {
   return pageMeta({
@@ -18,23 +34,18 @@ export function meta({ location }: Route.MetaArgs) {
 
 export default function SyncRoute() {
   const { t } = useTranslation();
+  const { sections } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout>
       <PageTitle>{t('pages.sync.title')}</PageTitle>
       <Lead text={t('pages.sync.lead')} />
 
-      <Section heading={t('pages.sync.reads.heading')}>
-        <Copy text={t('pages.sync.reads.body')} />
-      </Section>
-
-      <Section heading={t('pages.sync.invites.heading')}>
-        <Copy text={t('pages.sync.invites.body')} />
-      </Section>
-
-      <Section heading={t('pages.sync.proxy.heading')}>
-        <Copy text={t('pages.sync.proxy.body')} />
-      </Section>
+      {sections.map((entry) => (
+        <Section key={entry.id} heading={t(entry.headingKey)}>
+          <DocBlocks blocks={entry.blocks} />
+        </Section>
+      ))}
 
       <div className="mt-12 space-y-2 border-t border-border pt-6">
         <LinkRow label={t('site.links.docsLabel')}>
@@ -44,14 +55,6 @@ export default function SyncRoute() {
           <SiteLink to={SYNC_RELEASES_PATH}>{t('pages.sync.links.releases')}</SiteLink>
         </LinkRow>
       </div>
-
-      {/*
-        The history note closes the page, after the links, because it is the
-        one paragraph here that describes something a reader can no longer run.
-      */}
-      <Section heading={t('pages.sync.history.heading')}>
-        <Copy text={t('pages.sync.history.body')} className="text-muted-foreground" />
-      </Section>
     </SiteLayout>
   );
 }

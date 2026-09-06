@@ -10,13 +10,29 @@ import {
   useRouteLoaderData,
 } from 'react-router';
 
+import { THEME_COLOR } from 'virtual:theme-colors';
+
 import type { Route } from './+types/root';
 import { I18nProvider } from '#app/i18n/I18nProvider';
 import { MatomoTracker, useMatomoPageViews } from '#app/matomo';
 import { useLanguage } from '#app/i18n/use-language';
 import stylesheet from './app.css?url';
 
-export const links: Route.LinksFunction = () => [{ rel: 'stylesheet', href: stylesheet }];
+/**
+ * The stylesheet, and openplate's own mark in every size a browser asks for.
+ *
+ * The files come from the application repository by `pnpm sync:icons`, at a pinned ref, so the site
+ * cannot drift from the mark on the thing it describes. Declaring the `.ico` rather than leaning on
+ * the `/favicon.ico` convention is what lets the two PNGs be offered beside it: a browser picks the
+ * size it wants from the list, and only the list.
+ */
+export const links: Route.LinksFunction = () => [
+  { rel: 'stylesheet', href: stylesheet },
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { rel: 'icon', type: 'image/png', href: '/icons/icon-192.png', sizes: '192x192' },
+  { rel: 'icon', type: 'image/png', href: '/icons/icon-512.png', sizes: '512x512' },
+  { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png', sizes: '180x180' },
+];
 
 /**
  * Read at BUILD time: the prerender pass calls this once per URL and bakes the
@@ -44,6 +60,19 @@ export function Layout({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/*
+          The colour a browser paints its own chrome with, one per appearance, taken from the two
+          `:root` blocks in app.css by the plugin in vite.config.ts rather than written here again.
+
+          DELIBERATELY NO WEB MANIFEST BESIDE THEM. beta.openplate.de is the installable application
+          and it ships its own. A second installable origin, serving a page that describes the app
+          and cannot log a meal, is worse than none: a reader who installs it gets a home screen
+          icon that looks like openplate, opens on marketing copy, and has nowhere to go from there.
+          Icons and a theme colour give a tab and a bookmark the right face, which is the whole of
+          what this site needs.
+        */}
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content={THEME_COLOR.light} />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content={THEME_COLOR.dark} />
         <Meta />
         <Links />
       </head>

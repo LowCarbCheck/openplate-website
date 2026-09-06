@@ -14,6 +14,48 @@ export const DOCS_INDEX: DocsIndex = {
       "sha": "da5cd9b34c9f1bd02b5145a325cb53bf33066dba",
       "committedAt": "2026-09-06"
     },
+    "lead": [
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "An open-source, self-hosted food tracker with "
+          },
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "BYOK (bring-your-own-key) AI plate identification"
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": ". Snap a photo of your plate and your own AI provider — OpenRouter, Mistral, any OpenAI-compatible endpoint, or Anthropic — estimates the macros. Your key, your provider, your data."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "There are no accounts."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all — one stateless container, no secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
+          }
+        ]
+      }
+    ],
     "entries": [
       {
         "slug": "architecture",
@@ -103,6 +145,230 @@ export const DOCS_INDEX: DocsIndex = {
       "sha": "e7468e60a65b290bd8cdb8b7b2ab74c275e69acf",
       "committedAt": "2026-09-06"
     },
+    "lead": [
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "The account service for "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "openplate"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate"
+          },
+          {
+            "kind": "text",
+            "text": ". Its first feature is end-to-end-encrypted sync between your devices."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "What this server holds, in one paragraph."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " An email address, an opaque ciphertext blob per account, wrapped key records it cannot unwrap, and each account's recovery code sealed under a key in the environment. It cannot read the ciphertext, not as a policy, but as a consequence of never receiving a key: your passphrase never leaves your device, and what reaches the server is a derived value that authenticates you and decrypts nothing. The escrowed recovery code is the deliberate exception, and it is what makes \"forgot password\" restore the diary rather than only the login. "
+          },
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "It also means the operator of a hosted instance can open any account on it"
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " — not through an endpoint, there is none, but by reading that column with "
+          },
+          {
+            "kind": "code",
+            "text": "SERVER_SECRET"
+          },
+          {
+            "kind": "text",
+            "text": " in hand. A self-hosted instance is its own operator. The full argument, including what it costs and why it was taken, is "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "ADR-0005"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/e7468e60a65b290bd8cdb8b7b2ab74c275e69acf/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+          },
+          {
+            "kind": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "And one thing that passes through without being held."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " If the operator configures a provider key, this service proxies the app's food-photo requests to that provider at "
+          },
+          {
+            "kind": "code",
+            "text": "POST /v1/chat/completions"
+          },
+          {
+            "kind": "text",
+            "text": ", so the photograph and the model's answer cross this process. Neither is written, cached or logged — not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. This is also the one route where the zero-knowledge claim genuinely does not hold: the blob store cannot read what it holds, and the proxy can see everything that passes through it. Leave "
+          },
+          {
+            "kind": "code",
+            "text": "UPSTREAM_API_KEY"
+          },
+          {
+            "kind": "text",
+            "text": " unset and the route does not exist."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "Start with "
+              },
+              {
+                "kind": "link",
+                "spans": [
+                  {
+                    "kind": "code",
+                    "text": "PROTOCOL.md"
+                  }
+                ],
+                "href": "/docs/sync/protocol"
+              },
+              {
+                "kind": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " It is the normative specification of the wire protocol, written so a third party can implement either side of it without reading this code — an alternative client against this service, or an alternative server that an openplate client can be pointed at with "
+          },
+          {
+            "kind": "code",
+            "text": "SYNC_SERVER_URL"
+          },
+          {
+            "kind": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "This service is optional."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " openplate is a complete, fully functional tracker without it: your diary lives in the browser, exports to JSON, and imports again on another device. Sync removes the manual step; it does not unlock anything."
+          }
+        ]
+      },
+      {
+        "kind": "quote",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "Open source."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " openplate-sync is licensed under the "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "MIT License"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/e7468e60a65b290bd8cdb8b7b2ab74c275e69acf/LICENSE"
+          },
+          {
+            "kind": "text",
+            "text": " (SPDX: "
+          },
+          {
+            "kind": "code",
+            "text": "MIT"
+          },
+          {
+            "kind": "text",
+            "text": "), the same license as the openplate app. Self-hosting is explicitly one of the things it supports. See "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "License"
+              }
+            ],
+            "href": "#license"
+          },
+          {
+            "kind": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
     "entries": [
       {
         "slug": "protocol",
@@ -126,6 +392,54 @@ export const DOCS_INDEX: DocsIndex = {
       "sha": "52a9b4bdc8a74574fb1750bb3c7143eb618b24ce",
       "committedAt": "2026-09-06"
     },
+    "lead": [
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "A plate-photo scanner you run yourself."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " Point your phone at dinner, get back a list of foods with portion estimates in grams — computed on your hardware, from open-weight models, with no account, no API key from anybody, and no photo leaving your network."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "It speaks the OpenAI chat-completions protocol, so "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "openplate"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate"
+          },
+          {
+            "kind": "text",
+            "text": " connects to it as a normal \"OpenAI-compatible\" provider. One container, one port."
+          }
+        ]
+      },
+      {
+        "kind": "code",
+        "lang": "",
+        "text": "   phone/browser ──photo──▶ openplate-inference ──▶ llama.cpp + open-weight VLM\n                  ◀─JSON──                     ──▶ food database (macros)"
+      }
+    ],
     "entries": [
       {
         "slug": "hardware",

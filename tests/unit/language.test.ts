@@ -15,6 +15,7 @@ import {
   PREFIXED_LANGUAGES,
   SUPPORTED_LANGUAGES,
   languageFromPathname,
+  languageFromRequest,
   localizePath,
 } from '../../app/i18n/language';
 
@@ -109,5 +110,24 @@ describe('canonicalizePath', () => {
         assert.equal(canonicalizePath(localizePath(page, language)), page);
       }
     }
+  });
+});
+
+describe('languageFromRequest', () => {
+  // A loader is called at `<path>.data`, and the language root is the one URL where that
+  // changes the answer: `/en.data` is neither `/en` nor a path under it. The English front page
+  // was prerendered with German paragraphs inside an English frame because of this.
+  it('reads the language of a language root asked for as data', () => {
+    assert.equal(languageFromRequest('https://openplate.de/en.data'), 'en');
+  });
+
+  it('reads a page under a prefix, with the suffix and without', () => {
+    assert.equal(languageFromRequest('https://openplate.de/en/app.data'), 'en');
+    assert.equal(languageFromRequest('https://openplate.de/en/app'), 'en');
+  });
+
+  it('leaves an unprefixed page on the default language', () => {
+    assert.equal(languageFromRequest('https://openplate.de/app.data'), 'de');
+    assert.equal(languageFromRequest('https://openplate.de/.data'), 'de');
   });
 });

@@ -54,10 +54,22 @@ export function Lead({ text }: { text: string }) {
   return <Copy text={text} className="mt-6 text-lg leading-relaxed" />;
 }
 
+/**
+ * One section: the site's own heading, and whatever goes under it.
+ *
+ * THE HEADING IS SIZED LIKE A DOCUMENT'S `##`, and that is not decoration. Most
+ * of what sits under one of these headings now comes out of the member
+ * repositories through `app/lib/stack-sections.ts`, and a quoted section brings
+ * its own subheadings with it, drawn by `DocBlocks` on the documentation pages'
+ * scale. At the size this heading used to be, an upstream `###` inside a section
+ * was exactly as large as the site heading above it, so the page looked like a
+ * flat list of sections rather than two of them with subsections. One step up
+ * puts the site's frame above the quoted words instead of level with them.
+ */
 export function Section({ heading, children }: { heading: string; children: ReactNode }) {
   return (
     <section className="mt-12">
-      <h2 className="font-display text-xl font-semibold tracking-tight">{heading}</h2>
+      <h2 className="font-display text-2xl font-semibold tracking-tight">{heading}</h2>
       <div className="mt-4 space-y-4 leading-relaxed">{children}</div>
     </section>
   );

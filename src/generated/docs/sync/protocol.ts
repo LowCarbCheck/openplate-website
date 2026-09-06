@@ -162,15 +162,6 @@ export const DOC: DocFile = {
       ]
     },
     {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
-        }
-      ]
-    },
-    {
       "kind": "heading",
       "level": 2,
       "text": "1. The one-paragraph summary",
@@ -4109,15 +4100,6 @@ export const DOC: DocFile = {
         {
           "kind": "text",
           "text": " only after checking its scheme explicitly."
-        }
-      ]
-    },
-    {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
         }
       ]
     },
@@ -9129,15 +9111,6 @@ export const DOC: DocFile = {
         {
           "kind": "text",
           "text": " and nothing else: no prompt, no response, no model name, no timestamp finer than the day (§9.2)."
-        }
-      ]
-    },
-    {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
         }
       ]
     },

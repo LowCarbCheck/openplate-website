@@ -630,15 +630,6 @@ export const DOC: DocFile = {
       ]
     },
     {
-      "kind": "paragraph",
-      "spans": [
-        {
-          "kind": "text",
-          "text": "---"
-        }
-      ]
-    },
-    {
       "kind": "heading",
       "level": 2,
       "text": "Food data (FoodSource)",

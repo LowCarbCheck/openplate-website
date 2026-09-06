@@ -24,6 +24,9 @@ const CONTENT_TYPES = {
   '.txt': 'text/plain; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
+  // The site declares a `.ico` again since it wears openplate's own mark, and a browser drops a
+  // favicon served as a byte stream. Local review would show an empty tab for a file that is there.
+  '.ico': 'image/x-icon',
   '.woff2': 'font/woff2',
   '.webmanifest': 'application/manifest+json',
 } as const satisfies Record<string, string>;
