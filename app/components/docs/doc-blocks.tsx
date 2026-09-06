@@ -10,14 +10,18 @@
  * PORTED FROM collie-website's `src/components/doc-blocks.tsx`. The block model
  * and every decision about it are collie's. What changed: the classes name this
  * site's tokens, an internal link is localised before it is routed, and there is
- * no syntax highlighter and no diagram renderer here, so a fence is a fence.
+ * no syntax highlighter here, so a fence is a fence. collie's one exception, the
+ * mermaid renderer it loads into the browser, is not here either: this site
+ * draws its diagrams at sync time and commits them, so the diagram block is two
+ * committed SVG files and a <picture>, and no reader downloads a renderer.
  */
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 
 import { useLanguage } from '#app/i18n/use-language';
 import { localizePath } from '#app/i18n/language';
-import type { Block, Inline } from '#app/lib/docs';
+import { type Block, type Inline, spansText } from '#app/lib/docs';
 
 /**
  * The punctuation a chip must sit tight against, on each side.
@@ -104,6 +108,8 @@ export function Spans({ spans }: { spans: Inline[] }) {
 }
 
 export function DocBlocks({ blocks }: { blocks: Block[] }) {
+  const { t } = useTranslation('docs');
+
   return (
     <>
       {blocks.map((block, i) => {
@@ -216,6 +222,52 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                     {block.alt}
                   </figcaption>
                 )}
+              </figure>
+            );
+          }
+          case 'diagram': {
+            // ALREADY DRAWN, TWICE, AND COMMITTED. `sync:docs` renders the fence
+            // with a headless browser and writes a light copy and a dark one,
+            // because an SVG has its colours baked in and this site's two
+            // appearances are a media query. <picture> is what picks one: no
+            // JavaScript, no swap after paint, and nothing here imports mermaid.
+            //
+            // The description is the <img> alt and not a caption. A caption
+            // repeats to a sighted reader what the drawing beside it already
+            // says; alt is what a reader who gets no drawing is given instead.
+            // The fence itself stays on the page behind a disclosure, so
+            // whoever wants the thing that made the picture can copy it.
+            return (
+              <figure key={key} className="mt-5">
+                {/* SHRINK TO FIT IS THE WRONG DEFAULT FOR A DRAWING. A paragraph
+                    has no smallest legible size; a flowchart does, and a phone
+                    column is narrower than it. The floor lives on the <img>, the
+                    scroll on the wrapper: below 40rem the picture stays full size
+                    and the reader drags it, exactly as the code block and the
+                    table above already scroll instead of shrinking. */}
+                <div className="overflow-x-auto rounded-sm border border-border bg-card p-4">
+                  <picture>
+                    <source
+                      srcSet={`/docs/diagrams/${block.id}-dark.svg`}
+                      media="(prefers-color-scheme: dark)"
+                      type="image/svg+xml"
+                    />
+                    <img
+                      src={`/docs/diagrams/${block.id}-light.svg`}
+                      alt={spansText(block.alt)}
+                      loading="lazy"
+                      className="w-full min-w-[40rem]"
+                    />
+                  </picture>
+                </div>
+                <details className="mt-2">
+                  <summary className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground">
+                    {t('diagramSource')}
+                  </summary>
+                  <pre className="mt-2 overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed">
+                    <code className="language-mermaid">{block.source}</code>
+                  </pre>
+                </details>
               </figure>
             );
           }

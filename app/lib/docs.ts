@@ -84,7 +84,36 @@ export type Block =
    * `sync-docs.ts` copies the file it names into `public/docs/images/`. Nothing
    * that renders this block does path math of its own.
    */
-  | { kind: 'image'; src: string; alt: string };
+  | { kind: 'image'; src: string; alt: string }
+  /**
+   * A ```mermaid fence, ALREADY DRAWN.
+   *
+   * The one block whose content is not on this page. `sync:docs` renders the
+   * fence with a headless browser and commits two SVG files,
+   * `public/docs/diagrams/<id>-light.svg` and `<id>-dark.svg`; the page shows
+   * whichever one the reader's lights ask for. Mermaid has no renderer that is
+   * not a browser, and this site prerenders every page to a file and serves it
+   * from nginx, so drawing in the reader's browser would put a library larger
+   * than the whole site on a documentation page. It is drawn once instead, by
+   * the person who wrote the fence, and lands in git beside the words.
+   *
+   * `id` IS THE CONTENT, HASHED. Not a slug and not a counter: the file names
+   * are derived from the source, so a diagram nobody touched is neither
+   * re-rendered nor re-committed, and two documents that draw the same thing
+   * share one drawing. `source` is the fence as it was written, which the page
+   * still shows behind a disclosure: the drawing is a picture of it, and a
+   * reader who wants to copy the thing that made it can.
+   *
+   * `alt` IS SPANS AND NOT A STRING, and that is the whole reason the block
+   * carries an accessible description at all rather than leaning on the source.
+   * It is prose, it is the sentence a screen reader gets instead of a drawing,
+   * and spans are the shape every other sentence in this tree is in, so
+   * `collectBlock` and `rebuildBlock` in `app/lib/docs-i18n.server.ts`
+   * translate it exactly like a paragraph, with no case of their own. The
+   * diagram SOURCE is never translated: a diagram carries names and arrows, and
+   * `scripts/lib/markdown.ts` refuses a label long enough to be a sentence.
+   */
+  | { kind: 'diagram'; id: string; source: string; alt: Inline[] };
 
 /** One documentation file of one component, whole. */
 export interface DocFile {

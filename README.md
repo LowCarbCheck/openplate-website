@@ -48,6 +48,22 @@ pairs. A repository given as a path on disk is read where it stands, at whatever
 it says today, which is what makes a documentation table written five minutes
 ago testable. Everything it writes under `src/generated/` is committed.
 
+The sync also draws the diagrams. A ```mermaid fence in a source document is
+rendered once, here, into `public/docs/diagrams/<id>-light.svg` and
+`<id>-dark.svg`, which are committed too, and the page shows one of them with a
+`<picture>`. Nothing the reader downloads knows what mermaid is. That needs a
+browser, because mermaid has no renderer that is not one, and it uses the
+chromium playwright has already put in `~/.cache/ms-playwright/` rather than
+downloading its own. **The toolbox cannot run that browser**: the container has
+no `libnspr4`, so the sync reaches the host with `flatpak-spawn --host` when it
+must, and says so plainly when it cannot. Point `OPENPLATE_CHROME` at a browser
+of your own to skip the search.
+
+A fence must open with `%% alt: <one short sentence>`, which is the description
+a reader who gets no drawing is given, and it is the only part of a diagram that
+is translated. A label longer than six words, a fence with no description, and a
+diagram inside a list item each fail the sync with the file named.
+
 `pnpm install` runs `prepare`, which points git at the in-repo hooks. After a
 clone that has not installed yet, enable the gate by hand:
 

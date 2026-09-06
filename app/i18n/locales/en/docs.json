@@ -3,6 +3,7 @@
   "intro": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
   "nav": "Documentation",
   "onThisPage": "On this page",
+  "diagramSource": "Diagram source",
   "edit": "Edit this page on GitHub",
   "releases": "Release notes",
   "noReleases": "This component has not published release notes yet.",

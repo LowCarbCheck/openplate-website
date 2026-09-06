@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+
 import type { Block, Inline } from '../../app/lib/docs';
 import { slugify, spansText } from '../../app/lib/docs';
 
@@ -191,6 +193,91 @@ const TABLE_RULE = /^\s*\|?[\s:-]*\|[\s|:-]*$/;
 /** A whole line and nothing else — `![Settings, Updates row](images/updates/x.png)`. */
 const IMAGE = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/;
 
+/** The fence language that is a drawing rather than a listing. */
+const DIAGRAM = 'mermaid';
+
+/**
+ * The first line inside a mermaid fence, which must be the diagram's accessible description.
+ *
+ * `%%` IS MERMAID'S OWN COMMENT SYNTAX, and that is the whole reason the description is written
+ * inside the fence rather than beside it. These diagrams are authored in the member repositories,
+ * where GitHub draws them, and a line GitHub would print as a stray paragraph is a line an author
+ * deletes. A comment renders nowhere and travels everywhere.
+ */
+const ALT = /^\s*%%\s*alt:\s*(?<alt>.+?)\s*$/;
+
+/**
+ * How many words a diagram label may carry before it has become a sentence.
+ *
+ * ── THE RULE IS ENFORCED HERE BECAUSE IT CANNOT BE ENFORCED LATER ──
+ * A diagram is drawn once, at sync time, into an SVG with its words baked in, and the German
+ * pipeline never sees it: `docs-i18n.server.ts` translates the `alt` description and nothing else.
+ * So a sentence inside a fence is a sentence that is English on a German page for good. Names and
+ * arrows survive that; prose does not, and prose belongs in the paragraph beside the drawing, which
+ * IS translated. Six words is the line between a label and a claim.
+ */
+const LABEL_WORDS = 6;
+
+/**
+ * Every label a mermaid fence puts on the page.
+ *
+ * Bracketed, braced, parenthesised, piped or quoted: the five shapes a flowchart, a state diagram
+ * and a class diagram write a label in. Deliberately not a mermaid parser: this only has to see
+ * enough text to notice a sentence, and a rule that reads a little too much is a rule an author can
+ * satisfy by writing shorter labels, which is the point.
+ */
+const LABELS = /\[([^\]]*)\]|\{([^}]*)\}|\(([^)]*)\)|\|([^|]*)\||"([^"]*)"/g;
+
+/** A sequence diagram's message, `Client ->> Server: text`, where the text is the label. */
+const MESSAGE = /^\s*\S+\s*-{1,2}[->x)]{1,2}\s*\S+\s*:\s*(?<label>.+?)\s*$/;
+
+/** How many words a label is made of, with mermaid's shape punctuation stripped off it. */
+function words(label: string): string[] {
+  return label
+    .replaceAll(/[[\](){}|"/\\]/g, ' ')
+    .split(/\s+/)
+    .filter((word) => word !== '');
+}
+
+/**
+ * A mermaid fence, as the block the page draws, plus anything about it that must fail the sync.
+ *
+ * `source` is the fence WITHOUT its `%% alt:` line, and that is not tidying. The id is a hash of
+ * `source`, so stripping the description is what keeps a reworded description from re-rendering and
+ * re-committing a drawing that has not changed by one pixel.
+ */
+function diagram(body: string[], base: LinkBase, problems: string[]): Block {
+  const alt = ALT.exec(body[0] ?? '')?.groups?.['alt'] ?? '';
+  const source = (alt === '' ? body : body.slice(1)).join('\n').replace(/\s+$/, '');
+
+  if (alt === '') {
+    problems.push('a mermaid fence with no `%% alt:` first line, and a drawing with no description is not shippable');
+  }
+
+  for (const line of source.split('\n')) {
+    if (line.trim().startsWith('%%')) continue;
+    const found = [...line.matchAll(LABELS)].flatMap((match) => match.slice(1).filter((group) => group !== undefined));
+    const message = MESSAGE.exec(line)?.groups?.['label'];
+    if (message !== undefined) found.push(message);
+    for (const label of found) {
+      const count = words(label).length;
+      if (count <= LABEL_WORDS) continue;
+      problems.push(
+        `a mermaid label of ${count} words, "${words(label).join(' ')}", and a diagram carries names, not sentences`,
+      );
+    }
+  }
+
+  return {
+    kind: 'diagram',
+    // TWELVE HEX CHARACTERS of sha256. Long enough that two diagrams in one corpus cannot collide,
+    // short enough that the file name in a review diff is readable.
+    id: createHash('sha256').update(source).digest('hex').slice(0, 12),
+    source,
+    alt: parseInline(alt, base),
+  };
+}
+
 /**
  * How far into the line its first non-space character sits, with a tab worth four.
  *
@@ -226,12 +313,24 @@ export interface ParseResult {
   blocks: Block[];
   /** One line per thing this reader refused to guess at. */
   dropped: string[];
+  /**
+   * One line per thing that must FAIL the sync, rather than merely be reported.
+   *
+   * `dropped` and this are two different verdicts and it matters which one a shape gets. A badge row
+   * of raw HTML is dropped: the page is still whole without it. A mermaid fence with no description,
+   * a label that has become a sentence, or a diagram nested inside a list item is not. Each one
+   * would ship a page that is wrong rather than a page that is smaller, so the caller, which knows
+   * the file name, exits non-zero with it. Same rule as an image a doc points at and the repository
+   * does not have.
+   */
+  problems: string[];
 }
 
 export function parseBlocks(markdown: string, base: LinkBase): ParseResult {
   const lines = markdown.split('\n');
   const blocks: Block[] = [];
   const dropped: string[] = [];
+  const problems: string[] = [];
   let i = 0;
 
   const flushParagraph = (buffer: string[]) => {
@@ -285,7 +384,13 @@ export function parseBlocks(markdown: string, base: LinkBase): ParseResult {
         i += 1;
       }
       i += 1; // the closing fence
-      blocks.push({ kind: 'code', lang: fence[1], text: body.join('\n').replace(/\s+$/, '') });
+      // A DIAGRAM IS NOT A LISTING, and the language already said so. `sync-docs.ts` draws this
+      // one and commits the SVG; everything else on this page is a fence and stays one.
+      blocks.push(
+        fence[1] === DIAGRAM ?
+          diagram(body, base, problems)
+        : { kind: 'code', lang: fence[1], text: body.join('\n').replace(/\s+$/, '') },
+      );
       continue;
     }
 
@@ -373,6 +478,15 @@ export function parseBlocks(markdown: string, base: LinkBase): ParseResult {
             i += 1;
           }
           i += 1; // the closing fence
+          // A DIAGRAM UNDER A BULLET FAILS THE SYNC rather than being drawn there. A drawing inside
+          // a list item is not a shape this site lays out. It would be a full-width figure inside a
+          // 1.5rem step grid, and drawing it as source code instead is exactly the silent
+          // substitution this repository refuses everywhere else. So it is named and the sync stops.
+          if (nestedFence[1] === DIAGRAM) {
+            problems.push(
+              'a mermaid fence inside a list item, and a diagram is a figure, so it has to stand on its own',
+            );
+          }
           item.nested.push({
             kind: 'code',
             lang: nestedFence[1],
@@ -421,7 +535,7 @@ export function parseBlocks(markdown: string, base: LinkBase): ParseResult {
   }
 
   flushParagraph(paragraph);
-  return { blocks, dropped };
+  return { blocks, dropped, problems };
 }
 
 /**

@@ -218,6 +218,16 @@ export function rebuildBlock(block: Block, memory: Map<string, string>): Block {
     // same way a doc title is.
     case 'image':
       return { ...block, alt: one(block.alt, memory) };
+    // A DIAGRAM IS TRANSLATED BY ITS DESCRIPTION AND BY NOTHING ELSE. `id` names
+    // two committed SVG files and `source` is the fence that drew them, both
+    // English facts about a file on disk. `alt` is the sentence a reader who
+    // cannot see the drawing is given instead of it, so it is the one part that
+    // must arrive in their language, and being spans is what lets it go through
+    // `rebuild` like any paragraph. The rule that keeps this honest is upstream:
+    // `scripts/lib/markdown.ts` refuses a diagram label long enough to be a
+    // sentence, so nothing untranslatable is left inside the drawing.
+    case 'diagram':
+      return { ...block, alt: rebuild(block.alt, memory) };
   }
 }
 
@@ -264,6 +274,11 @@ export function collectBlock(block: Block, out: Map<string, Unit>): void {
     // is a path, not a sentence.
     case 'image':
       add(block.alt, out);
+      return;
+    // Spans, so `collect`, not `add`: see the note in `rebuildBlock` above for
+    // why the description is the only part of a diagram that is ever bought.
+    case 'diagram':
+      collect(block.alt, out);
       return;
   }
 }

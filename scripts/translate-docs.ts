@@ -299,5 +299,9 @@ function render(block: Block): string {
       return block.head.map((cell) => spansText(cell)).join(' | ');
     case 'image':
       return block.alt;
+    // The description and not the fence: it is the only part of a diagram that
+    // is bought, so it is the only part worth showing beside its German.
+    case 'diagram':
+      return spansText(block.alt);
   }
 }

@@ -32,16 +32,43 @@
  * `tableRows` below; nothing else was rewritten for the sake of it.
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { docRoute } from '../app/lib/doc-routes';
-import type { ComponentDocs, ComponentReleases, DocComponent, DocEntry, DocFile, DocSource } from '../app/lib/docs';
+import type {
+  Block,
+  ComponentDocs,
+  ComponentReleases,
+  DocComponent,
+  DocEntry,
+  DocFile,
+  DocSource,
+} from '../app/lib/docs';
 import { parseChangelog } from './lib/changelog';
 import { cloneAt } from './lib/clone';
 import { IMAGES_DIR, type LinkBase, extractSection, parseBlocks, parseInline } from './lib/markdown';
-import { syncImages } from './lib/sync-images';
+import {
+  type DiagramJob,
+  type Palettes,
+  fingerprint,
+  mermaidVersion,
+  readPalettes,
+  renderDiagrams,
+  stamp,
+} from './lib/mermaid';
+import { listFiles, syncImages } from './lib/sync-images';
 
 /**
  * The three repositories this site publishes, and how to reach each one.
@@ -94,6 +121,15 @@ const NOT_A_GUIDE = new Set(['README.md']);
 
 const OUT = resolve('src/generated');
 const IMAGES_OUT = resolve('public/docs/images');
+const DIAGRAMS_OUT = resolve('public/docs/diagrams');
+/**
+ * The stylesheet the diagrams take their colours from, rather than a second copy of the palette.
+ *
+ * Addressed from THIS FILE and not from the working directory, unlike every other path here. The
+ * others are outputs, and an output belongs to wherever the script was pointed; the stylesheet is
+ * an input, and it is this repository's, whichever directory the run started in.
+ */
+const APP_CSS = fileURLToPath(new URL('../app/app.css', import.meta.url));
 const SOURCE_JSON = join(OUT, 'SOURCE.json');
 const PUBLIC_SOURCE_JSON = resolve('public/SOURCE.json');
 
@@ -283,6 +319,23 @@ interface Synced {
   releases: ComponentReleases;
   files: DocFile[];
   imageCount: number;
+  /** Every mermaid fence this component wrote, ready to be drawn once all three have been read. */
+  diagrams: DiagramJob[];
+}
+
+/**
+ * Every diagram in a block tree, INCLUDING the ones under a list item.
+ *
+ * The nested case cannot actually hold one, because `parseBlocks` fails the sync for a diagram
+ * inside a bullet, but the walk recurses anyway, because a tree walk that only looks at the top level is a
+ * walk that silently stops working the day the parser changes its mind.
+ */
+function diagramsOf(blocks: Block[], where: string): DiagramJob[] {
+  return blocks.flatMap((block) => {
+    if (block.kind === 'diagram') return [{ id: block.id, source: block.source, where }];
+    if (block.kind !== 'list') return [];
+    return (block.nested ?? []).flatMap((entry) => diagramsOf(entry.blocks, where));
+  });
 }
 
 function syncSource(source: Source, tree: Worktree): Synced {
@@ -339,6 +392,7 @@ function syncSource(source: Source, tree: Worktree): Synced {
   const dropped: string[] = [];
   const files: DocFile[] = [];
   const entries: DocEntry[] = [];
+  const diagrams: DiagramJob[] = [];
 
   for (const row of rows) {
     const dir = row.file.includes('/') ? row.file.slice(0, row.file.lastIndexOf('/')) : '';
@@ -346,6 +400,11 @@ function syncSource(source: Source, tree: Worktree): Synced {
     const { title, body } = splitTitle(readFileSync(join(tree.dir, row.file), 'utf8'), row.file);
     const parsed = parseBlocks(body, base);
     dropped.push(...parsed.dropped.map((line) => `${row.file}: ${line}`));
+
+    // A problem is not a dropped block: it is a page this site would publish
+    // WRONG rather than smaller, so it stops the sync here with the file named,
+    // exactly the way a missing image does four lines down.
+    for (const problem of parsed.problems) fail(`${component}: ${row.file}: ${problem}`);
 
     // A doc pointing at an image that is not in the tree just copied is a page
     // with a hole in it, and it fails the same way a missing row does — loudly,
@@ -355,6 +414,16 @@ function syncSource(source: Source, tree: Worktree): Synced {
       if (availableImages.has(block.src)) continue;
       fail(`${component}: ${row.file} references ${block.src}, which is not in ${IMAGES_DIR}/.`);
     }
+
+    // A diagram must SAY what it draws. The description is what a screen reader
+    // is given instead of the drawing, and it is the only part of a diagram the
+    // German pipeline can translate, so an empty one is a hole in both.
+    const drawings = diagramsOf(parsed.blocks, `${component}: ${row.file}`);
+    for (const block of parsed.blocks) {
+      if (block.kind !== 'diagram' || block.alt.length > 0) continue;
+      fail(`${component}: ${row.file}: a mermaid fence with no \`%% alt:\` description.`);
+    }
+    diagrams.push(...drawings);
 
     files.push({ component, slug: row.slug, file: row.file, title, blocks: parsed.blocks });
     // The blurb is the README's own words for what the file is for, so the
@@ -371,7 +440,78 @@ function syncSource(source: Source, tree: Worktree): Synced {
     releases: readReleases(source, tree, provenance, { repo: source.web, sha: tree.sha, dir: '', routes, imageRoute }),
     files,
     imageCount: copiedImages.length,
+    diagrams,
   };
+}
+
+/**
+ * Draw every mermaid fence the three repositories wrote, and delete the drawings nothing claims.
+ *
+ * ── WHAT IS NOT REDRAWN, AND WHY BOTH TESTS ARE NEEDED ──
+ * A diagram's id is a hash of its source, so a fence nobody touched already has its two files on
+ * disk and there is nothing to do: re-rendering it would rewrite two committed blobs on every run
+ * and the pre-push "the sync produces no diff" gate would fail on a clean tree. But the source is
+ * only half of what a drawing is made of. The palette and the mermaid version are the other half,
+ * and neither is in the id, so each file carries a stamp saying what it was drawn with and a file
+ * whose stamp has gone stale is drawn again. That is what makes a token change in `app.css` reach
+ * the diagrams by itself.
+ *
+ * The pruning is `sync-images.ts`'s rule, not a new one: a drawing no current document claims is a
+ * committed blob nobody will ever notice again. It happens LAST, after the drawing, so a run that
+ * stops on a fence that will not parse leaves the tree exactly as it found it rather than deleting
+ * the old copy of the diagram the author was in the middle of editing.
+ */
+function syncDiagrams(jobs: DiagramJob[]): void {
+  // By id, because two documents that draw the same thing are one drawing.
+  const wanted = new Map(jobs.map((job) => [job.id, job]));
+
+  const palettes = readPalettes(APP_CSS);
+  const mark = fingerprint(palettes, mermaidVersion());
+  const todo = [...wanted.values()].filter((job) =>
+    ['light', 'dark'].some((variant) => {
+      const file = join(DIAGRAMS_OUT, `${job.id}-${variant}.svg`);
+      return !existsSync(file) || !readFileSync(file, 'utf8').startsWith(stamp(job.id, mark));
+    }),
+  );
+
+  if (todo.length > 0) draw(todo, palettes, mark);
+  else if (wanted.size > 0) console.log(`sync-docs: ${wanted.size} diagrams, all already drawn at palette ${mark}.`);
+
+  const keep = new Set([...wanted.keys()].flatMap((id) => [`${id}-light.svg`, `${id}-dark.svg`]));
+  for (const file of existsSync(DIAGRAMS_OUT) ? listFiles(DIAGRAMS_OUT) : []) {
+    if (keep.has(file)) continue;
+    unlinkSync(join(DIAGRAMS_OUT, file));
+    console.log(`sync-docs: removed public/docs/diagrams/${file}, no document draws it any more.`);
+  }
+  if (wanted.size === 0 && existsSync(DIAGRAMS_OUT) && listFiles(DIAGRAMS_OUT).length === 0) {
+    rmSync(DIAGRAMS_OUT, { recursive: true });
+  }
+}
+
+/** Draw these, and write each one as its two files. Split out so the pruning above reads as a list. */
+function draw(todo: DiagramJob[], palettes: Palettes, mark: string): void {
+  console.log(`sync-docs: drawing ${todo.length} diagrams at palette ${mark}`);
+  // The one place this script catches rather than lets go. A fence that will not
+  // parse is an author's typo, and an author reading their typo should get the
+  // sentence mermaid wrote about it, not a node stack trace through three frames
+  // of this file. Everything else here is already a `fail`.
+  let drawn;
+  try {
+    drawn = renderDiagrams({ jobs: todo, palettes });
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error));
+  }
+  mkdirSync(DIAGRAMS_OUT, { recursive: true });
+  for (const job of todo) {
+    const drawing = required(drawn.get(job.id), `${job.where}'s drawing`);
+    for (const [variant, svg] of [
+      ['light', drawing.light],
+      ['dark', drawing.dark],
+    ] as const) {
+      writeFileSync(join(DIAGRAMS_OUT, `${job.id}-${variant}.svg`), `${stamp(job.id, mark)}\n${svg}\n`);
+    }
+    console.log(`sync-docs: ${job.where}, drawn as ${job.id}`);
+  }
 }
 
 /**
@@ -461,6 +601,8 @@ try {
     trees.set(source.component, tree);
     synced.set(source.component, syncSource(source, tree));
   }
+
+  syncDiagrams([...synced.values()].flatMap((result) => result.diagrams));
 
   rmSync(join(OUT, 'docs'), { recursive: true, force: true });
   rmSync(join(OUT, 'releases'), { recursive: true, force: true });

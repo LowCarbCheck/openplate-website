@@ -3,6 +3,7 @@
   "intro": "Jede Anleitung hier ist die Datei, die das Repository selbst pflegt, ausgelesen im jeweiligen Release-Stand und unverändert veröffentlicht.",
   "nav": "Dokumentation",
   "onThisPage": "Auf dieser Seite",
+  "diagramSource": "Quellcode des Diagramms",
   "edit": "Diese Seite auf GitHub bearbeiten",
   "releases": "Versionshinweise",
   "noReleases": "Für diese Komponente wurden noch keine Versionshinweise veröffentlicht.",
