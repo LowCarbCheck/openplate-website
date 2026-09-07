@@ -9,9 +9,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "main",
+      "ref": "v0.11.0",
       "editRef": "main",
-      "sha": "f47e78c2361b742dcbd0522d70283ed3344e24bb",
+      "sha": "da8badcab60451f51e8ed781fbcd9f1b5756d1f7",
       "committedAt": "2026-09-07"
     },
     "lead": [
@@ -140,9 +140,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "sync",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
-      "ref": "main",
+      "ref": "v0.6.2",
       "editRef": "main",
-      "sha": "50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1",
+      "sha": "1a721a094a868a1e1d7e8ed8a524c44f50a0712f",
       "committedAt": "2026-09-07"
     },
     "lead": [
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/1a721a094a868a1e1d7e8ed8a524c44f50a0712f/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -338,7 +338,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/50a7fb0a0911e2bb0b8f2acbbae05d372d9e0cb1/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/1a721a094a868a1e1d7e8ed8a524c44f50a0712f/LICENSE"
           },
           {
             "kind": "text",
@@ -387,9 +387,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "inference",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-inference",
-      "ref": "main",
+      "ref": "v0.1.2",
       "editRef": "main",
-      "sha": "9aa2150dde66b85698212b9db81619684985b847",
+      "sha": "051e8d598819140a4234839c9be8a5ce4d560884",
       "committedAt": "2026-09-07"
     },
     "lead": [
