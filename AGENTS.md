@@ -85,12 +85,31 @@ dry. **No em dashes and no en dashes**, in copy or in comments; use a comma.
 The documentation pages are not covered by this: they are generated from the
 source repositories and translated by their own script.
 
-**There is no key-parity test between the three bundles.** A key added to the
-English bundle alone passes lint, typecheck, test and build. That is not a hole
-to plug by inventing German: English is `SOURCE_LANGUAGE` and the i18next
-fallback, so the string renders in English until a translation is bought. Note
-that German owns the UNPREFIXED URLs, so `/deploy` is the German page and
-English text on it is the fallback showing, not a routing bug.
+**There is no key-parity test between the three bundles, EXCEPT on the landing
+page.** Everywhere else a key added to the English bundle alone passes lint,
+typecheck, test and build. That is not a hole to plug by inventing German:
+English is `SOURCE_LANGUAGE` and the i18next fallback, so the string renders in
+English until a translation is bought. Note that German owns the UNPREFIXED
+URLs, so `/deploy` is the German page and English text on it is the fallback
+showing, not a routing bug.
+
+The landing page is the exception, on purpose. `tests/unit/landing-claims.test.ts`
+loops `SUPPORTED_LANGUAGES` and asserts `i18n.exists(key, { lng, fallbackLng: false })`
+for every key printed by `app/routes/home.tsx`, `app/components/hero.tsx` and
+`app/components/feature-grid.tsx`. A new landing key in `en/common.json` alone
+turns `pnpm test:unit` red with two failures, one per language, while lint,
+typecheck and build all stay green. Fill all three bundles, or expect the gate
+to stay red.
+
+**Before you buy a translation, look for one you already own.**
+`src/generated/docs-i18n/{de,fr}.json` is a per-sentence translation memory
+mapping a hash to `{ en, model, at, de|fr }`; scan it by the `en` field. Phrases
+shared between a document and the site frame are usually already there, judged
+by the same model under the same style contract. The committed diagram SVGs
+under `public/docs/diagrams/<id>-<lang>-<theme>.svg` carry the same strings as
+plain text and are a second way to read them. Reusing one keeps the page and the
+documentation saying the same words; only a genuinely new sentence needs
+`wordsmith`.
 
 ## Linting
 
