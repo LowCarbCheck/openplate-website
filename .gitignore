@@ -10,3 +10,6 @@ node_modules
 
 # Claude Code agent worktrees (transient)
 .claude/worktrees/
+
+# Claude Code agent scratch memory (transient)
+.claude/agent-memory/

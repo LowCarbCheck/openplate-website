@@ -1,5 +1,5 @@
 /**
- * What the four stack pages say about openplate, and where each paragraph of it
+ * What the five stack pages say about openplate, and where each paragraph of it
  * is written down.
  *
  * `/`, `/app`, `/sync` and `/inference` used to describe the software in copy
@@ -48,13 +48,13 @@
 import type { Block, DocComponent, DocFile } from './docs';
 
 /**
- * The four pages built this way.
+ * The five pages built this way.
  *
  * The list is spelled out rather than read back off the manifest, and it is the manifest's key type,
  * so the two cannot disagree: a page named here with no sections is a type error, and a page with
  * sections and no name here would never be checked by the sync.
  */
-export const STACK_PAGES = ['home', 'app', 'sync', 'inference'] as const;
+export const STACK_PAGES = ['home', 'app', 'sync', 'inference', 'deploy'] as const;
 
 /** Not every page: `/docs`, `/privacy` and the imprint are the site talking about itself. */
 export type StackPage = (typeof STACK_PAGES)[number];
@@ -213,6 +213,73 @@ export const STACK_SECTIONS = {
       component: 'inference',
       from: { kind: 'doc', slug: 'hardware', heading: 'The profiles' },
       headingKey: 'pages.inference.hardware.heading',
+    },
+  ],
+  /**
+   * `/deploy`, which answers a question the front page deliberately does not.
+   *
+   * ── TWO QUESTIONS, TWO READERS, AND ONLY ONE OF THEM IS ANSWERED BY A TOPOLOGY ──
+   * The drawing on the front page is `architecture.md`'s lead and it answers "where does my data
+   * go": one picture, the two arrows that leave the device, the claim that the photo never touches
+   * the sync server. That is the question a person who is deciding whether to trust the thing
+   * asks, and one drawing is the right size for it.
+   *
+   * "What do I have to run" is a different reader with a different worry, and it does not reduce
+   * to that drawing. The answer is five arrangements, from running nothing at all to running every
+   * part yourself, and each one is its own small picture of three to seven nodes plus the thing it
+   * costs you to operate. Putting them on the front page would replace one legible argument with a
+   * ladder nobody arriving for the first time asked to climb, so they get their own page, and the
+   * front page keeps saying the one thing it says well.
+   *
+   * ── THE WORDS ARE `topologies.md`'s, BECAUSE THAT DOCUMENT IS THE ONE KEPT CURRENT ──
+   * Every rung here names a compose file in the application repository, and the rungs are revised
+   * in the same commit those files are. A second account of them written in this repository would
+   * be correct on the day it was typed and quietly wrong the first time a service was added, which
+   * is the whole reason this manifest exists. So this page quotes the document and prints only its
+   * own headings over it, exactly as the other four do.
+   */
+  deploy: [
+    // The lead first, and it carries the four-row table that summarises the whole ladder. A reader
+    // who wants only the shape of the choice can stop after it and has the answer.
+    {
+      id: 'rungs',
+      component: 'app',
+      from: { kind: 'doc-lead', slug: 'topologies' },
+      headingKey: 'pages.deploy.rungs.heading',
+    },
+    {
+      id: 'rung0',
+      component: 'app',
+      from: { kind: 'doc', slug: 'topologies', heading: 'Rung 0: run nothing' },
+      headingKey: 'pages.deploy.rung0.heading',
+    },
+    {
+      id: 'rung1',
+      component: 'app',
+      from: { kind: 'doc', slug: 'topologies', heading: 'Rung 1: the app on your own box' },
+      headingKey: 'pages.deploy.rung1.heading',
+    },
+    {
+      id: 'rung2',
+      component: 'app',
+      from: { kind: 'doc', slug: 'topologies', heading: 'Rung 2: add sync' },
+      headingKey: 'pages.deploy.rung2.heading',
+    },
+    // `## Rung 3` carries a `### The sync server and inference are different layers`, and it comes
+    // along: `under()` ends a section at the next heading of its level or above, so a deeper one is
+    // part of it. That is wanted here. The subsection is what stops a reader concluding that
+    // running inference means running sync, which is the confusion this rung invites.
+    {
+      id: 'rung3',
+      component: 'app',
+      from: { kind: 'doc', slug: 'topologies', heading: 'Rung 3: add self-hosted inference' },
+      headingKey: 'pages.deploy.rung3.heading',
+    },
+    {
+      id: 'rung4',
+      component: 'app',
+      from: { kind: 'doc', slug: 'topologies', heading: 'Rung 4: everything' },
+      headingKey: 'pages.deploy.rung4.heading',
     },
   ],
 } satisfies StackManifest;

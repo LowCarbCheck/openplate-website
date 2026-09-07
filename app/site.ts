@@ -18,6 +18,7 @@ export const OG_IMAGE_PATH = '/og.png';
 export const DOC_PATHS = {
   appArchitecture: '/docs/app/architecture',
   appSelfHosting: '/docs/app/self-hosting',
+  appTopologies: '/docs/app/topologies',
   syncProtocol: '/docs/sync/protocol',
   inferenceHardware: '/docs/inference/hardware',
   inferencePrivacy: '/docs/inference/privacy',

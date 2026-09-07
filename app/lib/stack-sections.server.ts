@@ -3,7 +3,7 @@
  *
  * ── `.server`, FOR THE REASON `docs-registry.ts` EXISTS AT ALL ──
  * This module imports every one of the fifteen documentation pages and the whole
- * German translation memory, and neither belongs in a browser. The four stack
+ * German translation memory, and neither belongs in a browser. The five stack
  * routes call it from a LOADER, React Router strips a loader from the client
  * build, and the suffix is what turns an accidental import from a component into
  * a build failure rather than a front page that ships 700 KB of block trees to

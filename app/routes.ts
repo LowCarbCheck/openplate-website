@@ -27,6 +27,7 @@ export const PAGES = [
   { id: 'app', path: 'app', file: 'routes/app.tsx' },
   { id: 'sync', path: 'sync', file: 'routes/sync.tsx' },
   { id: 'inference', path: 'inference', file: 'routes/inference.tsx' },
+  { id: 'deploy', path: 'deploy', file: 'routes/deploy.tsx' },
   { id: 'docs', path: 'docs', file: 'routes/docs.tsx' },
   { id: 'docs-page', path: 'docs/:component/:slug', file: 'routes/docs.$component.$slug.tsx' },
   { id: 'releases', path: 'releases/:component', file: 'routes/releases.$component.tsx' },

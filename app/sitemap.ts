@@ -19,7 +19,7 @@ import { docPaths } from '#app/prerender';
 import { SITE_ORIGIN } from '#app/site';
 
 /** Every page with a fixed path, in the canonical unprefixed form. */
-export const STATIC_PATHS = ['/', '/app', '/sync', '/inference', '/docs', '/imprint', '/privacy'] as const;
+export const STATIC_PATHS = ['/', '/app', '/sync', '/inference', '/deploy', '/docs', '/imprint', '/privacy'] as const;
 
 /**
  * One `<url>` block: the page in `language`, with every language listed as an
