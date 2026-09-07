@@ -106,7 +106,13 @@ export function SiteLayout({
             : 'mx-auto flex w-full max-w-3xl flex-wrap items-baseline gap-x-6 gap-y-2 px-5 py-5'
           }
         >
-          <SiteLink to="/" className="font-display text-xl font-semibold tracking-tight text-primary">
+          <SiteLink
+            to="/"
+            className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-primary"
+          >
+            {/* Decorative: the link already says "openplate" in text, so a
+                screen reader announcing the mark too would say the name twice. */}
+            <img src="/icons/icon-192.png?v=2" alt="" className="h-6 w-6 rounded-full" />
             {t('site.name')}
           </SiteLink>
           <nav className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">

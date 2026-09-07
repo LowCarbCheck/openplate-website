@@ -28,10 +28,14 @@ import stylesheet from './app.css?url';
  */
 export const links: Route.LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
-  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
-  { rel: 'icon', type: 'image/png', href: '/icons/icon-192.png', sizes: '192x192' },
-  { rel: 'icon', type: 'image/png', href: '/icons/icon-512.png', sizes: '512x512' },
-  { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png', sizes: '180x180' },
+  // Cache-busted (?v=2): public/favicon.ico was replaced in place this morning,
+  // an unrelated red and black molecule swapped for openplate's own mark. The
+  // href never changes name, so a returning visitor's cached copy would
+  // otherwise never update. The version marker forces the refetch.
+  { rel: 'icon', href: '/favicon.ico?v=2', sizes: '48x48' },
+  { rel: 'icon', type: 'image/png', href: '/icons/icon-192.png?v=2', sizes: '192x192' },
+  { rel: 'icon', type: 'image/png', href: '/icons/icon-512.png?v=2', sizes: '512x512' },
+  { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png?v=2', sizes: '180x180' },
 ];
 
 /**
