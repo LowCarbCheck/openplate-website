@@ -17,6 +17,7 @@ export const OG_IMAGE_PATH = '/og.png';
 /** Every documentation page the site links to by hand. Slugs come from each repository's README table. */
 export const DOC_PATHS = {
   appArchitecture: '/docs/app/architecture',
+  appConfiguration: '/docs/app/configuration',
   appSelfHosting: '/docs/app/self-hosting',
   appTopologies: '/docs/app/topologies',
   syncProtocol: '/docs/sync/protocol',

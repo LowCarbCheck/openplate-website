@@ -102,6 +102,10 @@
       "holds": {
         "heading": "Wer welche Daten hält"
       },
+      "analytics": {
+        "heading": "Analytics",
+        "body": "openplate zeichnet nichts auf, bis ein Betreiber das Tracking aktiviert. Die gehostete Instanz auf openplate.de zählt Seitenaufrufe und welche Funktionen genutzt werden. Sie erfährt nie, was du isst, wiegst oder einträgst. Wer eine eigene Kopie betreibt, wählt eine von drei Stufen, von reinen Seitenaufrufen bis hin zu einer Forschungsstufe, die das Gesundheitsverhalten für eine Studie mit einwilligenden Teilnehmenden erfasst. Es sind keine Drittanbieter zwischengeschaltet. Die Zahlen landen in einer selbst betriebenen Matomo-Instanz, bei komplett deaktivierten Cookies. Die <configuration>Konfiguration</configuration> listet jedes Ereignis auf jeder Stufe auf."
+      },
       "access": {
         "heading": "Zugang",
         "body": "Die gehostete Instanz unter openplate.de ist nur auf Einladung zugänglich. Eine Einladung wird durch die Administration verschickt, eine offene Registrierung gibt es nicht. Wenn du lieber deine eigene Kopie betreiben möchtest, siehe <selfHosting>Self-Hosting</selfHosting>."

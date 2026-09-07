@@ -102,6 +102,10 @@
       "holds": {
         "heading": "Who holds what"
       },
+      "analytics": {
+        "heading": "Analytics",
+        "body": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level."
+      },
       "access": {
         "heading": "Access",
         "body": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>."

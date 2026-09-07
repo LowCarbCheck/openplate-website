@@ -102,6 +102,10 @@
       "holds": {
         "heading": "Qui détient quoi"
       },
+      "analytics": {
+        "heading": "Statistiques",
+        "body": "openplate n'enregistre rien tant qu'un administrateur n'active pas le suivi. L'instance hébergée sur openplate.de comptabilise les pages visitées et les fonctionnalités utilisées. Elle ne sait jamais ce que tu manges, ce que tu pèses ou ce que tu saisis. Quiconque héberge sa propre copie choisit parmi trois niveaux, des simples visites de pages jusqu'à un niveau de recherche qui enregistre les comportements liés à la santé pour une étude auprès de participants consentants. Aucun tiers n'intervient. Les données arrivent sur une instance Matomo que nous gérons nous-mêmes, cookies désactivés. <configuration>Configuration</configuration> détaille chaque événement pour chaque niveau."
+      },
       "access": {
         "heading": "Accès",
         "body": "L'instance hébergée sur openplate.de est accessible uniquement sur invitation. Un administrateur envoie l'invitation ; il n'y a pas d'inscription libre. Si tu préfères exécuter ta propre instance, consulte <selfHosting>Auto-hébergement</selfHosting>."

@@ -284,6 +284,17 @@ export default function HomeRoute() {
         <DocBlocks blocks={section(sections, 'holds').blocks} />
       </Section>
 
+      {/* `holds` says who holds the reader's data; what is counted about them is the natural next
+          question, so analytics sits here and not at the bottom of the page. */}
+      <Section heading={t('pages.home.analytics.heading')}>
+        <p>
+          <Trans
+            i18nKey="pages.home.analytics.body"
+            components={{ configuration: <SiteLink to={DOC_PATHS.appConfiguration} /> }}
+          />
+        </p>
+      </Section>
+
       <Section heading={t('pages.home.access.heading')}>
         <p>
           <Trans
