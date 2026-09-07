@@ -9,7 +9,7 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "main",
+      "ref": "v0.11.1",
       "editRef": "main",
       "sha": "996054774c2d05acf1ff871a08b673ec64f8b166",
       "committedAt": "2026-09-07"
@@ -140,7 +140,7 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "sync",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
-      "ref": "main",
+      "ref": "v0.6.2",
       "editRef": "main",
       "sha": "1a721a094a868a1e1d7e8ed8a524c44f50a0712f",
       "committedAt": "2026-09-07"
@@ -387,7 +387,7 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "inference",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-inference",
-      "ref": "main",
+      "ref": "v0.1.3",
       "editRef": "main",
       "sha": "3fbc1895f80124259b8077b4a887e856a58886e0",
       "committedAt": "2026-09-07"
