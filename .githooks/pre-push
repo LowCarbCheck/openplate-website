@@ -83,11 +83,25 @@ run pnpm test:unit
 # sync that was run and then only half committed, builds and tests perfectly and
 # publishes words the source repositories do not contain.
 #
-# So the sync is run again, against the refs `src/generated/SOURCE.json` already
-# records, and any diff under `src/generated/` fails the push. Re-running at the
-# RECORDED refs, not at the latest tags, is what makes this a staleness check
-# and not a release check: a new tag upstream is the sync workflow's business,
-# not this push's.
+# So the sync is run again, against the REFS `src/generated/SOURCE.json`
+# already records, and any diff under `src/generated/` fails the push. Re-running
+# at what this tree says it came from, not at the latest tags, is what makes this
+# a staleness check and not a release check: a new tag upstream is the sync
+# workflow's business, not this push's.
+#
+# ── THE `ref` AND NOT THE `commit` BESIDE IT ──
+# `SOURCE.json` records both, and pinning the commit was tried first, on the
+# argument that a `ref` can now be a branch and a branch moves. It is wrong, and
+# this tier caught it: the sync records whatever ref it was given, so a run
+# pinned to a bare sha writes that sha into `ref`, into `docs-index.ts` and into
+# all three `releases/*.ts`. The check then fails on a clean tree, and the /docs
+# page offers a reader a forty character sha where a version was.
+#
+# So the ref it is, and the branch case is not the flake it looks like. A source
+# quoted at `main` and re-resolved here answers "does this tree still match the
+# branch it came from". If somebody pushed documentation upstream since, the
+# answer is genuinely no, this tree IS stale, and the fix is the one printed
+# below: run the sync and commit what it writes.
 #
 # IT NEEDS THE NETWORK. The sync clones the three repositories, so this tier is
 # the one that fails on a plane.
@@ -112,7 +126,7 @@ else
   # reported as a stale sync, which is a different fault with a different fix.
   scope="src/generated public/SOURCE.json :(exclude)src/generated/docs-i18n"
   if [ -n "$(git status --porcelain $scope)" ]; then
-    echo "✖ pre-push: the generated docs do not match their sources at the recorded refs:"
+    echo "✖ pre-push: the generated docs do not match their sources at the recorded commits:"
     git status --porcelain $scope
     echo "  Commit what the sync just wrote, or run 'git checkout -- src/generated public/SOURCE.json'"
     echo "  and find out who edited it by hand. Bypass once with: SKIP_SYNC=1 git push"

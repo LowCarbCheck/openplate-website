@@ -66,7 +66,7 @@ import {
   sectionBlocks,
 } from '../app/lib/stack-sections';
 import { parseChangelog } from './lib/changelog';
-import { cloneAt } from './lib/clone';
+import { changedPaths, cloneAt, documentationOnly } from './lib/clone';
 import { IMAGES_DIR, type LinkBase, extractLead, extractSection, parseBlocks, parseInline } from './lib/markdown';
 import {
   type DiagramJob,
@@ -246,6 +246,54 @@ function highestTag(repo: string): string | null {
   return tags[0] ?? null;
 }
 
+interface Quoted {
+  /** The ref to read the words from, and to record in `SOURCE.json`. */
+  ref: string;
+  /** Why that ref and not the other one, printed once the sha is known. */
+  say: string;
+}
+
+/**
+ * Which ref of a released source repository this run publishes: its highest tag, or its default
+ * branch when the branch is that tag plus documentation and nothing else.
+ *
+ * ── THE RULE THIS REPLACED, AND WHY IT COULD NOT STAY ──
+ * The site quoted the highest tag, full stop. The reason was sound and it is kept below: the
+ * default branch can document code that is not released, and a page describing a program nobody
+ * can run is internally consistent, reads fine, and is a lie. The cost was that a wrong sentence in
+ * `docs/` could only be corrected by cutting a version that shipped no code, which is a release
+ * nobody should have to make and a version number that means nothing afterwards.
+ *
+ * ── THE INVARIANT THAT MAKES THE OTHER ANSWER SAFE ──
+ * The risk has a precise shape, and it is about TREES and not about words. If the only difference
+ * between the tag and the branch is documentation, then the code on the branch IS the released
+ * code, byte for byte. There is no unreleased behaviour for the branch's documentation to be
+ * describing, so quoting the branch cannot describe one. The moment a single path outside `docs/`,
+ * `README.md` or `CHANGELOG.md` differs, that argument is gone and the tag is quoted again.
+ *
+ * ── THE NET DIFFERENCE, NOT A WALK OF THE COMMITS ──
+ * `git diff --name-only T origin/B` compares the two trees. A branch that changed a source file in
+ * one commit and reverted it in the next has moved no code, and a rule that read the history would
+ * say it had. The invariant is about what the branch IS, not about how it got there.
+ *
+ * Not reached when `OPENPLATE_*_REF` pins a ref, and not reached for a checkout on disk. Both of
+ * those say which tree to read outright, and this function's whole job is deciding that.
+ */
+function released(options: { component: DocComponent; repo: string; branch: string }): Quoted {
+  const { component, repo, branch } = options;
+  const tag = highestTag(repo) ?? fail(`${component}: ${repo} has no vX.Y.Z tag to quote.`);
+  const changed = changedPaths({ repo, from: tag, to: `origin/${branch}` });
+
+  if (changed.length === 0) return { ref: tag, say: `${branch} is exactly ${tag}, quoting the tag` };
+  if (documentationOnly(changed)) return { ref: branch, say: `${tag} plus documentation only, quoting ${branch}` };
+  return {
+    ref: tag,
+    say:
+      `code has moved past ${tag} on ${branch}, so a documentation fix there waits ` +
+      `for the next release. Quoting ${tag}`,
+  };
+}
+
 interface Worktree {
   /** A directory holding the source at the ref, and whether it is ours to delete. */
   dir: string;
@@ -292,17 +340,21 @@ function worktree(source: Source): Worktree {
     };
   }
 
-  const ref =
-    pinned === '' ? (highestTag(repo) ?? fail(`${source.component}: ${repo} has no vX.Y.Z tag to quote.`)) : pinned;
   const editRef = defaultBranch(repo);
+  const chosen: { ref: string; say: string | null } =
+    pinned === '' ? released({ component: source.component, repo, branch: editRef }) : { ref: pinned, say: null };
   const dir = mkdtempSync(join(tmpdir(), `openplate-docs-${source.component}-`));
-  console.log(`sync-docs: ${source.component} — cloning ${repo} at ${ref} (edits land on ${editRef})`);
-  cloneAt(repo, ref, dir);
+  console.log(`sync-docs: ${source.component} — cloning ${repo} at ${chosen.ref} (edits land on ${editRef})`);
+  cloneAt(repo, chosen.ref, dir);
+  const sha = git(['rev-parse', 'HEAD'], dir);
+  // SAID OUT LOUD, AND AT THE SAME VOLUME EITHER WAY. "Why is my documentation
+  // fix not on the site" has exactly one answer and this line is it.
+  if (chosen.say !== null) console.log(`sync-docs: ${source.component} — ${chosen.say} at ${sha.slice(0, 7)}`);
   return {
     dir,
     scratch: true,
-    ref,
-    sha: git(['rev-parse', 'HEAD'], dir),
+    ref: chosen.ref,
+    sha,
     // `%cs` is the committer date as YYYY-MM-DD. A fact about the commit, so
     // re-running the sync over an unchanged source is byte-identical.
     committedAt: git(['log', '-1', '--format=%cs'], dir),

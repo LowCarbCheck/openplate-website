@@ -14,13 +14,43 @@ either way.
 ## Where the documentation comes from
 
 Nothing under `/docs` is written in this repository. `scripts/sync-docs.ts`
-reads each source repository at its released tag, takes the documentation table
-in that repository's README as the manifest of what to publish, parses the
+reads each source repository at the ref described below, takes the documentation
+table in that repository's README as the manifest of what to publish, parses the
 markdown once into typed TypeScript modules under `src/generated/`, and commits
 them. `scripts/translate-docs.ts` then translates the changed sentences into
 German. The site renders those modules directly: no markdown library runs at
 request time. A release in a source repository triggers the whole chain, so a
 documentation change reaches the site without a hand in the loop.
+
+**Which ref, and why it is usually the tag.** A source is read at its highest
+`vX.Y.Z` tag, because the default branch can document code that is not released
+yet. That page would be internally consistent, read perfectly, and describe a
+program the reader cannot run, which is the kind of wrong nobody reports.
+
+There is one exception, and it rests on an invariant rather than on trust. The
+sync compares the tree at the tag with the tree at the default branch. If every
+path that differs is `README.md`, `CHANGELOG.md` or under `docs/`, then the code
+on the branch IS the released code, byte for byte. There is no unreleased
+behaviour for the branch's documentation to be describing, so the branch is
+quoted instead of the tag and a correction to a guide reaches the site without a
+version bump for a change that ships no code. One differing path outside those
+three and the argument is gone, so the tag is quoted again and the fix waits for
+the next release. The comparison is the NET difference between the two trees and
+not a walk of the commits: a branch that changed a source file and then reverted
+it has moved no code.
+
+The sync says which of the three cases it took, per source, with the tag, the
+branch and the short sha:
+
+```
+sync-docs: app — main is exactly v0.12.0, quoting the tag at 20c6010
+sync-docs: app — v0.12.0 plus documentation only, quoting main at a205674
+sync-docs: app — code has moved past v0.12.0 on main, so a documentation fix there waits for the next release. Quoting v0.12.0 at 20c6010
+```
+
+In the middle case `SOURCE.json` records the branch as `ref` and the branch's
+commit as `commit`, and the documentation index shows `main` where it usually
+shows a tag. That is honest: those pages are ahead of the release.
 
 ## Running it
 
@@ -114,8 +144,16 @@ one that matters most here, because prerendering happens there and nowhere else.
 
 The staleness tier re-runs `sync:docs` at the refs `src/generated/SOURCE.json`
 records and fails on any diff under `src/generated/`, so a generated file edited
-by hand, or a sync run and only half committed, cannot be pushed. It clones the
-three repositories, so it needs the network. `SKIP_SYNC=1 git push` skips that
+by hand, or a sync run and only half committed, cannot be pushed. The ref and
+not the `commit` beside it. Pinning the commit was tried, on the argument that a
+`ref` can now be a branch and a branch moves, and this tier caught it: the sync
+records whatever ref it is given, so a run pinned to a bare sha writes that sha
+into `ref`, into `docs-index.ts` and into all three `releases/*.ts`, and the
+check then fails on a clean tree. The branch case is not the flake it looks
+like either. A source quoted at `main` and re-resolved here asks whether this
+tree still matches the branch it came from, and if somebody pushed
+documentation upstream since, the answer is genuinely no. It clones the three
+repositories, so it needs the network. `SKIP_SYNC=1 git push` skips that
 tier alone; `SKIP_TESTS=1 git push` skips the whole gate.
 
 Copy `.env.example` to `.env` if you need it. The running site needs no secret;
@@ -137,10 +175,17 @@ client_payload: { "repo": "openplate-sync", "tag": "v0.6.0" }
 ```
 
 The payload says which release woke the run and nothing more. Which release the
-site documents is decided in one place, `highestTag` in `scripts/sync-docs.ts`,
-which takes the highest `vX.Y.Z` tag each repository has. Every run syncs all
-three sources, so a dispatch that is lost is healed by the next release or by
+site documents is decided in one place, `released` in `scripts/sync-docs.ts`: the
+highest `vX.Y.Z` tag each repository has, or that repository's default branch
+when the branch is that tag plus documentation and nothing else. "Where the
+documentation comes from" above says why the second case is safe. Every run syncs
+all three sources, so a dispatch that is lost is healed by the next release or by
 the schedule.
+
+The workflow passes its `app_ref`, `sync_ref` and `inference_ref` inputs through,
+and they are empty on a dispatch and on a schedule, so CI resolves the ref afresh
+on every run. That is deliberate: a documentation fix pushed to a source branch
+is on the site within a day without anybody cutting a release.
 
 **The workflow.** `.github/workflows/sync-docs.yml` runs on that dispatch, daily
 at 06:41 UTC, and by hand. It syncs, translates what changed, runs the same four
