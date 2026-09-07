@@ -95,11 +95,23 @@
     "at": "2026-09-06",
     "fr": "{{0}} doit désigner un modèle que ton point de terminaison sert réellement."
   },
+  "01bb77feb9d789f6": {
+    "en": "edited, deleted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "modifié, supprimé"
+  },
   "0249a4374e06bed0": {
     "en": "The real variable is memory bandwidth, not VRAM",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "La vraie variable est la bande passante mémoire, pas la VRAM"
+  },
+  "024dc204d7ba77a8": {
+    "en": "Area",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Domaine"
   },
   "02566ed5f41493c2": {
     "en": "neither",
@@ -311,6 +323,12 @@
     "at": "2026-09-06",
     "fr": "« aucun enregistrement de ce type n'existe encore »"
   },
+  "072af15c799cd9ce": {
+    "en": "unset (analytics off)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "non défini (mesure d'audience désactivée)"
+  },
   "078efd070a6787eb": {
     "en": "116 strings across all three documents",
     "model": "google/gemini-3.8-flash",
@@ -497,6 +515,12 @@
     "at": "2026-09-06",
     "fr": "Tu fais passer le foyer par ta propre machine {{0}}, où il n'y a aucun tableau de bord de fournisseur : une instance gérée ajoute le quota par personne et le suivi de consommation que la liste d'autorisations {{1}} ci-dessous ne possède pas."
   },
+  "0d3f0401cf94c80a": {
+    "en": "What is never counted, at any level",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce qui n'est jamais comptabilisé, à aucun niveau"
+  },
   "0d5ba93d17b7fe39": {
     "en": "An email address, an authentication verifier, KDF parameters, and ciphertext it holds no key for. On a managed instance ({{0}}), also each account's daily allowance and usage count.",
     "model": "google/gemini-3.8-flash",
@@ -610,6 +634,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le serveur valide {{0}} par rapport aux niveaux définis par ce protocole."
+  },
+  "0fae9d68b9303615": {
+    "en": "What {{0}} adds",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce qu'ajoute {{0}}"
   },
   "0fedc49d8df7cbb8": {
     "en": "{{0}} The service stores nothing between requests. There is nothing to export, breach, or subpoena.",
@@ -791,6 +821,12 @@
     "at": "2026-09-06",
     "fr": "openplate fonctionne selon le principe du « bring-your-own-key » : chaque personne pointe l'application vers un fournisseur d'IA et paie ses propres analyses de photos d'assiette. À l'échelle d'un foyer, c'est absurde. Personne ne veut gérer quatre comptes fournisseurs, et partager une seule clé est pire : impossible de savoir qui a dépensé quoi, et révoquer une personne revient à révoquer tout le monde."
   },
+  "14210e691c877f63": {
+    "en": "Invitations",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Invitations"
+  },
   "1427cd4b526e0558": {
     "en": "your {{0}} and {{1}}, if set",
     "model": "google/gemini-3.8-flash",
@@ -904,6 +940,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le modèle identifie les aliments et estime les grammes. {{0}}"
+  },
+  "1709305c9fa966d1": {
+    "en": "Level",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Niveau"
   },
   "177b819fa4dab2ba": {
     "en": "Managed instances",
@@ -1030,6 +1072,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le {{0}} du compte"
+  },
+  "1adab96bea5ef682": {
+    "en": "What a level decides",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce que détermine un niveau"
   },
   "1b00385616306f03": {
     "en": "Never sent anywhere.",
@@ -1487,6 +1535,12 @@
     "at": "2026-09-06",
     "fr": "instance gérée"
   },
+  "26b7fe47d778f39a": {
+    "en": "enrolled, withdrawn, contribution sent",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "inscrit, retiré, contribution envoyée"
+  },
   "26c47a0c6ab31884": {
     "en": "{{0}} Its surface is the OpenAI chat-completions shape, which is what lets any OpenAI-compatible client, openplate included, point at it with no adapter. An API is \"first\" here in the strongest available sense: there is nothing but the API, and its shape is not ours to extend.",
     "model": "google/gemini-3.8-flash",
@@ -1745,6 +1799,12 @@
     "at": "2026-09-06",
     "fr": "Outil"
   },
+  "2e5d9463dcbd5e68": {
+    "en": "Identifiers in a path. {{0}} and {{1}} are replaced with a placeholder before the page view is reported.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Identifiants dans un chemin. {{0}} et {{1}} sont remplacés par un espace réservé avant la transmission de la page vue."
+  },
   "2e8b8c774611b9be": {
     "en": "Optional mirror; Hugging Face is the fallback.",
     "model": "google/gemini-3.8-flash",
@@ -1828,6 +1888,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} Sans cela, chaque chemin ci-dessous répond l'habituel itinéraire inconnu {{1}}, à tout appelant, authentifié ou non ; le terminateur est monté {{2}} de l'authentification, de sorte qu'une instance non configurée ne se distingue pas d'une instance où la fonctionnalité n'a jamais été codée."
+  },
+  "30d125ce8d8de471": {
+    "en": "These carry no values. A fast event does not carry its length, and a weight event does not carry a weight. But the events are timestamped, as every analytics event is, so a start and an end together give a duration by subtraction, and a share event says the person has a clinician. Study participation is special-category data under Art. 9 GDPR.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ils ne contiennent aucune valeur. Un événement de jeûne ne contient pas sa durée, et un événement de poids ne contient aucun poids. Mais ces événements ont un horodatage, comme tout événement d'analyse, donc un début et une fin permettent d'obtenir une durée par soustraction, et un événement de partage indique que la personne est suivie par un médecin. La participation à une étude constitue une catégorie particulière de données selon l'article 9 du RGPD."
   },
   "3162a563461eb41f": {
     "en": "Start with {{0}}.",
@@ -2405,6 +2471,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} C'est la spécification normative du protocole réseau, rédigée pour qu'un tiers puisse implémenter l'un ou l'autre côté sans lire ce code : un client alternatif face à ce service, ou un serveur alternatif vers lequel un client openplate peut être dirigé avec {{1}}."
   },
+  "40a8172c788da3e1": {
+    "en": "Research studies",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Études de recherche"
+  },
   "40b15c510352d977": {
     "en": "Header timeout (no bytes yet)",
     "model": "google/gemini-3.8-flash",
@@ -2627,6 +2699,12 @@
     "at": "2026-09-06",
     "fr": "Les données d'Open Food Facts sont publiées sous la {{0}}, qui impose un {{1}}. Si tu actives ce connecteur puis publies ou redistribues une base de données intégrant des données d'OFF (non pas les consultations unitaires que tu affiches, mais une {{2}}), l'ODbL t'oblige à mettre aussi cette base dérivée à disposition sous la même licence ODbL, et à créditer Open Food Facts."
   },
+  "4636b9fadd535730": {
+    "en": "{{0}}: only rendered when the instance actually runs analytics. It is currently NOT rendered in production. Review it anyway; it appears the moment {{1}} is set. Its CONTENT then varies with {{2}}: at {{3}} the \"what is recorded\" paragraph says no feature use is counted, at {{4}} it says feature use is counted, and every level that is on carries a paragraph stating that the amount recorded is a setting. The {{5}} level adds a further paragraph naming the health-behaviour and study events. Review all three, not just the default.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} : affiché uniquement lorsque l'instance exécute réellement des analyses. Il n'est actuellement PAS affiché en production. Examine-le tout de même ; il apparaît dès que {{1}} est défini. Son CONTENU varie ensuite selon {{2}} : à {{3}}, le paragraphe « ce qui est enregistré » indique qu'aucune utilisation de fonctionnalité n'est comptabilisée, à {{4}}, il indique que l'utilisation des fonctionnalités est comptabilisée, et chaque niveau actif contient un paragraphe précisant que le volume enregistré correspond à un paramètre. Le niveau {{5}} ajoute un autre paragraphe listant les événements de suivi de santé et d'étude. Examine les trois variantes, pas seulement la valeur par défaut."
+  },
   "464bebde9eb3d25e": {
     "en": "Nothing per user: no accounts, no sessions, no cookies. Model weights and a food dataset.",
     "model": "google/gemini-3.8-flash",
@@ -2705,17 +2783,35 @@
     "at": "2026-09-06",
     "fr": "Si tu fais aussi tourner le service de synchronisation, son Postgres mérite un dump planifié, tout comme le {{0}}, qui est inutilisable sans la base de données et réciproquement :"
   },
+  "47e34f3a937aaf3b": {
+    "en": "Page views plus software use. The default.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Pages vues et utilisation de l'application. Valeur par défaut."
+  },
   "47f82bcb5c74cd32": {
     "en": "A plate photo is read in the browser and posted straight to whichever OpenAI-compatible endpoint you configured. {{0}} It is not uploaded here, not written to disk, not logged. Only the resulting numbers are saved, into the device's local store; the photo stays on the device that took it, excluded from JSON exports and from sync payloads alike.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Une photo d'assiette est lue dans le navigateur et envoyée directement au point de terminaison compatible OpenAI que tu as configuré. {{0}} Elle n'est pas téléversée ici, pas écrite sur le disque, pas consignée dans les journaux. Seuls les chiffres résultants sont enregistrés, dans le stockage local de l'appareil ; la photo reste sur l'appareil qui l'a prise, exclue des exports JSON comme des charges utiles de synchronisation."
   },
+  "480bf8f336bcb192": {
+    "en": "Custom foods",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Aliments personnalisés"
+  },
   "48139b22e19362cf": {
     "en": "The drawing below is the whole system in three arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-sync, which never gets the key. The photo leaves for whichever AI endpoint you configured. The app server sends the page and stands on neither path.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "Le schéma ci-dessous résume tout le système en trois flèches. Ton appareil conserve le journal et la photo d'assiette. Le journal en sort chiffré, à destination de openplate-sync, qui n'obtient jamais la clé. La photo part vers le point de terminaison d'IA que tu as configuré. Le serveur d'application envoie la page et ne se trouve sur aucun de ces deux chemins."
+  },
+  "481cbc63b5e194f7": {
+    "en": "That is the whole reason the level exists. A researcher running a study on their own instance needs these numbers and can lawfully collect them from consenting participants. A general-purpose instance should not collect them, and by default does not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "C'est toute la raison d'être de ce niveau. Un chercheur qui mène une étude sur sa propre instance a besoin de ces chiffres et peut les collecter légalement auprès de participants consentants. Une instance à usage général ne doit pas les collecter, et ne le fait pas par défaut."
   },
   "485133f18d51682e": {
     "en": "{{0}} → {{1}}",
@@ -2987,6 +3083,12 @@
     "at": "2026-09-06",
     "fr": "Utilisation de l'IA"
   },
+  "4e6173bb5ab094bd": {
+    "en": "{{0}} decides how much the instance is allowed to report. It applies only when analytics are already on.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} détermine ce que l'instance est autorisée à transmettre. Cette option ne s'applique que lorsque la mesure d'audience est déjà active."
+  },
   "4e80abb5b14656d4": {
     "en": "Outcome",
     "model": "google/gemini-3.8-flash",
@@ -3076,6 +3178,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "ou une réponse"
+  },
+  "507527033de0edaa": {
+    "en": "36 events, all of them about the software rather than about the person.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "36 événements, qui concernent tous le logiciel plutôt que la personne."
   },
   "50aa36707bcf71c5": {
     "en": "The $10M revenue cap binds the operator, not this project:",
@@ -3173,6 +3281,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Mesuré le 2026-08-13 via le service {{1}} : exactement ce code, sa réduction à 896 px, sa grammaire, son mappage de sortie, 50/50 images, 0 erreur, requêtes séquentielles sur le loopback."
   },
+  "530680348565718a": {
+    "en": "newsletter subscribed, call to action clicked",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "inscription à la newsletter, clic sur l'appel à l'action"
+  },
   "53b6e4d1c5f31e7e": {
     "en": "{{0}} Substitution attacks the key, so the key is what the binding names, and the grantee reconstructs the AAD from a fingerprint computed locally, so no server-supplied value enters the trust path.",
     "model": "google/gemini-3.8-flash",
@@ -3202,6 +3316,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Ces déclarations décrivent le service auto-hébergé de ce dépôt. Pour signaler une vulnérabilité, consulte {{0}}."
+  },
+  "5483a03bc8ea4b67": {
+    "en": "See {{0}} for the decision and its reasoning.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Consulte {{0}} pour découvrir la décision et ses motivations."
   },
   "54a57c3147c49f33": {
     "en": "Privacy",
@@ -3377,6 +3497,12 @@
     "at": "2026-09-06",
     "fr": "Non traduit, et ne peut pas l'être :"
   },
+  "5a1addb6ecf62f50": {
+    "en": "Any identifier. No account id, no email address, no device id.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Tout identifiant. Aucun identifiant de compte, aucune adresse e-mail, aucun identifiant d'appareil."
+  },
   "5a4b5edf8a3a9c98": {
     "en": "{{0}} (5 to 60 s, every boot):",
     "model": "google/gemini-3.8-flash",
@@ -3388,6 +3514,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "base de données dérivée"
+  },
+  "5a69b2b1ed265857": {
+    "en": "exported, imported, CSV exported, photo cache cleared",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "exporté, importé, CSV exporté, cache des photos vidé"
   },
   "5a854cff93af66ee": {
     "en": "Give someone more:",
@@ -3641,6 +3773,12 @@
     "at": "2026-09-06",
     "fr": "aucun vérificateur, aucun descripteur KDF, aucun séquestre et aucun texte chiffré"
   },
+  "615e54d4d3a09bfa": {
+    "en": "Landing page",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Page d'accueil"
+  },
   "6183db8ba598ea04": {
     "en": "{{0}} It restores {{1}}. It cannot restore {{2}}, because the server never held a key. A {{3}} submitting {{4}} leaves a working account whose blob is permanently undecryptable, which is exactly why {{5}} refuses that submission outright. A conforming client must say so, in those terms, before the user commits to the flow.",
     "model": "google/gemini-3.8-flash",
@@ -3701,6 +3839,12 @@
     "at": "2026-09-06",
     "fr": "Disparu avec l'expéditeur de courriels dans la 0.5.0, et le protocole 2 ne le réintroduit pas même si ce service envoie à nouveau des courriels."
   },
+  "62a8e5a902096002": {
+    "en": "connected (manual, OAuth, instance preset), key check failed, disconnected",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "connecté (manuel, OAuth, préconfiguration d'instance), échec de vérification de clé, déconnecté"
+  },
   "62e6a65441ba4904": {
     "en": "{{0}} 1 gzips the plaintext, which buys roughly an order of magnitude on JSON this repetitive (the same key names on every one of thousands of records) and pushes the cliff far enough out to not be the near-term problem. It does not remove it.",
     "model": "google/gemini-3.8-flash",
@@ -3754,6 +3898,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "LFM Open License v1.0, plafonné par le chiffre d'affaires, voir {{0}}"
+  },
+  "63bceba91702ebec": {
+    "en": "What {{0}} counts",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce que mesure {{0}}"
   },
   "63c2d319f80ceade": {
     "en": "A unit is {{0}} the upstream call, never counted after it. Counting afterwards has a window in which N parallel requests all read the old count and all go through, and a client that retries on error is precisely the client that fires them together.",
@@ -3869,6 +4019,12 @@
     "at": "2026-09-06",
     "fr": "Le pseudonyme protège contre le {{0}}, pas contre le serveur. Le serveur authentifie l'envoi par jeton porteur et connaît donc de toute façon le compte derrière chaque ligne ; voir §9.2."
   },
+  "6626c7057e4c2efb": {
+    "en": "goals saved (targets or body metrics), weight logged",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "objectifs enregistrés (cibles ou mesures corporelles), poids consigné"
+  },
   "663d0545884691d7": {
     "en": "A {{0}} is a reduced, date-bounded slice of the diary, encrypted to a study's public key. It is a different artifact from a share, not a narrower one: different payload, different key, different lifecycle, and {{1}}; the wrap is over the payload directly.",
     "model": "google/gemini-3.8-flash",
@@ -3892,6 +4048,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Tout ou rien, en une seule transaction de base de données."
+  },
+  "66962f72a0888373": {
+    "en": "Preferences",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Préférences"
   },
   "66a4092d3b9fe03c": {
     "en": "account deletion (by row cascade)",
@@ -4025,11 +4187,23 @@
     "at": "2026-09-06",
     "fr": "Le jeton est consommé dans la MÊME instruction qui le lit ({{0}}), deux requêtes portant un même jeton ne peuvent donc pas recevoir de réponse toutes les deux. Les jetons inconnus, consommés et expirés renvoient un SEUL {{1}} après un travail identique."
   },
+  "695193cf95f95016": {
+    "en": "If you turn on {{0}}, say so in your own privacy policy. openplate's policy describes openplate's hosted instances, not yours.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Si tu actives {{0}}, mentionne-le dans ta propre politique de confidentialité. La politique d'openplate décrit les instances hébergées d'openplate, pas la tienne."
+  },
   "698310fadbfa5275": {
     "en": "shipped",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "en production"
+  },
+  "69ae5745de7e6a31": {
+    "en": "App install",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Installation de l'application"
   },
   "69b27aaa45661dc4": {
     "en": "2.33 s",
@@ -4133,6 +4307,18 @@
     "at": "2026-09-06",
     "fr": "{{0}} Vise ton dîner avec ton téléphone, obtiens une liste d'aliments avec des estimations de portions en grammes, calculée sur ton matériel, à partir de modèles aux poids ouverts, sans compte, sans clé API de quiconque, et sans qu'aucune photo ne quitte ton réseau."
   },
+  "6bd9600e2f5b5e09": {
+    "en": "succeeded, failed (with a fixed failure category), found nothing, mode chosen, started from a shared photo",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "réussie, échouée (avec une catégorie d'échec fixe), rien trouvé, mode choisi, lancée depuis une photo partagée"
+  },
+  "6c4b1e0455e9b0cb": {
+    "en": "link pasted, join completed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "lien collé, adhésion terminée"
+  },
   "6cbf83e080936a8f": {
     "en": "unset",
     "model": "google/gemini-3.8-flash",
@@ -4162,6 +4348,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "carte de la catégorie 12 GB devrait être confortable"
+  },
+  "6da0328322bbb7ba": {
+    "en": "Any number measured off a person. Events carry a fixed label or nothing at all.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Tout chiffre mesuré sur une personne. Les événements portent un libellé fixe, ou rien du tout."
   },
   "6da25562d7c46d8e": {
     "en": "an organization runs this instance, invites its people by email, and gives each one a daily AI allowance.",
@@ -4469,6 +4661,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Accepter plus de requêtes en cours que le moteur d'exécution n'a d'emplacements n'augmente pas le débit : cela déplace la file d'attente vers un endroit que ce service ne peut ni voir ni mesurer, et le contrôleur d'admission prend alors ses décisions sur des bases fausses."
   },
+  "759fd951424aba13": {
+    "en": "Page views only. No feature event ever fires.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Pages vues uniquement. Aucun événement fonctionnel n'est jamais déclenché."
+  },
   "75b38c876a58011b": {
     "en": "Licensing",
     "model": "google/gemini-3.8-flash",
@@ -4721,6 +4919,12 @@
     "at": "2026-09-06",
     "fr": "Le blob dépasse {{0}}."
   },
+  "7cbc366dc412a72c": {
+    "en": "Anything from a diary. No food name, no weight, no goal, no photo, no meal time, no study id.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Tout ce qui provient d'un journal. Aucun nom d'aliment, aucun poids, aucun objectif, aucune photo, aucune heure de repas, aucun identifiant d'étude."
+  },
   "7d1e8e6a68557098": {
     "en": "The client generates a new DEK, re-encrypts its whole snapshot under it, re-wraps it under both KEKs, and re-wraps it to every share it is keeping. The service stores the result {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -4943,6 +5147,12 @@
     "at": "2026-09-06",
     "fr": "Elle est délibérément {{0}} (§8). Cette valeur borne un journal que ce service stocke ; celle-ci borne une image qu'il ne fait que relayer, et déduire l'une de l'autre conduirait à rejeter toute véritable photo."
   },
+  "838557924a5cdfb2": {
+    "en": "Backup",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Sauvegarde"
+  },
   "83952a507d6d6593": {
     "en": "{{0}} Not a prefix, not a decoded buffer, not an error document. What may be logged: an account id, the upstream status, byte counts, a duration.",
     "model": "google/gemini-3.8-flash",
@@ -5051,6 +5261,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} sur le même processeur : ≈94 s / assiette"
   },
+  "8736ad5635f8e289": {
+    "en": "Query strings and URL fragments, which are dropped whole before a page view is reported. openplate puts single-use tokens there.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Les chaînes de requête et les fragments d'URL, qui sont supprimés entièrement avant l'envoi d'une page vue. openplate y place des jetons à usage unique."
+  },
   "874b3d67ed6eee91": {
     "en": "5.14 {{0}}, {{1}} and {{2}}",
     "model": "google/gemini-3.8-flash",
@@ -5080,6 +5296,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "tout ce qui figure dans {{0}}"
+  },
+  "8791254537f430ca": {
+    "en": "AI provider",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Fournisseur d'IA"
+  },
+  "87c661fc05a2b03c": {
+    "en": "The rules are enforced by types rather than by review. Every event function in {{0}} takes either nothing or one value from a fixed list, so a food name cannot be passed without a compile error. {{1}} fails the build if any other file reaches for the tracker directly, or if a Matomo host or site id is written into the source, which is what would make a self-hosted instance report into somebody else's account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le typage applique les règles plutôt que la revue de code. Chaque fonction d'événement dans {{0}} ne prend aucun paramètre ou une valeur issue d'une liste fixe, si bien qu'il est impossible de passer un nom d'aliment sans déclencher une erreur de compilation. {{1}} fait échouer la compilation si un autre fichier accède directement au traqueur, ou si un hôte ou un identifiant de site Matomo est écrit dans le code source, ce qui amènerait une instance auto-hébergée à envoyer des données sur le compte d'un tiers."
   },
   "881978c9ac05532d": {
     "en": "{{0}}: the sync screens appear and talk to that URL. Its origin is added to the production CSP's {{1}} automatically: you do not need {{2}} for it.",
@@ -5129,6 +5357,12 @@
     "at": "2026-09-06",
     "fr": "5.10 {{0}}"
   },
+  "8a3b8fd2f0c7fc2d": {
+    "en": "The tracker runs with cookies disabled. It stores nothing on the device, so there is no consent banner to build.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le traceur fonctionne sans cookies. Il ne stocke rien sur l'appareil, il n'y a donc aucun bandeau de consentement à prévoir."
+  },
   "8a7525b1492fb848": {
     "en": "Notes",
     "model": "google/gemini-3.8-flash",
@@ -5152,6 +5386,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} C'est le plafond. Une clé sans limite peut consommer tout le solde du compte, alors considère la valeur « unlimited » comme la chose à éviter ici."
+  },
+  "8b29aad440b8f965": {
+    "en": "install prompt shown, installed, offline page view",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "invite d'installation affichée, installé, page vue hors ligne"
   },
   "8b61d0858aedd276": {
     "en": "Stage 1: downloading weights",
@@ -5213,6 +5453,12 @@
     "at": "2026-09-06",
     "fr": "Les macronutriments sont résolus à partir d'une base de données alimentaires, par nom, jamais générés par le modèle."
   },
+  "8d14f6e72de8f18a": {
+    "en": "Events",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Événements"
+  },
   "8d261a372fde1461": {
     "en": "Sync",
     "model": "google/gemini-3.8-flash",
@@ -5230,6 +5476,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "15 min"
+  },
+  "8dc83b523954a833": {
+    "en": "completed, step completed (focus, weight, body), step skipped",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "terminée, étape franchie (priorité, poids, morphologie), étape ignorée"
   },
   "8dc9cdfdda3d1bce": {
     "en": "{{0}}, exactly as §5.1. A stale value is a {{1}} {{2}} and nothing at all is written.",
@@ -5500,6 +5752,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Côté étude"
+  },
+  "94c116ee118a7299": {
+    "en": "Analytics",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Mesure d'audience"
+  },
+  "94cca1b2b2593e67": {
+    "en": "Fasting",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Jeûne"
   },
   "95911a9dc67d50dc": {
     "en": "RTX 4090",
@@ -6047,6 +6311,12 @@
     "at": "2026-09-06",
     "fr": "Le débit du processeur ne s'améliore pas avec la concurrence."
   },
+  "a0be2afec469aff6": {
+    "en": "Set {{0}} and {{1}} to point an instance at a {{2}} install you run yourself. Leave both unset, which is the default, and the instance loads no analytics script, sends no request, and serves the same Content-Security-Policy header it served before analytics existed. Set one without the other and the boot fails on purpose: an operator who believes they have analytics and does not is worse off than one who sees an error.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Renseigne {{0}} et {{1}} pour pointer une instance vers une installation {{2}} que tu héberges toi-même. Laisse les deux non définis, ce qui est le choix par défaut, et l'instance ne chargera aucun script de mesure d'audience, n'enverra aucune requête et servira le même en-tête Content-Security-Policy qu'avant l'existence de la mesure d'audience. En renseigner un sans l'autre interrompt volontairement le démarrage : un administrateur qui croit mesurer son audience alors que ce n'est pas le cas court plus de risques que s'il voit une erreur."
+  },
   "a0d6b0b9da08c41f": {
     "en": "{{0}} is required",
     "model": "google/gemini-3.8-flash",
@@ -6070,6 +6340,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Fais vite une sauvegarde : {{0}}. Ton journal est stocké dans ce navigateur, une sauvegarde est donc la seule copie qui survit à la suppression des données du site ou à un changement d'appareil."
+  },
+  "a2198f472ce2fbee": {
+    "en": "Onboarding",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Prise en main"
   },
   "a23c727801240061": {
     "en": "off by default",
@@ -6305,11 +6581,23 @@
     "at": "2026-09-06",
     "fr": "En génère une (§5.8). Le jeton est renvoyé {{0}}"
   },
+  "a96f96df2be74cff": {
+    "en": "logged (with the input path: search, manual, plate scan, label scan, chip, copy day, log again, saved meal), entry edited, entry deleted, entry restored, meal saved",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "enregistré (avec le mode de saisie : recherche, manuel, scan d'assiette, scan d'étiquette, pastille, copier le jour, consigner à nouveau, repas enregistré), entrée modifiée, entrée supprimée, entrée restaurée, repas enregistré"
+  },
   "a97128df4e75fb5a": {
     "en": "Every string that came off the upstream wire is scrubbed",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Chaque chaîne reçue du réseau en amont est nettoyée"
+  },
+  "a9717423707fb089": {
+    "en": "ADR-0010",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "ADR-0010"
   },
   "a97fe4405feb74ee": {
     "en": "one plate, as JSON",
@@ -6352,6 +6640,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} Transmets-la comme tu transmettrais un mot de passe, pas dans une discussion de groupe qui reste pour toujours."
+  },
+  "aa92236cc978ed99": {
+    "en": "Goals and weight",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Objectifs et poids"
   },
   "aac08769c1e0061b": {
     "en": "There is no administrative state to administer.",
@@ -6545,6 +6839,12 @@
     "at": "2026-09-07",
     "fr": "L'appareil conserve le journal et la photo, le journal en sort chiffré vers le serveur de synchronisation, et la photo part vers le point de terminaison d'IA que tu as configuré."
   },
+  "ae039806752f251d": {
+    "en": "Unset means {{0}}. An unrecognised value stops the boot. A level set on an instance with no Matomo configured also stops the boot, for the same reason a half-configured pair does.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Laisser vide équivaut à {{0}}. Une valeur non reconnue interrompt le démarrage. Définir un niveau sur une instance où Matomo n'est pas configuré interrompt aussi le démarrage, pour la même raison qu'une paire à moitié configurée."
+  },
   "ae2a70a76d6c1f0f": {
     "en": "The {{0}} is the one enumeration oracle in this protocol, and protocol 2 made it almost nothing.",
     "model": "google/gemini-3.8-flash",
@@ -6628,6 +6928,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Statut : EN ATTENTE DE RELECTURE"
+  },
+  "b05dcdba5f23534b": {
+    "en": "openplate can count how it is used. It counts nothing until you configure it, and it never counts what you eat.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "openplate peut mesurer la façon dont il est utilisé. Il n'enregistre rien tant que tu ne le configures pas, et il ne mesure jamais ce que tu manges."
   },
   "b073f6c68ef87211": {
     "en": "Scope",
@@ -7109,6 +7415,12 @@
     "at": "2026-09-06",
     "fr": "ne doit pas être définie"
   },
+  "bc64125d752f4279": {
+    "en": "Diary",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Journal"
+  },
   "bc88ec02f6252477": {
     "en": "Length is 125 bytes",
     "model": "google/gemini-3.8-flash",
@@ -7192,6 +7504,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} et crée une clé par personne. Donne à chaque clé le nom de la personne : c'est ce nom que tu liras plus tard dans le détail de la consommation, donc « Sam » vaut mieux que « clé 3 »."
+  },
+  "bf8cee3cfc7f7682": {
+    "en": "Matomo",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Matomo"
   },
   "bfa87a1b46e94b9a": {
     "en": "You own the hardware.",
@@ -7319,6 +7637,12 @@
     "at": "2026-09-06",
     "fr": "Dépannage"
   },
+  "c3afaa0bcdff6ecd": {
+    "en": "The Matomo site id this instance reports as. Set both this and {{0}}, or neither. Setting one alone stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "L'identifiant de site Matomo sous lequel cette instance transmet ses données. Renseigne cet identifiant et {{0}}, ou aucun des deux. En renseigner un seul interrompt volontairement le démarrage."
+  },
   "c3bc45ac352fe43f": {
     "en": "share",
     "model": "google/gemini-3.8-flash",
@@ -7349,6 +7673,12 @@
     "at": "2026-09-06",
     "fr": "Étape 2 : chargement du modèle"
   },
+  "c49eb557f645e91c": {
+    "en": "12 more events. Each one says something about a person's health or their participation in a study, which is why they are off unless you ask for them.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "12 événements supplémentaires. Chacun indique quelque chose sur la santé d'une personne ou sa participation à une étude, c'est pourquoi ils sont désactivés sauf si tu les demandes."
+  },
   "c4afca4036bb794c": {
     "en": "Wrapped DEK",
     "model": "google/gemini-3.8-flash",
@@ -7360,6 +7690,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Configuration pour la famille"
+  },
+  "c57e52152386477d": {
+    "en": "Base URL of a {{0}} install you run yourself. Unset, the default, means no analytics script, no request and an unchanged CSP header. See {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "URL de base d'une installation {{0}} que tu héberges toi-même. Non défini par défaut, ce qui implique aucun script de mesure d'audience, aucune requête et un en-tête CSP inchangé. Voir {{1}}."
   },
   "c5ceff03b82c045b": {
     "en": "Food data ({{0}})",
@@ -7529,6 +7865,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Les en-têtes de la requête amont sont CONSTRUITS plutôt que copiés depuis la requête entrante puis écrasés. Une copie puis écrasement transmet les cookies, {{1}}, et tout ce que le fournisseur suivant décidera de lire."
   },
+  "c9f394340d0ec11f": {
+    "en": "created, deleted, password changed, password reset requested, password reset completed, setup completed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "créé, supprimé, mot de passe modifié, réinitialisation de mot de passe demandée, réinitialisation de mot de passe terminée, configuration terminée"
+  },
   "ca7d3e7c3a9d7f22": {
     "en": "openplate-inference",
     "model": "google/gemini-3.8-flash",
@@ -7672,6 +8014,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "La réponse est une session ordinaire, délibérément sans restriction : le détenteur du code de récupération est le propriétaire du compte par construction, et un jeton restreint en « mode récupération » ajouterait une seconde surface d'autorisation sans apporter aucune propriété que le code ne porte pas déjà."
+  },
+  "cd0d67c96c68583e": {
+    "en": "Clinician sharing",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Partage avec un médecin"
   },
   "cd237e4644492d70": {
     "en": "One note if you self-host behind a reverse proxy that logs request URLs: the callback URL (including its one-time {{0}} parameter) will appear in your access logs like any other URL. It is not a secret (knowing it grants access to nobody's key), but scrub it if your log retention is a concern.",
@@ -7973,6 +8321,12 @@
     "at": "2026-09-06",
     "fr": "Redémarre, il reprend."
   },
+  "d480a9a0884fc851": {
+    "en": "changed (theme or language)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "modifié (thème ou langue)"
+  },
   "d4c3e8a11256ab82": {
     "en": "browser",
     "model": "google/gemini-3.8-flash",
@@ -8201,6 +8555,12 @@
     "at": "2026-09-06",
     "fr": "Le client détient toutes les clés. Il sérialise l'intégralité de son stockage local, le compresse avec gzip, le chiffre en AES-256-GCM avec une clé inconnue du serveur, et envoie le résultat sous la forme d'un blob opaque unique. Le serveur stocke des octets, gère leurs versions, et refuse les écritures qui écraseraient celles d'un autre appareil. Il conserve aussi deux petits {{0}} (la même clé de chiffrement des données encapsulée sous deux clés de chiffrement de clé distinctes, l'une dérivée de la phrase de passe de l'utilisateur et l'autre d'un code de récupération) pour qu'un deuxième appareil puisse s'initialiser. Le serveur ne peut rien déchiffrer. Ce n'est pas un choix de politique, c'est ce qu'imposent les mathématiques."
   },
+  "d9fb5625cd602197": {
+    "en": "share granted, revoked, key rotated, identity created, shared diary opened",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "partage accordé, révoqué, clé renouvelée, identité créée, journal partagé ouvert"
+  },
   "da178483c25462ec": {
     "en": "The production Content-Security-Policy is part of that promise rather than decoration: the {{0}} allowlist is derived from the provider registry, and it is what stops an injected script exfiltrating a key that lives in the page. See {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -8399,6 +8759,12 @@
     "at": "2026-09-06",
     "fr": "Aucun des deux ne réinjecte l'entrée reçue"
   },
+  "e1dc33eb7f1ef8cb": {
+    "en": "Everything, including fasting, weight, clinician sharing and study participation.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Tout, y compris le jeûne, le poids, le partage avec des soignants et la participation à des études."
+  },
   "e1f8c53ae1cfcc5d": {
     "en": "A conforming server MUST NOT return {{0}}, an empty body, or a different shape for an unknown address. It must also:",
     "model": "google/gemini-3.8-flash",
@@ -8422,6 +8788,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} un seul journal sur l'ensemble de tes appareils. Pour le dire honnêtement, cela sert surtout à {{1}} : un téléphone et un ordinateur portable qui restent synchronisés. L'usage pour les familles est le {{2}} cas d'usage, et le moins adapté : la synchronisation fonctionne par compte, donc deux personnes qui partagent un même compte partagent un seul journal au lieu d'en avoir un chacune. Deux personnes qui souhaitent des journaux distincts doivent créer deux comptes, ou tout simplement utiliser deux appareils au niveau 1 sans aucune synchronisation."
+  },
+  "e2d65334cffc7a14": {
+    "en": "What it counts",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce qu'il mesure"
+  },
+  "e2dc3caf38369834": {
+    "en": "How much the instance reports: {{0}}, {{1}} or {{2}}. Applies only when analytics are on. See {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Niveau de détail transmis par l'instance : {{0}}, {{1}} ou {{2}}. Ne s'applique que si la mesure d'audience est activée. Voir {{3}}."
   },
   "e2e341d97c097dc4": {
     "en": "{{0}} (GPU flagship)",
@@ -8686,6 +9064,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "openplate"
+  },
+  "ea1c510d1ddb7264": {
+    "en": "Scan",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Numérisation"
   },
   "ea423b4f69278106": {
     "en": "The {{0}} branch is what the client sends to prove possession of the recovery code",
@@ -9280,6 +9664,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le compte lui-même"
+  },
+  "fbfc3b13131d7123": {
+    "en": "fast started (now or scheduled), fast ended",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "jeûne commencé (immédiat ou programmé), jeûne terminé"
   },
   "fcc36c36dc255182": {
     "en": "openplate shows no \"this instance provides its own AI\" card",
