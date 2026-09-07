@@ -53,6 +53,12 @@
     "at": "2026-09-04",
     "de": "7.2 s"
   },
+  "01394d47998e8703": {
+    "en": "Rung 1: the app on your own box",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 1: Die App auf dem eigenen Rechner"
+  },
   "0149ff596dc76203": {
     "en": "When mail is not configured the send is a no-op and the endpoint still answers {{0}}. A self-hoster's users then have no reset; the operator's remedy is {{1}}, which returns the link.",
     "model": "google/gemini-3.8-flash",
@@ -112,6 +118,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Was verbraucht und was zurückgegeben wird"
+  },
+  "02e55ceedd7aef07": {
+    "en": "German legal text: review record",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Deutscher Rechtstext: Prüfprotokoll"
   },
   "033e8154451adffb": {
     "en": "Send each person their own key.",
@@ -179,6 +191,12 @@
     "at": "2026-09-04",
     "de": "Beitragsseite"
   },
+  "052e1eb56e8905d8": {
+    "en": "Use the same {{0}} file you deployed with. If you brought up a topology from {{1}}, name that file instead, for example {{2}}. A bare {{3}} beside {{4}} fails with {{5}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Verwende dieselbe Datei {{0}}, mit der du bereitgestellt hast. Wenn du eine Topologie aus {{1}} gestartet hast, gib stattdessen diese Datei an, zum Beispiel {{2}}. Ein reines {{3}} neben {{4}} schlägt mit {{5}} fehl."
+  },
   "053c6e013401f8ef": {
     "en": "{{0}} carries the full list with inline notes. Copy it to {{1}} to change one.",
     "model": "google/gemini-3.8-flash",
@@ -239,6 +257,12 @@
     "at": "2026-09-04",
     "de": "Niemals auf Festplatte geschrieben."
   },
+  "06b60ae91dc7a949": {
+    "en": "{{0}} is the reference deployment for the app, the sync service, and the Postgres that {{1}} needs. The app still connects to no database of its own. (If you also want self-hosted inference, use {{2}} instead: same sync setup, plus the model runtime.)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} ist die Referenzbereitstellung für die App, den Sync-Dienst und das Postgres, das {{1}} benötigt. Die App verbindet sich weiterhin mit keiner eigenen Datenbank. (Wenn du auch selbst gehostete Inferenz willst, nimm stattdessen {{2}}: gleicher Sync-Aufbau, plus die Modell-Laufzeitumgebung.)"
+  },
   "06d280e9c2cd77f8": {
     "en": "4.1 Authentication",
     "model": "google/gemini-3.8-flash",
@@ -287,11 +311,23 @@
     "at": "2026-09-04",
     "de": "{{0}}, wann ein Gerät synchronisiert und wie oft."
   },
+  "07df4f13fd35ffae": {
+    "en": "Setup: bring up openplate-sync (see {{0}} and {{1}}), and set {{2}} on the openplate app. From there, invite people at {{3}} in the app, or from a terminal with openplate-sync's {{4}} CLI, giving each account a daily allowance. The invite is mailed to the person; the link is never printed to a console. Each person signs in and their account already carries the AI connection: there is no separate step and nothing to paste in. Suspending or reactivating an account is the same admin screen, and takes effect immediately.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Einrichtung: Starte openplate-sync (siehe {{0}} und {{1}}) und setze {{2}} in der openplate-App. Lade von dort aus Personen unter {{3}} in der App ein oder über das Terminal mit dem {{4}}-CLI von openplate-sync, und weise jedem Konto ein Tageskontingent zu. Die Einladung wird per E-Mail verschickt; der Link wird nie auf der Konsole ausgegeben. Jede Person meldet sich an, und ihr Konto enthält bereits die KI-Verbindung: Es gibt keinen separaten Schritt und keinen Schlüssel zum Einfügen. Das Sperren oder Reaktivieren eines Kontos geschieht in derselben Verwaltungsoberfläche und greift sofort."
+  },
   "0815621a242a5fcc": {
     "en": "Point a managed instance's AI proxy at your inference box (openplate-sync's {{0}}, with {{1}} left empty) and you get both: scans on your own hardware, with per-account allowances in front of them. Point it at a cloud provider instead and you get shared spend with no hardware. Either way, the same sync server also carries the diary: sync and the AI proxy are one service now, not two ({{2}}).",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Wenn du den KI-Proxy einer verwalteten Instanz auf deinen Inferenz-Rechner verweist ({{0}} von openplate-sync, wobei {{1}} leer bleibt), erhältst du beides: Scans auf eigener Hardware mit vorgeschalteten Kontingenten pro Konto. Verweist du ihn stattdessen auf einen Cloud-Anbieter, teilst du die Kosten ohne eigene Hardware. In beiden Fällen verwaltet derselbe Sync-Server auch das Tagebuch: Synchronisation und KI-Proxy bilden nun einen einzigen Dienst statt zweier getrennter Dienste ({{2}})."
+  },
+  "084f88b19b8c0e4f": {
+    "en": "With no inference container at all, the browser calls a cloud provider directly with a key you entered on that device. The key is stored in the device's local store, excluded from the JSON export, and never sent to the openplate server: there is no server-side copy, encrypted or otherwise, and no server-side proxy of the call.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Ganz ohne Inference-Container ruft der Browser einen Cloud-Anbieter direkt mit einem Schlüssel auf, den du auf diesem Gerät eingegeben hast. Der Schlüssel liegt im lokalen Speicher des Geräts, wird vom JSON-Export ausgeschlossen und niemals an den openplate-Server gesendet: Es gibt keine serverseitige Kopie, weder verschlüsselt noch anders, und keinen serverseitigen Proxy für den Aufruf."
   },
   "085d66cdc20ea048": {
     "en": "Whatever their policy says.",
@@ -382,6 +418,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "vLLM und Ollama benötigen beide den genauen Namen des bereitgestellten Modells"
+  },
+  "0b84bc16adb1e8c9": {
+    "en": "{{0}}: Governing law, and whether the German phrasing preserves the consumer-protection carve-out.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: Anwendbares Recht und die Frage, ob die deutsche Formulierung die verbraucherschutzrechtlichen Ausnahmen wahrt."
+  },
+  "0b9295217cce30e9": {
+    "en": "The drawing below is the whole system. Follow the two arrows that leave the device: the diary leaves as ciphertext for openplate-sync, and the photo leaves for whichever AI endpoint you configured. The app server is on neither of them. The dotted arrows are the one exception, a managed instance, where the sync server forwards the photo for an account that has an allowance.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die folgende Zeichnung zeigt das gesamte System. Folge den beiden Pfeilen, die das Gerät verlassen: Das Tagebuch geht als Geheimtext an openplate-sync, und das Foto geht an den von dir konfigurierten KI-Endpunkt. Der App-Server liegt auf keinem dieser Pfade. Die gepunkteten Pfeile bilden die einzige Ausnahme, eine verwaltete Instanz, bei der der Sync-Server das Foto für ein Konto mit Guthaben weiterleitet."
   },
   "0ba0a7b9b3c0be0e": {
     "en": "See {{0}}.",
@@ -503,6 +551,12 @@
     "at": "2026-09-04",
     "de": "Lizenzen der Modellgewichte, die {{0}}-Umsatzgrenze und der Wechsel zu Apache-2.0"
   },
+  "0e0f9d7a6186267f": {
+    "en": "Rung 2: add sync",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 2: Synchronisierung ergänzen"
+  },
   "0e143bb203289d9d": {
     "en": "Running {{0}} at home, for a household, or for research: no cap issue — that is not Commercial Use.",
     "model": "google/gemini-3.8-flash",
@@ -611,6 +665,12 @@
     "at": "2026-09-04",
     "de": "Eine Einladung ist eine einmalige, ablaufende Zugriffsberechtigung {{0}}. Sie enthält die Adresse, mit der das Konto erstellt wird, die Namensvermutung des Betreibers, die Rolle und das tägliche KI-Kontingent. Unbekannte, fehlerhafte, fehlende, dienstfremde, abgelaufene, widerrufene und bereits eingelöste Token erzeugen alle DIESELBE Antwort {{1}} und denselben Textkörper, {{2}}: Eine Unterscheidung würde es einem Aufrufer ermöglichen zu testen, welche Token existieren, und würde offenlegen, dass ein Token einmal gültig war."
   },
+  "10cf7ebbb7c01807": {
+    "en": "The optional study console keeps its own, separate accounts on the same server. {{0}} says when it is on, and {{1}} says why it lives in the app.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die optionale Studienkonsole führt ihre eigenen, getrennten Konten auf demselben Server. {{0}} beschreibt, wann sie aktiv ist, und {{1}} erklärt, warum sie in der App liegt."
+  },
   "10e4840172dd3fbc": {
     "en": "The grantee surface has no write verbs against the grantor",
     "model": "google/gemini-3.8-flash",
@@ -707,11 +767,23 @@
     "at": "2026-09-04",
     "de": "24 GB ist die einzige Groesse, die wir gemessen haben"
   },
+  "1407c3fdc00d21b8": {
+    "en": "Rung 3 moves the scan onto your hardware. The photo goes from the browser to the inference container, which is why that container needs an address your browsers can resolve. The model names the foods and estimates grams; the macros are read out of the bundled dataset.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 3 verlagert den Scan auf deine Hardware. Das Foto wandert vom Browser zum Inferenz-Container, weshalb dieser Container eine Adresse braucht, die deine Browser auflösen können. Das Modell benennt die Lebensmittel und schätzt die Grammzahl; die Makronährstoffe werden aus dem mitgelieferten Datensatz ausgelesen."
+  },
   "140bedbf9c3f6d56": {
     "en": "none",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "nichts"
+  },
+  "1410d29839fa118d": {
+    "en": "openplate is bring-your-own-key: each person points the app at an AI provider and pays for their own plate scans. In one household that is silly. Nobody wants four provider accounts, and one shared key is worse: you cannot tell who spent what, and revoking one person revokes everybody.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "openplate folgt dem Prinzip Bring Your Own Key: Jede Person hinterlegt in der App ihren eigenen KI-Anbieter und zahlt ihre Mahlzeiten-Scans selbst. In einem Haushalt ist das unpraktisch. Niemand will vier Konten beim selben Anbieter führen, und ein einzelner geteilter Schlüssel ist noch schlechter: Man sieht nicht, wer was verbraucht hat, und sperrt man eine Person, sperrt man alle."
   },
   "1427cd4b526e0558": {
     "en": "your {{0}} and {{1}}, if set",
@@ -863,6 +935,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Dadurch wird ein {{1}} direkt beim nächsten Aufruf wirksam."
   },
+  "19b0eda073fe19d4": {
+    "en": "{{0}} ({{1}} and friends) needs no configuration: the loopback carve-out already covers it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} ({{1}} und ähnliche) benötigt keine Konfiguration: Die Loopback-Ausnahme deckt das bereits ab."
+  },
   "19bb1cd33a42f941": {
     "en": "inside the container",
     "model": "google/gemini-3.8-flash",
@@ -958,6 +1036,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Du gewinnst:"
+  },
+  "1b6b75aa5ae7a079": {
+    "en": "{{0}} Any random string works ({{1}}); there is no dashboard, and no per-person usage report: you get the container's logs.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Jede beliebige Zeichenkette funktioniert ({{1}}); es gibt kein Dashboard und keine Nutzungsberichte pro Person: Du nutzt die Protokolle des Containers."
   },
   "1bd5ee06294a39ac": {
     "en": "{{0}} — unauthenticated, throttled per IP {{1}} email. Request {{2}} → {{3}} {{4}}.",
@@ -1276,6 +1360,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die Isolationseinheit. Ein Konto hat höchstens einen aktuellen Blob und höchstens zwei Schlüsseldatensätze."
+  },
+  "23323134938fe64c": {
+    "en": "Rung 0: run nothing",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 0: Nichts betreiben"
   },
   "2363a120320ca7d9": {
     "en": "{{0}} — the row to plan against.",
@@ -1751,6 +1841,12 @@
     "at": "2026-09-04",
     "de": "openplate ist standardmäßig eine lokale App: Dein Tagebuch liegt in der IndexedDB des Browsers auf dem genutzten Gerät und nichts verlässt es. Die Synchronisierung dieses Tagebuchs zwischen Geräten ist die einzige Funktion, die ein Konto erfordert, weshalb sie in einem separaten Dienst läuft, {{0}}, mit eigenem Image, eigener Datenbank und eigenen Secrets."
   },
+  "3395b02c07f2fed7": {
+    "en": "Nothing on this rung is yours to run. The browser holds the diary, the browser calls the provider with the key you pasted into it, and the operator's server only sends the page.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Auf dieser Stufe musst du nichts betreiben. Der Browser hält das Tagebuch, der Browser ruft den Anbieter mit dem Schlüssel auf, den du eingefügt hast, und der Server des Betreibers liefert nur die Seite aus."
+  },
   "33edb84fd6990e75": {
     "en": "Service ({{0}}), mirrored client-side for a better error",
     "model": "google/gemini-3.8-flash",
@@ -1870,6 +1966,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Base64"
+  },
+  "37377c3fa17744ce": {
+    "en": "A running {{0}} instance: either the hosted one, your own, or any third-party server implementing {{1}}. To run your own, use {{2}}: see {{3}} and {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Eine laufende {{0}}-Instanz: entweder die gehostete, deine eigene oder ein beliebiger Drittanbieter-Server, der {{1}} implementiert. Um deine eigene zu betreiben, nutze {{2}}: siehe {{3}} und {{4}}."
   },
   "373ebd05d3d4d2dd": {
     "en": "An invite token begins with {{0}}, and the service refuses anything that does not.",
@@ -2093,6 +2195,12 @@
     "at": "2026-09-04",
     "de": "Für den Browser ändert sich nichts: Ein angemeldetes Konto mit Kontingent scannt über den KI-Proxy, den openplate-sync bereitstellt, denselben Dienst, mit dem der Client ohnehin synchronisiert. Nach hinten heraus ist openplate-sync ein Client: Es verweist entweder auf einen Cloud-Anbieter oder auf deinen eigenen openplate-inference-Container. {{0}}: Der Sync-Server enthält kein Modell und beantwortet selbst keinen Scan."
   },
+  "3da288845ef37634": {
+    "en": "Curated nutrition data and food images for identified foods. Only food {{0}} are sent (never photos, never anything about you), and the lookup fails open. Set to an empty string to disable it entirely.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Kuratierte Nährwertdaten und Lebensmittelbilder für erkannte Speisen. Es werden nur {{0}} von Lebensmitteln gesendet (niemals Fotos, niemals etwas über dich), und die Abfrage scheitert fehlertolerant. Setze dies auf eine leere Zeichenkette, um es vollständig zu deaktivieren."
+  },
   "3dab81d51ab16b46": {
     "en": "{{0}} No revenue cap, no field-of-use restriction, commercial use fine. Source: {{1}}. This is the recommended path for commercial use.",
     "model": "google/gemini-3.8-flash",
@@ -2128,6 +2236,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das Token besteht aus 32 Zufallsbytes, Base64url, mit Präfix {{0}}. Nur sein SHA-256-Hash wird gespeichert, in {{1}}, mit einer TTL von {{2}}. {{3}}: Eine neue Anfrage markiert jeden älteren ungenutzten Eintrag in derselben Transaktion als verbraucht, sodass man beim Hochscrollen im Posteingang nicht das Schreiben von gestern einlösen kann."
+  },
+  "3e5e38d4aae2f107": {
+    "en": "{{0}} It holds no database and writes no state: a destroyed app container loses nothing.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Er enthält keine Datenbank und schreibt keinen Zustand: Ein zerstörter App-Container verliert nichts."
   },
   "3e9dd529c5550329": {
     "en": "{{0}} (protocol 2, ADR-0005). The client no longer shows it to the person: it sends the raw code once in the signup body, and the server stores {{1}} in {{2}}, where {{3}} is a third frozen HMAC subkey of {{4}} ({{5}}, beside the verifier pepper and the dummy-descriptor key). A mailed reset (§5.12) hands the code back to the account holder, who then runs the ordinary §5.14 rotation with it. {{6}} That is a real change to what this service is, it is stated here rather than buried, and it is argued in full in {{7}}.",
@@ -2248,6 +2362,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Gespeichert in"
+  },
+  "433f1d083cc8a40d": {
+    "en": "If your provider will not issue capped sub-keys (Mistral, most direct provider APIs), the sub-key recipe above has nothing to work with. That is what a {{0}} openplate-sync instance is for: set {{1}} (requires {{2}}), and the account service your household already uses for sync also becomes the AI proxy, with a daily request allowance per account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Falls dein Anbieter keine gedeckelten Unterschlüssel ausstellt (Mistral, die meisten direkten Anbieter-APIs), hilft die obige Anleitung nicht weiter. Genau dafür gibt es eine {{0}} openplate-sync-Instanz: Setze {{1}} (erfordert {{2}}), und der Kontodienst, den dein Haushalt bereits für die Synchronisation nutzt, fungiert gleichzeitig als KI-Proxy mit einem täglichen Kontingent an Anfragen pro Konto."
   },
   "43a93baacb71ebf6": {
     "en": "{{0}} defaults to {{1}}. A box that shed load at some threshold would refuse requests it is perfectly capable of serving, and on CPU a scan legitimately takes seconds to minutes. The UX that fits is asynchronous: take the photo, put the phone away, the plate is analysed when you look again. What does not fit on CPU is a live preview that redraws as you frame the shot.",
@@ -2381,11 +2501,23 @@
     "at": "2026-09-04",
     "de": "{{0}} pro Zeile. {{1}}"
   },
+  "464bebde9eb3d25e": {
+    "en": "Nothing per user: no accounts, no sessions, no cookies. Model weights and a food dataset.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Nichts pro Nutzer: keine Konten, keine Sitzungen, keine Cookies. Modellgewichte und ein Lebensmittel-Datensatz."
+  },
   "464e0030fe798eaf": {
     "en": "{{0}} There is no upload directory, no temp file, no cache. The image is decoded, downscaled in memory, sent to the model runtime on the container's loopback interface, and dropped when the request ends.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Es gibt kein Upload-Verzeichnis, keine temporäre Datei und keinen Cache. Das Bild wird decodiert, im Arbeitsspeicher verkleinert, über die Loopback-Schnittstelle des Containers an die Modell-Laufzeitumgebung gesendet und verworfen, sobald der Request beendet ist."
+  },
+  "465b54f8fad8e601": {
+    "en": "{{0}} Set {{1}} and the instance becomes one an administrator runs for a household or an organization: they invite people by email from {{2}} (or the sync-api CLI), give each account a daily allowance, and every signed-in scan runs through the sync server's own AI proxy: no separate service, no separate invite link. See {{3}} and {{4}} for when this is worth turning on instead of provider sub-keys.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Setze {{1}}, und die Instanz wird zu einer, die ein Administrator für einen Haushalt oder eine Organisation betreibt: Er lädt Personen per E-Mail über {{2}} (oder das sync-api-CLI) ein, weist jedem Konto ein Tageskontingent zu, und jeder Scan eines angemeldeten Nutzers läuft über den eigenen KI-Proxy des Synchronisierungsservers: kein separater Dienst, kein separater Einladungslink. Siehe {{3}} und {{4}} dazu, wann sich das Einschalten gegenüber Unter-Schlüsseln von Anbietern lohnt."
   },
   "46641960282b7460": {
     "en": "0 = disabled. Admission policy: refuse work you cannot finish in time. See {{0}}.",
@@ -2447,6 +2579,12 @@
     "at": "2026-09-04",
     "de": "Umschlag"
   },
+  "47ab2adea4762b38": {
+    "en": "If you also run the sync service, its Postgres is worth a scheduled dump, together with the {{0}}, which is useless without the database and vice versa:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Wenn du auch den Sync-Dienst betreibst, lohnt sich ein regelmäßiger Dump seines Postgres, zusammen mit {{0}}, das ohne die Datenbank nutzlos ist und umgekehrt:"
+  },
   "47f1d3977fc7156e": {
     "en": "{{0}} The small {{1}} profile is 2.0 GiB of weights and wants {{2}} on a CPU-only box; the larger {{3}} profile is 5.8 GiB of weights and a 5.8 GiB VRAM floor. CPU scans take seconds to minutes, and throughput does not improve with concurrency — plan capacity as if the box were serial. The measured numbers, per profile, are in {{4}}. Read it before you buy anything.",
     "model": "google/gemini-3.8-flash",
@@ -2482,6 +2620,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Übernimm die Adresse des Kontos bei der Registrierung aus dem INVITE und niemals aus dem Anfrage-Body (§5.8), und drossle {{0}}, {{1}} und {{2}} über ein gemeinsames Token-Bucket pro (IP, E-Mail), das bei Erfolg nie geleert wird. Ein Server, der zulässt, dass ein Registrierungs-Body seine eigene Adresse bestimmt, hat das Einzige entfernt, was sie überprüft."
+  },
+  "4939100a6d4a0722": {
+    "en": "{{0}} First update the {{1}} line to {{2}}: pre-0.1.x images were published under {{3}}, and pulling without this change just re-fetches the old one. The migration then runs on container start. Afterwards there is no login page: every device that already has data keeps it and simply stops asking who you are.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Aktualisiere zuerst die Zeile {{1}} auf {{2}}: Vor-0.1.x-Images wurden unter {{3}} veröffentlicht, und ein Pull ohne diese Änderung lädt nur das alte Image erneut herunter. Die Migration läuft dann beim Start des Containers. Danach gibt es keine Anmeldeseite mehr: Jedes Gerät, das bereits Daten hat, behält sie und hört einfach auf zu fragen, wer du bist."
   },
   "495d2b2b8b732d3a": {
     "en": "Before M192 there was no escrow, and the cost was the other way round: a forgotten password plus a lost recovery code meant the data was gone, to us and to you, and the app had to show the code once and ask a person to keep it forever. Nobody does.",
@@ -2813,6 +2957,12 @@
     "at": "2026-09-04",
     "de": "{{0}}, und bei einer Übertragung, bei der eines von beiden fehlt, ist das ein {{1}}, der das Feld nennt. Eine Schlüsselrotation erzeugt stets einen neuen Wiederherstellungscode, da der von ihr neu verpackte {{2}}-Schlüsseleintrag mit einem daraus abgeleiteten KEK versiegelt ist. Der Server ersetzt daher {{3}} und das Escrow (§3.1) {{4}} wie das Blob, die Schlüsseleinträge und die Freigaben. Eine Rotation, die diese beiden beim ALTEN Code beließe, erzeugte ein Konto, dessen hinterlegter Code zwar authentifiziert, danach aber nichts entschlüsselt, latent ab dem Moment, in dem der Wiederherstellungscode zum zweiten Authentifikator wurde, und fatal, sobald ein per E-Mail versendeter Reset (§5.12) diesen Code an Personen herausgibt. Der Client zeigt der Person den neuen Code nicht an; er wandert in das Escrow und bleibt dort."
   },
+  "51a996545f4d759f": {
+    "en": "Nothing here is a reduced edition. Local-first tracking, BYOK AI plate scanning, PWA install, JSON export/import, the whole interface: identical to the hosted instance, because it is the same image. The only thing the hosted deployment adds is that we operate the optional sync service for you, and that is also open source, for you to run yourself.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Hier gibt es keine abgespeckte Ausgabe. Lokales Tracking, BYOK-KI-Teller-Scan, PWA-Installation, JSON-Export/-Import, die gesamte Benutzeroberfläche: identisch mit der gehosteten Instanz, weil es dasselbe Image ist. Das Einzige, was die gehostete Bereitstellung hinzufügt, ist der optionale Sync-Dienst, den wir für dich betreiben, und auch der ist quelloffen, damit du ihn selbst betreiben kannst."
+  },
   "51d15055e48b96f6": {
     "en": "Any ~24 GB card in that class is fine. That is what we measured; we did not measure a smaller one.",
     "model": "google/gemini-3.8-flash",
@@ -2879,6 +3029,12 @@
     "at": "2026-09-04",
     "de": "{{0}} nicht strikt größer als die gespeicherte Version"
   },
+  "546cb7907c7fb87a": {
+    "en": "Everything a user owns (food logs, weights, personal foods, goals, the AI settings) is written to the browser's IndexedDB on the device it was entered on ({{0}}). It is stored in the clear there, because it is {{1}} device, and it never leaves it except in two forms you choose: a JSON export you download, or an encrypted sync blob.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Alles, was ein Nutzer besitzt (Ernährungsprotokolle, Gewichte, persönliche Lebensmittel, Ziele, die KI-Einstellungen), wird in die IndexedDB des Browsers auf dem Gerät geschrieben, auf dem es eingegeben wurde ({{0}}). Es liegt dort im Klartext, weil es {{1}} Gerät ist, und verlässt es nie, außer in zwei von dir gewählten Formen: als heruntergeladener JSON-Export oder als verschlüsselter Sync-Blob."
+  },
   "548001e4c23cf10c": {
     "en": "These statements describe the self-hosted service in this repository. For vulnerability reporting, see {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -2939,6 +3095,12 @@
     "at": "2026-09-04",
     "de": "Diese Stufe ist für zwei Arten von Personen gedacht:"
   },
+  "55d8c1f265080ea9": {
+    "en": "The app always carries a {{0}} route, and it is inert on an ordinary instance. It comes to life only when the sync service it talks to has {{1}}, which is {{2}}: an instance you stand up without touching that flag runs no study, holds no study graph, and offers nothing to enrol in. Read {{3}}'s {{4}} before turning it on: it makes the server hold health-adjacent personal data, which is a different undertaking from holding ciphertext it cannot read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die App enthält immer eine {{0}}-Route, und auf einer gewöhnlichen Instanz ist sie inaktiv. Sie erwacht erst zum Leben, wenn der Synchronisierungsdienst, mit dem sie spricht, {{1}} gesetzt hat, was {{2}} ist: Eine Instanz, die du hochfährst, ohne dieses Flag anzurühren, führt keine Studie durch, speichert keinen Studiengraphen und bietet nichts zur Teilnahme an. Lies vor dem Einschalten die {{4}} von {{3}}: Dadurch speichert der Server gesundheitsbezogene personenbezogene Daten, was ein anderes Unterfangen ist, als unlesbaren Geheimtext zu halten."
+  },
   "55e377e9f21e4bf1": {
     "en": "With no inference container at all, the browser calls a cloud provider directly with a key you entered on that device. The key is stored in the device's local store, excluded from the JSON export, and never sent to the openplate server — there is no server-side copy, encrypted or otherwise, and no server-side proxy of the call.",
     "model": "google/gemini-3.8-flash",
@@ -2962,6 +3124,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Gedrosselt. {{0}} in Sekunden."
+  },
+  "564016e0ab5bf85b": {
+    "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. This is what openplate.de is, and it is off by default: a self-hoster who sets nothing gets the open app.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Eine Instanz, die {{0}} setzt, ist eine {{1}}: Eine verwaltende Person lädt Menschen per E-Mail ein, und jedes Konto enthält ein tägliches KI-Guthaben, sodass eine Anmeldung einer Person in einem Schritt sowohl das Tagebuch als auch die KI bereitstellt. Dies entspricht openplate.de und ist standardmäßig deaktiviert: Wer beim Selbst-Hosten nichts festlegt, erhält die offene App."
   },
   "56463407cd5f101f": {
     "en": "one integer per account per UTC day",
@@ -3119,6 +3287,12 @@
     "at": "2026-09-04",
     "de": "✅ {{0}}, siehe den Hinweis zur Betriebsbereitschaft unten"
   },
+  "5bd8b354a6dc8374": {
+    "en": "{{0}} plate scans with no cloud AI account, no per-scan cost, and no photo leaving your network. Macros come from a bundled USDA FoodData Central extract, so they are looked up rather than invented. {{1}} a model runtime and a few gigabytes of weights, plus whatever it takes to make the endpoint reachable {{2}} (the photo goes device → endpoint, so a compose hostname does not work here). {{3}} {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Teller-Scans ohne Cloud-KI-Konto, ohne Kosten pro Scan, und ohne dass ein Foto dein Netzwerk verlässt. Die Makronährstoffe stammen aus einem mitgelieferten Auszug der USDA FoodData Central, werden also nachgeschlagen statt erfunden. {{1}} eine Modell-Laufzeitumgebung und ein paar Gigabyte an Gewichtungen, plus was immer nötig ist, um den Endpunkt {{2}} erreichbar zu machen (das Foto wandert vom Gerät zum Endpunkt, ein Compose-Hostname funktioniert hier also nicht). {{3}} {{4}}."
+  },
   "5bda8302b5ecf4d3": {
     "en": "Recovery code",
     "model": "google/gemini-3.8-flash",
@@ -3184,6 +3358,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "family-setup.md"
+  },
+  "5d65594740cd380a": {
+    "en": "To build from source instead of pulling the published image, comment out {{0}} in {{1}}, uncomment {{2}}, and run (from the repo root, because the build context is written relative to that file):",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Um aus dem Quelltext zu bauen, anstatt das veröffentlichte Image zu ziehen, kommentiere {{0}} in {{1}} aus, hebe die Auskommentierung von {{2}} auf und führe Folgendes aus (aus dem Wurzelverzeichnis des Repositorys, da der Build-Kontext relativ zu dieser Datei angegeben ist):"
   },
   "5d98153e576535f1": {
     "en": "{{0}} (§5.14). It is a sibling of {{1}} in exactly the sense {{2}} is a sibling of {{3}}, and it is 32 bytes, base64 on the wire.",
@@ -3257,6 +3437,12 @@
     "at": "2026-09-04",
     "de": "Er kann deine Einträge nicht lesen."
   },
+  "5f64cc5f38365e6f": {
+    "en": "{{0}} the operator's identity (company name, address, managing director, register number and court, VAT id). Those live in {{1}} and are rendered from one copy in both languages, so the two documents cannot name different companies. The tool never saw them.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} die Identität des Betreibers (Firmenname, Anschrift, Geschäftsführung, Registernummer und Registergericht, Umsatzsteuer-Identifikationsnummer). Diese Angaben stehen in {{1}} und werden für beide Sprachen aus derselben Vorlage generiert, sodass die Dokumente keine unterschiedlichen Firmen nennen können. Das Werkzeug hat sie nicht verarbeitet."
+  },
   "5f768f5a99d7875f": {
     "en": "Open the {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -3323,6 +3509,12 @@
     "at": "2026-09-04",
     "de": "Andere Komponenten"
   },
+  "61fed45014b04b77": {
+    "en": "PWA install, the offline service worker, and the camera capture behind {{0}} all require a {{1}}. Browsers refuse {{2}} and service-worker registration over plain HTTP: {{3}} is exempt, which is why the quickstart works unmodified for local testing. Plain-HTTP LAN access still works for the diary, manual logging and backups; you only lose install, offline and camera.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die PWA-Installation, der Offline-Service-Worker und die Kameraerfassung hinter {{0}} erfordern allesamt {{1}}. Browser verweigern {{2}} und die Service-Worker-Registrierung über reines HTTP: {{3}} ist davon ausgenommen, weshalb der Schnelleinstieg für lokale Tests unverändert funktioniert. Der LAN-Zugriff über reines HTTP funktioniert weiterhin für das Tagebuch, manuelle Protokollierung und Backups; du verlierst lediglich Installation, Offline-Betrieb und Kamera."
+  },
   "6201111b83a0cb5b": {
     "en": "and",
     "model": "google/gemini-3.8-flash",
@@ -3383,6 +3575,12 @@
     "at": "2026-09-04",
     "de": "Kompatibilitätsmatrix"
   },
+  "634be19187bd999f": {
+    "en": "Rung 1 changes one box. The page comes from a container you run, and the photo path is exactly the one above.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 1 ändert einen Kasten. Die Seite stammt aus einem Container, den du betreibst, und der Fotopfad entspricht exakt dem oben beschriebenen."
+  },
   "63c2d319f80ceade": {
     "en": "A unit is {{0}} the upstream call, never counted after it. Counting afterwards has a window in which N parallel requests all read the old count and all go through, and a client that retries on error is precisely the client that fires them together.",
     "model": "google/gemini-3.8-flash",
@@ -3412,6 +3610,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Datenverschlüsselungsschlüssel (Data-encryption key). Zufällige 32 Bytes. Verschlüsselt den Blob. Verlässt den Client nie unverpackt."
+  },
+  "6496d1b926ca3cd2": {
+    "en": "openplate ships as a prebuilt multi-arch Docker image ({{0}} + {{1}}; Raspberry-Pi-class boxes are a first-class target) published to the GitHub Container Registry on every push to {{2}} and on version tags. There are no secrets to generate and nothing to sign up for beyond your own AI provider key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "openplate wird als vorgefertigtes Multi-Arch-Docker-Image bereitgestellt ({{0}} + {{1}}; Rechner der Raspberry-Pi-Klasse sind ein vorrangiges Ziel), das bei jedem Push auf {{2}} sowie bei Versions-Tags in der GitHub Container Registry veröffentlicht wird. Es gibt keine Geheimnisse zu erzeugen und man muss sich für nichts anmelden, abgesehen von deinem eigenen KI-Anbieterschlüssel."
   },
   "6497e4b3d7bed169": {
     "en": "never",
@@ -3563,6 +3767,12 @@
     "at": "2026-09-04",
     "de": "Fragt {{0}} während der Laufzeit live ab."
   },
+  "67d646da44aa3067": {
+    "en": "{{0}} is a one-click, browser-only OAuth flow (PKCE): no key to copy-paste. It opens OpenRouter's consent screen in a new tab; approve it, and the issued key lands directly in this browser's local storage. The openplate server is never in that loop: it never sees, stores, or proxies the key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} ist ein Ein-Klick-OAuth-Ablauf rein im Browser (PKCE): kein Schlüssel zum Kopieren und Einfügen. Er öffnet die Freigabeseite von OpenRouter in einem neuen Tab; stimmst du zu, landet der ausgestellte Schlüssel direkt im lokalen Speicher dieses Browsers. Der Server von openplate ist nie an diesem Ablauf beteiligt: Er sieht, speichert oder leitet den Schlüssel nie weiter."
+  },
   "67e1bca0889ba21c": {
     "en": "Nothing",
     "model": "google/gemini-3.8-flash",
@@ -3640,6 +3850,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} ({{1}}, §3.1). Dies ist der Eintrag in dieser Liste, an dem du innehalten solltest. Es ist AES-256-GCM unter einem Unterschlüssel von {{2}}, sodass ein reiner Datenbankabzug ihn nicht entschlüsselt, doch der Betreiber einer verwalteten Instanz verfügt über beides. {{3}} Nicht über einen Endpunkt und nicht über einen Codepfad in diesem Dienst, sondern indem er diese Spalte mit dem Schlüssel liest und die clientseitige HKDF selbst ausführt. Eine selbst gehostete Instanz betreibst du selbst, daher gilt das frühere Versprechen dort weiterhin. Die Entscheidung, ob du einer gehosteten Instanz vertraust, ist daher eine Entscheidung über deren Betreiber."
+  },
+  "69ebaa071ea31f97": {
+    "en": "Then set {{0}} in {{1}} (and {{2}}, the production default) and recreate the {{3}} service with {{4}}. A plain {{5}} does {{6}} re-read {{7}}: it restarts the container it already built, so the new values never arrive.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Setze dann {{0}} in {{1}} (sowie {{2}}, den Produktionsstandard) und erstelle den Dienst {{3}} mit {{4}} neu. Ein einfaches {{5}} liest {{7}} {{6}} neu ein: Es startet den bereits gebauten Container neu, wodurch die neuen Werte nie ankommen."
   },
   "6a0a8e1bced67dd2": {
     "en": "{{0}} is the one auth-adjacent write an operator has",
@@ -3725,6 +3941,12 @@
     "at": "2026-09-04",
     "de": "{{0}}, authentifiziert als beitragende Person:"
   },
+  "6ba421a840b15f96": {
+    "en": "Four rungs. Each one adds a capability and adds something you now have to operate. Start at the bottom and stop as soon as you have what you need: most people stop at rung 0 or 1.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Vier Stufen. Jede fügt eine Fähigkeit hinzu und ergänzt etwas, das du nun betreiben musst. Fang ganz unten an und hör auf, sobald du hast, was du brauchst: Die meisten Menschen bleiben bei Stufe 0 oder 1."
+  },
   "6bc7c151bbfa6157": {
     "en": "{{0}} returns 200 from here on. The service starts listening {{1}} the model finishes loading, deliberately — a boot that blocked on a multi-GB load is indistinguishable from a hung container. Until the runtime is up, {{2}} says so.",
     "model": "google/gemini-3.8-flash",
@@ -3742,6 +3964,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Body"
+  },
+  "6d52b0750b96d35e": {
+    "en": "{{0}} It is not kept on the server: it is embedded in the page HTML and readable with view-source by anyone who can open the app. That is fine for an endpoint only your household or tailnet can reach. It is {{1}} fine for a metered cloud provider key, and not fine on an instance exposed to the open internet without a VPN, tailnet or auth proxy in front of it. If your endpoint needs no key, leave it unset.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Er wird nicht auf dem Server gespeichert: Er ist im HTML der Seite eingebettet und über den Seitenquelltext für jeden lesbar, der die App öffnen kann. Das ist in Ordnung für einen Endpunkt, den nur dein Haushalt oder Tailnet erreichen kann. Es ist {{1}} in Ordnung für den Schlüssel eines verbrauchsbasierten Cloud-Anbieters, und nicht in Ordnung auf einer Instanz, die ohne VPN, Tailnet oder Authentifizierungs-Proxy davor im offenen Internet steht. Wenn dein Endpunkt keinen Schlüssel benötigt, lass ihn ungesetzt."
   },
   "6d5acb746fd97d2a": {
     "en": "Unauthenticated, throttled per IP {{0}} email. A {{1}} counts against that bucket and a success clears it, which slows a single-source brute force without letting anyone lock a victim out of their own account from another address.",
@@ -3880,6 +4108,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Der gespeicherte Datensatz, gleiche Struktur wie ein Eintrag in {{0}}."
+  },
+  "709c21e1aedb5360": {
+    "en": "The connected key appears in your {{0}} labeled {{1}}. Disconnecting in openplate only clears the key from that device: it does {{2}} revoke it at OpenRouter. Revoke it from that page yourself.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Der verbundene Schlüssel erscheint in deinen {{0}} mit der Bezeichnung {{1}}. Das Trennen in openplate löscht den Schlüssel nur von diesem Gerät: Es widerruft ihn {{2}} bei OpenRouter. Widerrufe ihn selbst auf jener Seite."
+  },
+  "70f7bd0fcf22cd94": {
+    "en": "the built-in providers' own origins (OpenRouter, Mistral, Anthropic), derived automatically from the provider registry: see {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "die eigenen Origins der integrierten Anbieter (OpenRouter, Mistral, Anthropic), automatisch abgeleitet aus dem Anbieterverzeichnis: siehe {{0}}"
   },
   "70fd86de75bf17a7": {
     "en": "{{0}} The address comes from the invite row, inside the transaction. A body cannot claim a mailbox the operator did not write to, which is what makes the invitation itself the address verification: the person who received the letter is the person redeeming it, so there is no confirmation link and nothing left to confirm afterwards. {{1}} and {{2}} come from the invite for the same reason — an account never asks for its own standing.",
@@ -4061,6 +4301,12 @@
     "at": "2026-09-04",
     "de": "sync"
   },
+  "75d4f19e5aebda3a": {
+    "en": "{{0}}: the split between the app server, which stores nothing, and the separate sync service, which holds an account. This distinction is new in the English as of 2026-09-01 and is the part most likely to have been flattened in translation.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: die Trennung zwischen dem App-Server, der nichts speichert, und dem separaten Sync-Dienst, der Kontodaten vorhält. Diese Unterscheidung ist im englischen Text seit dem 01.09.2026 neu und wurde bei der Übersetzung am ehesten verwischt."
+  },
   "75d75e1b1f709c06": {
     "en": "There is nothing to migrate: the app container holds no state, so a new image just replaces the old one. If you run the full stack, the sync service applies its own migrations on start.",
     "model": "google/gemini-3.8-flash",
@@ -4241,6 +4487,12 @@
     "at": "2026-09-04",
     "de": "{{0}} wird als Crockford-Base32 über 20 Bytes validiert, 32 Zeichen, sobald Leerzeichen und Bindestriche entfernt wurden und der Wert in Großbuchstaben vorliegt, und vor dem Versiegeln in diese Form kanonisiert. Es wird niemals protokolliert, in keiner Form und auf keinem Pfad."
   },
+  "79fdc4fbc8a36d60": {
+    "en": "If two accounts were signed in on the {{0}} browser profile, note that the device store was always device-scoped: their data was already sharing one store and stays that way. Separate browser profiles remain the way to keep two people's diaries apart on one device.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Waren zwei Konten im selben {{0}}-Browserprofil angemeldet, beachte, dass der Gerätespeicher schon immer gerätebezogen war: Ihre Daten teilten sich bereits einen Speicher und bleiben so. Getrennte Browserprofile bleiben der Weg, um die Tagebücher zweier Personen auf einem Gerät getrennt zu halten."
+  },
   "7a18d5d4138b8884": {
     "en": "The broadest data of the three (curated + BLS + USDA), and remote-only permanently, because BLS 4.0 forbids redistribution. Attribution is passed through to the response so it reaches the UI.",
     "model": "google/gemini-3.8-flash",
@@ -4264,6 +4516,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Keine Zuordnung. Jeder Eintrag kommt mit leeren Makronährwerten (null) zurück."
+  },
+  "7b6531ac81cb649c": {
+    "en": "{{0}}: OpenAI's API blocks cross-origin requests. Route OpenAI models through OpenRouter instead, regardless of {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: Die API von OpenAI blockiert Cross-Origin-Anfragen. Leite OpenAI-Modelle stattdessen über OpenRouter weiter, unabhängig von {{1}}."
   },
   "7b670368c4426bca": {
     "en": "{{0}} or {{1}}. Setting {{2}} declares a {{3}}, see {{4}} below. Requires {{5}}. Any other value stops the boot on purpose.",
@@ -4325,6 +4583,12 @@
     "at": "2026-09-04",
     "de": "Es gibt kein Feld {{0}}, und genau darum geht es."
   },
+  "7e14ab07ad2d1ba3": {
+    "en": "Open an existing instance, such as <https://openplate.lowcarbcheck.org>, and paste your own provider key into {{0}}. There is no sign-up. Your diary lives in that browser's storage and never reaches the instance's server, so \"using someone else's instance\" gives that operator far less than the phrase suggests: see {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Öffne eine bestehende Instanz, etwa <https://openplate.lowcarbcheck.org>, und füge deinen eigenen Anbieterschlüssel in {{0}} ein. Es gibt keine Registrierung. Dein Tagebuch liegt im Speicher dieses Browsers und erreicht den Server der Instanz nie, daher gibt „die Instanz eines anderen nutzen“ diesem Betreiber weit weniger, als der Satz vermuten lässt: siehe {{1}}."
+  },
   "7e1b0d5641f2640c": {
     "en": "Account",
     "model": "google/gemini-3.8-flash",
@@ -4366,6 +4630,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Es ist ein Geschwister von {{1}}, weder Elternteil noch Kind: Beide sind HKDF-Ausgaben über denselben Argon2id-Hash unter verschiedenen {{2}}-Labels, weshalb der Besitz des einen keine Informationen über das andere liefert. Das ist der einzige Grund, warum der Server Nutzer authentifizieren kann, für die er nichts entschlüsseln kann. {{3}} ist 32 Bytes groß, Base64 bei der Übertragung."
+  },
+  "7fdb588f7354d9b3": {
+    "en": "Open the app and follow the short onboarding. No registration, no login: whoever opens the app on a device is that device's user.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Öffne die App und folge der kurzen Einführung. Keine Registrierung, keine Anmeldung: Wer die App auf einem Gerät öffnet, ist der Nutzer dieses Geräts."
   },
   "7fdfda5f50a433ae": {
     "en": "managed",
@@ -4535,6 +4805,12 @@
     "at": "2026-09-04",
     "de": "0.5.0 änderte den Authentifizierungsvertrag und erhöhte die Version NICHT, und genau das war der Fehler, den dieser Abschnitt nun festhält."
   },
+  "850994dc8d037140": {
+    "en": "{{0}}: the sync terms, including the claim that deletion is immediate with no grace period. Confirm that matches what the product does before relying on it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: die Synchronisationsbedingungen, einschließlich des Hinweises, dass die Löschung ohne Übergangsfrist sofort erfolgt. Vergewissere dich vor dem Einsatz, dass die Anwendung sich tatsächlich so verhält."
+  },
   "850b400f55e59ff0": {
     "en": "What it costs, stated rather than implied.",
     "model": "google/gemini-3.8-flash",
@@ -4601,6 +4877,12 @@
     "at": "2026-09-04",
     "de": "{{0}} auf einer GPU, Messwerte"
   },
+  "86fd26c00ee3ab00": {
+    "en": "{{0}}: it is embedded in the page HTML and readable with view-source by anyone who can open the app. The full rule is the second bullet below. Read it first.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: Er ist im HTML der Seite eingebettet und über den Seitenquelltext für jeden lesbar, der die App öffnen kann. Die vollständige Regel ist der zweite Punkt unten. Lies ihn zuerst."
+  },
   "86ffb918d8e0ad05": {
     "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. This is what openplate.de is, and it is off by default — a self-hoster who sets nothing gets the open app.",
     "model": "google/gemini-3.8-flash",
@@ -4654,6 +4936,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die vollständige Anleitung, inklusive HTTPS, das du für die PWA-Installation und die Kameraaufnahme brauchst, findest du in {{0}}."
+  },
+  "881978c9ac05532d": {
+    "en": "{{0}}: the sync screens appear and talk to that URL. Its origin is added to the production CSP's {{1}} automatically: you do not need {{2}} for it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: Die Synchronisierungsansichten erscheinen und sprechen diese URL an. Ihr Ursprung wird der {{1}} der Produktions-CSP automatisch hinzugefügt: Du brauchst dafür kein {{2}}."
   },
   "88a79a64598b22ca": {
     "en": "protocol version bump",
@@ -4894,6 +5182,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Kommagetrennte Bearer-Keys. Setze diesen Wert."
+  },
+  "905bed85440c0001": {
+    "en": "Public URL this instance is reachable at. Required in production: the server refuses to boot without it. Behind a reverse proxy this is the public {{0}} address, not the container port.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Öffentliche URL, unter der diese Instanz erreichbar ist. Im Produktionsbetrieb erforderlich: Der Server verweigert ohne sie den Start. Hinter einem Reverse Proxy ist dies die öffentliche {{0}}-Adresse, nicht der Container-Port."
   },
   "908e743fe9c72c29": {
     "en": "{{0}}, only that it is present and bounded. It cannot verify one — that would need the contributor's root — and a structural check would imply an authority it does not have.",
@@ -5164,6 +5458,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "lockert"
+  },
+  "96c146dc56a0d03f": {
+    "en": "Four programs, one of which is the product and three of which are optional attachments. This page is about which one holds what, and, more importantly, which one is standing in the path of your data.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Vier Programme, von denen eines das Produkt ist und drei optionale Anhänge sind. Diese Seite beschreibt, welches davon was verwaltet, und, noch wichtiger, welches davon im Pfad deiner Daten steht."
   },
   "96eab089f8a0d4f8": {
     "en": "A new frozen label rather than a version of the share label: different purpose, same reasoning that put the curve in the name.",
@@ -5441,6 +5741,12 @@
     "at": "2026-09-04",
     "de": "API-Schlüssel der Anbieter werden nie aus der Umgebung ausgelesen. Den Schlüssel gibt der Nutzer im Browser ein, er wird auf dem Gerät gespeichert und direkt vom Browser an den Anbieter gesendet, der Server besitzt keine Kopie. {{0}} / {{1}} in {{2}} existieren nur, damit Entwickler Prüfskripte gegen einen echten Anbieter ausführen können. Auf einer Produktivinstanz bewirken sie nichts."
   },
+  "9c80c5cd184feee1": {
+    "en": "Rung 2 adds a second server and a database behind it. Each device pushes the same encrypted blob and pulls the other device's, and the photo still leaves each device for the provider.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 2 ergänzt einen zweiten Server und eine Datenbank dahinter. Jedes Gerät überträgt denselben verschlüsselten Datenblock und ruft den des anderen Geräts ab, und das Foto verlässt weiterhin jedes Gerät in Richtung Anbieter."
+  },
   "9c94068ccd338565": {
     "en": "If the handshake is unreachable or malformed, treat it as a mismatch. An unverifiable service is not a compatible one.",
     "model": "google/gemini-3.8-flash",
@@ -5530,6 +5836,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Löschst du den {{0}}-Schlüsseldatensatz, wird jeder gespeicherte Blob dauerhaft unentschlüsselbar. Der Server verhindert dies nicht; ein Client darf diese Aktion nicht ohne unmissverständliche Warnung anbieten. {{1}} Kryptografisch handelt es sich um eine dritte Kapselung desselben DEK, aber es ist die Zugriffsberechtigung einer anderen Person, von ihr widerrufbar, für dich nicht prüfbar und abhängig von ihrer fortwährenden Kooperation und Ehrlichkeit. Werden beide Schlüsseldatensätze gelöscht, wird das Konto trotz bestehender aktiver Freigaben unbrauchbar, und kein Client darf jemals \"Stelle deine Daten über deinen Ernährungsberater wieder her\" als Wiederherstellungsweg anbieten."
+  },
+  "9ed31251618753fa": {
+    "en": "{{0}} Setting {{1}} on openplate gives everyone one tap and no key to paste, but that key is embedded in the page HTML and readable with view-source by anyone who can open the app, so it is one shared credential again, with the same problem you started with. It is fine for a LAN or tailnet where you trust everyone who can reach it, and wrong anywhere else. See {{2}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Das Setzen von {{1}} in openplate ermöglicht allen den Zugriff mit einem Klick, ohne einen Schlüssel einfügen zu müssen. Dieser Schlüssel ist jedoch im HTML-Quelltext der Seite eingebettet und kann über den Seitenquelltext von jedem eingesehen werden, der die App öffnet. Damit hast du wieder Zugangsdaten geteilt und stehst vor dem Ausgangsproblem. Für ein LAN oder Tailnet, in dem du jedem mit Zugriff vertraust, ist das in Ordnung, sonst nirgends. Siehe {{2}}."
   },
   "9efa641f24db791d": {
     "en": "Qwen3-VL-2B-Instruct, Q4_K_M + F16 mmproj",
@@ -5663,6 +5975,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Es beantwortet die Frage {{1}}. Es enthält eine Modell-Laufzeitumgebung sowie Gewichte und verlangt entsprechende Hardware."
   },
+  "a2c964598749c732": {
+    "en": "{{0}}: the four preference cookies. Whether the German supports the position that §25 TTDSG is not engaged.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: die vier Präferenz-Cookies. Prüfen, ob die deutsche Fassung die Auffassung stützt, dass § 25 TTDSG nicht greift."
+  },
   "a2daef36a0c457ca": {
     "en": "Instead of asking every visitor to bring a key, an instance can offer its own endpoint.",
     "model": "google/gemini-3.8-flash",
@@ -5777,6 +6095,12 @@
     "at": "2026-09-04",
     "de": "Wird bei jeder Anfrage mitgeschickt. Kurzlebig, weil ein geleakter Token so lange nutzbar bleibt, wie er gilt."
   },
+  "a66fadffcab09b3c": {
+    "en": "{{0}} The OAuth callback URL is derived at request time from {{1}}, never hardcoded, never pre-registered with OpenRouter. The button works unmodified on {{2}}, a LAN IP, or your own domain.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Die OAuth-Rückruf-URL wird zur Anfragezeit aus {{1}} abgeleitet, nie fest einprogrammiert, nie vorab bei OpenRouter registriert. Die Schaltfläche funktioniert unverändert auf {{2}}, einer LAN-IP oder deiner eigenen Domain."
+  },
   "a672e3e57dc59dd2": {
     "en": "External-mode variables ({{0}}, {{1}}, {{2}}) are documented in {{3}}.",
     "model": "google/gemini-3.8-flash",
@@ -5873,6 +6197,12 @@
     "at": "2026-09-04",
     "de": "Warum überhaupt ein Paar."
   },
+  "a90cfbb2a37916a6": {
+    "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die Kehrseite ist ebenso eindeutig: Vergisst du die Passphrase und verlierst den Wiederherstellungscode, sind die Daten weg, für dich und für uns. Ein Zurücksetzen per E-Mail stellt {{0}} wieder her, niemals {{1}}."
+  },
   "a912aee989eac96f": {
     "en": "Mints one (§5.8). The token is returned {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -5944,6 +6274,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Mehr als {{0}} Anfragen in den jeweils letzten 60 s"
+  },
+  "ab09df0260af4122": {
+    "en": "The app server is a single stateless container. No database, no ORM, no migrations, no secret read from the environment. Destroying it loses nothing. That is not thrift, it is the whole promise: see {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Der App-Server ist ein einzelner zustandsloser Container. Keine Datenbank, kein ORM, keine Migrationen, kein aus der Umgebung gelesenes Geheimnis. Wird er gelöscht, geht nichts verloren. Das ist keine Sparsamkeit, sondern das eigentliche Versprechen: siehe {{0}}."
   },
   "ab5aa97074c454a0": {
     "en": "notes",
@@ -6094,6 +6430,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Der {{0}} ist das einzige Aufzählungsorakel in diesem Protokoll, und Protokoll 2 hat ihn fast vollständig neutralisiert."
+  },
+  "ae7903abd71791ac": {
+    "en": "openplate is a local app by default: your diary lives in the browser's IndexedDB on the device you use, and nothing leaves it. Moving that diary between devices is the one thing that needs an account, so it lives in a separate service, {{0}}, with its own image, database and secrets.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "openplate ist standardmäßig eine lokale App: Dein Tagebuch liegt in der IndexedDB des Browsers auf dem Gerät, das du nutzt, und nichts verlässt es. Dieses Tagebuch zwischen Geräten zu übertragen, ist das Einzige, was ein Konto erfordert, daher liegt das in einem separaten Dienst, {{0}}, mit eigenem Image, eigener Datenbank und eigenen Geheimnissen."
   },
   "aea46507e0283fa4": {
     "en": "Scans return 401",
@@ -6389,6 +6731,12 @@
     "at": "2026-09-04",
     "de": "5.8.2 {{0}}"
   },
+  "b63f03d51fd1dbc3": {
+    "en": "It must be an address a {{0}} can reach. The sync client runs in the page, so a compose hostname like {{1}} does not work: use the public URL your users' devices resolve. A malformed value stops the boot on purpose, so a typo cannot look like \"sync is quietly off\".",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Es muss eine Adresse sein, die ein {{0}} erreichen kann. Der Synchronisierungs-Client läuft in der Seite, daher funktioniert ein Compose-Hostname wie {{1}} nicht: Verwende die öffentliche URL, die die Geräte deiner Nutzer auflösen. Ein fehlerhafter Wert stoppt den Start absichtlich, damit ein Tippfehler nicht wie „Synchronisierung ist stillschweigend aus“ wirken kann."
+  },
   "b63f1f48f79dc3c0": {
     "en": "60 min",
     "model": "google/gemini-3.8-flash",
@@ -6442,6 +6790,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Remote"
+  },
+  "b756b74f7744f4e6": {
+    "en": "{{0}}, a paid model, roughly {{1}}. It was chosen over any {{2}} model because OpenRouter's {{3}} endpoints only become reachable after you enable that provider's account-level \"may train on request data\" / \"may publish prompts\" toggles, and some free vision models retain prompts for weeks. You can still pick a {{4}} model yourself from the model list, an explicit, disclosed opt-in.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}, ein kostenpflichtiges Modell, ungefähr {{1}}. Es wurde gegenüber jedem {{2}} Modell bevorzugt, weil die {{3}} Endpunkte von OpenRouter erst erreichbar werden, wenn du auf Kontoebene die Schalter „darf mit Anfragedaten trainieren“ / „darf Prompts veröffentlichen“ dieses Anbieters aktivierst, und manche kostenlosen Bilderkennungsmodelle behalten Prompts über Wochen. Du kannst aus der Modellliste weiterhin selbst ein {{4}} Modell wählen, als ausdrückliche, offengelegte Entscheidung."
   },
   "b7a77bed2d742b2d": {
     "en": "{{0}} Until the first public release, breaking changes may be taken without the migration path a released protocol would need. Two were taken WITHOUT a version bump: the move from cookie to bearer authentication, and the move of the sync routes from {{1}} to {{2}}. A third, 0.5.0's removal of email, was taken without one too and should not have been — see below. This paragraph is deleted at public release, and from then on the rules above are followed literally.",
@@ -6545,6 +6899,12 @@
     "at": "2026-09-04",
     "de": "Profil → Deine Daten → Alles herunterladen (JSON)"
   },
+  "ba0341746716299e": {
+    "en": "{{0}} delete their key. Nobody else is affected, nobody else changes a setting, and the revoked person has no fallback: that key was their only credential. Their diary is untouched; it was never on the key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} lösche ihren Schlüssel. Niemand sonst ist betroffen, niemand sonst muss Einstellungen ändern, und die gesperrte Person hat keinen Zugriff mehr: Dieser Schlüssel war ihr einziger Zugang. Ihr Tagebuch bleibt unberührt; es lag nie auf diesem Schlüssel."
+  },
   "ba0ae6dc8ad7e8a6": {
     "en": "Suspending revokes every session in the same effect.",
     "model": "google/gemini-3.8-flash",
@@ -6562,6 +6922,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} umfasst Endpunkte, Formen von Anfragen und Antworten, die Semantik von Statuscodes, das Authentifizierungsschema und die CAS-Semantik. Erhöhe den Wert bei jeder inkompatiblen Änderung daran. Rein additive Änderungen (ein neues optionales Antwortfeld, ein neuer Endpunkt, den ältere Clients nie aufrufen) erhöhen ihn nicht."
+  },
+  "ba55cce45d763b2d": {
+    "en": "{{0}} once you are happy. Older releases pinned no Compose project name, so the prefix came from whatever directory you ran in (confirm the real name first): {{1}}, then {{2}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}, sobald du zufrieden bist. Ältere Releases legten keinen festen Compose-Projektnamen fest, daher stammte das Präfix aus dem Verzeichnis, in dem du gearbeitet hast (prüfe zuerst den tatsächlichen Namen): {{1}}, dann {{2}}."
   },
   "ba5caa4285a84d88": {
     "en": "Header",
@@ -6730,6 +7096,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Konfiguriert und antwortet. Retrieval ist hybrid."
+  },
+  "bf4b2045ee4b7e75": {
+    "en": "{{0}} and create one key per person. Name each key after the person: that name is what you will see in the usage breakdown later, so \"Sam\" beats \"key 3\".",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} und erstelle einen Schlüssel pro Person. Benenne jeden Schlüssel nach der jeweiligen Person: Genau dieser Name taucht später in der Verbrauchsübersicht auf, „Sam“ ist also besser als „Schlüssel 3“."
   },
   "bf982a0fe0de1a96": {
     "en": "{{0}}, on a deployment with {{1}} set (§5.16): which account has granted read access to which other account, when the grant was made, and when the grantee exercises it. That is a relationship graph, and a genuine expansion of what this service knows, and in the setting the feature was built for — a patient and their dietician — an edge in that graph is itself health-adjacent personal data, because it says someone is under care. It is the minimum needed to authorise the read; both ends consent, since the grantor creates the row and the grantee can delete their side; and the edge is hard-deleted on revocation and cascades away when either account is deleted. A deployment that does not set {{2}} stores no such graph and has no table to put one in.",
@@ -6959,6 +7331,12 @@
     "at": "2026-09-04",
     "de": "Begriff"
   },
+  "c7161d784744dd26": {
+    "en": "Older images ran an account system and a Postgres of their own. Both are gone. The upgrade drops the {{0}} table and everything hanging off it: accounts, sessions, verification and reset tokens. Nothing you logged is affected: tracker data had already moved onto the device. It is a one-way change, so:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Ältere Images betrieben ein eigenes Kontosystem und ein eigenes Postgres. Beides gibt es nicht mehr. Das Upgrade entfernt die Tabelle {{0}} und alles, was daran hängt: Konten, Sitzungen, Bestätigungs- und Rücksetz-Token. Nichts von dem, was du protokolliert hast, ist betroffen: Tracker-Daten waren bereits auf das Gerät gewandert. Dies ist eine unumkehrbare Änderung, daher:"
+  },
   "c76ae972b587adad": {
     "en": "Two capability tokens live outside that table",
     "model": "google/gemini-3.8-flash",
@@ -7036,6 +7414,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}}: eine Ganzzahl pro Konto pro UTC-Tag. Eine Zählung, kein Protokoll, ohne Prompt, ohne Antwort, ohne Modell, ohne Zeitstempel über den Tag hinaus."
+  },
+  "c96d6ad8a28ca41f": {
+    "en": "Rung 4: everything",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 4: alles"
   },
   "c9a1a823b79389a3": {
     "en": "Re-authentication is required even though the caller already holds a valid token",
@@ -7126,6 +7510,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Sitzungsmetadaten"
+  },
+  "cb752fa684722850": {
+    "en": "That endpoint is either a cloud provider you pay (the BYOK path) or your own openplate-inference container. In the self-hosted case the model names the foods on the plate and estimates grams, and then the {{0}}: carbs, protein, fat and kcal are resolved by name against a bundled extract of USDA FoodData Central (8,041 generic foods shipped inside the image, no network call, public domain). The language model never authors a number.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Dieser Endpunkt ist entweder ein von dir bezahlter Cloud-Anbieter (der BYOK-Pfad) oder dein eigener openplate-inference-Container. Beim Selbst-Hosting benennt das Modell die Lebensmittel auf dem Teller und schätzt Grammzahlen, und dann {{0}}: Kohlenhydrate, Protein, Fett und kcal werden namentlich über einen mitgelieferten Auszug der USDA FoodData Central ermittelt (8.041 generische Lebensmittel im Image enthalten, kein Netzwerkaufruf, gemeinfrei). Das Sprachmodell erzeugt nie eine Zahl selbst."
   },
   "cb92b9cfe31d70b1": {
     "en": "A bearer token in an {{0}} header. {{1}}",
@@ -7222,6 +7612,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Unbekannte Studie, unbekannter Beitrag und jeder andere Nicht-Gefunden-Zustand, ein einziger Codepfad"
+  },
+  "cd237e4644492d70": {
+    "en": "One note if you self-host behind a reverse proxy that logs request URLs: the callback URL (including its one-time {{0}} parameter) will appear in your access logs like any other URL. It is not a secret (knowing it grants access to nobody's key), but scrub it if your log retention is a concern.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Ein Hinweis, falls du selbst hinter einem Reverse-Proxy hostest, der Anfrage-URLs protokolliert: Die Rückruf-URL (einschließlich ihres Einmalparameters {{0}}) erscheint wie jede andere URL in deinen Zugriffsprotokollen. Sie ist kein Geheimnis (sie zu kennen gewährt niemandem Zugriff auf einen Schlüssel), aber bereinige sie, falls deine Protokollaufbewahrung ein Problem darstellt."
   },
   "cd2ddc4df9ef0151": {
     "en": "Nothing per user — no accounts, no sessions, no cookies. Model weights and a food dataset.",
@@ -7324,6 +7720,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}}, {{1}} und BEIDE Schlüsseldatensätze sind {{2}}. In Protokoll 1 war jedes davon optional, jetzt keines mehr:"
+  },
+  "cf82dec3e46a9ab1": {
+    "en": "{{0}} redirects to {{1}} for a device with neither a local diary nor an account. The anonymous local-only path is closed, not merely hidden: on a managed instance it leads nowhere, because there is no AI without an account and no diary that survives the device without one. A device that already holds a diary is never thrown out.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} leitet für ein Gerät ohne lokales Tagebuch und ohne Konto auf {{1}} weiter. Der anonyme rein lokale Pfad ist geschlossen, nicht bloß versteckt: Auf einer verwalteten Instanz führt er ins Nichts, denn ohne Konto gibt es keine KI und ohne Konto überlebt kein Tagebuch das Gerät. Ein Gerät, das bereits ein Tagebuch enthält, wird nie abgewiesen."
   },
   "cf9beaa85213c2c2": {
     "en": "{{0}} walks through three stages in order. Here is what each one looks like, so you can tell \"busy\" from \"broken\".",
@@ -7456,6 +7858,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Der Server speichert {{0}} und dieselbe Konstruktion über {{1}}, {{2}} eine zweite langsame KDF über beiden. Der Client hat die speicherintensive Berechnung bereits bezahlt; ein erneutes Hashen auf dem Server würde keinen Brute-Force-Schutz hinzufügen (ein Angreifer im Besitz des Authentifizierungs-Hashs hat Argon2id bereits umgangen) und gleichzeitig ein DoS-Risiko durch Anmeldefluten schaffen, bei dem jeder Versuch 64 MiB belegt. Peppering erfüllt trotzdem seinen Zweck: Befindet sich das Pepper außerhalb der Datenbank, lässt sich ein Tabellenauszug weder gegen eine laufende Instanz einspielen noch offline gegen Schätzwerte prüfen."
+  },
+  "d24b0cd95200a709": {
+    "en": "{{0}} rung 2 and rung 3 together (your diary on every device, scanned on your own hardware, with nothing going to any third party). {{1}} all of it. App, sync service, Postgres, model runtime, and browser-reachable addresses for two of them. {{2}} {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Stufe 2 und Stufe 3 kombiniert (dein Tagebuch auf jedem Gerät, ausgewertet auf deiner eigenen Hardware, ohne Daten an Dritte). {{1}} das Komplettpaket. App, Sync-Dienst, Postgres, Modell-Laufzeitumgebung und im Browser erreichbare Adressen für zwei davon. {{2}} {{3}}."
   },
   "d29a0939bcb51176": {
     "en": "(empty)",
@@ -7595,6 +8003,12 @@
     "at": "2026-09-04",
     "de": "Tailscale stellt das Zertifikat aus und verlängert es; die App wird unter {{0}} erreichbar. Setze {{1}} auf diese URL."
   },
+  "d5fb153d3b174f03": {
+    "en": "On a managed instance that same server also carries the scan. A signed-in member posts the photo to the AI proxy, the server counts it against that account's daily allowance, and it forwards the request to whatever the operator pointed it at.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Auf einer verwalteten Instanz übernimmt derselbe Server auch den Scan. Ein angemeldetes Mitglied schickt das Foto an den KI-Proxy, der Server rechnet es auf das Tageskontingent dieses Kontos an, und er leitet die Anfrage dorthin weiter, worauf der Betreiber ihn eingestellt hat."
+  },
   "d675f10e15997e28": {
     "en": "macros are looked up, not invented",
     "model": "google/gemini-3.8-flash",
@@ -7637,6 +8051,12 @@
     "at": "2026-09-04",
     "de": "11. Einen alternativen Client implementieren"
   },
+  "d7b158aae6120433": {
+    "en": "{{0}} Both services publish their ports on every interface, so the account service is exposed the moment it starts, and running an account service is a bigger undertaking than running the app.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Beide Dienste binden ihre Ports an jede Schnittstelle, daher ist der Kontodienst ab dem Startzeitpunkt exponiert, und das Betreiben eines Kontodienstes ist ein größerer Eingriff als das Betreiben der App."
+  },
   "d7f8f8ae9b08919d": {
     "en": "{{0}} is {{1}} in protocol 2, along with the setting it described: signup is invite-only on every instance, always (§5.8). A service that still publishes it is speaking version 1.",
     "model": "google/gemini-3.8-flash",
@@ -7648,6 +8068,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Setze beim Erstellen jedes Schlüssels ein Ausgabenlimit."
+  },
+  "d823361f1ce28daf": {
+    "en": "Rung 3: add self-hosted inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 3: Selbst gehostete Inferenz ergänzen"
   },
   "d89d5f19ca7f49f1": {
     "en": "Topologies",
@@ -7720,6 +8146,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Die Zustimmungsseite von OpenRouter bietet neben der Kontoauswahl ein frei wählbares Ausgabenlimit (optional, mit Rücksetzintervall). Es begrenzt den Betrag, den der verknüpfte Schlüssel jemals ausgeben kann, unabhängig von openplate."
+  },
+  "d9bd9f58d50aa49f": {
+    "en": "If your reason for climbing this ladder was \"my household needs more than one AI key\", the first answer is not a rung at all. It is solved at the provider, with per-person keys and per-person spend limits, and it needs no extra software. {{0}} has the steps, and, when your provider will not issue capped sub-keys, a managed sync server as the fallback (rung 2, with {{1}}).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Wenn dein Grund für diese Schritte war, dass dein Haushalt mehr als einen KI-Schlüssel braucht, liegt die erste Lösung gar nicht auf dieser Leiter. Sie wird beim Anbieter gelöst, mit Schlüsseln und Ausgabenlimits pro Person, ganz ohne zusätzliche Software. {{0}} beschreibt die Schritte und nennt einen verwalteten Sync-Server als Ausweichlösung, falls dein Anbieter keine beschränkten Unterschlüssel ausstellt (Stufe 2 mit {{1}})."
   },
   "da178483c25462ec": {
     "en": "The production Content-Security-Policy is part of that promise rather than decoration: the {{0}} allowlist is derived from the provider registry, and it is what stops an injected script exfiltrating a key that lives in the page. See {{1}}.",
@@ -7805,6 +8237,18 @@
     "at": "2026-09-04",
     "de": "Keine"
   },
+  "dca4f3050cc58d10": {
+    "en": "If you own the hardware, the other way to share one bill is to have no bill. Run {{0}} on a machine at home, and every scan in the house is computed locally with no cloud provider involved. See {{1}} for what that costs you in hardware and operational work: it is a real step up from pasting five keys into a dashboard.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Wenn du die Hardware besitzt, besteht der andere Weg zu einer gemeinsamen Rechnung darin, gar keine Rechnung zu haben. Betreibe {{0}} auf einem Rechner zu Hause, und jeder Scan im Haus wird lokal berechnet, ohne Beteiligung eines Cloud-Anbieters. In {{1}} siehst du, was das an Hardware und Betriebsaufwand erfordert: Es ist ein deutlicher Mehraufwand gegenüber dem Eintragen von fünf Schlüsseln in einer Weboberfläche."
+  },
+  "dce8c9a98b45d52b": {
+    "en": "{{0}} The small {{1}} profile is 2.0 GiB of weights and wants {{2}} on a CPU-only box; the larger {{3}} profile is 5.8 GiB of weights and a 5.8 GiB VRAM floor. CPU scans take seconds to minutes, and throughput does not improve with concurrency: plan capacity as if the box were serial. The measured numbers, per profile, are in {{4}}. Read it before you buy anything.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Das kleine Profil {{1}} umfasst 2.0 GiB an Gewichten und verlangt {{2}} auf einem reinen CPU-Rechner; das größere Profil {{3}} benötigt 5.8 GiB an Gewichten und mindestens 5.8 GiB VRAM. CPU-Scans dauern Sekunden bis Minuten, und der Durchsatz skaliert bei parallelen Anfragen nicht: Plane die Kapazität so, als würde das System rein sequenziell arbeiten. Die gemessenen Werte pro Profil findest du in {{4}}. Lies das, bevor du Hardware kaufst."
+  },
   "dd0e8a6f81ddee15": {
     "en": "The key must be present.",
     "model": "google/gemini-3.8-flash",
@@ -7858,6 +8302,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die Prompt-Größe hängt von deinem Modell ab. Zwei direkte Messungen der auf {{0}} 896 px herunterskalierten Teller:"
+  },
+  "deb3cd28290d2feb": {
+    "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Zwei Dinge solltest du wissen, bevor du dich darauf verlässt. Das Kontingent zählt {{0}}, richte also zusätzlich ein striktes Ausgabenlimit für den Hauptschlüssel beim Anbieter ein: Nur der Anbieter kann Abbuchungen stoppen. Zudem wird das Kontingent für jedes Konto explizit festgelegt; es gibt keinen unbegrenzten Standardwert."
   },
   "df0e583dbd3800f2": {
     "en": "Sharing one AI bill across a household, with a spend limit and revocation per person",
@@ -7930,6 +8380,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "5.9 {{0}}"
+  },
+  "e292bc0a41dc7d73": {
+    "en": "{{0}} one diary across your devices. The honest way to sell this is {{1}}: a phone and a laptop that stay in agreement. Families are the {{2}} use, and a weaker one: sync is per account, so two people sharing one account share one diary rather than getting one each. Two people who want separate diaries want two accounts, or simply two rung-1 devices and no sync at all.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} ein Tagebuch über deine Geräte hinweg. Das ehrliche Argument dafür ist {{1}}: ein Telefon und ein Laptop, die synchron bleiben. Familien sind der {{2}} Anwendungsfall, und ein schwächerer: Die Synchronisierung läuft pro Konto, zwei Personen mit einem gemeinsamen Konto teilen sich also ein Tagebuch, statt jeweils eines zu bekommen. Zwei Personen, die getrennte Tagebücher wollen, benötigen zwei Konten, oder einfach zwei Stufe-1-Geräte und überhaupt keine Synchronisierung."
   },
   "e2e341d97c097dc4": {
     "en": "{{0}} (GPU flagship)",
@@ -8315,6 +8771,12 @@
     "at": "2026-09-04",
     "de": "5.15 {{0}}, {{1}} und {{2}}"
   },
+  "ebdc2ed9bb467f7b": {
+    "en": "Full walkthrough, including HTTPS (which you need for PWA install and for camera capture), is in {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die vollständige Anleitung, einschließlich HTTPS (das du für die PWA-Installation und für Kameraaufnahmen brauchst), steht in {{0}}."
+  },
   "ec041991fcd0f328": {
     "en": "Stay with provider sub-keys when you can.",
     "model": "google/gemini-3.8-flash",
@@ -8483,6 +8945,12 @@
     "at": "2026-09-04",
     "de": "Sende {{0}}, den {{1}}-HKDF-Zweig aus §3.1, und niemals die Passphrase, die Argon2id-Ausgabe oder {{2}}. Das Ableiten des falschen Zweigs fällt nicht auf: Die Authentifizierung gelingt problemlos, erzeugt aber einen Schlüssel, der nichts entschlüsselt."
   },
+  "f1d6d4c0a97ea1e0": {
+    "en": "ADR-0008",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "ADR-0008"
+  },
   "f1eff0d8f1f63ca4": {
     "en": "Key-encryption key. Wraps the DEK. Two exist: passphrase-derived and recovery-code-derived.",
     "model": "google/gemini-3.8-flash",
@@ -8626,6 +9094,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} {{1}}, ein {{2}}-Schlüsseldatensatz und {{3}} müssen zusammen ankommen oder gar nicht; jede Teilmenge ist ein {{4}}. Jeder fehlende Teil ist ein eigenes Desaster: Ein Verifizierer ohne den Datensatz hinterlässt einen Code, der authentifiziert und nichts entpackt; ein Datensatz ohne den Verifizierer hinterlässt einen, der entpackt und sich nicht einloggen kann; und ein TREUHANDDEPOT, das noch den alten Code enthält, macht das nächste Zurücksetzen per Mail (§5.12) zu einem Brief mit Zugangsdaten, die das Konto nicht mehr akzeptiert, bemerkt erst an dem Tag, an dem man sie braucht."
+  },
+  "f670df0356e3569d": {
+    "en": "{{0}}: only rendered when the instance actually runs analytics. It is currently NOT rendered in production. Review it anyway; it appears the moment {{1}} is set.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: wird nur gerendert, wenn die Instanz tatsächlich Web-Analytics betreibt. In der Produktionsumgebung wird dieser Teil derzeit NICHT gerendert. Prüfe ihn trotzdem; er erscheint, sobald {{1}} gesetzt ist."
+  },
+  "f68d99d3b1e0fcc8": {
+    "en": "Once it is running, you can either hand each person a key ({{0}}) or set {{1}} and friends so every visitor gets a one-tap connect, with the caveat that {{2}} is embedded in the page and readable by anyone who can open the app. See {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Sobald der Dienst läuft, kannst du entweder jeder Person einen Schlüssel geben ({{0}}) oder {{1}} und verwandte Variablen setzen, damit sich alle mit einem Klick verbinden können, mit der Einschränkung, dass {{2}} im Quelltext der Seite liegt und von jedem gelesen werden kann, der die App öffnet. Siehe {{3}}."
   },
   "f6ed156e4bf5c791": {
     "en": "SECURITY.md",
@@ -8783,6 +9263,12 @@
     "at": "2026-09-04",
     "de": "openplate zeigt keine Karte mit \"Diese Instanz stellt eigene KI bereit\""
   },
+  "fce28242846d9697": {
+    "en": "{{0}} If you have llama.cpp, Ollama, or vLLM-on-GPU up today, set {{1}} and {{2}}: openplate-inference then downloads nothing and starts no second model, and just wraps what you have. Check the {{3}} first; vLLM's {{4}} build cannot run this.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Wenn du llama.cpp, Ollama oder vLLM-on-GPU bereits betreibst, setze {{1}} und {{2}}: openplate-inference lädt dann nichts herunter, startet kein zweites Modell und bindet deine bestehende Instanz einfach an. Prüfe vorher die {{3}}; der {{4}}-Build von vLLM unterstützt dies nicht."
+  },
   "fceca16acae2d15e": {
     "en": "The operator of a managed instance therefore holds what it takes to open a diary.",
     "model": "google/gemini-3.8-flash",
@@ -8807,11 +9293,23 @@
     "at": "2026-09-04",
     "de": "+ eine Datenbank und ein Geheimnis"
   },
+  "ff02c504e6ec93c7": {
+    "en": "Rung 4 is the two rungs above, drawn together. Nothing new appears on it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 4 fasst die beiden vorherigen Stufen zusammen. Es kommt nichts Neues hinzu."
+  },
   "ff084e3df216fe95": {
     "en": "The {{0}} compare-and-swap.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das {{0}} Compare-and-Swap."
+  },
+  "ff433e8baa921dff": {
+    "en": "openplate-sync moves a diary between devices. It is the only service in openplate that holds accounts at all. It is a separate deployable with its own image, database and secret, and the browser talks to it directly. The app server proxies nothing on its behalf and serves no sync route.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "openplate-sync überträgt ein Tagebuch zwischen Geräten. Es ist der einzige Dienst in openplate, der überhaupt Konten führt. Es ist ein eigenständiges Bereitstellungsobjekt mit eigenem Image, eigener Datenbank und eigenem Geheimnis, und der Browser kommuniziert direkt damit. Der App-Server leitet nichts stellvertretend weiter und liefert keine Sync-Routen aus."
   },
   "ff682492ce2ba6a6": {
     "en": "Key record",
