@@ -19,10 +19,34 @@ import type { Block } from '../../app/lib/docs';
 import { diagramLabels, spansText, withDiagramLabels } from '../../app/lib/docs';
 import { hash, translateDiagram } from '../../app/lib/docs-i18n.server';
 import { type LinkBase, parseBlocks } from '../../scripts/lib/markdown';
-import { hslToHex, readPalettes, renderDiagrams, themeVariables } from '../../scripts/lib/mermaid';
+import { hslToHex, readPalettes, renderDiagrams, searchForBrowser, themeVariables } from '../../scripts/lib/mermaid';
 
 /** The stylesheet, addressed from this file so the test does not depend on the runner's cwd. */
 const APP_CSS = fileURLToPath(new URL('../../app/app.css', import.meta.url));
+
+/**
+ * Why the drawing cases below cannot run here, or `false` when they can.
+ *
+ * ── A SKIP AND NOT A FAILURE, AND WHY IT IS SAFE TO SKIP ──
+ * These cases really start a browser, and a contributor may have none. A wall
+ * of red they cannot act on is no way to say so. It is safe because CI does not
+ * take this exit: the sync-docs workflow resolves a browser into
+ * `OPENPLATE_CHROME` before it runs any tier, and fails at that step when it
+ * cannot, so a runner that skipped these is a red run and not a quiet one.
+ *
+ * The same question the renderer asks, asked the same way, so the two can never
+ * disagree about what counts as a browser.
+ */
+const NO_BROWSER =
+  searchForBrowser().path === null
+    ? 'no browser on this machine, so nothing can be drawn. Point OPENPLATE_CHROME at a chrome, or run `npx playwright install chromium-headless-shell`.'
+    : false;
+
+// LOUD, because a skip that only the exit code knows about is how a green run
+// that drew nothing gets mistaken for a green run that drew. `node --test`
+// prints the reason beside the case; this prints it once where nobody can miss
+// it, before the first line of results.
+if (NO_BROWSER !== false) console.error(`# the drawing cases are skipped: ${NO_BROWSER}`);
 
 const BASE: LinkBase = {
   repo: 'https://github.com/LowCarbCheck/openplate',
@@ -183,7 +207,7 @@ describe('the palette, read out of the stylesheet', () => {
 });
 
 describe('a mermaid fence, drawn', () => {
-  it('renders a light copy and a dark copy that are real drawings', () => {
+  it('renders a light copy and a dark copy that are real drawings', { skip: NO_BROWSER }, () => {
     const block = drawn(GOOD);
     const palettes = readPalettes(APP_CSS);
     const rendered = renderDiagrams({
@@ -212,7 +236,7 @@ describe('a mermaid fence, drawn', () => {
     assert.ok(drawing.dark.includes(palettes.dark['card'] ?? 'x'), 'the dark copy is in the dark palette');
   });
 
-  it('fails with the file named when mermaid cannot parse the fence', () => {
+  it('fails with the file named when mermaid cannot parse the fence', { skip: NO_BROWSER }, () => {
     // `call` IS A RESERVED WORD in mermaid's flowchart grammar, and a node named
     // after it does not parse. A real example, met upstream while these diagrams
     // were being written: a fence that reads perfectly well and is not one.

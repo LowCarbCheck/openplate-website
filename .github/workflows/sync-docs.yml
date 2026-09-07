@@ -77,6 +77,35 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
 
+      # ── THE DIAGRAMS NEED A BROWSER, AND THIS RUNNER ALREADY HAS ONE ──
+      # Mermaid has no renderer that is not a browser, so `sync:docs` starts one
+      # to draw a fence that changed, and `tests/unit/mermaid.test.ts` starts one
+      # to check that it draws. Neither found one here until now.
+      #
+      # WHERE THAT HID IS WORSE THAN THE RED TICK IT CAUSED. `renderDiagrams`
+      # only starts a browser when a drawing's stamp has moved, so on 2026-09-07
+      # run 34099274684 the sync step passed with "27 drawings, all already
+      # drawn" while the unit tier went red on `no chromium found`. The sync
+      # itself would have failed at the first changed fence upstream, which is
+      # the one moment this job exists for.
+      #
+      # No download and no new dependency: `ubuntu-latest` ships Google Chrome,
+      # and `searchForBrowser` in scripts/lib/mermaid.ts finds it on PATH. This
+      # step exports the answer once, so the two steps below share it and the
+      # test skips nothing here.
+      #
+      # IT FAILS LOUDLY WHEN IT FINDS NOTHING, and never falls through: a run
+      # that quietly drew no diagrams and reported success is exactly the state
+      # this step exists to end. `findBrowser` names every path and command it
+      # tried in its message, so the log says what to install.
+      - name: Point the renderer at a browser
+        run: |
+          set -euo pipefail
+          chrome="$(node --import tsx --input-type=module \
+            -e "import { findBrowser } from './scripts/lib/mermaid.ts'; console.log(findBrowser());")"
+          echo "OPENPLATE_CHROME=$chrome" >> "$GITHUB_ENV"
+          echo "the diagrams will be drawn with $chrome"
+
       - name: Re-quote the three repositories' docs
         env:
           # ── THE DISPATCH DOES NOT CHOOSE THE REF, AND THAT IS DELIBERATE ──

@@ -40,8 +40,9 @@
  * ── THE BROWSER IS THE ONE ALREADY ON THIS MACHINE ──
  * Mermaid has no renderer that is not a browser: `graph TD` is a layout
  * problem, and text measurement is what decides where the boxes go. Playwright
- * has already put a headless chromium in `~/.cache/ms-playwright/`, so this
- * uses it and downloads nothing. It drives it with two command-line switches
+ * has already put a headless chromium in `~/.cache/ms-playwright/` on a laptop,
+ * and a GitHub runner carries a system chrome, so `searchForBrowser` takes
+ * whichever is here and downloads nothing. It drives it with two command-line switches
  * rather than a driver library, see `renderDiagrams`, so the only thing this file
  * adds to `package.json` is mermaid itself, as a devDependency. `sync:docs` is
  * a hand-run developer tool and the Dockerfile stays hermetic.
@@ -51,7 +52,7 @@ import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { delimiter, join } from 'node:path';
 
 /** `require.resolve` in a module file: the two paths below are into `node_modules`, not into this tree. */
 const resolve = createRequire(import.meta.url).resolve;
@@ -254,35 +255,108 @@ export interface Drawing {
   dark: string;
 }
 
-/**
- * The chromium playwright has already installed, highest build first.
- *
- * The headless SHELL rather than the full browser: it is the smaller of the two
- * downloads, it is what playwright itself uses for a headless run, and it is
- * the one this machine happens to have unpacked. `OPENPLATE_CHROME` overrides
- * it for a machine that keeps its browser somewhere else.
- */
-export function findBrowser(): string {
-  const override = process.env['OPENPLATE_CHROME'] ?? '';
-  if (override !== '') return override;
+/** What a search for a browser on this machine found, and everywhere it looked. */
+export interface BrowserSearch {
+  /** The browser to run, or null when this machine carries none. */
+  path: string | null;
+  /** Every candidate considered, in order, whether or not it was there. */
+  tried: string[];
+}
 
+/**
+ * The names a system chrome goes by. `ubuntu-latest` on GitHub carries
+ * `google-chrome`, which is why CI needs no download and no new dependency.
+ */
+const SYSTEM_BROWSERS = [
+  'google-chrome',
+  'google-chrome-stable',
+  'chromium',
+  'chromium-browser',
+  'chrome-headless-shell',
+];
+
+/** The first entry of PATH that holds an executable of this name, or null. */
+function onPath(name: string): string | null {
+  const directories = (process.env['PATH'] ?? '').split(delimiter).filter((entry) => entry !== '');
+  return directories.map((directory) => join(directory, name)).find((candidate) => existsSync(candidate)) ?? null;
+}
+
+/**
+ * Where the browser is, asked in a way that a caller can act on.
+ *
+ * ── WHY THIS IS NOT JUST `findBrowser` ──
+ * Three callers ask the same question and want three different answers to a
+ * miss. The renderer wants a path or a sentence. The workflow wants a path to
+ * put in `OPENPLATE_CHROME`, and the whole list when there is none, because a
+ * CI step that fails has nobody to ask. The unit tier wants to SKIP its drawing
+ * cases, and a thrown error is no way to ask a yes or no question. So the
+ * search returns its result and its working, and `findBrowser` is the one line
+ * that turns a miss into a throw.
+ *
+ * On 2026-09-07 run 34099274684 the unit tier went red on a runner for want of
+ * a browser, and the sync step in the same run passed because it had nothing
+ * new to draw. Nothing here downloads anything: a laptop has the headless
+ * chromium playwright unpacked under `~/.cache/ms-playwright`, and a runner has
+ * a system chrome on PATH.
+ */
+export function searchForBrowser(): BrowserSearch {
+  const tried: string[] = [];
+
+  // AN OVERRIDE IS THE ANSWER, RIGHT OR WRONG. Somebody who names a browser has
+  // said which one to draw with. Falling through to another one behind their
+  // back turns a typo into a run that drew with something nobody chose.
+  const override = process.env['OPENPLATE_CHROME'] ?? '';
+  if (override !== '') {
+    tried.push(`OPENPLATE_CHROME=${override}`);
+    // A bare name is a command and is looked up on PATH; anything with a slash
+    // is a path and is taken as one.
+    if (!override.includes('/')) return { path: onPath(override), tried };
+    return { path: existsSync(override) ? override : null, tried };
+  }
+
+  // The headless SHELL before the full browser: it is the smaller of the two
+  // downloads and it is what playwright itself uses for a headless run. Highest
+  // build first, so a laptop draws with the newest chromium it has.
   const cache = join(homedir(), '.cache', 'ms-playwright');
-  const found = (existsSync(cache) ? readdirSync(cache) : [])
+  // NAMED EVEN WHEN IT IS NOT THERE. A missing cache contributes no candidate
+  // paths, and a failure that lists none of them reads as if the search never
+  // looked, which is the first thing somebody would check.
+  if (!existsSync(cache)) tried.push(`${cache} (no such directory)`);
+  const unpacked = (existsSync(cache) ? readdirSync(cache) : [])
     .filter((entry) => entry.startsWith('chromium'))
     .toSorted((a, b) => Number(b.split('-').pop()) - Number(a.split('-').pop()))
     .flatMap((entry) => [
       join(cache, entry, 'chrome-headless-shell-linux64', 'chrome-headless-shell'),
       join(cache, entry, 'chrome-linux', 'chrome'),
-    ])
-    .find((path) => existsSync(path));
+    ]);
+  for (const candidate of unpacked) {
+    tried.push(candidate);
+    if (existsSync(candidate)) return { path: candidate, tried };
+  }
 
-  if (found === undefined) {
+  // A SYSTEM BROWSER LAST. It is what makes a runner work with no install step,
+  // and taking it last means a machine that has both goes on drawing with the
+  // same build it drew the committed SVGs with.
+  for (const name of SYSTEM_BROWSERS) {
+    tried.push(`${name} on PATH`);
+    const found = onPath(name);
+    if (found !== null) return { path: found, tried };
+  }
+
+  return { path: null, tried };
+}
+
+/** The browser to draw with. Throws, naming every place it looked, when there is none. */
+export function findBrowser(): string {
+  const search = searchForBrowser();
+  if (search.path === null) {
     throw new Error(
-      'mermaid: no chromium found under ~/.cache/ms-playwright. Install one with `npx playwright install ' +
-        'chromium-headless-shell`, or point OPENPLATE_CHROME at a chrome you already have.',
+      'mermaid: no chromium found on this machine. Install one with `npx playwright install ' +
+        'chromium-headless-shell`, or point OPENPLATE_CHROME at a chrome you already have.\n' +
+        `  Looked at:\n    ${search.tried.join('\n    ')}`,
     );
   }
-  return found;
+  return search.path;
 }
 
 /**
