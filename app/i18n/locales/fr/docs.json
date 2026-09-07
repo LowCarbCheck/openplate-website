@@ -4,6 +4,8 @@
   "nav": "Documentation",
   "onThisPage": "Sur cette page",
   "diagramSource": "Source du schéma",
+  "diagramZoomIn": "Agrandir",
+  "diagramZoomOut": "Réduire",
   "edit": "Modifier cette page sur GitHub",
   "releases": "Notes de version",
   "noReleases": "Ce composant n'a pas encore publié de notes de version.",

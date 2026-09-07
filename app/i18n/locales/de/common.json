@@ -6,6 +6,7 @@
     "exampleData": "Diese Ansichten zeigen Beispieldaten, kein echtes Tagebuch.",
     "nav": {
       "label": "Hauptnavigation",
+      "menu": "Menü",
       "app": "App",
       "sync": "Sync-Server",
       "inference": "Inference-Runtime",
@@ -13,6 +14,7 @@
       "docs": "Doku"
     },
     "footer": {
+      "label": "Fußzeile",
       "sourceCode": "Quellcode"
     },
     "language": {

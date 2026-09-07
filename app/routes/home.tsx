@@ -146,7 +146,6 @@ export default function HomeRoute() {
           where the repetition costs nothing and the extra clause about the photo scan is worth
           having; `hero.lead` is its second sentence, the one that says who this is for. */}
       <Hero
-        title={t('site.name')}
         headline={t('site.tagline')}
         lead={t('pages.home.hero.lead')}
         actions={

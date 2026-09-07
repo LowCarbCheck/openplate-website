@@ -204,3 +204,36 @@ export function MoonIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+/**
+ * The header menu button's pair: open the navigation, and close it again.
+ *
+ * ── PROVENANCE, SAME LICENCE, SAME SET ──
+ * lucide 0.475.0: `menu` and `x`. ISC, copyright Lucide Contributors 2022, with portions from
+ * Feather (MIT) copyright Cole Bemis 2013 to 2022. Same 24 square grid and 2 unit round stroke as
+ * every icon above, so the header still carries one set and not two.
+ *
+ * ── BOTH ARE DRAWN, AND REACT CHOOSES, WHICH IS THE OPPOSITE OF THE THEME PAIR ──
+ * `SunIcon` and `MoonIcon` are both in the markup because the server cannot know the reader's
+ * appearance. This pair is different: whether the navigation is open is state this document starts
+ * with, closed, and the server knows it. So the button renders one of the two, and the one it
+ * renders is true in the prerendered file as well as after hydration.
+ */
+export function MenuIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M4 6h16" />
+      <path d="M4 12h16" />
+      <path d="M4 18h16" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  );
+}

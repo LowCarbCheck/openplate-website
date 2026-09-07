@@ -254,4 +254,67 @@
   .surface-brand-soft {
     background-image: linear-gradient(140deg, hsl(var(--primary) / 0.09) 0%, hsl(var(--primary) / 0.015) 70%);
   }
+
+  /*
+   * A documentation table, stacked for a phone.
+   *
+   * ── WHY THIS IS CSS AND NOT A SECOND COMPONENT ──
+   * `doc-blocks.tsx` renders ONE table. Below the `sm` breakpoint these rules
+   * turn each row into a block and print each cell's column heading above it
+   * from the `data-label` the component wrote. The alternative, a narrow copy of
+   * the markup beside the wide one, would put every cell in the document twice:
+   * a screen reader walks both, and a later edit has two places to be right in.
+   * A generated `::before` is not selectable text and is not in the a11y tree,
+   * which is correct here, because the real <th> is still in the DOM and is only
+   * hidden from sight.
+   *
+   * 39.99rem is the width just under Tailwind's `sm` (40rem), so this and the
+   * `sm:` utilities in the component cannot both apply at any width.
+   *
+   * NOTHING HERE FIRES FROM `sm` UP. The table above that width is the grid it
+   * has always been, so this file adds no rule that could change it.
+   */
+  @media (max-width: 39.99rem) {
+    .doc-table,
+    .doc-table tbody,
+    .doc-table tr,
+    .doc-table td {
+      display: block;
+    }
+
+    /* Out of sight, still in the accessibility tree and still the thing the
+       labels below are copied from. */
+    .doc-table thead {
+      display: none;
+    }
+
+    /* The row's own border-bottom is what separates one record from the next,
+       and the space keeps it from reading as a cell divider. No left accent:
+       that is banned house-wide, and this needs a horizontal rule anyway. */
+    .doc-table tr {
+      padding-bottom: 0.5rem;
+    }
+
+    .doc-table td {
+      padding-top: 0.5rem;
+      padding-bottom: 0;
+    }
+
+    /*
+     * The label reads as a label, in the same vocabulary as the <th> it stands
+     * in for: small, uppercase, tracked out, muted. Same declarations as the
+     * `text-xs uppercase tracking-[0.1em] text-muted-foreground` on the header
+     * cell, written out because a generated box cannot carry a class.
+     */
+    .doc-table td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      margin-bottom: 0.125rem;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted-foreground);
+    }
+  }
 }

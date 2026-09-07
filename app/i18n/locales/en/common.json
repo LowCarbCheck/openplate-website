@@ -6,6 +6,7 @@
     "exampleData": "These screens show example data, not a real diary.",
     "nav": {
       "label": "Main",
+      "menu": "Menu",
       "app": "App",
       "sync": "Sync server",
       "inference": "Inference runtime",
@@ -13,6 +14,7 @@
       "docs": "Docs"
     },
     "footer": {
+      "label": "Footer",
       "sourceCode": "Source code"
     },
     "language": {

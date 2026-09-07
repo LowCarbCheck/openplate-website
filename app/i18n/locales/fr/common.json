@@ -6,6 +6,7 @@
     "exampleData": "Ces écrans affichent des données d'exemple, pas un vrai journal.",
     "nav": {
       "label": "Principale",
+      "menu": "Menu",
       "app": "Application",
       "sync": "Serveur de synchronisation",
       "inference": "Moteur d'inférence",
@@ -13,6 +14,7 @@
       "docs": "Documentation"
     },
     "footer": {
+      "label": "Pied de page",
       "sourceCode": "Code source"
     },
     "language": {

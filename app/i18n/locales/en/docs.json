@@ -4,6 +4,8 @@
   "nav": "Documentation",
   "onThisPage": "On this page",
   "diagramSource": "Diagram source",
+  "diagramZoomIn": "Zoom in",
+  "diagramZoomOut": "Zoom out",
   "edit": "Edit this page on GitHub",
   "releases": "Release notes",
   "noReleases": "This component has not published release notes yet.",

@@ -15,7 +15,7 @@
  * draws its diagrams at sync time and commits them, so the diagram block is two
  * committed SVG files and a <picture>, and no reader downloads a renderer.
  */
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 
@@ -107,15 +107,95 @@ export function Spans({ spans }: { spans: Inline[] }) {
   );
 }
 
-export function DocBlocks({ blocks }: { blocks: Block[] }) {
-  const { t } = useTranslation('docs');
-  // THE DIAGRAM FILES ARE PER LANGUAGE, so this page has to say which one it is.
-  // The labels inside a drawing are translated at sync time and baked into the
-  // SVG, so picking the file is the whole of the client's part in it: there is
-  // one committed pair of files per language and the reader gets the pair that
-  // matches the words around it.
-  const language = useLanguage();
+type DiagramBlock = Extract<Block, { kind: 'diagram' }>;
 
+/**
+ * One diagram, and on a phone a button that gives its size back.
+ *
+ * ALREADY DRAWN, FOUR TIMES, AND COMMITTED. `sync:docs` renders the fence with
+ * a headless browser and writes a light copy and a dark one for each language
+ * the site publishes: an SVG has its colours baked in and this site's two
+ * appearances are a media query, and it has its words baked in too, which is
+ * why the language is in the name rather than in a stylesheet. <picture> picks
+ * the appearance, the URL picks the language: no JavaScript, no swap after
+ * paint, and nothing here imports mermaid.
+ *
+ * The description is the <img> alt and not a caption. A caption repeats to a
+ * sighted reader what the drawing beside it already says; alt is what a reader
+ * who gets no drawing is given instead. The fence itself stays on the page
+ * behind a disclosure, so whoever wants the thing that made the picture can
+ * copy it.
+ *
+ * ── THE PICTURE FITS THE COLUMN, AND THE SIZE IS OFFERED RATHER THAN IMPOSED ──
+ * This block used to force `min-w-[40rem]` on the image, on the argument that a
+ * flowchart has a smallest legible size and a phone column is narrower than it,
+ * so the reader should drag the picture the way the code fences already scroll.
+ * Measured at 390px that argument fails twice. The reader is shown about a
+ * third of the drawing with nothing on screen saying the rest exists, and every
+ * diagram in the document does it, so the page reads as broken layout rather
+ * than as one deliberately wide figure.
+ *
+ * Fitting to the column is therefore the default: shrunken is still enough to
+ * see what the drawing is about and where in the argument it sits. Full size is
+ * a button under it, so the reader asks for the drag instead of inheriting it.
+ * The button is the only reason this is a component with state rather than a
+ * case in the switch, because the toggle belongs to one figure and a page
+ * carries several. It is hidden from `sm` up, where the column is already wider
+ * than the drawing and the old floor never bit, so nothing changes there.
+ * Closed is the server render, so a reader with no JavaScript gets the fitted
+ * picture and loses only the zoom.
+ *
+ * The label names the NEXT action rather than the current state. That is a
+ * claim this component can make accurately on its own, which `aria-pressed`
+ * beside a changing label could not.
+ */
+function DiagramFigure({ block }: { block: DiagramBlock }) {
+  const { t } = useTranslation('docs');
+  // THE DIAGRAM FILES ARE PER LANGUAGE, so this figure has to say which one it
+  // is. The labels inside a drawing are translated at sync time and baked into
+  // the SVG, so picking the file is the whole of the client's part in it: there
+  // is one committed pair of files per language and the reader gets the pair
+  // that matches the words around it.
+  const language = useLanguage();
+  const [isFullSize, setIsFullSize] = useState(false);
+
+  const quiet = 'cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground';
+
+  return (
+    <figure className="mt-5">
+      <div className="overflow-x-auto rounded-sm border border-border bg-card p-4">
+        <picture>
+          <source
+            srcSet={`/docs/diagrams/${block.id}-${language}-dark.svg`}
+            media="(prefers-color-scheme: dark)"
+            type="image/svg+xml"
+          />
+          <img
+            src={`/docs/diagrams/${block.id}-${language}-light.svg`}
+            alt={spansText(block.alt)}
+            loading="lazy"
+            className={isFullSize ? 'w-full min-w-[40rem]' : 'w-full'}
+          />
+        </picture>
+      </div>
+      {/* `py-3` ON THE BUTTON, NOT ON `quiet`. `quiet` is shared with the disclosure's `<summary>`
+          below, which was never measured as a defect, so the padding that takes this button to a 44
+          pixel tall touch target belongs to the button alone. A fixed height would do the same for
+          this one line of text and then stop matching a longer translation. */}
+      <button type="button" onClick={() => setIsFullSize(!isFullSize)} className={`mt-2 py-3 sm:hidden ${quiet}`}>
+        {isFullSize ? t('diagramZoomOut') : t('diagramZoomIn')}
+      </button>
+      <details className="mt-2">
+        <summary className={quiet}>{t('diagramSource')}</summary>
+        <pre className="mt-2 overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed">
+          <code className="language-mermaid">{block.source}</code>
+        </pre>
+      </details>
+    </figure>
+  );
+}
+
+export function DocBlocks({ blocks }: { blocks: Block[] }) {
   return (
     <>
       {blocks.map((block, i) => {
@@ -232,61 +312,42 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
             );
           }
           case 'diagram': {
-            // ALREADY DRAWN, FOUR TIMES, AND COMMITTED. `sync:docs` renders the
-            // fence with a headless browser and writes a light copy and a dark
-            // one for each language the site publishes: an SVG has its colours
-            // baked in and this site's two appearances are a media query, and it
-            // has its words baked in too, which is why the language is in the
-            // name rather than in a stylesheet. <picture> picks the appearance,
-            // the URL picks the language: no JavaScript, no swap after paint,
-            // and nothing here imports mermaid.
-            //
-            // The description is the <img> alt and not a caption. A caption
-            // repeats to a sighted reader what the drawing beside it already
-            // says; alt is what a reader who gets no drawing is given instead.
-            // The fence itself stays on the page behind a disclosure, so
-            // whoever wants the thing that made the picture can copy it.
-            return (
-              <figure key={key} className="mt-5">
-                {/* SHRINK TO FIT IS THE WRONG DEFAULT FOR A DRAWING. A paragraph
-                    has no smallest legible size; a flowchart does, and a phone
-                    column is narrower than it. The floor lives on the <img>, the
-                    scroll on the wrapper: below 40rem the picture stays full size
-                    and the reader drags it, exactly as the code block and the
-                    table above already scroll instead of shrinking. */}
-                <div className="overflow-x-auto rounded-sm border border-border bg-card p-4">
-                  <picture>
-                    <source
-                      srcSet={`/docs/diagrams/${block.id}-${language}-dark.svg`}
-                      media="(prefers-color-scheme: dark)"
-                      type="image/svg+xml"
-                    />
-                    <img
-                      src={`/docs/diagrams/${block.id}-${language}-light.svg`}
-                      alt={spansText(block.alt)}
-                      loading="lazy"
-                      className="w-full min-w-[40rem]"
-                    />
-                  </picture>
-                </div>
-                <details className="mt-2">
-                  <summary className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground">
-                    {t('diagramSource')}
-                  </summary>
-                  <pre className="mt-2 overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed">
-                    <code className="language-mermaid">{block.source}</code>
-                  </pre>
-                </details>
-              </figure>
-            );
+            // A COMPONENT, BECAUSE THE ZOOM IS PER FIGURE. Everything about how
+            // a diagram is drawn, picked and sized is in `DiagramFigure` above,
+            // including why the picture now fits the column by default. A hook
+            // cannot live in this loop, and the toggle needs one.
+            return <DiagramFigure key={key} block={block} />;
           }
           case 'table': {
-            // Scrolls rather than reflows. These tables have columns of full
-            // sentences, and squeezing that into a phone's width makes it
-            // unreadable in a way a sideways scroll does not.
+            // ── IT STACKS ON A PHONE, AND SCROLLS FROM `sm` UP ──
+            // This used to force `min-w-[34rem]` at every width and argue that a
+            // column of full sentences is unreadable squeezed, so a sideways
+            // scroll is the kinder failure. Measured at 390px it is not kind. A
+            // four column table shows two columns, the two that are cut off give
+            // no sign they exist, and the row a reader is comparing runs off the
+            // side of the thing they are reading. A scroll region inside a page
+            // that already scrolls vertically is discovered by accident or not
+            // at all.
+            //
+            // So below `sm` a row becomes a block and every cell carries its own
+            // column heading. That is the reflow the old comment feared, except
+            // the sentences get the full column width rather than a quarter of
+            // it, and nothing is off screen. From `sm` up this is the same table
+            // it always was: the real grid, the 34rem floor, the scroll wrapper,
+            // the same type and the same rules.
+            //
+            // ONE DOM, TWO SHAPES. The stacking is `.doc-table` in `app.css`,
+            // which hides the <thead> and prints `data-label` through a
+            // `td::before`. A second copy of this markup for the narrow case
+            // would put every cell on the page twice, which costs a screen
+            // reader a whole duplicate table and costs us a second thing to keep
+            // correct. The label is the FLAT text of the head cell, because an
+            // attribute cannot carry markup: a heading with inline code would
+            // otherwise print its backticks.
+            const labels = block.head.map((cell) => spansText(cell));
             return (
               <div key={key} className="-mx-6 mt-5 overflow-x-auto px-6 sm:mx-0 sm:px-0">
-                <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                <table className="doc-table w-full min-w-0 border-collapse text-left text-sm sm:min-w-[34rem]">
                   <thead>
                     <tr className="border-b border-border">
                       {block.head.map((cell, j) => (
@@ -305,8 +366,16 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                       // oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see the list case
                       <tr key={`r-${j}`} className="border-b border-border align-top">
                         {row.map((cell, k) => (
-                          // oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see the list case
-                          <td key={`c-${k}`} className="py-3 pr-6 leading-relaxed">
+                          <td
+                            /* oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see the list case */
+                            key={`c-${k}`}
+                            /* A column with no heading prints no label line. The
+                               attribute is left off entirely rather than set
+                               empty, and the CSS matches `td[data-label]`, so an
+                               unheaded cell gets no blank row above it. */
+                            data-label={labels[k] === '' ? undefined : labels[k]}
+                            className="py-3 pr-0 leading-relaxed sm:pr-6"
+                          >
                             <Spans spans={cell} />
                           </td>
                         ))}

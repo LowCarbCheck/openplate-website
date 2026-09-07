@@ -15,10 +15,11 @@
  * `app/i18n/language.ts`, and a language added there arrives here in the
  * position it was written in.
  */
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router';
 
+import { CloseIcon, GitHubMark, MenuIcon } from './icons';
 import { ExternalLink, SiteLink } from './site-link';
 import { ThemeToggle } from './theme-toggle';
 import {
@@ -39,6 +40,53 @@ const NAV_ITEMS = [
   { to: '/deploy', labelKey: 'site.nav.deploy' },
   { to: '/docs', labelKey: 'site.nav.docs' },
 ] as const;
+
+/**
+ * The id the menu button points its `aria-controls` at, written once.
+ *
+ * There is one header on the page, so a constant is enough and `useId` would only make the value
+ * unpredictable in a prerendered file for no gain.
+ */
+const MENU_PANEL_ID = 'site-nav-panel';
+
+/**
+ * A round icon button, and the SECOND copy of the string `theme-toggle.tsx` calls `BUTTON`.
+ *
+ * The two are deliberately the same shape: the source link, the appearance toggle and the menu
+ * button sit in one row at the right edge, and a reader reads them as three of a kind. Exporting
+ * one of them from the other file would put a layout decision about this header inside a component
+ * that knows nothing about it, so the string is repeated and named instead.
+ *
+ * `p-3` around a 20 pixel icon is 44 pixels square, the smallest a touch target is allowed to be.
+ * `p-2` measured at 36 pixels and was under it.
+ */
+const ICON_BUTTON =
+  'flex items-center rounded-full p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
+
+/**
+ * The five links, drawn in two places and written in one.
+ *
+ * A wide window gets them inline and a phone gets them in the panel below the header row. Those are
+ * two elements in the DOM at once, and the alternative to this component is the same `map` twice,
+ * where a class fixed in one row quietly stays wrong in the other.
+ *
+ * `linkClassName` is how the panel asks for its own vertical padding without the inline row gaining
+ * it too: the panel's links need a 44 pixel tap target and the inline row, sitting in a header that
+ * must not grow, does not.
+ */
+function NavLinks({ linkClassName }: { linkClassName?: string }) {
+  const { t } = useTranslation();
+  const className =
+    linkClassName ?
+      `text-muted-foreground hover:text-foreground ${linkClassName}`
+    : 'text-muted-foreground hover:text-foreground';
+
+  return NAV_ITEMS.map((item) => (
+    <SiteLink key={item.to} to={item.to} className={className}>
+      {t(item.labelKey)}
+    </SiteLink>
+  ));
+}
 
 function LanguageSwitcher({ current }: { current: LanguageCode }) {
   const { t } = useTranslation();
@@ -124,6 +172,20 @@ export function SiteLayout({
   const language = useLanguage();
   const { pathname } = useLocation();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  /*
+   * A TAP ON A LINK IN THE PANEL IS A NAVIGATION, AND THE PANEL HAS TO KNOW. The router swaps the
+   * page under an open menu without unmounting this frame, so without this a reader taps "Docs" and
+   * then looks at the menu they just used, laid over a page they cannot see. The pathname is the
+   * one thing that says a navigation happened; closing on every change of it also covers the back
+   * button and a language switch. It runs on mount too, where it sets false over false and costs
+   * nothing.
+   */
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   /*
    * THE PICTURES ARE OUTSIDE REACT'S OPINION, which is what makes this one of the
    * few honest uses of an effect here. Every screenshot and diagram picks its
@@ -151,51 +213,92 @@ export function SiteLayout({
       </a>
 
       <header className="border-b border-border">
-        {/* ITEMS-CENTER, AND IT USED TO BE ITEMS-BASELINE. A flex container takes its baseline from
-            its first item, the wordmark link, and that link is itself a flex box whose first item
-            is the 24 pixel mark. An image's baseline is its bottom edge, so aligning the row on it
-            hung the mark and the word "openplate" eleven pixels above the nav links beside them.
-            Nothing in the markup said so and the whole header simply looked broken. There is no
-            common baseline to share between a picture and a line of text: centring is the
-            alignment that means what it says here. */}
-        <div
-          className={`mx-auto flex w-full ${WIDTH[width]} flex-wrap items-center gap-x-6 gap-y-2 ${PADDING[width]} py-5`}
-        >
-          <SiteLink
-            to="/"
-            className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-primary"
-          >
-            {/* Decorative: the link already says "openplate" in text, so a
-                screen reader announcing the mark too would say the name twice. */}
-            <img src="/icons/icon-192.png?v=2" alt="" className="h-6 w-6 rounded-full" />
-            {t('site.name')}
-          </SiteLink>
-          {/* LAST IN THE WRAP ORDER ON A PHONE, and in DOM order everywhere else. At 390 pixels all
-              three do not fit on one line, and with the natural order the toggle was pushed onto a
-              third row of its own: a 164 pixel header before a word of the page. Sending the nav
-              down puts the wordmark and the toggle on the first line, where the toggle is the
-              first thing a thumb reaches, and the nav takes the second. `order` moves the boxes
-              and not the DOM, so the tab order and the reading order are unchanged. */}
-          {/* NAMED, because the footer carries a second `<nav>` and two unnamed navigation landmarks
-              are one landmark as far as a screen reader's landmark list is concerned. axe-core
-              reports it as `landmark-unique`; a one word label is the whole fix. */}
-          <nav
-            aria-label={t('site.nav.label')}
-            className="order-last flex flex-wrap items-center gap-x-5 gap-y-1 text-sm sm:order-none"
-          >
-            {NAV_ITEMS.map((item) => (
-              <SiteLink key={item.to} to={item.to} className="text-muted-foreground hover:text-foreground">
-                {t(item.labelKey)}
-              </SiteLink>
-            ))}
-          </nav>
-          {/* Pushed to the far end and NOT into the footer with the language switcher: the
-              appearance is a control a reader reaches for while reading, and the switcher is a
-              navigation they use once. `ms-auto` takes the space that is left on its line, which
-              is the header's right edge on a desktop and the wordmark's own line on a phone. */}
-          <div className="ms-auto">
-            <ThemeToggle />
+        <div className={`mx-auto w-full ${WIDTH[width]} ${PADDING[width]} py-5`}>
+          {/* ITEMS-CENTER, AND IT USED TO BE ITEMS-BASELINE. A flex container takes its baseline from
+              its first item, the wordmark link, and that link is itself a flex box whose first item
+              is the 24 pixel mark. An image's baseline is its bottom edge, so aligning the row on it
+              hung the mark and the word "openplate" eleven pixels above the nav links beside them.
+              Nothing in the markup said so and the whole header simply looked broken. There is no
+              common baseline to share between a picture and a line of text: centring is the
+              alignment that means what it says here. */}
+          <div className="flex items-center gap-x-6">
+            <SiteLink
+              to="/"
+              className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-primary"
+            >
+              {/* Decorative: the link already says "openplate" in text, so a
+                  screen reader announcing the mark too would say the name twice. */}
+              <img src="/icons/icon-192.png?v=2" alt="" className="h-6 w-6 rounded-full" />
+              {t('site.name')}
+            </SiteLink>
+            {/* HIDDEN BELOW `md`, WHERE THE BUTTON BELOW OWNS THESE LINKS INSTEAD. Five links do not
+                fit beside a wordmark at 390 pixels: they took two further rows and the header was a
+                164 pixel wall before a word of the page. Reordering the boxes only chose which row
+                the wall was on, so the links move into a panel a reader opens, and the first line
+                keeps the wordmark and the three controls. From `md` up nothing changed: this is the
+                same inline row it has always been, and no panel is rendered. */}
+            {/* NAMED, because the page carries several of these landmarks at once and two unnamed
+                navigation landmarks are one landmark as far as a screen reader's landmark list is
+                concerned. axe-core reports it as `landmark-unique`; a one word label is the whole
+                fix. The panel below is a second `<nav>` and carries its own, different name for the
+                same reason, and the footer's `<nav>` now carries `site.footer.label` for the same
+                reason again. */}
+            <nav aria-label={t('site.nav.label')} className="hidden items-center gap-x-5 text-sm md:flex">
+              <NavLinks />
+            </nav>
+            {/* PUSHED TO THE FAR END, AND NOT INTO THE FOOTER WITH THE LANGUAGE SWITCHER: the source
+                and the appearance are things a reader reaches for while reading, and the switcher is
+                a navigation they use once. `ms-auto` takes whatever space is left on the line, so the
+                three sit at the right edge on a desktop and at the right edge of the wordmark's own
+                line on a phone. The menu button is last of the three because it is the one that opens
+                the row beneath it, and a control should sit next to what it moves. */}
+            <div className="ms-auto flex items-center gap-1">
+              <ExternalLink href={REPOSITORIES.app} className={ICON_BUTTON}>
+                <GitHubMark className="h-5 w-5" />
+                {/* The mark is `aria-hidden`, so without these words the link has no accessible name
+                    at all. It reuses the footer's key: it is the same link to the same place. */}
+                <span className="sr-only">{t('site.footer.sourceCode')}</span>
+              </ExternalLink>
+              <ThemeToggle />
+              {/* CLOSED IS THE ONLY STATE THE SERVER MAY RENDER. This document is prerendered to a
+                  file, so anything the initial markup says about the panel has to be true for every
+                  reader who opens it. Closed is that state, `useState(false)` is that claim, and the
+                  panel is not in the file until a reader asks for it. */}
+              <button
+                type="button"
+                aria-expanded={isMenuOpen}
+                aria-controls={MENU_PANEL_ID}
+                onClick={() => {
+                  setIsMenuOpen((open) => !open);
+                }}
+                className={`${ICON_BUTTON} md:hidden`}
+              >
+                {isMenuOpen ?
+                  <CloseIcon className="h-5 w-5" />
+                : <MenuIcon className="h-5 w-5" />}
+                <span className="sr-only">{t('site.nav.menu')}</span>
+              </button>
+            </div>
           </div>
+          {/* RENDERED ONLY WHEN IT IS OPEN, which is what keeps it out of the tab order the rest of
+              the time. A panel that is merely invisible still takes five tab stops between the menu
+              button and the page, and a reader on a keyboard would walk through links they cannot
+              see. It sits after the button in the DOM as well as under it on the screen, so tabbing
+              out of the button arrives at the first link. */}
+          {isMenuOpen && (
+            <nav
+              id={MENU_PANEL_ID}
+              aria-label={t('site.nav.menu')}
+              className="flex flex-col items-start pt-5 text-sm md:hidden"
+            >
+              {/* `py-3` ON THE LINK, NOT `gap-y-3` ON THE PANEL. Each link was a 20 pixel tap area
+                  with a 12 pixel dead gap on either side of it, which is a target under the 44 pixel
+                  minimum and a strip of space that does nothing when pressed. Padding turns that dead
+                  gap into part of the target instead of adding to it, so five 44 pixel links replace
+                  five 20 pixel ones without the panel simply doubling in length. */}
+              <NavLinks linkClassName="py-3" />
+            </nav>
+          )}
         </div>
       </header>
 
@@ -205,7 +308,8 @@ export function SiteLayout({
 
       <footer className="border-t border-border">
         <div className="mx-auto flex w-full max-w-3xl flex-wrap items-baseline justify-between gap-x-6 gap-y-3 px-5 py-8 text-sm text-muted-foreground">
-          <nav className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+          {/* NAMED for the same `landmark-unique` reason as the header's nav, see the comment there. */}
+          <nav aria-label={t('site.footer.label')} className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
             <SiteLink to="/imprint" className="hover:text-foreground">
               {t('pages.imprint.title')}
             </SiteLink>

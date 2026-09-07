@@ -22,9 +22,14 @@ import { useTranslation } from 'react-i18next';
 import { MoonIcon, SunIcon } from './icons';
 import { toggleTheme } from '#app/lib/theme';
 
-/** Big enough to hit with a thumb, and the same muted-to-foreground behaviour as a nav link. */
+/**
+ * Big enough to hit with a thumb, and the same muted-to-foreground behaviour as a nav link.
+ *
+ * `p-3` around the 20 pixel icon below is 44 pixels square, the minimum a touch target is allowed
+ * to be. `p-2` measured at 36 pixels.
+ */
 const BUTTON =
-  'flex items-center rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
+  'flex items-center rounded-full p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
 
 export function ThemeToggle() {
   const { t } = useTranslation();
