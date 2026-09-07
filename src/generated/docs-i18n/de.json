@@ -2525,6 +2525,12 @@
     "at": "2026-09-04",
     "de": "Spielraum vor 1.0."
   },
+  "3bec2a8de7dd26a7": {
+    "en": "Configured food data, USDA by default",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Konfigurierte Lebensmitteldaten, standardmäßig USDA"
+  },
   "3c09cbd01fd505e3": {
     "en": "{{0}} Until the first public release, breaking changes may be taken without the migration path a released protocol would need. Two were taken WITHOUT a version bump: the move from cookie to bearer authentication, and the move of the sync routes from {{1}} to {{2}}. A third, 0.5.0's removal of email, was taken without one too and should not have been (see below). This paragraph is deleted at public release, and from then on the rules above are followed literally.",
     "model": "google/gemini-3.8-flash",
@@ -6119,6 +6125,12 @@
     "at": "2026-09-04",
     "de": "{{0}}, und sie ist bewusst begrenzt. Sie kann keine Passphrase festlegen, und kein Endpunkt kann das: Die Passphrase verpackt den Datenschlüssel auf dem Client, daher würde eine serverseitige Anmeldedatenänderung ein Konto erzeugen, das sich zwar anmeldet, aber nichts entschlüsselt. Sie kann {{1}} eines Kontos nicht ändern, da die Einladung genau diese Adresse verifiziert hat. Sie kann keinen Wiederherstellungscode ausgeben."
   },
+  "916caff3389d75ba": {
+    "en": "That endpoint is either a cloud provider you pay (the BYOK path) or your own openplate-inference container. In the self-hosted case the model names the foods on the plate and estimates grams, and then the {{0}}: carbs, protein, fat and kcal are resolved by name against the configured food source, by default a bundled extract of USDA FoodData Central (8,041 generic foods shipped inside the image, no network call, public domain). The language model never authors a macro number.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Dieser Endpunkt ist entweder ein Cloud-Anbieter, den du bezahlst (der BYOK-Pfad), oder dein eigener openplate-inference-Container. Im selbstgehosteten Fall benennt das Modell die Lebensmittel auf dem Teller und schätzt die Grammzahl, und dann {{0}}: Kohlenhydrate, Protein, Fett und kcal werden anhand des Namens über die konfigurierte Lebensmittelquelle aufgelöst, standardmäßig ein mitgelieferter Auszug aus USDA FoodData Central (8.041 generische Lebensmittel im Image enthalten, kein Netzwerkaufruf, gemeinfrei). Das Sprachmodell erfindet niemals Makronährstoffwerte."
+  },
   "9179024f9fd355d8": {
     "en": "{{0}} With a prompt the model cannot answer in the required shape, we saw it emit {{1}} followed by whitespace until it hit the token cap: the grammar holds (it never produced prose, even when explicitly asked for a haiku), but the model fills the unconstrained whitespace instead of the content. That surfaces here as the {{2}} error, which names the token cap. A real plate photo did not trigger it; an off-task prompt did.",
     "model": "google/gemini-3.8-flash",
@@ -7091,6 +7103,12 @@
     "at": "2026-09-04",
     "de": "{{0}} ist {{1}}. Abgewiesen, bevor Daten den Host verlassen"
   },
+  "a59993b53e93ac3e": {
+    "en": "On rung three the browser sends the photo to your own inference container, which looks the macros up in its configured food source.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Auf Stufe drei sendet der Browser das Foto an deinen eigenen Inference-Container, der die Makronährstoffe in seiner konfigurierten Lebensmittelquelle nachschlägt."
+  },
   "a5dcc56b272eac56": {
     "en": "{{0}} It is reachable only by somebody holding a live invite that was ADDRESSED to the very address it reports as taken, so it confirms only what the operator wrote on the letter. In protocol 1 an invite holder could probe arbitrary handles with one invite; they cannot now, because the address is not theirs to choose. It does not consume the invite, so an operator who invited somebody twice by mistake has not destroyed the live invitation. Full reasoning: {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -7918,6 +7936,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Bis zur ersten öffentlichen Veröffentlichung können inkompatible Änderungen ohne den Migrationspfad vorgenommen werden, den ein veröffentlichtes Protokoll bräuchte. Zwei wurden OHNE eine Versionserhöhung vorgenommen: der Wechsel von Cookie- zu Bearer-Authentifizierung und die Verschiebung der Sync-Routen von {{1}} nach {{2}}. Eine dritte Änderung, die Entfernung der E-Mail-Adresse in 0.5.0, erfolgte ebenfalls ohne Erhöhung, was nicht hätte passieren dürfen, siehe unten. Dieser Absatz wird mit der öffentlichen Veröffentlichung gelöscht, und ab dann gelten die obigen Regeln buchstabengetreu."
+  },
+  "b7eae0978e2be4c9": {
+    "en": "{{0}} local plate scans without a cloud AI account, per-scan fees, or outbound photo traffic. The container image bundles a USDA FoodData Central extract by default, so openplate-inference looks macros up instead of inventing them. {{1}} a model runtime and a few gigabytes of weights, plus whatever it takes to make the endpoint reachable {{2}} (the photo goes device → endpoint, so a compose hostname does not work here). {{3}} {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} lokale Teller-Scans ohne Cloud-KI-Konto, Gebühren pro Scan oder ausgehenden Fotoverkehr. Das Container-Image enthält standardmäßig einen Auszug aus USDA FoodData Central, sodass openplate-inference Makronährstoffe nachschlägt, statt sie zu erfinden. {{1}} eine Modell-Laufzeitumgebung und einige Gigabyte an Gewichten, plus alles Nötige, um den Endpunkt erreichbar zu machen {{2}} (das Foto wandert direkt vom Gerät zum Endpunkt, ein Compose-Hostname reicht hier also nicht aus). {{3}} {{4}}."
   },
   "b7f1d5b77931842c": {
     "en": "{{0}} (ADR-0005). Version 1's {{1}}, an opaque per-server identifier that could not contain an {{2}}, is gone: the column, the parser and the rule. A client speaking version 1 must refuse to talk to a version 2 service rather than half-work; see §6.",
@@ -9700,6 +9724,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "\"any use of the Work for direct or indirect commercial advantage or monetary compensation\""
+  },
+  "e3750719ab0051b5": {
+    "en": "Rung 3 runs the scan on your hardware. The browser sends photos directly to the inference container. Your browsers must resolve that container's address. The model identifies each food and estimates weight in grams. openplate-inference reads macros from your configured food source.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Stufe 3 führt den Scan auf deiner Hardware aus. Der Browser sendet Fotos direkt an den Inference-Container. Deine Browser müssen die Adresse dieses Containers auflösen können. Das Modell erkennt jedes Lebensmittel und schätzt das Gewicht in Gramm. openplate-inference liest die Makronährstoffe aus deiner konfigurierten Lebensmittelquelle."
   },
   "e3780aaeeed76298": {
     "en": "That allowlist is what stops an injected script from exfiltrating a key that lives in the page. Widen it deliberately.",
