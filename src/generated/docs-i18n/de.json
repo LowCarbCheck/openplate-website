@@ -3083,6 +3083,12 @@
     "at": "2026-09-04",
     "de": "Ein Tellerfoto wird im Browser eingelesen und direkt an den OpenAI-kompatiblen Endpunkt geschickt, den du konfiguriert hast. {{0}} Es wird hier nicht hochgeladen, nicht auf die Festplatte geschrieben, nicht protokolliert. Nur die berechneten Zahlen werden gespeichert, im lokalen Speicher des Geräts; das Foto verbleibt auf dem Gerät, das es aufgenommen hat, ausgeschlossen von JSON-Exporten wie auch von Sync-Nutzdaten."
   },
+  "48139b22e19362cf": {
+    "en": "The drawing below is the whole system in three arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-sync, which never gets the key. The photo leaves for whichever AI endpoint you configured. The app server sends the page and stands on neither path.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Die Zeichnung unten zeigt das gesamte System in drei Pfeilen. Dein Gerät speichert das Tagebuch und das Tellerfoto. Das Tagebuch verlässt das Gerät verschlüsselt in Richtung openplate-sync, das den Schlüssel nie erhält. Das Foto geht an den KI-Endpunkt, den du eingerichtet hast. Der App-Server liefert die Seite aus und liegt auf keinem der beiden Pfade."
+  },
   "485133f18d51682e": {
     "en": "{{0}} → {{1}}",
     "model": "google/gemini-3.8-flash",
@@ -7337,6 +7343,12 @@
     "at": "2026-09-04",
     "de": "Mehr als {{0}} Anfragen in den jeweils letzten 60 s"
   },
+  "aafdd3f20726bac0": {
+    "en": "the page",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "die Seite"
+  },
   "ab09df0260af4122": {
     "en": "The app server is a single stateless container. No database, no ORM, no migrations, no secret read from the environment. Destroying it loses nothing. That is not thrift, it is the whole promise: see {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -7517,6 +7529,12 @@
     "at": "2026-09-04",
     "de": "Auf jedem Deployment vorhanden"
   },
+  "adfe0ee3178d853d": {
+    "en": "The device holds the diary and the photo, the diary leaves encrypted for the sync server, and the photo goes to the AI endpoint you configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Das Gerät speichert das Tagebuch und das Foto, das Tagebuch verlässt das Gerät verschlüsselt an den Sync-Server, und das Foto geht an den KI-Endpunkt, den du eingerichtet hast."
+  },
   "ae2a70a76d6c1f0f": {
     "en": "The {{0}} is the one enumeration oracle in this protocol, and protocol 2 made it almost nothing.",
     "model": "google/gemini-3.8-flash",
@@ -7654,6 +7672,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Inferenz ist die Rechenschicht, openplate-sync ist die Mandantenschicht auf einer verwalteten Instanz, und beide greifen ineinander"
+  },
+  "b1a98a0fbb0d2bbc": {
+    "en": "Three things fit behind \"your AI endpoint\": a cloud provider you hold a key with, an openplate-inference box on your own hardware, or, on a managed instance, the sync server itself, which forwards the photo and counts it against your allowance. {{0}} draws all four ways to run openplate, one small picture each.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Drei Möglichkeiten verbergen sich hinter „dein KI-Endpunkt“: ein Cloud-Anbieter, bei dem du ein Konto mit API-Schlüssel hast, eine openplate-inference-Instanz auf deiner eigenen Hardware oder, bei einer verwalteten Instanz, der Sync-Server selbst, der das Foto weiterleitet und von deinem Kontingent abzieht. {{0}} zeigt alle vier Arten, openplate zu betreiben, jeweils in einem kleinen Schaubild."
   },
   "b1f68e44b2ea378f": {
     "en": "The app server is a single stateless container. No database, no ORM, no migrations, no secret read from the environment. Destroying it loses nothing. That is not thrift, it is the whole promise — see {{0}}.",
@@ -10349,6 +10373,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Jede beliebige Zeichenkette funktioniert ({{1}}); es gibt kein Dashboard und keine Nutzungsberichte pro Person, du bist auf die Logs des Containers angewiesen."
   },
+  "f0d1346a8a76c0f9": {
+    "en": "diary, encrypted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Tagebuch, verschlüsselt"
+  },
   "f0e64e9a39b8499e": {
     "en": "Generation speed on a single request is bandwidth-bound: every token walks the whole active weight set. The two measured cards are both roughly the {{0}} (RTX 4090 ≈ 1008 GB/s, RTX 3090 ≈ 936 GB/s), and their measured p50s track that: 0.94 s vs 1.72 s.",
     "model": "google/gemini-3.8-flash",
@@ -10372,6 +10402,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Sende {{0}}, den {{1}}-HKDF-Zweig aus §3.1, und niemals die Passphrase, die Argon2id-Ausgabe oder {{2}}. Das Ableiten des falschen Zweigs fällt nicht auf: Die Authentifizierung gelingt problemlos, erzeugt aber einen Schlüssel, der nichts entschlüsselt."
+  },
+  "f1d1c08578c791af": {
+    "en": "Your AI endpoint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Dein KI-Endpunkt"
   },
   "f1d6d4c0a97ea1e0": {
     "en": "ADR-0008",

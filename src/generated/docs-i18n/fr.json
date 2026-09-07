@@ -2711,6 +2711,12 @@
     "at": "2026-09-06",
     "fr": "Une photo d'assiette est lue dans le navigateur et envoyée directement au point de terminaison compatible OpenAI que tu as configuré. {{0}} Elle n'est pas téléversée ici, pas écrite sur le disque, pas consignée dans les journaux. Seuls les chiffres résultants sont enregistrés, dans le stockage local de l'appareil ; la photo reste sur l'appareil qui l'a prise, exclue des exports JSON comme des charges utiles de synchronisation."
   },
+  "48139b22e19362cf": {
+    "en": "The drawing below is the whole system in three arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-sync, which never gets the key. The photo leaves for whichever AI endpoint you configured. The app server sends the page and stands on neither path.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le schéma ci-dessous résume tout le système en trois flèches. Ton appareil conserve le journal et la photo d'assiette. Le journal en sort chiffré, à destination de openplate-sync, qui n'obtient jamais la clé. La photo part vers le point de terminaison d'IA que tu as configuré. Le serveur d'application envoie la page et ne se trouve sur aucun de ces deux chemins."
+  },
   "485133f18d51682e": {
     "en": "{{0}} → {{1}}",
     "model": "google/gemini-3.8-flash",
@@ -6365,6 +6371,12 @@
     "at": "2026-09-06",
     "fr": "Plus de {{0}} requêtes au cours des 60 dernières secondes"
   },
+  "aafdd3f20726bac0": {
+    "en": "the page",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "la page"
+  },
   "ab09df0260af4122": {
     "en": "The app server is a single stateless container. No database, no ORM, no migrations, no secret read from the environment. Destroying it loses nothing. That is not thrift, it is the whole promise: see {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -6527,6 +6539,12 @@
     "at": "2026-09-06",
     "fr": "Présent sur chaque déploiement"
   },
+  "adfe0ee3178d853d": {
+    "en": "The device holds the diary and the photo, the diary leaves encrypted for the sync server, and the photo goes to the AI endpoint you configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "L'appareil conserve le journal et la photo, le journal en sort chiffré vers le serveur de synchronisation, et la photo part vers le point de terminaison d'IA que tu as configuré."
+  },
   "ae2a70a76d6c1f0f": {
     "en": "The {{0}} is the one enumeration oracle in this protocol, and protocol 2 made it almost nothing.",
     "model": "google/gemini-3.8-flash",
@@ -6664,6 +6682,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "L'inférence constitue la couche de calcul, openplate-sync gère le multi-tenant sur une instance managée, et les deux s'associent"
+  },
+  "b1a98a0fbb0d2bbc": {
+    "en": "Three things fit behind \"your AI endpoint\": a cloud provider you hold a key with, an openplate-inference box on your own hardware, or, on a managed instance, the sync server itself, which forwards the photo and counts it against your allowance. {{0}} draws all four ways to run openplate, one small picture each.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Trois options se cachent derrière « ton point de terminaison d'IA » : un fournisseur cloud chez qui tu as une clé, une machine openplate-inference sur ton propre matériel, ou, sur une instance infogérée, le serveur de synchronisation lui-même, qui relaie la photo et la décompte de ton quota. {{0}} illustre les quatre manières d'exécuter openplate, avec un petit schéma pour chacune."
   },
   "b239ecb13dfa34ce": {
     "en": "{{0}}: unauthenticated, throttled per (IP, email), NEVER cleared on success.",
@@ -8927,6 +8951,12 @@
     "at": "2026-09-06",
     "fr": "5.8.1 Invitations"
   },
+  "f0d1346a8a76c0f9": {
+    "en": "diary, encrypted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "journal, chiffré"
+  },
   "f0e64e9a39b8499e": {
     "en": "Generation speed on a single request is bandwidth-bound: every token walks the whole active weight set. The two measured cards are both roughly the {{0}} (RTX 4090 ≈ 1008 GB/s, RTX 3090 ≈ 936 GB/s), and their measured p50s track that: 0.94 s vs 1.72 s.",
     "model": "google/gemini-3.8-flash",
@@ -8944,6 +8974,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le graphe d'étude"
+  },
+  "f1d1c08578c791af": {
+    "en": "Your AI endpoint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ton point de terminaison d'IA"
   },
   "f1d6d4c0a97ea1e0": {
     "en": "ADR-0008",
