@@ -98,6 +98,11 @@
     --border: 192 22% 85%;
     --primary: 179 92% 25%;
     --primary-foreground: 0 0% 100%;
+    /* The hero texture is a mask over a --primary wash, so its strength is a
+       token like any other. Light needs MORE than dark: the dark theme's
+       --primary is far brighter than its own background, so the same alpha
+       reads about twice as strong there. Measured on the render, not guessed. */
+    --texture-opacity: 0.1;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -110,6 +115,7 @@
       --border: 192 16% 17%;
       --primary: 172 70% 52%;
       --primary-foreground: 187 90% 8%;
+      --texture-opacity: 0.06;
     }
   }
 
@@ -122,6 +128,7 @@
     --border: 192 16% 17%;
     --primary: 172 70% 52%;
     --primary-foreground: 187 90% 8%;
+    --texture-opacity: 0.06;
   }
 }
 
@@ -184,5 +191,67 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+@layer components {
+  /*
+   * The branded surface treatments, ported from the application's M129 design
+   * pass (`openplate/app/app.css`).
+   *
+   * ── WHY THESE ARRIVED LATE ──
+   * This site's front page IS the application's landing page, moved to this
+   * host in M194. The SHAPE moved. These treatments did not, so the page has
+   * been flat since: a wordmark on flat black in the dark theme and flat near
+   * white in the light one, with no depth behind it. That was a regression
+   * from the move rather than a decision, and this closes it.
+   *
+   * ── NO COLOUR LITERAL, ON PURPOSE ──
+   * Both are pure gradients over whatever background the element already has,
+   * expressed entirely in `--primary`. The token is themed, so both
+   * appearances are covered by one rule and the theme toggle re-tints them for
+   * nothing. This is the same rule the illustrations follow, and the same one
+   * `openplate-workspace/CLAUDE.md` states for every member: a brand colour is
+   * never typed into a member repository.
+   */
+
+  /* The hero backdrop: a soft elliptical brand glow behind the whole
+     composition, so the page has depth behind the wordmark. */
+  .brand-glow {
+    background-image: radial-gradient(60% 55% at 50% 38%, hsl(var(--primary) / 0.2) 0%, transparent 72%);
+  }
+
+  /*
+   * The texture over the glow. `public/textures/hero-rings.webp` is a GREYSCALE
+   * ALPHA MAP, not a picture: its brightness becomes opacity and the colour
+   * comes from `--primary`, so one file serves both themes and each tints it
+   * from its own token. `public/textures/PROVENANCE.md` records the model, the
+   * prompt and the licence, and says why it must never be replaced by a
+   * coloured image.
+   *
+   * `mask-size: 100% 100%` and NOT `cover`. Stretching a soft abstract costs
+   * nothing a reader can see, while `cover` crops a 2.2:1 band to whatever the
+   * hero happens to be and throws the composition away.
+   *
+   * The second mask layer fades the bottom out so the texture does not stop on
+   * a hard horizontal edge where the hero meets the section under it. It is
+   * composited `intersect`, so a pixel survives only where BOTH the rings and
+   * the fade allow it. The gradient is read in `alpha` mode, which is why its
+   * stops are opaque black to transparent rather than white to black.
+   */
+  .brand-texture {
+    background-color: hsl(var(--primary) / var(--texture-opacity));
+    mask-image: url('/textures/hero-rings.webp'), linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-mode: luminance, alpha;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+  }
+
+  /* The quiet sibling, for a secondary panel. Same idea at roughly a third of
+     the strength, brightest at the top left so a card has a light source
+     rather than reading as one uniformly tinted block. */
+  .surface-brand-soft {
+    background-image: linear-gradient(140deg, hsl(var(--primary) / 0.09) 0%, hsl(var(--primary) / 0.015) 70%);
   }
 }

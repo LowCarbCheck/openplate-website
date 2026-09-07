@@ -9,10 +9,17 @@
  * locale bundle, and the pictures, which come out of `app/lib/shots.ts` in the reader's language.
  * So the two front doors stop disagreeing without either one becoming a copy of the other.
  *
- * What was deliberately left behind: the decorative plate glyph, the brand glow and the tinted
- * shadows. Those are the app's, and they are right there, on a page whose job is to sell. This site
- * is text first, one accent colour, no fills; a glow behind the wordmark here would be the loudest
- * thing on the whole domain and it would be loud on the first screen a reader ever sees.
+ * What was deliberately left behind: the decorative plate glyph and the tinted shadows. Those are
+ * the app's, and they are right there, on a page whose job is to sell. This site is text first, one
+ * accent colour, no fills.
+ *
+ * THE BRAND GLOW WAS ON THAT LIST AND IS NOT ANY MORE. Left out, the front page is a wordmark on a
+ * flat field, and that was a consequence of the move rather than a decision: the designed backdrop
+ * belonged to the landing page and stayed behind on the other host. `HeroBackdrop` below brings it
+ * back, on the front page's `Hero` alone. It stays quiet, and the two tokens are what keep it
+ * quiet: the glow tops out at a fifth of `--primary` and the texture at `--texture-opacity`, which
+ * is a tenth in the light theme and less in the dark one. Both are still under the strength of the
+ * one filled button above them, so the loudest thing on the first screen is still the way in.
  *
  * ── TWO VOLUMES, BECAUSE THE THREE COMPONENT PAGES ARE NOT THE FRONT PAGE ──
  * `Hero` is the front page's, centred, with the product under it. `PageHero` is what `/app`,
@@ -23,6 +30,38 @@
 import type { ComponentType, ReactNode } from 'react';
 
 import type { IconProps } from './icons';
+import { FullBleedBackdrop } from './page';
+
+/**
+ * The two decorative layers behind the front page's masthead, ported with the rest of the shape.
+ *
+ * ── FULL BLEED, BECAUSE A GLOW WITH A RIGHT EDGE IS A RECTANGLE ──
+ * The marketing column is 72rem and the app's own comment calls this a backdrop behind the whole
+ * composition. Stopped at the column it would draw a lit panel with two visible sides, which says
+ * the opposite of what a glow is for. `FullBleedBackdrop` in `page.tsx` is how anything on this
+ * site leaves the column, and its comment carries the scrollbar guard that goes with it.
+ *
+ * ── IT STARTS UNDER THE HEADER, NOT BEHIND IT ──
+ * The texture is a mask that fades out at the BOTTOM and nowhere else, so its top is a straight
+ * horizontal edge wherever it is put. Under the header that edge lands exactly on the header's
+ * bottom border, where a rule is already drawn and the seam cannot be seen. Behind the header it
+ * would instead tint the chrome that every other page on the site shows untinted, and this is the
+ * front page's decoration, not the frame's. `-top-12` is the reach: the page is the first child of
+ * a `main` with `py-12`, so three rems up is the border and not a guess.
+ *
+ * ── TWO ELEMENTS, AND NOT ONE ──
+ * `brand-texture` is a mask, and a mask clips the element's children with it. Painting the glow on
+ * the same box would put the rings through the glow as well and lose the soft ellipse. So the
+ * glow is the outer box and the texture is a full size layer over it, which is also the stacking
+ * order the app uses: light first, then the pattern in it.
+ */
+function HeroBackdrop() {
+  return (
+    <FullBleedBackdrop className="brand-glow -top-12 bottom-0">
+      <div className="brand-texture absolute inset-0" />
+    </FullBleedBackdrop>
+  );
+}
 
 /**
  * The page's one filled action.
@@ -75,7 +114,11 @@ export function Hero({
   children: ReactNode;
 }) {
   return (
-    <section>
+    // `isolate` is not decoration here: `HeroBackdrop` sits at `-z-10`, and a negative index is
+    // measured against the nearest stacking context. Without one on this section the layer would be
+    // pushed behind the page's own background and paint nothing.
+    <section className="relative isolate">
+      <HeroBackdrop />
       {/* The COPY keeps a reading measure even though the shot below it does not. A wide column is
           for a screenshot; a 48rem sentence is a sentence nobody finishes. */}
       <div className="mx-auto flex max-w-2xl flex-col items-center text-center">

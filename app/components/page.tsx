@@ -129,3 +129,41 @@ export function LinkRow({ label, children }: { label: string; children: ReactNod
 export function FullWidth({ children }: { children: ReactNode }) {
   return <div className="relative left-1/2 w-screen max-w-[96rem] -translate-x-1/2 px-5">{children}</div>;
 }
+
+/**
+ * The same step out of the column, for a decorative layer that must not take up space.
+ *
+ * ── WHY IT IS NOT `FullWidth` ──
+ * `FullWidth` is a block in the flow: it is `relative`, so it pushes the page down by its own
+ * height, and it caps at 96rem and keeps the page gutter because a DRAWING wants a readable size
+ * and an alignment. A backdrop wants neither. It has to sit under content that is already laid
+ * out, so it is `absolute` and takes its height from the section it belongs to, and it has to
+ * reach the window edge, so it carries no cap and no padding. Everything horizontal is the same
+ * trick and is the same three classes: `left-1/2` re-centres on the viewport, `-translate-x-1/2`
+ * pulls it back by half its own width, `w-screen` gives it the window.
+ *
+ * ── THE SAME GUARD ──
+ * `100vw` includes the vertical scrollbar, so this element is a few pixels wider than the
+ * document and would produce a horizontal scrollbar on its own. `SiteLayout` carries
+ * `overflow-x-clip` for that and clips horizontally only. Read its comment and `FullWidth`'s
+ * above; the three are one decision.
+ *
+ * ── DECORATION, AND THE PAGE HAS TO SURVIVE WITHOUT IT ──
+ * `aria-hidden` because it says nothing, `pointer-events-none` because a layer over a button
+ * eats the press, and `-z-10` because it belongs under the words. The negative index needs a
+ * stacking context to be measured against, so the caller's section carries `isolate`; without it
+ * the layer would be pushed behind the page background and disappear.
+ *
+ * `className` names the vertical span, which only the caller knows, and may carry the first paint
+ * layer with it. It comes last, so a caller can override anything above.
+ */
+export function FullBleedBackdrop({ className, children }: { className: string; children?: ReactNode }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`pointer-events-none absolute left-1/2 -z-10 w-screen -translate-x-1/2 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
