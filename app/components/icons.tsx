@@ -166,3 +166,41 @@ export function OverviewIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+/**
+ * The theme toggle's pair: what the button will GIVE you, not what you have.
+ *
+ * ── PROVENANCE, SAME LICENCE, SAME SET ──
+ * lucide 0.475.0: `sun` and `moon`. ISC, copyright Lucide Contributors 2022, with portions from
+ * Feather (MIT) copyright Cole Bemis 2013 to 2022. Same 24 square grid and 2 unit round stroke as
+ * every icon above, so the header carries one set and not two.
+ *
+ * ── WHICH ONE IS SHOWING IS A CSS QUESTION, NOT A REACT ONE ──
+ * The document is prerendered and the preference lives in the reader's browser, so the server
+ * cannot know which of these to draw. `theme-toggle.tsx` puts both in the markup and lets the
+ * `dark:` variant hide one, which is a decision CSS makes at paint time and React never has to
+ * hydrate. See `app/lib/theme.ts` for why that matters.
+ */
+export function SunIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2" />
+      <path d="M12 20v2" />
+      <path d="m4.93 4.93 1.41 1.41" />
+      <path d="m17.66 17.66 1.41 1.41" />
+      <path d="M2 12h2" />
+      <path d="M20 12h2" />
+      <path d="m6.34 17.66-1.41 1.41" />
+      <path d="m19.07 4.93-1.41 1.41" />
+    </svg>
+  );
+}
+
+export function MoonIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    </svg>
+  );
+}

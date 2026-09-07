@@ -5,6 +5,7 @@
     "skipToContent": "Zum Inhalt springen",
     "exampleData": "Diese Ansichten zeigen Beispieldaten, kein echtes Tagebuch.",
     "nav": {
+      "label": "Hauptnavigation",
       "app": "App",
       "sync": "Sync-Server",
       "inference": "Inference-Runtime",
@@ -16,6 +17,10 @@
     },
     "language": {
       "label": "Sprache"
+    },
+    "theme": {
+      "toDark": "Zum dunklen Design wechseln",
+      "toLight": "Zum hellen Design wechseln"
     },
     "links": {
       "docsLabel": "Doku",
@@ -57,6 +62,26 @@
           "title": "Den Stand des Tages sehen",
           "body": "Wie viel vom Limit noch übrig ist, ob das Eiweißziel erreicht wurde und wie viele der letzten sieben Tage du erfasst hast.",
           "alt": "Die Übersicht: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und einer Karte für die letzten sieben Tage."
+        }
+      },
+      "illustrations": {
+        "flow": {
+          "label": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-sync. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade.",
+          "device": "Dein Gerät",
+          "appServer": "openplate-App-Server",
+          "sync": "openplate-sync",
+          "aiEndpoint": "Dein KI-Endpunkt",
+          "pageEdge": "die Seite",
+          "diaryEdge": "Tagebuch, verschlüsselt",
+          "photoEdge": "Foto"
+        },
+        "holders": {
+          "caption": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen.",
+          "browser": "Dein Browser",
+          "appServer": "openplate-App-Server",
+          "sync": "openplate-sync",
+          "inference": "openplate-inference",
+          "cloudProvider": "Cloud-KI-Anbieter"
         }
       },
       "stack": {

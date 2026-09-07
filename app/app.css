@@ -6,9 +6,7 @@
 /*
  * Fraunces, the display serif openplate uses for its wordmark and page titles.
  * Self-hosted (latin subset, wght 300..700), the same woff2 the app ships, so
- * the site needs no font host and no network call to a third party. Body copy
- * stays on the system sans: this site is text first, and a second downloaded
- * face would cost more than it says.
+ * the site needs no font host and no network call to a third party.
  */
 @font-face {
   font-family: 'Fraunces';
@@ -21,9 +19,38 @@
     U+FEFF, U+FFFD;
 }
 
+/*
+ * Inter, the prose and UI voice, self-hosted on the same terms as Fraunces.
+ *
+ * ── WHY A SECOND FACE, WHEN THIS FILE ONCE ARGUED AGAINST ONE ──
+ * Body copy used to fall through to the system sans, and the comment here said
+ * a downloaded face "would cost more than it says". That was written without
+ * the number. The latin subset is 48 KB against the 67 KB serif this site
+ * already downloads, so the second face is the CHEAPER of the two, and the
+ * system sans was never free: it made the site render differently on every
+ * operating system, which is the one thing a wordmark and a palette exist to
+ * prevent. openplate's own DESIGN.md has required Inter for body copy since
+ * M129; the site was the surface that did not follow it.
+ *
+ * The latin subset covers U+0000-00FF, so German umlauts and French accents
+ * are all in this one file. No second request for the two prefixed languages.
+ */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme {
   --radius: 0.75rem;
 
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
 
   --color-background: hsl(var(--background));
@@ -41,6 +68,25 @@
  * openplate's own token values (its DESIGN.md, section 2): a teal-tinted
  * neutral family carrying every surface, with one saturated teal accent for
  * links, focus rings and the wordmark. Nothing else is colored.
+ *
+ * ── HOW THE THEME IS CHOSEN, AND WHY IT READS THIS WAY ──
+ * The reader's system decides, until the reader says otherwise. `data-theme`
+ * on <html> is that override, written by the toggle in the header and read
+ * back on the next visit. The three rules below are what makes both true at
+ * once:
+ *
+ *   1. `:root` carries light, so a page with no script and no preference is
+ *      light rather than unstyled.
+ *   2. The media query applies dark ONLY when the reader has not asked for
+ *      light. `:not([data-theme='light'])` is what lets someone on a dark
+ *      system choose light and keep it.
+ *   3. `[data-theme='dark']` applies dark whatever the system says.
+ *
+ * The dark values are therefore written twice, and that repetition is the
+ * price of an override that works with no JavaScript in the first paint. A
+ * single block cannot be both a media query and an attribute selector.
+ * CHANGE BOTH, OR THE TOGGLE AND THE SYSTEM DISAGREE. `tests/unit/theme.test.ts`
+ * compares the two blocks so this cannot be half-edited.
  */
 @layer base {
   :root {
@@ -55,7 +101,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme='light']) {
       --background: 192 24% 4.5%;
       --foreground: 180 12% 97%;
       --card: 192 20% 8%;
@@ -66,18 +112,77 @@
       --primary-foreground: 187 90% 8%;
     }
   }
+
+  :root[data-theme='dark'] {
+    --background: 192 24% 4.5%;
+    --foreground: 180 12% 97%;
+    --card: 192 20% 8%;
+    --muted: 192 16% 15%;
+    --muted-foreground: 190 12% 68%;
+    --border: 192 16% 17%;
+    --primary: 172 70% 52%;
+    --primary-foreground: 187 90% 8%;
+  }
+}
+
+/*
+ * `dark:` for the markup, keyed to the SAME three rules as the tokens above.
+ *
+ * Tailwind's stock `dark:` reads the media query alone, which would ignore the
+ * override and leave a light-on-dark island wherever the class is used. This
+ * one asks the resolved theme instead. Use it only where a token cannot carry
+ * the difference, which so far is the pair of diagram images in `doc-blocks`.
+ */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']) *, :root:not([data-theme='light'])) {
+      @slot;
+    }
+  }
+  &:where(:root[data-theme='dark'] *, :root[data-theme='dark']) {
+    @slot;
+  }
 }
 
 @layer base {
-  html {
+  /*
+   * `color-scheme` is what paints the things this stylesheet does not: the
+   * scrollbar, a date picker, the canvas behind an overscroll. It has to track
+   * the override, or a reader who chose light keeps a dark scrollbar.
+   */
+  :root {
     color-scheme: light dark;
   }
 
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
   }
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /*
+   * Motion is decoration on this site: every animation here restates something
+   * the words already say. A reader who has asked their system for less motion
+   * gets the end state with no travel, rather than a slower version of it.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

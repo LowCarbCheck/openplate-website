@@ -14,6 +14,7 @@ import { THEME_COLOR } from 'virtual:theme-colors';
 
 import type { Route } from './+types/root';
 import { I18nProvider } from '#app/i18n/I18nProvider';
+import { THEME_SCRIPT } from '#app/lib/theme';
 import { MatomoTracker, useMatomoPageViews } from '#app/matomo';
 import { useLanguage } from '#app/i18n/use-language';
 import stylesheet from './app.css?url';
@@ -21,13 +22,23 @@ import stylesheet from './app.css?url';
 /**
  * The stylesheet, and openplate's own mark in every size a browser asks for.
  *
- * The files come from the application repository by `pnpm sync:icons`, at a pinned ref, so the site
- * cannot drift from the mark on the thing it describes. Declaring the `.ico` rather than leaning on
- * the `/favicon.ico` convention is what lets the two PNGs be offered beside it: a browser picks the
- * size it wants from the list, and only the list.
+ * The files come from `openplate-brand` by `pnpm sync:icons`, at a pinned ref, and every one is
+ * checked against that repository's `assets/MANIFEST.json` by sha256. The brand repository is the
+ * one origin of the mark: the app and this site are equal consumers of it, and neither cuts an
+ * icon of its own. Declaring the `.ico` rather than leaning on the `/favicon.ico` convention is
+ * what lets the two PNGs be offered beside it: a browser picks the size it wants from the list,
+ * and only the list.
  */
 export const links: Route.LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
+  // NO `rel="preload"` FOR THE TWO WOFF2 FILES, and it was tried. Measured on this
+  // build with `agent-browser vitals`, four runs each: 36 to 40 ms first paint
+  // without the preloads, 32 to 60 ms with them. That is noise, not a gain, because
+  // over a loopback the stylesheet that names the fonts arrives in under a
+  // millisecond and the preload wins nothing it was not already going to get. Two
+  // more requests the browser must make before it knows whether it needs them is not
+  // a cost to carry for a number nobody can show. Measure it again over a real
+  // network on the live host before adding it, and put the numbers here.
   // Cache-busted (?v=2): public/favicon.ico was replaced in place this morning,
   // an unrelated red and black molecule swapped for openplate's own mark. The
   // href never changes name, so a returning visitor's cached copy would
@@ -65,8 +76,22 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/*
-          The colour a browser paints its own chrome with, one per appearance, taken from the two
-          `:root` blocks in app.css by the plugin in vite.config.ts rather than written here again.
+          THE APPEARANCE, CHOSEN BEFORE ANYTHING IS PAINTED. This document is a file on disk: there
+          is no request, so no cookie and no header could have told the build what this reader
+          prefers. The script writes `data-theme` onto <html> synchronously, ahead of the body, and
+          `app/app.css` keys the tokens to it. Anything later than this is a white page that turns
+          dark in front of somebody. See `app/lib/theme.ts`.
+        */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        {/*
+          The colour a browser paints its own chrome with, taken from the `:root` blocks in app.css
+          by the plugin in vite.config.ts rather than written here again.
+
+          THE LIVE ONE IS MADE BY THE SCRIPT ABOVE, and this is the fallback for a reader who has no
+          script. A browser takes the FIRST theme-color tag whose `media` matches, so a media-scoped
+          pair cannot express an override: somebody on a dark system who chose light would keep dark
+          browser chrome. With no script there is no override to express, so the pair is exactly
+          right here and wrong anywhere else.
 
           DELIBERATELY NO WEB MANIFEST BESIDE THEM. beta.openplate.de is the installable application
           and it ships its own. A second installable origin, serving a page that describes the app
@@ -75,8 +100,13 @@ export function Layout({ children }: { children: ReactNode }) {
           Icons and a theme colour give a tab and a bookmark the right face, which is the whole of
           what this site needs.
         */}
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content={THEME_COLOR.light} />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content={THEME_COLOR.dark} />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              `<meta name="theme-color" media="(prefers-color-scheme: light)" content="${THEME_COLOR.light}">` +
+              `<meta name="theme-color" media="(prefers-color-scheme: dark)" content="${THEME_COLOR.dark}">`,
+          }}
+        />
         <Meta />
         <Links />
       </head>

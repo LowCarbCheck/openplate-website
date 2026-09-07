@@ -5,6 +5,7 @@
     "skipToContent": "Aller au contenu",
     "exampleData": "Ces écrans affichent des données d'exemple, pas un vrai journal.",
     "nav": {
+      "label": "Principale",
       "app": "Application",
       "sync": "Serveur de synchronisation",
       "inference": "Moteur d'inférence",
@@ -16,6 +17,10 @@
     },
     "language": {
       "label": "Langue"
+    },
+    "theme": {
+      "toDark": "Passer au thème sombre",
+      "toLight": "Passer au thème clair"
     },
     "links": {
       "docsLabel": "Documentation",
@@ -57,6 +62,26 @@
           "title": "Suivre la journée",
           "body": "Ce qu'il reste de la limite, si l'objectif de protéines est atteint, et combien de jours tu as enregistrés sur les sept derniers.",
           "alt": "L'écran de vue d'ensemble : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et une carte pour les sept derniers jours."
+        }
+      },
+      "illustrations": {
+        "flow": {
+          "label": "Quatre boîtes et trois flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-sync, chiffré. Ton appareil envoie la photo de l'assiette au point de terminaison d'IA que tu as choisi. Le serveur d'application ne se trouve sur aucun de ces deux chemins.",
+          "device": "Ton appareil",
+          "appServer": "Serveur d'application openplate",
+          "sync": "openplate-sync",
+          "aiEndpoint": "Ton point de terminaison d'IA",
+          "pageEdge": "la page",
+          "diaryEdge": "journal, chiffré",
+          "photoEdge": "photo"
+        },
+        "holders": {
+          "caption": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent.",
+          "browser": "Ton navigateur",
+          "appServer": "Serveur d'application openplate",
+          "sync": "openplate-sync",
+          "inference": "openplate-inference",
+          "cloudProvider": "Fournisseur d'IA dans le cloud"
         }
       },
       "stack": {

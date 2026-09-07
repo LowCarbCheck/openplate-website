@@ -64,7 +64,7 @@ export default function DocsPageRoute() {
   const { doc, docs, titleId, translated } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout wide>
+    <SiteLayout width="full">
       <DocPage doc={doc} docs={docs} titleId={titleId} translated={translated} />
     </SiteLayout>
   );

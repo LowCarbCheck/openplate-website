@@ -43,7 +43,7 @@ export default function DocsRoute() {
   const { t } = useTranslation('docs');
 
   return (
-    <SiteLayout wide>
+    <SiteLayout width="full">
       <div className="mx-auto max-w-5xl px-6 pb-20 pt-16">
         <h1 className="font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]">
           {t('title')}

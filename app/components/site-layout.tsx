@@ -15,11 +15,12 @@
  * `app/i18n/language.ts`, and a language added there arrives here in the
  * position it was written in.
  */
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router';
 
 import { ExternalLink, SiteLink } from './site-link';
+import { ThemeToggle } from './theme-toggle';
 import {
   LANGUAGE_LABELS,
   SUPPORTED_LANGUAGES,
@@ -28,6 +29,7 @@ import {
   type LanguageCode,
 } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
+import { syncPicturesToTheme } from '#app/lib/theme';
 import { REPOSITORIES } from '#app/site';
 
 const NAV_ITEMS = [
@@ -62,17 +64,52 @@ function LanguageSwitcher({ current }: { current: LanguageCode }) {
   );
 }
 
+/**
+ * How wide the page under this frame is allowed to be.
+ *
+ * ── THREE, BECAUSE TWO STOPPED BEING ENOUGH ──
+ * `reading` is one column of prose at 48rem, and it is right for a page that is
+ * nothing but prose: the imprint and the privacy notice. It was also what the
+ * marketing pages got, and there it was wrong, because those pages are not one
+ * column: a grid of four screenshots and a row of three cards were being folded
+ * into a measure chosen for sentences, and the cards came out visibly cramped.
+ * `marketing` gives them 72rem. `full` is the documentation, unchanged, which
+ * carries a file list on one side and a contents rail on the other and fits
+ * neither beside the text at 48rem.
+ *
+ * A WIDER PAGE IS NOT A WIDER PARAGRAPH. Running text keeps its own measure
+ * inside a `marketing` page: `Section` in `page.tsx` caps the paragraphs it
+ * holds, and `DocBlocks` caps the quoted ones. The extra width is for the
+ * things that were never sentences.
+ */
+const WIDTH = {
+  reading: 'max-w-3xl',
+  marketing: 'max-w-6xl',
+  full: 'max-w-[88rem]',
+} as const;
+
+/**
+ * The gutter, which is the page's own and not the header's.
+ *
+ * `docs-shell.tsx` sets `px-6` on the documentation grid and every other page
+ * here sets `px-5`. The header matches whichever one is under it, because a
+ * wordmark one pixel off the left edge of the file list below it is the same
+ * defect as a wordmark in the middle of the window, only smaller.
+ */
+const PADDING = {
+  reading: 'px-5',
+  marketing: 'px-5',
+  full: 'px-6',
+} as const;
+
+export type PageWidth = keyof typeof WIDTH;
+
 export function SiteLayout({
   children,
-  wide = false,
+  width = 'reading',
 }: {
   children: ReactNode;
   /**
-   * A page whose own content needs the full window rather than one reading
-   * column, which so far is the documentation alone: it carries a file list on
-   * one side and a contents rail on the other, and at 48rem neither fits beside
-   * the text.
-   *
    * THE HEADER FOLLOWS THE PAGE. It used to keep the narrow measure on every
    * page, which put the wordmark and the nav in the middle of a documentation
    * page whose own content starts at the left edge of an 88rem grid, so the
@@ -81,10 +118,24 @@ export function SiteLayout({
    * reading measure: it is a short row of links and an end-cap, not something
    * a column has to line up with.
    */
-  wide?: boolean;
+  width?: PageWidth;
 }) {
   const { t } = useTranslation();
   const language = useLanguage();
+  const { pathname } = useLocation();
+
+  /*
+   * THE PICTURES ARE OUTSIDE REACT'S OPINION, which is what makes this one of the
+   * few honest uses of an effect here. Every screenshot and diagram picks its
+   * appearance with a `prefers-color-scheme` `<source>`, and a media query cannot
+   * see the `data-theme` override. `syncPicturesToTheme` rewrites those queries,
+   * and it has to run again after a client-side navigation because the new page
+   * arrives with fresh `<source>` elements carrying the original media. With no
+   * override it touches nothing, so the default path costs one query selector.
+   */
+  useEffect(() => {
+    syncPicturesToTheme();
+  }, [pathname]);
 
   return (
     /* `overflow-x-clip` and not `overflow-hidden`: the front page's diagram steps out of the
@@ -100,12 +151,15 @@ export function SiteLayout({
       </a>
 
       <header className="border-b border-border">
+        {/* ITEMS-CENTER, AND IT USED TO BE ITEMS-BASELINE. A flex container takes its baseline from
+            its first item, the wordmark link, and that link is itself a flex box whose first item
+            is the 24 pixel mark. An image's baseline is its bottom edge, so aligning the row on it
+            hung the mark and the word "openplate" eleven pixels above the nav links beside them.
+            Nothing in the markup said so and the whole header simply looked broken. There is no
+            common baseline to share between a picture and a line of text: centring is the
+            alignment that means what it says here. */}
         <div
-          className={
-            wide ?
-              'mx-auto flex w-full max-w-[88rem] flex-wrap items-baseline gap-x-6 gap-y-2 px-6 py-5'
-            : 'mx-auto flex w-full max-w-3xl flex-wrap items-baseline gap-x-6 gap-y-2 px-5 py-5'
-          }
+          className={`mx-auto flex w-full ${WIDTH[width]} flex-wrap items-center gap-x-6 gap-y-2 ${PADDING[width]} py-5`}
         >
           <SiteLink
             to="/"
@@ -116,17 +170,36 @@ export function SiteLayout({
             <img src="/icons/icon-192.png?v=2" alt="" className="h-6 w-6 rounded-full" />
             {t('site.name')}
           </SiteLink>
-          <nav className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
+          {/* LAST IN THE WRAP ORDER ON A PHONE, and in DOM order everywhere else. At 390 pixels all
+              three do not fit on one line, and with the natural order the toggle was pushed onto a
+              third row of its own: a 164 pixel header before a word of the page. Sending the nav
+              down puts the wordmark and the toggle on the first line, where the toggle is the
+              first thing a thumb reaches, and the nav takes the second. `order` moves the boxes
+              and not the DOM, so the tab order and the reading order are unchanged. */}
+          {/* NAMED, because the footer carries a second `<nav>` and two unnamed navigation landmarks
+              are one landmark as far as a screen reader's landmark list is concerned. axe-core
+              reports it as `landmark-unique`; a one word label is the whole fix. */}
+          <nav
+            aria-label={t('site.nav.label')}
+            className="order-last flex flex-wrap items-center gap-x-5 gap-y-1 text-sm sm:order-none"
+          >
             {NAV_ITEMS.map((item) => (
               <SiteLink key={item.to} to={item.to} className="text-muted-foreground hover:text-foreground">
                 {t(item.labelKey)}
               </SiteLink>
             ))}
           </nav>
+          {/* Pushed to the far end and NOT into the footer with the language switcher: the
+              appearance is a control a reader reaches for while reading, and the switcher is a
+              navigation they use once. `ms-auto` takes the space that is left on its line, which
+              is the header's right edge on a desktop and the wordmark's own line on a phone. */}
+          <div className="ms-auto">
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
-      <main id="main" className={wide ? 'w-full grow' : 'mx-auto w-full max-w-3xl grow px-5 py-12'}>
+      <main id="main" className={width === 'full' ? 'w-full grow' : `mx-auto w-full ${WIDTH[width]} grow px-5 py-12`}>
         {children}
       </main>
 

@@ -5,6 +5,7 @@
     "skipToContent": "Skip to content",
     "exampleData": "These screens show example data, not a real diary.",
     "nav": {
+      "label": "Main",
       "app": "App",
       "sync": "Sync server",
       "inference": "Inference runtime",
@@ -16,6 +17,10 @@
     },
     "language": {
       "label": "Language"
+    },
+    "theme": {
+      "toDark": "Switch to the dark theme",
+      "toLight": "Switch to the light theme"
     },
     "links": {
       "docsLabel": "Docs",
@@ -57,6 +62,26 @@
           "title": "See where the day stands",
           "body": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
           "alt": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days."
+        }
+      },
+      "illustrations": {
+        "flow": {
+          "label": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-sync, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+          "device": "Your device",
+          "appServer": "openplate app server",
+          "sync": "openplate-sync",
+          "aiEndpoint": "Your AI endpoint",
+          "pageEdge": "the page",
+          "diaryEdge": "diary, encrypted",
+          "photoEdge": "photo"
+        },
+        "holders": {
+          "caption": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
+          "browser": "Your browser",
+          "appServer": "openplate app server",
+          "sync": "openplate-sync",
+          "inference": "openplate-inference",
+          "cloudProvider": "Cloud AI provider"
         }
       },
       "stack": {

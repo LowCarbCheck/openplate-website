@@ -14,10 +14,12 @@
  * never sees it.
  *
  * ── FOUR FILES PER DIAGRAM, BECAUSE AN SVG BAKES IN BOTH ITS COLOURS AND ITS WORDS ──
- * The site has two appearances and no theme toggle: a `prefers-color-scheme`
- * media query and nothing else. A drawing cannot follow a CSS variable it was
- * flattened against, so light and dark are two drawings and `<picture>` picks
- * one. That costs no JavaScript and causes no swap after paint.
+ * The site has two appearances: the reader's system setting, and the override
+ * the header toggle writes onto `<html>` as `data-theme`. A drawing cannot
+ * follow a CSS variable it was flattened against, so light and dark are two
+ * drawings and `<picture>` picks one. That costs no JavaScript and causes no
+ * swap after paint, and it keeps working under the override because the
+ * `dark:` variant in `app.css` is keyed to the same rules the tokens are.
  *
  * It has two languages for the same reason and with the same answer. A label is
  * the shortest prose the site publishes and the first thing a reader looks at,
@@ -29,8 +31,10 @@
  * given.
  *
  * ── THE PALETTE IS READ OUT OF `app/app.css`, NOT WRITTEN DOWN AGAIN ──
- * `readPalettes` parses the two `:root` blocks in the stylesheet, so a token
- * change reaches the diagrams on the next sync with no second edit here. The
+ * `readPalettes` finds the light and the dark block in the stylesheet BY THEIR
+ * SELECTORS, not by their position, so a token change reaches the diagrams on
+ * the next sync with no second edit here and an unrelated `:root` rule added
+ * beside them changes nothing. See `readPalettes` for what it addresses. The
  * tokens are HSL triplets, which is the one respect in which this is EASIER
  * than collie's component: collie's tokens are `oklch`, mermaid's colour
  * library rejects that outright, and it has to paint each colour onto a canvas
@@ -73,7 +77,7 @@ export interface Palettes {
  * here must exist in `app/app.css`; a rename there fails the sync rather than
  * quietly drawing the diagram in mermaid's own lavender.
  */
-const TOKENS = ['background', 'foreground', 'card', 'muted', 'muted-foreground', 'border'] as const;
+export const TOKENS = ['background', 'foreground', 'card', 'muted', 'muted-foreground', 'border'] as const;
 
 /** The font the drawing is measured and drawn in: the site's body stack, which is the system's. */
 export const FONT_FAMILY =
@@ -108,36 +112,114 @@ export function hslToHex(triplet: string): string {
     .join('')}`;
 }
 
+/** One block of the stylesheet: what it selects, and the declarations inside it. */
+interface CssBlock {
+  selector: string;
+  body: string;
+}
+
+/**
+ * Every innermost `{ ... }` block in the file, with the selector that opens it.
+ *
+ * The body pattern excludes braces, so a block that holds another one, `@layer`
+ * and `@media`, is never itself a candidate: what comes back is the leaf blocks
+ * and the selector is whatever was written between the enclosing brace and this
+ * one. Quotes are normalised to single, because `[data-theme='dark']` and
+ * `[data-theme="dark"]` select the same element and neither reading should
+ * decide whether the diagrams get a palette.
+ */
+function cssBlocks(css: string): CssBlock[] {
+  return [...css.matchAll(/(?<selector>[^{}]*)\{(?<body>[^{}]*)\}/g)].map((match) => ({
+    selector: (match.groups?.['selector'] ?? '').trim().replaceAll(/\s+/g, ' ').replaceAll('"', "'"),
+    body: match.groups?.['body'] ?? '',
+  }));
+}
+
+/** The tokens of one block, as hex, or a throw naming the first one that is not there. */
+// Not annotated `: Palette`: the lint gate reads an explicit open dictionary on a
+// return as discarded evidence, and `palette` is already declared as one below.
+function paletteOf(options: { block: CssBlock; cssFile: string; appearance: string }) {
+  const palette: Palette = {};
+  for (const declaration of options.block.body.matchAll(/--(?<name>[\w-]+)\s*:\s*(?<value>[^;]+);/g)) {
+    const name = declaration.groups?.['name'] ?? '';
+    const value = (declaration.groups?.['value'] ?? '').trim();
+    if (TOKENS.some((token) => token === name)) palette[name] = hslToHex(value);
+  }
+  for (const token of TOKENS) {
+    if (palette[token] === undefined) {
+      throw new Error(
+        `mermaid: the ${options.appearance} block in ${options.cssFile} has no --${token}, which the diagrams need.`,
+      );
+    }
+  }
+  return palette;
+}
+
+/** The one block this appearance is written in, or a throw saying there are none or several. */
+function soleBlock(options: { blocks: CssBlock[]; cssFile: string; appearance: string; wanted: string }): CssBlock {
+  const [first, ...rest] = options.blocks;
+  if (first === undefined) {
+    throw new Error(
+      `mermaid: ${options.cssFile} holds no ${options.appearance} palette. ` +
+        `The diagrams read ${options.wanted}, so that block has to exist under that exact selector.`,
+    );
+  }
+  if (rest.length > 0) {
+    throw new Error(
+      `mermaid: ${options.cssFile} holds ${rest.length + 1} blocks that could be the ${options.appearance} ` +
+        `palette (${options.wanted}), and this cannot choose between them.`,
+    );
+  }
+  return first;
+}
+
 /**
  * The site's two palettes, read from the stylesheet.
  *
- * The file holds exactly two `:root` blocks, the light one at the top of
- * `@layer base` and the dark one inside `@media (prefers-color-scheme: dark)`,
- * in that order, and that order is what tells them apart. A third one, or a
- * missing token, fails loudly: a diagram drawn in the wrong half of the palette
- * is not something a reviewer notices from a diff.
+ * ── NAMED, NOT COUNTED ──
+ * This used to take the first two `:root` blocks in the file and call them
+ * light and dark, in that order. That reading survives exactly as long as
+ * nobody else writes `:root` for anything, and the theme toggle needed three
+ * more: a dark block under `[data-theme='dark']`, and a `color-scheme` rule per
+ * state. The count then said three, the second block was `color-scheme: light
+ * dark` with no tokens in it, and the build stopped on "app.css has no
+ * --background" while every colour on the site was where it had always been.
+ *
+ * So each appearance is addressed by what it IS. Light is the block whose
+ * selector is exactly `:root` and which declares `--background`, which is the
+ * unconditional palette and not the `color-scheme` rule beside it. Dark is
+ * `:root[data-theme='dark']`, the override the toggle writes, and it is asked
+ * for `--background` too, because that same selector carries a `color-scheme`
+ * rule further down the file and a rule with no tokens in it is not a palette.
+ * It holds the same values as the media query and is the copy an attribute
+ * selector can be matched against without parsing the query. A missing block, a duplicated one
+ * or a missing token fails loudly and by name: a diagram drawn in the wrong
+ * half of the palette is not something a reviewer notices from a diff.
+ *
+ * `tests/unit/theme.test.ts` is what keeps the dark block this reads and the
+ * dark block the media query carries identical, so reading either one here is
+ * reading both.
  */
 export function readPalettes(cssFile: string): Palettes {
-  const css = readFileSync(cssFile, 'utf8');
-  const roots = [...css.matchAll(/:root\s*\{(?<body>[^}]*)\}/g)].map((match) => match.groups?.['body'] ?? '');
-  if (roots.length !== 2) {
-    throw new Error(`mermaid: ${cssFile} holds ${roots.length} :root blocks, not the light one and the dark one.`);
-  }
-  const [light, dark] = roots.map((body) => {
-    const palette: Palette = {};
-    for (const declaration of body.matchAll(/--(?<name>[\w-]+)\s*:\s*(?<value>[^;]+);/g)) {
-      const name = declaration.groups?.['name'] ?? '';
-      const value = (declaration.groups?.['value'] ?? '').trim();
-      if (TOKENS.some((token) => token === name)) palette[name] = hslToHex(value);
-    }
-    for (const token of TOKENS) {
-      if (palette[token] === undefined)
-        throw new Error(`mermaid: ${cssFile} has no --${token}, which the diagrams need.`);
-    }
-    return palette;
+  const blocks = cssBlocks(readFileSync(cssFile, 'utf8'));
+  const light = soleBlock({
+    blocks: blocks.filter((block) => block.selector === ':root' && block.body.includes('--background:')),
+    cssFile,
+    appearance: 'light',
+    wanted: "a `:root` block declaring `--background`",
   });
-  // SAFETY: the length check above is what makes both of these present.
-  return { light: light as Palette, dark: dark as Palette };
+  const dark = soleBlock({
+    blocks: blocks.filter(
+      (block) => block.selector === ":root[data-theme='dark']" && block.body.includes('--background:'),
+    ),
+    cssFile,
+    appearance: 'dark',
+    wanted: "a `:root[data-theme='dark']` block declaring `--background`",
+  });
+  return {
+    light: paletteOf({ block: light, cssFile, appearance: 'light' }),
+    dark: paletteOf({ block: dark, cssFile, appearance: 'dark' }),
+  };
 }
 
 /**

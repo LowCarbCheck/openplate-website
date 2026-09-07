@@ -24,6 +24,7 @@
  * uneven. Nothing here should carry a vertical margin of its own; if a section
  * needs a different rhythm, the scale changes in `page.tsx` for all of them.
  */
+import type { ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useLoaderData } from 'react-router';
 
@@ -31,8 +32,10 @@ import type { Route } from './+types/home';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { FeatureGrid, type Feature } from '#app/components/feature-grid';
 import { Hero, PRIMARY_ACTION, SECONDARY_ACTION } from '#app/components/hero';
-import { AddIcon, GoalsIcon, OverviewIcon, ScanIcon, STACK_ICONS } from '#app/components/icons';
-import { FullWidth, Section } from '#app/components/page';
+import { DataFlow } from '#app/components/illustrations/data-flow';
+import { DataHolders } from '#app/components/illustrations/data-holders';
+import { STACK_MARKS } from '#app/components/illustrations/stack-marks';
+import { Section } from '#app/components/page';
 import { ExampleDataNote, HeroShot } from '#app/components/shot';
 import { ExternalLink, RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
@@ -78,28 +81,24 @@ export function meta({ location }: Route.MetaArgs) {
 const FEATURES = [
   {
     view: 'add',
-    icon: AddIcon,
     titleKey: 'pages.home.features.add.title',
     bodyKey: 'pages.home.features.add.body',
     altKey: 'pages.home.features.add.alt',
   },
   {
     view: 'scan',
-    icon: ScanIcon,
     titleKey: 'pages.home.features.scan.title',
     bodyKey: 'pages.home.features.scan.body',
     altKey: 'pages.home.features.scan.alt',
   },
   {
     view: 'goals',
-    icon: GoalsIcon,
     titleKey: 'pages.home.features.goals.title',
     bodyKey: 'pages.home.features.goals.body',
     altKey: 'pages.home.features.goals.alt',
   },
   {
     view: 'overview',
-    icon: OverviewIcon,
     titleKey: 'pages.home.features.overview.title',
     bodyKey: 'pages.home.features.overview.body',
     altKey: 'pages.home.features.overview.alt',
@@ -107,6 +106,10 @@ const FEATURES = [
   // The keys are typed out rather than built from `view`. A template literal makes every one of
   // these twelve strings invisible to a grep, and `tests/unit/landing-claims.test.ts` is a grep:
   // it reads this file for the keys the page prints and checks each one exists in the bundle.
+  //
+  // NO `icon` FIELD, and that is not an omission. Each card's mark is now the drawing in
+  // `illustrations/feature-icons.tsx`, and `FeatureGrid` looks it up by `view` rather than being
+  // handed a component here. One key, one drawing, and no way to pair a card with the wrong mark.
 ] as const satisfies readonly Feature[];
 
 /**
@@ -135,7 +138,7 @@ export default function HomeRoute() {
   const topology = section(sections, 'topology');
 
   return (
-    <SiteLayout>
+    <SiteLayout width="marketing">
       {/* ── THE HEADLINE AND THE LEAD ARE NOT THE SAME SENTENCE ──
           The lead used to be `pages.home.hero.body`, which is two sentences, and the first of them
           IS the tagline printed above it almost word for word. Rendered, the page opened by saying
@@ -181,33 +184,60 @@ export default function HomeRoute() {
         <FeatureGrid features={FEATURES} />
       </Section>
 
-      {/* The topology drawing, and the two paragraphs the architecture document introduces it with.
-          It is the clearest thing this project has to say and it was nine paragraphs deep in a file
-          a first-time reader will never open. `DocBlocks` draws it exactly as `/docs` does: two
-          committed SVG files behind a `<picture>`, a scrolling wrapper and a readable floor, so a
-          phone drags it rather than shrinking it past legibility. */}
+      {/* ── THE PROSE IS THE DOCUMENT'S. THE PICTURE IS NO LONGER THE DOCUMENT'S. ──
+          The three paragraphs still come out of `architecture.md`, and the second of them says
+          "the drawing below is the whole system in three arrows", which is exactly what `DataFlow`
+          draws. The mermaid diagram that used to sit here is filtered out, and the filter is what
+          drops it: leave it in and the flowchart renders inside the reading column.
+
+          WHY THE SWAP, since the two say the same three things. The mermaid one is 1728 pixels of
+          flowchart at its natural size, so a phone drags it sideways; its colours are baked into a
+          committed SVG per language per appearance, so it cannot follow the theme toggle in the
+          header; and it does not move. `DataFlow` is one component, sized by a class, painted from
+          `currentColor` down, and it animates one token per arrow so a reader sees which way each
+          arrow runs before reading a word of it.
+
+          NOTHING ABOUT `/docs` CHANGES. The flowchart is still generated, still translated and
+          still committed by `sync:docs`, and `/docs/app/architecture` still renders it. This is a
+          layout decision about the front page, not a deletion: the block is still in the section
+          the loader hands us, and this page chooses not to draw it. */}
       <Section heading={t(section(sections, 'topology').headingKey)}>
         <DocBlocks blocks={topology.blocks.filter((block) => block.kind !== 'diagram')} />
+        {/* The one drawing on this page that gets a name read aloud. `frame.tsx` argues the case
+            and this is the component it names: the three arrows, and which of them the app server
+            is NOT on, are the page's whole claim, and the paragraphs above say it in prose but not
+            in the shape the picture says it in. */}
+        <Drawing>
+          <DataFlow
+            className="w-full"
+            label={t('pages.home.illustrations.flow.label')}
+            device={t('pages.home.illustrations.flow.device')}
+            appServer={t('pages.home.illustrations.flow.appServer')}
+            sync={t('pages.home.illustrations.flow.sync')}
+            aiEndpoint={t('pages.home.illustrations.flow.aiEndpoint')}
+            pageEdge={t('pages.home.illustrations.flow.pageEdge')}
+            diaryEdge={t('pages.home.illustrations.flow.diaryEdge')}
+            photoEdge={t('pages.home.illustrations.flow.photoEdge')}
+          />
+        </Drawing>
       </Section>
-      {/* The drawing itself steps out of the reading column, because it is 1728 pixels of flowchart
-          at its natural size and inside a 48rem measure its labels come out at about six pixels.
-          The paragraphs above stay in the column, where they belong: the section reads as prose
-          that introduces a picture, and then the picture, at a size somebody can read. */}
-      <FullWidth>
-        <DocBlocks blocks={topology.blocks.filter((block) => block.kind === 'diagram')} />
-      </FullWidth>
 
       <Section heading={t('pages.home.stack.heading')}>
         <ul className="grid gap-4 sm:grid-cols-3">
           {STACK.map((component) => {
-            const Icon = STACK_ICONS[component.component];
+            const Mark = STACK_MARKS[component.component];
             return (
               <li key={component.to} className="rounded-2xl border border-border bg-card p-5">
-                {/* The icon is its own row above the name, not a bullet beside it. Lucide's grid is
-                    24 square with a 2 unit stroke, which at heading size sits heavier than the
-                    word it would sit next to; given its own line at 1.25rem and the muted colour,
-                    it labels the card without competing with the links on it. */}
-                <Icon className="h-5 w-5 text-muted-foreground" />
+                {/* ── A DRAWN HEADER, NOT AN ICON ──
+                    This was lucide's `smartphone`, `refresh-cw` and `cpu` at 20 pixels, which say
+                    "a phone", "again" and "a chip" and stop there. The marks say what each card is
+                    about: the app writes to a store on the device and nothing leaves it, the sync
+                    path carries a padlock the whole way with the server under it rather than on
+                    it, and inference is a round trip to an endpoint with no third box on the line.
+                    Sized at the grid they are drawn on, 120 by 64, in both axes: the drawings carry
+                    a `viewBox` and no `width`, so one class alone would leave the other side to the
+                    browser's 300 by 150 default and the three cards would not line up. */}
+                <Mark className="h-16 w-[7.5rem]" />
                 <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">
                   <SiteLink to={component.to}>{t(section(sections, component.id).headingKey)}</SiteLink>
                 </h3>
@@ -224,6 +254,33 @@ export default function HomeRoute() {
       </Section>
 
       <Section heading={t(section(sections, 'holds').headingKey)}>
+        {/* ── A SUMMARY OF ONE COLUMN OF THE TABLE, SAID SO IN WORDS ──
+            The table under this has two columns, "what it stores" and "what it sees in transit",
+            and they do not agree: openplate-sync stores ciphertext it holds no key for and on a
+            managed instance also forwards a photo it never keeps. The drawing carries storage
+            only, because one bar cannot carry both without lying about one of them. Unlabelled
+            that would read as a competing claim, so the caption names the column it draws and
+            hands the reader to the table for the other one. Above the table, never instead of it.
+
+            No `label` here, unlike `DataFlow`: the table below is the same five rows in prose, so
+            a reader who gets no drawing has already been given everything it says. */}
+        <figure>
+          <Drawing>
+            <DataHolders
+              className="w-full"
+              labels={{
+                browser: t('pages.home.illustrations.holders.browser'),
+                appServer: t('pages.home.illustrations.holders.appServer'),
+                sync: t('pages.home.illustrations.holders.sync'),
+                inference: t('pages.home.illustrations.holders.inference'),
+                cloudProvider: t('pages.home.illustrations.holders.cloudProvider'),
+              }}
+            />
+          </Drawing>
+          <figcaption className="mt-2 max-w-[68ch] text-sm text-muted-foreground">
+            {t('pages.home.illustrations.holders.caption')}
+          </figcaption>
+        </figure>
         <DocBlocks blocks={section(sections, 'holds').blocks} />
       </Section>
 
@@ -249,5 +306,39 @@ export default function HomeRoute() {
         </p>
       </Section>
     </SiteLayout>
+  );
+}
+
+/**
+ * The width rule for the two big drawings on this page, written once because two call sites drift.
+ *
+ * ── SHRINK TO FIT IS THE WRONG DEFAULT FOR A DRAWING, AGAIN ──
+ * `DataFlow` and `DataHolders` set their type at 11.5 and 12 units on a 520 unit grid, so the words
+ * in them are about a forty-fourth of the rendered width. Below roughly 480 pixels that is under
+ * nine pixels, which is the exact failure the mermaid flowchart had inside a 48rem measure. So the
+ * floor lives on the drawing and the scroll on the wrapper, the same pairing `DocBlocks` uses for a
+ * diagram, a table and a code block: on a phone the reader drags a legible picture instead of
+ * squinting at a small one.
+ *
+ * ── AND A CEILING, WHICH THE DIAGRAM DID NOT NEED ──
+ * A committed SVG stops at its natural size. These are vectors with no natural size at all, so in
+ * a 72rem section `DataFlow` would render 1152 wide and 602 tall and own the screen. 44rem is about
+ * as wide as the drawings were designed to be read at, and it is why neither of them uses
+ * `FullWidth`: they want a cap, not the window. 44 and not 46, so that at a 768 pixel window the
+ * drawing still fits the column and the sync box at its right edge is not against the margin.
+ */
+function Drawing({ children }: { children: ReactNode }) {
+  return (
+    // LEFT ALIGNED, not centred. A section is 72rem and this is 46rem, so centring moves the
+    // drawing about 200 pixels right of the paragraph that introduces it and of the table that
+    // follows it, and the block reads as a floating picture rather than as part of the section.
+    //
+    // The negative margin below `sm` is the bleed `DocBlocks` gives a wide table, copied because
+    // the table it copies is the one directly under `DataHolders` on this page and two scrolling
+    // blocks that start at different left edges read as a mistake. A marketing page is `px-5`, so
+    // -1.25rem each side buys the drawing the phone's whole width instead of the column's.
+    <div className="-mx-5 max-w-[44rem] overflow-x-auto px-5 sm:mx-0 sm:px-0">
+      <div className="min-w-[30rem]">{children}</div>
+    </div>
   );
 }

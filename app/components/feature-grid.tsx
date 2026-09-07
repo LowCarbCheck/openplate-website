@@ -1,5 +1,5 @@
 /**
- * The front page's grid of screens: one picture, one icon, one title, one sentence.
+ * The front page's grid of screens: one picture, one drawing, one title, one sentence.
  *
  * ── ONE ENTRY PER SCREEN THE CAPTURES COVER, WITH ONE DELIBERATE ABSENCE ──
  * Sync is not here and has no card. `/settings/sync` has redirected to `/settings/account` since
@@ -17,18 +17,30 @@
  *
  * The pictures are NOT decoration and the alt text is not the title said again: it says what is on
  * the screen, for a reader who is given no screen.
+ *
+ * ── THE DRAWING SITS BESIDE THE HEADING, NOT ON TOP OF THE CARD ──
+ * `FEATURE_ILLUSTRATIONS` is drawn on a 64 unit grid and improves all the way to 128 pixels, so the
+ * obvious placement is a picture at the head of the card. That placement is wrong HERE, and the
+ * reason is the card already has one: a screenshot of the screen the drawing is an abstraction of.
+ * Stacked, the card opens by showing the same screen twice, the drawn version first, and at four
+ * columns the card is about 250 pixels wide, so the two together push the sentence off the fold.
+ * The drawing goes beside the heading instead, at 56 pixels, which is the floor `feature-icons.tsx`
+ * names for itself and is still nearly three times the 20 pixel lucide icon it replaces. It labels
+ * the card; the screenshot is the card's picture.
  */
-import type { ComponentType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { IconProps } from './icons';
+import { FEATURE_ILLUSTRATIONS, type FeatureScreen } from './illustrations/feature-icons';
 import { RowShot } from './shot';
-import type { ShotView } from '#app/lib/shots';
 
 export interface Feature {
-  /** The capture, which is also this entry's identity in the list. */
-  view: ShotView;
-  icon: ComponentType<IconProps>;
+  /**
+   * The capture, which is also this entry's identity in the list AND the key its drawing is
+   * looked up by. Narrowed from `ShotView` to the four screens that have a drawing, so a card for
+   * a fifth capture is a compile error here rather than a card with no mark on it.
+   */
+  view: FeatureScreen;
   titleKey: string;
   bodyKey: string;
   /** What the screenshot SHOWS, in a sentence, for a reader who does not get it. */
@@ -39,22 +51,33 @@ export function FeatureGrid({ features }: { features: readonly Feature[] }) {
   const { t } = useTranslation();
 
   return (
-    <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
-      {features.map((feature) => (
-        <li key={feature.view} className="flex flex-col">
-          {/* The picture caps at 13rem and centres on a phone, where the column is the page. Left
-              aligned from `sm`, where the column is half of it and a centred picture would float
-              away from the title under it. */}
-          <RowShotColumn>
-            <RowShot view={feature.view} alt={t(feature.altKey)} />
-          </RowShotColumn>
-          <h3 className="mt-5 flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
-            <feature.icon className="h-5 w-5 shrink-0 text-muted-foreground" />
-            {t(feature.titleKey)}
-          </h3>
-          <p className="mt-2 leading-relaxed text-muted-foreground">{t(feature.bodyKey)}</p>
-        </li>
-      ))}
+    // FOUR ACROSS FROM `lg`, WHICH IS NEW AND IS THE POINT OF THE WIDER PAGE. At two columns in a
+    // 72rem page each card was 560 pixels holding a 208 pixel picture and one sentence, so the grid
+    // read as four half-empty rows. Four columns puts the whole set on one row at the width the
+    // front page now has, and the breakpoints below it are untouched: one column on a phone, two
+    // from `sm`.
+    <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {features.map((feature) => {
+        const Illustration = FEATURE_ILLUSTRATIONS[feature.view];
+        return (
+          <li key={feature.view} className="flex flex-col">
+            {/* The picture caps at 13rem and centres on a phone, where the column is the page. Left
+                aligned from `sm`, where the column is half of it and a centred picture would float
+                away from the title under it. */}
+            <RowShotColumn>
+              <RowShot view={feature.view} alt={t(feature.altKey)} />
+            </RowShotColumn>
+            <h3 className="mt-5 flex items-center gap-3 font-display text-lg font-semibold tracking-tight">
+              {/* Sized in both axes rather than one. The drawing is 64 units square and carries no
+                  `width`, so a class that set only one side would leave the other to the browser's
+                  300 by 150 default and the row would jump. */}
+              <Illustration className="h-14 w-14 shrink-0" />
+              {t(feature.titleKey)}
+            </h3>
+            <p className="mt-2 leading-relaxed text-muted-foreground">{t(feature.bodyKey)}</p>
+          </li>
+        );
+      })}
     </ul>
   );
 }

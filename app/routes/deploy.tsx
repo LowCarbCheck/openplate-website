@@ -62,7 +62,7 @@ export default function DeployRoute() {
   const { sections } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout>
+    <SiteLayout width="marketing">
       <PageTitle>{t('pages.deploy.title')}</PageTitle>
       <Lead text={t('pages.deploy.lead')} />
 

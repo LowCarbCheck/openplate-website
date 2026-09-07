@@ -6,9 +6,15 @@
  * `prefers-color-scheme` `<source>` and the light copy as the `<img>`. Everything below is that
  * same shape. It matters more here than it does there: the app's own landing page carries both
  * themes of every screenshot in the document and toggles them with a `dark:hidden` class, because
- * the app's dark mode is a class a person can set. This site's is the media query alone, so the
- * `<source>` can carry it, and a reader downloads ONE of the two files instead of both. Five
- * screenshots on the front page is the difference between about 400 KB and about 800 KB.
+ * the app's dark mode is a class a person can set. This site's is the system's setting until the
+ * header toggle overrides it, and the `<source>` still carries the system half, so a reader who
+ * never touches the toggle downloads ONE of the two files instead of both. Five screenshots on the
+ * front page is the difference between about 400 KB and about 800 KB.
+ *
+ * A media query cannot see an override, so `syncPicturesToTheme` in `app/lib/theme.ts` rewrites
+ * these queries for the reader who has set one, and does nothing at all for the reader who has
+ * not. If you add a `<picture>` here, write its dark half as `media="(prefers-color-scheme: dark)"`
+ * exactly as the ones below do: that spelling is what the rewrite looks for.
  *
  * ── THE LANGUAGE OF THE PICTURE IS THE LANGUAGE OF THE URL ──
  * `useLanguage()` reads it off the location, `shotLocale` resolves it to a language captures exist

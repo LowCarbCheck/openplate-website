@@ -12,6 +12,9 @@
  * below therefore counts drawn elements, not bytes.
  */
 import assert from 'node:assert/strict';
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 
@@ -19,10 +22,24 @@ import type { Block } from '../../app/lib/docs';
 import { diagramLabels, spansText, withDiagramLabels } from '../../app/lib/docs';
 import { hash, translateDiagram } from '../../app/lib/docs-i18n.server';
 import { type LinkBase, parseBlocks } from '../../scripts/lib/markdown';
-import { hslToHex, readPalettes, renderDiagrams, searchForBrowser, themeVariables } from '../../scripts/lib/mermaid';
+import { TOKENS, hslToHex, readPalettes, renderDiagrams, searchForBrowser, themeVariables } from '../../scripts/lib/mermaid';
 
 /** The stylesheet, addressed from this file so the test does not depend on the runner's cwd. */
 const APP_CSS = fileURLToPath(new URL('../../app/app.css', import.meta.url));
+
+/** Every token the diagrams read, at one lightness, so a fixture block is one call. */
+const TOKEN_BLOCK = (lightness: string): string => TOKENS.map((token) => `--${token}: 0 0% ${lightness};`).join(' ');
+
+/**
+ * A fixture stylesheet on disk, because `readPalettes` reads a file by name and
+ * that is the interface the build and the sync both use. Written under the
+ * runner's temporary directory and left there: the process is a test run.
+ */
+function stylesheet(css: string): string {
+  const file = join(mkdtempSync(join(tmpdir(), 'openplate-css-')), 'app.css');
+  writeFileSync(file, css);
+  return file;
+}
 
 /**
  * Why the drawing cases below cannot run here, or `false` when they can.
@@ -203,6 +220,72 @@ describe('the palette, read out of the stylesheet', () => {
     const light = themeVariables(palettes.light);
     assert.equal(light['mainBkg'], palettes.light['card']);
     assert.equal(light['lineColor'], palettes.light['muted-foreground']);
+  });
+
+  it('takes the blocks by selector, not by their position in the file', () => {
+    // THE DEFECT THIS REPLACED. The old reader took the first two `:root`
+    // blocks and called them light and dark. The theme toggle added a
+    // `color-scheme` rule under a bare `:root`, which has no tokens in it, and
+    // the build stopped with "app.css has no --background" while every colour
+    // on the site was exactly where it had always been.
+    const palettes = readPalettes(
+      stylesheet(`
+:root { color-scheme: light dark; }
+:root { ${TOKEN_BLOCK('40%')} }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { ${TOKEN_BLOCK('10%')} } }
+:root[data-theme='dark'] { ${TOKEN_BLOCK('10%')} }
+:root[data-theme='dark'] { color-scheme: dark; }
+`),
+    );
+    assert.equal(palettes.light['background'], hslToHex('0 0% 40%'));
+    assert.equal(palettes.dark['background'], hslToHex('0 0% 10%'));
+  });
+
+  it('fails by name when the dark block is gone', () => {
+    assert.throws(
+      () => readPalettes(stylesheet(`:root { ${TOKEN_BLOCK('40%')} }`)),
+      /holds no dark palette.*data-theme='dark'/s,
+    );
+  });
+
+  it('fails by name when the light block is gone, rather than reading the color-scheme rule', () => {
+    assert.throws(
+      () =>
+        readPalettes(
+          stylesheet(`
+:root { color-scheme: light dark; }
+:root[data-theme='dark'] { ${TOKEN_BLOCK('10%')} }
+`),
+        ),
+      /holds no light palette/,
+    );
+  });
+
+  it('refuses to choose when a second block could be the same palette', () => {
+    assert.throws(
+      () =>
+        readPalettes(
+          stylesheet(`
+:root { ${TOKEN_BLOCK('40%')} }
+:root { ${TOKEN_BLOCK('50%')} }
+:root[data-theme='dark'] { ${TOKEN_BLOCK('10%')} }
+`),
+        ),
+      /2 blocks that could be the light palette/,
+    );
+  });
+
+  it('names the appearance and the token when one is missing', () => {
+    assert.throws(
+      () =>
+        readPalettes(
+          stylesheet(`
+:root { ${TOKEN_BLOCK('40%')} }
+:root[data-theme='dark'] { --background: 0 0% 10%; }
+`),
+        ),
+      /the dark block in .* has no --foreground/,
+    );
   });
 });
 

@@ -39,7 +39,7 @@ export default function SyncRoute() {
   const { sections } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout>
+    <SiteLayout width="marketing">
       <PageHero icon={SyncIcon} title={t('pages.sync.title')} lead={<Copy text={t('pages.sync.lead')} />} />
 
       {sections.map((entry) => (

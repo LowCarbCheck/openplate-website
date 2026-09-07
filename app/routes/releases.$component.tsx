@@ -49,7 +49,7 @@ export default function ReleasesRoute() {
   const { t } = useTranslation('docs');
 
   return (
-    <SiteLayout wide>
+    <SiteLayout width="full">
       <DocsShell docs={docs}>
         <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">
           {t(`components.${releases.component}`)}

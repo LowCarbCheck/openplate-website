@@ -39,7 +39,7 @@ export default function InferenceRoute() {
   const { sections } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout>
+    <SiteLayout width="marketing">
       <PageHero
         icon={InferenceIcon}
         title={t('pages.inference.title')}

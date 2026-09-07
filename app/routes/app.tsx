@@ -45,7 +45,7 @@ export default function AppRoute() {
   const { sections } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout>
+    <SiteLayout width="marketing">
       <PageHero icon={AppIcon} title={t('pages.app.title')} lead={<Copy text={t('pages.app.lead')} />} />
 
       {/* The picture sits beside the lead rather than under the page title, so the first screen of
