@@ -387,9 +387,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "inference",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-inference",
-      "ref": "v0.1.2",
+      "ref": "v0.1.3",
       "editRef": "main",
-      "sha": "051e8d598819140a4234839c9be8a5ce4d560884",
+      "sha": "3fbc1895f80124259b8077b4a887e856a58886e0",
       "committedAt": "2026-09-07"
     },
     "lead": [

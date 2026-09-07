@@ -4559,6 +4559,12 @@
     "at": "2026-09-06",
     "fr": "Les deux parties désignent un partage par le {{0}}, jamais par un identifiant synthétique de partage : l'identité stable d'un partage est la paire (cédant, bénéficiaire), et c'est ce qui survit à une rotation de DEK."
   },
+  "777df4b419868434": {
+    "en": "{{0}} Foods matched against the database include a {{1}} of {{2}}, plus an {{3}} string when required by the source. Unmatched foods omit both fields, and {{4}} is null. openplate exposes these values, so users can separate confirmed database entries from items with no macro data.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} Les aliments associés à la base de données incluent un {{1}} de {{2}}, ainsi qu'une chaîne {{3}} si la source l'exige. Les aliments non associés omettent ces deux champs, et {{4}} vaut null. openplate expose ces valeurs afin que tu puisses distinguer les entrées confirmées de la base de données des éléments sans données de macronutriments."
+  },
   "777efb20ecd0b789": {
     "en": "{{0}} The client must never persist the passphrase, so it cannot silently re-derive an auth-hash to log in again. A long-lived rotating refresh token is the only thing that makes silent re-authentication possible in a zero-knowledge design.",
     "model": "google/gemini-3.8-flash",
@@ -6346,6 +6352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le serveur d'application est un conteneur unique sans état. Pas de base de données, pas d'ORM, pas de migrations, aucun secret lu depuis l'environnement. Le détruire ne fait rien perdre. Ce n'est pas de l'économie, c'est tout l'engagement : voir {{0}}."
+  },
+  "ab1761103354a2d1": {
+    "en": "This service sets {{0}} to {{1}} on a food record when the food database supplies its macros. It adds an {{2}} string when the source requires one, see {{3}}. When nothing resolves the item, both fields are omitted and {{4}} is null. This service never emits {{5}}, as the shared contract reserves that value for a cloud provider.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Ce service définit {{0}} sur {{1}} dans un enregistrement d'aliment lorsque la base de données alimentaire fournit ses macronutriments. Il ajoute une chaîne {{2}} si la source en exige une, voir {{3}}. Si rien ne résout l'élément, les deux champs sont omis et {{4}} vaut null. Ce service n'émet jamais {{5}}, car le contrat partagé réserve cette valeur à un fournisseur cloud."
   },
   "ab5aa97074c454a0": {
     "en": "notes",

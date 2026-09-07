@@ -5171,6 +5171,12 @@
     "at": "2026-09-04",
     "de": "Beide Seiten adressieren eine Freigabe über die {{0}}, nie über eine synthetische Freigabe-ID: Die stabile Identität einer Freigabe ist das Paar (Gewährende, Empfangende), und das übersteht eine DEK-Rotation."
   },
+  "777df4b419868434": {
+    "en": "{{0}} Foods matched against the database include a {{1}} of {{2}}, plus an {{3}} string when required by the source. Unmatched foods omit both fields, and {{4}} is null. openplate exposes these values, so users can separate confirmed database entries from items with no macro data.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} Lebensmittel, die mit der Datenbank abgeglichen wurden, enthalten ein {{1}} von {{2}} sowie eine {{3}}-Zeichenkette, falls die Quelle dies verlangt. Nicht zugeordnete Lebensmittel lassen beide Felder weg, und {{4}} ist null. openplate legt diese Werte offen, damit Benutzer bestätigte Datenbankeinträge von Einträgen ohne Makronährstoffdaten trennen können."
+  },
   "777efb20ecd0b789": {
     "en": "{{0}} The client must never persist the passphrase, so it cannot silently re-derive an auth-hash to log in again. A long-lived rotating refresh token is the only thing that makes silent re-authentication possible in a zero-knowledge design.",
     "model": "google/gemini-3.8-flash",
@@ -7318,6 +7324,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Der App-Server ist ein einzelner zustandsloser Container. Keine Datenbank, kein ORM, keine Migrationen, kein aus der Umgebung gelesenes Secret. Wird er zerstört, geht nichts verloren. Das ist kein Geiz, sondern das eigentliche Versprechen: siehe {{0}}."
+  },
+  "ab1761103354a2d1": {
+    "en": "This service sets {{0}} to {{1}} on a food record when the food database supplies its macros. It adds an {{2}} string when the source requires one, see {{3}}. When nothing resolves the item, both fields are omitted and {{4}} is null. This service never emits {{5}}, as the shared contract reserves that value for a cloud provider.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Dieser Dienst setzt {{0}} in einem Lebensmitteleintrag auf {{1}}, wenn die Lebensmitteldatenbank dessen Makronährstoffe liefert. Er fügt eine {{2}}-Zeichenkette hinzu, wenn die Quelle eine verlangt, siehe {{3}}. Wenn nichts den Eintrag auflöst, werden beide Felder weggelassen, und {{4}} ist null. Dieser Dienst gibt niemals {{5}} aus, da der gemeinsame Vertrag diesen Wert für einen Cloud-Anbieter reserviert."
   },
   "ab5aa97074c454a0": {
     "en": "notes",
