@@ -183,6 +183,52 @@ jobs:
           done
           echo "code=$worst" >> "$GITHUB_OUTPUT"
 
+      # ── DRAW AGAIN, BECAUSE A LABEL BOUGHT ABOVE IS STILL DRAWN IN ENGLISH ──
+      # The step two above this one DRAWS the diagrams, and the step above it
+      # BUYS the words. In that order a label first translated by this run is
+      # rendered by the next run, whenever that happens to be, and until then
+      # the German page carries an English picture.
+      #
+      # THIS IS WHAT SHIPPED. Commit `032d409`, "re-quote openplate at v0.11.1",
+      # added six drawings of the one diagram whose label had moved, and four of
+      # them, German and French, light and dark, read "Configured food data"
+      # under a paragraph that translates the phrase. The English pair was
+      # right, which is why nothing looked broken from here.
+      #
+      # It is not the fallback that is wrong. `translateDiagram` returns null
+      # for a fence whose labels are not all bought, and the whole fence then
+      # falls back to English, because a half German flowchart reads as a bug
+      # while an English one reads as untranslated. M197/10 chose that and it
+      # stays. What was missing is the pipeline coming back afterwards.
+      #
+      # WHY A SECOND PASS AND NOT A REORDER. `translate-docs.ts` reads the
+      # parsed tree that `sync:docs` writes, so the sync has to run first. There
+      # is no order of these two steps that draws a freshly bought label; there
+      # is only drawing again.
+      #
+      # AND IT COSTS NOTHING WHEN NOTHING MOVED. Every SVG carries a stamp of
+      # the palette, the mermaid version and a hash of the WORDS in it, so this
+      # pass redraws exactly the diagrams whose labels the step above bought and
+      # skips the rest without starting a browser. On a run that bought nothing
+      # it prints "all already drawn" and ends. On a run that bought something
+      # it names each diagram it redrew, so the log says what the second pass
+      # was for.
+      #
+      # The refs are repeated from the first pass deliberately. Left empty, this
+      # pass would resolve the highest tag afresh, and a release cut during the
+      # minutes the translator was running would put one repository at a
+      # different ref from the one the docs above were quoted at.
+      #
+      # `tests/unit/sync-workflow-order.test.ts` pins the ordering, so moving
+      # the translation back above the drawing is a red run and not a quiet
+      # shipment of English labels.
+      - name: Draw again, now that the labels are bought
+        env:
+          OPENPLATE_APP_REF: ${{ inputs.app_ref }}
+          OPENPLATE_SYNC_REF: ${{ inputs.sync_ref }}
+          OPENPLATE_INFERENCE_REF: ${{ inputs.inference_ref }}
+        run: pnpm run sync:docs
+
       # The repo's own gate, tier by tier. There is no `check` script: the
       # pre-push hook runs these four, and this job runs the same four so that
       # what a laptop refuses to push, this job refuses to commit.
