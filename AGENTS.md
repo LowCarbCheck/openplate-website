@@ -54,6 +54,27 @@ and one key per language in `app/i18n/locales/<lang>/common.json` gives it its c
 Do not register a language variant by hand: a page that exists in English and
 not in German is a 404 that no test will catch.
 
+**A page is five files, not three**, and the two people forget are these:
+
+- `app/sitemap.ts`. `STATIC_PATHS` is a hand-written copy of the parameterless
+  rows of `PAGES`, because the route table cannot be imported at runtime.
+  `tests/unit/sitemap.test.ts` compares the two, so a row added to
+  `app/routes.ts` alone fails the unit tier. Run the unit tier before the build;
+  it is the tier that catches this.
+- `app/components/site-layout.tsx`. `NAV_ITEMS`. Without it the page is
+  reachable only by typing its URL.
+
+The other three are `app/routes.ts`, the route file itself, and the English
+bundle.
+
+A page whose body copy is quoted upstream also gets a block in
+`app/lib/stack-sections.ts`, and that needs no fixture edit:
+`manifestFixture()` in `tests/unit/lib/sync-fixtures.ts` generates its fixture
+repositories from `STACK_SECTIONS` so the two cannot drift. A heading string
+that does not match the generated module byte for byte makes `sectionBlocks`
+return null and the loader throw during the prerender, so the BUILD is the tier
+that reports it.
+
 ## Copy and translations
 
 English source strings are hand-written and are the source of truth. Every
@@ -63,6 +84,13 @@ dry. **No em dashes and no en dashes**, in copy or in comments; use a comma.
 
 The documentation pages are not covered by this: they are generated from the
 source repositories and translated by their own script.
+
+**There is no key-parity test between the three bundles.** A key added to the
+English bundle alone passes lint, typecheck, test and build. That is not a hole
+to plug by inventing German: English is `SOURCE_LANGUAGE` and the i18next
+fallback, so the string renders in English until a translation is bought. Note
+that German owns the UNPREFIXED URLs, so `/deploy` is the German page and
+English text on it is the fallback showing, not a routing bug.
 
 ## Linting
 

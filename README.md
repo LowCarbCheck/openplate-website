@@ -78,6 +78,16 @@ pairs. A repository given as a path on disk is read where it stands, at whatever
 it says today, which is what makes a documentation table written five minutes
 ago testable. Everything it writes under `src/generated/` is committed.
 
+That override reads the checkout IN PLACE and skips ref resolution entirely, so
+it cannot exercise the tag-or-branch rule above. A path with no `.git` directory
+in it is cloned like any other, so a BARE repository (`/tmp/thing.git`) is how
+that code path is driven locally with no network writes.
+
+`sync-docs.ts` runs its whole sync at import: the refusals ARE the exit code and
+the printed line, so its tests spawn it as a child process against fixture
+repositories in `/tmp`. Any pure function that deserves a direct unit test has
+to be moved into `scripts/lib/` first, which is where `documentationOnly` lives.
+
 The sync also draws the diagrams. A ```mermaid fence in a source document is
 rendered here into `public/docs/diagrams/<id>-<language>-light.svg` and
 `<id>-<language>-dark.svg`, which are committed too, and the page shows one of
