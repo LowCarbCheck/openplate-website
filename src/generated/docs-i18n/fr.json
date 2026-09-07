@@ -1721,6 +1721,12 @@
     "at": "2026-09-06",
     "fr": "Ce dont elle a besoin"
   },
+  "2c0a545f90cadbf7": {
+    "en": "absent, never {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "absent, jamais {{0}}"
+  },
   "2c5840debf1df0b9": {
     "en": "{{0}} The retained version ring is an owner-recovery mechanism, not a grantee timeline.",
     "model": "google/gemini-3.8-flash",
@@ -1924,6 +1930,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Mesuré directement le 2026-08-15. Les lignes que nous n'avons pas exécutées nous-mêmes le précisent."
+  },
+  "32178393b85a6b8f": {
+    "en": "The second is reported estimates. With {{0}} on, a person who saw a wrong measurement can send that entry's figures and its photograph here, having agreed to it in plain words, and this service KEEPS what it is given: the photograph sits in the operator's database and the operator can look at it. That is a different undertaking from holding ciphertext nobody can read, and {{1}} states both holes side by side. Leave {{2}} unset and the whole {{3}} subtree answers the ordinary unknown-path 404.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le second concerne les estimations signalées. Avec {{0}} activé, une personne qui a constaté une mesure erronée peut envoyer ici les chiffres de cette entrée ainsi que sa photographie, après avoir donné son accord explicite, et ce service GARDE ce qu'on lui transmet : la photographie reste dans la base de données de l'opérateur et l'opérateur peut la regarder. L'engagement est différent de la conservation d'un texte chiffré que personne ne peut lire, et {{1}} mentionne ces deux limites côte à côte. Si tu laisses {{2}} non défini, toute la sous-arborescence {{3}} répond par le 404 habituel de chemin inconnu."
   },
   "32216945d5439b71": {
     "en": "Stuck?",
@@ -2146,6 +2158,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "valeur par défaut"
+  },
+  "3822fe9c63405a33": {
+    "en": "promise rather than a description",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "promesse plutôt qu'une description"
   },
   "382b5b0b309ca42a": {
     "en": "The request body carries a photograph, so the limit is sized for one: {{0}}. Base64 inflates an image by 4/3, so that carries a JPEG of about 5.7 MiB, a modern phone camera at default quality, which is what the client sends after downscaling.",
@@ -4985,6 +5003,12 @@
     "at": "2026-09-06",
     "fr": "le README d'openplate-sync"
   },
+  "7e8c1894ab8effc1": {
+    "en": "The first is the AI proxy. If the operator configures a provider key, this service proxies the app's food-photo requests to that provider at {{0}}, so the photograph and the model's answer cross this process. Neither is written, cached or logged: not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. It SEES a photograph and keeps nothing. Leave {{1}} unset and the route does not exist.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le premier est le proxy IA. Si l'opérateur configure une clé de fournisseur, ce service relaie les requêtes de photos de nourriture de l'application vers ce fournisseur à {{0}}, donc la photographie et la réponse du modèle traversent ce processus. Ni l'une ni l'autre ne sont écrites, mises en cache ou journalisées : ni le corps, ni un préfixe, ni un tampon décodé. Une ligne de journal contient uniquement un identifiant de compte, un statut amont, des volumes d'octets et une durée. Le service VOIT une photographie et ne garde rien. Si tu laisses {{1}} non défini, la route n'existe pas."
+  },
   "7ec02d542c118af4": {
     "en": "5 ({{0}})",
     "model": "google/gemini-3.8-flash",
@@ -5213,6 +5237,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Ce sont des œuvres tierces, téléchargées à l'exécution plutôt qu'intégrées à l'image, et chacune dispose de sa propre licence. Ces conditions s'appliquent à toi, l'opérateur."
   },
+  "86798361c4022ed9": {
+    "en": "A client that finds no window advertised {{0}}. It offers no report, or wording that names no period; printing a number from a local default publishes a promise the service never made, to a person deciding whether to send a photograph.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Un client qui ne trouve aucune fenêtre annoncée {{0}}. Il ne propose aucun signalement, ou une formulation qui ne mentionne aucune durée ; afficher un nombre issu d'une valeur par défaut locale revient à publier une promesse que le service n'a jamais faite, auprès d'une personne qui décide d'envoyer ou non une photographie."
+  },
   "868354687ff86339": {
     "en": "UTC day",
     "model": "google/gemini-3.8-flash",
@@ -5326,6 +5356,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Les cinq points de terminaison des §5.1 à §5.5, en plus de la négociation {{0}} du §5.6."
+  },
+  "8895e3b23ec27633": {
+    "en": "MUST NOT state one",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "NE DOIT PAS en mentionner une"
   },
   "88a79a64598b22ca": {
     "en": "protocol version bump",
@@ -6431,6 +6467,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} doit être présent"
   },
+  "a4c0a05b5351cc95": {
+    "en": "The field is {{0}}, on an instance that accepts no reports. {{1}} is a statement every instance makes; this is a promise, and an instance with the feature off has none to make, so it adds no key at all and stays indistinguishable from one built before the field existed, exactly as its {{2}} tree stays indistinguishable from one where the feature was never written.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Le champ est {{0}}, sur une instance qui n'accepte aucun signalement. {{1}} est une déclaration que chaque instance produit ; ici, il s'agit d'une promesse, et une instance dont la fonctionnalité est désactivée n'en a aucune à faire, elle n'ajoute donc aucune clé et reste indiscernable d'une instance construite avant l'existence de ce champ, tout comme son arborescence {{2}} reste indiscernable d'une instance où la fonctionnalité n'a jamais été écrite."
+  },
   "a4d99bfe7fb9c467": {
     "en": "bundled mode too",
     "model": "google/gemini-3.8-flash",
@@ -6622,6 +6664,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Retrait."
+  },
+  "aa23ad0040745e82": {
+    "en": "{{0}} is the number the service's own retention sweep deletes on, published from the same binding, so the sentence a client shows a person before they hand over a photograph and the deletion that follows cannot drift apart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} est la valeur sur laquelle s'appuie le balayage de rétention propre au service pour supprimer les données, publiée depuis la même liaison, afin que la phrase affichée par un client à une personne avant qu'elle ne transmette une photographie et la suppression qui suit ne puissent pas diverger."
   },
   "aa6496055b84f8e1": {
     "en": "openplate-sync, managed",
@@ -7162,6 +7210,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "3. Cryptographie (côté client ; le serveur n'en implémente rien)"
+  },
+  "b6a46b7127999cb8": {
+    "en": "And two places the zero-knowledge claim does not hold.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "Et deux endroits où la garantie « zero-knowledge » ne s'applique pas."
   },
   "b6bd10cff09f0eda": {
     "en": "I have an invite link",
@@ -8693,6 +8747,12 @@
     "at": "2026-09-06",
     "fr": "La taille de l'invite dépend de ton modèle. Deux mesures directes sur les assiettes réduites à {{0}} 896 px :"
   },
+  "de70e62615743005": {
+    "en": "{{0}} is the one field here that is a {{1}}, and it is the exception to the paragraph above. An instance that accepts reported estimates keeps a photograph of somebody's food, and it publishes how long for:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} est le seul champ ici qui est une {{1}}, et il fait exception au paragraphe ci-dessus. Une instance qui accepte les estimations signalées conserve une photographie de la nourriture de quelqu'un, et elle publie pendant combien de temps :"
+  },
   "deb3cd28290d2feb": {
     "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
     "model": "google/gemini-3.8-flash",
@@ -8758,6 +8818,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Aucun des deux ne réinjecte l'entrée reçue"
+  },
+  "e191f2af35ec4cb9": {
+    "en": "{{0}} Both are optional, both are off until an operator turns them on, and they are not the same shape.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "fr": "{{0}} Les deux sont facultatifs, les deux restent désactivés tant qu'un opérateur ne les active pas, et ils n'ont pas la même forme."
   },
   "e1dc33eb7f1ef8cb": {
     "en": "Everything, including fasting, weight, clinician sharing and study participation.",

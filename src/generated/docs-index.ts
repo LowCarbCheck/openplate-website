@@ -140,9 +140,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "sync",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
-      "ref": "v0.6.2",
+      "ref": "v0.7.0",
       "editRef": "main",
-      "sha": "1a721a094a868a1e1d7e8ed8a524c44f50a0712f",
+      "sha": "11efce3ef01eb885c69ae7ed5088d04df101a416",
       "committedAt": "2026-09-07"
     },
     "lead": [
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/1a721a094a868a1e1d7e8ed8a524c44f50a0712f/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -230,13 +230,22 @@ export const DOCS_INDEX: DocsIndex = {
             "spans": [
               {
                 "kind": "text",
-                "text": "And one thing that passes through without being held."
+                "text": "And two places the zero-knowledge claim does not hold."
               }
             ]
           },
           {
             "kind": "text",
-            "text": " If the operator configures a provider key, this service proxies the app's food-photo requests to that provider at "
+            "text": " Both are optional, both are off until an operator turns them on, and they are not the same shape."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "The first is the AI proxy. If the operator configures a provider key, this service proxies the app's food-photo requests to that provider at "
           },
           {
             "kind": "code",
@@ -244,7 +253,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": ", so the photograph and the model's answer cross this process. Neither is written, cached or logged: not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. This is also the one route where the zero-knowledge claim genuinely does not hold: the blob store cannot read what it holds, and the proxy can see everything that passes through it. Leave "
+            "text": ", so the photograph and the model's answer cross this process. Neither is written, cached or logged: not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. It SEES a photograph and keeps nothing. Leave "
           },
           {
             "kind": "code",
@@ -253,6 +262,53 @@ export const DOCS_INDEX: DocsIndex = {
           {
             "kind": "text",
             "text": " unset and the route does not exist."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "The second is reported estimates. With "
+          },
+          {
+            "kind": "code",
+            "text": "SYNC_FEEDBACK"
+          },
+          {
+            "kind": "text",
+            "text": " on, a person who saw a wrong measurement can send that entry's figures and its photograph here, having agreed to it in plain words, and this service KEEPS what it is given: the photograph sits in the operator's database and the operator can look at it. That is a different undertaking from holding ciphertext nobody can read, and "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "ADR-0006"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+          },
+          {
+            "kind": "text",
+            "text": " states both holes side by side. Leave "
+          },
+          {
+            "kind": "code",
+            "text": "SYNC_FEEDBACK"
+          },
+          {
+            "kind": "text",
+            "text": " unset and the whole "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/feedback"
+          },
+          {
+            "kind": "text",
+            "text": " subtree answers the ordinary unknown-path 404."
           }
         ]
       },
@@ -338,7 +394,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/1a721a094a868a1e1d7e8ed8a524c44f50a0712f/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/LICENSE"
           },
           {
             "kind": "text",
