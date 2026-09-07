@@ -353,6 +353,12 @@
     "at": "2026-09-04",
     "de": "„Es existiert noch kein Eintrag dieser Art“"
   },
+  "0724be636446b9b1": {
+    "en": "{{0}}: one integer per account per UTC day, {{1}} (§5.20). A count, never a log: no prompt, no response, no model, no timestamp beyond the day. An operator can read one account's counters as a day-by-day strip ({{2}}), which is metadata about when a person used a health app and is bounded for exactly that reason.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: eine Ganzzahl pro Konto und UTC-Tag, {{1}} (§5.20). Ein Zähler, nie ein Protokoll: kein Prompt, keine Antwort, kein Modell, kein Zeitstempel über den Tag hinaus. Betreiber können die Zähler eines Kontos als tagesweises Band ({{2}}) abrufen, was Metadaten darüber darstellt, wann eine Person eine Gesundheits-App genutzt hat, und genau deshalb begrenzt ist."
+  },
   "072af15c799cd9ce": {
     "en": "unset (analytics off)",
     "model": "google/gemini-3.8-flash",
@@ -790,6 +796,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Eine Einladung ist eine einmalige, ablaufende Zugriffsberechtigung {{0}}. Sie enthält die Adresse, mit der das Konto erstellt wird, die Namensvermutung des Betreibers, die Rolle und das tägliche KI-Kontingent. Unbekannte, fehlerhafte, fehlende, dienstfremde, abgelaufene, widerrufene und bereits eingelöste Token erzeugen alle DIESELBE Antwort {{1}} und denselben Textkörper, {{2}}: Eine Unterscheidung würde es einem Aufrufer ermöglichen zu testen, welche Token existieren, und würde offenlegen, dass ein Token einmal gültig war."
+  },
+  "10c7d8368346037b": {
+    "en": "Retention: usage counters are kept for 90 days.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Aufbewahrung: Nutzungszähler werden 90 Tage lang aufbewahrt."
   },
   "10cf7ebbb7c01807": {
     "en": "The optional study console keeps its own, separate accounts on the same server. {{0}} says when it is on, and {{1}} says why it lives in the app.",
@@ -1438,6 +1450,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Stufe 4, alles"
+  },
+  "20095f95ea4c8330": {
+    "en": "{{0}} narrows the window. {{1}} must be an integer of at least 1, or the answer is {{2}}. {{3}}, and {{4}} reports what was actually drawn. Ninety is the retention window below, so a longer strip could only be zeroes for rows that have been deleted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} grenzt das Zeitfenster ein. {{1}} muss eine Ganzzahl von mindestens 1 sein, sonst lautet die Antwort {{2}}. {{3}}, und {{4}} gibt an, was tatsächlich abgefragt wurde. 90 Tage ist die unten genannte Aufbewahrungsfrist, ein längeres Band könnte also nur Nullen für bereits gelöschte Zeilen enthalten."
   },
   "202cdd598f68b3ca": {
     "en": "Why the CPU build dies.",
@@ -2171,6 +2189,12 @@
     "at": "2026-09-06",
     "de": "Beginne mit {{0}}."
   },
+  "3177827902529067": {
+    "en": "{{0}}: is this person still using the instance. It reads what the service already stores and collects nothing new.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: Nutzt diese Person die Instanz noch? Es liest, was der Dienst bereits speichert, und erfasst nichts Neues."
+  },
   "318b9f40baf06f0a": {
     "en": "{{0}}: one integer per account per UTC day. A count, never a log: no prompt, no response, no model, no timestamp beyond the day.",
     "model": "google/gemini-3.8-flash",
@@ -2206,6 +2230,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Hängt der Vorgang?"
+  },
+  "323748f86a762247": {
+    "en": "timestamp",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Zeitstempel"
   },
   "3269ddec01c440f3": {
     "en": "Protocol version: 2",
@@ -2758,6 +2788,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Dieser Dienst ist optional."
+  },
+  "3f342f112a3a6a5c": {
+    "en": "{{0}} is the same shape the account's own {{1}} returns (§5.15) plus {{2}}, and on the admin surface plus {{3}}, {{4}} and {{5}}. It carries {{6}}. A blob is reported as a byte count and a timestamp. The reasoning is {{7}}, whose prohibitions 1, 2, 3, 5 and 8 ADR-0005 supersedes and whose prohibition on secrets in a response it does not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} hat dieselbe Struktur, die das eigene {{1}} des Kontos zurückgibt (§5.15), zuzüglich {{2}}, und auf der Admin-Oberfläche zuzüglich {{3}}, {{4}} und {{5}}. Es enthält {{6}}. Ein Blob wird als Byte-Anzahl und Zeitstempel gemeldet. Die Begründung liefert {{7}}, dessen Verbote 1, 2, 3, 5 und 8 von ADR-0005 abgelöst werden, dessen Verbot von Geheimnissen in Antworten jedoch nicht."
   },
   "3f47ad2132af9bb1": {
     "en": "{{0}} It answers {{1}} with zero models resident (Ollama loads lazily on first request), so a ready reading means \"reachable\", not \"warm\". Your first scan absorbs the load time.",
@@ -3682,6 +3718,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "An diesen Aufrufer adressierte Freigaben, jeweils mit eigenem {{0}}; nur dieser Aufrufer kann sie öffnen."
+  },
+  "51e5ca1523e24b8d": {
+    "en": "{{0}}: {{1}}, written by a login and by a proxied completion, and deliberately not by a token refresh or a sync poll, so it means \"somebody acted\" rather than \"a client was running\". It is visible to an operator (§5.20) and goes with the account row on deletion.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}}: {{1}}, geschrieben durch ein Login und durch eine weitergeleitete Vervollständigung, und bewusst nicht durch eine Token-Aktualisierung oder ein Sync-Polling, sodass es bedeutet, dass jemand aktiv war, und nicht bloß, dass ein Client lief. Es ist für Betreiber einsehbar (§5.20) und wird beim Löschen der Kontozeile mit entfernt."
   },
   "51e668b747a35ed2": {
     "en": "One pseudonym per study, enforced by the database.",
@@ -4853,6 +4895,12 @@
     "at": "2026-09-04",
     "de": "Der Dienst liegt auf dem Pfad des Fotos, das ist der reale Preis dafür, und der Schutz ist eine Eigenschaft des Codes und keine Einstellung: Der Feldtyp des Loggers lässt nur primitive Datentypen zu, sodass kein Body in eine Logzeile gelangen kann, und Upstream-Fehlertexte werden bereinigt, bevor sie protokolliert oder zurückgegeben werden. Mitglieder einer Organisation teilen sich die Kosten, nicht die Daten; ein Tellerfoto, das den Proxy erreicht, wird einmal gelesen und nicht gespeichert."
   },
+  "6b6b70edfd5bffcf": {
+    "en": "An unknown id is the same {{0}} as every other account route, and the whole tree is behind the credentials above.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Eine unbekannte ID liefert denselben {{0}} wie jede andere Kontoroute, und der gesamte Baum liegt hinter den obigen Zugangsdaten."
+  },
   "6b6b80a41f85468b": {
     "en": "An instance can set {{0}} (see {{1}}). That declares one thing: {{2}} openplate-sync is what carries that, the account it already holds for sync also holds the allowance, so there is no second connection step and no second credential.",
     "model": "google/gemini-3.8-flash",
@@ -5908,6 +5956,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Auf einer Managed Instance scannt das angemeldete Mitglied über den KI-Proxy des Sync-Servers, der die Anfrage auf ein tägliches Kontingent anrechnet."
+  },
+  "849cba0c3c1a7a1a": {
+    "en": "Last sign-in, and one entry per UTC day over a bounded window",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Letzte Anmeldung und ein Eintrag pro UTC-Tag über ein begrenztes Zeitfenster"
   },
   "850994dc8d037140": {
     "en": "{{0}}: the sync terms, including the claim that deletion is immediate with no grace period. Confirm that matches what the product does before relying on it.",
@@ -7565,6 +7619,12 @@
     "at": "2026-09-04",
     "de": "Warum überhaupt ein Paar."
   },
+  "a8e89cea090faa43": {
+    "en": "A window longer than 90 days is answered with 90",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Ein Zeitfenster von mehr als 90 Tagen wird mit 90 beantwortet"
+  },
   "a90cfbb2a37916a6": {
     "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -8086,6 +8146,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die Anmeldedaten des Aufrufers werden ersetzt, niemals zusammengeführt."
+  },
+  "b307ba121e38575f": {
+    "en": "{{0}} answers the question an operator opens the console with",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} beantwortet die Frage, mit der man als Betreiber die Konsole öffnet"
   },
   "b30812f2b2df8b40": {
     "en": "p50 per scan",
@@ -9293,6 +9359,12 @@
     "at": "2026-09-04",
     "de": "Architektur"
   },
+  "cda202ddc74170e8": {
+    "en": "{{0}} carries {{1}} day in the window, in order, with {{2}} for a day that has no row. A missing day and a quiet day must not look the same to whoever reads the strip.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} enthält der Reihe nach {{1}} Tag im Zeitfenster, mit {{2}} für einen Tag ohne Zeile. Ein fehlender Tag und ein inaktiver Tag dürfen für die lesende Person nicht gleich aussehen."
+  },
   "cda8c63c5234d3f1": {
     "en": "addressed to one person",
     "model": "google/gemini-3.8-flash",
@@ -9586,6 +9658,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Aktualisiere zuerst die Zeile {{1}} auf {{2}}, da Images vor 0.1.x unter {{3}} veröffentlicht wurden und ein Pull ohne diese Änderung nur das alte Image erneut lädt. Die Migration läuft dann beim Start des Containers. Danach gibt es keine Anmeldeseite mehr: Jedes Gerät, das bereits Daten hat, behält diese und fragt einfach nicht mehr danach, wer du bist."
+  },
+  "d386172edadc75d1": {
+    "en": "kept for 90 days and then deleted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "wird 90 Tage lang aufbewahrt und dann gelöscht"
   },
   "d3ae14a50bfe463f": {
     "en": "Why",
@@ -10073,6 +10151,12 @@
     "at": "2026-09-06",
     "de": "{{0}}: {{1}}, {{2}}: Ein verpackter DEK ist an keine bestimmte Blob-Version gebunden. Die Länge beträgt immer {{3}} Bytes."
   },
+  "df2859a207677617": {
+    "en": "When a person last did something",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "Wann eine Person zuletzt aktiv war"
+  },
   "df505da0a09b5bd8": {
     "en": "What it stores",
     "model": "google/gemini-3.8-flash",
@@ -10504,6 +10588,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "2. Terminologie"
+  },
+  "e97290380496d7c5": {
+    "en": "{{0}} is {{1}} for an account that has never signed in, and is written only by a login and by a proxied completion, never by a token refresh and never by a sync poll (§9.2). It crosses the wire as a {{2}}; a relative phrase is a rendering decision and belongs to the client.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} ist {{1}} für ein Konto, das sich noch nie angemeldet hat, und wird nur durch ein Login und durch eine weitergeleitete Vervollständigung geschrieben, nie durch eine Token-Aktualisierung und nie durch ein Sync-Polling (§9.2). Es wird als {{2}} übertragen, eine relative Zeitangabe ist eine Darstellungsentscheidung und gehört in den Client."
   },
   "e9ad43b956029d83": {
     "en": "openplate",
@@ -11248,6 +11338,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ratenbegrenzung nach Quelladresse"
+  },
+  "fe24e5d70ed828fa": {
+    "en": "{{0}} {{1}} holds one integer per account per UTC day (§9.2). An hourly sweep inside the service deletes every row older than 90 days, counting today, on every instance and without an operator action or a cron entry. Deleting an account removes its counters and its {{2}} in the same statement as the rest of the erasure, through {{3}}. Ninety is one number in one place: it is what the sweep prunes at and the longest window the endpoint above can answer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-07",
+    "de": "{{0}} {{1}} speichert eine Ganzzahl pro Konto und UTC-Tag (§9.2). Ein stündlicher Bereinigungslauf innerhalb des Dienstes löscht auf jeder Instanz alle Zeilen, die älter als 90 Tage sind (den heutigen Tag mitgerechnet), ganz ohne Eingriff der Betreiber oder einen Cron-Eintrag. Das Löschen eines Kontos entfernt dessen Zähler und seinen {{2}} im selben Befehl wie den Rest der Löschung, und zwar über {{3}}. 90 ist eine einzige Zahl an einer einzigen Stelle: Sie bestimmt, ab wann der Bereinigungslauf kürzt, und ist das längste Zeitfenster, das der obige Endpunkt beantworten kann."
   },
   "fe4321c394b1a8b9": {
     "en": "A conforming server needs none of this section; it is here so an alternative {{0}} can interoperate, and so a reviewer can check the claims.",

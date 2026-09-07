@@ -140,10 +140,10 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "sync",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
-      "ref": "v0.7.0",
+      "ref": "v0.8.0",
       "editRef": "main",
-      "sha": "11efce3ef01eb885c69ae7ed5088d04df101a416",
-      "committedAt": "2026-09-07"
+      "sha": "24d3f4d5a2bd4a9f2d9c034e79f35cec925a1202",
+      "committedAt": "2026-09-08"
     },
     "lead": [
       {
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/24d3f4d5a2bd4a9f2d9c034e79f35cec925a1202/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -288,7 +288,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/24d3f4d5a2bd4a9f2d9c034e79f35cec925a1202/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -394,7 +394,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/11efce3ef01eb885c69ae7ed5088d04df101a416/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/24d3f4d5a2bd4a9f2d9c034e79f35cec925a1202/LICENSE"
           },
           {
             "kind": "text",
