@@ -22,7 +22,7 @@
 # ── WHY THE SCHEDULE EXISTS EVEN THOUGH THE THREE REPOS DISPATCH ──
 # A dispatch can be missed: the token expires, a run is cancelled, a release is
 # cut by hand. A daily pass heals that within 24 hours. It also keeps this
-# repository active, which matters — GitHub disables a scheduled workflow after
+# repository active, which matters, GitHub disables a scheduled workflow after
 # 60 days of inactivity, and a project site can be quiet that long.
 name: Sync docs
 
@@ -84,7 +84,7 @@ jobs:
           # the record. Using it would put "which release does the site
           # document" in two places: here, and `highestTag` in sync-docs.ts,
           # which takes the highest vX.Y.Z tag. They would agree until the day
-          # they did not — a prerelease, or a hotfix published on an older line
+          # they did not, a prerelease, or a hotfix published on an older line
           # after a newer major.
           #
           # ALL THREE SOURCES EVERY RUN, whichever one was released. A dispatch
@@ -167,6 +167,9 @@ jobs:
         run: |
           set -euo pipefail
           paths="src/generated public/SOURCE.json"
+          # Named once because the recovery below treats it differently from
+          # every other generated path: it is unioned rather than replaced.
+          memory="src/generated/docs-i18n"
           # `set -e` and a bare `[ ... ] && ...` do not mix: a false test is a
           # non-zero status and would end the step here, silently, without a
           # commit. Written as an `if` for that reason alone.
@@ -197,20 +200,144 @@ jobs:
           # guide removed upstream stops being published.
           git add $paths
           git commit -m "$subject"
-          # Rebase-retry, because a person may have pushed while this ran. The
-          # gate above ran on the pre-rebase tree; it runs again on the pushed
-          # commit, which is the reason for the PAT.
+          # THE COMMIT THE GATE ABOVE RAN ON. Every recovery below reapplies
+          # this tree rather than merging into it, so the name is worth having.
+          # It moves only when a recovery makes a new commit out of the same
+          # generation.
+          run_commit="$(git rev-parse HEAD)"
+
+          # ── TWO SEAMS, BOTH FOR tests/unit/sync-commit-recovery.test.ts ──
+          # That test extracts this very block out of this file and runs it
+          # against two clones of a throwaway repository, because a retry loop
+          # that looks right and cannot retry is exactly what shipped on
+          # 2026-09-07. It overrides the merge command because its clones are in
+          # /tmp with no node_modules, and it overrides the pause so that the
+          # case which exhausts all three attempts costs no wall clock. Neither
+          # variable is ever set in this workflow.
+          merge_memory="${MERGE_MEMORY:-node --import tsx scripts/merge-memory.ts}"
+          pause="${RETRY_PAUSE:-5}"
+
+          # One locale file per line of a commit's `src/generated/docs-i18n/`,
+          # copied out to a directory. A commit that carries no memory at all
+          # leaves an empty directory, which the union reads as an empty side.
+          # Unquoted on purpose, twice over: `$(git ls-tree ...)` is one path
+          # per line and locale file names carry no spaces, and `$merge_memory`
+          # below is a command with its arguments rather than one word.
+          export_memory() {
+            for path in $(git ls-tree -r --name-only "$1" -- "$memory"); do
+              git show "$1:$path" > "$2/$(basename "$path")"
+            done
+          }
+
+          # ── WHY THIS IS NOT `git pull --rebase` IN A LOOP ANY MORE ──
+          # It was, and it could not retry. On 2026-09-07 run 34096862439
+          # conflicted on `public/SOURCE.json`, `src/generated/SOURCE.json` and
+          # `src/generated/docs-i18n/de.json`, and left the tree mid rebase.
+          # There was no abort, so attempts 2 and 3 both died on `error: Pulling
+          # is not possible because you have unmerged files` and the step exited
+          # 1. One conflict poisoned all three passes. Nothing was lost only
+          # because a person merged the same content by hand.
+          #
+          # `fetch` plus `rebase` rather than `pull` so that the recovery can
+          # name `origin/main` as a commit. `pull` also refuses outright while
+          # unmerged files exist, which is the trap above.
           #
           # SKIP_TESTS=1 is the hook's own escape hatch, and here it is the
           # right one: `pnpm install` ran the `prepare` script, which pointed
           # core.hooksPath at .githooks, and the pre-push gate refuses to run
           # without the ts-dev toolbox (it failed every push of this job on
           # 2026-09-04). The tiers it would run, lint, typecheck, unit tests,
-          # staleness and build, are the steps above this one.
+          # staleness and build, are the steps above this one. The push itself
+          # re-runs them on the pushed commit, which is the reason for the PAT.
           for attempt in 1 2 3; do
-            git pull --rebase origin main && SKIP_TESTS=1 git push origin HEAD:main && exit 0
-            sleep 5
+            git fetch --quiet origin main
+            if ! git rebase origin/main; then
+              # ── ABORTING IS NECESSARY AND NOT SUFFICIENT ──
+              # Without this line the next attempt cannot even start. With it
+              # and nothing else, the next attempt conflicts again on the same
+              # files for the same reason, forever: both runs regenerate the
+              # WHOLE tree, so their outputs differ wherever the three source
+              # repositories moved, and git has no way to know that one of them
+              # is simply newer.
+              #
+              # So the resolution is the one a person would reach for, and did
+              # on 2026-09-07: throw the merge away, take the branch, and
+              # reapply this run's generation on top of it. Every run re-quotes
+              # all three repositories, so a run's own output is always a
+              # complete, current sync and never a partial one. A text merge of
+              # two generations is the one result that is wrong either way:
+              # docs synced at one tag beside a `SOURCE.json` from another.
+              echo "::notice::attempt ${attempt}: the branch moved and the generated tree conflicted. Regenerating onto it."
+              git rebase --abort || true
+              git reset --hard origin/main
+
+              # ── NO `--ours` AND NO `--theirs`, ON PURPOSE ──
+              # During a rebase those two are INVERTED against every intuition:
+              # `--ours` is the upstream being replayed onto and `--theirs` is
+              # the commit being replayed, because the rebase checks out the
+              # upstream first and replays your work onto it. Proven on
+              # 2026-09-07 rather than reasoned: in a throwaway repository where
+              # the upstream held UPSTREAM and the replayed commit held MINE,
+              # `git checkout --ours` produced UPSTREAM and `git checkout
+              # --theirs` produced MINE. A flag whose meaning flips with the
+              # command that is running has no place in a rule that decides
+              # which of two trees the site publishes, so both commits are named
+              # outright instead.
+              branch_memory="$(mktemp -d)"
+              run_memory="$(mktemp -d)"
+              export_memory origin/main "$branch_memory"
+              export_memory "$run_commit" "$run_memory"
+
+              # `git rm` first, then `git checkout`: a checkout restores what
+              # the named commit has and says nothing about what it does not.
+              # Without the removal, a guide deleted upstream and still present
+              # on the branch would quietly survive the recovery and go on being
+              # published.
+              git rm -r --quiet --ignore-unmatch -- $paths
+              git checkout "$run_commit" -- $paths
+
+              # ── THE ONE FILE THAT IS NOT REGENERATED, BECAUSE IT IS BOUGHT ──
+              # The memory is a record of sentences a model was PAID to
+              # translate. Taking this run's copy whole would drop what the
+              # other run bought minutes earlier and the next run would buy it
+              # again. `scripts/merge-memory.ts` unions the two sides and keeps
+              # this run's value where both hold a key; its own test pins that,
+              # because a merge rule that can lose money deserves a case.
+              $merge_memory --branch "$branch_memory" --run "$run_memory" --out "$memory"
+              git add $paths
+
+              # ── STILL REFUSES TO PUSH A TREE ITS GATE HAS NOT SEEN ──
+              # The lint, typecheck, test and build steps above ran on
+              # `$run_commit`. Everything staged here has to be that same tree,
+              # the translation memory excepted and named. This is a tripwire
+              # rather than a likely failure: it is what turns a future edit
+              # that starts merging text in here into a red run instead of a
+              # published tree nobody gated.
+              if ! git diff --cached --quiet "$run_commit" -- $paths ":(exclude)$memory"; then
+                echo "::error::the resolved tree differs from the one the gate ran on, outside the translation memory. Refusing to push." >&2
+                exit 1
+              fi
+              # A recovery can end with nothing to stage: the branch already
+              # carries exactly this generation. The usual twin dispatch never
+              # gets this far, because the rebase drops a commit whose patch is
+              # already applied and the push is then a no-op, which the recovery
+              # test records. This is here so that the case which does arrive
+              # exits green instead of dying on `git commit`'s "nothing to
+              # commit" under `set -e`.
+              if git diff --cached --quiet; then
+                echo "The branch already carries this generation. Nothing to push." >> "$GITHUB_STEP_SUMMARY"
+                exit 0
+              fi
+              git commit --quiet -m "$subject"
+              run_commit="$(git rev-parse HEAD)"
+            fi
+            if SKIP_TESTS=1 git push origin HEAD:main; then exit 0; fi
+            sleep "$pause"
           done
+          # LOUD, AND IT NAMES WHAT IT LOST TO. A step that just exits 1 sends
+          # whoever reads the run to guess between a token, a protected branch
+          # and a race. The sha and subject below say which of those it was.
+          echo "::error::Could not land the re-quoted docs after 3 attempts. origin/main is now $(git rev-parse --short origin/main) \"$(git log -1 --format=%s origin/main)\"." >&2
           exit 1
 
       # ── CLOSE THE LOOP ──
