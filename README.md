@@ -121,13 +121,19 @@ diagram in English twice, the translation buys its labels, and the second sync
 notices that the German copy no longer matches the words and redraws that one
 file.
 
-Two smaller syncs pull pictures out of the application repository the same way,
-at a pinned ref, with output that is committed:
+Two smaller syncs pull pictures out of another repository the same way, at a
+pinned ref, with output that is committed:
 
 ```bash
 toolbox run -c ts-dev env CI=true pnpm sync:icons   # public/favicon.ico, public/icons/
 toolbox run -c ts-dev env CI=true pnpm sync:shots   # public/shots/<locale>/
 ```
+
+`sync:icons` copies the mark from `openplate-brand`, which is where it is drawn.
+The application installs it from there too, on the same terms, so neither of the
+two is the other's source. The brand repository publishes a sha256 for every
+asset and the sync checks it, so a copy that does not match what was published
+fails the run and writes nothing.
 
 `sync:shots` copies the product screenshots that
 `openplate/scripts/capture-landing.ts` makes, one set per interface language,
