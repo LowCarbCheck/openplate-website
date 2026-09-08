@@ -1475,6 +1475,12 @@
     "at": "2026-09-06",
     "fr": "Dérive la preuve de récupération sous {{0}} et {{1}} envoie {{2}}. Les deux sont dérivés du même code, et envoyer la branche KEK donnerait au serveur un HMAC de la valeur qui ouvre le journal (§3.1)."
   },
+  "24065231df1b2892": {
+    "en": "exactly",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "exactement"
+  },
   "246ec991be8603d4": {
     "en": "On rung three the browser sends the photo to your own inference container, which looks the macros up in a bundled dataset.",
     "model": "google/gemini-3.8-flash",
@@ -2968,6 +2974,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Verdict"
+  },
+  "4a5f7755708e8adf": {
+    "en": "Every account on the page appears",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "Chaque compte de la page apparaît"
   },
   "4a7fcdf6b90185c9": {
     "en": "Check {{0}} before you commit to a runtime: this pipeline needs grammar-constrained decoding, and not everything that advertises OpenAI compatibility delivers it. llama.cpp, Ollama and {{1}} are all measured working. {{2}}: same version, no accelerator, dead worker.",
@@ -4853,6 +4865,12 @@
     "at": "2026-09-06",
     "fr": "Automatisation."
   },
+  "77de971982ba2ac5": {
+    "en": "{{0}} is the window of the endpoint above, clamped the same way: an integer of at least 1 or a {{1}}, more than 90 answered with 90, and {{2}} reports what was drawn.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "{{0}} correspond à la fenêtre du point de terminaison ci-dessus, bornée de la même façon : un entier d'au moins 1 ou un {{1}}, une valeur supérieure à 90 renvoie 90, et {{2}} indique ce qui a été extrait."
+  },
   "77e8d5153c568f47": {
     "en": "only as SHA-256 digests",
     "model": "google/gemini-3.8-flash",
@@ -5674,6 +5692,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un enregistrement {{0}} permet de déverrouiller le code sous séquestre ; sans lui, une réinitialisation par e-mail fournit un identifiant qui authentifie et n'ouvre rien, ce qu'on découvre le jour où on en a besoin."
+  },
+  "913ef7d3eca5ca71": {
+    "en": "The same day-by-day strip for a whole PAGE of accounts, in the list's order",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "La même frise jour par jour pour toute une PAGE de comptes, dans l'ordre de la liste"
   },
   "914934ace237673d": {
     "en": "{{0}} returns {{1}} {{2}}. {{3}} returns {{4}} {{5}}, because the caller arrived without a session and needs to know which account it just re-entered. Both hand back a fresh pair.",
@@ -7547,6 +7571,18 @@
     "at": "2026-09-06",
     "fr": "La longueur est de 125 octets"
   },
+  "bc969cbf50e79ea1": {
+    "en": "{{0}} answers that same question for a whole page at once",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "{{0}} répond à cette même question pour une page entière en une seule fois"
+  },
+  "bc99b23905d91f20": {
+    "en": "{{0}}, including one that has never made a request, whose {{1}} is a strip of zeroes. An omitted account would make \"this person did nothing\" and \"this person was not in the answer\" the same fact, which is the mistake the per-day zero-fill exists to prevent, one level up.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "{{0}}, y compris celui qui n'a jamais fait de requête, dont le {{1}} est une frise de zéros. Omettre un compte confondrait « cette personne n'a rien fait » et « cette personne n'était pas dans la réponse », ce qui est précisément l'erreur que le remplissage par des zéros au jour le jour vise à éviter, un niveau au-dessus."
+  },
   "bca88217c083b3e3": {
     "en": "self-hosting.md",
     "model": "google/gemini-3.8-flash",
@@ -8159,6 +8195,12 @@
     "at": "2026-09-07",
     "fr": "{{0}} contient {{1}} jour de la période, dans l'ordre, avec {{2}} pour un jour sans ligne. Un jour manquant et un jour sans activité ne doivent pas avoir la même apparence pour quiconque lit la frise."
   },
+  "cda2bc5b17bf56ab": {
+    "en": "{{0}} and {{1}} behave {{2}} as they do on {{3}}: same defaults, same ceiling, same {{4}} with the same sentence. That is the contract, not a coincidence: a caller pages the two endpoints in lockstep and draws strip {{5}} beside person {{6}}, so {{7}} here is in the order that list returns for the same page, and {{8}} is that list's {{9}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "{{0}} et {{1}} se comportent {{2}} comme sur {{3}} : mêmes valeurs par défaut, même plafond, même {{4}} avec la même phrase. C'est le contrat, pas une coïncidence : un appelant pagine les deux points de terminaison de manière synchronisée et affiche la frise {{5}} à côté de la personne {{6}}, donc {{7}} ici suit l'ordre renvoyé par cette liste pour la même page, et {{8}} correspond au {{9}} de cette liste."
+  },
   "cda8c63c5234d3f1": {
     "en": "addressed to one person",
     "model": "google/gemini-3.8-flash",
@@ -8554,6 +8596,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Service"
+  },
+  "d6b1c90e66835258": {
+    "en": "{{0}}, because a people list draws a strip beside every row and asking once per row is N+1.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "{{0}}, car une liste de personnes affiche une frise à côté de chaque ligne et faire une requête par ligne revient à un problème N+1."
   },
   "d6ed718462ddb741": {
     "en": "openplate-sync, email and ciphertext",
@@ -9544,6 +9592,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Chaque autre configuration (synchronisation, inférence auto-hébergée, ou les deux) fait l'objet d'un fichier distinct sous {{0}}. {{1}} répertorie les options pour choisir celle qu'il te faut."
+  },
+  "f290c4d7180db565": {
+    "en": "Each entry is {{0}} and {{1}} and nothing else. The address, the name and the allowance belong to {{2}}, which the caller is already reading.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "fr": "Chaque entrée contient {{0}} et {{1}}, et rien d'autre. L'adresse, le nom et le quota appartiennent à {{2}}, que l'appelant lit déjà."
   },
   "f2c3a0d15ddc43fc": {
     "en": "Queries the public {{0}} API.",

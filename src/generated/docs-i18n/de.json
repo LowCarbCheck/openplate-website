@@ -1661,6 +1661,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Die grammatikgebundene Dekodierung erstellt eine Token-Bitmaske und belegt dafür {{1}}-Speicher, einen seitenfixierten Puffer für schnelles Kopieren auf eine GPU. Fordert man das ohne Beschleuniger an, bricht PyTorch mit einem Fehler ab, statt dies zu ignorieren. Weil das während der Inferenz statt bei der Validierung passiert, stürzt der Worker ab, anstatt einen Fehler zurückzugeben. Das ist ein Upstream-Fehler: Dieselbe Nutzlast verarbeiten llama.cpp und Ollama fehlerfrei."
   },
+  "24065231df1b2892": {
+    "en": "exactly",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "genauso"
+  },
   "246ec991be8603d4": {
     "en": "On rung three the browser sends the photo to your own inference container, which looks the macros up in a bundled dataset.",
     "model": "google/gemini-3.8-flash",
@@ -3352,6 +3358,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ergebnis"
+  },
+  "4a5f7755708e8adf": {
+    "en": "Every account on the page appears",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Jedes Konto auf der Seite erscheint"
   },
   "4a7fcdf6b90185c9": {
     "en": "Check {{0}} before you commit to a runtime: this pipeline needs grammar-constrained decoding, and not everything that advertises OpenAI compatibility delivers it. llama.cpp, Ollama and {{1}} are all measured working. {{2}}: same version, no accelerator, dead worker.",
@@ -5477,6 +5489,12 @@
     "at": "2026-09-04",
     "de": "enthalten ungefähr 0.35 bis 0.6 s Roundtrip-Zeit für Netzwerk und Proxy"
   },
+  "77de971982ba2ac5": {
+    "en": "{{0}} is the window of the endpoint above, clamped the same way: an integer of at least 1 or a {{1}}, more than 90 answered with 90, and {{2}} reports what was drawn.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "{{0}} ist das Zeitfenster des obigen Endpunkts, auf dieselbe Weise begrenzt: eine Ganzzahl von mindestens 1 oder ein {{1}}, Werte über 90 werden mit 90 beantwortet, und {{2}} meldet, was gezeichnet wurde."
+  },
   "77e8d5153c568f47": {
     "en": "only as SHA-256 digests",
     "model": "google/gemini-3.8-flash",
@@ -6460,6 +6478,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ein Datensatz vom Typ {{0}} sorgt dafür, dass der hinterlegte Schlüssel ausgepackt werden kann; ohne ihn liefert ein Zurücksetzen per E-Mail Anmeldedaten, die sich authentifizieren und nichts öffnen, was erst an dem Tag auffällt, an dem man sie braucht."
+  },
+  "913ef7d3eca5ca71": {
+    "en": "The same day-by-day strip for a whole PAGE of accounts, in the list's order",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Derselbe tageweise Streifen für eine ganze SEITE von Konten, in der Reihenfolge der Liste"
   },
   "914934ace237673d": {
     "en": "{{0}} returns {{1}} {{2}}. {{3}} returns {{4}} {{5}}, because the caller arrived without a session and needs to know which account it just re-entered. Both hand back a fresh pair.",
@@ -8639,6 +8663,18 @@
     "at": "2026-09-04",
     "de": "Alles, was einem Nutzer gehört, Ernährungstagebücher, Gewichte, eigene Lebensmittel, Ziele, die KI-Einstellungen, wird in die IndexedDB des Browsers auf dem Gerät geschrieben, auf dem es eingegeben wurde ({{0}}). Dort liegt es im Klartext, weil es {{1}} Gerät ist, und es verlässt dieses nie außer in zwei von dir gewählten Formen: als heruntergeladener JSON-Export oder als verschlüsselter Synchronisations-Blob."
   },
+  "bc969cbf50e79ea1": {
+    "en": "{{0}} answers that same question for a whole page at once",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "{{0}} beantwortet dieselbe Frage für eine ganze Seite auf einmal"
+  },
+  "bc99b23905d91f20": {
+    "en": "{{0}}, including one that has never made a request, whose {{1}} is a strip of zeroes. An omitted account would make \"this person did nothing\" and \"this person was not in the answer\" the same fact, which is the mistake the per-day zero-fill exists to prevent, one level up.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "{{0}}, einschließlich Konten, die noch nie eine Anfrage gestellt haben und deren {{1}} ein Streifen aus Nullen ist. Ein weggelassenes Konto würde \"diese Person war inaktiv\" und \"diese Person war nicht in der Antwort enthalten\" zu derselben Tatsache machen, und genau diesen Fehler soll das Auffüllen mit Nullen pro Tag eine Ebene höher verhindern."
+  },
   "bca88217c083b3e3": {
     "en": "self-hosting.md",
     "model": "google/gemini-3.8-flash",
@@ -9365,6 +9401,12 @@
     "at": "2026-09-07",
     "de": "{{0}} enthält der Reihe nach {{1}} Tag im Zeitfenster, mit {{2}} für einen Tag ohne Zeile. Ein fehlender Tag und ein inaktiver Tag dürfen für die lesende Person nicht gleich aussehen."
   },
+  "cda2bc5b17bf56ab": {
+    "en": "{{0}} and {{1}} behave {{2}} as they do on {{3}}: same defaults, same ceiling, same {{4}} with the same sentence. That is the contract, not a coincidence: a caller pages the two endpoints in lockstep and draws strip {{5}} beside person {{6}}, so {{7}} here is in the order that list returns for the same page, and {{8}} is that list's {{9}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "{{0}} und {{1}} verhalten sich {{2}} wie bei {{3}}: dieselben Standardwerte, dieselbe Obergrenze, dasselbe {{4}} mit demselben Satz. Das ist die Schnittstellenvereinbarung, kein Zufall: Ein Aufrufer blättert synchron durch beide Endpunkte und zeichnet Streifen {{5}} neben Person {{6}}, daher folgt {{7}} hier der Reihenfolge, die diese Liste für dieselbe Seite zurückgibt, und {{8}} ist das {{9}} dieser Liste."
+  },
   "cda8c63c5234d3f1": {
     "en": "addressed to one person",
     "model": "google/gemini-3.8-flash",
@@ -9808,6 +9850,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Dienst"
+  },
+  "d6b1c90e66835258": {
+    "en": "{{0}}, because a people list draws a strip beside every row and asking once per row is N+1.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "{{0}}, weil eine Personenliste neben jeder Zeile einen Streifen zeichnet und eine Abfrage pro Zeile ein N+1-Problem ist."
   },
   "d6d9defc627f984f": {
     "en": "{{0}} Measured: two simultaneous requests cost 0.75–0.83× of the same two run back to back — a 1.2–1.3× throughput recovery on a 2× fan-out, paid for entirely in per-request latency (one request alone 2.5 s; two in flight, 3.7 s each). Plan capacity as if the box were serial.",
@@ -10972,6 +11020,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Jede andere Konfiguration (Synchronisierung, selbst gehostete Inferenz, beides) ist eine eigene Datei unter {{0}}. {{1}} zeigt dir, welche Variante du benötigst."
+  },
+  "f290c4d7180db565": {
+    "en": "Each entry is {{0}} and {{1}} and nothing else. The address, the name and the allowance belong to {{2}}, which the caller is already reading.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Jeder Eintrag besteht aus {{0}} sowie {{1}} und nichts anderem. Die Adresse, der Name und das Kontingent gehören zu {{2}}, was der Aufrufer ohnehin bereits liest."
   },
   "f2c3a0d15ddc43fc": {
     "en": "Queries the public {{0}} API.",
