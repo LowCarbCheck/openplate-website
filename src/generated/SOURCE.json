@@ -1,9 +1,9 @@
 {
   "app": {
     "repo": "https://github.com/LowCarbCheck/openplate",
-    "ref": "v0.18.4",
-    "commit": "eaff8ad4f60d509399754c5ac900fef43bd2fe0f",
-    "syncedAt": "2026-09-08T14:37:58.315Z"
+    "ref": "v0.19.0",
+    "commit": "bb4b824df6bbef600fa3c42fd055539be5b3ded6",
+    "syncedAt": "2026-09-08T14:59:22.884Z"
   },
   "sync": {
     "repo": "https://github.com/LowCarbCheck/openplate-sync",

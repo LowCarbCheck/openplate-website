@@ -857,6 +857,12 @@
     "at": "2026-09-04",
     "de": "Heute verbrauchte Anfragen, nach dieser"
   },
+  "1213c92e1dbdfd2d": {
+    "en": "The request is made by the {{0}}, not by the browser, and that is the point: adding {{1}} to the production {{2}} would widen the one allowlist that stops an injected script exfiltrating a BYOK key. It carries no token, no instance identifier and no version number, so GitHub sees an IP address and a default user agent and nothing else. See {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Die Anfrage stellt der {{0}}, nicht der Browser, und genau das ist der Zweck: Würde man {{1}} zur produktiven {{2}} hinzufügen, würde das die einzige Positivliste aufweichen, die verhindert, dass ein eingeschleustes Skript einen BYOK-Schlüssel ausschleust. Sie enthält kein Token, keine Instanzkennung und keine Versionsnummer, sodass GitHub eine IP-Adresse, einen Standard-User-Agent und sonst nichts sieht. Siehe {{3}}."
+  },
   "12950c33f18cebe8": {
     "en": "§9 Cookies",
     "model": "google/gemini-3.8-flash",
@@ -4739,6 +4745,12 @@
     "at": "2026-09-04",
     "de": "Nichts"
   },
+  "67ff81d79ff90c68": {
+    "en": "Settings > About",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Einstellungen > Über"
+  },
   "683b2143289e2f24": {
     "en": "{{0}} One transaction: hard-delete the row, insert a pseudonym-keyed tombstone. {{1}}, idempotent.",
     "model": "google/gemini-3.8-flash",
@@ -5753,6 +5765,12 @@
     "at": "2026-09-04",
     "de": "Kontext {{0}}. Der Container multipliziert ihn mit {{1}}, bevor er ihn an llama.cpp übergibt, da {{2}} von llama.cpp der {{3}} ist, den es auf Slots aufteilt."
   },
+  "7f26104f77a7ce47": {
+    "en": "reports",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "meldet"
+  },
   "7f423c4c6fb129c9": {
     "en": "{{0}} It is a sibling of {{1}}, not a parent and not a child: both are HKDF outputs over the same Argon2id hash under different {{2}} labels, so possession of one gives no information about the other. This is the whole reason the server can authenticate a user it cannot decrypt for. {{3}} is 32 bytes, base64 on the wire.",
     "model": "google/gemini-3.8-flash",
@@ -5812,6 +5830,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Es läuft nicht über den Server von openplate. Du kontrollierst jede Zwischenstation."
+  },
+  "80cd77a88d1ac4ac": {
+    "en": "Set to {{0}} to stop the server asking GitHub whether a newer openplate exists. See {{1}} below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Auf {{0}} setzen, damit der Server GitHub nicht mehr fragt, ob ein neueres openplate existiert. Siehe {{1}} unten."
   },
   "80def1fadf5f5eb8": {
     "en": "The app plus your own sync service",
@@ -6238,6 +6262,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "pro Teller"
+  },
+  "8ab0d4036782a5c2": {
+    "en": "The release check",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Die Release-Prüfung"
   },
   "8ac8447304a881b9": {
     "en": "{{0}} This is the cap. A key with no limit can spend the account's whole balance, so treat \"unlimited\" as the thing you are here to avoid.",
@@ -7138,6 +7168,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das statische Betreiber-Token"
+  },
+  "9d59a6c52b2982b5": {
+    "en": "turns it off completely: no timer is started, no request is ever made, and the About page says checks are disabled.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "schaltet sie komplett ab: Es wird kein Timer gestartet, keine Anfrage gestellt und die Über-Seite meldet, dass Prüfungen deaktiviert sind."
   },
   "9d5daf70009b6600": {
     "en": "{{0}} (first boot only; minutes to an hour on a home connection). Sizes are printed up front so you can compare against your link speed:",
@@ -8207,6 +8243,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Die Änderungen gehören zur selben Kategorie, das Auth-Feld ist wieder {{1}}, die Registrierung erfordert eine adressierte Einladung und beide Schlüsseldatensätze, {{2}} wurde aus dem Handshake entfernt, {{3}} ersetzte den alten Account-Body und zwei Reset-Endpunkte verwenden §5.12 wieder, aber dieses Mal greift §6: Ein Client mit Version 1 verweigert die Kommunikation, statt nur halb zu funktionieren. Begründung: {{4}}."
   },
+  "b3eacd33433b31b5": {
+    "en": "server",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Server"
+  },
   "b3ffbbff2d64d47b": {
     "en": "(default)",
     "model": "google/gemini-3.8-flash",
@@ -8411,6 +8453,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Bis zur ersten öffentlichen Veröffentlichung können inkompatible Änderungen ohne den Migrationspfad vorgenommen werden, den ein veröffentlichtes Protokoll bräuchte. Zwei wurden OHNE eine Versionserhöhung vorgenommen: der Wechsel von Cookie- zu Bearer-Authentifizierung und die Verschiebung der Sync-Routen von {{1}} nach {{2}}. Eine dritte Änderung, die Entfernung der E-Mail-Adresse in 0.5.0, erfolgte ebenfalls ohne Erhöhung, was nicht hätte passieren dürfen, siehe unten. Dieser Absatz wird mit der öffentlichen Veröffentlichung gelöscht, und ab dann gelten die obigen Regeln buchstabengetreu."
   },
+  "b7daa3d00a0fd481": {
+    "en": "Every six hours the server asks {{0}} for the tag list of the openplate repository, compares the newest {{1}} with the version it is running, and reports the answer at {{2}}. There is also a \"Check now\" button, which is limited to one real request a minute across the whole instance.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Alle sechs Stunden fragt der Server bei {{0}} die Tag-Liste des openplate-Repositorys ab, vergleicht das neueste {{1}} mit der aktuell laufenden Version und meldet das Ergebnis unter {{2}}. Es gibt auch eine Schaltfläche \"Jetzt prüfen\", die instanzweit auf eine echte Anfrage pro Minute begrenzt ist."
+  },
   "b7eae0978e2be4c9": {
     "en": "{{0}} local plate scans without a cloud AI account, per-scan fees, or outbound photo traffic. The container image bundles a USDA FoodData Central extract by default, so openplate-inference looks macros up instead of inventing them. {{1}} a model runtime and a few gigabytes of weights, plus whatever it takes to make the endpoint reachable {{2}} (the photo goes device → endpoint, so a compose hostname does not work here). {{3}} {{4}}.",
     "model": "google/gemini-3.8-flash",
@@ -8464,6 +8512,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Eigene Laufzeitumgebung einbinden"
+  },
+  "b8d31e852725afb1": {
+    "en": "on",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "an"
   },
   "b8f933ba9cfe1322": {
     "en": "0.94 s",
@@ -8734,6 +8788,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Lebensdauer"
+  },
+  "bdf6546e83a21130": {
+    "en": "The check only ever {{0}}. openplate is a single stateless container and cannot replace its own image, so upgrading stays what it always was:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Die Prüfung {{0}} nur. openplate ist ein einzelner zustandsloser Container und kann sein eigenes Image nicht ersetzen, daher bleibt ein Upgrade genau das, was es immer war:"
   },
   "be257df7cb848adb": {
     "en": "key records",
@@ -9623,6 +9683,12 @@
     "at": "2026-09-04",
     "de": "{{0}} In openplate: {{1}}, wähle {{2}} und nutze den Bereich \"API-Schlüssel manuell einfügen\". Der Schlüssel wird nur in diesem Browser gespeichert. Er ist vom JSON-Export ausgenommen und erreicht den openplate-Server nie."
   },
+  "d1cd8d987ad6206c": {
+    "en": "ADR-0012",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "ADR-0012"
+  },
   "d1e0c598da5f8958": {
     "en": "Stage 2 — loading the model",
     "model": "google/gemini-3.8-flash",
@@ -10414,6 +10480,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} nimmt {{1}} entgegen und gibt {{2}} zurück. {{3}}: Eine Sitzung, die auf einem geteilten Gerät zurückgelassen wurde, darf nicht ausreichen, um die Daten einer Person unwiderruflich zu zerstören."
+  },
+  "e4de4e6156497517": {
+    "en": "The one button in the app that does change something is \"Reload to update\", which appears when the server is already serving a newer build than the open page is running. That reloads the browser onto assets the server has, and touches nothing on the host.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-08",
+    "de": "Die einzige Schaltfläche in der App, die tatsächlich etwas ändert, ist \"Neu laden zum Aktualisieren\". Sie erscheint, wenn der Server bereits einen neueren Build ausliefert, als die geöffnete Seite ausführt. Das lädt den Browser mit den Assets neu, die der Server hat, und ändert auf dem Host rein gar nichts."
   },
   "e53fab69be7c20fd": {
     "en": "The error body on this route is OpenAI-shaped, not the {{0}} of §4",
