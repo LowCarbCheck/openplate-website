@@ -1889,11 +1889,23 @@
     "at": "2026-09-04",
     "de": "Gesamtobergrenze für einen Vervollständigungsaufruf; {{0}} = deaktiviert. Liveness-, nicht Latenzrichtlinie, sie gibt einen Worker-Slot frei, den eine blockierte Laufzeitumgebung nie zurückgeben würde. Gilt auch im gebündelten Modus. Siehe {{1}}."
   },
+  "297b2a44ced02373": {
+    "en": "Inference is the compute layer, openplate-core is the tenancy layer on a managed instance, and they compose",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Inferenz bildet die Rechenschicht, openplate-core die Mandantenschicht auf einer verwalteten Instanz, und beide greifen ineinander"
+  },
   "298b03becdb0e442": {
     "en": "Both are 256 bits of randomness, both are stored only as a SHA-256 digest, and both are single-use. Neither is ever accepted as an {{0}} credential, and a session token is never accepted in their place: the prefix is a shape gate applied before any lookup, and its rejection is the same generic failure a wrong token gets, so it adds no oracle.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Beide bestehen aus 256 Bit Zufallswerten, beide werden nur als SHA-256-Digest gespeichert und beide sind für den Einmalgebrauch bestimmt. Keiner von beiden wird jemals als {{0}}-Anmeldedaten akzeptiert, und ein Sitzungstoken wird nie an ihrer Stelle zugelassen: Das Präfix dient als Formatprüfung vor jedem Datenbankzugriff, und ein Abweisen erzeugt denselben generischen Fehler wie ein falsches Token, weshalb daraus kein Orakel entsteht."
+  },
+  "299113b4ff40ef26": {
+    "en": "The other alternative: a managed openplate-core instance",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Die andere Alternative: eine verwaltete openplate-core-Instanz"
   },
   "29cdbd5000551a9d": {
     "en": "Strong on branded and packaged products, weaker on generic cooked food. Read the licence note below before enabling. Nothing OFF-derived ships in this image.",
@@ -2603,6 +2615,12 @@
     "at": "2026-09-04",
     "de": "Ein Administrator-KONTO kann sich nicht selbst sperren, herabstufen oder löschen"
   },
+  "3a4b62b097266694": {
+    "en": "Setup: bring up openplate-core (see {{0}} and {{1}}), and set {{2}} on the openplate app. From there, invite people at {{3}} in the app, or from a terminal with openplate-core's {{4}} CLI, giving each account a daily allowance. The invite is mailed to the person; the link is never printed to a console. Each person signs in and their account already carries the AI connection: there is no separate step and nothing to paste in. Suspending or reactivating an account is the same admin screen, and takes effect immediately.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Einrichtung: Starte openplate-core (siehe {{0}} und {{1}}) und setze {{2}} in der openplate-App. Lade von dort aus Personen unter {{3}} in der App ein, oder über ein Terminal mit der {{4}}-CLI von openplate-core, und weise jedem Konto ein Tageskontingent zu. Die Einladung wird der Person per E-Mail zugestellt; der Link wird niemals auf einer Konsole ausgegeben. Jede Person meldet sich an und ihr Konto enthält bereits die KI-Verbindung: Es gibt keinen separaten Schritt und nichts einzufügen. Das Sperren oder Reaktivieren eines Kontos erfolgt über dieselbe Admin-Oberfläche und wird sofort wirksam."
+  },
   "3a5d9a0a7166fb23": {
     "en": "No account id, ever.",
     "model": "google/gemini-3.8-flash",
@@ -3293,6 +3311,12 @@
     "at": "2026-09-04",
     "de": "CPU, gemessen"
   },
+  "487eb7600a7bd9f7": {
+    "en": "openplate-core, on a managed instance, is the tenancy layer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "openplate-core bildet auf einer verwalteten Instanz die Mandantenschicht."
+  },
   "48eaf5bd6ca7beff": {
     "en": "Everything above is unchanged on an open instance ({{0}} unset or {{1}}), and a test pins both variants side by side.",
     "model": "google/gemini-3.8-flash",
@@ -3628,6 +3652,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Erster Start"
+  },
+  "4f7d440a2d506ba9": {
+    "en": "openplate-core moves a diary between devices. It is the only service in openplate that holds accounts at all. It is a separate deployable with its own image, database and secret, and the browser talks to it directly. The app server proxies nothing on its behalf and serves no sync route.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "openplate-core überträgt ein Tagebuch zwischen Geräten. Es ist der einzige Dienst in openplate, der überhaupt Konten führt. Es ist ein separates Bereitstellungsobjekt mit eigenem Image, eigener Datenbank sowie eigenem Secret, und der Browser kommuniziert direkt damit. Der App-Server leitet nichts stellvertretend weiter und bedient keine Sync-Route."
   },
   "4fbaa4102fd51326": {
     "en": "This wrap carries AAD; the §3.2 wrapped DEKs do not.",
@@ -4708,6 +4738,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Alles oder nichts, in einer einzigen Datenbanktransaktion."
+  },
+  "6682549cad8d07bc": {
+    "en": "openplate-core",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "openplate-core"
   },
   "66962f72a0888373": {
     "en": "Preferences",
@@ -6119,6 +6155,12 @@
     "at": "2026-09-04",
     "de": "Makronährstoffe werden anhand des Namens über eine Lebensmitteldatenbank aufgelöst, niemals vom Modell generiert."
   },
+  "85af567742b9f53f": {
+    "en": "openplate-core, managed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "openplate-core, verwaltet"
+  },
   "86528caa5f301f6a": {
     "en": "To build from source instead of pulling the published image, comment out {{0}} in {{1}}, uncomment {{2}}, and run — from the repo root, because the build context is written relative to that file:",
     "model": "google/gemini-3.8-flash",
@@ -7151,6 +7193,12 @@
     "at": "2026-09-04",
     "de": "Erstellt GENAU EIN Konto unter der in der Einladung angegebenen Adresse."
   },
+  "9ad501a2c41cb6d3": {
+    "en": "From August to September 2026, this was a separate service, openplate-gateway: a small OpenAI-compatible proxy holding one upstream key and issuing each member an {{0}} token with its own daily quota. M192 (September 2026) merged it into openplate-core: one account now carries both the diary and the allowance, so there is no second service, no second invite link, and no second credential to hand out.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Von August bis September 2026 war dies ein eigenständiger Dienst namens openplate-gateway: ein kleiner OpenAI-kompatibler Proxy, der einen Upstream-Schlüssel verwaltete und jedem Mitglied ein {{0}}-Token mit eigenem Tageskontingent ausstellte. M192 (September 2026) führte ihn mit openplate-core zusammen: Ein einziges Konto umfasst nun sowohl das Tagebuch als auch das Kontingent, sodass kein zweiter Dienst, kein zweiter Einladungslink und keine zweiten Zugangsdaten mehr vergeben werden müssen."
+  },
   "9adbaf62d83b9d04": {
     "en": "AAD",
     "model": "google/gemini-3.8-flash",
@@ -7270,6 +7318,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "das Protokoll"
+  },
+  "9d0003eea3c19d79": {
+    "en": "Point a managed instance's AI proxy at your inference box (openplate-core's {{0}}, with {{1}} left empty) and you get both: scans on your own hardware, with per-account allowances in front of them. Point it at a cloud provider instead and you get shared spend with no hardware. Either way, the same sync server also carries the diary: sync and the AI proxy are one service now, not two ({{2}}).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Richte den KI-Proxy einer verwalteten Instanz auf deinen Inferenzrechner aus ({{0}} von openplate-core, wobei {{1}} leer bleibt) und du erhältst beides: Scans auf deiner eigenen Hardware, mit vorgelagerten Kontingenten pro Konto. Richtest du ihn stattdessen auf einen Cloud-Anbieter aus, teilt ihr euch die Ausgaben ganz ohne eigene Hardware. In beiden Fällen verwaltet derselbe Sync-Server auch das Tagebuch: Synchronisierung und KI-Proxy sind jetzt ein einziger Dienst, nicht zwei ({{2}})."
   },
   "9d1001dee6782094": {
     "en": "There are no accounts.",
@@ -7552,6 +7606,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Es beantwortet die Frage {{1}}. Es enthält eine Modell-Laufzeitumgebung sowie Gewichte und verlangt entsprechende Hardware."
+  },
+  "a2c23168b9af6a67": {
+    "en": "If your provider will not issue capped sub-keys (Mistral, most direct provider APIs), the sub-key recipe above has nothing to work with. That is what a {{0}} openplate-core instance is for: set {{1}} (requires {{2}}), and the account service your household already uses for sync also becomes the AI proxy, with a daily request allowance per account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Falls dein Anbieter keine begrenzten Unterschlüssel ausstellt (Mistral, die meisten direkten Anbieter-APIs), läuft die obige Anleitung für Unterschlüssel ins Leere. Genau dafür gibt es eine {{0}} openplate-core-Instanz: Setze {{1}} (erfordert {{2}}), und der Kontodienst, den dein Haushalt bereits für die Synchronisierung nutzt, fungiert gleichzeitig als KI-Proxy, mit einem täglichen Anfragekontingent pro Konto."
   },
   "a2c6511404d5490e": {
     "en": "{{0}}, unlike §5.16. Rotation is not part of the sharing surface: it rewrites the caller's own blob and their own two key records, rows that exist on every account everywhere, and it is the answer to any belief that a DEK leaked (a restored backup, a lost device) on an instance that has never shared anything. Gating the only mechanism that can retire a compromised DEK behind an unrelated flag would leave such an operator with no way to retire one.",
@@ -9467,6 +9527,12 @@
     "at": "2026-09-04",
     "de": "{{0}}, und beide tragen ein Präfix, damit keines dort übermittelt werden kann, wo das andere hingehört:"
   },
+  "caecc5fda7aecf18": {
+    "en": "An administrator invites people from the app itself, at {{0}}, or from a terminal through openplate-core's {{1}} CLI (see the workspace's admin notes). The invite is mailed, never printed to a console. A forgotten password is reset by a mailed link; the server holds an escrowed recovery code that unwraps the data key after the reset (see {{2}}).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Ein Administrator lädt Personen direkt aus der App unter {{0}} ein, oder über ein Terminal mittels der {{1}}-CLI von openplate-core (siehe die Admin-Hinweise des Workspace). Die Einladung wird per E-Mail versendet und niemals auf einer Konsole ausgegeben. Ein vergessenes Passwort wird über einen per E-Mail verschickten Link zurückgesetzt; der Server verwahrt einen hinterlegten Wiederherstellungscode, der den Datenschlüssel nach dem Zurücksetzen entschlüsselt (siehe {{2}})."
+  },
   "cb0235227340690e": {
     "en": "{{0}} for a known address, an unknown one and a malformed one alike. A conforming server MUST do the same work on both branches: mint the token, digest it, and only then skip the store write and the send when there is no account. That symmetry is the whole anti-enumeration argument, and it is the one this document previously recorded as MISSING: the old {{1}} did the expensive work only for addresses that existed, so its timing said what its body did not.",
     "model": "google/gemini-3.8-flash",
@@ -10132,6 +10198,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "openplate-sync, E-Mail und Geheimtext"
+  },
+  "d71a0e5ed0750f87": {
+    "en": "The drawing below is the whole system in three arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core, which never gets the key. The photo leaves for whichever AI endpoint you configured. The app server sends the page and stands on neither path.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Die Zeichnung unten zeigt das gesamte System in drei Pfeilen. Dein Gerät behält das Tagebuch und das Tellerfoto. Das Tagebuch verlässt das Gerät verschlüsselt in Richtung openplate-core, das den Schlüssel nie erhält. Das Foto geht an den KI-Endpunkt, den du eingerichtet hast. Der App-Server liefert die Seite aus und liegt auf keinem der beiden Pfade."
   },
   "d728b87ba5c07f49": {
     "en": "The write is accepted {{0}} {{1}} equals the account's current version. This is the entire concurrency model. There is no force-push and no {{2}}-less write.",
@@ -10949,6 +11021,12 @@
     "at": "2026-09-07",
     "de": "Scan"
   },
+  "ea231333d51c4fdf": {
+    "en": "To the browser it is unchanged: a signed-in account with an allowance scans through the AI proxy openplate-core exposes, the same service the client already talks to for sync. To the thing behind it, openplate-core is a client: it points at either a cloud provider or your own openplate-inference container. {{0}}: the sync server carries no model and answers no scan itself.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Für den Browser ändert sich nichts: Ein angemeldetes Konto mit einem Kontingent scannt über den von openplate-core bereitgestellten KI-Proxy, denselben Dienst, mit dem der Client ohnehin für die Synchronisierung spricht. Für die Komponente dahinter fungiert openplate-core als Client: Es verweist entweder auf einen Cloud-Anbieter oder auf deinen eigenen openplate-inference-Container. {{0}}: Der Sync-Server betreibt kein Modell und beantwortet Scans nicht selbst."
+  },
   "ea423b4f69278106": {
     "en": "The {{0}} branch is what the client sends to prove possession of the recovery code",
     "model": "google/gemini-3.8-flash",
@@ -11189,6 +11267,12 @@
     "at": "2026-09-04",
     "de": "Drei Konfigurationsfallen"
   },
+  "ee744335319dcdf7": {
+    "en": "openplate-core's README",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "README von openplate-core"
+  },
   "eec5231ca080db67": {
     "en": "The recovery path deliberately skips Argon2id and uses an {{0}}. That is correct, not an oversight: RFC 5869 §3.1 permits it when the input key material is already high-entropy, which a 160-bit random code is by construction. Only low-entropy human passphrases need a memory-hard stretch and a real salt.",
     "model": "google/gemini-3.8-flash",
@@ -11200,6 +11284,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ein OpenAI-kompatibler Vision-Endpunkt, den diese Instanz allen Besuchern anbietet. Siehe {{0}} weiter unten."
+  },
+  "ef742a5c2c2f65a7": {
+    "en": "An instance can set {{0}} (see {{1}}). That declares one thing: {{2}} openplate-core is what carries that, the account it already holds for sync also holds the allowance, so there is no second connection step and no second credential.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "Eine Instanz kann {{0}} setzen (siehe {{1}}). Das legt genau eines fest: {{2}} openplate-core übernimmt das, und das Konto, das es bereits für die Synchronisierung führt, enthält auch das Kontingent. Es gibt also keinen zweiten Verbindungsschritt und keine zweiten Zugangsdaten."
   },
   "ef7853761e698204": {
     "en": "Unknown, foreign and never-pushed all answer the {{0}} {{1}}. Absence of a share must not confirm that an account exists.",
