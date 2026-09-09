@@ -140,10 +140,10 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "sync",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-sync",
-      "ref": "v0.9.0",
+      "ref": "v0.10.0",
       "editRef": "main",
-      "sha": "73b6ae165cb66ec832f264e46834b8cd417333d4",
-      "committedAt": "2026-09-08"
+      "sha": "d4a8d233a7c00753a40c51f3526380b8ed206818",
+      "committedAt": "2026-09-09"
     },
     "lead": [
       {
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/73b6ae165cb66ec832f264e46834b8cd417333d4/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/d4a8d233a7c00753a40c51f3526380b8ed206818/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -288,7 +288,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/73b6ae165cb66ec832f264e46834b8cd417333d4/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/d4a8d233a7c00753a40c51f3526380b8ed206818/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -384,7 +384,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " openplate-sync is licensed under the "
+            "text": " openplate-core is licensed under the "
           },
           {
             "kind": "link",
@@ -394,7 +394,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/73b6ae165cb66ec832f264e46834b8cd417333d4/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-sync/blob/d4a8d233a7c00753a40c51f3526380b8ed206818/LICENSE"
           },
           {
             "kind": "text",

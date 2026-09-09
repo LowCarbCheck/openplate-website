@@ -7,9 +7,9 @@
   },
   "sync": {
     "repo": "https://github.com/LowCarbCheck/openplate-sync",
-    "ref": "v0.9.0",
-    "commit": "73b6ae165cb66ec832f264e46834b8cd417333d4",
-    "syncedAt": "2026-09-08T09:08:57.745Z"
+    "ref": "v0.10.0",
+    "commit": "d4a8d233a7c00753a40c51f3526380b8ed206818",
+    "syncedAt": "2026-09-09T14:43:20.124Z"
   },
   "inference": {
     "repo": "https://github.com/LowCarbCheck/openplate-inference",

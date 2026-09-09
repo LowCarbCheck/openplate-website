@@ -4469,6 +4469,12 @@
     "at": "2026-09-04",
     "de": "Kompatibilitätsmatrix"
   },
+  "633d97e64b616fd9": {
+    "en": "{{0}} openplate-core is licensed under the {{1}} (SPDX: {{2}}), the same license as the openplate app. Self-hosting is explicitly one of the things it supports. See {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-09",
+    "de": "{{0}} openplate-core ist unter der {{1}} (SPDX: {{2}}) lizenziert, derselben Lizenz wie die openplate-App. Self-Hosting zählt ausdrücklich zu den Dingen, die sie unterstützt. Siehe {{3}}."
+  },
   "633df752916974a6": {
     "en": "{{0}} An email address, an opaque ciphertext blob per account, wrapped key records it cannot unwrap, and each account's recovery code sealed under a key in the environment. It cannot read the ciphertext, not as a policy, but as a consequence of never receiving a key: your passphrase never leaves your device, and what reaches the server is a derived value that authenticates you and decrypts nothing. The escrowed recovery code is the deliberate exception, and it is what makes \"forgot password\" restore the diary rather than only the login. {{1}}, not through an endpoint, there is none, but by reading that column with {{2}} in hand. A self-hosted instance is its own operator. The full argument, including what it costs and why it was taken, is {{3}}.",
     "model": "google/gemini-3.8-flash",
