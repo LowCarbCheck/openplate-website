@@ -54,7 +54,7 @@ import type { Block, DocComponent, DocFile } from './docs';
  * so the two cannot disagree: a page named here with no sections is a type error, and a page with
  * sections and no name here would never be checked by the sync.
  */
-export const STACK_PAGES = ['home', 'app', 'sync', 'inference', 'deploy'] as const;
+export const STACK_PAGES = ['home', 'app', 'core', 'inference', 'deploy'] as const;
 
 /** Not every page: `/docs`, `/privacy` and the imprint are the site talking about itself. */
 export type StackPage = (typeof STACK_PAGES)[number];
@@ -112,10 +112,10 @@ export const STACK_SECTIONS = {
       headingKey: 'pages.home.stack.app.name',
     },
     {
-      id: 'stackSync',
-      component: 'sync',
+      id: 'stackCore',
+      component: 'core',
       from: { kind: 'readme', paragraphs: 1 },
-      headingKey: 'pages.home.stack.sync.name',
+      headingKey: 'pages.home.stack.core.name',
     },
     {
       id: 'stackInference',
@@ -164,7 +164,7 @@ export const STACK_SECTIONS = {
       headingKey: 'pages.app.leaves.heading',
     },
   ],
-  sync: [
+  core: [
     // PLAIN FIRST, DETAIL AFTER, AND THE DETAIL IS SKIPPABLE. This section was PROTOCOL.md's
     // "9.1 What it cannot know", which opens "The server never receives the DEK, either KEK, the
     // passphrase, or the recovery code". A reader who has just arrived on a component page does
@@ -180,15 +180,15 @@ export const STACK_SECTIONS = {
         slug: 'architecture',
         heading: 'Sync is identity, beside the photo path and never inside it',
       },
-      headingKey: 'pages.sync.reads.heading',
+      headingKey: 'pages.core.reads.heading',
     },
     // 9.2 stays, right underneath, because a concrete list of what the server DOES hold is the
     // honest counterpart to the claim above it, and its opening line introduces no new vocabulary.
     {
       id: 'knows',
-      component: 'sync',
+      component: 'core',
       from: { kind: 'doc', slug: 'protocol', heading: '9.2 What it does know' },
-      headingKey: 'pages.sync.knows.heading',
+      headingKey: 'pages.core.knows.heading',
     },
     {
       id: 'tenancy',
@@ -198,7 +198,7 @@ export const STACK_SECTIONS = {
         slug: 'architecture',
         heading: 'The sync server is tenancy, and it sits in front of the compute on a managed instance',
       },
-      headingKey: 'pages.sync.tenancy.heading',
+      headingKey: 'pages.core.tenancy.heading',
     },
   ],
   inference: [

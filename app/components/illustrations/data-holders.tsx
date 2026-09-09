@@ -8,7 +8,7 @@
  * everything sits on the device. This draws that in one look and then gets out of the way.
  *
  * ── THE COLUMN THIS DRAWS IS "WHAT IT STORES", NOT "WHAT IT SEES" ──
- * The table has both columns and they do not agree: openplate-sync stores ciphertext it holds no
+ * The table has both columns and they do not agree: openplate-core stores ciphertext it holds no
  * key for, and on a managed instance it also FORWARDS a photo it does not keep. The inference
  * runtime stores nothing per user and still sees the photo for the length of one request. A single
  * bar cannot carry both without lying about one of them, so this one carries storage, which is what
@@ -51,7 +51,7 @@ import { DRAWN, frameAttributes, SVG_ROOT, type IllustrationProps } from './fram
  * The five names, in the reader's language, as required props.
  *
  * One object and not five positional strings: five parameters of the same type in a row is five
- * chances to swap two of them, and swapping "openplate app server" with "openplate-sync" here
+ * chances to swap two of them, and swapping "openplate app server" with "openplate-core" here
  * produces a drawing that is wrong in exactly the way this page exists to prevent, while
  * compiling perfectly.
  */
@@ -60,7 +60,7 @@ export interface DataHolderLabels {
   browser: string;
   /** "openplate app server". The row that is empty. */
   appServer: string;
-  /** "openplate-sync". The row that is sealed. */
+  /** "openplate-core". The row that is sealed. */
   sync: string;
   /** "openplate-inference". The other row that is empty. */
   inference: string;

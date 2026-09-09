@@ -8,7 +8,7 @@
       "label": "Principale",
       "menu": "Menu",
       "app": "Application",
-      "sync": "Serveur de synchronisation",
+      "core": "Serveur de synchronisation",
       "inference": "Moteur d'inférence",
       "deploy": "Déploiement",
       "docs": "Documentation"
@@ -68,10 +68,10 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Quatre boîtes et trois flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-sync, chiffré. Ton appareil envoie la photo de l'assiette au point de terminaison d'IA que tu as choisi. Le serveur d'application ne se trouve sur aucun de ces deux chemins.",
+          "label": "Quatre boîtes et trois flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-core, chiffré. Ton appareil envoie la photo de l'assiette au point de terminaison d'IA que tu as choisi. Le serveur d'application ne se trouve sur aucun de ces deux chemins.",
           "device": "Ton appareil",
           "appServer": "Serveur d'application openplate",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "aiEndpoint": "Ton point de terminaison d'IA",
           "pageEdge": "la page",
           "diaryEdge": "journal, chiffré",
@@ -81,7 +81,7 @@
           "caption": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent.",
           "browser": "Ton navigateur",
           "appServer": "Serveur d'application openplate",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "inference": "openplate-inference",
           "cloudProvider": "Fournisseur d'IA dans le cloud"
         }
@@ -91,7 +91,7 @@
         "app": {
           "name": "Application"
         },
-        "sync": {
+        "core": {
           "name": "Serveur de synchronisation"
         },
         "inference": {
@@ -114,7 +114,7 @@
       },
       "openSource": {
         "heading": "Open source",
-        "body": "openplate et openplate-sync sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+        "body": "openplate et openplate-core sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
       }
     },
     "app": {
@@ -133,9 +133,9 @@
         "selfHosting": "auto-hébergement"
       }
     },
-    "sync": {
+    "core": {
       "title": "Le serveur de synchronisation",
-      "lead": "openplate-sync transmet ton journal entre tes propres appareils. Il stocke une adresse e-mail, un bloc chiffré de ton journal qu'il ne peut pas lire, et un code de récupération scellé pour le seul cas où un mot de passe oublié le nécessiterait.",
+      "lead": "openplate-core transmet ton journal entre tes propres appareils. Il stocke une adresse e-mail, un bloc chiffré de ton journal qu'il ne peut pas lire, et un code de récupération scellé pour le seul cas où un mot de passe oublié le nécessiterait.",
       "reads": {
         "heading": "Ce qu'il ne peut pas lire"
       },

@@ -8,7 +8,7 @@
  *
  * The heading is the whole of the format, and both spellings in use are
  * accepted: `## 0.10.1 - 2026-09-04` (openplate) and `## [0.6.0] - 2026-09-04`
- * (Keep a Changelog, which openplate-sync follows). Everything under one
+ * (Keep a Changelog, which openplate-core follows). Everything under one
  * heading and above the next is that release's body, parsed by the same reader
  * the documentation pages use, so a changelog gets the site's tables, code
  * fences and links for free.

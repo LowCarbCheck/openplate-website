@@ -35,7 +35,7 @@ import { REPOSITORIES } from '#app/site';
 
 const NAV_ITEMS = [
   { to: '/app', labelKey: 'site.nav.app' },
-  { to: '/sync', labelKey: 'site.nav.sync' },
+  { to: '/core', labelKey: 'site.nav.core' },
   { to: '/inference', labelKey: 'site.nav.inference' },
   { to: '/deploy', labelKey: 'site.nav.deploy' },
   { to: '/docs', labelKey: 'site.nav.docs' },

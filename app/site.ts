@@ -20,7 +20,7 @@ export const DOC_PATHS = {
   appConfiguration: '/docs/app/configuration',
   appSelfHosting: '/docs/app/self-hosting',
   appTopologies: '/docs/app/topologies',
-  syncProtocol: '/docs/sync/protocol',
+  coreProtocol: '/docs/core/protocol',
   inferenceHardware: '/docs/inference/hardware',
   inferencePrivacy: '/docs/inference/privacy',
 } as const;
@@ -35,13 +35,13 @@ export const DOC_PATHS = {
  */
 export const APP_URL = 'https://beta.openplate.de';
 
-/** Release notes pages. The app's live on GitHub; the sync server's are rendered here. */
-export const SYNC_RELEASES_PATH = '/releases/sync';
+/** Release notes pages. The app's live on GitHub; the core service's are rendered here. */
+export const CORE_RELEASES_PATH = '/releases/core';
 
 /** The source repositories. */
 export const REPOSITORIES = {
   app: 'https://github.com/LowCarbCheck/openplate',
-  sync: 'https://github.com/LowCarbCheck/openplate-sync',
+  sync: 'https://github.com/LowCarbCheck/openplate-core',
   inference: 'https://github.com/LowCarbCheck/openplate-inference',
 } as const;
 

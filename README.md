@@ -187,7 +187,7 @@ to `LowCarbCheck/openplate-website`:
 
 ```
 event_type:     openplate-released
-client_payload: { "repo": "openplate-sync", "tag": "v0.6.0" }
+client_payload: { "repo": "openplate-core", "tag": "v0.6.0" }
 ```
 
 The payload says which release woke the run and nothing more. Which release the

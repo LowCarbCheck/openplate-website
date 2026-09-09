@@ -342,12 +342,12 @@ describe('the labels, lifted out of a fence and put back', () => {
   const SOURCE = [
     'flowchart LR',
     '  %% "not a label" lives in a comment and is nobody\'s words',
-    '  device["Your device"] -->|"ciphertext"| sync["openplate-sync"]',
+    '  device["Your device"] -->|"ciphertext"| sync["openplate-core"]',
     '  device -->|"ciphertext"| store[("Postgres")]',
   ].join('\n');
 
   it('reads each quoted label once, in the order the fence wrote them', () => {
-    assert.deepEqual(diagramLabels(SOURCE), ['Your device', 'ciphertext', 'openplate-sync', 'Postgres']);
+    assert.deepEqual(diagramLabels(SOURCE), ['Your device', 'ciphertext', 'openplate-core', 'Postgres']);
   });
 
   it('changes the words and nothing else', () => {
@@ -368,7 +368,7 @@ describe('the labels, lifted out of a fence and put back', () => {
     const nearly = new Map([
       [hash('Your device'), 'Dein Gerät'],
       [hash('ciphertext'), 'Geheimtext'],
-      [hash('openplate-sync'), 'openplate-sync'],
+      [hash('openplate-core'), 'openplate-core'],
     ]);
     assert.equal(translateDiagram(SOURCE, nearly), null, 'Postgres was never bought');
 

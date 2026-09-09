@@ -70,7 +70,7 @@ export function AppIcon({ className }: IconProps) {
   );
 }
 
-/** openplate-sync: the same encrypted diary arriving on a second device, and the server's whole job. */
+/** openplate-core: the same encrypted diary arriving on a second device, and the server's whole job. */
 export function SyncIcon({ className }: IconProps) {
   return (
     <svg {...SVG} {...OUTLINE} className={className}>
@@ -109,7 +109,7 @@ export function InferenceIcon({ className }: IconProps) {
  */
 export const STACK_ICONS = {
   app: AppIcon,
-  sync: SyncIcon,
+  core: SyncIcon,
   inference: InferenceIcon,
 } satisfies Record<DocComponent, (props: IconProps) => JSX.Element>;
 

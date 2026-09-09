@@ -126,7 +126,7 @@ const FEATURES = [
  */
 const STACK = [
   { to: '/app', id: 'stackApp', component: 'app' },
-  { to: '/sync', id: 'stackSync', component: 'sync' },
+  { to: '/core', id: 'stackCore', component: 'core' },
   { to: '/inference', id: 'stackInference', component: 'inference' },
 ] as const satisfies readonly { to: string; id: string; component: DocComponent }[];
 
@@ -255,7 +255,7 @@ export default function HomeRoute() {
       <Section heading={t(section(sections, 'holds').headingKey)}>
         {/* ── A SUMMARY OF ONE COLUMN OF THE TABLE, SAID SO IN WORDS ──
             The table under this has two columns, "what it stores" and "what it sees in transit",
-            and they do not agree: openplate-sync stores ciphertext it holds no key for and on a
+            and they do not agree: openplate-core stores ciphertext it holds no key for and on a
             managed instance also forwards a photo it never keeps. The drawing carries storage
             only, because one bar cannot carry both without lying about one of them. Unlabelled
             that would read as a competing claim, so the caption names the column it draws and

@@ -7,7 +7,7 @@
  *
  *   1. The device in the middle holds the diary, in the clear, because it is your device. The
  *      screen inside it is drawn LEGIBLE for that reason: rows you could read, and a photo.
- *   2. The diary leaves for openplate-sync sealed. The token that travels that arrow is a padlock
+ *   2. The diary leaves for openplate-core sealed. The token that travels that arrow is a padlock
  *      and the block under it is opaque, because the server stores bytes it holds no key for.
  *   3. The photo leaves for whichever AI endpoint you configured, directly.
  *   4. The app server sends the page and stands on neither of those paths. That is drawn three
@@ -53,7 +53,7 @@ export interface DataFlowProps extends IllustrationProps {
   device: string;
   /** The stateless box on the left. "openplate app server". */
   appServer: string;
-  /** Top right. "openplate-sync". */
+  /** Top right. "openplate-core". */
   sync: string;
   /** Bottom right. "Your AI endpoint". */
   aiEndpoint: string;

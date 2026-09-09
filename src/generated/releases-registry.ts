@@ -3,11 +3,11 @@
 // Every component's release notes, by component.
 import type { ReleasesRegistry } from '../../app/lib/docs';
 import { RELEASES as appReleases } from './releases/app';
-import { RELEASES as syncReleases } from './releases/sync';
+import { RELEASES as coreReleases } from './releases/core';
 import { RELEASES as inferenceReleases } from './releases/inference';
 
 export const RELEASES: ReleasesRegistry = {
   app: appReleases,
-  sync: syncReleases,
+  core: coreReleases,
   inference: inferenceReleases,
 };

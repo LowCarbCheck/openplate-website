@@ -23,7 +23,7 @@
  * the app's docs and in the inference runtime's — so the component is part of
  * the address rather than a label on the page.
  */
-export const DOC_COMPONENTS = ['app', 'sync', 'inference'] as const;
+export const DOC_COMPONENTS = ['app', 'core', 'inference'] as const;
 
 export type DocComponent = (typeof DOC_COMPONENTS)[number];
 
@@ -203,7 +203,7 @@ export interface ComponentDocs {
  */
 export interface DocsIndex {
   app: ComponentDocs;
-  sync: ComponentDocs;
+  core: ComponentDocs;
   inference: ComponentDocs;
 }
 
@@ -220,7 +220,7 @@ export interface DocPages {
 
 export interface DocsRegistry {
   app: DocPages;
-  sync: DocPages;
+  core: DocPages;
   inference: DocPages;
 }
 
@@ -242,7 +242,7 @@ export interface ComponentReleases {
 
 export interface ReleasesRegistry {
   app: ComponentReleases;
-  sync: ComponentReleases;
+  core: ComponentReleases;
   inference: ComponentReleases;
 }
 

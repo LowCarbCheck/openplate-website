@@ -109,9 +109,9 @@ const SOURCES: Source[] = [
     envRef: 'OPENPLATE_APP_REF',
   },
   {
-    component: 'sync',
-    repo: 'https://github.com/LowCarbCheck/openplate-sync.git',
-    web: 'https://github.com/LowCarbCheck/openplate-sync',
+    component: 'core',
+    repo: 'https://github.com/LowCarbCheck/openplate-core.git',
+    web: 'https://github.com/LowCarbCheck/openplate-core',
     envRepo: 'OPENPLATE_SYNC_REPO',
     envRef: 'OPENPLATE_SYNC_REF',
   },
@@ -159,7 +159,7 @@ function required<T>(value: T | undefined, what: string): T {
  *
  * ── THE PATH IS NOT ALWAYS UNDER `docs/` ──
  * collie's row regex hardcodes `./docs/<slug>.md`, because every page it
- * publishes is one. openplate-sync's table has one row and it points at
+ * publishes is one. openplate-core's table has one row and it points at
  * `./PROTOCOL.md` at the repository root — the protocol IS that repository's
  * documentation. So the path is captured whole and the slug is taken from the
  * file name, which is also why the sync needs no list of extra files: a
@@ -727,7 +727,7 @@ interface SourceStamp {
 
 interface SourceStamps {
   app: SourceStamp;
-  sync: SourceStamp;
+  core: SourceStamp;
   inference: SourceStamp;
 }
 
@@ -750,7 +750,7 @@ function stampSources(stamps: SourceStamps): SourceStamps {
   // reads as a component with no previous stamp and gets a fresh one.
   const previous = JSON.parse(readFileSync(SOURCE_JSON, 'utf8')) as Partial<SourceStamps>;
   const kept = { ...stamps };
-  for (const component of ['app', 'sync', 'inference'] as const) {
+  for (const component of ['app', 'core', 'inference'] as const) {
     const before = previous[component];
     const now = kept[component];
     if (before === undefined) continue;
@@ -847,7 +847,7 @@ try {
 
   const stamped = stampSources({
     app: required(stamps.get('app'), "app's stamp"),
-    sync: required(stamps.get('sync'), "sync's stamp"),
+    core: required(stamps.get('core'), "core's stamp"),
     inference: required(stamps.get('inference'), "inference's stamp"),
   });
   const json = `${JSON.stringify(stamped, null, 2)}\n`;

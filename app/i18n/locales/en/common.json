@@ -8,7 +8,7 @@
       "label": "Main",
       "menu": "Menu",
       "app": "App",
-      "sync": "Sync server",
+      "core": "Sync server",
       "inference": "Inference runtime",
       "deploy": "Deployment",
       "docs": "Docs"
@@ -68,10 +68,10 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-sync, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+          "label": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
           "device": "Your device",
           "appServer": "openplate app server",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "aiEndpoint": "Your AI endpoint",
           "pageEdge": "the page",
           "diaryEdge": "diary, encrypted",
@@ -81,7 +81,7 @@
           "caption": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
           "browser": "Your browser",
           "appServer": "openplate app server",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "inference": "openplate-inference",
           "cloudProvider": "Cloud AI provider"
         }
@@ -91,7 +91,7 @@
         "app": {
           "name": "App"
         },
-        "sync": {
+        "core": {
           "name": "Sync server"
         },
         "inference": {
@@ -114,7 +114,7 @@
       },
       "openSource": {
         "heading": "Open source",
-        "body": "openplate and openplate-sync are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+        "body": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
       }
     },
     "app": {
@@ -133,9 +133,9 @@
         "selfHosting": "self-hosting"
       }
     },
-    "sync": {
+    "core": {
       "title": "The sync server",
-      "lead": "openplate-sync carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+      "lead": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
       "reads": {
         "heading": "What it cannot read"
       },

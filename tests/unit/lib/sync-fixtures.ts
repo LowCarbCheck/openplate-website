@@ -157,7 +157,7 @@ export type Overrides = Partial<Record<DocComponent, RepoFiles>>;
 export function sources(overrides: Overrides = {}) {
   return {
     app: repo('app', overrides.app ?? manifestFiles('app')),
-    sync: repo('sync', overrides.sync ?? manifestFiles('sync')),
+    core: repo('core', overrides.core ?? manifestFiles('core')),
     inference: repo('inference', overrides.inference ?? manifestFiles('inference')),
   };
 }
@@ -177,7 +177,7 @@ export function sync(overrides: Overrides = {}): Run {
     env: {
       ...process.env,
       OPENPLATE_APP_REPO: repos.app,
-      OPENPLATE_SYNC_REPO: repos.sync,
+      OPENPLATE_SYNC_REPO: repos.core,
       OPENPLATE_INFERENCE_REPO: repos.inference,
       TSX_TSCONFIG_PATH: TSCONFIG,
     },

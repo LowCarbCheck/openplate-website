@@ -8,7 +8,7 @@
       "label": "Hauptnavigation",
       "menu": "Menü",
       "app": "App",
-      "sync": "Sync-Server",
+      "core": "Sync-Server",
       "inference": "Inference-Runtime",
       "deploy": "Deployment",
       "docs": "Doku"
@@ -68,10 +68,10 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-sync. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade.",
+          "label": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade.",
           "device": "Dein Gerät",
           "appServer": "openplate-App-Server",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "aiEndpoint": "Dein KI-Endpunkt",
           "pageEdge": "die Seite",
           "diaryEdge": "Tagebuch, verschlüsselt",
@@ -81,7 +81,7 @@
           "caption": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen.",
           "browser": "Dein Browser",
           "appServer": "openplate-App-Server",
-          "sync": "openplate-sync",
+          "sync": "openplate-core",
           "inference": "openplate-inference",
           "cloudProvider": "Cloud-KI-Anbieter"
         }
@@ -91,7 +91,7 @@
         "app": {
           "name": "App"
         },
-        "sync": {
+        "core": {
           "name": "Sync-Server"
         },
         "inference": {
@@ -114,7 +114,7 @@
       },
       "openSource": {
         "heading": "Open Source",
-        "body": "openplate und openplate-sync stehen unter der MIT-Lizenz. openplate-inference hat eigene Bedingungen, die sich nach den mitgelieferten Modellgewichten richten; der Lizenzleitfaden listet sie auf. Lies den Code, ändere ihn, betreibe ihn selbst: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-sync</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+        "body": "openplate und openplate-core stehen unter der MIT-Lizenz. openplate-inference hat eigene Bedingungen, die sich nach den mitgelieferten Modellgewichten richten; der Lizenzleitfaden listet sie auf. Lies den Code, ändere ihn, betreibe ihn selbst: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
       }
     },
     "app": {
@@ -133,9 +133,9 @@
         "selfHosting": "Self-Hosting"
       }
     },
-    "sync": {
+    "core": {
       "title": "Der Sync-Server",
-      "lead": "openplate-sync überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst.",
+      "lead": "openplate-core überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst.",
       "reads": {
         "heading": "Was er nicht lesen kann"
       },

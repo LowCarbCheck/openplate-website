@@ -153,7 +153,7 @@ export function localizePath(path: string, language: LanguageCode): string {
  *
  * The inverse of `localizePath`, and the piece the language switcher needs:
  * it holds an English URL and has to name the same page unprefixed before it
- * can localize it again. `/en/sync` becomes `/sync`, `/en` becomes `/`, and an
+ * can localize it again. `/en/core` becomes `/core`, `/en` becomes `/`, and an
  * unprefixed path is already canonical.
  */
 export function canonicalizePath(pathname: string): string {

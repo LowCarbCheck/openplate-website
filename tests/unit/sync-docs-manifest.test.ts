@@ -16,7 +16,7 @@ import { GUIDE, ROW, disposeScratches, manifestFixture, readme, sync } from './l
 after(disposeScratches);
 
 /** One page each component publishes for the stack pages, and so one module the sync must write. */
-const PAGES = { app: 'architecture', sync: 'protocol', inference: 'privacy' };
+const PAGES = { app: 'architecture', core: 'protocol', inference: 'privacy' };
 
 describe('the sync against a manifest that agrees with the tree', () => {
   it('writes a module per page, an index, release notes and SOURCE.json', () => {

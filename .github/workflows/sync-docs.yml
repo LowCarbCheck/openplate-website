@@ -27,7 +27,7 @@
 name: Sync docs
 
 on:
-  # Fired by release-image.yml in openplate, openplate-sync and
+  # Fired by release-image.yml in openplate, openplate-core and
   # openplate-inference, with the repository and the tag they just published.
   repository_dispatch:
     types: [openplate-released]
@@ -44,7 +44,7 @@ on:
         description: 'An openplate ref to sync instead of its highest tag'
         default: ''
       sync_ref:
-        description: 'An openplate-sync ref to sync instead of its highest tag'
+        description: 'An openplate-core ref to sync instead of its highest tag'
         default: ''
       inference_ref:
         description: 'An openplate-inference ref to sync instead of its highest tag'

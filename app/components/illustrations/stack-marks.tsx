@@ -205,6 +205,6 @@ export function InferenceMark({ className, label }: IllustrationProps) {
  */
 export const STACK_MARKS = {
   app: AppMark,
-  sync: SyncMark,
+  core: SyncMark,
   inference: InferenceMark,
 } satisfies Record<DocComponent, (props: IllustrationProps) => JSX.Element>;

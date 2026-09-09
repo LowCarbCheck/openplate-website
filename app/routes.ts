@@ -25,7 +25,7 @@ import { LANGUAGE_PREFIXES, PREFIXED_LANGUAGES, type LanguageCode } from './i18n
 export const PAGES = [
   { id: 'home', path: undefined, file: 'routes/home.tsx' },
   { id: 'app', path: 'app', file: 'routes/app.tsx' },
-  { id: 'sync', path: 'sync', file: 'routes/sync.tsx' },
+  { id: 'core', path: 'core', file: 'routes/core.tsx' },
   { id: 'inference', path: 'inference', file: 'routes/inference.tsx' },
   { id: 'deploy', path: 'deploy', file: 'routes/deploy.tsx' },
   { id: 'docs', path: 'docs', file: 'routes/docs.tsx' },

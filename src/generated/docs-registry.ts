@@ -13,7 +13,7 @@ import { DOC as app_sync } from './docs/app/sync';
 import { DOC as app_topologies } from './docs/app/topologies';
 import { DOC as app_family_setup } from './docs/app/family-setup';
 import { DOC as app_legal_review } from './docs/app/legal-review';
-import { DOC as sync_protocol } from './docs/sync/protocol';
+import { DOC as core_protocol } from './docs/core/protocol';
 import { DOC as inference_hardware } from './docs/inference/hardware';
 import { DOC as inference_runtimes } from './docs/inference/runtimes';
 import { DOC as inference_configuration } from './docs/inference/configuration';
@@ -32,8 +32,8 @@ export const DOCS: DocsRegistry = {
     'family-setup': app_family_setup,
     'legal-review': app_legal_review,
   },
-  sync: {
-    'protocol': sync_protocol,
+  core: {
+    'protocol': core_protocol,
   },
   inference: {
     'hardware': inference_hardware,

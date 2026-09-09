@@ -29,7 +29,7 @@ const RUN: Inline[] = [
 
 function doc(paragraph: string): DocFile {
   return {
-    component: 'sync',
+    component: 'core',
     slug: 'protocol',
     file: 'PROTOCOL.md',
     title: 'openplate sync protocol',

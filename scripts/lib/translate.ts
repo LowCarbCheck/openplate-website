@@ -58,7 +58,7 @@ export const CHUNK = 30;
 /** Terms that stay in English in every language: product names, commands, and the tools we name. */
 const KEEP = [
   'openplate',
-  'openplate-sync',
+  'openplate-core',
   'openplate-inference',
   'Docker',
   'Postgres',

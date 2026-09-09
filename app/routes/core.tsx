@@ -1,5 +1,5 @@
 /**
- * The sync server's page.
+ * The core service's page.
  *
  * What the server can read is quoted from the protocol specification itself, and
  * what a managed instance adds is quoted from the app's architecture document.
@@ -9,7 +9,7 @@
 import { useTranslation } from 'react-i18next';
 import { useLoaderData } from 'react-router';
 
-import type { Route } from './+types/sync';
+import type { Route } from './+types/core';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { PageHero } from '#app/components/hero';
 import { SyncIcon } from '#app/components/icons';
@@ -18,29 +18,29 @@ import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageSections } from '#app/lib/stack-sections.server';
 import { pageMeta } from '#app/seo';
-import { DOC_PATHS, SYNC_RELEASES_PATH } from '#app/site';
+import { DOC_PATHS, CORE_RELEASES_PATH } from '#app/site';
 
 /** See `home.tsx`: the loader is what keeps the synced tree out of the browser. */
 export function loader({ request }: Route.LoaderArgs) {
-  return { sections: pageSections('sync', request.url) };
+  return { sections: pageSections('core', request.url) };
 }
 
 export function meta({ location }: Route.MetaArgs) {
   return pageMeta({
-    canonicalPath: '/sync',
+    canonicalPath: '/core',
     pathname: location.pathname,
-    titleKey: 'pages.sync.title',
-    descriptionKey: 'pages.sync.lead',
+    titleKey: 'pages.core.title',
+    descriptionKey: 'pages.core.lead',
   });
 }
 
-export default function SyncRoute() {
+export default function CoreRoute() {
   const { t } = useTranslation();
   const { sections } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout width="marketing">
-      <PageHero icon={SyncIcon} title={t('pages.sync.title')} lead={<Copy text={t('pages.sync.lead')} />} />
+      <PageHero icon={SyncIcon} title={t('pages.core.title')} lead={<Copy text={t('pages.core.lead')} />} />
 
       {sections.map((entry) => (
         <Section key={entry.id} heading={t(entry.headingKey)}>
@@ -50,10 +50,10 @@ export default function SyncRoute() {
 
       <div className="mt-12 space-y-2 border-t border-border pt-6">
         <LinkRow label={t('site.links.docsLabel')}>
-          <SiteLink to={DOC_PATHS.syncProtocol}>{t('pages.sync.links.protocol')}</SiteLink>
+          <SiteLink to={DOC_PATHS.coreProtocol}>{t('pages.core.links.protocol')}</SiteLink>
         </LinkRow>
         <LinkRow label={t('site.links.releasesLabel')}>
-          <SiteLink to={SYNC_RELEASES_PATH}>{t('pages.sync.links.releases')}</SiteLink>
+          <SiteLink to={CORE_RELEASES_PATH}>{t('pages.core.links.releases')}</SiteLink>
         </LinkRow>
       </div>
     </SiteLayout>

@@ -41,7 +41,7 @@ describe('buildSitemapXml', () => {
   });
 
   it('points x-default at the unprefixed URL, which is now the German one', () => {
-    assert.ok(xml.includes(`hreflang="x-default" href="${SITE_ORIGIN}/sync"`));
+    assert.ok(xml.includes(`hreflang="x-default" href="${SITE_ORIGIN}/core"`));
   });
 
   it('gives every entry an alternate for each language and an x-default', () => {
@@ -57,14 +57,14 @@ describe('buildSitemapXml', () => {
   it('carries the generated documentation and release pages, not the static ones alone', () => {
     // Named rather than counted: a sitemap that lost every doc URL would still
     // satisfy a count taken from the same list it was built from.
-    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/docs/sync/protocol</loc>`));
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/docs/core/protocol</loc>`));
     assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/en/releases/app</loc>`));
     assert.ok(docPaths().length > 0);
   });
 
   it('addresses the German page at the root and the English one under /en', () => {
-    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/sync</loc>`));
-    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/en/sync</loc>`));
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/core</loc>`));
+    assert.ok(xml.includes(`<loc>${SITE_ORIGIN}/en/core</loc>`));
     assert.ok(!xml.includes(`${SITE_ORIGIN}/en/en`));
     // The prefix moved with the default. Nothing may still be published at the
     // old German URLs: nginx 301s them, and a sitemap that named them would be
