@@ -215,6 +215,16 @@
       "title": "Datenschutz",
       "body": "Diese Website nutzt Matomo ohne Cookies, um Besuche zu zählen; sie trackt dich nicht websiteübergreifend und erstellt kein Profil über dich. Auf dieser Website selbst gibt es keine Konten; Accounts auf Einladung gehören zur gehosteten App, nicht zu openplate.de. Was die App speichert und sendet, findest du auf der Datenschutzseite der App selbst, die in der App verlinkt ist."
     },
+    "pricing": {
+      "title": "Preise",
+      "heading": "Ein Tarif",
+      "price": "{{price}} pro Monat",
+      "vatNote": "Preis inklusive Mehrwertsteuer.",
+      "trial": "Drei Tage kostenlos testen.",
+      "body": "Du zahlst für Foto-Scans, die Makronährstoffe auf deinem Teller schätzen, und die Synchronisierung über deine Geräte. Alles andere in openplate ist kostenlos und bleibt kostenlos.",
+      "cancel": "Jederzeit kündbar. Dein Zugriff läuft bis zum Ende des bezahlten Monats weiter und verlängert sich nicht.",
+      "termsLink": "Bedingungen lesen"
+    },
     "notFound": {
       "title": "Seite nicht gefunden"
     }

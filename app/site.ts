@@ -35,6 +35,21 @@ export const DOC_PATHS = {
  */
 export const APP_URL = 'https://beta.openplate.de';
 
+/**
+ * The terms of use, which live in the APPLICATION and not on this site.
+ *
+ * The legal documents are the app's: `openplate/app/routes/legal/terms.tsx`
+ * renders them and the app's imprint names the same operator. The pricing page
+ * links a reader there rather than repeating a document that would then have
+ * two versions and one date.
+ *
+ * NOT derived from `APP_URL`: the terms sold against are the CONSUMER
+ * instance's on `app.openplate.de`, and `APP_URL` is the beta on
+ * `beta.openplate.de`, which is a different instance and not the one a payment
+ * is made to.
+ */
+export const APP_TERMS_URL = 'https://app.openplate.de/terms';
+
 /** Release notes pages. The app's live on GitHub; the core service's are rendered here. */
 export const CORE_RELEASES_PATH = '/releases/core';
 

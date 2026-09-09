@@ -16,10 +16,27 @@
  */
 import { SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '#app/i18n/language';
 import { docPaths } from '#app/prerender';
+import { PRICING_PATH, priceEurFromEnvironment } from '#app/pricing-config';
 import { SITE_ORIGIN } from '#app/site';
 
-/** Every page with a fixed path, in the canonical unprefixed form. */
-export const STATIC_PATHS = ['/', '/app', '/core', '/inference', '/deploy', '/docs', '/imprint', '/privacy'] as const;
+/** Every page with a fixed path that exists in every build, in the canonical unprefixed form. */
+const ALWAYS_PATHS = ['/', '/app', '/core', '/inference', '/deploy', '/docs', '/imprint', '/privacy'] as const;
+
+/**
+ * The fixed paths of a build that was given `priceEur`, or of one given no price.
+ *
+ * A page nobody may reach must not be advertised: an unpriced build has no
+ * pricing route, so a sitemap naming `/pricing` would send every crawler at a
+ * 404. A function of the price for the same reason `pagesForPrice()` in
+ * `app/routes.ts` is one, and checked against it in `tests/unit/pricing.test.ts`.
+ */
+export function staticPathsForPrice(priceEur: string | null): string[] {
+  if (priceEur === null) return [...ALWAYS_PATHS];
+  return [...ALWAYS_PATHS, PRICING_PATH];
+}
+
+/** Every page with a fixed path in THIS build. */
+export const STATIC_PATHS: string[] = staticPathsForPrice(priceEurFromEnvironment());
 
 /**
  * One `<url>` block: the page in `language`, with every language listed as an
@@ -44,13 +61,20 @@ function urlEntry(page: { canonicalPath: string; language: LanguageCode }): stri
   return lines.join('\n');
 }
 
-/** The whole document, one `<url>` per page per language, each carrying every language as an alternate. */
-export function buildSitemapXml(): string {
+/**
+ * The whole document, one `<url>` per page per language, each carrying every language as an alternate.
+ *
+ * `staticPaths` defaults to this build's list and is a parameter only so a test
+ * can render the document a priced build would write without setting a variable
+ * and re-importing the module. `/sitemap.xml` passes nothing.
+ */
+export function buildSitemapXml(options: { staticPaths?: readonly string[] } = {}): string {
+  const { staticPaths = STATIC_PATHS } = options;
   const entries: string[] = [];
 
   // The generated pages come first in the file only because they come last in
   // the list; order carries no meaning to a crawler.
-  for (const path of [...STATIC_PATHS, ...docPaths()]) {
+  for (const path of [...staticPaths, ...docPaths()]) {
     for (const language of SUPPORTED_LANGUAGES) {
       entries.push(urlEntry({ canonicalPath: path, language }));
     }

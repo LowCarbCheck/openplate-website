@@ -215,6 +215,16 @@
       "title": "Confidentialité",
       "body": "Ce site utilise Matomo sans cookies pour compter les visites ; il ne te suit pas d'un site à l'autre et n'établit aucun profil te concernant. Ce site ne gère aucun compte en soi ; les comptes accessibles sur invitation appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application stocke et envoie, consulte sa propre page de confidentialité, accessible depuis l'application."
     },
+    "pricing": {
+      "title": "Tarifs",
+      "heading": "Une seule formule",
+      "price": "{{price}} par mois",
+      "vatNote": "TVA incluse.",
+      "trial": "Essaie gratuitement pendant trois jours.",
+      "body": "Tu paies pour l'analyse photo qui estime les macros dans ton assiette, et la synchronisation entre tes appareils. Tout le reste dans openplate est gratuit et le restera.",
+      "cancel": "Résilie à tout moment. Ton accès reste actif jusqu'à la fin du mois payé, et ne se renouvelle pas.",
+      "termsLink": "Lire les conditions"
+    },
     "notFound": {
       "title": "Page introuvable"
     }

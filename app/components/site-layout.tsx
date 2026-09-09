@@ -17,7 +17,7 @@
  */
 import { useEffect, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation, useRouteLoaderData } from 'react-router';
 
 import { CloseIcon, GitHubMark, MenuIcon } from './icons';
 import { ExternalLink, SiteLink } from './site-link';
@@ -31,15 +31,51 @@ import {
 } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
 import { syncPicturesToTheme } from '#app/lib/theme';
+import { PRICING_PATH } from '#app/pricing-config';
+import type { loader as rootLoader } from '#app/root';
 import { REPOSITORIES } from '#app/site';
 
-const NAV_ITEMS = [
+interface NavItem {
+  to: string;
+  labelKey: string;
+}
+
+const NAV_ITEMS: NavItem[] = [
   { to: '/app', labelKey: 'site.nav.app' },
   { to: '/core', labelKey: 'site.nav.core' },
   { to: '/inference', labelKey: 'site.nav.inference' },
   { to: '/deploy', labelKey: 'site.nav.deploy' },
   { to: '/docs', labelKey: 'site.nav.docs' },
-] as const;
+];
+
+/**
+ * The sixth link, in a build that has a price and in no other.
+ *
+ * It borrows the page's own title rather than a nav label of its own: a
+ * navigation that says one word and the page it opens says another is two
+ * strings to translate and one of them will drift.
+ */
+const PRICING_NAV_ITEM: NavItem = { to: PRICING_PATH, labelKey: 'pages.pricing.title' };
+
+/**
+ * Null in a build that was given no `PRICING_PRICE_EUR`, which is every local build.
+ *
+ * Read from the root loader, which is where this site's build-time
+ * configuration reaches the browser (`root.tsx`). The frame cannot read
+ * `process.env` itself: it is the one component that renders in a browser as
+ * well as during the prerender pass.
+ */
+function usePriceEur(): string | null {
+  const data = useRouteLoaderData<typeof rootLoader>('root');
+  return data?.priceEur ?? null;
+}
+
+/** The links this build draws, which is the fixed five plus the pricing page when there is a price. */
+function useNavItems(): NavItem[] {
+  const priceEur = usePriceEur();
+  if (priceEur === null) return NAV_ITEMS;
+  return [...NAV_ITEMS, PRICING_NAV_ITEM];
+}
 
 /**
  * The id the menu button points its `aria-controls` at, written once.
@@ -64,7 +100,7 @@ const ICON_BUTTON =
   'flex items-center rounded-full p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
 
 /**
- * The five links, drawn in two places and written in one.
+ * The nav links, drawn in two places and written in one.
  *
  * A wide window gets them inline and a phone gets them in the panel below the header row. Those are
  * two elements in the DOM at once, and the alternative to this component is the same `map` twice,
@@ -76,12 +112,13 @@ const ICON_BUTTON =
  */
 function NavLinks({ linkClassName }: { linkClassName?: string }) {
   const { t } = useTranslation();
+  const navItems = useNavItems();
   const className =
     linkClassName ?
       `text-muted-foreground hover:text-foreground ${linkClassName}`
     : 'text-muted-foreground hover:text-foreground';
 
-  return NAV_ITEMS.map((item) => (
+  return navItems.map((item) => (
     <SiteLink key={item.to} to={item.to} className={className}>
       {t(item.labelKey)}
     </SiteLink>

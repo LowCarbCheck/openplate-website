@@ -215,6 +215,16 @@
       "title": "Privacy",
       "body": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app."
     },
+    "pricing": {
+      "title": "Pricing",
+      "heading": "One plan",
+      "price": "{{price}} a month",
+      "vatNote": "VAT included.",
+      "trial": "Try it free for three days.",
+      "body": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
+      "cancel": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
+      "termsLink": "Read the terms"
+    },
     "notFound": {
       "title": "Page not found"
     }

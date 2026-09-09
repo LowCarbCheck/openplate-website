@@ -16,6 +16,7 @@ import type { Route } from './+types/root';
 import { I18nProvider } from '#app/i18n/I18nProvider';
 import { THEME_SCRIPT } from '#app/lib/theme';
 import { MatomoTracker, useMatomoPageViews } from '#app/matomo';
+import { priceEurFromEnvironment } from '#app/pricing-config';
 import { useLanguage } from '#app/i18n/use-language';
 import stylesheet from './app.css?url';
 
@@ -53,9 +54,13 @@ export const links: Route.LinksFunction = () => [
  * Read at BUILD time: the prerender pass calls this once per URL and bakes the
  * result into the static document. There is no request to read anything from
  * later, so an environment variable is the only configuration a page can have.
+ *
+ * The price is here rather than on the pricing page alone because the FRAME
+ * needs it: the navigation names the pricing page only in a build that has one,
+ * and the frame is rendered on every page. See `app/pricing-config.ts`.
  */
 export function loader() {
-  return { matomoSiteId: process.env.MATOMO_SITE_ID ?? null };
+  return { matomoSiteId: process.env.MATOMO_SITE_ID ?? null, priceEur: priceEurFromEnvironment() };
 }
 
 /** Null in a build that had no `MATOMO_SITE_ID`, which is every local build. */
