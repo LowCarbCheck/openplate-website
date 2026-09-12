@@ -9,9 +9,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "v0.29.1",
+      "ref": "v0.29.2",
       "editRef": "main",
-      "sha": "1ed6bad4177e55da4b2e3d7c3b5706c9d5271343",
+      "sha": "45bf288fc6e3a178e0dd249004d662e46c4a1cf9",
       "committedAt": "2026-09-12"
     },
     "lead": [
