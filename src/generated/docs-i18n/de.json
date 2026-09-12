@@ -467,6 +467,12 @@
     "at": "2026-09-04",
     "de": "Das deutsche Impressum, die Datenschutzerklärung und die Nutzungsbedingungen sind {{0}}. Sie sind live geschaltet. Diese Datei existiert, damit dieser Umstand nicht nur in einer Commit-Nachricht festgehalten ist."
   },
+  "094cc073e926d0ce": {
+    "en": "The CAS is checked FIRST: a push off a stale {{0}} is the ordinary {{1}}, whatever its size, because that client's job is to pull and merge and it is usually not shrinking once it has. The guard speaks only about a push that would otherwise have been accepted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Das CAS wird ZUERST geprüft: Ein Push auf Basis eines veralteten {{0}} führt zum regulären {{1}}, unabhängig von seiner Größe, weil es die Aufgabe dieses Clients ist, abzurufen und zusammenzuführen, und er nach diesem Schritt meistens nicht mehr schrumpft. Die Schutzfunktion greift nur bei einem Push, der andernfalls akzeptiert worden wäre."
+  },
   "095060a555c4b30d": {
     "en": "worst plate observed",
     "model": "google/gemini-3.8-flash",
@@ -887,6 +893,12 @@
     "at": "2026-09-04",
     "de": "Validierung, jeweils {{0}}:"
   },
+  "114c74c4eed93483": {
+    "en": "Every retained blob version: number, envelope version, byte count, time, and the pin if it has one. Never ciphertext",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Jede behaltene Blob-Version: Nummer, Envelope-Version, Byte-Zahl, Zeit und der Pin, falls vorhanden. Niemals Geheimtext"
+  },
   "11507a0e2f5e69d5": {
     "en": "new",
     "model": "google/gemini-3.8-flash",
@@ -917,6 +929,12 @@
     "at": "2026-09-08",
     "de": "Die Anfrage stellt der {{0}}, nicht der Browser, und genau das ist der Zweck: Würde man {{1}} zur produktiven {{2}} hinzufügen, würde das die einzige Positivliste aufweichen, die verhindert, dass ein eingeschleustes Skript einen BYOK-Schlüssel ausschleust. Sie enthält kein Token, keine Instanzkennung und keine Versionsnummer, sodass GitHub eine IP-Adresse, einen Standard-User-Agent und sonst nichts sieht. Siehe {{3}}."
   },
+  "1257ac04471db97b": {
+    "en": "Cap",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Obergrenze"
+  },
   "12839aebb4275ee6": {
     "en": "descriptive, never a grant",
     "model": "google/gemini-3.8-flash",
@@ -934,6 +952,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Wird gegen ein neues Paar getauscht. Rotiert, jeder Einsatz verbraucht ihn."
+  },
+  "12e9ff0b6ea221be": {
+    "en": "So at most {{0}}, and therefore at most {{1}}, per account. The daily tier is per calendar DAY rather than per count on purpose: two devices in a merge loop produce versions as fast as the network allows, and a count-based tier is exhausted by that in minutes. The pin tier is capped because a pin is taken on a client's own claim.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Also höchstens {{0}}, und daher höchstens {{1}}, pro Konto. Die Tagesstufe gilt bewusst pro Kalendertag statt pro Anzahl: Zwei Geräte in einer Zusammenführungsschleife erzeugen Versionen so schnell, wie das Netzwerk es erlaubt, und eine anzahlbasierte Stufe ist dadurch in Minuten aufgebraucht. Die Pin-Stufe ist begrenzt, weil ein Pin auf eigene Behauptung eines Clients gesetzt wird."
   },
   "1314437a768d6173": {
     "en": "{{0}} is the ONE account shape in this protocol.",
@@ -1024,6 +1048,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Rolle"
+  },
+  "14916062ab4cc773": {
+    "en": "When an acknowledged shrink IS accepted, the version immediately before it is held against pruning for {{0}} (§8).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Wenn eine bestätigte Verkleinerung akzeptiert WIRD, wird die Version unmittelbar davor für {{0}} vor dem Bereinigen geschützt (§8)."
   },
   "15013c961c269d68": {
     "en": "1.72 s",
@@ -1192,6 +1222,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-09",
     "de": "5.22 {{0}}: die Weiterleitung an einen Abrechnungsdienst"
+  },
+  "1870f1562ee4986f": {
+    "en": "One opinion about a blob, and it is not a fifth hole.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Eine einzige Meinung über einen Blob, und sie ist kein fünftes Rad am Wagen."
   },
   "188f2b4e712f5b45": {
     "en": "The whole submission commits in one transaction",
@@ -1667,6 +1703,12 @@
     "at": "2026-09-04",
     "de": "Dieses Dokument ist normativ, das TypeScript ist dessen Abschrift."
   },
+  "2209ad280c71536f": {
+    "en": "The shrink guard (M224).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die Verkleinerungsschutzfunktion (M224)."
+  },
   "222ebe6432e31fbb": {
     "en": "must equal",
     "model": "google/gemini-3.8-flash",
@@ -1762,6 +1804,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Die grammatikgebundene Dekodierung erstellt eine Token-Bitmaske und belegt dafür {{1}}-Speicher, einen seitenfixierten Puffer für schnelles Kopieren auf eine GPU. Fordert man das ohne Beschleuniger an, bricht PyTorch mit einem Fehler ab, statt dies zu ignorieren. Weil das während der Inferenz statt bei der Validierung passiert, stürzt der Worker ab, anstatt einen Fehler zurückzugeben. Das ist ein Upstream-Fehler: Dieselbe Nutzlast verarbeiten llama.cpp und Ollama fehlerfrei."
+  },
+  "2405244e7c169742": {
+    "en": "{{0}} A push whose decoded {{1}} is {{2}} of the stored version's {{3}} ({{4}}) is REFUSED with {{5}} unless the request carries {{6}}. An account with no blob yet is never refused; a first push is not a deletion.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}} Ein Push, dessen dekodierter {{1}} {{2}} des Werts {{3}} der gespeicherten Version ({{4}}) beträgt, wird mit {{5}} ABGEWIESEN, es sei denn, die Anfrage enthält {{6}}. Ein Konto, das noch keinen Blob enthält, wird nie abgewiesen; ein erster Push ist keine Löschung."
   },
   "24065231df1b2892": {
     "en": "exactly",
@@ -2687,6 +2735,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Das Blob ist oft die einzige Kopie der Daten, die der Nutzer hat. Wenn ein Client einen Umschlag hochlädt, den ein neuerer Dienst anders fasst, oder einen entschlüsselt, den er nur halb versteht, kann das diese Kopie unwiderruflich zerstören. Ein verweigerter Sync ist eine sichtbare Unannehmlichkeit, ein stillschweigend fehlerhafter Sync ist ein Datenverlust, den man erst Wochen später bemerkt. Dieses Protokoll entscheidet sich jedes Mal für die Unannehmlichkeit."
   },
+  "389d8d52305c6ba7": {
+    "en": "66 MiB",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "66 MiB"
+  },
   "38ecad7038ed3d2f": {
     "en": "{{0}} — the invite is missing, malformed, of another service, unknown, expired, revoked or already redeemed. All seven, one answer.",
     "model": "google/gemini-3.8-flash",
@@ -2722,6 +2776,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} Der GPU-Test lief mit demselben {{1}} vLLM-Image, das auf der CPU abstürzt ({{2}} und {{3}} teilen sich einen Digest), mit demselben Schema und demselben Base64-Bild, das dieser Dienst sendet. Auf der GPU lieferte es schemakonformes JSON in 1,8 s und blieb erreichbar. Verstehe die ❌-Zeile als „Betreibe vLLM nicht ohne GPU“, nicht als „vLLM wird nicht unterstützt“."
+  },
+  "398c150164caa7af": {
+    "en": "An unacknowledged large shrink. {{0}} See below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Eine unbestätigte starke Verkleinerung. {{0}} Siehe unten."
   },
   "39a74bfb65e4358e": {
     "en": "Qwen3-VL-2B-Instruct — {{0}} profile",
@@ -3293,6 +3353,12 @@
     "at": "2026-09-04",
     "de": "Fehlender oder falscher Bearer-Key."
   },
+  "44f2b52755a44eff": {
+    "en": "Nothing was written.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Es wurde nichts geschrieben."
+  },
   "44f8c52cdc87c491": {
     "en": "*{{0}}{{1}}404{{2}}GET /health{{3}}instance.push: false`.",
     "model": "google/gemini-3.8-flash",
@@ -3478,6 +3544,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Wenn du auch den Sync-Dienst betreibst, lohnt sich ein regelmäßiger Dump seines Postgres, zusammen mit dem {{0}}, der ohne die Datenbank nutzlos ist und umgekehrt:"
+  },
+  "47de566ccbc724ab": {
+    "en": "It is an ACKNOWLEDGEMENT, not a verdict. A client sets it {{0}} exactly when it emits deletions from state it positively trusts, and a client that cannot make that claim omits the field and takes the refusal. The service holds ciphertext and cannot tell a deliberate deletion from a client that lost its local store and believes everything was deleted; those are the same bytes. So it asks, and a client that says nothing gets a refusal rather than a wipe.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Es ist eine BESTÄTIGUNG, kein Urteil. Ein Client setzt es genau dann auf {{0}}, wenn er Löschungen aus einem Zustand sendet, dem er ausdrücklich vertraut, und ein Client, der diesen Anspruch nicht erheben kann, lässt das Feld weg und nimmt die Abweisung hin. Der Dienst hält Geheimtext und kann eine bewusste Löschung nicht von einem Client unterscheiden, der seinen lokalen Speicher verloren hat und glaubt, alles sei gelöscht worden; das sind dieselben Bytes. Also fragt er nach, und ein Client, der nichts mitteilt, erhält eine Abweisung statt einer Löschung."
   },
   "47e34f3a937aaf3b": {
     "en": "Page views plus software use. The default.",
@@ -3880,6 +3952,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Auf Stufe eins kommt die Seite aus deinem eigenen zustandslosen Container, und der Fotopfad bleibt unverändert."
+  },
+  "4f17595c0dc64492": {
+    "en": "{{0}}: OPTIONAL, and absent means {{1}}. See {{2}} below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}}: OPTIONAL, und ein Fehlen bedeutet {{1}}. Siehe {{2}} unten."
   },
   "4f1e02a3dab52d39": {
     "en": "status code",
@@ -4294,6 +4372,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "tägliches Anfrage-"
+  },
+  "57bb6021727bb1ec": {
+    "en": "33 versions",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "33 Versionen"
   },
   "580cbdda292558e0": {
     "en": "{{0}} The address comes from the invite row, inside the transaction. A body cannot claim a mailbox the operator did not write to, which is what makes the invitation itself the address verification: the person who received the letter is the person redeeming it, so there is no confirmation link and nothing left to confirm afterwards. {{1}} and {{2}} come from the invite for the same reason: an account never asks for its own standing.",
@@ -4799,6 +4883,12 @@
     "at": "2026-09-04",
     "de": "Mit dem Mailer in 0.5.0 weggefallen, und Protokoll 2 führt es nicht wieder ein, obwohl dieser Dienst wieder Mails versendet."
   },
+  "62845f31a2fe00be": {
+    "en": "Rule",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Regel"
+  },
   "62a8e5a902096002": {
     "en": "connected (manual, OAuth, instance preset), key check failed, disconnected",
     "model": "google/gemini-3.8-flash",
@@ -4864,6 +4954,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "LFM Open License v1.0, umsatzbegrenzt, siehe {{0}}"
+  },
+  "638a058efa767328": {
+    "en": "Retention is tiered (M224).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die Aufbewahrung ist gestuft (M224)."
   },
   "63bceba91702ebec": {
     "en": "What {{0}} counts",
@@ -5236,6 +5332,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Herunterladen"
+  },
+  "690dbe9dc0993c42": {
+    "en": "Recent",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Kürzlich"
   },
   "694458cf9987b378": {
     "en": "0.27.1",
@@ -6179,6 +6281,12 @@
     "at": "2026-09-12",
     "de": "{{0}} beschreibt, was diese Instanz ist und was sie kann, und ist {{1}}: Ein Dienst, der älter als das Feld ist, lässt es weg, und ein Client, der es voraussetzt, würde sich weigern, mit jeder solchen Instanz zu sprechen. {{2}} ist die Bezeichnung der Instanz durch die betreibende Person, {{3}} ist {{4}} oder {{5}} (die zwei Sprachen, in denen ihre E-Mails verfasst sind), {{6}} besagt, ob sie überhaupt Briefe senden kann, {{7}} besagt, ob ein normales Mitglied Personen hierher einladen darf (§5.21), {{8}} besagt, ob ein Abrechnungsdienst hinter dieser Instanz steht, sodass {{9}} existiert (§5.22), {{10}} besagt, ob diese Instanz Web-Push senden kann, sodass {{11}} existiert (§5.24), und {{12}} ist {{13}}, wenn kein Upstream-Schlüssel konfiguriert ist."
   },
+  "7d6421f6429aa0bb": {
+    "en": "the shrink guard",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "die Verkleinerungsschutzfunktion"
+  },
   "7d70c0f58195e74f": {
     "en": "5.2 {{0}}: pull",
     "model": "google/gemini-3.8-flash",
@@ -6226,6 +6334,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "leeres {{0}}"
+  },
+  "7e51b0613656dad0": {
+    "en": "ADR-0009",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "ADR-0009"
   },
   "7e531946f0a65e45": {
     "en": "The other alternative: a managed openplate-sync instance",
@@ -6557,6 +6671,12 @@
     "at": "2026-09-04",
     "de": "Welche Kosten das verursacht, ausdrücklich benannt statt stillschweigend vorausgesetzt."
   },
+  "8527a891e2241369": {
+    "en": "14",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "14"
+  },
   "853bcb7141f1a03b": {
     "en": "{{0}} If {{1}} points at nothing, the service logs a warning, disables resolution, and keeps identifying plates. You get names and grams with null macros — degraded, not broken. Regenerate the extract with {{2}} (needs network).",
     "model": "google/gemini-3.8-flash",
@@ -6580,6 +6700,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Um aus dem Quellcode zu bauen, anstatt das veröffentlichte Image zu ziehen, kommentiere {{0}} in {{1}} aus, hebe die Auskommentierung von {{2}} auf und führe Folgendes aus, direkt aus dem Repository-Wurzelverzeichnis, da der Build-Kontext relativ zu dieser Datei definiert ist:"
+  },
+  "8653b8f95d74d9fe": {
+    "en": "{{0}} This service used to accept any correctly versioned blob without looking at it at all. Since M224 it refuses one shape: a push whose ciphertext is under half the size of the stored one, unless the request explicitly says the deletion is intended. A person lost her whole diary to a client that found its local store evicted, concluded she had deleted everything, and pushed a tombstone per entry, and a second device then pulled that blob and deleted its own rows. The guard compares two byte counts this service already stored for the storage figure it already reports, so it learns nothing new about anybody; what it gives up is the claim to be a store with no opinion. An operator can put an account back with {{1}}, and {{2}} is the procedure, including the step on the person's own devices that the rollback cannot do. {{3}} states what it costs when it is wrong.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}} Dieser Dienst hat früher jeden korrekt versionierten Blob angenommen, ohne ihn überhaupt anzusehen. Seit M224 weist er eine bestimmte Form ab: einen Push, dessen Geheimtext weniger als halb so groß ist wie der gespeicherte, es sei denn, die Anfrage gibt ausdrücklich an, dass das Löschen beabsichtigt ist. Eine Person verlor ihr gesamtes Tagebuch durch einen Client, der feststellte, dass sein lokaler Speicher geleert worden war, daraus schloss, sie habe alles gelöscht, und für jeden Eintrag einen Tombstone hochlud, woraufhin ein zweites Gerät diesen Blob abrief und seine eigenen Zeilen löschte. Die Schutzfunktion vergleicht zwei Byte-Zahlen, die dieser Dienst für den ohnehin gemeldeten Speicherwert bereits gespeichert hat; er erfährt also nichts Neues über irgendjemanden. Was er aufgibt, ist der Anspruch, ein speichernder Dienst ohne eigene Meinung zu sein. Eine betreibende Person kann ein Konto mit {{1}} wiederherstellen, und {{2}} beschreibt das Verfahren, einschließlich des Schritts auf den eigenen Geräten der Person, den das Rollback nicht durchführen kann. {{3}} nennt die Kosten, falls die Schutzfunktion falschliegt."
   },
   "865deeeeeb75d9c8": {
     "en": "A missing food database does not stop scans.",
@@ -6754,6 +6880,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "de": "DARF KEINES nennen"
+  },
+  "88a43534c27c4599": {
+    "en": "Pre-shrink pins",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Pins vor dem Schrumpfen"
   },
   "88a79a64598b22ca": {
     "en": "protocol version bump",
@@ -6946,6 +7078,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Halte das Refresh-Token auf derselben Speicherebene wie das Access-Token und verwende ein verbrauchtes Token {{0}} erneut, denn ein Replay widerruft die gesamte Token-Familie und meldet den Benutzer ab (§4.2). Serialisiere Aktualisierungen; nutzen zwei Tabs gleichzeitig dasselbe Refresh-Token, sieht das genau wie ein Diebstahl aus."
+  },
+  "8dafe6b5e3149901": {
+    "en": "The newest versions ({{0}})",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die neuesten Versionen ({{0}})"
   },
   "8dc83b523954a833": {
     "en": "completed, step completed (focus, weight, body), step skipped",
@@ -7337,6 +7475,12 @@
     "at": "2026-09-04",
     "de": "Von juristischer Fachkraft geprüft"
   },
+  "95f0ef2628dd2f53": {
+    "en": "{{0}} A version is kept if ANY tier keeps it:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}} Eine Version wird behalten, wenn IRGENDEINE Stufe sie behält:"
+  },
   "961eb43699731759": {
     "en": "does",
     "model": "google/gemini-3.8-flash",
@@ -7558,6 +7702,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Scans sind erfolgreich, aber jedes {{0}} ist null"
+  },
+  "98f1255964d26f2f": {
+    "en": "Versions replaced by an acknowledged large shrink, for {{0}}, newest first up to {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Versionen, die durch ein bestätigtes großes Schrumpfen ersetzt wurden, für {{0}}, neueste zuerst bis zu {{1}}"
   },
   "99216530be1574b7": {
     "en": "Scan completed.",
@@ -7792,6 +7942,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} (nur beim ersten Start; dauert an einem Heimanschluss zwischen wenigen Minuten und einer Stunde). Die Größen werden vorab angezeigt, damit du sie mit deiner Verbindungsgeschwindigkeit vergleichen kannst:"
+  },
+  "9d617800c9b7b030": {
+    "en": "strictly under half",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "strikt unter der Hälfte"
   },
   "9d6810887e58898f": {
     "en": "Until M192 a person could join a separate AI gateway from the same invite link, and that connection travelled with the account inside the sealed compartment. There is no gateway any more: the sync service took over the AI proxy, so on an instance an organization runs, a signed-in account with an allowance scans through the one server it already talks to, and no connection step exists to carry anywhere. An instance you host yourself is unchanged: a key you set up stays on the device you set it up on.",
@@ -8104,6 +8260,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "die eigenen Origins der integrierten Anbieter (OpenRouter, Mistral, Anthropic), automatisch abgeleitet aus dem Anbieterregister, siehe {{0}}"
+  },
+  "a35c8cc4106ea3c2": {
+    "en": "Retention pruning to the three tiers of §8, and the shrink guard of §5.1. A server that accepts an unacknowledged large shrink will destroy an account's diary the first time a client of the affected build loses its local store; a client written against a server that refuses it and pointed at one that does not is silently unprotected.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Aufbewahrungsbereinigung auf die drei Stufen aus §8 und der Schrumpfschutz aus §5.1. Ein Server, der ein unbestätigtes großes Schrumpfen akzeptiert, zerstört das Tagebuch eines Kontos beim ersten Mal, wenn ein Client des betroffenen Builds seinen lokalen Speicher verliert; ein Client, der für einen Server geschrieben wurde, der dies verweigert, und auf einen verwiesen wird, der dies nicht tut, ist unbemerkt ungeschützt."
   },
   "a382d8b09dc61aa7": {
     "en": "You already run a model runtime.",
@@ -8950,6 +9112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Statuscodes"
+  },
+  "b36c2611dcdfa190": {
+    "en": "Daily",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Täglich"
   },
   "b383ef8402fe6e39": {
     "en": "{{0}} The changes are of the same class — the auth field is {{1}} again, signup requires an addressed invite and both key records, {{2}} left the handshake, {{3}} replaced the old account body, and two reset endpoints reuse §5.12 — but this time §6 catches them: a client speaking version 1 refuses to talk rather than half-working. Reasoning: {{4}}.",
@@ -9803,6 +9971,12 @@
     "at": "2026-09-04",
     "de": "Verpackter DEK"
   },
+  "c4e0d0583c9c1f23": {
+    "en": "{{0}}. Makes that version current again by DELETING every version above it (§5.1's shrink guard, ADR-0009). Refuses an unknown version, the current version, an envelope version this build does not accept, and a zero-byte row. A rollback rather than a re-upload, because §3.2's AAD binds {{1}}: re-inserting old bytes as a new version yields something no client can decrypt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}}. Macht diese Version wieder aktuell, indem JEDE Version darüber GELÖSCHT wird (Verkleinerungsschutzfunktion aus §5.1, ADR-0009). Weist eine unbekannte Version, die aktuelle Version, eine von diesem Build nicht akzeptierte Envelope-Version und eine Null-Byte-Zeile ab. Ein Rollback statt eines erneuten Uploads, da die AAD aus §3.2 {{1}} bindet: Das Wiedereinfügen alter Bytes als neue Version erzeugt etwas, das kein Client entschlüsseln kann"
+  },
   "c52615985b2c659a": {
     "en": "Family setup",
     "model": "google/gemini-3.8-flash",
@@ -9832,6 +10006,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Lebensmitteldaten ({{0}})"
+  },
+  "c5d63550f7d142ad": {
+    "en": "Service, swept after each accepted write",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Dienst, nach jedem akzeptierten Schreibvorgang bereinigt"
   },
   "c5e838483dda32e2": {
     "en": "{{0}} Source: {{1}}.",
@@ -10144,6 +10324,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ein Bearer-Token in einem {{0}}-Header. {{1}}"
+  },
+  "cb9e8664edea8cf5": {
+    "en": "Tier",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Stufe"
   },
   "cbb6033450117cf4": {
     "en": "{{0}}, and the curve is named in the label rather than only the version, so a future construction is a new label instead of an ambiguity about {{1}}.",
@@ -10739,6 +10925,12 @@
     "at": "2026-09-06",
     "de": "{{0}} (p50, 2026-08-12), gemessen unter einer früheren, gesprächigeren Pipeline bei voller Bildauflösung und nicht erneut unter der ausgelieferten Pipeline gemessen, betrachte dies daher als Obergrenze. {{1}} ist ein GPU-Profil."
   },
+  "d654e94e2912be33": {
+    "en": "Three tiers, see below",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Drei Stufen, siehe unten"
+  },
   "d675f10e15997e28": {
     "en": "macros are looked up, not invented",
     "model": "google/gemini-3.8-flash",
@@ -11038,6 +11230,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Version"
+  },
+  "dd22990a9ab38d14": {
+    "en": "The flat five was the whole rule before M224, and it was thin as a safety net: an account whose diary was wiped by a client defect was recoverable only while the good version happened to still be inside a window two devices can burn through in a minute.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die pauschalen fünf waren vor M224 die gesamte Regel, und als Sicherheitsnetz war das dünn: Ein Konto, dessen Tagebuch durch einen Client-Fehler gelöscht wurde, ließ sich nur wiederherstellen, solange die intakte Version zufällig noch in einem Zeitfenster lag, das zwei Geräte in einer Minute aufbrauchen können."
   },
   "dd36e4434c3cd00c": {
     "en": "OpenRouter can mint any number of API keys under one account, each with its own credit limit and its own usage line. That is precisely the feature a household needs.",
@@ -11603,6 +11801,12 @@
     "at": "2026-09-09",
     "de": "Ein Upstream-System, das nicht erreichbar ist, in ein Timeout läuft, keine JSON-Antwort liefert oder dessen Antwort-Body die Relay-Obergrenze übersteigt, wird {{0}} in der Hülle nach §4 mit einem Maschinencode ausgeliefert: {{1}}, {{2}} oder {{3}}. Ein Request-Body, der die eigene kleine Obergrenze des Teilbaums übersteigt, führt zu {{4}}. Das ist eine andere Aussage: Dem Abrechnungsdienst geht es gut, und was du gesendet hast, wird niemals akzeptiert. {{5}}; eine Ablehnung wird nur mit dem Status und dem Pfad protokolliert."
   },
+  "e8f40274d8ebfc08": {
+    "en": "{{0}} is a BODY FIELD and must never become a header. A new custom request header has to be named in the service's CORS {{1}}, or a browser reads the preflight, sees a header it may not send, and never sends the request at all, with no log line anywhere and nothing a non-browser test can observe. Reasoning: {{2}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}} ist ein FELD IM BODY und darf niemals zu einem Header werden. Ein neuer benutzerdefinierter Request-Header muss im CORS-{{1}} des Dienstes benannt werden, sonst liest ein Browser den Preflight, sieht einen Header, den er nicht senden darf, und sendet die Anfrage überhaupt nicht, ohne jegliche Protokollzeile und ohne dass ein Test außerhalb des Browsers dies beobachten kann. Begründung: {{2}}."
+  },
   "e91d4e97da205e43": {
     "en": "2. Terminology",
     "model": "google/gemini-3.8-flash",
@@ -11909,6 +12113,12 @@
     "at": "2026-09-04",
     "de": "Ein OpenAI-kompatibler Vision-Endpunkt, den diese Instanz allen Besuchern anbietet. Siehe {{0}} weiter unten."
   },
+  "ef2d127de37b942b": {
+    "en": "5",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "5"
+  },
   "ef30beccbb86e76a": {
     "en": "The server re-rounds and clamps.",
     "model": "google/gemini-3.8-flash",
@@ -11932,6 +12142,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}}, {{1}}, mit {{2}}. Eine Organisation mit einem einzigen Administrator, der dies tut, hat alle aus diesem Baum ausgesperrt, und die einzige Abhilfe ist eine Shell auf dem Container. Das statische Token ist ausgenommen, weil es kein Selbst besitzt und genau das Anmeldedatum für diese Situation ist."
+  },
+  "efd81a0b7c9142d3": {
+    "en": "The newest version of each UTC calendar day for {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die neueste Version jedes UTC-Kalendertags für {{0}}"
   },
   "efdb19b2cffb6e70": {
     "en": "openplate-inference is the compute layer.",
@@ -12323,6 +12539,12 @@
     "at": "2026-09-06",
     "de": "1. Kontextfenster: Das Symptom ist verstümmelte Ausgabe, kein Startfehler."
   },
+  "f8db3e3ab85e754a": {
+    "en": "{{0}} not a non-negative integer, {{1}} not a positive integer, {{2}} absent/not base64, or empty, or {{3}} present and not a boolean.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "{{0}} keine nicht-negative Ganzzahl, {{1}} keine positive Ganzzahl, {{2}} fehlt/kein Base64, oder leer, oder {{3}} vorhanden und kein boolescher Wert."
+  },
   "f8fb8d884f17e827": {
     "en": "Space-separated extra origins for the production CSP's {{0}}. Needed when your own AI endpoint is a {{1}} host. See {{2}}.",
     "model": "google/gemini-3.8-flash",
@@ -12334,6 +12556,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Du musst die Schlüssel selbst erzeugen und verteilen."
+  },
+  "f94656ad73db05b1": {
+    "en": "The refusal is {{0}} and deliberately NOT {{1}}: a {{2}} on this route means \"another device wrote first\" and obliges the recovery loop below, which would push the same bytes again. {{3}} was not used either: the request is not too large.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "de": "Die Abweisung erfolgt mit {{0}} und bewusst NICHT mit {{1}}: Ein {{2}} auf dieser Route bedeutet, dass ein anderes Gerät zuerst geschrieben hat, und erzwingt die unten stehende Wiederherstellungsschleife, die dieselben Bytes erneut senden würde. {{3}} wurde ebenfalls nicht verwendet: Die Anfrage ist nicht zu groß."
   },
   "f9ada8806e0c8a55": {
     "en": "Four rungs. Each one adds a capability and adds something you now have to operate. Start at the bottom and stop as soon as you have what you need — most people stop at rung 0 or 1.",

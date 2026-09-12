@@ -140,9 +140,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "core",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-core",
-      "ref": "v0.13.0",
+      "ref": "v0.14.0",
       "editRef": "main",
-      "sha": "024f7db85674295a6360441b018c1489ab2deea5",
+      "sha": "746781dba87ba6afb2404e47fb05c1bf55206223",
       "committedAt": "2026-09-12"
     },
     "lead": [
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -288,7 +288,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -343,7 +343,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0007"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0007-the-pulse-is-a-named-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/adr/0007-the-pulse-is-a-named-exception.md"
           },
           {
             "kind": "text",
@@ -422,7 +422,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0008"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0008-push-is-a-scheduling-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/adr/0008-push-is-a-scheduling-exception.md"
           },
           {
             "kind": "text",
@@ -443,6 +443,60 @@ export const DOCS_INDEX: DocsIndex = {
           {
             "kind": "text",
             "text": " subtree answers the ordinary unknown-path 404."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "strong",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "One opinion about a blob, and it is not a fifth hole."
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": " This service used to accept any correctly versioned blob without looking at it at all. Since M224 it refuses one shape: a push whose ciphertext is under half the size of the stored one, unless the request explicitly says the deletion is intended. A person lost her whole diary to a client that found its local store evicted, concluded she had deleted everything, and pushed a tombstone per entry, and a second device then pulled that blob and deleted its own rows. The guard compares two byte counts this service already stored for the storage figure it already reports, so it learns nothing new about anybody; what it gives up is the claim to be a store with no opinion. An operator can put an account back with "
+          },
+          {
+            "kind": "code",
+            "text": "pnpm sync-api accounts rollback"
+          },
+          {
+            "kind": "text",
+            "text": ", and "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "code",
+                "text": "docs/operations/restoring-a-wiped-diary.md"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/operations/restoring-a-wiped-diary.md"
+          },
+          {
+            "kind": "text",
+            "text": " is the procedure, including the step on the person's own devices that the rollback cannot do. "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "ADR-0009"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/docs/adr/0009-a-shrinking-blob-is-acknowledged-or-refused.md"
+          },
+          {
+            "kind": "text",
+            "text": " states what it costs when it is wrong."
           }
         ]
       },
@@ -528,7 +582,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/746781dba87ba6afb2404e47fb05c1bf55206223/LICENSE"
           },
           {
             "kind": "text",
