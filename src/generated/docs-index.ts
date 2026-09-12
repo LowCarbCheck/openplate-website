@@ -140,10 +140,10 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "core",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-core",
-      "ref": "v0.12.0",
+      "ref": "v0.13.0",
       "editRef": "main",
-      "sha": "0853958ede5f3ae9dc06dba4a2180016945814bc",
-      "committedAt": "2026-09-09"
+      "sha": "024f7db85674295a6360441b018c1489ab2deea5",
+      "committedAt": "2026-09-12"
     },
     "lead": [
       {
@@ -214,7 +214,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/0853958ede5f3ae9dc06dba4a2180016945814bc/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -230,13 +230,13 @@ export const DOCS_INDEX: DocsIndex = {
             "spans": [
               {
                 "kind": "text",
-                "text": "And two places the zero-knowledge claim does not hold."
+                "text": "And four places the zero-knowledge claim does not hold."
               }
             ]
           },
           {
             "kind": "text",
-            "text": " Both are optional, both are off until an operator turns them on, and they are not the same shape."
+            "text": " All four are optional, all four are off until somebody turns them on, and they are not the same kind of thing."
           }
         ]
       },
@@ -288,7 +288,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/0853958ede5f3ae9dc06dba4a2180016945814bc/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -305,6 +305,140 @@ export const DOCS_INDEX: DocsIndex = {
           {
             "kind": "code",
             "text": "/v1/feedback"
+          },
+          {
+            "kind": "text",
+            "text": " subtree answers the ordinary unknown-path 404."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "The third is the community pulse. A person who turns it on in the app sends three kinds of small delta to "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/pulse"
+          },
+          {
+            "kind": "text",
+            "text": ": a meal as the count 1 with its calories rounded to 50 and its protein rounded to 5 g, a parsed photograph as the count 1, and a fasting heartbeat that carries nothing beyond their bearer token. The server keeps instance-wide day sums for 30 days, one row per contributing account per day beside them, and a presence row that expires 30 minutes after the last heartbeat, so "
+          },
+          {
+            "kind": "code",
+            "text": "GET /v1/pulse/today"
+          },
+          {
+            "kind": "text",
+            "text": " can tell a person how many others are here today. The routes log a status code and a byte count and never an account id. "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "ADR-0007"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0007-the-pulse-is-a-named-exception.md"
+          },
+          {
+            "kind": "text",
+            "text": " states all three holes side by side, including the fact that a fasting heartbeat and M223's "
+          },
+          {
+            "kind": "code",
+            "text": "wake_at"
+          },
+          {
+            "kind": "text",
+            "text": " describe the same fast. Nothing leaves a device until the person turns the toggle on."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
+            "kind": "text",
+            "text": "The fourth is push scheduling. With "
+          },
+          {
+            "kind": "code",
+            "text": "VAPID_PUBLIC_KEY"
+          },
+          {
+            "kind": "text",
+            "text": ", "
+          },
+          {
+            "kind": "code",
+            "text": "VAPID_PRIVATE_KEY"
+          },
+          {
+            "kind": "text",
+            "text": " and "
+          },
+          {
+            "kind": "code",
+            "text": "VAPID_SUBJECT"
+          },
+          {
+            "kind": "text",
+            "text": " set, a person can register a device at "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/push"
+          },
+          {
+            "kind": "text",
+            "text": " and ask for two things: a morning catch-up at a minute of their own local day, and an alert when a fast reaches its target. The server stores one row per device: where to send, in which zone, at which minute, when it was last seen, and the instant it asked to be woken. What it never stores is a word of what the notification says. Every push carries a kind, "
+          },
+          {
+            "kind": "code",
+            "text": "{\"kind\":\"catch-up\"}"
+          },
+          {
+            "kind": "text",
+            "text": " or "
+          },
+          {
+            "kind": "code",
+            "text": "{\"kind\":\"fast-target\"}"
+          },
+          {
+            "kind": "text",
+            "text": ", and the device writes the sentence out of the diary only it can read. At most two pushes a day per device, nothing at all for somebody who has not opened the app in seven days, and a subscription the push service disowns is deleted. "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "ADR-0008"
+              }
+            ],
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/docs/adr/0008-push-is-a-scheduling-exception.md"
+          },
+          {
+            "kind": "text",
+            "text": " states all four holes side by side, including the fact that a "
+          },
+          {
+            "kind": "code",
+            "text": "wake_at"
+          },
+          {
+            "kind": "text",
+            "text": " row and the pulse's presence row describe the same fast. Leave the three variables unset and the whole "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/push"
           },
           {
             "kind": "text",
@@ -394,7 +528,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/0853958ede5f3ae9dc06dba4a2180016945814bc/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/024f7db85674295a6360441b018c1489ab2deea5/LICENSE"
           },
           {
             "kind": "text",

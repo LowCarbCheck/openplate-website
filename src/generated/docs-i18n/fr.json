@@ -257,6 +257,12 @@
     "at": "2026-09-06",
     "fr": "Deux cœurs sont réservés au service, au décodage d'images et au système d'exploitation. Donner tous les cœurs à llama.cpp sature la machine au lieu de l'accélérer."
   },
+  "05507be4de7ef0a3": {
+    "en": "{{0}}, which the push service minted and which is globally unique. {{1}} is an upsert on it: a device that registers the same endpoint again gets {{2}} and keeps the day it was first seen.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, que le service de push a généré et qui est unique au monde. {{1}} effectue une insertion-mise à jour dessus : un appareil qui enregistre à nouveau le même endpoint reçoit {{2}} et conserve le jour de sa première apparition."
+  },
   "056e2904a1f0740b": {
     "en": "The reference implementation is {{0}} in both {{1}} files, pure, total, and returning a user-presentable sentence rather than a boolean.",
     "model": "google/gemini-3.8-flash",
@@ -323,6 +329,12 @@
     "at": "2026-09-06",
     "fr": "`{\"currentUpdatedAt\": \"<iso>\" \\"
   },
+  "06e072a94c200b8a": {
+    "en": "{{0}} is an IANA name and is validated at write time.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} est un identifiant IANA, validé au moment de l'écriture."
+  },
   "0707ea0e5d22ded6": {
     "en": "4 GB free RAM",
     "model": "google/gemini-3.8-flash",
@@ -364,6 +376,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Configuration : démarre openplate-sync (voir {{0}} et {{1}}), puis définis {{2}} sur l'application openplate. Ensuite, invite des utilisateurs via {{3}} dans l'application, ou depuis un terminal avec le CLI {{4}} d'openplate-sync, en attribuant à chaque compte un quota quotidien. L'invitation est envoyée par courriel à la personne ; le lien ne s'affiche jamais dans une console. Chaque personne se connecte et son compte intègre déjà la connexion IA : il n'y a aucune étape supplémentaire et rien à coller. Suspendre ou réactiver un compte s'effectue depuis le même écran d'administration, avec un effet immédiat."
+  },
+  "07f62af092a1b46e": {
+    "en": "{{0}} names the endpoint this registration supersedes",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} désigne le endpoint que cet enregistrement remplace"
   },
   "0815621a242a5fcc": {
     "en": "Point a managed instance's AI proxy at your inference box (openplate-sync's {{0}}, with {{1}} left empty) and you get both: scans on your own hardware, with per-account allowances in front of them. Point it at a cloud provider instead and you get shared spend with no hardware. Either way, the same sync server also carries the diary: sync and the AI proxy are one service now, not two ({{2}}).",
@@ -454,6 +472,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Les deux numéros de version sont indépendants à dessein : repenser le tramage de la cryptographie et modifier la structure de l'API HTTP constituent des changements de nature différente, avec un rayon d'impact distinct."
+  },
+  "0b18b8c391e8233e": {
+    "en": "{{0}}, when the subscription's own clock has passed its minute and it has not already gone out today there. A local day across a changeover is 23 or 25 hours, so a UTC period is not an implementation of this rule.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, dès que l'horloge propre à l'abonnement a dépassé sa minute et que la notification n'est pas déjà partie aujourd'hui à cet endroit. Une journée locale lors d'un changement d'heure dure 23 ou 25 heures, un intervalle UTC ne constitue donc pas une implémentation valide de cette règle."
   },
   "0b1d337b9476d9b9": {
     "en": "{{0}} is {{1}} of the raw uncompressed public key. The server stores it as pinning metadata and {{2}} endorses, serves or generates a public key; the authoritative pinned key lives inside the grantor's own encrypted snapshot.",
@@ -665,6 +689,12 @@
     "at": "2026-09-06",
     "fr": "Le serveur valide {{0}} par rapport aux niveaux définis par ce protocole."
   },
+  "0f883d2ee58f6dbb": {
+    "en": "{{0}} Nothing else does: a {{1}}, a {{2}}, a {{3}}, a {{4}} and every {{5}} are transient or about the sender, and pruning on them would empty the table the first time a key was pasted wrong.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Rien d'autre ne le fait : une erreur {{1}}, {{2}}, {{3}}, {{4}} et chaque code {{5}} sont transitoires ou concernent l'expéditeur, et purger sur ces critères viderait la table dès qu'une clé serait mal collée."
+  },
   "0fae9d68b9303615": {
     "en": "What {{0}} adds",
     "model": "google/gemini-3.8-flash",
@@ -838,6 +868,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} n'est jamais accessible depuis un navigateur"
+  },
+  "13a5fab9c09558d2": {
+    "en": "{{0}}, a uuid, and a request without one is {{1}}. The key is kept {{2}}. A repeat inside that window answers {{3}} and changes nothing, which is what makes an offline replay or a retry safe.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, un uuid, et une requête sans cet identifiant renvoie {{1}}. La clé est conservée {{2}}. Une répétition dans cette fenêtre renvoie {{3}} et ne modifie rien, ce qui sécurise un rejeu hors ligne ou une nouvelle tentative."
   },
   "13e1102134919abf": {
     "en": "4. Transport conventions",
@@ -1144,6 +1180,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "Ce que détermine un niveau"
+  },
+  "1afcc1c68a156ea0": {
+    "en": "The third is the community pulse. A person who turns it on in the app sends three kinds of small delta to {{0}}: a meal as the count 1 with its calories rounded to 50 and its protein rounded to 5 g, a parsed photograph as the count 1, and a fasting heartbeat that carries nothing beyond their bearer token. The server keeps instance-wide day sums for 30 days, one row per contributing account per day beside them, and a presence row that expires 30 minutes after the last heartbeat, so {{1}} can tell a person how many others are here today. The routes log a status code and a byte count and never an account id. {{2}} states all three holes side by side, including the fact that a fasting heartbeat and M223's {{3}} describe the same fast. Nothing leaves a device until the person turns the toggle on.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le troisième est le pouls communautaire. Une personne qui l'active dans l'application envoie trois types de petits deltas à {{0}} : un repas compté pour 1 avec ses calories arrondies à 50 et ses protéines arrondies à 5 g, une photographie analysée comptée pour 1, et un battement de jeûne qui ne transporte rien d'autre que son jeton porteur. Le serveur conserve les cumuls journaliers à l'échelle de l'instance pendant 30 jours, avec à côté une ligne par compte contributeur et par jour, ainsi qu'une ligne de présence qui expire 30 minutes après le dernier battement, afin que {{1}} puisse indiquer combien d'autres personnes sont là aujourd'hui. Les routes consignent un code d'état et un nombre d'octets, jamais un identifiant de compte. {{2}} expose les trois brèches côte à côte, y compris le fait qu'un battement de jeûne et le {{3}} de M223 décrivent le même jeûne. Rien ne quitte un appareil tant que la personne n'a pas basculé l'interrupteur."
   },
   "1b00385616306f03": {
     "en": "Never sent anywhere.",
@@ -1511,6 +1553,12 @@
     "at": "2026-09-06",
     "fr": "Échelon 0 : ne rien exécuter"
   },
+  "236c35a6d0d942f4": {
+    "en": "{{0}} The community pulse of §5.23 looks like the server counting meals, and it is not: nothing in §9.2 is derived from a blob, and a deployment where nobody turned the pulse on counts nothing at all. The sums exist because devices whose owners opted in sent them, which is why the pulse is listed below as something the server knows rather than something it works out.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Le pouls communautaire du §5.23 ressemble à un décompte des repas par le serveur, mais il n'en est rien : aucun élément du §9.2 n'est dérivé d'un blob, et un déploiement où personne n'a activé le pouls ne compte absolument rien. Les totaux existent uniquement parce que les appareils dont les propriétaires ont donné leur accord les ont envoyés, ce qui explique pourquoi le pouls figure ci-dessous parmi les données connues du serveur et non parmi celles qu'il calcule."
+  },
   "236c3fc6dd6bb004": {
     "en": "Running {{0}} at home, for a household, or for research: no cap issue, that is not Commercial Use.",
     "model": "google/gemini-3.8-flash",
@@ -1594,6 +1642,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "suspension par un opérateur"
+  },
+  "258e6d3085f751e2": {
+    "en": "{{0}} is a minute of the local day, 0 to 1439, or {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} est une minute de la journée locale, de 0 à 1439, ou {{1}}"
   },
   "259b1502debd7f71": {
     "en": "Instance-provided AI",
@@ -1829,6 +1883,12 @@
     "at": "2026-09-07",
     "fr": "absent, jamais {{0}}"
   },
+  "2c458645dac380fe": {
+    "en": "A subscription is identified by its endpoint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Un abonnement est identifié par son endpoint"
+  },
   "2c5840debf1df0b9": {
     "en": "{{0}} The retained version ring is an owner-recovery mechanism, not a grantee timeline.",
     "model": "google/gemini-3.8-flash",
@@ -1840,6 +1900,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "IV"
+  },
+  "2ca3a2c1a0c3b496": {
+    "en": "{{0}} follows {{1}} exactly: a boolean that says only whether a door exists. {{2}} means the whole {{3}} subtree answers the ordinary unknown-path {{4}}, so a client draws no notification settings. It says nothing about what a push contains, because a push contains a kind and nothing else (§5.24).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} suit exactement {{1}} : un booléen qui dit uniquement si une porte existe. {{2}} signifie que toute la sous-arborescence {{3}} répond le {{4}} habituel de chemin inconnu, donc un client n'affiche aucun paramètre de notification. Cela ne dit rien de ce qu'une notification push contient, car une notification push contient un type et rien d'autre (§5.24)."
   },
   "2ccd8bac9d9c3c0a": {
     "en": "6. Version handshake: required, and required to fail closed",
@@ -1912,6 +1978,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "Identifiants dans un chemin. {{0}} et {{1}} sont remplacés par un espace réservé avant la transmission de la page vue."
+  },
+  "2e79e3704f1587b7": {
+    "en": "{{0}} A subscription whose last registration or schedule change was more than seven local days ago receives no catch-up until it comes back.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Un abonnement dont le dernier enregistrement ou changement de planning remonte à plus de sept jours locaux ne reçoit aucun rattrapage tant qu'il ne se manifeste pas à nouveau."
   },
   "2e8b8c774611b9be": {
     "en": "Optional mirror; Hugging Face is the fallback.",
@@ -1997,6 +2069,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Sans cela, chaque chemin ci-dessous répond l'habituel itinéraire inconnu {{1}}, à tout appelant, authentifié ou non ; le terminateur est monté {{2}} de l'authentification, de sorte qu'une instance non configurée ne se distingue pas d'une instance où la fonctionnalité n'a jamais été codée."
   },
+  "3091986cfb1bf53d": {
+    "en": "{{0}} All four are optional, all four are off until somebody turns them on, and they are not the same kind of thing.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Tous les quatre sont facultatifs, tous les quatre restent désactivés tant que personne ne les active, et ils ne sont pas du même ordre."
+  },
   "30d125ce8d8de471": {
     "en": "These carry no values. A fast event does not carry its length, and a weight event does not carry a weight. But the events are timestamped, as every analytics event is, so a start and an end together give a duration by subtraction, and a share event says the person has a clinician. Study participation is special-category data under Art. 9 GDPR.",
     "model": "google/gemini-3.8-flash",
@@ -2039,6 +2117,12 @@
     "at": "2026-09-06",
     "fr": "Une fois que {{0}} a renvoyé le code de récupération, exécute l'{{1}} ORDINAIRE du §5.14 avec lui : une nouvelle phrase de passe, un enregistrement {{2}} ré-enveloppé, un nouveau code, un enregistrement {{3}} ré-enveloppé et le nouveau {{4}} pour le séquestre. S'arrêter à mi-chemin laisse un compte dont le séquestre ne correspond plus à son vérificateur."
   },
+  "31c43c95dd9ef37c": {
+    "en": "{{0}} Every push it sends is one field:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Chaque notification push qu'il envoie ne contient qu'un seul champ :"
+  },
   "320d9314375fed0f": {
     "en": "Measured first-hand on 2026-08-15. Rows we have not run ourselves say so.",
     "model": "google/gemini-3.8-flash",
@@ -2074,6 +2158,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "sync.md"
+  },
+  "329963443bfce2f7": {
+    "en": "No route ever returns an endpoint or a device key, and the routes log a path, a method, a status and a byte count only: never the account id and never the endpoint, which is a capability.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Aucune route ne renvoie jamais de endpoint ni de clé d'appareil, et les routes n'enregistrent qu'un chemin, une méthode, un statut et un nombre d'octets : jamais l'identifiant du compte et jamais le endpoint, qui constitue un droit d'accès."
   },
   "32b30692edfdd7da": {
     "en": "The diary leaves the device as ciphertext for the sync server, and the photo goes straight to an AI endpoint, never through the sync server.",
@@ -2224,6 +2314,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Une session, dans l'ordre : la négociation de version, qui refuse la synchronisation au moindre désaccord, puis la connexion, puis un envoi avec compare-and-swap."
+  },
+  "35f6f8776a8ad7a1": {
+    "en": "{{0}} (§5.20) reports {{1}} to the operator, which is two integers and never a row.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} (§5.20) transmet {{1}} à l'opérateur, c'est-à-dire deux entiers et jamais une ligne."
   },
   "35ff0cd99eac2e64": {
     "en": "{{0}} (CPU build)",
@@ -2441,6 +2537,12 @@
     "at": "2026-09-06",
     "fr": "Marge de manœuvre pré-1.0."
   },
+  "3bd14ba20535d632": {
+    "en": "only when it belongs to the same account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "uniquement s'il appartient au même compte"
+  },
   "3bec2a8de7dd26a7": {
     "en": "Configured food data, USDA by default",
     "model": "google/gemini-3.8-flash",
@@ -2561,6 +2663,12 @@
     "at": "2026-09-06",
     "fr": "Le jeton est composé de 32 octets aléatoires, base64url, avec le préfixe {{0}}. Seule son empreinte SHA-256 est enregistrée, dans {{1}}, avec une durée de validité de {{2}}. {{3}} : une nouvelle requête marque toutes les anciennes lignes non consommées comme consommées, dans la même transaction, afin qu'une personne remontant dans sa boîte de réception ne puisse pas utiliser l'e-mail d'hier."
   },
+  "3e5951499e308ded": {
+    "en": "And it still cannot aggregate one.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Et il ne peut toujours pas en agréger un."
+  },
   "3e5e38d4aae2f107": {
     "en": "{{0}} It holds no database and writes no state: a destroyed app container loses nothing.",
     "model": "google/gemini-3.8-flash",
@@ -2597,11 +2705,23 @@
     "at": "2026-09-06",
     "fr": "{{0}} Il renvoie {{1}} sans aucun modèle chargé en mémoire (Ollama charge à la demande sur la première requête), donc un état prêt signifie « accessible », pas « chaud ». Ta première analyse subit le temps de chargement."
   },
+  "3f97beff2057dfb5": {
+    "en": "Day sums are kept 30 days.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Les cumuls journaliers sont conservés 30 jours."
+  },
   "3fab5c181bd28a09": {
     "en": "pinned",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "épinglé"
+  },
+  "3fb3dbf7708602cb": {
+    "en": "{{0}} is served from a five minute in-process cache",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} est servi depuis un cache en mémoire de cinq minutes"
   },
   "3fe317e74339ac7e": {
     "en": "{{0}} shall mean annual revenue of 10 million United States dollars ($10,000,000) or more.",
@@ -2663,6 +2783,12 @@
     "at": "2026-09-06",
     "fr": "Mauvaise configuration. Le message précise la variable. La configuration est validée au démarrage : un service lancé sans moteur d'exécution de modèle répond à chaque analyse par un code 502."
   },
+  "41b17f2fb15f800d": {
+    "en": "Off unless the operator set all three `VAPID_",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Désactivé, sauf si l'opérateur a défini les trois variables `VAPID_"
+  },
   "41d82128bf3307e2": {
     "en": "{{0}}. {{1}}: §3.2's AAD binds it, so a grantee without it cannot decrypt at all.",
     "model": "google/gemini-3.8-flash",
@@ -2692,6 +2818,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "l'accès"
+  },
+  "428fd1e709c374f5": {
+    "en": "Opt in on the device, and off until a person turns it on.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Activation volontaire sur l'appareil, et désactivé tant qu'une personne ne l'active pas."
   },
   "429d1048fafabcb9": {
     "en": "The browser posts a photo to this service, which calls your runtime once under a JSON schema, then looks the macros up before answering.",
@@ -2819,6 +2951,12 @@
     "at": "2026-09-06",
     "fr": "Clé bearer manquante ou incorrecte."
   },
+  "44f8c52cdc87c491": {
+    "en": "*{{0}}{{1}}404{{2}}GET /health{{3}}instance.push: false`.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "*{{0}}{{1}}404{{2}}GET /health{{3}}instance.push: false`."
+  },
   "455bdd56b72f1449": {
     "en": "The account is suspended (§5.9 uses the same code)",
     "model": "google/gemini-3.8-flash",
@@ -2908,6 +3046,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "0 = désactivé. Politique d'admission : rejette le travail impossible à terminer à temps. Consulte {{0}}."
+  },
+  "4666adcf0fd5ad11": {
+    "en": "Both carry an empty body.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Les deux transportent un corps vide."
+  },
+  "466f50354d708e62": {
+    "en": "Every write carries an {{0}} header",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Chaque écriture porte un en-tête {{0}}"
   },
   "46823fd126aec34b": {
     "en": "Withdrawal is genuinely erasing on this side.",
@@ -3305,6 +3455,18 @@
     "at": "2026-09-06",
     "fr": "Résultat"
   },
+  "4ecb21147287dcac": {
+    "en": "Seven properties a conforming implementation MUST hold:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Sept propriétés qu'une implémentation conforme DOIT respecter :"
+  },
+  "4ee8761ab91021de": {
+    "en": "{{0}}, ISO 8601, or {{1}} to clear it. The server sends the fast target alert when it passes and clears the column in the same write, so it can never fire twice. An absent field in a {{2}} leaves it exactly as it was.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, au format ISO 8601, ou {{1}} pour l'effacer. Le serveur envoie l'alerte d'objectif rapide dès que l'instant est dépassé et vide la colonne lors de la même écriture, afin qu'elle ne se déclenche jamais deux fois. Un champ absent dans une requête {{2}} la laisse telle quelle."
+  },
   "4ef63049ca3fc328": {
     "en": "On rung one the page comes from your own stateless container, and the photo path is unchanged.",
     "model": "google/gemini-3.8-flash",
@@ -3418,6 +3580,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un administrateur invite des personnes depuis l'application elle-même, à l'adresse {{0}}, ou depuis un terminal via le CLI {{1}} de openplate-sync (voir les notes d'administration de l'espace de travail). L'invitation est envoyée par e-mail, jamais affichée dans une console. Un mot de passe oublié se réinitialise via un lien envoyé par e-mail ; le serveur conserve un code de récupération sous séquestre qui déchiffre la clé de données après la réinitialisation (voir {{2}})."
+  },
+  "5128cb08a2d01d62": {
+    "en": "The collapse topics are {{0}} and {{1}}, the TTL is 6 hours, and the urgency is normal for the catch-up and high for the fast target. A topic MUST be URL-safe base64 characters, at most 32 of them, and a length that is {{2}}: Apple decodes the topic and answers {{3}} otherwise, while other push services accept it, so the defect is invisible on everything but an iPhone.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Les thèmes de regroupement sont {{0}} et {{1}}, la durée de vie est de 6 heures, et la priorité est normale pour le rattrapage et haute pour l'objectif rapide. Un thème DOIT être composé de caractères base64 sans danger pour les URL, 32 au maximum, et d'une longueur qui n'est {{2}} : sinon, Apple décode le thème et répond {{3}}, alors que les autres services de push l'acceptent, ce qui rend le défaut invisible sur tout ce qui n'est pas un iPhone."
   },
   "512afbae9d678190": {
     "en": "There is nothing new to learn at this rung. It is the union of the two above, with the same {{0}}, the same backup obligation, and the same hardware floor.",
@@ -3815,6 +3983,12 @@
     "at": "2026-09-06",
     "fr": "La photo que tu lui as envoyée, uniquement le temps que dure la requête. Il n'émet aucun appel sortant, excepté le téléchargement initial des poids."
   },
+  "5b57ab9c326d6ca7": {
+    "en": "The community pulse",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le pouls communautaire"
+  },
   "5b6590608008b0bb": {
     "en": "ciphertext, no key sent",
     "model": "google/gemini-3.8-flash",
@@ -3862,6 +4036,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "La Content-Security-Policy"
+  },
+  "5c5a60d1881c251b": {
+    "en": "{{0}}, and it is deleted {{1}}. A service worker re-registration mints a new endpoint without unsubscribing the old one, so without this the orphan would sit there answering {{2}} to nobody forever. A {{3}} equal to {{4}} is a device naming itself and deletes nothing.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, et il est supprimé {{1}}. Un réenregistrement de service worker produit un nouvel endpoint sans désabonner l'ancien, si bien que sans cela, l'orphelin resterait là à renvoyer {{2}} à personne indéfiniment. Un {{3}} égal à {{4}} correspond à un appareil qui se désigne lui-même et ne supprime rien."
   },
   "5c5a855fd1403bfa": {
     "en": "{{0}} {{1}} the client's own. Not \"≥\", not \"compatible-ish\".",
@@ -4097,6 +4277,12 @@
     "at": "2026-09-06",
     "fr": "Envoie une partie texte et un URI de données {{0}}, exactement comme tu le ferais vers OpenAI. L'identifiant du modèle est {{1}}. {{2}} est un JSON brut, sans balises :"
   },
+  "62473e2cd3fe8590": {
+    "en": "A fasting heartbeat is an upsert on the account id.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Un battement de cœur de jeûne est un upsert sur l'identifiant du compte."
+  },
   "624aa6cb13e06937": {
     "en": "Gone with the mailer in 0.5.0, and protocol 2 does not bring it back even though this service mails again.",
     "model": "google/gemini-3.8-flash",
@@ -4276,6 +4462,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un compte dont le {{0}} vaut {{1}}"
+  },
+  "65a92bb6dc006d77": {
+    "en": "Four routes, all behind the account's ordinary {{0}} (§4.1). An anonymous caller on a configured instance gets the ordinary {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Quatre routes, toutes protégées par le {{0}} habituel du compte (§4.1). Un appel anonyme sur une instance configurée reçoit la réponse {{1}} habituelle."
   },
   "65fee0d7ee762ebe": {
     "en": "Caddy reverse proxy",
@@ -4463,6 +4655,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Ni l'image, ni le base64, ni son empreinte. Les journaux ne contiennent que les métadonnées de la requête (statut, durée, une clé {{1}}, jamais la clé elle-même), et le formateur de journaux nettoie toute valeur susceptible de contenir des données utiles ou des identifiants. Cela concerne aussi les cas d'erreur : les réponses d'erreur et les journaux d'erreur sont nettoyés, et ce comportement est vérifié par la suite de tests unitaires."
   },
+  "6873f7ed615cb5fb": {
+    "en": "5.23 {{0}}: the community pulse (ADR-0007)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "5.23 {{0}} : le pouls communautaire (ADR-0007)"
+  },
   "688c4320427d44df": {
     "en": "Downscale to 896 px",
     "model": "google/gemini-3.8-flash",
@@ -4474,6 +4672,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} (aucun domaine, aucune redirection de port, du HTTPS sur ton propre tailnet) :"
+  },
+  "68e555de37ce72f6": {
+    "en": "{{0}}, for accounts that turned it on (§5.23, ADR-0007): instance-wide day sums of meals, photographs, calories and grams of protein, one row per contributing account per day, and a short lived presence row saying that an account is fasting right now. The sums are not attributable to anybody; the contributor row and the presence row are, and they say only \"this account contributed today\" and \"this account is fasting\". Day sums and contributor rows are {{1}}, presence expires 30 minutes after the last heartbeat, and the routes log no account id. A person who never turned it on sends nothing and appears in none of it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, pour les comptes qui l'ont activé (§5.23, ADR-0007) : les sommes journalières à l'échelle de l'instance pour les repas, les photos, les calories et les grammes de protéines, une ligne par compte contributeur et par jour, ainsi qu'une ligne de présence éphémère indiquant qu'un compte jeûne en ce moment. Les sommes ne peuvent être attribuées à personne ; la ligne de contribution et la ligne de présence le sont, et indiquent seulement « ce compte a contribué aujourd'hui » et « ce compte jeûne ». Les sommes journalières et les lignes de contribution sont {{1}}, la présence expire 30 minutes après le dernier battement de cœur, et les routes ne journalisent aucun identifiant de compte. Une personne qui ne l'a jamais activé n'envoie rien et n'apparaît nulle part."
   },
   "68ff63fb82e0e5df": {
     "en": "download",
@@ -5183,11 +5387,23 @@
     "at": "2026-09-06",
     "fr": "La même chose, sur ta propre machine"
   },
+  "793dc7faefc0e3bb": {
+    "en": "{{0}} An unknown zone is {{1}}. The whole catch-up is a local clock question, so a zone the server cannot read would be a notification at the wrong hour rather than an error.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Un fuseau inconnu équivaut à {{1}}. Tout le rattrapage dépend de l'horloge locale, donc un fuseau illisible pour le serveur entraînerait une notification à la mauvaise heure plutôt qu'une erreur."
+  },
   "793f60d2f4cb83a2": {
     "en": "Also change the {{0}} line to {{1}}, then apply it the same way with {{2}}. A proxy in front does not unpublish the container port: leave it as {{3}} and the app keeps answering plain HTTP on port 3000 to the whole network, beside the HTTPS address you just set up.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Remplace aussi la ligne {{0}} par {{1}}, puis applique le changement de la même façon avec {{2}}. Un proxy placé devant ne dépublie pas le port du conteneur : si tu laisses {{3}}, l'application continuera de répondre en HTTP brut sur le port 3000 à tout le réseau, en parallèle de l'adresse HTTPS que tu viens de configurer."
+  },
+  "79514aec7cfe1eb5": {
+    "en": "{{0}} Nothing here is derived from a diary the server can read, because it cannot read one. Every number below arrives as a small delta from a device whose owner asked for it, and {{1}} states exactly what leaves the device and why.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Rien ici n'est dérivé d'un journal que le serveur peut lire, car il ne peut en lire aucun. Chaque chiffre ci-dessous arrive sous la forme d'un petit delta envoyé par un appareil dont le propriétaire l'a demandé, et {{1}} énonce exactement ce qui quitte l'appareil et pourquoi."
   },
   "7968ebce77b1a97a": {
     "en": "Send {{0}} (the {{1}} HKDF branch of §3.1) and never the passphrase, the Argon2id output, or {{2}}. Deriving the wrong branch is silent: it authenticates fine and produces a key that decrypts nothing.",
@@ -5291,6 +5507,12 @@
     "at": "2026-09-06",
     "fr": "Le client génère une nouvelle DEK, rechiffre son instantané complet avec celle-ci, la rechiffre sous ses deux KEK et la rechiffre pour chaque partage qu'il conserve. Le service stocke le résultat {{0}}."
   },
+  "7d257adc3533aa9c": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is {{4}} or {{5}} (the two languages its mail is written in), {{6}} says whether it can send a letter at all, {{7}} says whether an ordinary member may invite people here (§5.21), {{8}} says whether a biller stands behind this instance so {{9}} exists (§5.22), {{10}} says whether this instance can send web push so {{11}} exists (§5.24), and {{12}} is {{13}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} décrit ce qu'est ce déploiement et ce qu'il sait faire, et il est {{1}} : un service plus ancien que le champ l'omet, et un client qui l'exigerait refuserait de dialoguer avec chaque instance de ce type. {{2}} est le libellé de l'instance choisi par l'opérateur, {{3}} vaut {{4}} ou {{5}} (les deux langues dans lesquelles son courrier est rédigé), {{6}} indique s'il peut envoyer un courriel, {{7}} indique si un membre ordinaire peut inviter des personnes ici (§5.21), {{8}} indique si un prestataire de facturation soutient cette instance pour que {{9}} existe (§5.22), {{10}} indique si cette instance peut envoyer des notifications web push pour que {{11}} existe (§5.24), et {{12}} vaut {{13}} si aucune clé en amont n'est configurée."
+  },
   "7d70c0f58195e74f": {
     "en": "5.2 {{0}}: pull",
     "model": "google/gemini-3.8-flash",
@@ -5351,11 +5573,23 @@
     "at": "2026-09-06",
     "fr": "le README d'openplate-sync"
   },
+  "7e7974d2b927e2b7": {
+    "en": "At most two pushes per subscription per UTC day.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Au maximum deux notifications push par abonnement et par jour UTC."
+  },
   "7e8c1894ab8effc1": {
     "en": "The first is the AI proxy. If the operator configures a provider key, this service proxies the app's food-photo requests to that provider at {{0}}, so the photograph and the model's answer cross this process. Neither is written, cached or logged: not the body, not a prefix, not a decoded buffer. What a log line carries is an account id, an upstream status, byte counts and a duration. It SEES a photograph and keeps nothing. Leave {{1}} unset and the route does not exist.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "Le premier est le proxy IA. Si l'opérateur configure une clé de fournisseur, ce service relaie les requêtes de photos de nourriture de l'application vers ce fournisseur à {{0}}, donc la photographie et la réponse du modèle traversent ce processus. Ni l'une ni l'autre ne sont écrites, mises en cache ou journalisées : ni le corps, ni un préfixe, ni un tampon décodé. Une ligne de journal contient uniquement un identifiant de compte, un statut amont, des volumes d'octets et une durée. Le service VOIT une photographie et ne garde rien. Si tu laisses {{1}} non défini, la route n'existe pas."
+  },
+  "7ea165cba74c9981": {
+    "en": "Four routes, all behind the account's ordinary {{0}} (§4.1). An anonymous caller gets the ordinary {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Quatre routes, toutes derrière le {{0}} habituel du compte (§4.1). Un appelant anonyme reçoit le {{1}} habituel."
   },
   "7ec02d542c118af4": {
     "en": "5 ({{0}})",
@@ -5404,6 +5638,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un scanner de photo d'assiette que tu fais tourner toi-même."
+  },
+  "80680f4193de97b4": {
+    "en": "And four places the zero-knowledge claim does not hold.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Et quatre endroits où l'affirmation zero-knowledge ne tient pas."
   },
   "80692b13d29d93d2": {
     "en": "zero hallucinations",
@@ -5458,6 +5698,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Suivi des assiettes + analyses IA"
+  },
+  "812ca7cb8dff2401": {
+    "en": "A {{0}} or a {{1}} from the push service deletes the row.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Un code {{0}} ou {{1}} renvoyé par le service de push supprime la ligne."
   },
   "81439e02fad2ea11": {
     "en": "Custom AI endpoints",
@@ -5560,6 +5806,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} Pas un préfixe, pas un tampon décodé, pas un document d'erreur. Ce qui peut figurer dans les logs : un identifiant de compte, le statut en amont, des volumes d'octets, une durée."
+  },
+  "83aaa4810d24a0c4": {
+    "en": "The device wakes, reads the diary only it can read, and writes the words. A conforming client MUST be able to render something for either kind without the payload telling it anything, because the payload never will.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "L'appareil se réveille, lit le journal que lui seul peut déchiffrer et compose les mots. Un client conforme DOIT pouvoir afficher quelque chose pour l'un ou l'autre type sans que la charge utile ne lui indique quoi que ce soit, car elle ne le fera jamais."
   },
   "83f19acbf023ff18": {
     "en": "Plate photo",
@@ -5681,6 +5933,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} sur le même processeur : ≈94 s / assiette"
   },
+  "872d6fbb9ce1767f": {
+    "en": "{{0}}: {{1}} and {{2}} one per minute each, {{3}} one per 10 minutes. Over the limit is {{4}} with a {{5}} header in seconds and a body that names no identifier.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} : {{1}} et {{2}} une par minute chacun, {{3}} une toutes les 10 minutes. Tout dépassement renvoie {{4}} avec un en-tête {{5}} en secondes et un corps qui ne mentionne aucun identifiant."
+  },
   "8736ad5635f8e289": {
     "en": "Query strings and URL fragments, which are dropped whole before a page view is reported. openplate puts single-use tokens there.",
     "model": "google/gemini-3.8-flash",
@@ -5717,6 +5975,12 @@
     "at": "2026-09-06",
     "fr": "tout ce qui figure dans {{0}}"
   },
+  "87863da18c0bcd97": {
+    "en": "{{0}} for \"no catch-up on this device\". {{1}} is the quiet default.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} pour « aucun rattrapage sur cet appareil ». {{1}} est la valeur silencieuse par défaut."
+  },
   "8791254537f430ca": {
     "en": "AI provider",
     "model": "google/gemini-3.8-flash",
@@ -5746,6 +6010,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Les cinq points de terminaison des §5.1 à §5.5, en plus de la négociation {{0}} du §5.6."
+  },
+  "88696bfd31bf6df8": {
+    "en": "{{0}} Never the account id, and never a value from the body.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Jamais l'identifiant du compte, et jamais une valeur issue du corps."
   },
   "8895e3b23ec27633": {
     "en": "MUST NOT state one",
@@ -6719,6 +6989,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} augmente la limite de sa clé. La modification s'applique immédiatement, sans aucun redémarrage."
   },
+  "9e80b14c18cc6220": {
+    "en": "{{0}} (§5.20) reports today's pulse to the operator as {{1}}, which is the same set every member can already read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} (§5.20) signale la pulsation du jour à l'opérateur sous forme de {{1}}, c'est-à-dire le même ensemble que chaque membre peut déjà consulter."
+  },
   "9e9c2cefe5ce74d7": {
     "en": "{{0}} is a machine code because a client MUST branch on it; it means \"this account will never succeed here until an operator changes something\", which is a different message to show than \"come back tomorrow\". The two {{1}}s are sentences because there is nothing to branch on: a person reads them.",
     "model": "google/gemini-3.8-flash",
@@ -6737,6 +7013,12 @@
     "at": "2026-09-06",
     "fr": "Qwen3-VL-2B-Instruct, Q4_K_M + F16 mmproj"
   },
+  "9f04fd7f77a39a8b": {
+    "en": "{{0}} is a one shot instant",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} est un instant ponctuel"
+  },
   "9f10e738cfebc983": {
     "en": "Scan Plate",
     "model": "google/gemini-3.8-flash",
@@ -6748,6 +7030,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "contexte sécurisé"
+  },
+  "9f3435306f595714": {
+    "en": "The rate limits are per account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Les limites de débit s'appliquent par compte"
   },
   "9f6e6104d59b8599": {
     "en": "The allowance is spent. {{0}} is seconds to the next UTC midnight",
@@ -6856,6 +7144,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "désactivé par défaut"
+  },
+  "a23de6e64abd5126": {
+    "en": "That last one lines up with the pulse's presence row",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Ce dernier élément concorde avec la ligne de présence du pouls"
   },
   "a25bad1f4e431731": {
     "en": "Your device",
@@ -7151,6 +7445,12 @@
     "at": "2026-09-06",
     "fr": "Retrait."
   },
+  "a9dc7e584f98faa4": {
+    "en": "Seven days of silence pauses it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Sept jours de silence le mettent en pause."
+  },
   "aa23ad0040745e82": {
     "en": "{{0}} is the number the service's own retention sweep deletes on, published from the same binding, so the sentence a client shows a person before they hand over a photograph and the deletion that follows cannot drift apart.",
     "model": "google/gemini-3.8-flash",
@@ -7193,6 +7493,12 @@
     "at": "2026-09-06",
     "fr": "Variables d'environnement"
   },
+  "aad0f272168282b6": {
+    "en": "The pulse routes log a status code and a byte count only.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Les routes de pulsation enregistrent uniquement un code de statut et un nombre d'octets."
+  },
   "aad644fa0273acba": {
     "en": "More than {{0}} requests in any trailing 60 s",
     "model": "google/gemini-3.8-flash",
@@ -7216,6 +7522,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "Ce service définit {{0}} sur {{1}} dans un enregistrement d'aliment lorsque la base de données alimentaire fournit ses macronutriments. Il ajoute une chaîne {{2}} si la source en exige une, voir {{3}}. Si rien ne résout l'élément, les deux champs sont omis et {{4}} vaut null. Ce service n'émet jamais {{5}}, car le contrat partagé réserve cette valeur à un fournisseur cloud."
+  },
+  "ab197d1a5204b179": {
+    "en": "5.24 {{0}}: web push (ADR-0008)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "5.24 {{0}} : web push (ADR-0008)"
   },
   "ab5aa97074c454a0": {
     "en": "notes",
@@ -7342,6 +7654,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "4.2 Cycle de vie des jetons"
+  },
+  "ad18719daabc5ab0": {
+    "en": "Nine properties a conforming implementation MUST hold:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Neuf propriétés qu'une implémentation conforme DOIT respecter :"
   },
   "ad2977b4dff2bbd9": {
     "en": "The write is a compare-and-swap on the recovery verifier the proof matched",
@@ -7733,6 +8051,12 @@
     "at": "2026-09-06",
     "fr": "60 min"
   },
+  "b6460659d401bd27": {
+    "en": "{{0}} Two heartbeats leave one row, with the later expiry. The row expires {{1}} after the last heartbeat, and {{2}} counts unexpired rows only. Presence is account keyed rather than anonymous because rate limiting and deduplication both need an identity, and an anonymous heartbeat could be replayed to inflate the number (ADR-0007).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Deux battements de cœur ne laissent qu'une seule ligne, avec l'expiration la plus tardive. La ligne expire {{1}} après le dernier battement de cœur, et {{2}} ne compte que les lignes non expirées. La présence est associée à un compte plutôt qu'anonyme, car la limitation de débit et la déduplication nécessitent toutes deux une identité, et un battement de cœur anonyme pourrait être rejoué pour gonfler les chiffres (ADR-0007)."
+  },
   "b689a4b0bdd4d0f0": {
     "en": "Per-account-and-kind CAS on key records via {{0}}, with the same \"absent field is a {{1}}\" rule.",
     "model": "google/gemini-3.8-flash",
@@ -8008,6 +8332,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Course perdue. Un autre appareil a écrit en premier."
+  },
+  "bb842cf7543ae23a": {
+    "en": "The server writes no notification text.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le serveur n'écrit aucun texte de notification."
   },
   "bbe6d1a51c1454ca": {
     "en": "Request {{0}} → {{1}}, always.",
@@ -9041,6 +9371,12 @@
     "at": "2026-09-06",
     "fr": "Pourquoi un refus plutôt qu'une tentative au mieux :"
   },
+  "d4130df32bd7853a": {
+    "en": "{{0}} A third is skipped, never queued.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} Une troisième est ignorée, jamais mise en file d'attente."
+  },
   "d4735e3a265e16ee": {
     "en": "2",
     "model": "google/gemini-3.8-flash",
@@ -9058,6 +9394,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "modifié (thème ou langue)"
+  },
+  "d492b0872984b5b6": {
+    "en": "{{0}}, for a device whose owner turned notifications on (§5.24, ADR-0008): the push service endpoint, the two keys it encrypts to, a capped user agent string, an IANA time zone, a locale, the minute of the local day a catch-up is due, the local day one last went out, the local day the device was last seen, the instant it asked to be woken, and a count of what has been sent today. Together those say roughly when this person is awake, roughly where in the world they are, and, through {{1}}, when a fast of theirs ends. {{2}}, which says the same fast is running; ADR-0008 names the correlation rather than leaving it to be discovered. What is NOT stored is a word of any notification's text: every push carries a kind. The row goes when the device unsubscribes, when the push service disowns it, or with the account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, pour un appareil dont le propriétaire a activé les notifications (§5.24, ADR-0008) : le point de terminaison du service push, les deux clés de chiffrement, une chaîne d'agent utilisateur tronquée, un fuseau horaire IANA, une locale, la minute du jour local où un rattrapage est prévu, le jour local du dernier envoi, le jour local où l'appareil a été vu pour la dernière fois, l'instant où il a demandé à être réveillé, et un décompte de ce qui a été envoyé aujourd'hui. L'ensemble indique approximativement quand cette personne est éveillée, approximativement où elle se trouve dans le monde, et, via {{1}}, quand son jeûne se termine. {{2}}, qui indique que ce même jeûne est en cours ; ADR-0008 explicite cette corrélation au lieu de la laisser deviner. Ce qui n'est PAS stocké, c'est le moindre mot du texte d'une notification : chaque notification push transporte un type. La ligne disparaît quand l'appareil se désabonne, quand le service push le rejette, ou avec le compte."
   },
   "d4c3e8a11256ab82": {
     "en": "browser",
@@ -9166,6 +9508,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "openplate-sync, e-mail et texte chiffré"
+  },
+  "d70977bfdb7c5758": {
+    "en": "A push subscription",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Un abonnement push"
   },
   "d71a0e5ed0750f87": {
     "en": "The drawing below is the whole system in three arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core, which never gets the key. The photo leaves for whichever AI endpoint you configured. The app server sends the page and stands on neither path.",
@@ -9665,6 +10013,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} prend {{1}} et renvoie {{2}}. {{3}} : une session oubliée sur un appareil partagé ne doit pas suffire à détruire les données de quelqu'un de manière irréversible."
   },
+  "e4c302510d4bc060": {
+    "en": "{{0}}, one entry for the whole instance, invalidated by time and never by a write. A client fetches it at most every five minutes. A write made inside the window is therefore not visible until the entry expires, which is stated rather than fixed: the numbers are a sign of company, not an acknowledgement.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}}, une seule entrée pour toute l'instance, invalidée par le temps et jamais par une écriture. Un client la récupère au maximum toutes les cinq minutes. Une écriture effectuée pendant cet intervalle reste donc invisible jusqu'à ce que l'entrée expire, ce qui est un choix assumé plutôt qu'un problème à corriger : ces chiffres signalent une présence, ils ne constituent pas un accusé de réception."
+  },
   "e4de4e6156497517": {
     "en": "The one button in the app that does change something is \"Reload to update\", which appears when the server is already serving a newer build than the open page is running. That reloads the browser onto assets the server has, and touches nothing on the host.",
     "model": "google/gemini-3.8-flash",
@@ -9845,6 +10199,12 @@
     "at": "2026-09-06",
     "fr": "`{\"wrappedDek\": \"<base64>\", \"recipientKeyFingerprint\": \"<string>\", \"expectedUpdatedAt\": \"<iso>\" \\"
   },
+  "e7f6059b850fe202": {
+    "en": "The catch-up goes out once per LOCAL day",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le rattrapage part une fois par jour LOCAL"
+  },
   "e7f6901b619863ee": {
     "en": "One live token per account",
     "model": "google/gemini-3.8-flash",
@@ -9910,6 +10270,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} amont"
+  },
+  "ea874f131b768b40": {
+    "en": "never 1 mod 4",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "jamais égale à 1 modulo 4"
   },
   "eaa3005a9b3b2a9e": {
     "en": "5.21 {{0}}: a member invites somebody",
@@ -10043,6 +10409,12 @@
     "at": "2026-09-06",
     "fr": "L'échec dangereux n'est pas le rejet, c'est l'acceptation avec omission : un moteur d'exécution qui reçoit le champ {{0}}, l'ignore, puis renvoie un JSON plausible qui ne respecte pas le contrat. Cela n'apparaît pas comme une erreur. Cela se manifeste par des estimations en grammes légèrement fausses."
   },
+  "ed4044c1941760fa": {
+    "en": "{{0}} {{1}} is rounded to the nearest 50 and clamped to 0 to 5000; {{2}} is rounded to the nearest 5 and clamped to 0 to 500. A device that sends an exact figure, a negative one or an absurd one still lands on the grid everybody else is on. A body that is not two finite numbers is {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} {{1}} est arrondi aux 50 les plus proches et borné entre 0 et 5000 ; {{2}} est arrondi aux 5 les plus proches et borné entre 0 et 500. Un appareil qui envoie une valeur exacte, négative ou absurde atterrit tout de même sur la même grille que tout le monde. Un corps qui ne contient pas deux nombres finis renvoie {{3}}."
+  },
   "ed75e6364d78961f": {
     "en": "Restart the app after changing it. Unset it again and the sync screens disappear and the app stops reaching out. Your local diary is untouched either way.",
     "model": "google/gemini-3.8-flash",
@@ -10115,11 +10487,23 @@
     "at": "2026-09-06",
     "fr": "Le chemin de récupération omet délibérément Argon2id et utilise un {{0}}. C'est intentionnel et non un oubli, la RFC 5869 §3.1 l'autorise lorsque le matériel de clé en entrée possède déjà une entropie élevée, ce qui est le cas par construction pour un code aléatoire de 160 bits. Seules les phrases de passe humaines à faible entropie nécessitent un étirement dur en mémoire et un véritable sel."
   },
+  "ef0603e47cf11939": {
+    "en": "kept 30 days",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "gardées 30 jours"
+  },
   "ef09db39dcb74354": {
     "en": "An OpenAI-compatible vision endpoint this instance offers to every visitor. See {{0}} below.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un point d'accès de vision compatible OpenAI que cette instance met à la disposition de chaque visiteur. Voir {{0}} ci-dessous."
+  },
+  "ef30beccbb86e76a": {
+    "en": "The server re-rounds and clamps.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le serveur arrondit à nouveau et applique les bornes."
   },
   "ef742a5c2c2f65a7": {
     "en": "An instance can set {{0}} (see {{1}}). That declares one thing: {{2}} openplate-core is what carries that, the account it already holds for sync also holds the allowance, so there is no second connection step and no second credential.",
@@ -10151,6 +10535,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} via OpenRouter, température 0"
   },
+  "f01a042bbfb3dad3": {
+    "en": "30 minutes",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "30 minutes"
+  },
   "f04cbaa3d84c8352": {
     "en": "{{0}} is unset. Retrieval is lexical-only by configuration. Normal.",
     "model": "google/gemini-3.8-flash",
@@ -10162,6 +10552,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Accepté. Le blob est maintenant à la {{0}}."
+  },
+  "f0514e8df84107f4": {
+    "en": "24 hours",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "24 heures"
   },
   "f06409688147e6ae": {
     "en": "Session tokens are the only kind in {{0}}.",
@@ -10277,6 +10673,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} ne t'est pas concédé sous licence."
   },
+  "f3646b57c1a0063f": {
+    "en": "The fourth is push scheduling. With {{0}}, {{1}} and {{2}} set, a person can register a device at {{3}} and ask for two things: a morning catch-up at a minute of their own local day, and an alert when a fast reaches its target. The server stores one row per device: where to send, in which zone, at which minute, when it was last seen, and the instant it asked to be woken. What it never stores is a word of what the notification says. Every push carries a kind, {{4}} or {{5}}, and the device writes the sentence out of the diary only it can read. At most two pushes a day per device, nothing at all for somebody who has not opened the app in seven days, and a subscription the push service disowns is deleted. {{6}} states all four holes side by side, including the fact that a {{7}} row and the pulse's presence row describe the same fast. Leave the three variables unset and the whole {{8}} subtree answers the ordinary unknown-path 404.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "Le quatrième est la planification des notifications push. Avec {{0}}, {{1}} et {{2}} configurés, une personne peut enregistrer un appareil sur {{3}} et demander deux choses : un point matinal à une minute précise de sa journée locale, et une alerte quand un jeûne atteint son objectif. Le serveur stocke une ligne par appareil : où envoyer, dans quel fuseau, à quelle minute, quand il a été vu pour la dernière fois, et l'instant où il a demandé à être réveillé. Ce qu'il ne stocke jamais, c'est le moindre mot du contenu de la notification. Chaque notification push transporte un type, {{4}} ou {{5}}, et l'appareil compose la phrase à partir du journal que lui seul peut lire. Au maximum deux notifications push par jour et par appareil, rien du tout pour quelqu'un qui n'a pas ouvert l'application depuis sept jours, et un abonnement rejeté par le service de push est supprimé. {{6}} détaille les quatre brèches côte à côte, y compris le fait qu'une ligne de {{7}} et la ligne de présence du pouls décrivent le même jeûne. Si tu laisses les trois variables non définies, toute la sous-arborescence {{8}} répond le 404 habituel de chemin inconnu."
+  },
   "f36ecc55d1e6e1ba": {
     "en": "If you run a row we have not, please open an issue with the result.",
     "model": "google/gemini-3.8-flash",
@@ -10378,6 +10780,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} Interdiction 8 de l'ADR-0002 : une rotation est atomique ou elle n'existe pas, et aucune séquence de points de terminaison validant leurs modifications individuellement ne peut être documentée ou utilisée comme telle. Une application partielle correspond au blocage « connexion réussie, déchiffre rien » que le §5.14 refuse déjà d'autoriser, avec un intervenant de plus : un enregistrement de clé réenveloppé alors que l'écriture du blob a échoué à son CAS bloque le propriétaire, et un partage réenveloppé alors que l'écriture du blob a échoué à son CAS bloque le clinicien."
+  },
+  "f63ed994f85e3d3f": {
+    "en": "{{0}} {{1}} and the contributor rows beside it are deleted by an hourly sweep past that age, expired presence rows go with them, and idempotency keys go at 24 hours.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-12",
+    "fr": "{{0}} {{1}} et les lignes de contributeurs associées sont supprimées par un nettoyage horaire au-delà de cet âge, les lignes de présence expirées disparaissent avec elles, et les clés d'idempotence au bout de 24 heures."
   },
   "f65d44cbf29f76a5": {
     "en": "{{0}} {{1}}, a {{2}} key record, and {{3}} must arrive together or not at all; any subset is a {{4}}. Each missing piece is its own disaster: a verifier without the record leaves a code that authenticates and unwraps nothing; a record without the verifier leaves one that unwraps and cannot log in; and an ESCROW still holding the old code turns the next mailed reset (§5.12) into a letter carrying a credential the account no longer accepts, discovered on the day it is needed.",
