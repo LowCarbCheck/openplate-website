@@ -55,8 +55,14 @@ export const ENDPOINT = process.env.OPENROUTER_ENDPOINT ?? 'https://openrouter.a
 /** Segments per request. Small enough that one bad answer is cheap, large enough to amortise the style. */
 export const CHUNK = 30;
 
-/** Terms that stay in English in every language: product names, commands, and the tools we name. */
-const KEEP = [
+/**
+ * Terms that stay in English in every language: product names, commands, and the tools we name.
+ *
+ * EXPORTED because `translate-ui` reads it as well as tells the model about it: a catalog leaf
+ * whose every word is one of these is a proper noun and is never sent at all. The two uses have to
+ * agree, and a second list would agree only until somebody added a term to one of them.
+ */
+export const KEEP = [
   'openplate',
   'openplate-core',
   'openplate-inference',
@@ -117,6 +123,11 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
   { en: 'allowance', say: { de: 'Kontingent', fr: 'quota' } },
   { en: 'sync server', say: { de: 'Sync-Server', fr: 'serveur de synchronisation' } },
   { en: 'recovery code', say: { de: 'Wiederherstellungscode', fr: 'code de récupération' } },
+  // German: wordsmith's answer, fixing a split between "Inference-Runtime" (nav, stack) and
+  // "Inferenz-Laufzeit" (page title, docs component) in the hand-written bundle. French: the term
+  // the site already shipped, self-consistent across nav, stack and page title before this entry
+  // existed, so no new wording was invented for it.
+  { en: 'inference runtime', say: { de: 'Inferenz-Runtime', fr: "moteur d'inférence" } },
 ];
 
 /**
@@ -245,8 +256,10 @@ export function missesOf(units: Map<string, Unit>, memory: Map<string, string>):
 }
 
 /** Chunk the misses so one bad answer costs one chunk, not the run. */
-export function chunk(units: Unit[], size: number): Unit[][] {
-  const out: Unit[][] = [];
+// Generic over the unit, so `translate-ui` can chunk a unit that also carries the
+// catalog key it came from without losing it to a widening on the way through.
+export function chunk<T extends Unit>(units: T[], size: number): T[][] {
+  const out: T[][] = [];
   for (let at = 0; at < units.length; at += size) out.push(units.slice(at, at + size));
   return out;
 }
@@ -280,7 +293,7 @@ type Answer = Record<string, string[]>;
  * retry and the split then buy it again, and only a segment that will not come
  * back clean is left in English.
  */
-const DASH = /[–—]/;
+export const DASH = /[–—]/;
 
 /** Every remembered sentence whose translation carries a banned dash, by hash. */
 export function dashOffenders(memory: Memory, locale: string): string[] {
@@ -347,6 +360,7 @@ export async function translate(
   locale: string,
   key: string,
   total: Usage,
+  notes: readonly string[] = [],
 ): Promise<string[] | undefined> {
   const sources = units.map((unit) => unit.source);
   const body = {
@@ -371,6 +385,11 @@ export async function translate(
           `Return JSON: {"xx": [...]} with EXACTLY ${sources.length} strings, in the same order.`,
           'A {{0}} marker is an untranslatable fragment. Keep every marker. Move it to wherever the',
           'target grammar puts it. Never translate, renumber, duplicate or drop one.',
+          // WHAT THE CALLER'S CORPUS NEEDS SAID AND THE DOCS' DOES NOT. Empty for `translate-docs`,
+          // so its body is byte-identical to what it has always sent. `translate-ui` uses it to
+          // describe a named `{{placeholder}}` and a `<Trans>` tag, neither of which occurs in a
+          // parsed document: the docs arrive here already reduced to text and numbered markers.
+          ...notes,
           '',
           JSON.stringify({ en: sources }),
         ].join('\n'),

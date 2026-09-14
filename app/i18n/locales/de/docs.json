@@ -14,7 +14,7 @@
   "components": {
     "app": "Die App",
     "core": "Der Sync-Server",
-    "inference": "Die Inference-Runtime"
+    "inference": "Die Inferenz-Runtime"
   },
   "closeSheet": "Schließen"
 }

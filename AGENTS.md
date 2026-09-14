@@ -85,21 +85,27 @@ dry. **No em dashes and no en dashes**, in copy or in comments; use a comma.
 The documentation pages are not covered by this: they are generated from the
 source repositories and translated by their own script.
 
-**There is no key-parity test between the three bundles, EXCEPT on the landing
-page.** Everywhere else a key added to the English bundle alone passes lint,
-typecheck, test and build. That is not a hole to plug by inventing German:
-English is `SOURCE_LANGUAGE` and the i18next fallback, so the string renders in
-English until a translation is bought. Note that German owns the UNPREFIXED
-URLs, so `/deploy` is the German page and English text on it is the fallback
-showing, not a routing bug.
+**The three bundles are key-parity checked, and a key added to `en` alone turns
+`pnpm test:unit` red.** `tests/unit/ui-parity.test.ts` compares every namespace
+in every translated locale against the English one: the same key set, the same
+`{{placeholders}}` and `<Trans>` tags, and no string over 40 characters left
+byte-identical to its English. Do not fill the gap by inventing German. Run
+`pnpm translate:ui --locale de --local`, which buys that one string and writes
+it back, and see "Where the site's own copy comes from" in README.md. Note that
+German owns the UNPREFIXED URLs, so `/deploy` is the German page and English
+text on it is the fallback showing, not a routing bug.
 
-The landing page is the exception, on purpose. `tests/unit/landing-claims.test.ts`
+The landing page carries a second, narrower check.
+`tests/unit/landing-claims.test.ts`
 loops `SUPPORTED_LANGUAGES` and asserts `i18n.exists(key, { lng, fallbackLng: false })`
 for every key printed by `app/routes/home.tsx`, `app/components/hero.tsx` and
 `app/components/feature-grid.tsx`. A new landing key in `en/common.json` alone
 turns `pnpm test:unit` red with two failures, one per language, while lint,
-typecheck and build all stay green. Fill all three bundles, or expect the gate
-to stay red.
+typecheck and build all stay green. It asks the real i18next singleton with
+`fallbackLng: false`, where the parity test above reads the files, so the two
+fail on different things: a key the bundles have and the page does not print is
+this one's business, and a key the page prints in a namespace nobody translated
+is the other's.
 
 **Before you buy a translation, look for one you already own.**
 `src/generated/docs-i18n/{de,fr}.json` is a per-sentence translation memory

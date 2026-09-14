@@ -9,7 +9,7 @@
       "menu": "Menü",
       "app": "App",
       "core": "Sync-Server",
-      "inference": "Inference-Runtime",
+      "inference": "Inferenz-Runtime",
       "deploy": "Deployment",
       "docs": "Doku"
     },
@@ -95,7 +95,7 @@
           "name": "Sync-Server"
         },
         "inference": {
-          "name": "Inference-Runtime"
+          "name": "Inferenz-Runtime"
         }
       },
       "topology": {
@@ -151,7 +151,7 @@
       }
     },
     "inference": {
-      "title": "Die Inferenz-Laufzeit",
+      "title": "Die Inferenz-Runtime",
       "lead": "openplate-inference ist ein Tellerfoto-Scanner, den du auf eigener Hardware betreibst. Er benennt die Lebensmittel auf einem Teller, schätzt das Gewicht in Gramm und schlägt die Makronährstoffe in einer mitgelieferten Lebensmitteldatenbank nach, statt Zahlen zu erfinden.",
       "hardware": {
         "heading": "Hardware"

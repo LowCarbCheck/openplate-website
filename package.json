@@ -46,6 +46,7 @@
     "test": "pnpm run test:unit",
     "test:unit": "node --import tsx --test \"tests/unit/**/*.test.ts\"",
     "translate:docs": "tsx scripts/translate-docs.ts",
+    "translate:ui": "tsx scripts/translate-ui.ts",
     "typecheck": "react-router typegen && tsc"
   },
   "engines": {

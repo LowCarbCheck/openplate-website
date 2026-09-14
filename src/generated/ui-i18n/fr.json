@@ -1,0 +1,704 @@
+{
+  "03fffb8510e0e948": {
+    "en": "release notes",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "notes de version"
+  },
+  "073fd1036ab198fd": {
+    "en": "Edit this page on GitHub",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Modifier cette page sur GitHub"
+  },
+  "09e2736558ba1ff2": {
+    "en": "The sync server",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le serveur de synchronisation"
+  },
+  "0b2f34e9657315d4": {
+    "en": "Use an instance someone else runs",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Utiliser une instance gérée par un tiers"
+  },
+  "0bcb8c5a2bb0ab9b": {
+    "en": "self-hosting",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "auto-hébergement"
+  },
+  "0d04bfeb7d64b71c": {
+    "en": "App",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Application"
+  },
+  "0e47f09a748fa132": {
+    "en": "Zoom in",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Agrandir"
+  },
+  "0fa34f63a9e6458a": {
+    "en": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le journal fonctionne jour par jour : les repas enregistrés, ce qu'ils consomment sur la limite du jour, et ce qu'il en reste."
+  },
+  "11e26b912cf3d84e": {
+    "en": "Scan on your own hardware",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Scanner sur ton propre matériel"
+  },
+  "1233317203705ccb": {
+    "en": "Add sync across your devices",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ajouter la synchronisation entre tes appareils"
+  },
+  "1254829bd9996472": {
+    "en": "Release notes",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Notes de version"
+  },
+  "177b819fa4dab2ba": {
+    "en": "Managed instances",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Instances gérées"
+  },
+  "1a6f7cae06cc1fc9": {
+    "en": "Releases",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Versions"
+  },
+  "1e751ed58de63368": {
+    "en": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Aux personnes qui s'auto-hébergent et veulent analyser leurs photos d'assiette sans compte d'IA dans le cloud et sans qu'aucune photo ne quitte leur réseau. Il ne fait pas partie de l'instance hébergée sur openplate.de."
+  },
+  "21b6b8973cdab76d": {
+    "en": "{{price}} a month",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "{{price}} par mois"
+  },
+  "23d48f9f88782a96": {
+    "en": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ces pages documentent les trois services : l'application, le serveur de synchronisation et le moteur d'inférence auto-hébergé. Commence par le service que tu utilises, ou par Auto-hébergement si tu pars de zéro."
+  },
+  "26787dd2f72cc993": {
+    "en": "hardware",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "matériel"
+  },
+  "26c87bb51e6978fe": {
+    "en": "Footer",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Pied de page"
+  },
+  "2908765dc4fef577": {
+    "en": "Diagram source",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Source du schéma"
+  },
+  "2a9b6f05841df634": {
+    "en": "What it stores on the device",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qui est stocké sur l'appareil"
+  },
+  "2ea406f3475e419b": {
+    "en": "Documentation page",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Page de documentation"
+  },
+  "2ea88c7a30351b12": {
+    "en": "protocol",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "protocole"
+  },
+  "32e02b480b7427bb": {
+    "en": "Cloud AI provider",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Fournisseur d'IA dans le cloud"
+  },
+  "376519c5503fa4f8": {
+    "en": "See where the day stands",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Suivre la journée"
+  },
+  "38e6056c23be441b": {
+    "en": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Tu paies pour l'analyse photo qui estime les macros dans ton assiette, et la synchronisation entre tes appareils. Tout le reste dans openplate est gratuit et le restera."
+  },
+  "3b288473524fcd5e": {
+    "en": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate n'enregistre rien tant qu'un administrateur n'active pas le suivi. L'instance hébergée sur openplate.de comptabilise les pages visitées et les fonctionnalités utilisées. Elle ne sait jamais ce que tu manges, ce que tu pèses ou ce que tu saisis. Quiconque héberge sa propre copie choisit parmi trois niveaux, des simples visites de pages jusqu'à un niveau de recherche qui enregistre les comportements liés à la santé pour une étude auprès de participants consentants. Aucun tiers n'intervient. Les données arrivent sur une instance Matomo que nous gérons nous-mêmes, cookies désactivés. <configuration>Configuration</configuration> détaille chaque événement pour chaque niveau."
+  },
+  "3cae2578df9fd385": {
+    "en": "An open-source food diary that runs on your device.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Un journal alimentaire open source qui tourne sur ton appareil."
+  },
+  "3cd68b3cce7a6f78": {
+    "en": "One plan",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Une seule formule"
+  },
+  "42d3cbd0ef8d2f8a": {
+    "en": "Your browser",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ton navigateur"
+  },
+  "47551140d008c3c8": {
+    "en": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Une limite quotidienne de glucides et un objectif de protéines, ou aucun des deux. Chaque objectif est facultatif, vider un champ le supprime."
+  },
+  "4bc6a02e8da49368": {
+    "en": "openplate-inference is a plate-photo scanner you run on your own hardware. It names the foods on a plate and estimates the grams, then looks up the macros in a bundled food database rather than inventing numbers.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate-inference est un scanner de photo d'assiette que tu fais tourner sur ton propre matériel. Il identifie les aliments dans l'assiette et estime leur poids en grammes, puis consulte les macronutriments dans une base de données intégrée plutôt que d'inventer des chiffres."
+  },
+  "4ca303a3bf7ddf7b": {
+    "en": "architecture",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "architecture"
+  },
+  "54a57c3147c49f33": {
+    "en": "Privacy",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Confidentialité"
+  },
+  "55c64d0fcd6f9d5f": {
+    "en": "photo",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "photo"
+  },
+  "5ceca28062ff509e": {
+    "en": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le journal openplate pour une journée : un anneau affichant les glucides nets restants sur la limite quotidienne, le total de protéines et les repas saisis au petit-déjeuner et au déjeuner."
+  },
+  "5ed820b448a1c9cd": {
+    "en": "What should I run?",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Que devrais-je faire tourner ?"
+  },
+  "5f89bf4a675e867c": {
+    "en": "The inference runtime",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le moteur d'inférence"
+  },
+  "625b22ba31d03000": {
+    "en": "Read the source",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Consulter le code"
+  },
+  "63196180214c129b": {
+    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce site utilise Matomo sans cookies pour compter les visites ; il ne te suit pas d'un site à l'autre et n'établit aucun profil te concernant. Ce site ne gère aucun compte en soi ; les comptes accessibles sur invitation appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application stocke et envoie, consulte sa propre page de confidentialité, accessible depuis l'application."
+  },
+  "65441a63dc5b7e70": {
+    "en": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'écran de scan, qui propose de connecter un fournisseur d'IA avant d'analyser une photo, et un moyen de consigner l'aliment sans IA."
+  },
+  "6741acc79bd109da": {
+    "en": "How to run openplate",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Comment faire tourner openplate"
+  },
+  "67a0d2e0dab41fca": {
+    "en": "Open source",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Open source"
+  },
+  "688daef45886595d": {
+    "en": "Open the app",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ouvrir l'application"
+  },
+  "7265a77a7b7cca62": {
+    "en": "Inference runtime",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Moteur d'inférence"
+  },
+  "757d4af22a81f51d": {
+    "en": "The stack",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "La stack"
+  },
+  "776279ed3e001ee0": {
+    "en": "Run the app on your own box",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Faire tourner l'application sur ta propre machine"
+  },
+  "7975300f01bc46f8": {
+    "en": "Hardware",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Matériel"
+  },
+  "7af023c43013b9a5": {
+    "en": "Docs",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Documentation"
+  },
+  "7d9eb7acb13e2462": {
+    "en": "Close",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Fermer"
+  },
+  "7facded95fcd670a": {
+    "en": "The four rungs",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Les quatre échelons"
+  },
+  "83c6b2f35f29a354": {
+    "en": "What leaves the device",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qui quitte l'appareil"
+  },
+  "84e565828aa767cf": {
+    "en": "VAT ID",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Numéro de TVA"
+  },
+  "869fe2b500296530": {
+    "en": "VAT included.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "TVA incluse."
+  },
+  "870a8ffd98f4f2bd": {
+    "en": "Deployment",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Déploiement"
+  },
+  "915c7679b3548288": {
+    "en": "Run all of it",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Tout faire tourner"
+  },
+  "94c116ee118a7299": {
+    "en": "Analytics",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Statistiques"
+  },
+  "955872cf31272901": {
+    "en": "Scan a plate",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Scanner une assiette"
+  },
+  "9596e6f4885d8edf": {
+    "en": "What it does know",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qu'il sait"
+  },
+  "95d78733a4e55f7b": {
+    "en": "Who holds what",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Qui détient quoi"
+  },
+  "969ccbd3cf6300ec": {
+    "en": "Email",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "E-mail"
+  },
+  "9798be610e07bc1c": {
+    "en": "Commercial register",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Registre du commerce"
+  },
+  "99af6606ff9d6cd5": {
+    "en": "Menu",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Menu"
+  },
+  "9dc1a21fce36eb41": {
+    "en": "openplate app server",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Serveur d'application openplate"
+  },
+  "a25bad1f4e431731": {
+    "en": "Your device",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ton appareil"
+  },
+  "a3c247a87375951b": {
+    "en": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'instance hébergée sur openplate.de est accessible uniquement sur invitation. Un administrateur envoie l'invitation ; il n'y a pas d'inscription libre. Si tu préfères exécuter ta propre instance, consulte <selfHosting>Auto-hébergement</selfHosting>."
+  },
+  "a469ab4ca4e55bf5": {
+    "en": "Page not found",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Page introuvable"
+  },
+  "a4cc6bc01a927e2a": {
+    "en": "privacy",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "confidentialité"
+  },
+  "a4fe65264ef7dbb3": {
+    "en": "Language",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Langue"
+  },
+  "a67a7524c0fdb07c": {
+    "en": "Sync server",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Serveur de synchronisation"
+  },
+  "a89bb8999c15668e": {
+    "en": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate et openplate-core sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+  },
+  "a90dc62e75ee70bf": {
+    "en": "Photograph the plate and the AI service you connected estimates the carbs. The photo goes to that service and to nowhere else.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Prends l'assiette en photo et le service d'IA que tu as connecté estime les glucides. La photo est envoyée à ce service et nulle part ailleurs."
+  },
+  "aa22aae5a1a66789": {
+    "en": "Switch to the light theme",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Passer au thème clair"
+  },
+  "aafdd3f20726bac0": {
+    "en": "the page",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "la page"
+  },
+  "ac576a66d4563e60": {
+    "en": "Skip to content",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Aller au contenu"
+  },
+  "ae68ff486249bb19": {
+    "en": "What openplate is",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qu'est openplate"
+  },
+  "ae74b837325419cc": {
+    "en": "This page is not translated yet. It is shown in English.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Cette page n'est pas encore traduite. Elle est affichée en anglais."
+  },
+  "b2312592216ae247": {
+    "en": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent."
+  },
+  "b5658fc8edda24f9": {
+    "en": "On this page",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Sur cette page"
+  },
+  "b5a34358b58e5df5": {
+    "en": "Log a food",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Enregistrer un aliment"
+  },
+  "b817cbd4d6dfb5d7": {
+    "en": "Self-hosting",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Auto-hébergement"
+  },
+  "bc7a63c47187602c": {
+    "en": "Where your data goes",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Où vont tes données"
+  },
+  "bc7b631a689b45ca": {
+    "en": "Zoom out",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Réduire"
+  },
+  "bcdecc549d07363c": {
+    "en": "Who it is for",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "À qui cela s'adresse"
+  },
+  "be75de1c0edd7204": {
+    "en": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'écran des objectifs : une limite quotidienne de glucides nets avec des choix prédéfinis et un champ personnalisé, ainsi qu'un objectif de protéines en grammes."
+  },
+  "bf046c7395cb38ee": {
+    "en": "Source code",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Code source"
+  },
+  "bfdf6a970a4e898f": {
+    "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Quatre boîtes et trois flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-core, chiffré. Ton appareil envoie la photo de l'assiette au point de terminaison d'IA que tu as choisi. Le serveur d'application ne se trouve sur aucun de ces deux chemins."
+  },
+  "c13cbfec1c2c8d4e": {
+    "en": "These screens show example data, not a real diary.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ces écrans affichent des données d'exemple, pas un vrai journal."
+  },
+  "c13f9a06d8645666": {
+    "en": "Read the terms",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Lire les conditions"
+  },
+  "c205924de0fe636c": {
+    "en": "Documentation",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Documentation"
+  },
+  "c32a3d79449cedee": {
+    "en": "You can use openplate without running anything at all, and you can run every part of it yourself. Four rungs sit between those two. Each rung adds a capability and adds something you now have to operate, so read it as a ladder you are meant to stop climbing early.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Tu peux utiliser openplate sans rien faire tourner du tout, comme tu peux tout héberger toi-même. Quatre échelons séparent ces deux cas. Chaque échelon apporte une fonction de plus et un composant de plus à gérer, vois donc cela comme une échelle où tu as tout intérêt à t'arrêter tôt."
+  },
+  "c4405d3e139e57a6": {
+    "en": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Le journal d'openplate sur un téléphone : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et les repas du jour regroupés sous petit-déjeuner et déjeuner."
+  },
+  "c4b8d7b164a6e1ca": {
+    "en": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Cherche dans la base d'aliments ou choisis un aliment déjà saisi, et l'entrée s'ajoute à la journée sous le repas sélectionné."
+  },
+  "c8dfd1d56a558579": {
+    "en": "What it cannot read",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qu'il ne peut pas lire"
+  },
+  "cb6e3b491a116af6": {
+    "en": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce qu'il reste de la limite, si l'objectif de protéines est atteint, et combien de jours tu as enregistrés sur les sept derniers."
+  },
+  "cb8fdb9a5f09b52f": {
+    "en": "Try it free for three days.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Essaie gratuitement pendant trois jours."
+  },
+  "cd552dcb09573750": {
+    "en": "Represented by",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Représentée par"
+  },
+  "cfa8f609c2f2851d": {
+    "en": "This component has not published release notes yet.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce composant n'a pas encore publié de notes de version."
+  },
+  "d198ed30d09ba8c6": {
+    "en": "Imprint",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Mentions légales"
+  },
+  "d249baca36da769a": {
+    "en": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Résilie à tout moment. Ton accès reste actif jusqu'à la fin du mois payé, et ne se renouvelle pas."
+  },
+  "d24f82a356a9dfb6": {
+    "en": "What you do with it",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ce que tu fais avec"
+  },
+  "d2e054dc87db81cd": {
+    "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate-core transmet ton journal entre tes propres appareils. Il stocke une adresse e-mail, un bloc chiffré de ton journal qu'il ne peut pas lire, et un code de récupération scellé pour le seul cas où un mot de passe oublié le nécessiterait."
+  },
+  "d494f204e8e6583d": {
+    "en": "The app",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'application"
+  },
+  "da1cf6127fe5c2f7": {
+    "en": "Switch to the dark theme",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Passer au thème sombre"
+  },
+  "da9fff3b402cc5e8": {
+    "en": "This page is machine translated from the English documentation.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Cette page est traduite automatiquement à partir de la documentation en anglais."
+  },
+  "dfe95783edfef791": {
+    "en": "Pricing",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Tarifs"
+  },
+  "e254fd44f17c3594": {
+    "en": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'écran de vue d'ensemble : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et une carte pour les sept derniers jours."
+  },
+  "e37e9338b84f7ce1": {
+    "en": "It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers."
+  },
+  "e9568cbe3664813a": {
+    "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'instance hébergée est accessible sur invitation. Déployer ta propre copie ne demande aucune invitation."
+  },
+  "eb814be3ca3b78c0": {
+    "en": "Main",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Principale"
+  },
+  "ec5ba0abb717da87": {
+    "en": "Access",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Accès"
+  },
+  "f03e10c80138b6b4": {
+    "en": "Set the targets",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Fixer les objectifs"
+  },
+  "f0d1346a8a76c0f9": {
+    "en": "diary, encrypted",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "journal, chiffré"
+  },
+  "f1d1c08578c791af": {
+    "en": "Your AI endpoint",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Ton point de terminaison d'IA"
+  },
+  "fabf4490f8ebb107": {
+    "en": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate enregistre les aliments et, si tu le souhaites, estime les macronutriments à partir d'une photo d'assiette. Cherche un aliment ou scanne une assiette, et l'entrée s'ajoute à ton journal du jour. Sur ta propre installation, aucun écran d'inscription : ouvre l'application et commence à consigner. Sur l'instance hébergée, tu te connectes d'abord."
+  },
+  "fb246941f0c0f944": {
+    "en": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "openplate est un journal alimentaire open source qui tourne sur ton appareil, avec une analyse photo facultative pour estimer les macros dans ton assiette. Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers."
+  },
+  "fc1aeeda1223c2b2": {
+    "en": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "L'écran d'ajout d'aliment : un champ de recherche, un bouton pour scanner l'assiette à la place et une liste d'aliments récents avec leurs glucides nets."
+  },
+  "ff2200c10e208cca": {
+    "en": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "fr": "Chaque guide ici est le fichier maintenu par le dépôt lui-même, extrait dans sa version publiée et diffusé tel quel."
+  }
+}

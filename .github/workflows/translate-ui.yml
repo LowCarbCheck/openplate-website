@@ -1,0 +1,288 @@
+# Translate the site's own UI catalogs after an English string changes.
+#
+# ── THE SIBLING OF sync-docs.yml, NOT A SECOND COPY OF IT ──
+# That workflow owns the QUOTED documentation: it re-quotes three repositories,
+# draws the diagrams and fills `src/generated/docs-i18n/`. This one owns the
+# strings the site writes about ITSELF, `app/i18n/locales/`, and fills
+# `src/generated/ui-i18n/`. The commit, rebase and recovery shape below is that
+# workflow's, deliberately, down to the PAT and the bot identity. The parts that
+# differ are the trigger, the paths and the budget, and each one says why.
+#
+# ── WHY IT IS A SEPARATE WORKFLOW AND NOT A STEP IN THAT ONE ──
+# The two corpora change on unrelated schedules. The documentation moves when a
+# member repository cuts a release, which is most days; the UI catalogs move when
+# somebody edits this site's English, which is rarely. Folding this in would buy
+# the site's copy on every upstream release and would tie a laptop's English edit
+# to the next release of an unrelated repository.
+#
+# ── WHY IT PUSHES WITH A PAT ──
+# The same reason sync-docs.yml does: a push made with the default `GITHUB_TOKEN`
+# triggers no workflows, so nothing would gate what this job commits and nothing
+# would deploy the commit that changed what readers see.
+#
+# ── WHY THERE IS NO SCHEDULE ──
+# sync-docs.yml runs daily because an upstream release can move without telling
+# us. Nothing moves the English bundle except a commit to this repository, and
+# that commit is the trigger, so a timer would buy nothing and wake a runner for
+# it. The `workflow_dispatch` below covers a run somebody wants on purpose, such
+# as approving a spend that was refused on cost.
+name: Translate UI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # The SOURCE bundle only. A change to a translated bundle is this job's own
+      # output, or a hand edit somebody made deliberately, and re-running on
+      # either would be a loop or an overwrite.
+      - 'app/i18n/locales/en/**'
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: 'Spend ceiling in USD for ONE language. The run may spend this much per language.'
+        default: '0.05'
+
+# Never two at once, and never cancel one mid-flight: a cancelled run has already
+# paid for the strings it bought, and they are only saved at the end of each
+# chunk. Its own group, separate from sync-docs, because the two write different
+# files and there is no reason for one to wait on the other.
+concurrency:
+  group: translate-ui
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The PAT, not GITHUB_TOKEN. See the header.
+          token: ${{ secrets.OPENPLATE_WEBSITE_PUSH_TOKEN }}
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # ── ONE PASS PER LANGUAGE, AND THE BUDGET IS PER LANGUAGE TOO ──
+      # `translate-ui.ts` takes one `--locale` for the reason the docs script
+      # states: a shared budget, a shared exit code and a shared partial write
+      # across two unrelated corpora means a French outage stops the German pass
+      # from saving what it bought. So the loop is here.
+      #
+      # THE CONSEQUENCE IS WRITTEN DOWN RATHER THAN HIDDEN: `budget` is the
+      # ceiling for ONE language, so the most this step can spend is that number
+      # times the number of languages. At the default that is 2 x $0.05 = $0.10.
+      # The corpus is around a hundred short strings, so an ordinary run that
+      # buys a handful of edited labels costs a fraction of a cent.
+      #
+      # The list comes from `app/i18n/language.ts` and not from a line in this
+      # file. A third language must not need a workflow edit to be translated,
+      # because the edit that would be forgotten is exactly this one, and what it
+      # ships is a language whose catalogs are silently English.
+      - name: Translate what changed, one language at a time
+        id: translate
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set +e
+          locales=$(node --import tsx --input-type=module \
+            -e "import { TRANSLATED_LANGUAGES } from './app/i18n/language.ts'; console.log(TRANSLATED_LANGUAGES.join(' '));")
+          if [ -z "$locales" ]; then
+            echo "could not read the language list" >&2
+            exit 1
+          fi
+          : > "$RUNNER_TEMP/translate-ui.log"
+          worst=0
+          for locale in $locales; do
+            echo "── $locale ──" | tee -a "$RUNNER_TEMP/translate-ui.log"
+            pnpm run translate:ui --locale "$locale" --budget "${{ inputs.budget || '0.05' }}" \
+              | tee -a "$RUNNER_TEMP/translate-ui.log"
+            code=${PIPESTATUS[0]}
+            echo "translate:ui --locale $locale exited $code" | tee -a "$RUNNER_TEMP/translate-ui.log"
+            # 2 is "refused on cost". The English catalog is correct and current
+            # and still worth shipping; only the translation waits for someone to
+            # approve the number. Anything else non-zero is a real break and
+            # stops the job here.
+            #
+            # A REFUSAL ON ONE LANGUAGE DOES NOT STOP THE NEXT ONE. They are
+            # separate memories and separate bundles.
+            if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then
+              echo "code=$code" >> "$GITHUB_OUTPUT"
+              exit 1
+            fi
+            if [ "$code" -eq 2 ]; then worst=2; fi
+          done
+          echo "code=$worst" >> "$GITHUB_OUTPUT"
+
+      # The repo's own gate, tier by tier. There is no `check` script: the
+      # pre-push hook runs these four, and this job runs the same four so that
+      # what a laptop refuses to push, this job refuses to commit. `ui-parity`
+      # runs inside the unit tier, so a catalog this job wrote with a lost
+      # placeholder stops here rather than reaching a reader.
+      - run: pnpm run lint
+      - run: pnpm run typecheck
+      - run: pnpm run test:unit
+      - run: pnpm run build
+
+      - name: Commit
+        id: commit
+        run: |
+          set -euo pipefail
+          # The translated bundles and the memory that produced them. The ENGLISH
+          # bundle is not in this list: it is the input, it is hand-written, and
+          # a job that could write it would be a job that can rewrite the source
+          # of truth.
+          paths="app/i18n/locales src/generated/ui-i18n"
+          # Named once because the recovery below treats it differently from the
+          # bundles: it is unioned rather than replaced.
+          memory="src/generated/ui-i18n"
+          # `set -e` and a bare `[ ... ] && ...` do not mix: a false test is a
+          # non-zero status and would end the step here, silently, without a
+          # commit. Written as an `if` for that reason alone.
+          if [ -z "$(git status --porcelain $paths)" ]; then
+            echo "changed=0" >> "$GITHUB_OUTPUT"
+            echo "Nothing moved. The catalogs are already translated." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+
+          subject="chore(i18n): translate the UI catalogs"
+
+          git config user.name "openplate-docs-bot"
+          git config user.email "partners@sportsight.de"
+          # `git add`, never `-A`: this job owns these two trees and nothing else.
+          git add $paths
+          git commit -m "$subject"
+          # THE COMMIT THE GATE ABOVE RAN ON. Every recovery below reapplies this
+          # tree rather than merging into it, so the name is worth having.
+          run_commit="$(git rev-parse HEAD)"
+
+          # The same two seams sync-docs.yml carries, and for the same test: they
+          # are never set by this workflow.
+          merge_memory="${MERGE_MEMORY:-node --import tsx scripts/merge-memory.ts}"
+          pause="${RETRY_PAUSE:-5}"
+
+          # One locale file per line of a commit's memory directory, copied out.
+          # A commit that carries no memory at all leaves an empty directory,
+          # which the union reads as an empty side. Unquoted on purpose, twice
+          # over: `$(git ls-tree ...)` is one path per line and locale file names
+          # carry no spaces, and `$merge_memory` is a command with arguments.
+          export_memory() {
+            for path in $(git ls-tree -r --name-only "$1" -- "$memory"); do
+              git show "$1:$path" > "$2/$(basename "$path")"
+            done
+          }
+
+          # ── WHY THIS IS NOT `git pull --rebase` IN A LOOP ──
+          # sync-docs.yml records the day it was: one conflict left the tree mid
+          # rebase with no abort, and attempts 2 and 3 both died on "Pulling is
+          # not possible because you have unmerged files". `fetch` plus `rebase`
+          # rather than `pull` so the recovery can name `origin/main` as a
+          # commit, and so an unmerged tree does not refuse outright.
+          #
+          # SKIP_TESTS=1 is the hook's own escape hatch, and here it is the right
+          # one: `pnpm install` ran `prepare`, which pointed core.hooksPath at
+          # .githooks, and that gate refuses to run without the ts-dev toolbox.
+          # The tiers it would run are the four steps above. The push itself
+          # re-runs them on the pushed commit, which is the reason for the PAT.
+          for attempt in 1 2 3; do
+            git fetch --quiet origin main
+            if ! git rebase origin/main; then
+              # ABORTING IS NECESSARY AND NOT SUFFICIENT. Without it the next
+              # attempt cannot start. With it and nothing else the next attempt
+              # conflicts again on the same files forever: both runs rebuild the
+              # whole bundle from the English tree, so their outputs differ
+              # wherever the English moved, and git cannot know one is newer.
+              # So the resolution is the one a person would reach for: throw the
+              # merge away, take the branch, and reapply this run's generation.
+              echo "::notice::attempt ${attempt}: the branch moved and the catalogs conflicted. Regenerating onto it."
+              git rebase --abort || true
+              git reset --hard origin/main
+
+              # NO `--ours` AND NO `--theirs`. During a rebase those two are
+              # INVERTED against every intuition, because the rebase checks out
+              # the upstream first and replays your work onto it. Both commits
+              # are named outright instead.
+              branch_memory="$(mktemp -d)"
+              run_memory="$(mktemp -d)"
+              export_memory origin/main "$branch_memory"
+              export_memory "$run_commit" "$run_memory"
+
+              # `git rm` first, then `git checkout`: a checkout restores what the
+              # named commit has and says nothing about what it does not. Without
+              # the removal, a key deleted from the English bundle upstream would
+              # survive the recovery in the translated ones.
+              git rm -r --quiet --ignore-unmatch -- $paths
+              git checkout "$run_commit" -- $paths
+
+              # THE ONE TREE THAT IS NOT REGENERATED, BECAUSE IT IS BOUGHT. The
+              # memory records strings a model was PAID to translate. Taking this
+              # run's copy whole would drop what another run bought minutes
+              # earlier and the next run would buy it again.
+              $merge_memory --branch "$branch_memory" --run "$run_memory" --out "$memory"
+              git add $paths
+
+              # ── STILL REFUSES TO PUSH A TREE ITS GATE HAS NOT SEEN ──
+              # The four steps above ran on `$run_commit`. Everything staged here
+              # has to be that same tree, the memory excepted and named. A
+              # tripwire rather than a likely failure: it is what turns a future
+              # edit that starts merging catalogs in here into a red run instead
+              # of a published tree nobody gated.
+              if ! git diff --cached --quiet "$run_commit" -- $paths ":(exclude)$memory"; then
+                echo "::error::the resolved tree differs from the one the gate ran on, outside the translation memory. Refusing to push." >&2
+                exit 1
+              fi
+              # A recovery can end with nothing to stage: the branch already
+              # carries exactly this generation. Here so that case exits green
+              # instead of dying on `git commit`'s "nothing to commit" under
+              # `set -e`.
+              if git diff --cached --quiet; then
+                echo "The branch already carries this generation. Nothing to push." >> "$GITHUB_STEP_SUMMARY"
+                exit 0
+              fi
+              git commit --quiet -m "$subject"
+              run_commit="$(git rev-parse HEAD)"
+            fi
+            if SKIP_TESTS=1 git push origin HEAD:main; then exit 0; fi
+            sleep "$pause"
+          done
+          # LOUD, AND IT NAMES WHAT IT LOST TO. A step that just exits 1 sends
+          # whoever reads the run to guess between a token, a protected branch
+          # and a race.
+          echo "::error::Could not land the translated catalogs after 3 attempts. origin/main is now $(git rev-parse --short origin/main) \"$(git log -1 --format=%s origin/main)\"." >&2
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Translate UI"
+            echo
+            echo "Triggered by \`${{ github.event_name }}\`."
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/translate-ui.log" 2>/dev/null || echo "(the translator did not run)"
+            echo '```'
+            if [ "${{ steps.translate.outputs.code }}" = "2" ]; then
+              echo
+              echo "### Refused on cost"
+              echo
+              echo "The English catalog was committed. The translation was not."
+              echo "Approve it by running this workflow again with a higher \`budget\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # LAST, so the commit above still happens. Over budget is a red run that
+      # the operator clears with one click, not a reason to leave the site
+      # untranslated.
+      - name: Fail if the translation was refused on cost
+        if: steps.translate.outputs.code == '2'
+        run: |
+          echo "translate:ui refused the spend. English shipped; the translation is waiting." >&2
+          exit 1

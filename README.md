@@ -52,6 +52,57 @@ In the middle case `SOURCE.json` records the branch as `ref` and the branch's
 commit as `commit`, and the documentation index shows `main` where it usually
 shows a tag. That is honest: those pages are ahead of the release.
 
+## Where the site's own copy comes from
+
+The section above is about the documentation, which is quoted. This is about the
+site's own strings, the ones in `app/i18n/locales/`: navigation labels, headings,
+the sentences on the front page. They are produced the same way the documentation
+is, by hash, sentence by sentence.
+
+**English is hand-written and is the source of truth.** `app/i18n/locales/en/`
+is edited by a person and by nothing else, and every string in it goes through
+the workspace `wordsmith` tool before it lands.
+
+**The other bundles are machine-translated and committed.**
+`scripts/translate-ui.ts` flattens each English namespace to its leaves, hashes
+each value, asks the model only for the hashes its memory does not already
+answer, and writes the target bundle back from the English tree, so a diff shows
+changed values and never a reordering. The memory is
+`src/generated/ui-i18n/<locale>.json`, keyed by a hash of the English, beside the
+documentation's memory and never inside it. Edit one English sentence and its
+hash stops matching, so that one string is re-bought and the rest stay put.
+
+```bash
+toolbox run -c ts-dev env CI=true pnpm translate:ui --locale fr --dry
+toolbox run -c ts-dev env CI=true pnpm translate:ui --locale fr --budget 0.05 --local
+```
+
+The exit codes are `translate:docs`'s: `0` done, `1` broken, `2` refused on cost.
+Two is not a failure, the English is still correct and still ships.
+
+**Three kinds of string are never sent to the model**: one that is nothing but
+`{{placeholders}}`, one with no letter in it such as `2026` or `16:8`, and one
+whose every word is a product name the style prompt already pins to English, such
+as `openplate-core`. Those keep whatever the target bundle holds, which is the
+English, and that is what a reader should see for them. The rule is
+`skipReason` in `scripts/lib/translate-ui.ts` and its header argues for it.
+
+**A translation that loses an interpolation is refused rather than stored.** A
+renamed `{{price}}` renders as literal braces on the page forever, because
+i18next substitutes by name, and half a `<selfHosting>` tag pair takes a link's
+words with it. An answer that does either is asked for once more on its own, and
+then left in English, which i18next answers from the source bundle.
+
+`tests/unit/ui-parity.test.ts` is the guard: every locale has exactly the English
+key set, exactly the same placeholders and tags, and no string over 40 characters
+left byte-identical to its English.
+
+**German was hand-written first**, and `--adopt` is how that was kept. It records
+the bundle as it stands, stamped `hand-written`, so the pipeline inherits the
+reviewed copy instead of buying a machine replacement for it. It is a flag and
+never the default: adopting on every run would pair a NEW English hash with an
+OLD translation and the edited string would never be re-bought.
+
 ## Running it
 
 Every command runs inside the `ts-dev` toolbox container, because the host has
@@ -222,6 +273,19 @@ gh run list --workflow sync-docs.yml --limit 5
 `budget` is the spend ceiling in US dollars for the whole run; `0` buys nothing
 and re-quotes the English. `app_ref`, `sync_ref` and `inference_ref` each
 override one source's ref.
+
+**The second workflow.** `.github/workflows/translate-ui.yml` does the same job
+for the site's own catalogs, and it is separate because the two corpora move on
+unrelated schedules. It runs on a push to `main` that touches
+`app/i18n/locales/en/**`, and by hand. There is no schedule: nothing moves the
+English bundle except a commit to this repository, and that commit is the
+trigger. It commits as the same bot, with the same rebase recovery, and its
+`budget` is the ceiling for ONE language, defaulting to `0.05`.
+
+```bash
+gh workflow run translate-ui.yml -f budget=0.10
+gh run list --workflow translate-ui.yml --limit 5
+```
 
 **The secrets.** Two in this repository, one in each source repository. All
 three are already set; they are listed here because a fine-grained PAT expires
