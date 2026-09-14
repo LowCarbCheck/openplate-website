@@ -8135,6 +8135,12 @@
     "at": "2026-09-06",
     "fr": "ready"
   },
+  "b251a39258b593a1": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a biller stands behind this instance so {{13}} exists (§5.22), {{14}} says whether this instance can send web push so {{15}} exists (§5.24), and {{16}} is {{17}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "fr": "{{0}} décrit la nature de ce déploiement et ce qu'il sait faire, et il est {{1}} : un service antérieur à l'apparition de ce champ l'omet, et un client qui l'exigerait refuserait de communiquer avec chacune de ces instances. {{2}} est le libellé attribué à l'instance par son exploitant, {{3}} prend l'une des valeurs {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (les six langues dans lesquelles ses e-mails sont rédigés ; un client se contente de l'afficher sans jamais l'utiliser comme condition d'aiguillage, l'ajout d'une septième langue ne modifie donc pas le protocole), {{10}} indique si l'instance peut envoyer le moindre courrier, {{11}} indique si un membre ordinaire peut inviter des personnes ici (§5.21), {{12}} indique si un service de facturation prend en charge cette instance de sorte que {{13}} existe (§5.22), {{14}} indique si cette instance peut envoyer des notifications push web de sorte que {{15}} existe (§5.24), et {{16}} vaut {{17}} quand aucune clé amont n'est configurée."
+  },
   "b2c57b92ce7c26d2": {
     "en": "3.5 The research contribution envelope (ADR-0003)",
     "model": "google/gemini-3.8-flash",

@@ -7943,6 +7943,12 @@
     "at": "2026-09-14",
     "es": "listo"
   },
+  "b251a39258b593a1": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a biller stands behind this instance so {{13}} exists (§5.22), {{14}} says whether this instance can send web push so {{15}} exists (§5.24), and {{16}} is {{17}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "{{0}} describe qué es este despliegue y qué puede hacer, y es {{1}}: un servicio anterior a este campo lo omite, y un cliente que lo exija se negaría a comunicarse con cualquiera de esas instancias. {{2}} es la etiqueta que el operador asigna a la instancia, {{3}} es uno de {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (los seis idiomas en los que se redacta su correo; el cliente lo muestra y nunca bifurca su lógica según este valor, por lo que añadir un séptimo idioma no cambia el protocolo), {{10}} indica si puede enviar correos en absoluto, {{11}} indica si un miembro ordinario puede invitar a otras personas aquí (§5.21), {{12}} indica si hay un sistema de facturación detrás de esta instancia para que exista {{13}} (§5.22), {{14}} indica si esta instancia puede enviar notificaciones push web para que exista {{15}} (§5.24), y {{16}} es {{17}} cuando no hay ninguna clave upstream configurada."
+  },
   "b2c57b92ce7c26d2": {
     "en": "3.5 The research contribution envelope (ADR-0003)",
     "model": "google/gemini-3.8-flash",

@@ -9131,6 +9131,12 @@
     "at": "2026-09-04",
     "de": "ready"
   },
+  "b251a39258b593a1": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a biller stands behind this instance so {{13}} exists (§5.22), {{14}} says whether this instance can send web push so {{15}} exists (§5.24), and {{16}} is {{17}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} beschreibt, worum es sich bei diesem Deployment handelt und was es kann, und es ist {{1}}: Ein Dienst, der älter als das Feld ist, lässt es weg, und ein Client, der es voraussetzt, würde die Kommunikation mit jeder solchen Instanz verweigern. {{2}} ist die Bezeichnung der Betreibenden für die Instanz, {{3}} ist eines von {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (die sechs Sprachen, in denen ihre E-Mails verfasst sind; ein Client zeigt dies an und verzweigt nie danach, daher ist eine siebte Sprache keine Protokolländerung), {{10}} gibt an, ob sie überhaupt Briefe versenden kann, {{11}} gibt an, ob ein normales Mitglied Personen hierher einladen darf (§5.21), {{12}} gibt an, ob ein Rechnungssteller hinter dieser Instanz steht, sodass {{13}} existiert (§5.22), {{14}} gibt an, ob diese Instanz Web-Push senden kann, sodass {{15}} existiert (§5.24), und {{16}} ist {{17}}, wenn kein Upstream-Schlüssel konfiguriert ist."
+  },
   "b2a5b7a16cfa7ba6": {
     "en": "If you also run the sync service, its Postgres is worth a scheduled dump — together with the {{0}}, which is useless without the database and vice versa:",
     "model": "google/gemini-3.8-flash",
