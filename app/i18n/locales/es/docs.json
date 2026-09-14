@@ -1,0 +1,20 @@
+{
+  "title": "Documentación",
+  "intro": "Cada guía aquí incluida es el archivo que mantiene el propio repositorio, leído en su versión publicada y difundido sin cambios.",
+  "nav": "Documentación",
+  "onThisPage": "En esta página",
+  "diagramSource": "Código fuente del diagrama",
+  "diagramZoomIn": "Acercar",
+  "diagramZoomOut": "Alejar",
+  "edit": "Edita esta página en GitHub",
+  "releases": "Notas de la versión",
+  "noReleases": "Este componente aún no ha publicado notas de la versión.",
+  "machineTranslated": "Esta página es una traducción automática de la documentación en inglés.",
+  "untranslated": "Esta página aún no está traducida. Se muestra en inglés.",
+  "components": {
+    "app": "La aplicación",
+    "core": "El servidor de sincronización",
+    "inference": "El runtime de inferencia"
+  },
+  "closeSheet": "Cerrar"
+}

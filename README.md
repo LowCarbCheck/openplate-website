@@ -2,14 +2,18 @@
 
 The project site at [openplate.de](https://openplate.de): what openplate is, the
 three components it is built from (the app, the sync server, the inference
-runtime), and each component's documentation, in English and German. The app
-itself lives at `beta.openplate.de` and is a separate repository.
+runtime), and each component's documentation, in six languages: German, English,
+French, Italian, Spanish and Turkish. The app itself lives at `beta.openplate.de`
+and is a separate repository.
 
 The site is a React Router 7 project in framework mode, prerendered at build
 time. `pnpm build` writes one static HTML file per URL under `build/client/`.
-There is no database, no session, no background worker and no account. English
-is at `/`, German at `/de/`, and both are written to disk, so a page is a file
-either way.
+There is no database, no session, no background worker and no account. German
+is at `/`, every other language under its prefix (`/en/`, `/fr/`, `/it/`,
+`/es/`, `/tr/`), and all of them are written to disk, so a page is a file
+either way. `app/i18n/language.ts` is the one list; the route table, the
+sitemap, the hreflang tags, the prerenderer and the diagram sync all derive
+from it.
 
 ## Where the documentation comes from
 
@@ -68,9 +72,14 @@ the workspace `wordsmith` tool before it lands.
 each value, asks the model only for the hashes its memory does not already
 answer, and writes the target bundle back from the English tree, so a diff shows
 changed values and never a reordering. The memory is
-`src/generated/ui-i18n/<locale>.json`, keyed by a hash of the English, beside the
-documentation's memory and never inside it. Edit one English sentence and its
-hash stops matching, so that one string is re-bought and the rest stay put.
+`src/generated/ui-i18n/<locale>.json`, keyed by a hash of the catalog path and
+the English together, beside the documentation's memory and never inside it.
+Each entry carries its `path` (`common:site.nav.docs`) beside the `en`, which
+is how a person finds it. Edit one English sentence and its hash stops
+matching, so that one string is re-bought and the rest stay put. One English
+sentence under two paths is two entries, bought twice, on purpose: the app's
+catalog showed that one word ("Fasting") can be two translations, and a memory
+keyed by the English alone gave both paths one of them.
 
 ```bash
 toolbox run -c ts-dev env CI=true pnpm translate:ui --locale fr --dry

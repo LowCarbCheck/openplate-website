@@ -1,0 +1,232 @@
+{
+  "site": {
+    "name": "openplate",
+    "tagline": "Cihazında çalışan açık kaynaklı bir yemek günlüğü.",
+    "skipToContent": "İçeriğe atla",
+    "exampleData": "Bu ekranlar gerçek bir günlüğü değil, örnek verileri gösterir.",
+    "nav": {
+      "label": "Ana",
+      "menu": "Menü",
+      "app": "Uygulama",
+      "core": "Eşitleme sunucusu",
+      "inference": "Çıkarım çalışma zamanı",
+      "deploy": "Dağıtım",
+      "docs": "Belgeler"
+    },
+    "footer": {
+      "label": "Altbilgi",
+      "sourceCode": "Kaynak kod"
+    },
+    "language": {
+      "label": "Dil"
+    },
+    "theme": {
+      "toDark": "Koyu temaya geç",
+      "toLight": "Açık temaya geç"
+    },
+    "links": {
+      "docsLabel": "Belgeler",
+      "releasesLabel": "Sürümler"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "openplate",
+      "hero": {
+        "body": "openplate, cihazında çalışan açık kaynaklı bir yemek günlüğüdür; tabağındaki makro değerlerini tahmin eden isteğe bağlı bir fotoğraf tarama özelliğine sahiptir. Günlüğünü başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
+        "lead": "Günlüğünü başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
+        "openApp": "Uygulamayı aç",
+        "readSource": "Kaynağı oku",
+        "inviteNote": "Barındırılan bulut örneği yalnızca davetiyelidir. Kendi kopyanı çalıştırmak davetiye gerektirmez.",
+        "shotAlt": "Bir günlük openplate günlüğü: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ile kahvaltı ve öğle yemeği altına kaydedilen öğünler."
+      },
+      "whatItIs": {
+        "heading": "openplate nedir"
+      },
+      "features": {
+        "heading": "openplate ile ne yaparsın",
+        "add": {
+          "title": "Bir yemek kaydet",
+          "body": "Besin veritabanında arama yap veya daha önce kaydettiğin bir şeyi seç; girdi, seçtiğin öğünün altına eklenir.",
+          "alt": "Yemek ekleme ekranı: bir arama kutusu, bunun yerine tabağı taramak için bir düğme ve net karbonhidratlarıyla son kaydedilen yemeklerin bir listesi."
+        },
+        "scan": {
+          "title": "Bir tabak tara",
+          "body": "Tabağın fotoğrafını çek, bağladığın yapay zeka servisi karbonhidratı tahmin etsin. Tabak fotoğrafı yalnızca o servise gider, başka hiçbir yere gitmez.",
+          "alt": "Fotoğrafı okumadan önce bir yapay zeka sağlayıcısına bağlanmayı öneren ve sağlayıcı olmadan yiyeceği kaydetme yolu sunan tarama ekranı."
+        },
+        "goals": {
+          "title": "Hedefleri belirle",
+          "body": "Günlük karbonhidrat sınırı ve protein hedefi, ya da ikisi de yok. Her hedef isteğe bağlıdır, bir alanı temizlediğinde hedef kaldırılır.",
+          "alt": "Hedefler ekranı: hazır seçenekler ve özel bir alan içeren günlük net karbonhidrat sınırı ile gram cinsinden protein hedefi."
+        },
+        "overview": {
+          "title": "Günün durumunu gör",
+          "body": "Sınırdan ne kadar kaldığı, protein hedefine ulaşılıp ulaşılmadığı ve son yedi günün kaçında kayıt tuttuğun.",
+          "alt": "Genel bakış ekranı: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ve son yedi güne ait bir kart."
+        }
+      },
+      "illustrations": {
+        "flow": {
+          "label": "Dört kutu ve üç ok. Uygulama sunucusu sayfayı cihazına gönderir. Cihazın günlüğü şifrelenmiş halde openplate-core bileşenine gönderir. Cihazın tabak fotoğrafını seçtiğin yapay zeka uç noktasına gönderir. Uygulama sunucusu bu iki yolun hiçbirinde yer almaz.",
+          "device": "Cihazın",
+          "appServer": "openplate uygulama sunucusu",
+          "sync": "openplate-core",
+          "aiEndpoint": "Yapay zeka uç noktan",
+          "pageEdge": "sayfa",
+          "diaryEdge": "günlük, şifrelenmiş",
+          "photoEdge": "fotoğraf"
+        },
+        "holders": {
+          "caption": "Çizim, her birinin ne depoladığını gösterir. Tablo ise verilerin içinden geçerken her birinin ne gördüğünü ekler.",
+          "browser": "Tarayıcın",
+          "appServer": "openplate uygulama sunucusu",
+          "sync": "openplate-core",
+          "inference": "openplate-inference",
+          "cloudProvider": "Bulut yapay zeka sağlayıcısı"
+        }
+      },
+      "stack": {
+        "heading": "Yığın",
+        "app": {
+          "name": "Uygulama"
+        },
+        "core": {
+          "name": "Eşitleme sunucusu"
+        },
+        "inference": {
+          "name": "Çıkarım çalışma zamanı"
+        }
+      },
+      "topology": {
+        "heading": "Verilerin nereye gidiyor"
+      },
+      "holds": {
+        "heading": "Kimin elinde ne var"
+      },
+      "analytics": {
+        "heading": "Analizler",
+        "body": "openplate, bir yönetici izlemeyi açana kadar hiçbir şey kaydetmez. openplate.de adresindeki barındırılan örnek, sayfa ziyaretlerini ve hangi özelliklerin kullanıldığını sayar. Ne yediğin, kilon veya ne kaydettiğin sunucuya asla iletilmez. Kendi kopyasını çalıştıran herkes üç düzeyden birini seçer; yalnızca sayfa ziyaretlerinden, onay veren katılımcılarla yapılan bir çalışma için sağlık davranışlarını kaydeden araştırma düzeyine kadar. Araya hiçbir üçüncü taraf girmez. Sayılar, çerezlerin kapalı olduğu ve bizzat çalıştırdığımız bir Matomo örneğine gider. <configuration>Yapılandırma</configuration> her düzeydeki tüm olayları listeler."
+      },
+      "access": {
+        "heading": "Erişim",
+        "body": "openplate.de adresindeki barındırılan örnek yalnızca davetiyeyle çalışır. Davetiyeyi bir yönetici gönderir, herkese açık kayıt yoktur. Kendi kopyanı çalıştırmayı tercih edersen <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
+      },
+      "openSource": {
+        "heading": "Açık kaynak",
+        "body": "openplate ve openplate-core MIT lisanslıdır. openplate-inference, birlikte geldiği model ağırlıklarının belirlediği kendi koşullarını taşır, lisanslama kılavuzu bunları listeler. Kodu oku, değiştir, kendin çalıştır: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      }
+    },
+    "app": {
+      "title": "Uygulama",
+      "lead": "openplate yiyecekleri kaydeder ve istersen bir fotoğraftan tabaktaki makroları tahmin eder. Bir yiyecek ara veya bir tabağı tara, girdi günün günlüğüne işlenir. Kendi kurulumunda kayıt olma ekranı yoktur: uygulamayı aç ve kaydetmeye başla. Barındırılan örnekte ise önce giriş yaparsın.",
+      "shotIntro": "Günlük, her seferinde bir günü gösterir: kaydettiğin öğünler, bunların günlük sınıra göre harcadıkları ve geriye ne kaldığı.",
+      "shotAlt": "Telefonda openplate günlüğü: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ve kahvaltı ile öğle yemeği altında gruplanmış günün öğünleri.",
+      "stores": {
+        "heading": "Cihazda sakladıkları"
+      },
+      "leaves": {
+        "heading": "Cihazdan çıkanlar"
+      },
+      "links": {
+        "architecture": "mimari",
+        "selfHosting": "kendi sunucunda barındırma"
+      }
+    },
+    "core": {
+      "title": "Eşitleme sunucusu",
+      "lead": "openplate-core günlüğünü kendi cihazların arasında taşır. Bir e-posta adresi, günlüğünün okuyamadığı şifrelenmiş bir öbeğini ve parolanın unutulduğu tek duruma mahsus mühürlenmiş bir kurtarma kodu saklar.",
+      "reads": {
+        "heading": "Neyi okuyamaz"
+      },
+      "knows": {
+        "heading": "Neyi bilir"
+      },
+      "tenancy": {
+        "heading": "Yönetilen örnekler"
+      },
+      "links": {
+        "protocol": "protokol",
+        "releases": "sürüm notları"
+      }
+    },
+    "inference": {
+      "title": "Çıkarım çalışma zamanı",
+      "lead": "openplate-inference, kendi donanımında çalıştırdığın bir tabak fotoğrafı tarayıcısıdır. Tabaktaki yiyecekleri adlandırır, gramajlarını tahmin eder ve rastgele sayılar uydurmak yerine makroları paketle gelen bir yiyecek veritabanından bakar.",
+      "hardware": {
+        "heading": "Donanım"
+      },
+      "privacy": {
+        "heading": "Gizlilik"
+      },
+      "audience": {
+        "heading": "Kimin için",
+        "body": "Bulut yapay zeka hesabı olmadan ve ağından hiçbir fotoğraf çıkmadan tabak taramaları isteyen, kendi sunucusunu barındıranlar için. openplate.de üzerindeki barındırılan örneğin bir parçası değildir."
+      },
+      "links": {
+        "hardware": "donanım",
+        "privacy": "gizlilik"
+      }
+    },
+    "deploy": {
+      "title": "openplate nasıl çalıştırılır",
+      "lead": "openplate uygulamasını hiçbir şey çalıştırmadan da kullanabilirsin, her parçasını kendin de çalıştırabilirsin. Bu ikisi arasında dört basamak bulunur. Her basamak yeni bir yetenek ekler ve artık işletmek zorunda olduğun bir şey katar, bu yüzden bunu erken tırmanmayı bırakabileceğin bir merdiven gibi düşün.",
+      "rungs": {
+        "heading": "Dört basamak"
+      },
+      "rung0": {
+        "heading": "Başkasının çalıştırdığı bir örneği kullan"
+      },
+      "rung1": {
+        "heading": "Uygulamayı kendi makinende çalıştır"
+      },
+      "rung2": {
+        "heading": "Cihazların arasında eşitleme ekle"
+      },
+      "rung3": {
+        "heading": "Kendi donanımında tara"
+      },
+      "rung4": {
+        "heading": "Hepsini çalıştır"
+      },
+      "links": {
+        "topologies": "Neyi çalıştırmalıyım?",
+        "selfHosting": "Kendi sunucunda barındırma"
+      }
+    },
+    "docs": {
+      "title": "Belgeler",
+      "intro": "Bu sayfalar her üç servisi de belgeler: uygulama, eşitleme sunucusu ve kendi sunucunda barındırılan çıkarım çalışma zamanı. Çalıştırdığın servisle başla veya sıfırdan başlıyorsan Kendi sunucunda barındırma ile başla."
+    },
+    "docsPage": {
+      "title": "Belgeler sayfası"
+    },
+    "releases": {
+      "title": "Sürüm notları"
+    },
+    "imprint": {
+      "title": "Künye",
+      "representedBy": "Temsil eden",
+      "register": "Ticaret sicili",
+      "vatId": "KDV numarası",
+      "email": "E-posta"
+    },
+    "privacy": {
+      "title": "Gizlilik",
+      "body": "Bu site, ziyaretleri saymak için çerez kullanmadan Matomo kullanır; seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hesap bulunmaz; yalnızca davetle açılan hesaplar openplate.de adresine değil, barındırılan uygulamaya aittir. Uygulamanın ne sakladığını ve gönderdiğini görmek için, uygulama içinden bağlantı verilen uygulamanın kendi gizlilik sayfasına bak."
+    },
+    "pricing": {
+      "title": "Fiyatlandırma",
+      "heading": "Tek plan",
+      "price": "Ayda {{price}}",
+      "vatNote": "KDV dahildir.",
+      "trial": "Üç gün ücretsiz dene.",
+      "body": "Tabağındaki makroları tahmin eden fotoğraf taramaları ve cihazların arasındaki eşitleme için ödeme yaparsın. openplate içindeki diğer her şey ücretsizdir ve ücretsiz kalır.",
+      "cancel": "İstediğin zaman iptal et. Erişimin, parasını ödediğin ayın sonuna kadar sürer ve yenilenmez.",
+      "termsLink": "Koşulları oku"
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı"
+    }
+  }
+}

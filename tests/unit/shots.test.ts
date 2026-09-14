@@ -47,8 +47,14 @@ describe('the language of the picture', () => {
    * then a French page shows the English captures under French prose, which is a visible seam and
    * is written down here rather than found by a reader. Remove `fr` from this list the day the app
    * speaks it.
+   *
+   * ── THE SAME DECISION FOR ITALIAN, SPANISH AND TURKISH, M230 ──
+   * The three joined the site's copy and documentation together, and the application still ships
+   * no interface in any of them, so the same seam is accepted for each and for the same reason.
+   * Remove a language from this list the day the app speaks it and `pnpm sync:shots` has copied
+   * its set.
    */
-  const SHOWN_ENGLISH_CAPTURES = ['fr'];
+  const SHOWN_ENGLISH_CAPTURES = ['fr', 'it', 'es', 'tr'];
 
   it('has captures for every language the site ships copy for, or a decision on record', () => {
     const uncaptured = SUPPORTED_LANGUAGES.filter((language) => shotLocale(language) !== language);

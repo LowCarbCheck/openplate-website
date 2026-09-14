@@ -12,7 +12,10 @@ import { describe, it } from 'node:test';
 
 import deCommon from '../../app/i18n/locales/de/common.json';
 import enCommon from '../../app/i18n/locales/en/common.json';
+import esCommon from '../../app/i18n/locales/es/common.json';
 import frCommon from '../../app/i18n/locales/fr/common.json';
+import itCommon from '../../app/i18n/locales/it/common.json';
+import trCommon from '../../app/i18n/locales/tr/common.json';
 import { SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '../../app/i18n/language';
 import { PRICE_ENV_VAR, PRICING_PATH, formatPriceEur, parsePriceEur } from '../../app/pricing-config';
 import { pagesForPrice } from '../../app/routes';
@@ -27,7 +30,7 @@ const COPY_KEYS = ['title', 'heading', 'price', 'vatNote', 'trial', 'body', 'can
 
 type CopyKey = (typeof COPY_KEYS)[number];
 
-const BUNDLES = { de: deCommon, en: enCommon, fr: frCommon };
+const BUNDLES = { de: deCommon, en: enCommon, fr: frCommon, it: itCommon, es: esCommon, tr: trCommon };
 
 /** The page's copy in one language. Typed by the bundles themselves, so a key removed from a file is a type error too. */
 function pricingCopy(language: LanguageCode): Record<CopyKey, string> {

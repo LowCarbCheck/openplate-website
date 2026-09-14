@@ -1,0 +1,232 @@
+{
+  "site": {
+    "name": "openplate",
+    "tagline": "Un diario de alimentos de código abierto que se ejecuta en tu dispositivo.",
+    "skipToContent": "Saltar al contenido",
+    "exampleData": "Estas pantallas muestran datos de ejemplo, no un diario real.",
+    "nav": {
+      "label": "Principal",
+      "menu": "Menú",
+      "app": "App",
+      "core": "Servidor de sincronización",
+      "inference": "Runtime de inferencia",
+      "deploy": "Despliegue",
+      "docs": "Docs"
+    },
+    "footer": {
+      "label": "Pie de página",
+      "sourceCode": "Código fuente"
+    },
+    "language": {
+      "label": "Idioma"
+    },
+    "theme": {
+      "toDark": "Cambiar al tema oscuro",
+      "toLight": "Cambiar al tema claro"
+    },
+    "links": {
+      "docsLabel": "Docs",
+      "releasesLabel": "Versiones"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "openplate",
+      "hero": {
+        "body": "openplate es un diario de alimentos de código abierto que se ejecuta en tu dispositivo, con un escaneo opcional por foto que estima los macros de tu plato. Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona.",
+        "lead": "Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona.",
+        "openApp": "Abrir la app",
+        "readSource": "Leer el código",
+        "inviteNote": "La instancia alojada es solo con invitación. Ejecutar tu propia copia no necesita invitación.",
+        "shotAlt": "El diario de openplate para un día: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas registradas en el desayuno y el almuerzo."
+      },
+      "whatItIs": {
+        "heading": "Qué es openplate"
+      },
+      "features": {
+        "heading": "Qué haces con él",
+        "add": {
+          "title": "Registrar un alimento",
+          "body": "Busca en la base de datos de alimentos o elige algo que registraste antes, y la entrada se añade al día bajo la comida que elegiste.",
+          "alt": "La pantalla para añadir alimentos: un cuadro de búsqueda, un botón para escanear el plato en su lugar y una lista de alimentos registrados recientemente con sus carbohidratos netos."
+        },
+        "scan": {
+          "title": "Escanear un plato",
+          "body": "Fotografía el plato y el servicio de IA que conectaste estimará los carbohidratos. La foto va a ese servicio y a ningún otro sitio.",
+          "alt": "La pantalla de escaneo, que ofrece conectar un proveedor de IA antes de leer una foto, y una forma de registrar la comida sin él."
+        },
+        "goals": {
+          "title": "Define los objetivos",
+          "body": "Un límite diario de carbohidratos y un objetivo de proteínas, o ninguno de los dos. Cada objetivo es opcional y borrar un campo lo elimina.",
+          "alt": "La pantalla de objetivos: un límite diario de carbohidratos netos con opciones predefinidas y un campo personalizado, y un objetivo de proteínas en gramos."
+        },
+        "overview": {
+          "title": "Comprueba cómo va el día",
+          "body": "Cuánto queda del límite, si se ha alcanzado el objetivo de proteínas y cuántos de los últimos siete días has registrado.",
+          "alt": "La pantalla de resumen: un anillo que muestra los carbohidratos netos restantes del límite diario, el recuento de proteínas y una tarjeta con los últimos siete días."
+        }
+      },
+      "illustrations": {
+        "flow": {
+          "label": "Cuatro cuadros y tres flechas. El servidor de la aplicación envía la página a tu dispositivo. Tu dispositivo envía el diario a openplate-core, cifrado. Tu dispositivo envía la foto del plato al endpoint de IA que hayas elegido. El servidor de la aplicación no está en ninguna de esas dos rutas.",
+          "device": "Tu dispositivo",
+          "appServer": "Servidor de la aplicación openplate",
+          "sync": "openplate-core",
+          "aiEndpoint": "Tu endpoint de IA",
+          "pageEdge": "la página",
+          "diaryEdge": "diario, cifrado",
+          "photoEdge": "foto"
+        },
+        "holders": {
+          "caption": "El diagrama muestra lo que almacena cada uno. La tabla añade lo que ve cada uno mientras tus datos pasan a través de él.",
+          "browser": "Tu navegador",
+          "appServer": "Servidor de la aplicación openplate",
+          "sync": "openplate-core",
+          "inference": "openplate-inference",
+          "cloudProvider": "Proveedor de IA en la nube"
+        }
+      },
+      "stack": {
+        "heading": "La pila",
+        "app": {
+          "name": "Aplicación"
+        },
+        "core": {
+          "name": "Servidor de sincronización"
+        },
+        "inference": {
+          "name": "Runtime de inferencia"
+        }
+      },
+      "topology": {
+        "heading": "Adónde van tus datos"
+      },
+      "holds": {
+        "heading": "Quién guarda qué"
+      },
+      "analytics": {
+        "heading": "Analítica",
+        "body": "openplate no registra nada hasta que un operador activa el seguimiento. La instancia alojada en openplate.de cuenta las visitas a las páginas y las funciones que se utilizan. Nunca sabe lo que comes, pesas o registras. Quien ejecute su propia copia elige uno de tres niveles, desde solo visitas a la página hasta un nivel de investigación que registra conductas de salud para un estudio con participantes que dan su consentimiento. Ningún tercero interviene en la ruta. Los números llegan a una instancia de Matomo que administramos nosotros mismos, con las cookies desactivadas. <configuration>Configuración</configuration> enumera cada evento de cada nivel."
+      },
+      "access": {
+        "heading": "Acceso",
+        "body": "La instancia alojada en openplate.de funciona solo con invitación. Un administrador envía la invitación; no hay registro abierto. Si prefieres ejecutar tu propia copia, consulta <selfHosting>Autohospedaje</selfHosting>."
+      },
+      "openSource": {
+        "heading": "Código abierto",
+        "body": "openplate y openplate-core tienen licencia MIT. openplate-inference incluye sus propios términos, fijados por los pesos de los modelos que distribuye; su guía de licencias los detalla. Lee el código, modifícalo, ejecútalo tú mismo: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      }
+    },
+    "app": {
+      "title": "La aplicación",
+      "lead": "openplate registra alimentos y, si quieres, estima los macronutrientes de un plato a partir de una foto. Busca un alimento o escanea un plato, y la entrada irá a tu diario del día. En tu propia instalación no hay pantalla de registro: abre la aplicación y empieza a registrar. En la instancia alojada, inicias sesión primero.",
+      "shotIntro": "El diario muestra un día cada vez: las comidas que registraste, lo que restan del límite diario y lo que queda de él.",
+      "shotAlt": "El diario de openplate en un teléfono: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas del día agrupadas en desayuno y comida.",
+      "stores": {
+        "heading": "Qué guarda en el dispositivo"
+      },
+      "leaves": {
+        "heading": "Qué sale del dispositivo"
+      },
+      "links": {
+        "architecture": "arquitectura",
+        "selfHosting": "autoalojamiento"
+      }
+    },
+    "core": {
+      "title": "El servidor de sincronización",
+      "lead": "openplate-core transfiere tu diario entre tus propios dispositivos. Guarda una dirección de correo, un bloque cifrado de tu diario que no puede leer y un código de recuperación sellado por si una contraseña olvidada lo necesita.",
+      "reads": {
+        "heading": "Qué no puede leer"
+      },
+      "knows": {
+        "heading": "Qué sabe"
+      },
+      "tenancy": {
+        "heading": "Instancias gestionadas"
+      },
+      "links": {
+        "protocol": "protocolo",
+        "releases": "notas de la versión"
+      }
+    },
+    "inference": {
+      "title": "El runtime de inferencia",
+      "lead": "openplate-inference es un escáner de fotos del plato que ejecutas en tu propio hardware. Nombra los alimentos del plato y calcula los gramos, y después consulta los macronutrientes en una base de datos de alimentos integrada en lugar de inventar cifras.",
+      "hardware": {
+        "heading": "Hardware"
+      },
+      "privacy": {
+        "heading": "Privacidad"
+      },
+      "audience": {
+        "heading": "Para quién es",
+        "body": "Personas que se autoalojan el servicio y quieren escanear platos sin una cuenta de IA en la nube y sin que ninguna foto salga de su red. No forma parte de la instancia alojada en openplate.de."
+      },
+      "links": {
+        "hardware": "hardware",
+        "privacy": "privacidad"
+      }
+    },
+    "deploy": {
+      "title": "Cómo ejecutar openplate",
+      "lead": "Puedes usar openplate sin ejecutar nada en absoluto, o puedes alojar tú mismo cada parte. Hay cuatro peldaños entre ambos extremos. Cada peldaño añade una función y suma algo que ahora debes mantener, así que tómalo como una escalera donde conviene detenerse pronto.",
+      "rungs": {
+        "heading": "Los cuatro peldaños"
+      },
+      "rung0": {
+        "heading": "Usa una instancia que gestione otra persona"
+      },
+      "rung1": {
+        "heading": "Ejecuta la aplicación en tu propia máquina"
+      },
+      "rung2": {
+        "heading": "Añade sincronización entre tus dispositivos"
+      },
+      "rung3": {
+        "heading": "Escanea en tu propio hardware"
+      },
+      "rung4": {
+        "heading": "Ejecutar todo"
+      },
+      "links": {
+        "topologies": "¿Qué debería ejecutar?",
+        "selfHosting": "Alojamiento propio"
+      }
+    },
+    "docs": {
+      "title": "Documentación",
+      "intro": "Estas páginas documentan los tres servicios: la app, el servidor de sincronización y el runtime de inferencia en alojamiento propio. Empieza por el servicio que estés ejecutando, o por Alojamiento propio si empiezas desde cero."
+    },
+    "docsPage": {
+      "title": "Página de documentación"
+    },
+    "releases": {
+      "title": "Notas de la versión"
+    },
+    "imprint": {
+      "title": "Aviso legal",
+      "representedBy": "Representado por",
+      "register": "Registro mercantil",
+      "vatId": "NIF/CIF",
+      "email": "Correo electrónico"
+    },
+    "privacy": {
+      "title": "Privacidad",
+      "body": "Este sitio web utiliza Matomo sin cookies para contar las visitas; no te rastrea en otros sitios web ni crea un perfil sobre ti. En este sitio web no hay cuentas; las cuentas a las que solo se accede por invitación pertenecen a la app alojada, no a openplate.de. Para consultar qué almacena y envía la app, revisa su propia página de privacidad, enlazada desde la app."
+    },
+    "pricing": {
+      "title": "Precios",
+      "heading": "Un único plan",
+      "price": "{{price}} al mes",
+      "vatNote": "IVA incluido.",
+      "trial": "Pruébalo gratis durante tres días.",
+      "body": "Pagas por los escaneos de fotos que estiman los macronutrientes de tu plato, y por la sincronización entre tus dispositivos. Todo lo demás en openplate es gratis y seguirá siéndolo.",
+      "cancel": "Cancela en cualquier momento. Tu acceso continuará hasta el final del mes que hayas pagado y no se renovará.",
+      "termsLink": "Lee las condiciones"
+    },
+    "notFound": {
+      "title": "Página no encontrada"
+    }
+  }
+}

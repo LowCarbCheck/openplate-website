@@ -49,7 +49,10 @@ import {
   withDiagramLabels,
 } from '#app/lib/docs';
 import GERMAN from '../../src/generated/docs-i18n/de.json';
+import SPANISH from '../../src/generated/docs-i18n/es.json';
 import FRENCH from '../../src/generated/docs-i18n/fr.json';
+import ITALIAN from '../../src/generated/docs-i18n/it.json';
+import TURKISH from '../../src/generated/docs-i18n/tr.json';
 
 /**
  * A `{{n}}` marker stands for a child span the model must not read and must not
@@ -334,6 +337,9 @@ export function collectEntry(entry: DocEntry, out: Map<string, Unit>): void {
 const MEMORIES = {
   de: GERMAN,
   fr: FRENCH,
+  it: ITALIAN,
+  es: SPANISH,
+  tr: TURKISH,
 } satisfies Record<TranslatedLanguage, Memory>;
 
 /**

@@ -1,0 +1,20 @@
+{
+  "title": "Belgeler",
+  "intro": "Buradaki her rehber, doğrudan deponun kendisinde tutulan, yayımlanan sürümünden okunan ve değiştirilmeden yayımlanan dosyadır.",
+  "nav": "Belgeler",
+  "onThisPage": "Bu sayfada",
+  "diagramSource": "Diyagram kaynağı",
+  "diagramZoomIn": "Yakınlaştır",
+  "diagramZoomOut": "Uzaklaştır",
+  "edit": "Bu sayfayı GitHub üzerinde düzenle",
+  "releases": "Sürüm notları",
+  "noReleases": "Bu bileşen henüz sürüm notu yayımlamadı.",
+  "machineTranslated": "Bu sayfa, İngilizce belgeden makine çevirisiyle çevrildi.",
+  "untranslated": "Bu sayfa henüz çevrilmedi. İngilizce olarak gösteriliyor.",
+  "components": {
+    "app": "Uygulama",
+    "core": "Eşitleme sunucusu",
+    "inference": "Çıkarım çalışma zamanı"
+  },
+  "closeSheet": "Kapat"
+}

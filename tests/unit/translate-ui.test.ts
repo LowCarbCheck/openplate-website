@@ -22,26 +22,40 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
 
-import { hash } from '../../app/lib/docs-i18n.server';
-import { type Usage, chunk, loadMemory, lookup, memo, saveMemory } from '../../scripts/lib/translate';
+import { type Memory, hash } from '../../app/lib/docs-i18n.server';
+import { SOURCE_LANGUAGE } from '../../app/i18n/language';
+import { type Usage, chunk, loadMemory, lookup, saveMemory } from '../../scripts/lib/translate';
 import {
   type CatalogTree,
   type TranslateFn,
   type UnitOfLeaf,
   buy,
   carriesTokens,
-  collectLeaves,
+  catalogPath,
+  collectByPath,
+  isKeyedByEnglish,
   leaves,
+  memoAt,
   namespacesOf,
+  pathOf,
   readCatalog,
+  rebuildByPath,
+  rekeyByPath,
   saveCatalog,
   skipReason,
   tokens,
+  unitKey,
   usable,
-  withTranslations,
 } from '../../scripts/lib/translate-ui';
 
 const ROOT = resolve(import.meta.dirname, '../..');
+
+/** The memory for `units`, every one answered with a marked copy of its English. */
+function answered(units: UnitOfLeaf[], locale: string): Memory {
+  return Object.fromEntries(
+    units.map((unit) => [unit.hash, memoAt({ unit, target: `${locale.toUpperCase()} ${unit.source}`, locale, at: '2026-09-14' })]),
+  );
+}
 
 const TREE: CatalogTree = {
   site: {
@@ -112,16 +126,23 @@ describe('the skip rule', () => {
   });
 
   it('leaves the skipped leaves out of the collection and keeps the prose', () => {
-    const units = [...collectLeaves([TREE]).values()].map((unit) => unit.key).toSorted();
-    assert.deepEqual(units, ['pages.home.body', 'site.nav.docs', 'site.tagline']);
+    const units = collectByPath('common', TREE).map((unit) => unit.key).toSorted();
+    assert.deepEqual(units, ['common:pages.home.body', 'common:site.nav.docs', 'common:site.tagline']);
   });
 
-  it('counts one unit for two keys that hold the same English', () => {
+  it('counts two units for two keys that hold the same English, one per path', () => {
+    // The app's catalog is why: "Fasten" and "Fasten läuft" were one English
+    // word under two keys, and a memory keyed by the English alone gave both
+    // keys one of them. See "keyed by path and English" in the library.
     const twice: CatalogTree = { a: { one: 'Release notes' }, b: { two: 'Release notes' } };
-    assert.equal(collectLeaves([twice]).size, 1);
-    // THE CONTROL: two different sentences are two units, so the line above is
-    // not passing because the collection is simply always small.
-    assert.equal(collectLeaves([{ a: 'Release notes', b: 'Documentation' }]).size, 2);
+    const units = collectByPath('common', twice);
+    assert.equal(units.length, 2);
+    assert.notEqual(units[0]?.hash, units[1]?.hash);
+    // THE CONTROL: the same English under the same path in two namespaces is
+    // still two keys, and the same English under the same path and namespace
+    // is one key, so the line above is not passing because every hash differs.
+    assert.notEqual(unitKey(pathOf('common', 'a'), 'Release notes'), unitKey(pathOf('docs', 'a'), 'Release notes'));
+    assert.equal(unitKey(pathOf('common', 'a'), 'Release notes'), unitKey(pathOf('common', 'a'), 'Release notes'));
   });
 });
 
@@ -179,7 +200,7 @@ describe('the memory round trip', () => {
   it('answers the second run for free and reports the first run as a miss', () => {
     const dir = scratch();
     const file = resolve(dir, 'memory/fr.json');
-    const units = [...collectLeaves([TREE]).values()];
+    const units = collectByPath('common', TREE);
 
     // FIRST RUN: an empty memory, so everything prose is a miss. Asserted, so
     // the emptiness below cannot pass by the collection being empty too.
@@ -187,10 +208,7 @@ describe('the memory round trip', () => {
     assert.equal(before.size, 0);
     assert.equal(units.filter((unit) => !before.has(unit.hash)).length, 3);
 
-    const memory = Object.fromEntries(
-      units.map((unit) => [unit.hash, memo(unit.source, `FR ${unit.source}`, 'fr', '2026-09-14')]),
-    );
-    assert.equal(saveMemory(file, memory, true), 'written');
+    assert.equal(saveMemory(file, answered(units, 'fr'), true), 'written');
 
     // SECOND RUN: read back off disk, nothing is missing.
     const after = lookup(loadMemory(file), 'fr');
@@ -204,19 +222,15 @@ describe('the memory round trip', () => {
   it('makes one edited English string one miss and leaves the rest answered', () => {
     const dir = scratch();
     const file = resolve(dir, 'memory/fr.json');
-    const units = [...collectLeaves([TREE]).values()];
-    saveMemory(
-      file,
-      Object.fromEntries(units.map((unit) => [unit.hash, memo(unit.source, `FR ${unit.source}`, 'fr', '2026-09-14')])),
-      true,
-    );
+    const units = collectByPath('common', TREE);
+    saveMemory(file, answered(units, 'fr'), true);
     const done = lookup(loadMemory(file), 'fr');
 
     const edited: CatalogTree = { ...TREE, site: { name: 'openplate', tagline: 'A rewritten tagline.', nav: { docs: 'Docs' } } };
-    const misses = [...collectLeaves([edited]).values()].filter((unit) => !done.has(unit.hash));
+    const misses = collectByPath('common', edited).filter((unit) => !done.has(unit.hash));
     assert.deepEqual(
       misses.map((unit) => unit.key),
-      ['site.tagline'],
+      ['common:site.tagline'],
     );
   });
 
@@ -231,8 +245,10 @@ describe('the memory round trip', () => {
     };
     writeFileSync(file, `${JSON.stringify(held, null, 2)}\n`, 'utf8');
 
-    const bought = new Map([[hash('Read the <selfHosting>self-hosting guide</selfHosting> before you start.'), 'FR body']]);
-    assert.equal(saveCatalog(file, withTranslations(TREE, bought, held), true), 'written');
+    const bought = new Map([
+      [unitKey(pathOf('common', 'pages.home.body'), 'Read the <selfHosting>self-hosting guide</selfHosting> before you start.'), 'FR body'],
+    ]);
+    assert.equal(saveCatalog(file, rebuildByPath('common', TREE, bought, held), true), 'written');
 
     const written = readCatalog(file);
     assert.deepEqual(
@@ -249,7 +265,12 @@ describe('the memory round trip', () => {
     // A skipped leaf keeps whatever the bundle held.
     assert.equal(byKey.get('site.name'), 'openplate');
     // And a second write of the same content touches nothing.
-    assert.equal(saveCatalog(file, withTranslations(TREE, bought, held), true), 'unchanged');
+    assert.equal(saveCatalog(file, rebuildByPath('common', TREE, bought, held), true), 'unchanged');
+    // THE CONTROL for the keying: the same answer filed under the English alone,
+    // the old key, is not read, so a memory in the old shape answers nothing.
+    const byEnglish = new Map([[hash('Read the <selfHosting>self-hosting guide</selfHosting> before you start.'), 'FR body']]);
+    const ignored = new Map(leaves(rebuildByPath('common', TREE, byEnglish, held)).map((leaf) => [leaf.key, leaf.value]));
+    assert.equal(ignored.get('pages.home.body'), 'EN body');
   });
 
   it('falls back to the English for a key the target bundle has never had', () => {
@@ -257,7 +278,7 @@ describe('the memory round trip', () => {
     const file = resolve(dir, 'fr.json');
     const held: CatalogTree = { site: { name: 'openplate' } };
     writeFileSync(file, `${JSON.stringify(held, null, 2)}\n`, 'utf8');
-    saveCatalog(file, withTranslations(TREE, new Map(), held), true);
+    saveCatalog(file, rebuildByPath('common', TREE, new Map(), held), true);
     const byKey = new Map(leaves(readCatalog(file)).map((leaf) => [leaf.key, leaf.value]));
     assert.equal(byKey.get('site.tagline'), 'An open-source food diary that runs on your device.');
   });
@@ -272,6 +293,104 @@ describe('the memory round trip', () => {
     // And the file on disk is untouched by the refusal.
     assert.equal(readFileSync(file, 'utf8'), `${JSON.stringify(TREE, null, 2)}\n`);
   });
+});
+
+/** One old-keyed memory, hand-built from the fixture, as the first `--adopt` wrote it. */
+function oldKeyed(units: UnitOfLeaf[], locale: string, target: (unit: UnitOfLeaf) => string): Memory {
+  return Object.fromEntries(
+    units.map((unit) => [hash(unit.source), { en: unit.source, model: 'hand-written', at: '2026-09-01', [locale]: target(unit) }]),
+  );
+}
+
+/**
+ * The move from `hash(english)` to `hash(path + english)`, proven on the real
+ * committed memory and bundles rather than on a fixture, because the thing at
+ * risk is a translation a person wrote and this repository holds them.
+ *
+ * ── WHAT "LOSES NOTHING" MEANS, AS AN ASSERTION ──
+ * Every prose leaf of every namespace, in every translated language, rebuilt
+ * from the RE-KEYED MEMORY ALONE, with the English tree standing in for the
+ * bundle on disk so a hand-written value cannot be read from there, is the
+ * byte the committed bundle holds. The control: the same rebuild from an empty
+ * memory is not, so the assertion is reading the memory and not the fallback.
+ */
+describe('the memory, keyed by path', () => {
+  const NAMESPACES = namespacesOf(ROOT, SOURCE_LANGUAGE);
+  const ENGLISH = NAMESPACES.map((namespace) => ({
+    namespace,
+    english: readCatalog(catalogPath(ROOT, SOURCE_LANGUAGE, namespace)),
+  }));
+  /** The languages whose UI memory and bundles are both committed today. */
+  const ADOPTED = ['de', 'fr'];
+
+  it('is keyed by path plus English, so one English under two paths is two entries, each with its own answer', () => {
+    const twice: CatalogTree = { nav: { fasting: 'Fasting' }, card: { eyebrow: 'Fasting' } };
+    const held: CatalogTree = { nav: { fasting: 'Fasten' }, card: { eyebrow: 'Fasten läuft' } };
+    const before = oldKeyed(collectByPath('common', twice), 'de', () => 'Fasten läuft');
+    // THE OLD KEYING'S DEFECT, reproduced: one entry, and the nav label reads the card's eyebrow.
+    assert.equal(Object.keys(before).length, 1);
+
+    const after = rekeyByPath(before, 'de', [{ namespace: 'common', english: twice, target: held }], '2026-09-14');
+    assert.equal(Object.keys(after).length, 2);
+    const rebuilt = leaves(rebuildByPath('common', twice, lookup(after, 'de'), twice));
+    assert.deepEqual(rebuilt.map((leaf) => leaf.value), ['Fasten', 'Fasten läuft']);
+    // Every entry now names its path, and the old key is gone.
+    assert.equal(Object.values(after).every((entry) => !isKeyedByEnglish(entry)), true);
+    assert.equal(after[hash('Fasting')], undefined);
+  });
+
+  it('keeps the provenance of an answer it inherited and stamps a hand edit as hand-written today', () => {
+    const units = collectByPath('common', TREE);
+    const before = oldKeyed(units, 'fr', (unit) => `FR ${unit.source}`);
+    // The bundle on disk agrees with the memory on two leaves and was hand-edited on the third.
+    const target: CatalogTree = {
+      site: { name: 'openplate', tagline: 'FR An open-source food diary that runs on your device.', nav: { docs: 'Docs à la main' } },
+      pages: { pricing: { price: '{{price}}', year: '2026' }, home: { body: 'FR Read the <selfHosting>self-hosting guide</selfHosting> before you start.' } },
+    };
+    const after = rekeyByPath(before, 'fr', [{ namespace: 'common', english: TREE, target }], '2026-09-14');
+    const tagline = after[unitKey(pathOf('common', 'site.tagline'), 'An open-source food diary that runs on your device.')];
+    assert.equal(tagline?.at, '2026-09-01');
+    assert.equal(tagline?.fr, 'FR An open-source food diary that runs on your device.');
+    const docs = after[unitKey(pathOf('common', 'site.nav.docs'), 'Docs')];
+    assert.equal(docs?.fr, 'Docs à la main');
+    assert.equal(docs?.at, '2026-09-14');
+    assert.equal(docs?.model, 'hand-written');
+    // And running it again over the result changes nothing: an entry with a path is kept as it is.
+    assert.deepEqual(rekeyByPath(after, 'fr', [{ namespace: 'common', english: TREE, target }], '2026-12-31'), after);
+  });
+
+  for (const locale of ADOPTED) {
+    it(`rebuilds the committed ${locale} bundles byte for byte from the memory keyed by path, and not from the fallback`, () => {
+      const memory = loadMemory(resolve(ROOT, 'src/generated/ui-i18n', `${locale}.json`));
+      const catalogs = ENGLISH.map((entry) => ({
+        namespace: entry.namespace,
+        english: entry.english,
+        target: readCatalog(catalogPath(ROOT, locale, entry.namespace)),
+      }));
+      const rekeyed = rekeyByPath(memory, locale, catalogs, '2026-09-14');
+      const done = lookup(rekeyed, locale);
+      assert.equal(Object.values(rekeyed).every((entry) => !isKeyedByEnglish(entry)), true);
+
+      for (const { namespace, english, target } of catalogs) {
+        const committed = readFileSync(catalogPath(ROOT, locale, namespace), 'utf8');
+        // The English tree stands in for the bundle on disk, so every prose
+        // value below is the memory's answer or the English, never a value
+        // read back from the file it is being compared with.
+        const fromMemory = `${JSON.stringify(rebuildByPath(namespace, english, done, english), null, 2)}\n`;
+        const held = new Map(leaves(target).map((leaf) => [leaf.key, leaf.value]));
+        for (const leaf of leaves(rebuildByPath(namespace, english, done, english))) {
+          if (skipReason(leaf.value) !== null && leaf.value === held.get(leaf.key)) continue;
+          assert.equal(leaf.value, held.get(leaf.key), `${locale} ${pathOf(namespace, leaf.key)}`);
+        }
+        // The whole file, with the bundle's own skipped leaves standing where they stand today.
+        assert.equal(`${JSON.stringify(rebuildByPath(namespace, english, done, target), null, 2)}\n`, committed);
+        // THE CONTROL: an empty memory does not reproduce the file from the English alone.
+        const fromNothing = `${JSON.stringify(rebuildByPath(namespace, english, new Map(), english), null, 2)}\n`;
+        assert.notEqual(fromNothing, committed);
+        assert.notEqual(fromNothing, fromMemory);
+      }
+    });
+  }
 });
 
 describe('the namespaces', () => {

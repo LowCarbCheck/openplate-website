@@ -47,11 +47,19 @@
  * every run would pair the hash of the NEW English with the target's OLD
  * sentence and call the key done, so an edited string would never be re-bought
  * and the pipeline would be green and useless.
+ *
+ * ── KEYED BY PATH AND ENGLISH, SINCE M230 ──
+ * `scripts/lib/translate-ui.ts` says why under "keyed by path and English". The
+ * consequence for a reader of the memory: one entry per catalog key, found by its
+ * `path` field, and an English sentence under two keys is two entries. A memory
+ * written under the old keying is moved over in place by `rekeyByPath` the first
+ * time this script loads it, taking every value from the bundle on disk, so no
+ * translation is lost and no run has to buy one twice.
  */
 import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { type Memory, hash } from '../app/lib/docs-i18n.server';
+import { type Memory } from '../app/lib/docs-i18n.server';
 import { SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from '../app/i18n/language';
 import {
   CHUNK,
@@ -61,23 +69,25 @@ import {
   dashOffenders,
   loadMemory,
   lookup,
-  memo,
   price,
   saveMemory,
 } from './lib/translate';
 import {
   type CatalogTree,
-  type UnitOfLeaf,
+  type CatalogUnit,
   bundleForNamespace,
   buy,
   catalogPath,
-  collectLeaves,
+  collectByPath,
+  isKeyedByEnglish,
   leaves,
+  memoAt,
   namespacesOf,
   readCatalog,
+  rebuildByPath,
+  rekeyByPath,
   saveCatalog,
   skipReason,
-  withTranslations,
 } from './lib/translate-ui';
 
 const args = process.argv.slice(2);
@@ -157,17 +167,42 @@ const TARGET = new Map<string, CatalogTree>(
 const LEGAL_NAMESPACES = NAMESPACES.filter((namespace) => bundleForNamespace(namespace) === 'legal');
 const COMMON_NAMESPACES = NAMESPACES.filter((namespace) => bundleForNamespace(namespace) !== 'legal');
 
-/** The catalogs for a list of namespace names, skipping any that was never read. */
-function catalogsFor(namespaces: string[], source: Map<string, CatalogTree>): CatalogTree[] {
-  return namespaces.map((namespace) => source.get(namespace)).filter((tree): tree is CatalogTree => tree !== undefined);
+/** The prose of a list of namespaces, keyed by path and English, skipping any namespace that was never read. */
+function unitsOf(namespaces: string[]): CatalogUnit[] {
+  return namespaces.flatMap((namespace) => {
+    const tree = ENGLISH.get(namespace);
+    return tree === undefined ? [] : collectByPath(namespace, tree);
+  });
 }
 
-const units = collectLeaves([...ENGLISH.values()]);
+const units = new Map<string, CatalogUnit>(unitsOf(NAMESPACES).map((unit) => [unit.hash, unit]));
 const skipped = [...ENGLISH.values()]
   .flatMap((tree) => leaves(tree))
   .filter((leaf) => skipReason(leaf.value) !== null);
 
-const memory: Memory = loadMemory(FILE);
+let memory: Memory = loadMemory(FILE);
+// THE ONE-TIME MOVE from `hash(english)` to `hash(path + english)`, done on
+// load so an old memory is never read under the new keying, where every one of
+// its entries would be a miss and the whole catalog would be bought again.
+const legacy = Object.values(memory).filter(isKeyedByEnglish).length;
+if (legacy > 0) {
+  memory = rekeyByPath(
+    memory,
+    LOCALE,
+    NAMESPACES.flatMap((namespace) => {
+      const english = ENGLISH.get(namespace);
+      const target = TARGET.get(namespace);
+      return english === undefined || target === undefined ? [] : [{ namespace, english, target }];
+    }),
+    new Date().toISOString().slice(0, 10),
+  );
+  console.log(
+    `translate-ui: moved ${legacy} entries keyed by English alone to path and English, ` +
+      `${Object.keys(memory).length} entries now, values taken from the ${LOCALE} bundle on disk.`,
+  );
+  // Persisted by the ordinary `save()` at the end of the run, which every run
+  // that is not `--dry` reaches; a dry run writes nothing, as it never does.
+}
 // A dry run writes nothing, and `--adopt` writes the memory, so the two cannot
 // both be honoured. The dry run wins: it is the one an operator reaches for
 // before they are sure.
@@ -189,12 +224,8 @@ console.log(
  * its formal sentence under an informal system prompt, so each request may
  * carry strings from ONE bundle only.
  */
-const commonMisses = [...collectLeaves(catalogsFor(COMMON_NAMESPACES, ENGLISH)).values()].filter(
-  (unit) => !done.has(unit.hash),
-);
-const legalMisses = [...collectLeaves(catalogsFor(LEGAL_NAMESPACES, ENGLISH)).values()].filter(
-  (unit) => !done.has(unit.hash),
-);
+const commonMisses = unitsOf(COMMON_NAMESPACES).filter((unit) => !done.has(unit.hash));
+const legalMisses = unitsOf(LEGAL_NAMESPACES).filter((unit) => !done.has(unit.hash));
 const commonBatches = chunk(commonMisses, CHUNK);
 const legalBatches = chunk(legalMisses, CHUNK);
 
@@ -250,7 +281,7 @@ if (totalBatches > 0) {
   // ONE LOOP OVER THE GROUPS, `common` then `legal`: a group with no batches
   // (this site's `legal` group, always) contributes nothing to it, so `buy`
   // is called once per (bundle, batch) pair that actually has misses.
-  const groups: { bundle: string; batches: UnitOfLeaf[][] }[] = [
+  const groups: { bundle: string; batches: CatalogUnit[][] }[] = [
     { bundle: 'common', batches: commonBatches },
     { bundle: 'legal', batches: legalBatches },
   ];
@@ -316,50 +347,29 @@ if (refused) process.exit(OVER_BUDGET);
  * twice does nothing, and a key the memory already answers keeps the answer it
  * already has.
  *
- * ── A SPLIT IS REPORTED, NOT RESOLVED QUIETLY ──
- * The memory is keyed by a hash of the ENGLISH, so two catalog keys holding the
- * same English sentence are one entry and get one translation. A hand-written
- * bundle can disagree with itself there, and this site's did: "The inference
- * runtime" is "Die Inferenz-Laufzeit" in `common` and "Die Inference-Runtime" in
- * `docs`. Unifying them is the right end state, and it is the same argument the
- * glossary in `lib/translate.ts` makes about "ciphertext", but WHICH of the two
- * wins must not be decided by the order a directory happened to list. So the
- * first one seen is taken and both are printed with the keys that hold them, and
- * a person edits the memory if the other one was the good one.
+ * Every path is its own entry, so a hand-written bundle cannot disagree with
+ * itself here. Under the old keying it could, and this site's did ("The
+ * inference runtime" was two German strings under one English), and the first
+ * one seen won by directory order. That is the case the path keying exists for,
+ * see `scripts/lib/translate-ui.ts`.
  */
 function adopt(): void {
   const today = new Date().toISOString().slice(0, 10);
-  const from = new Map<string, string>();
-  const split: string[] = [];
   let taken = 0;
   for (const namespace of NAMESPACES) {
     const english = ENGLISH.get(namespace);
     const target = TARGET.get(namespace);
     if (english === undefined || target === undefined) continue;
     const held = new Map(leaves(target).map((leaf) => [leaf.key, leaf.value]));
-    for (const leaf of leaves(english)) {
-      if (skipReason(leaf.value) !== null) continue;
-      const value = held.get(leaf.key);
+    for (const unit of collectByPath(namespace, english)) {
+      if (memory[unit.hash] !== undefined) continue;
+      const value = held.get(unit.leaf);
       if (value === undefined || value === '') continue;
-      const key = hash(leaf.value);
-      const already = memory[key]?.[LOCALE];
-      if (already !== undefined) {
-        if (already !== value) split.push(`  ${key}  ${from.get(key) ?? '?'} says "${already}", ${namespace}:${leaf.key} says "${value}"`);
-        continue;
-      }
-      memory[key] = { en: leaf.value, model: 'hand-written', at: today, [LOCALE]: value };
-      from.set(key, `${namespace}:${leaf.key}`);
+      memory[unit.hash] = memoAt({ unit, target: value, locale: LOCALE, at: today, model: 'hand-written' });
       taken += 1;
     }
   }
   console.log(`translate-ui: adopted ${taken} hand-written strings into the ${LOCALE} memory.`);
-  if (split.length > 0) {
-    console.warn(
-      `translate-ui: ${split.length} English strings are written twice and answered differently. ` +
-        `The first is kept and every key holding that English now reads it. Edit the memory if the other was better:`,
-    );
-    for (const line of split) console.warn(line);
-  }
   mkdirSync(OUT, { recursive: true });
   if (saveMemory(FILE, memory, WRITABLE) !== 'refused') return;
   console.error('translate-ui: refusing to write the memory outside CI. Pass --local to override.');
@@ -372,7 +382,7 @@ function save(): void {
   for (const unit of units.values()) {
     const target = done.get(unit.hash);
     if (target === undefined || memory[unit.hash] !== undefined) continue;
-    memory[unit.hash] = memo(unit.source, target, LOCALE, today);
+    memory[unit.hash] = memoAt({ unit, target, locale: LOCALE, at: today });
   }
   mkdirSync(OUT, { recursive: true });
   if (saveMemory(FILE, memory, WRITABLE) !== 'refused') return;
@@ -394,7 +404,7 @@ function write(): void {
     const target = TARGET.get(namespace);
     if (english === undefined || target === undefined) continue;
     const file = catalogPath(ROOT, LOCALE, namespace);
-    const state = saveCatalog(file, withTranslations(english, done, target), WRITABLE);
+    const state = saveCatalog(file, rebuildByPath(namespace, english, done, target), WRITABLE);
     console.log(`translate-ui: ${LOCALE}/${namespace}.json ${state}.`);
     if (state !== 'refused') continue;
     console.error('translate-ui: refusing to write the catalogs outside CI. Pass --local to override.');

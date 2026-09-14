@@ -70,7 +70,10 @@ describe('the language table', () => {
     assert.equal(LANGUAGE_PREFIXES.de, '');
     assert.equal(LANGUAGE_PREFIXES.en, '/en');
     assert.equal(LANGUAGE_PREFIXES.fr, '/fr');
-    assert.deepEqual([...SUPPORTED_LANGUAGES], ['de', 'en', 'fr']);
+    assert.equal(LANGUAGE_PREFIXES.it, '/it');
+    assert.equal(LANGUAGE_PREFIXES.es, '/es');
+    assert.equal(LANGUAGE_PREFIXES.tr, '/tr');
+    assert.deepEqual([...SUPPORTED_LANGUAGES], ['de', 'en', 'fr', 'it', 'es', 'tr']);
   });
 
   it('keeps the source language apart from the default one', () => {
@@ -94,7 +97,7 @@ describe('the language table', () => {
     // narrows the element type to `TranslatedLanguage`, so `=== SOURCE_LANGUAGE` does not
     // compile: the compiler already refuses the mistake, and a test for it would only pin that
     // the compiler still works.
-    assert.deepEqual([...TRANSLATED_LANGUAGES], ['de', 'fr']);
+    assert.deepEqual([...TRANSLATED_LANGUAGES], ['de', 'fr', 'it', 'es', 'tr']);
     assert.notDeepEqual([...TRANSLATED_LANGUAGES], [...PREFIXED_LANGUAGES]);
   });
 

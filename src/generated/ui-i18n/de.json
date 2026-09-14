@@ -1,704 +1,905 @@
 {
-  "03fffb8510e0e948": {
-    "en": "release notes",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Versionshinweise"
-  },
-  "073fd1036ab198fd": {
-    "en": "Edit this page on GitHub",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Seite auf GitHub bearbeiten"
-  },
-  "09e2736558ba1ff2": {
-    "en": "The sync server",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Der Sync-Server"
-  },
-  "0b2f34e9657315d4": {
-    "en": "Use an instance someone else runs",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Eine Instanz nutzen, die jemand anderes betreibt"
-  },
-  "0bcb8c5a2bb0ab9b": {
-    "en": "self-hosting",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Self-Hosting"
-  },
-  "0d04bfeb7d64b71c": {
+  "075e9b2b3b21aff5": {
     "en": "App",
+    "path": "common:site.nav.app",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "App"
   },
-  "0e47f09a748fa132": {
-    "en": "Zoom in",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Vergrößern"
-  },
-  "0fa34f63a9e6458a": {
-    "en": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Das Tagebuch zeigt jeweils einen Tag: die eingetragenen Mahlzeiten, was sie vom Tageslimit verbrauchen und was davon übrig ist."
-  },
-  "11e26b912cf3d84e": {
-    "en": "Scan on your own hardware",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Auf eigener Hardware scannen"
-  },
-  "1233317203705ccb": {
-    "en": "Add sync across your devices",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Synchronisierung zwischen deinen Geräten ergänzen"
-  },
-  "1254829bd9996472": {
-    "en": "Release notes",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Versionshinweise"
-  },
-  "177b819fa4dab2ba": {
-    "en": "Managed instances",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Verwaltete Instanzen"
-  },
-  "1a6f7cae06cc1fc9": {
-    "en": "Releases",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Releases"
-  },
-  "1e751ed58de63368": {
-    "en": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Self-Hoster, die Teller-Scans ohne Cloud-KI-Konto wollen, ohne dass ein Foto das eigene Netzwerk verlässt. Es ist nicht Teil der gehosteten Instanz auf openplate.de."
-  },
-  "21b6b8973cdab76d": {
-    "en": "{{price}} a month",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "{{price}} pro Monat"
-  },
-  "23d48f9f88782a96": {
-    "en": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Seiten dokumentieren alle drei Dienste: die App, den Sync-Server und die selbstgehostete Inferenz-Runtime. Starte mit dem Dienst, den du betreibst, oder mit Self-Hosting, wenn du bei null anfängst."
-  },
-  "26787dd2f72cc993": {
-    "en": "hardware",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Hardware"
-  },
-  "26c87bb51e6978fe": {
-    "en": "Footer",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Fußzeile"
-  },
-  "2908765dc4fef577": {
-    "en": "Diagram source",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Quellcode des Diagramms"
-  },
-  "2a9b6f05841df634": {
-    "en": "What it stores on the device",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was auf dem Gerät gespeichert wird"
-  },
-  "2ea406f3475e419b": {
-    "en": "Documentation page",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Dokumentationsseite"
-  },
-  "2ea88c7a30351b12": {
-    "en": "protocol",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Protokoll"
-  },
-  "32e02b480b7427bb": {
-    "en": "Cloud AI provider",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Cloud-KI-Anbieter"
-  },
-  "376519c5503fa4f8": {
-    "en": "See where the day stands",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Den Stand des Tages sehen"
-  },
-  "38e6056c23be441b": {
-    "en": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Du zahlst für Foto-Scans, die Makronährstoffe auf deinem Teller schätzen, und die Synchronisierung über deine Geräte. Alles andere in openplate ist kostenlos und bleibt kostenlos."
-  },
-  "3b288473524fcd5e": {
-    "en": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "openplate zeichnet nichts auf, bis ein Betreiber das Tracking aktiviert. Die gehostete Instanz auf openplate.de zählt Seitenaufrufe und welche Funktionen genutzt werden. Sie erfährt nie, was du isst, wiegst oder einträgst. Wer eine eigene Kopie betreibt, wählt eine von drei Stufen, von reinen Seitenaufrufen bis hin zu einer Forschungsstufe, die das Gesundheitsverhalten für eine Studie mit einwilligenden Teilnehmenden erfasst. Es sind keine Drittanbieter zwischengeschaltet. Die Zahlen landen in einer selbst betriebenen Matomo-Instanz, bei komplett deaktivierten Cookies. Die <configuration>Konfiguration</configuration> listet jedes Ereignis auf jeder Stufe auf."
-  },
-  "3cae2578df9fd385": {
-    "en": "An open-source food diary that runs on your device.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft."
-  },
-  "3cd68b3cce7a6f78": {
-    "en": "One plan",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Ein Tarif"
-  },
-  "42d3cbd0ef8d2f8a": {
-    "en": "Your browser",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Dein Browser"
-  },
-  "47551140d008c3c8": {
-    "en": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Ein tägliches Kohlenhydratlimit und ein Eiweißziel, oder keines von beidem. Jedes Ziel ist optional und das Leeren eines Feldes entfernt es."
-  },
-  "4bc6a02e8da49368": {
-    "en": "openplate-inference is a plate-photo scanner you run on your own hardware. It names the foods on a plate and estimates the grams, then looks up the macros in a bundled food database rather than inventing numbers.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "openplate-inference ist ein Tellerfoto-Scanner, den du auf eigener Hardware betreibst. Er benennt die Lebensmittel auf einem Teller, schätzt das Gewicht in Gramm und schlägt die Makronährstoffe in einer mitgelieferten Lebensmitteldatenbank nach, statt Zahlen zu erfinden."
-  },
-  "4ca303a3bf7ddf7b": {
-    "en": "architecture",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Architektur"
-  },
-  "54a57c3147c49f33": {
+  "095c00addbad88a7": {
     "en": "Privacy",
+    "path": "common:pages.privacy.title",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Datenschutz"
   },
-  "55c64d0fcd6f9d5f": {
-    "en": "photo",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Foto"
-  },
-  "5ceca28062ff509e": {
-    "en": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Das openplate Tagebuch für einen Tag: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den eingetragenen Mahlzeiten unter Frühstück und Mittagessen."
-  },
-  "5ed820b448a1c9cd": {
-    "en": "What should I run?",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was sollte ich betreiben?"
-  },
-  "5f89bf4a675e867c": {
-    "en": "The inference runtime",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die Inferenz-Runtime"
-  },
-  "625b22ba31d03000": {
-    "en": "Read the source",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Quellcode lesen"
-  },
-  "63196180214c129b": {
-    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Website nutzt Matomo ohne Cookies, um Besuche zu zählen; sie trackt dich nicht websiteübergreifend und erstellt kein Profil über dich. Auf dieser Website selbst gibt es keine Konten; Accounts auf Einladung gehören zur gehosteten App, nicht zu openplate.de. Was die App speichert und sendet, findest du auf der Datenschutzseite der App selbst, die in der App verlinkt ist."
-  },
-  "65441a63dc5b7e70": {
+  "09ca0a7affd738b3": {
     "en": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one.",
+    "path": "common:pages.home.features.scan.alt",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Die Scan-Ansicht: bietet an, einen KI-Anbieter zu verbinden, bevor ein Foto gelesen wird, sowie die Möglichkeit, das Essen ohne KI einzutragen."
   },
-  "6741acc79bd109da": {
-    "en": "How to run openplate",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Wie du openplate betreibst"
-  },
-  "67a0d2e0dab41fca": {
-    "en": "Open source",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Open Source"
-  },
-  "688daef45886595d": {
-    "en": "Open the app",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "App öffnen"
-  },
-  "7265a77a7b7cca62": {
-    "en": "Inference runtime",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Inferenz-Runtime"
-  },
-  "757d4af22a81f51d": {
-    "en": "The stack",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Der Stack"
-  },
-  "776279ed3e001ee0": {
-    "en": "Run the app on your own box",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die App auf deinem eigenen Server betreiben"
-  },
-  "7975300f01bc46f8": {
-    "en": "Hardware",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Hardware"
-  },
-  "7af023c43013b9a5": {
-    "en": "Docs",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Doku"
-  },
-  "7d9eb7acb13e2462": {
-    "en": "Close",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Schließen"
-  },
-  "7facded95fcd670a": {
-    "en": "The four rungs",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die vier Sprossen"
-  },
-  "83c6b2f35f29a354": {
-    "en": "What leaves the device",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was das Gerät verlässt"
-  },
-  "84e565828aa767cf": {
-    "en": "VAT ID",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "USt-IdNr."
-  },
-  "869fe2b500296530": {
-    "en": "VAT included.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Preis inklusive Mehrwertsteuer."
-  },
-  "870a8ffd98f4f2bd": {
-    "en": "Deployment",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Deployment"
-  },
-  "915c7679b3548288": {
-    "en": "Run all of it",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Alles selbst betreiben"
-  },
-  "94c116ee118a7299": {
-    "en": "Analytics",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Analytics"
-  },
-  "955872cf31272901": {
-    "en": "Scan a plate",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Teller scannen"
-  },
-  "9596e6f4885d8edf": {
-    "en": "What it does know",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was er tatsächlich weiß"
-  },
-  "95d78733a4e55f7b": {
-    "en": "Who holds what",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Wer welche Daten hält"
-  },
-  "969ccbd3cf6300ec": {
-    "en": "Email",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "E-Mail"
-  },
-  "9798be610e07bc1c": {
-    "en": "Commercial register",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Handelsregister"
-  },
-  "99af6606ff9d6cd5": {
-    "en": "Menu",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Menü"
-  },
-  "9dc1a21fce36eb41": {
-    "en": "openplate app server",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "openplate-App-Server"
-  },
-  "a25bad1f4e431731": {
+  "0a969e231f38fb2a": {
     "en": "Your device",
+    "path": "common:pages.home.illustrations.flow.device",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Dein Gerät"
   },
-  "a3c247a87375951b": {
-    "en": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>.",
+  "0bce22b62c494f71": {
+    "en": "Diagram source",
+    "path": "docs:diagramSource",
     "model": "hand-written",
     "at": "2026-09-14",
-    "de": "Die gehostete Instanz unter openplate.de ist nur auf Einladung zugänglich. Eine Einladung wird durch die Administration verschickt, eine offene Registrierung gibt es nicht. Wenn du lieber deine eigene Kopie betreiben möchtest, siehe <selfHosting>Self-Hosting</selfHosting>."
+    "de": "Quellcode des Diagramms"
   },
-  "a469ab4ca4e55bf5": {
-    "en": "Page not found",
+  "0f17bce3c4c5fe39": {
+    "en": "{{price}} a month",
+    "path": "common:pages.pricing.price",
     "model": "hand-written",
     "at": "2026-09-14",
-    "de": "Seite nicht gefunden"
+    "de": "{{price}} pro Monat"
   },
-  "a4cc6bc01a927e2a": {
-    "en": "privacy",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Datenschutz"
-  },
-  "a4fe65264ef7dbb3": {
-    "en": "Language",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Sprache"
-  },
-  "a67a7524c0fdb07c": {
-    "en": "Sync server",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Sync-Server"
-  },
-  "a89bb8999c15668e": {
+  "10b1340ab1dd7a09": {
     "en": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>.",
+    "path": "common:pages.home.openSource.body",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "openplate und openplate-core stehen unter der MIT-Lizenz. openplate-inference hat eigene Bedingungen, die sich nach den mitgelieferten Modellgewichten richten; der Lizenzleitfaden listet sie auf. Lies den Code, ändere ihn, betreibe ihn selbst: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
   },
-  "a90dc62e75ee70bf": {
-    "en": "Photograph the plate and the AI service you connected estimates the carbs. The photo goes to that service and to nowhere else.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Fotografiere den Teller und der verbundene KI-Dienst schätzt die Kohlenhydrate. Das Foto geht nur an diesen Dienst und nirgendwo sonst hin."
-  },
-  "aa22aae5a1a66789": {
-    "en": "Switch to the light theme",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Zum hellen Design wechseln"
-  },
-  "aafdd3f20726bac0": {
-    "en": "the page",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "die Seite"
-  },
-  "ac576a66d4563e60": {
-    "en": "Skip to content",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Zum Inhalt springen"
-  },
-  "ae68ff486249bb19": {
-    "en": "What openplate is",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was openplate ist"
-  },
-  "ae74b837325419cc": {
-    "en": "This page is not translated yet. It is shown in English.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Seite ist noch nicht übersetzt. Sie wird auf Englisch angezeigt."
-  },
-  "b2312592216ae247": {
-    "en": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen."
-  },
-  "b5658fc8edda24f9": {
-    "en": "On this page",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Auf dieser Seite"
-  },
-  "b5a34358b58e5df5": {
-    "en": "Log a food",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Essen eintragen"
-  },
-  "b817cbd4d6dfb5d7": {
-    "en": "Self-hosting",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Self-Hosting"
-  },
-  "bc7a63c47187602c": {
-    "en": "Where your data goes",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Wohin deine Daten fließen"
-  },
-  "bc7b631a689b45ca": {
-    "en": "Zoom out",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Verkleinern"
-  },
-  "bcdecc549d07363c": {
-    "en": "Who it is for",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Für wen das gedacht ist"
-  },
-  "be75de1c0edd7204": {
-    "en": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die Ansicht „Ziele“: ein tägliches Limit für Netto-Kohlenhydrate mit Vorgaben und einem eigenen Feld sowie ein Eiweißziel in Gramm."
-  },
-  "bf046c7395cb38ee": {
-    "en": "Source code",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Quellcode"
-  },
-  "bfdf6a970a4e898f": {
-    "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade."
-  },
-  "c13cbfec1c2c8d4e": {
-    "en": "These screens show example data, not a real diary.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Ansichten zeigen Beispieldaten, kein echtes Tagebuch."
-  },
-  "c13f9a06d8645666": {
-    "en": "Read the terms",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Bedingungen lesen"
-  },
-  "c205924de0fe636c": {
-    "en": "Documentation",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Dokumentation"
-  },
-  "c32a3d79449cedee": {
-    "en": "You can use openplate without running anything at all, and you can run every part of it yourself. Four rungs sit between those two. Each rung adds a capability and adds something you now have to operate, so read it as a ladder you are meant to stop climbing early.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Du kannst openplate nutzen, ohne selbst etwas zu betreiben, und du kannst jeden Teil davon selbst betreiben. Dazwischen liegen vier Sprossen. Jede Sprosse bringt eine Funktion hinzu und etwas, das du nun betreiben musst, sieh es also als eine Leiter, auf der du am besten früh stehen bleibst."
-  },
-  "c4405d3e139e57a6": {
+  "12df54358fd39361": {
     "en": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
+    "path": "common:pages.app.shotAlt",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Das openplate Tagebuch auf einem Smartphone: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den Mahlzeiten des Tages, gruppiert unter Frühstück und Mittagessen."
   },
-  "c4b8d7b164a6e1ca": {
-    "en": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
+  "154693adedb9b763": {
+    "en": "Docs",
+    "path": "common:site.nav.docs",
     "model": "hand-written",
     "at": "2026-09-14",
-    "de": "Durchsuche die Lebensmitteldatenbank oder wähle etwas aus, das du zuvor eingetragen hast, und der Eintrag landet beim gewählten Tag unter der jeweiligen Mahlzeit."
+    "de": "Doku"
   },
-  "c8dfd1d56a558579": {
-    "en": "What it cannot read",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was er nicht lesen kann"
-  },
-  "cb6e3b491a116af6": {
-    "en": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Wie viel vom Limit noch übrig ist, ob das Eiweißziel erreicht wurde und wie viele der letzten sieben Tage du erfasst hast."
-  },
-  "cb8fdb9a5f09b52f": {
-    "en": "Try it free for three days.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Drei Tage kostenlos testen."
-  },
-  "cd552dcb09573750": {
-    "en": "Represented by",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Vertreten durch"
-  },
-  "cfa8f609c2f2851d": {
-    "en": "This component has not published release notes yet.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Für diese Komponente wurden noch keine Versionshinweise veröffentlicht."
-  },
-  "d198ed30d09ba8c6": {
-    "en": "Imprint",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Impressum"
-  },
-  "d249baca36da769a": {
-    "en": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Jederzeit kündbar. Dein Zugriff läuft bis zum Ende des bezahlten Monats weiter und verlängert sich nicht."
-  },
-  "d24f82a356a9dfb6": {
-    "en": "What you do with it",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Was du damit machst"
-  },
-  "d2e054dc87db81cd": {
-    "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "openplate-core überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst."
-  },
-  "d494f204e8e6583d": {
-    "en": "The app",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die App"
-  },
-  "da1cf6127fe5c2f7": {
-    "en": "Switch to the dark theme",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Zum dunklen Design wechseln"
-  },
-  "da9fff3b402cc5e8": {
-    "en": "This page is machine translated from the English documentation.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Diese Seite wurde maschinell aus der englischen Dokumentation übersetzt."
-  },
-  "dfe95783edfef791": {
-    "en": "Pricing",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Preise"
-  },
-  "e254fd44f17c3594": {
-    "en": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die Übersicht: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und einer Karte für die letzten sieben Tage."
-  },
-  "e37e9338b84f7ce1": {
-    "en": "It is for people who want to track what they eat without sending their diary to someone else's server.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken."
-  },
-  "e9568cbe3664813a": {
-    "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Die gehostete Instanz ist nur auf Einladung zugänglich. Für deine eigene Kopie brauchst du keine Einladung."
-  },
-  "eb814be3ca3b78c0": {
-    "en": "Main",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Hauptnavigation"
-  },
-  "ec5ba0abb717da87": {
-    "en": "Access",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Zugang"
-  },
-  "f03e10c80138b6b4": {
-    "en": "Set the targets",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Ziele festlegen"
-  },
-  "f0d1346a8a76c0f9": {
-    "en": "diary, encrypted",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Tagebuch, verschlüsselt"
-  },
-  "f1d1c08578c791af": {
-    "en": "Your AI endpoint",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "Dein KI-Endpunkt"
-  },
-  "fabf4490f8ebb107": {
-    "en": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "de": "openplate erfasst Mahlzeiten und schätzt auf Wunsch die Makronährstoffe auf einem Teller anhand eines Fotos. Suche nach einem Lebensmittel oder scanne einen Teller, und der Eintrag landet in deinem Tagebuch für den Tag. Bei einer eigenen Installation gibt es keinen Registrierungsbildschirm: Öffne die App und leg los. Auf der gehosteten Instanz meldest du dich zuerst an."
-  },
-  "fb246941f0c0f944": {
+  "162ceec13206f664": {
     "en": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "path": "common:pages.home.hero.body",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "openplate ist ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft, mit einem optionalen Fotoscan, der die Makronährstoffe auf deinem Teller schätzt. Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken."
   },
-  "fc1aeeda1223c2b2": {
+  "171f2c01e4bc7a1b": {
+    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
+    "path": "common:pages.privacy.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Website nutzt Matomo ohne Cookies, um Besuche zu zählen; sie trackt dich nicht websiteübergreifend und erstellt kein Profil über dich. Auf dieser Website selbst gibt es keine Konten; Accounts auf Einladung gehören zur gehosteten App, nicht zu openplate.de. Was die App speichert und sendet, findest du auf der Datenschutzseite der App selbst, die in der App verlinkt ist."
+  },
+  "189119f99e6cdaa6": {
+    "en": "What should I run?",
+    "path": "common:pages.deploy.links.topologies",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was sollte ich betreiben?"
+  },
+  "193b39bb465bd09a": {
+    "en": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
+    "path": "common:pages.pricing.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Du zahlst für Foto-Scans, die Makronährstoffe auf deinem Teller schätzen, und die Synchronisierung über deine Geräte. Alles andere in openplate ist kostenlos und bleibt kostenlos."
+  },
+  "1a1ca570ce1d5779": {
+    "en": "Documentation page",
+    "path": "common:pages.docsPage.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dokumentationsseite"
+  },
+  "1b9db799e8389c4f": {
+    "en": "See where the day stands",
+    "path": "common:pages.home.features.overview.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Den Stand des Tages sehen"
+  },
+  "257c568f3ab78eca": {
+    "en": "hardware",
+    "path": "common:pages.inference.links.hardware",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Hardware"
+  },
+  "291b33b732467727": {
+    "en": "Page not found",
+    "path": "common:pages.notFound.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Seite nicht gefunden"
+  },
+  "30622ac4e100cda7": {
+    "en": "the page",
+    "path": "common:pages.home.illustrations.flow.pageEdge",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "die Seite"
+  },
+  "310a389e63a734ff": {
+    "en": "This component has not published release notes yet.",
+    "path": "docs:noReleases",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Für diese Komponente wurden noch keine Versionshinweise veröffentlicht."
+  },
+  "36a20a82f9b321e2": {
+    "en": "The inference runtime",
+    "path": "docs:components.inference",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die Inferenz-Runtime"
+  },
+  "36b08d4407b3dbfe": {
+    "en": "diary, encrypted",
+    "path": "common:pages.home.illustrations.flow.diaryEdge",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Tagebuch, verschlüsselt"
+  },
+  "37bbb5cd718bb958": {
+    "en": "Read the source",
+    "path": "common:pages.home.hero.readSource",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Quellcode lesen"
+  },
+  "37ef86f67539c2d3": {
+    "en": "Documentation",
+    "path": "common:pages.docs.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dokumentation"
+  },
+  "37f58d632149faf2": {
+    "en": "Language",
+    "path": "common:site.language.label",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Sprache"
+  },
+  "39e681cf0888c2a0": {
+    "en": "Who it is for",
+    "path": "common:pages.inference.audience.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Für wen das gedacht ist"
+  },
+  "3b296948f1d706cc": {
+    "en": "Switch to the light theme",
+    "path": "common:site.theme.toLight",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Zum hellen Design wechseln"
+  },
+  "3eebe83fcdfb6ed8": {
+    "en": "Analytics",
+    "path": "common:pages.home.analytics.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Analytics"
+  },
+  "3fa821efc7c71d48": {
+    "en": "architecture",
+    "path": "common:pages.app.links.architecture",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Architektur"
+  },
+  "4035d9eb6815a888": {
+    "en": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
+    "path": "common:pages.home.illustrations.holders.caption",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen."
+  },
+  "40d7d8e01393fd3c": {
+    "en": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level.",
+    "path": "common:pages.home.analytics.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate zeichnet nichts auf, bis ein Betreiber das Tracking aktiviert. Die gehostete Instanz auf openplate.de zählt Seitenaufrufe und welche Funktionen genutzt werden. Sie erfährt nie, was du isst, wiegst oder einträgst. Wer eine eigene Kopie betreibt, wählt eine von drei Stufen, von reinen Seitenaufrufen bis hin zu einer Forschungsstufe, die das Gesundheitsverhalten für eine Studie mit einwilligenden Teilnehmenden erfasst. Es sind keine Drittanbieter zwischengeschaltet. Die Zahlen landen in einer selbst betriebenen Matomo-Instanz, bei komplett deaktivierten Cookies. Die <configuration>Konfiguration</configuration> listet jedes Ereignis auf jeder Stufe auf."
+  },
+  "40fd080f451db9e7": {
+    "en": "privacy",
+    "path": "common:pages.inference.links.privacy",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Datenschutz"
+  },
+  "428182b68c95f655": {
+    "en": "Sync server",
+    "path": "common:site.nav.core",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Sync-Server"
+  },
+  "431004f09bef0c16": {
+    "en": "App",
+    "path": "common:pages.home.stack.app.name",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "App"
+  },
+  "4367c9c7af48ab2b": {
+    "en": "Your browser",
+    "path": "common:pages.home.illustrations.holders.browser",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dein Browser"
+  },
+  "47159c53798be533": {
+    "en": "Where your data goes",
+    "path": "common:pages.home.topology.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Wohin deine Daten fließen"
+  },
+  "4a8332dee048e901": {
+    "en": "Pricing",
+    "path": "common:pages.pricing.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Preise"
+  },
+  "4cd639667a5118b4": {
+    "en": "An open-source food diary that runs on your device.",
+    "path": "common:site.tagline",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft."
+  },
+  "4db16451bd5ec9a2": {
+    "en": "openplate app server",
+    "path": "common:pages.home.illustrations.flow.appServer",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate-App-Server"
+  },
+  "4faf536325f6937f": {
+    "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+    "path": "common:pages.home.illustrations.flow.label",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade."
+  },
+  "50d611ae7253669c": {
+    "en": "VAT included.",
+    "path": "common:pages.pricing.vatNote",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Preis inklusive Mehrwertsteuer."
+  },
+  "5276118bcc8b387a": {
+    "en": "Documentation",
+    "path": "docs:nav",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dokumentation"
+  },
+  "53834c20d9148753": {
+    "en": "Email",
+    "path": "common:pages.imprint.email",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "E-Mail"
+  },
+  "546eec9185f067bb": {
+    "en": "On this page",
+    "path": "docs:onThisPage",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Auf dieser Seite"
+  },
+  "598c1f9cb5f257bf": {
+    "en": "Docs",
+    "path": "common:site.links.docsLabel",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Doku"
+  },
+  "59fcb335becb6269": {
+    "en": "Close",
+    "path": "docs:closeSheet",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Schließen"
+  },
+  "5ab2a89eb93d01bf": {
+    "en": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
+    "path": "common:pages.pricing.cancel",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Jederzeit kündbar. Dein Zugriff läuft bis zum Ende des bezahlten Monats weiter und verlängert sich nicht."
+  },
+  "5caa52f6258b4b28": {
+    "en": "How to run openplate",
+    "path": "common:pages.deploy.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Wie du openplate betreibst"
+  },
+  "5e341d0ae2bd73c4": {
+    "en": "Run all of it",
+    "path": "common:pages.deploy.rung4.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Alles selbst betreiben"
+  },
+  "61617f8e1db33b8c": {
+    "en": "openplate app server",
+    "path": "common:pages.home.illustrations.holders.appServer",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate-App-Server"
+  },
+  "61d99d0b181b5997": {
+    "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
+    "path": "common:pages.home.hero.inviteNote",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die gehostete Instanz ist nur auf Einladung zugänglich. Für deine eigene Kopie brauchst du keine Einladung."
+  },
+  "62b28e16419c7a48": {
+    "en": "Imprint",
+    "path": "common:pages.imprint.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Impressum"
+  },
+  "64f70beeb0831028": {
+    "en": "Main",
+    "path": "common:site.nav.label",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Hauptnavigation"
+  },
+  "671f00d7844b845b": {
+    "en": "Menu",
+    "path": "common:site.nav.menu",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Menü"
+  },
+  "674b84f370722577": {
+    "en": "self-hosting",
+    "path": "common:pages.app.links.selfHosting",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Self-Hosting"
+  },
+  "6b9b8069874f559a": {
+    "en": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die gehostete Instanz unter openplate.de ist nur auf Einladung zugänglich. Eine Einladung wird durch die Administration verschickt, eine offene Registrierung gibt es nicht. Wenn du lieber deine eigene Kopie betreiben möchtest, siehe <selfHosting>Self-Hosting</selfHosting>."
+  },
+  "6d47ce7f9a1df790": {
+    "en": "protocol",
+    "path": "common:pages.core.links.protocol",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Protokoll"
+  },
+  "6d6b5f7f927f5451": {
+    "en": "What it stores on the device",
+    "path": "common:pages.app.stores.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was auf dem Gerät gespeichert wird"
+  },
+  "6e0820f1ec017f67": {
+    "en": "What openplate is",
+    "path": "common:pages.home.whatItIs.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was openplate ist"
+  },
+  "707074fc089c18b4": {
+    "en": "Sync server",
+    "path": "common:pages.home.stack.core.name",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Sync-Server"
+  },
+  "71a54fc903c15360": {
+    "en": "openplate-inference is a plate-photo scanner you run on your own hardware. It names the foods on a plate and estimates the grams, then looks up the macros in a bundled food database rather than inventing numbers.",
+    "path": "common:pages.inference.lead",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate-inference ist ein Tellerfoto-Scanner, den du auf eigener Hardware betreibst. Er benennt die Lebensmittel auf einem Teller, schätzt das Gewicht in Gramm und schlägt die Makronährstoffe in einer mitgelieferten Lebensmitteldatenbank nach, statt Zahlen zu erfinden."
+  },
+  "71ff88fd7ca5ec15": {
+    "en": "What it does know",
+    "path": "common:pages.core.knows.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was er tatsächlich weiß"
+  },
+  "78b1b2df1202318b": {
+    "en": "Your AI endpoint",
+    "path": "common:pages.home.illustrations.flow.aiEndpoint",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dein KI-Endpunkt"
+  },
+  "794f3d31133512a8": {
+    "en": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams.",
+    "path": "common:pages.home.features.goals.alt",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die Ansicht „Ziele“: ein tägliches Limit für Netto-Kohlenhydrate mit Vorgaben und einem eigenen Feld sowie ein Eiweißziel in Gramm."
+  },
+  "7a1ee89169494a2a": {
+    "en": "Release notes",
+    "path": "common:pages.releases.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Versionshinweise"
+  },
+  "7a5f0b27c28bc46d": {
+    "en": "Run the app on your own box",
+    "path": "common:pages.deploy.rung1.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die App auf deinem eigenen Server betreiben"
+  },
+  "7c990783df68d2b3": {
+    "en": "Footer",
+    "path": "common:site.footer.label",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Fußzeile"
+  },
+  "7dfc8a3495169784": {
+    "en": "Privacy",
+    "path": "common:pages.inference.privacy.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Datenschutz"
+  },
+  "80ccd300e6c6b424": {
+    "en": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
+    "path": "common:pages.home.features.add.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Durchsuche die Lebensmitteldatenbank oder wähle etwas aus, das du zuvor eingetragen hast, und der Eintrag landet beim gewählten Tag unter der jeweiligen Mahlzeit."
+  },
+  "83855bc381fe3cb9": {
+    "en": "The inference runtime",
+    "path": "common:pages.inference.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die Inferenz-Runtime"
+  },
+  "842bc92437835aae": {
+    "en": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
+    "path": "docs:intro",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Jede Anleitung hier ist die Datei, die das Repository selbst pflegt, ausgelesen im jeweiligen Release-Stand und unverändert veröffentlicht."
+  },
+  "8532b3c79b2100b0": {
+    "en": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
+    "path": "common:pages.home.features.goals.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Ein tägliches Kohlenhydratlimit und ein Eiweißziel, oder keines von beidem. Jedes Ziel ist optional und das Leeren eines Feldes entfernt es."
+  },
+  "85e83023f0314a5c": {
+    "en": "The stack",
+    "path": "common:pages.home.stack.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Der Stack"
+  },
+  "86378cb5acdcfa14": {
+    "en": "Inference runtime",
+    "path": "common:pages.home.stack.inference.name",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Inferenz-Runtime"
+  },
+  "876114dd3ea6eeee": {
+    "en": "photo",
+    "path": "common:pages.home.illustrations.flow.photoEdge",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Foto"
+  },
+  "88cb66ccd4773c31": {
+    "en": "The app",
+    "path": "common:pages.app.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die App"
+  },
+  "89d2545d415b3460": {
+    "en": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days.",
+    "path": "common:pages.home.features.overview.alt",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die Übersicht: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und einer Karte für die letzten sieben Tage."
+  },
+  "8a0c83eee56faedf": {
+    "en": "You can use openplate without running anything at all, and you can run every part of it yourself. Four rungs sit between those two. Each rung adds a capability and adds something you now have to operate, so read it as a ladder you are meant to stop climbing early.",
+    "path": "common:pages.deploy.lead",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Du kannst openplate nutzen, ohne selbst etwas zu betreiben, und du kannst jeden Teil davon selbst betreiben. Dazwischen liegen vier Sprossen. Jede Sprosse bringt eine Funktion hinzu und etwas, das du nun betreiben musst, sieh es also als eine Leiter, auf der du am besten früh stehen bleibst."
+  },
+  "8e2818d8f9449138": {
+    "en": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
+    "path": "common:pages.home.features.overview.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Wie viel vom Limit noch übrig ist, ob das Eiweißziel erreicht wurde und wie viele der letzten sieben Tage du erfasst hast."
+  },
+  "933981e228512a9d": {
+    "en": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
+    "path": "common:pages.app.shotIntro",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Das Tagebuch zeigt jeweils einen Tag: die eingetragenen Mahlzeiten, was sie vom Tageslimit verbrauchen und was davon übrig ist."
+  },
+  "964e758b06e55e49": {
+    "en": "These screens show example data, not a real diary.",
+    "path": "common:site.exampleData",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Ansichten zeigen Beispieldaten, kein echtes Tagebuch."
+  },
+  "96c4bb298b920e67": {
+    "en": "Commercial register",
+    "path": "common:pages.imprint.register",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Handelsregister"
+  },
+  "97083ce3a315c3c0": {
+    "en": "Access",
+    "path": "common:pages.home.access.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Zugang"
+  },
+  "97e4f5a976d908df": {
+    "en": "Skip to content",
+    "path": "common:site.skipToContent",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Zum Inhalt springen"
+  },
+  "991cbaf8703e9269": {
+    "en": "One plan",
+    "path": "common:pages.pricing.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Ein Tarif"
+  },
+  "9acd01d7180b6504": {
+    "en": "Read the terms",
+    "path": "common:pages.pricing.termsLink",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Bedingungen lesen"
+  },
+  "9cfc6724215a5ffd": {
+    "en": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de.",
+    "path": "common:pages.inference.audience.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Self-Hoster, die Teller-Scans ohne Cloud-KI-Konto wollen, ohne dass ein Foto das eigene Netzwerk verlässt. Es ist nicht Teil der gehosteten Instanz auf openplate.de."
+  },
+  "a1ff1cb9289c7248": {
+    "en": "Cloud AI provider",
+    "path": "common:pages.home.illustrations.holders.cloudProvider",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Cloud-KI-Anbieter"
+  },
+  "a5a78d259efa5f39": {
+    "en": "Represented by",
+    "path": "common:pages.imprint.representedBy",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Vertreten durch"
+  },
+  "a6dd790d0a85c71d": {
+    "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+    "path": "common:pages.core.lead",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate-core überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst."
+  },
+  "a729ea19d7cba678": {
+    "en": "This page is machine translated from the English documentation.",
+    "path": "docs:machineTranslated",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Seite wurde maschinell aus der englischen Dokumentation übersetzt."
+  },
+  "ae9aa360952743ac": {
+    "en": "Scan on your own hardware",
+    "path": "common:pages.deploy.rung3.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Auf eigener Hardware scannen"
+  },
+  "b1522665f2102d15": {
+    "en": "Switch to the dark theme",
+    "path": "common:site.theme.toDark",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Zum dunklen Design wechseln"
+  },
+  "b16286fe209bbb5f": {
+    "en": "Use an instance someone else runs",
+    "path": "common:pages.deploy.rung0.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Eine Instanz nutzen, die jemand anderes betreibt"
+  },
+  "b25485f1ddf25f8e": {
+    "en": "Zoom in",
+    "path": "docs:diagramZoomIn",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Vergrößern"
+  },
+  "b347be3b6e8741f2": {
+    "en": "What it cannot read",
+    "path": "common:pages.core.reads.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was er nicht lesen kann"
+  },
+  "b4ac7b41cbc42da8": {
+    "en": "Managed instances",
+    "path": "common:pages.core.tenancy.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Verwaltete Instanzen"
+  },
+  "b59f05024c4cf521": {
+    "en": "It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "path": "common:pages.home.hero.lead",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken."
+  },
+  "b789d42d277696ae": {
+    "en": "This page is not translated yet. It is shown in English.",
+    "path": "docs:untranslated",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Seite ist noch nicht übersetzt. Sie wird auf Englisch angezeigt."
+  },
+  "b8d3022eb609700a": {
+    "en": "Zoom out",
+    "path": "docs:diagramZoomOut",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Verkleinern"
+  },
+  "bebf982115e86968": {
+    "en": "Open source",
+    "path": "common:pages.home.openSource.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Open Source"
+  },
+  "c12548bcdcb508b1": {
+    "en": "What you do with it",
+    "path": "common:pages.home.features.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was du damit machst"
+  },
+  "c3c1ea5cee4d569f": {
+    "en": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
+    "path": "common:pages.app.lead",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "openplate erfasst Mahlzeiten und schätzt auf Wunsch die Makronährstoffe auf einem Teller anhand eines Fotos. Suche nach einem Lebensmittel oder scanne einen Teller, und der Eintrag landet in deinem Tagebuch für den Tag. Bei einer eigenen Installation gibt es keinen Registrierungsbildschirm: Öffne die App und leg los. Auf der gehosteten Instanz meldest du dich zuerst an."
+  },
+  "c7296fd66ef8914b": {
+    "en": "Source code",
+    "path": "common:site.footer.sourceCode",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Quellcode"
+  },
+  "c7724a80549ebe72": {
+    "en": "Edit this page on GitHub",
+    "path": "docs:edit",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Seite auf GitHub bearbeiten"
+  },
+  "c7a9bf65029208a3": {
+    "en": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch.",
+    "path": "common:pages.home.hero.shotAlt",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Das openplate Tagebuch für einen Tag: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den eingetragenen Mahlzeiten unter Frühstück und Mittagessen."
+  },
+  "c997f2c796f0b0f8": {
+    "en": "What leaves the device",
+    "path": "common:pages.app.leaves.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Was das Gerät verlässt"
+  },
+  "cc5f0850c9e34125": {
+    "en": "Documentation",
+    "path": "docs:title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Dokumentation"
+  },
+  "ccea7a2a855d0985": {
+    "en": "Inference runtime",
+    "path": "common:site.nav.inference",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Inferenz-Runtime"
+  },
+  "cd03b4d4c1d6d035": {
+    "en": "Photograph the plate and the AI service you connected estimates the carbs. The photo goes to that service and to nowhere else.",
+    "path": "common:pages.home.features.scan.body",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Fotografiere den Teller und der verbundene KI-Dienst schätzt die Kohlenhydrate. Das Foto geht nur an diesen Dienst und nirgendwo sonst hin."
+  },
+  "cdacde12da6dcd97": {
+    "en": "Set the targets",
+    "path": "common:pages.home.features.goals.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Ziele festlegen"
+  },
+  "d15e074f8ed7f12b": {
+    "en": "The app",
+    "path": "docs:components.app",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die App"
+  },
+  "d39019d5aaa9d3a8": {
+    "en": "Log a food",
+    "path": "common:pages.home.features.add.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Essen eintragen"
+  },
+  "d42187a9cdf6767c": {
     "en": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs.",
+    "path": "common:pages.home.features.add.alt",
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Die Ansicht „Essen eintragen“: ein Suchfeld, ein Button für „Teller scannen“ und eine Liste kürzlich eingetragener Lebensmittel mit ihren Netto-Kohlenhydraten."
   },
-  "ff2200c10e208cca": {
-    "en": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
+  "d5a939ca9b4f4b63": {
+    "en": "VAT ID",
+    "path": "common:pages.imprint.vatId",
     "model": "hand-written",
     "at": "2026-09-14",
-    "de": "Jede Anleitung hier ist die Datei, die das Repository selbst pflegt, ausgelesen im jeweiligen Release-Stand und unverändert veröffentlicht."
+    "de": "USt-IdNr."
+  },
+  "d662c0b538a491be": {
+    "en": "Hardware",
+    "path": "common:pages.inference.hardware.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Hardware"
+  },
+  "d90bd00ff660eeef": {
+    "en": "Releases",
+    "path": "common:site.links.releasesLabel",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Releases"
+  },
+  "d9bf2a4cbad35d78": {
+    "en": "The sync server",
+    "path": "common:pages.core.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Der Sync-Server"
+  },
+  "de4bea7a567c9bc3": {
+    "en": "release notes",
+    "path": "common:pages.core.links.releases",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Versionshinweise"
+  },
+  "de881e048b28f740": {
+    "en": "Open the app",
+    "path": "common:pages.home.hero.openApp",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "App öffnen"
+  },
+  "de903083b4d5f1d2": {
+    "en": "The four rungs",
+    "path": "common:pages.deploy.rungs.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Die vier Sprossen"
+  },
+  "e17fbae9bcdb22ec": {
+    "en": "Self-hosting",
+    "path": "common:pages.deploy.links.selfHosting",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Self-Hosting"
+  },
+  "e53ac48abc9d6ef4": {
+    "en": "Scan a plate",
+    "path": "common:pages.home.features.scan.title",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Teller scannen"
+  },
+  "f062696f075d40b2": {
+    "en": "Try it free for three days.",
+    "path": "common:pages.pricing.trial",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Drei Tage kostenlos testen."
+  },
+  "f1a259564f371333": {
+    "en": "Who holds what",
+    "path": "common:pages.home.holds.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Wer welche Daten hält"
+  },
+  "f396acd84ed6cdb6": {
+    "en": "Deployment",
+    "path": "common:site.nav.deploy",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Deployment"
+  },
+  "f7dfe3e7fa81a873": {
+    "en": "The sync server",
+    "path": "docs:components.core",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Der Sync-Server"
+  },
+  "fa0bd1c457a4d411": {
+    "en": "Add sync across your devices",
+    "path": "common:pages.deploy.rung2.heading",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Synchronisierung zwischen deinen Geräten ergänzen"
+  },
+  "fdc5af463a7d3709": {
+    "en": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing.",
+    "path": "common:pages.docs.intro",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Diese Seiten dokumentieren alle drei Dienste: die App, den Sync-Server und die selbstgehostete Inferenz-Runtime. Starte mit dem Dienst, den du betreibst, oder mit Self-Hosting, wenn du bei null anfängst."
+  },
+  "fea07e92185c15d7": {
+    "en": "Release notes",
+    "path": "docs:releases",
+    "model": "hand-written",
+    "at": "2026-09-14",
+    "de": "Versionshinweise"
   }
 }

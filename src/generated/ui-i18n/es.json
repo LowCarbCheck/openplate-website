@@ -1,0 +1,905 @@
+{
+  "075e9b2b3b21aff5": {
+    "en": "App",
+    "path": "common:site.nav.app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "App"
+  },
+  "095c00addbad88a7": {
+    "en": "Privacy",
+    "path": "common:pages.privacy.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Privacidad"
+  },
+  "09ca0a7affd738b3": {
+    "en": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one.",
+    "path": "common:pages.home.features.scan.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La pantalla de escaneo, que ofrece conectar un proveedor de IA antes de leer una foto, y una forma de registrar la comida sin él."
+  },
+  "0a969e231f38fb2a": {
+    "en": "Your device",
+    "path": "common:pages.home.illustrations.flow.device",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Tu dispositivo"
+  },
+  "0bce22b62c494f71": {
+    "en": "Diagram source",
+    "path": "docs:diagramSource",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Código fuente del diagrama"
+  },
+  "0f17bce3c4c5fe39": {
+    "en": "{{price}} a month",
+    "path": "common:pages.pricing.price",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "{{price}} al mes"
+  },
+  "10b1340ab1dd7a09": {
+    "en": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>.",
+    "path": "common:pages.home.openSource.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate y openplate-core tienen licencia MIT. openplate-inference incluye sus propios términos, fijados por los pesos de los modelos que distribuye; su guía de licencias los detalla. Lee el código, modifícalo, ejecútalo tú mismo: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+  },
+  "12df54358fd39361": {
+    "en": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
+    "path": "common:pages.app.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El diario de openplate en un teléfono: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas del día agrupadas en desayuno y comida."
+  },
+  "154693adedb9b763": {
+    "en": "Docs",
+    "path": "common:site.nav.docs",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Docs"
+  },
+  "162ceec13206f664": {
+    "en": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "path": "common:pages.home.hero.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate es un diario de alimentos de código abierto que se ejecuta en tu dispositivo, con un escaneo opcional por foto que estima los macros de tu plato. Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona."
+  },
+  "171f2c01e4bc7a1b": {
+    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
+    "path": "common:pages.privacy.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Este sitio web utiliza Matomo sin cookies para contar las visitas; no te rastrea en otros sitios web ni crea un perfil sobre ti. En este sitio web no hay cuentas; las cuentas a las que solo se accede por invitación pertenecen a la app alojada, no a openplate.de. Para consultar qué almacena y envía la app, revisa su propia página de privacidad, enlazada desde la app."
+  },
+  "189119f99e6cdaa6": {
+    "en": "What should I run?",
+    "path": "common:pages.deploy.links.topologies",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "¿Qué debería ejecutar?"
+  },
+  "193b39bb465bd09a": {
+    "en": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
+    "path": "common:pages.pricing.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Pagas por los escaneos de fotos que estiman los macronutrientes de tu plato, y por la sincronización entre tus dispositivos. Todo lo demás en openplate es gratis y seguirá siéndolo."
+  },
+  "1a1ca570ce1d5779": {
+    "en": "Documentation page",
+    "path": "common:pages.docsPage.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Página de documentación"
+  },
+  "1b9db799e8389c4f": {
+    "en": "See where the day stands",
+    "path": "common:pages.home.features.overview.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Comprueba cómo va el día"
+  },
+  "257c568f3ab78eca": {
+    "en": "hardware",
+    "path": "common:pages.inference.links.hardware",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "hardware"
+  },
+  "291b33b732467727": {
+    "en": "Page not found",
+    "path": "common:pages.notFound.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Página no encontrada"
+  },
+  "30622ac4e100cda7": {
+    "en": "the page",
+    "path": "common:pages.home.illustrations.flow.pageEdge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "la página"
+  },
+  "310a389e63a734ff": {
+    "en": "This component has not published release notes yet.",
+    "path": "docs:noReleases",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Este componente aún no ha publicado notas de la versión."
+  },
+  "36a20a82f9b321e2": {
+    "en": "The inference runtime",
+    "path": "docs:components.inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El runtime de inferencia"
+  },
+  "36b08d4407b3dbfe": {
+    "en": "diary, encrypted",
+    "path": "common:pages.home.illustrations.flow.diaryEdge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "diario, cifrado"
+  },
+  "37bbb5cd718bb958": {
+    "en": "Read the source",
+    "path": "common:pages.home.hero.readSource",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Leer el código"
+  },
+  "37ef86f67539c2d3": {
+    "en": "Documentation",
+    "path": "common:pages.docs.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Documentación"
+  },
+  "37f58d632149faf2": {
+    "en": "Language",
+    "path": "common:site.language.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Idioma"
+  },
+  "39e681cf0888c2a0": {
+    "en": "Who it is for",
+    "path": "common:pages.inference.audience.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Para quién es"
+  },
+  "3b296948f1d706cc": {
+    "en": "Switch to the light theme",
+    "path": "common:site.theme.toLight",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cambiar al tema claro"
+  },
+  "3eebe83fcdfb6ed8": {
+    "en": "Analytics",
+    "path": "common:pages.home.analytics.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Analítica"
+  },
+  "3fa821efc7c71d48": {
+    "en": "architecture",
+    "path": "common:pages.app.links.architecture",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "arquitectura"
+  },
+  "4035d9eb6815a888": {
+    "en": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
+    "path": "common:pages.home.illustrations.holders.caption",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El diagrama muestra lo que almacena cada uno. La tabla añade lo que ve cada uno mientras tus datos pasan a través de él."
+  },
+  "40d7d8e01393fd3c": {
+    "en": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level.",
+    "path": "common:pages.home.analytics.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate no registra nada hasta que un operador activa el seguimiento. La instancia alojada en openplate.de cuenta las visitas a las páginas y las funciones que se utilizan. Nunca sabe lo que comes, pesas o registras. Quien ejecute su propia copia elige uno de tres niveles, desde solo visitas a la página hasta un nivel de investigación que registra conductas de salud para un estudio con participantes que dan su consentimiento. Ningún tercero interviene en la ruta. Los números llegan a una instancia de Matomo que administramos nosotros mismos, con las cookies desactivadas. <configuration>Configuración</configuration> enumera cada evento de cada nivel."
+  },
+  "40fd080f451db9e7": {
+    "en": "privacy",
+    "path": "common:pages.inference.links.privacy",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "privacidad"
+  },
+  "428182b68c95f655": {
+    "en": "Sync server",
+    "path": "common:site.nav.core",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Servidor de sincronización"
+  },
+  "431004f09bef0c16": {
+    "en": "App",
+    "path": "common:pages.home.stack.app.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Aplicación"
+  },
+  "4367c9c7af48ab2b": {
+    "en": "Your browser",
+    "path": "common:pages.home.illustrations.holders.browser",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Tu navegador"
+  },
+  "47159c53798be533": {
+    "en": "Where your data goes",
+    "path": "common:pages.home.topology.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Adónde van tus datos"
+  },
+  "4a8332dee048e901": {
+    "en": "Pricing",
+    "path": "common:pages.pricing.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Precios"
+  },
+  "4cd639667a5118b4": {
+    "en": "An open-source food diary that runs on your device.",
+    "path": "common:site.tagline",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Un diario de alimentos de código abierto que se ejecuta en tu dispositivo."
+  },
+  "4db16451bd5ec9a2": {
+    "en": "openplate app server",
+    "path": "common:pages.home.illustrations.flow.appServer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Servidor de la aplicación openplate"
+  },
+  "4faf536325f6937f": {
+    "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+    "path": "common:pages.home.illustrations.flow.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cuatro cuadros y tres flechas. El servidor de la aplicación envía la página a tu dispositivo. Tu dispositivo envía el diario a openplate-core, cifrado. Tu dispositivo envía la foto del plato al endpoint de IA que hayas elegido. El servidor de la aplicación no está en ninguna de esas dos rutas."
+  },
+  "50d611ae7253669c": {
+    "en": "VAT included.",
+    "path": "common:pages.pricing.vatNote",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "IVA incluido."
+  },
+  "5276118bcc8b387a": {
+    "en": "Documentation",
+    "path": "docs:nav",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Documentación"
+  },
+  "53834c20d9148753": {
+    "en": "Email",
+    "path": "common:pages.imprint.email",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Correo electrónico"
+  },
+  "546eec9185f067bb": {
+    "en": "On this page",
+    "path": "docs:onThisPage",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "En esta página"
+  },
+  "598c1f9cb5f257bf": {
+    "en": "Docs",
+    "path": "common:site.links.docsLabel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Docs"
+  },
+  "59fcb335becb6269": {
+    "en": "Close",
+    "path": "docs:closeSheet",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cerrar"
+  },
+  "5ab2a89eb93d01bf": {
+    "en": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
+    "path": "common:pages.pricing.cancel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cancela en cualquier momento. Tu acceso continuará hasta el final del mes que hayas pagado y no se renovará."
+  },
+  "5caa52f6258b4b28": {
+    "en": "How to run openplate",
+    "path": "common:pages.deploy.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cómo ejecutar openplate"
+  },
+  "5e341d0ae2bd73c4": {
+    "en": "Run all of it",
+    "path": "common:pages.deploy.rung4.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Ejecutar todo"
+  },
+  "61617f8e1db33b8c": {
+    "en": "openplate app server",
+    "path": "common:pages.home.illustrations.holders.appServer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Servidor de la aplicación openplate"
+  },
+  "61d99d0b181b5997": {
+    "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
+    "path": "common:pages.home.hero.inviteNote",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La instancia alojada es solo con invitación. Ejecutar tu propia copia no necesita invitación."
+  },
+  "62b28e16419c7a48": {
+    "en": "Imprint",
+    "path": "common:pages.imprint.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Aviso legal"
+  },
+  "64f70beeb0831028": {
+    "en": "Main",
+    "path": "common:site.nav.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Principal"
+  },
+  "671f00d7844b845b": {
+    "en": "Menu",
+    "path": "common:site.nav.menu",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Menú"
+  },
+  "674b84f370722577": {
+    "en": "self-hosting",
+    "path": "common:pages.app.links.selfHosting",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "autoalojamiento"
+  },
+  "6b9b8069874f559a": {
+    "en": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La instancia alojada en openplate.de funciona solo con invitación. Un administrador envía la invitación; no hay registro abierto. Si prefieres ejecutar tu propia copia, consulta <selfHosting>Autohospedaje</selfHosting>."
+  },
+  "6d47ce7f9a1df790": {
+    "en": "protocol",
+    "path": "common:pages.core.links.protocol",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "protocolo"
+  },
+  "6d6b5f7f927f5451": {
+    "en": "What it stores on the device",
+    "path": "common:pages.app.stores.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué guarda en el dispositivo"
+  },
+  "6e0820f1ec017f67": {
+    "en": "What openplate is",
+    "path": "common:pages.home.whatItIs.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué es openplate"
+  },
+  "707074fc089c18b4": {
+    "en": "Sync server",
+    "path": "common:pages.home.stack.core.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Servidor de sincronización"
+  },
+  "71a54fc903c15360": {
+    "en": "openplate-inference is a plate-photo scanner you run on your own hardware. It names the foods on a plate and estimates the grams, then looks up the macros in a bundled food database rather than inventing numbers.",
+    "path": "common:pages.inference.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate-inference es un escáner de fotos del plato que ejecutas en tu propio hardware. Nombra los alimentos del plato y calcula los gramos, y después consulta los macronutrientes en una base de datos de alimentos integrada en lugar de inventar cifras."
+  },
+  "71ff88fd7ca5ec15": {
+    "en": "What it does know",
+    "path": "common:pages.core.knows.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué sabe"
+  },
+  "78b1b2df1202318b": {
+    "en": "Your AI endpoint",
+    "path": "common:pages.home.illustrations.flow.aiEndpoint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Tu endpoint de IA"
+  },
+  "794f3d31133512a8": {
+    "en": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams.",
+    "path": "common:pages.home.features.goals.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La pantalla de objetivos: un límite diario de carbohidratos netos con opciones predefinidas y un campo personalizado, y un objetivo de proteínas en gramos."
+  },
+  "7a1ee89169494a2a": {
+    "en": "Release notes",
+    "path": "common:pages.releases.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Notas de la versión"
+  },
+  "7a5f0b27c28bc46d": {
+    "en": "Run the app on your own box",
+    "path": "common:pages.deploy.rung1.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Ejecuta la aplicación en tu propia máquina"
+  },
+  "7c990783df68d2b3": {
+    "en": "Footer",
+    "path": "common:site.footer.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Pie de página"
+  },
+  "7dfc8a3495169784": {
+    "en": "Privacy",
+    "path": "common:pages.inference.privacy.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Privacidad"
+  },
+  "80ccd300e6c6b424": {
+    "en": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
+    "path": "common:pages.home.features.add.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Busca en la base de datos de alimentos o elige algo que registraste antes, y la entrada se añade al día bajo la comida que elegiste."
+  },
+  "83855bc381fe3cb9": {
+    "en": "The inference runtime",
+    "path": "common:pages.inference.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El runtime de inferencia"
+  },
+  "842bc92437835aae": {
+    "en": "Every guide here is the file the repository itself maintains, read at its released version and published unchanged.",
+    "path": "docs:intro",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cada guía aquí incluida es el archivo que mantiene el propio repositorio, leído en su versión publicada y difundido sin cambios."
+  },
+  "8532b3c79b2100b0": {
+    "en": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
+    "path": "common:pages.home.features.goals.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Un límite diario de carbohidratos y un objetivo de proteínas, o ninguno de los dos. Cada objetivo es opcional y borrar un campo lo elimina."
+  },
+  "85e83023f0314a5c": {
+    "en": "The stack",
+    "path": "common:pages.home.stack.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La pila"
+  },
+  "86378cb5acdcfa14": {
+    "en": "Inference runtime",
+    "path": "common:pages.home.stack.inference.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Runtime de inferencia"
+  },
+  "876114dd3ea6eeee": {
+    "en": "photo",
+    "path": "common:pages.home.illustrations.flow.photoEdge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "foto"
+  },
+  "88cb66ccd4773c31": {
+    "en": "The app",
+    "path": "common:pages.app.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La aplicación"
+  },
+  "89d2545d415b3460": {
+    "en": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days.",
+    "path": "common:pages.home.features.overview.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La pantalla de resumen: un anillo que muestra los carbohidratos netos restantes del límite diario, el recuento de proteínas y una tarjeta con los últimos siete días."
+  },
+  "8a0c83eee56faedf": {
+    "en": "You can use openplate without running anything at all, and you can run every part of it yourself. Four rungs sit between those two. Each rung adds a capability and adds something you now have to operate, so read it as a ladder you are meant to stop climbing early.",
+    "path": "common:pages.deploy.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Puedes usar openplate sin ejecutar nada en absoluto, o puedes alojar tú mismo cada parte. Hay cuatro peldaños entre ambos extremos. Cada peldaño añade una función y suma algo que ahora debes mantener, así que tómalo como una escalera donde conviene detenerse pronto."
+  },
+  "8e2818d8f9449138": {
+    "en": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
+    "path": "common:pages.home.features.overview.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cuánto queda del límite, si se ha alcanzado el objetivo de proteínas y cuántos de los últimos siete días has registrado."
+  },
+  "933981e228512a9d": {
+    "en": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
+    "path": "common:pages.app.shotIntro",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El diario muestra un día cada vez: las comidas que registraste, lo que restan del límite diario y lo que queda de él."
+  },
+  "964e758b06e55e49": {
+    "en": "These screens show example data, not a real diary.",
+    "path": "common:site.exampleData",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Estas pantallas muestran datos de ejemplo, no un diario real."
+  },
+  "96c4bb298b920e67": {
+    "en": "Commercial register",
+    "path": "common:pages.imprint.register",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Registro mercantil"
+  },
+  "97083ce3a315c3c0": {
+    "en": "Access",
+    "path": "common:pages.home.access.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Acceso"
+  },
+  "97e4f5a976d908df": {
+    "en": "Skip to content",
+    "path": "common:site.skipToContent",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Saltar al contenido"
+  },
+  "991cbaf8703e9269": {
+    "en": "One plan",
+    "path": "common:pages.pricing.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Un único plan"
+  },
+  "9acd01d7180b6504": {
+    "en": "Read the terms",
+    "path": "common:pages.pricing.termsLink",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Lee las condiciones"
+  },
+  "9cfc6724215a5ffd": {
+    "en": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de.",
+    "path": "common:pages.inference.audience.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Personas que se autoalojan el servicio y quieren escanear platos sin una cuenta de IA en la nube y sin que ninguna foto salga de su red. No forma parte de la instancia alojada en openplate.de."
+  },
+  "a1ff1cb9289c7248": {
+    "en": "Cloud AI provider",
+    "path": "common:pages.home.illustrations.holders.cloudProvider",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Proveedor de IA en la nube"
+  },
+  "a5a78d259efa5f39": {
+    "en": "Represented by",
+    "path": "common:pages.imprint.representedBy",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Representado por"
+  },
+  "a6dd790d0a85c71d": {
+    "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+    "path": "common:pages.core.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate-core transfiere tu diario entre tus propios dispositivos. Guarda una dirección de correo, un bloque cifrado de tu diario que no puede leer y un código de recuperación sellado por si una contraseña olvidada lo necesita."
+  },
+  "a729ea19d7cba678": {
+    "en": "This page is machine translated from the English documentation.",
+    "path": "docs:machineTranslated",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Esta página es una traducción automática de la documentación en inglés."
+  },
+  "ae9aa360952743ac": {
+    "en": "Scan on your own hardware",
+    "path": "common:pages.deploy.rung3.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Escanea en tu propio hardware"
+  },
+  "b1522665f2102d15": {
+    "en": "Switch to the dark theme",
+    "path": "common:site.theme.toDark",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Cambiar al tema oscuro"
+  },
+  "b16286fe209bbb5f": {
+    "en": "Use an instance someone else runs",
+    "path": "common:pages.deploy.rung0.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Usa una instancia que gestione otra persona"
+  },
+  "b25485f1ddf25f8e": {
+    "en": "Zoom in",
+    "path": "docs:diagramZoomIn",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Acercar"
+  },
+  "b347be3b6e8741f2": {
+    "en": "What it cannot read",
+    "path": "common:pages.core.reads.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué no puede leer"
+  },
+  "b4ac7b41cbc42da8": {
+    "en": "Managed instances",
+    "path": "common:pages.core.tenancy.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Instancias gestionadas"
+  },
+  "b59f05024c4cf521": {
+    "en": "It is for people who want to track what they eat without sending their diary to someone else's server.",
+    "path": "common:pages.home.hero.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona."
+  },
+  "b789d42d277696ae": {
+    "en": "This page is not translated yet. It is shown in English.",
+    "path": "docs:untranslated",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Esta página aún no está traducida. Se muestra en inglés."
+  },
+  "b8d3022eb609700a": {
+    "en": "Zoom out",
+    "path": "docs:diagramZoomOut",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Alejar"
+  },
+  "bebf982115e86968": {
+    "en": "Open source",
+    "path": "common:pages.home.openSource.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Código abierto"
+  },
+  "c12548bcdcb508b1": {
+    "en": "What you do with it",
+    "path": "common:pages.home.features.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué haces con él"
+  },
+  "c3c1ea5cee4d569f": {
+    "en": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
+    "path": "common:pages.app.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "openplate registra alimentos y, si quieres, estima los macronutrientes de un plato a partir de una foto. Busca un alimento o escanea un plato, y la entrada irá a tu diario del día. En tu propia instalación no hay pantalla de registro: abre la aplicación y empieza a registrar. En la instancia alojada, inicias sesión primero."
+  },
+  "c7296fd66ef8914b": {
+    "en": "Source code",
+    "path": "common:site.footer.sourceCode",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Código fuente"
+  },
+  "c7724a80549ebe72": {
+    "en": "Edit this page on GitHub",
+    "path": "docs:edit",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Edita esta página en GitHub"
+  },
+  "c7a9bf65029208a3": {
+    "en": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch.",
+    "path": "common:pages.home.hero.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El diario de openplate para un día: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas registradas en el desayuno y el almuerzo."
+  },
+  "c997f2c796f0b0f8": {
+    "en": "What leaves the device",
+    "path": "common:pages.app.leaves.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Qué sale del dispositivo"
+  },
+  "cc5f0850c9e34125": {
+    "en": "Documentation",
+    "path": "docs:title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Documentación"
+  },
+  "ccea7a2a855d0985": {
+    "en": "Inference runtime",
+    "path": "common:site.nav.inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Runtime de inferencia"
+  },
+  "cd03b4d4c1d6d035": {
+    "en": "Photograph the plate and the AI service you connected estimates the carbs. The photo goes to that service and to nowhere else.",
+    "path": "common:pages.home.features.scan.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Fotografía el plato y el servicio de IA que conectaste estimará los carbohidratos. La foto va a ese servicio y a ningún otro sitio."
+  },
+  "cdacde12da6dcd97": {
+    "en": "Set the targets",
+    "path": "common:pages.home.features.goals.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Define los objetivos"
+  },
+  "d15e074f8ed7f12b": {
+    "en": "The app",
+    "path": "docs:components.app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La aplicación"
+  },
+  "d39019d5aaa9d3a8": {
+    "en": "Log a food",
+    "path": "common:pages.home.features.add.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Registrar un alimento"
+  },
+  "d42187a9cdf6767c": {
+    "en": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs.",
+    "path": "common:pages.home.features.add.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "La pantalla para añadir alimentos: un cuadro de búsqueda, un botón para escanear el plato en su lugar y una lista de alimentos registrados recientemente con sus carbohidratos netos."
+  },
+  "d5a939ca9b4f4b63": {
+    "en": "VAT ID",
+    "path": "common:pages.imprint.vatId",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "NIF/CIF"
+  },
+  "d662c0b538a491be": {
+    "en": "Hardware",
+    "path": "common:pages.inference.hardware.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Hardware"
+  },
+  "d90bd00ff660eeef": {
+    "en": "Releases",
+    "path": "common:site.links.releasesLabel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Versiones"
+  },
+  "d9bf2a4cbad35d78": {
+    "en": "The sync server",
+    "path": "common:pages.core.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El servidor de sincronización"
+  },
+  "de4bea7a567c9bc3": {
+    "en": "release notes",
+    "path": "common:pages.core.links.releases",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "notas de la versión"
+  },
+  "de881e048b28f740": {
+    "en": "Open the app",
+    "path": "common:pages.home.hero.openApp",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Abrir la app"
+  },
+  "de903083b4d5f1d2": {
+    "en": "The four rungs",
+    "path": "common:pages.deploy.rungs.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Los cuatro peldaños"
+  },
+  "e17fbae9bcdb22ec": {
+    "en": "Self-hosting",
+    "path": "common:pages.deploy.links.selfHosting",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Alojamiento propio"
+  },
+  "e53ac48abc9d6ef4": {
+    "en": "Scan a plate",
+    "path": "common:pages.home.features.scan.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Escanear un plato"
+  },
+  "f062696f075d40b2": {
+    "en": "Try it free for three days.",
+    "path": "common:pages.pricing.trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Pruébalo gratis durante tres días."
+  },
+  "f1a259564f371333": {
+    "en": "Who holds what",
+    "path": "common:pages.home.holds.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Quién guarda qué"
+  },
+  "f396acd84ed6cdb6": {
+    "en": "Deployment",
+    "path": "common:site.nav.deploy",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Despliegue"
+  },
+  "f7dfe3e7fa81a873": {
+    "en": "The sync server",
+    "path": "docs:components.core",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "El servidor de sincronización"
+  },
+  "fa0bd1c457a4d411": {
+    "en": "Add sync across your devices",
+    "path": "common:pages.deploy.rung2.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Añade sincronización entre tus dispositivos"
+  },
+  "fdc5af463a7d3709": {
+    "en": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing.",
+    "path": "common:pages.docs.intro",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Estas páginas documentan los tres servicios: la app, el servidor de sincronización y el runtime de inferencia en alojamiento propio. Empieza por el servicio que estés ejecutando, o por Alojamiento propio si empiezas desde cero."
+  },
+  "fea07e92185c15d7": {
+    "en": "Release notes",
+    "path": "docs:releases",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "es": "Notas de la versión"
+  }
+}

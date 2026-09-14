@@ -8,9 +8,9 @@ is and where its documentation pages come from.
 ## Project Structure
 
 - `app/` — routes, the route table, the i18n layer, the stylesheet
-- `app/i18n/` — the language model. The URL prefix IS the language (`/` English,
-  `/de/...` German). There is no cookie and no detector; a prerendered document
-  has no request to read one from.
+- `app/i18n/` — the language model. The URL prefix IS the language (`/` German,
+  `/en/...` English, then `/fr/`, `/it/`, `/es/`, `/tr/`). There is no cookie
+  and no detector; a prerendered document has no request to read one from.
 - `app/prerender.ts` — the dynamic paths `getStaticPaths()` cannot work out
 - `public/` — files copied verbatim into the build
 - `tools/oxlint/anti-slop/` — vendored third-party lint plugin, MIT (do not edit;
@@ -85,7 +85,7 @@ dry. **No em dashes and no en dashes**, in copy or in comments; use a comma.
 The documentation pages are not covered by this: they are generated from the
 source repositories and translated by their own script.
 
-**The three bundles are key-parity checked, and a key added to `en` alone turns
+**Every translated bundle is key-parity checked against `en`, and a key added to `en` alone turns
 `pnpm test:unit` red.** `tests/unit/ui-parity.test.ts` compares every namespace
 in every translated locale against the English one: the same key set, the same
 `{{placeholders}}` and `<Trans>` tags, and no string over 40 characters left
@@ -100,7 +100,7 @@ The landing page carries a second, narrower check.
 loops `SUPPORTED_LANGUAGES` and asserts `i18n.exists(key, { lng, fallbackLng: false })`
 for every key printed by `app/routes/home.tsx`, `app/components/hero.tsx` and
 `app/components/feature-grid.tsx`. A new landing key in `en/common.json` alone
-turns `pnpm test:unit` red with two failures, one per language, while lint,
+turns `pnpm test:unit` red with one failure per translated language, while lint,
 typecheck and build all stay green. It asks the real i18next singleton with
 `fallbackLng: false`, where the parity test above reads the files, so the two
 fail on different things: a key the bundles have and the page does not print is
@@ -108,8 +108,8 @@ this one's business, and a key the page prints in a namespace nobody translated
 is the other's.
 
 **Before you buy a translation, look for one you already own.**
-`src/generated/docs-i18n/{de,fr}.json` is a per-sentence translation memory
-mapping a hash to `{ en, model, at, de|fr }`; scan it by the `en` field. Phrases
+`src/generated/docs-i18n/<locale>.json` is a per-sentence translation memory
+mapping a hash to `{ en, model, at, <locale> }`; scan it by the `en` field. Phrases
 shared between a document and the site frame are usually already there, judged
 by the same model under the same style contract. The committed diagram SVGs
 under `public/docs/diagrams/<id>-<lang>-<theme>.svg` carry the same strings as

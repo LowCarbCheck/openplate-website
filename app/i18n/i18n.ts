@@ -20,20 +20,38 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { DEFAULT_LANGUAGE, SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from './language';
+import { DEFAULT_LANGUAGE, type LanguageCode, SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from './language';
 import deCommon from './locales/de/common.json';
 import deDocs from './locales/de/docs.json';
 import enCommon from './locales/en/common.json';
 import enDocs from './locales/en/docs.json';
+import esCommon from './locales/es/common.json';
+import esDocs from './locales/es/docs.json';
 import frCommon from './locales/fr/common.json';
 import frDocs from './locales/fr/docs.json';
+import itCommon from './locales/it/common.json';
+import itDocs from './locales/it/docs.json';
+import trCommon from './locales/tr/common.json';
+import trDocs from './locales/tr/docs.json';
+
+/**
+ * One entry per supported language, and `satisfies` is what makes that a
+ * compile error rather than a language that resolves to the English fallback
+ * on every key: `SUPPORTED_LANGUAGES` gaining a member with no bundle here
+ * fails `pnpm typecheck`, the same guard `docs-i18n.server.ts` puts on the
+ * documentation memories.
+ */
+const RESOURCES = {
+  en: { common: enCommon, docs: enDocs },
+  de: { common: deCommon, docs: deDocs },
+  fr: { common: frCommon, docs: frDocs },
+  it: { common: itCommon, docs: itDocs },
+  es: { common: esCommon, docs: esDocs },
+  tr: { common: trCommon, docs: trDocs },
+} satisfies Record<LanguageCode, { common: object; docs: object }>;
 
 void i18next.use(initReactI18next).init({
-  resources: {
-    en: { common: enCommon, docs: enDocs },
-    de: { common: deCommon, docs: deDocs },
-    fr: { common: frCommon, docs: frDocs },
-  },
+  resources: RESOURCES,
   // Two different languages, and they used to be one. `lng` is the language of
   // the document being rendered before `I18nProvider` says otherwise, so it
   // follows the URL and is German. The fallback is the language a missing key

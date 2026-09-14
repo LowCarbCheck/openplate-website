@@ -46,13 +46,32 @@ describe('register: legal is formal, everything else is informal', () => {
     assert.notEqual(register('fr', 'legal'), register('fr', 'common'));
   });
 
-  it('writes the formal register for Spanish and Turkish, unshipped languages the table stays complete for', () => {
+  it('writes the formal register for Italian, Spanish and Turkish', () => {
+    assert.equal(/\bLei\b/.test(register('it', 'legal')), true);
     assert.equal(/\busted\b/.test(register('es', 'legal')), true);
     assert.equal(/\bsiz\b/.test(register('tr', 'legal')), true);
-    // Neither has a locale-specific informal branch; both fall to the generic
-    // line, and the generic formal and informal lines must still differ.
+    assert.notEqual(register('it', 'legal'), register('it', 'common'));
     assert.notEqual(register('es', 'legal'), register('es', 'common'));
     assert.notEqual(register('tr', 'legal'), register('tr', 'common'));
+  });
+
+  it('addresses Italian, Spanish and Turkish informally, in a branch of their own and not the generic line', () => {
+    // THE GREP IN THE SPEC HALF-PASSES FOR THE WRONG REASON: `locale === 'es'`
+    // and `'tr'` already occurred in the FORMAL table before the site shipped
+    // either language, so a source grep cannot tell a formal branch from an
+    // informal one. This asks the informal function directly.
+    assert.equal(/\btu\b/.test(register('it', 'common')), true);
+    // Quoted, not `\b`-bounded: a word boundary is ASCII-only, and "ú" is not
+    // an ASCII word character, so `\btú\b` never matches.
+    assert.equal(register('es', 'common').includes('"tú"'), true);
+    assert.equal(/\bsen\b/.test(register('tr', 'common')), true);
+    // THE CONTROL: the generic fallback line, which is what an unknown locale
+    // still gets, is not what any of the three gets.
+    const generic = register('xx', 'common');
+    assert.equal(/\btu\b|\bsen\b/u.test(generic), false);
+    for (const locale of ['it', 'es', 'tr']) {
+      assert.notEqual(register(locale, 'common'), generic, `${locale} fell through to the generic register`);
+    }
   });
 
   it('treats any bundle name that is not "legal" as informal, not just "common"', () => {
