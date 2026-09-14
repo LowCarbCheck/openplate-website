@@ -52,7 +52,15 @@
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
+}
 
+/*
+ * `inline`, so a utility reads the token where it is USED. Without it
+ * `text-foreground` is `var(--color-foreground)`, resolved once on :root, and a
+ * subtree that redeclares `--foreground` (the always dark `.doc-fence`) would
+ * still paint with the page's own value.
+ */
+@theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -119,7 +127,10 @@
     }
   }
 
-  :root[data-theme='dark'] {
+  :root[data-theme='dark'],
+  .doc-fence {
+    /* A code fence borrows this block so it is dark in both themes without a
+       third copy of the values. */
     --background: 192 24% 4.5%;
     --foreground: 180 12% 97%;
     --card: 192 20% 8%;
@@ -167,6 +178,16 @@
 
   :root[data-theme='dark'] {
     color-scheme: dark;
+  }
+
+  /* The fence's own scrollbar follows its ground, not the page's. */
+  .doc-fence {
+    color-scheme: dark;
+  }
+
+  /* A docs sheet is a modal: the page under it stays where it is. */
+  :root:has(dialog.docs-sheet[open]) {
+    overflow: hidden;
   }
 
   body {
@@ -256,6 +277,39 @@
   }
 
   /*
+   * Syntax colours for `CodeTokens`, painted only from palette tokens. They
+   * sit inside `.doc-fence`, so every token here resolves to its dark value.
+   */
+  .tok-comment {
+    color: hsl(var(--muted-foreground));
+    font-style: italic;
+  }
+
+  .tok-prompt {
+    color: hsl(var(--muted-foreground));
+    user-select: none;
+  }
+
+  .tok-key,
+  .tok-section {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  .tok-string {
+    color: hsl(var(--primary));
+  }
+
+  .tok-variable {
+    color: hsl(var(--primary));
+    font-weight: 600;
+  }
+
+  .tok-flag {
+    color: hsl(var(--primary) / 0.75);
+  }
+
+  /*
    * A documentation table, stacked for a phone.
    *
    * ── WHY THIS IS CSS AND NOT A SECOND COMPONENT ──
@@ -314,7 +368,7 @@
       line-height: 1rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-muted-foreground);
+      color: hsl(var(--muted-foreground));
     }
   }
 }

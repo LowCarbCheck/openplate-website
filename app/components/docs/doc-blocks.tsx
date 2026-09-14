@@ -9,8 +9,8 @@
  *
  * PORTED FROM collie-website's `src/components/doc-blocks.tsx`. The block model
  * and every decision about it are collie's. What changed: the classes name this
- * site's tokens, an internal link is localised before it is routed, and there is
- * no syntax highlighter here, so a fence is a fence. collie's one exception, the
+ * site's tokens, an internal link is localised before it is routed, and fences
+ * are coloured by `CodeTokens` from palette tokens alone. collie's one exception, the
  * mermaid renderer it loads into the browser, is not here either: this site
  * draws its diagrams at sync time and commits them, so the diagram block is two
  * committed SVG files and a <picture>, and no reader downloads a renderer.
@@ -22,6 +22,15 @@ import { Link } from 'react-router';
 import { useLanguage } from '#app/i18n/use-language';
 import { localizePath } from '#app/i18n/language';
 import { type Block, type Inline, spansText } from '#app/lib/docs';
+import { CodeTokens } from './code-tokens';
+
+/**
+ * A fenced block, dark in both themes like a terminal. `doc-fence` borrows the
+ * dark palette block in `app.css`, so every token utility on and inside it
+ * resolves to its dark value without a colour of its own.
+ */
+const FENCE =
+  'doc-fence overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed text-foreground';
 
 /**
  * The punctuation a chip must sit tight against, on each side.
@@ -35,7 +44,14 @@ import { type Block, type Inline, spansText } from '#app/lib/docs';
 const HUGS_AFTER = /^[.,:;)!?]/;
 const HUGS_BEFORE = /[(["']$/;
 
-export function Spans({ spans }: { spans: Inline[] }) {
+export function Spans({
+  spans,
+  isInsideLink = false,
+}: {
+  spans: Inline[];
+  /** Set where the caller is already an anchor: a link span then draws as its text, never a nested `<a>`. */
+  isInsideLink?: boolean;
+}) {
   const language = useLanguage();
 
   return (
@@ -45,21 +61,21 @@ export function Spans({ spans }: { spans: Inline[] }) {
         if (span.kind === 'strong') {
           return (
             <strong key={key} className="font-semibold text-foreground">
-              <Spans spans={span.spans} />
+              <Spans spans={span.spans} isInsideLink={isInsideLink} />
             </strong>
           );
         }
         if (span.kind === 'em') {
           return (
             <em key={key} className="italic">
-              <Spans spans={span.spans} />
+              <Spans spans={span.spans} isInsideLink={isInsideLink} />
             </em>
           );
         }
         if (span.kind === 'code') {
-          // A CHIP, NOT A SECOND VOICE OF THE PROSE. A `code` run reads as
-          // quieter than the sentence carrying it, and it is told apart by its
-          // edge and its face, not by weight of ink.
+          // A TEAL WASH, SO A READER SCANNING FOR WHAT TO TYPE HAS A COLOUR TO
+          // FIND. The ink stays foreground: `text-primary` on this fill measures
+          // 4.2:1 in the light theme, under the 4.5 floor.
           const next = spans[i + 1];
           const previous = spans[i - 1];
           const before = previous?.kind === 'text' && HUGS_BEFORE.test(previous.text);
@@ -67,10 +83,17 @@ export function Spans({ spans }: { spans: Inline[] }) {
           return (
             <code
               key={key}
-              className={`rounded-sm border border-border bg-card py-0.5 font-mono text-[0.9em] text-muted-foreground ${before ? 'pl-0' : 'pl-1'} ${after ? 'pr-0' : 'pr-1'}`}
+              className={`rounded-sm border border-primary/20 bg-primary/10 py-0.5 font-mono text-[0.9em] text-foreground ${before ? 'pl-0' : 'pl-1'} ${after ? 'pr-0' : 'pr-1'}`}
             >
               {span.text}
             </code>
+          );
+        }
+        if (span.kind === 'link' && isInsideLink) {
+          return (
+            <span key={key}>
+              <Spans spans={span.spans} isInsideLink />
+            </span>
           );
         }
         if (span.kind === 'link') {
@@ -187,7 +210,7 @@ function DiagramFigure({ block }: { block: DiagramBlock }) {
       </button>
       <details className="mt-2">
         <summary className={quiet}>{t('diagramSource')}</summary>
-        <pre className="mt-2 overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed">
+        <pre className={`${FENCE} mt-2`}>
           <code className="language-mermaid">{block.source}</code>
         </pre>
       </details>
@@ -263,14 +286,13 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
           case 'code': {
             return (
               <Fragment key={key}>
-                <pre className="mt-5 overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed">
+                <pre className={`${FENCE} mt-5`}>
                   {/* The language is on the <code>, not just used by it.
                       `class="language-bash"` is what a reader's view-source and
-                      every scraper read to know what this is, and it costs one
-                      attribute. Nothing colours it: a highlighter is a
-                      dependency and a bundle, and these fences are commands and
-                      config files a reader copies rather than studies. */}
-                  <code className={block.lang === '' ? undefined : `language-${block.lang}`}>{block.text}</code>
+                      every scraper read to know what this is. */}
+                  <code className={block.lang === '' ? undefined : `language-${block.lang}`}>
+                    <CodeTokens text={block.text} lang={block.lang} />
+                  </code>
                 </pre>
               </Fragment>
             );

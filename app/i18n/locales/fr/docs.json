@@ -13,7 +13,8 @@
   "untranslated": "Cette page n'est pas encore traduite. Elle est affichée en anglais.",
   "components": {
     "app": "L'application",
-    "sync": "Le serveur de synchronisation",
+    "core": "Le serveur de synchronisation",
     "inference": "Le moteur d'inférence"
-  }
+  },
+  "closeSheet": "Fermer"
 }

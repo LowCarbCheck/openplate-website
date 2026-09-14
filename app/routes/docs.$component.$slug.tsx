@@ -14,7 +14,7 @@ import { useLoaderData } from 'react-router';
 import { DocPage } from '#app/components/docs/doc-page';
 import { SiteLayout } from '#app/components/site-layout';
 import { languageFromRequest } from '#app/i18n/language';
-import { coverage, translateDoc, translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
+import { coverage, translateDoc, translateIndex, translationsFor } from '#app/lib/docs-i18n.server';
 import { findComponent, findDoc, slugify } from '#app/lib/docs';
 import { DOCS_INDEX } from '../../src/generated/docs-index';
 import { DOCS } from '../../src/generated/docs-registry';
@@ -29,7 +29,7 @@ import type { Route } from './+types/docs.$component.$slug';
  * bundle, and the site is prerendered, so this runs at build time and the reader
  * is sent finished German.
  *
- * The file list and the previous/next links are translated on the same line, out
+ * The nav and the previous/next links are translated on the same line, out
  * of the same memory, because a German page with an English sidebar is a page
  * that looks broken rather than partly translated.
  */
@@ -45,7 +45,7 @@ export function loader({ params, request }: Route.LoaderArgs) {
   const memory = translationsFor(language);
   return {
     doc: translateDoc(doc, memory),
-    docs: translateEntries(DOCS_INDEX[component], memory),
+    index: translateIndex(DOCS_INDEX, memory),
     // THE ANCHOR STAYS ENGLISH, like every heading id on the page. A doc that
     // links to another one by its title lands on the h1, and a translated id
     // would send that link nowhere on the German page alone.
@@ -61,11 +61,11 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export default function DocsPageRoute() {
-  const { doc, docs, titleId, translated } = useLoaderData<typeof loader>();
+  const { doc, index, titleId, translated } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout width="full">
-      <DocPage doc={doc} docs={docs} titleId={titleId} translated={translated} />
+      <DocPage doc={doc} index={index} titleId={titleId} translated={translated} />
     </SiteLayout>
   );
 }

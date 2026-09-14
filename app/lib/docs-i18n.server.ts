@@ -42,6 +42,7 @@ import {
   type ComponentDocs,
   type DocEntry,
   type DocFile,
+  type DocsIndex,
   type Inline,
   diagramLabels,
   spansText,
@@ -406,6 +407,15 @@ export function translateEntries(docs: ComponentDocs, memory: Map<string, string
       title: one(entry.title, memory),
       blurb: rebuild(entry.blurb, memory),
     })),
+  };
+}
+
+/** Every component's rows in the reader's language, for the one nav that lists them all. */
+export function translateIndex(index: DocsIndex, memory: Map<string, string>): DocsIndex {
+  return {
+    app: translateEntries(index.app, memory),
+    core: translateEntries(index.core, memory),
+    inference: translateEntries(index.inference, memory),
   };
 }
 

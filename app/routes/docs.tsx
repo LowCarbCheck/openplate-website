@@ -11,10 +11,11 @@ import { useTranslation } from 'react-i18next';
 import { SiteLayout } from '#app/components/site-layout';
 
 import { Spans } from '#app/components/docs/doc-blocks';
+import { DocsShell } from '#app/components/docs/docs-shell';
 import { languageFromRequest, localizePath } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
 import { translatedTitle } from '#app/lib/doc-meta';
-import { translateEntries, translationsFor } from '#app/lib/docs-i18n.server';
+import { translateIndex, translationsFor } from '#app/lib/docs-i18n.server';
 import { docRoute, releasesRoute } from '#app/lib/doc-routes';
 import { DOC_COMPONENTS } from '#app/lib/docs';
 import { DOCS_INDEX } from '../../src/generated/docs-index';
@@ -24,70 +25,73 @@ import type { Route } from './+types/docs';
  * The three tables, in the reader's language.
  *
  * Every title and every blurb on this page is a README row, so translating them
- * is translating the German nav — the same rows the sidebar and the previous and
- * next links draw. There is no untranslated notice here any more: this page is
- * its own copy plus those rows, and both are German.
+ * is translating the nav: the same rows the sidebar and the previous and next
+ * links draw.
  */
 export function loader({ request }: Route.LoaderArgs) {
-  const memory = translationsFor(languageFromRequest(request.url));
-  return { tables: Object.fromEntries(DOC_COMPONENTS.map((c) => [c, translateEntries(DOCS_INDEX[c], memory)])) };
+  return { index: translateIndex(DOCS_INDEX, translationsFor(languageFromRequest(request.url))) };
 }
 
 export function meta({ location }: Route.MetaArgs) {
   return [{ title: translatedTitle(location, 'title') }];
 }
 
+/** A whole-row link: title in one column, blurb in a wider one from `sm` up. */
+const ROW = 'group grid gap-x-8 gap-y-1 py-4 sm:grid-cols-12';
+const ROW_TITLE = 'font-semibold text-foreground underline-offset-4 group-hover:underline sm:col-span-4';
+
+/**
+ * In the same shell as a doc, so the sidebar does not move between arriving
+ * here and opening a page. No contents rail: the index has no headings of its
+ * own worth mapping.
+ */
 export default function DocsRoute() {
-  const { tables } = useLoaderData<typeof loader>();
+  const { index } = useLoaderData<typeof loader>();
   const language = useLanguage();
   const { t } = useTranslation('docs');
 
   return (
     <SiteLayout width="full">
-      <div className="mx-auto max-w-5xl px-6 pb-20 pt-16">
-        <h1 className="font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]">
+      <DocsShell index={index}>
+        <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('nav')}</p>
+        <h1 className="mt-4 text-balance font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]">
           {t('title')}
         </h1>
         <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">{t('intro')}</p>
 
         {DOC_COMPONENTS.map((component) => {
-          const docs = tables[component] ?? DOCS_INDEX[component];
+          const docs = index[component];
           return (
-            <section key={component} className="mt-14 border-t border-border pt-8">
+            <section key={component} className="mt-14 max-w-5xl">
               <h2 className="font-display text-xl font-semibold">{t(`components.${component}`)}</h2>
-              {/* The ref these words were read at, said once per component rather
-                than on every page: it is provenance, and a reader who wants it
-                wants it for the set. */}
+              {/* The ref these words were read at, once per component: a reader
+                  who wants provenance wants it for the set. */}
               <p className="mt-1 font-mono text-sm text-muted-foreground">
                 {`${docs.source.ref} · ${docs.source.committedAt}`}
               </p>
-              <ul className="mt-6 space-y-4">
+              {/* The whole row is the target: a two-line blurb beside a short
+                  link is a lot of page that looks clickable and is not. */}
+              <ul className="mt-6 divide-y divide-border border-y border-border">
                 {docs.entries.map((entry) => (
                   <li key={entry.slug}>
-                    <Link
-                      to={localizePath(docRoute(component, entry.slug), language)}
-                      className="text-base font-semibold text-foreground underline-offset-4 hover:underline"
-                    >
-                      {entry.title}
+                    <Link to={localizePath(docRoute(component, entry.slug), language)} className={ROW}>
+                      <span className={ROW_TITLE}>{entry.title}</span>
+                      <span className="text-sm leading-relaxed text-muted-foreground sm:col-span-8">
+                        <Spans spans={entry.blurb} isInsideLink />
+                      </span>
                     </Link>
-                    <p className="mt-1 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
-                      <Spans spans={entry.blurb} />
-                    </p>
                   </li>
                 ))}
                 <li>
-                  <Link
-                    to={localizePath(releasesRoute(component), language)}
-                    className="text-base font-semibold text-foreground underline-offset-4 hover:underline"
-                  >
-                    {t('releases')}
+                  <Link to={localizePath(releasesRoute(component), language)} className={ROW}>
+                    <span className={ROW_TITLE}>{t('releases')}</span>
                   </Link>
                 </li>
               </ul>
             </section>
           );
         })}
-      </div>
+      </DocsShell>
     </SiteLayout>
   );
 }

@@ -27,8 +27,11 @@ const APP_CSS = fileURLToPath(new URL('../../app/app.css', import.meta.url));
 
 /** The selector of the dark block the media query carries. */
 const MEDIA_DARK = ":root:not([data-theme='light'])";
-/** The selector of the dark block the toggle's attribute carries. */
-const ATTRIBUTE_DARK = ":root[data-theme='dark']";
+/**
+ * The selector of the dark block the toggle's attribute carries, which a code
+ * fence shares so it is dark in both themes.
+ */
+const ATTRIBUTE_DARK = ":root[data-theme='dark'], .doc-fence";
 
 /**
  * Every `--token: value;` of the innermost block opened by this selector.
@@ -93,5 +96,26 @@ describe('the appearance rules the toggle depends on', () => {
   it('sets color-scheme for both overrides, so the scrollbar follows the choice', () => {
     assert.match(css, /:root\[data-theme='light'\]\s*\{\s*color-scheme: light;/);
     assert.match(css, /:root\[data-theme='dark'\]\s*\{\s*color-scheme: dark;/);
+  });
+});
+
+describe('the always dark code fence', () => {
+  const css = readFileSync(APP_CSS, 'utf8');
+
+  it('shares the dark palette block instead of carrying a copy of its own', () => {
+    const bare = css.replaceAll(/\/\*[\s\S]*?\*\//g, '');
+    const blocks = [...bare.matchAll(/(?<selector>[^{}]*)\{(?<body>[^{}]*)\}/g)].filter(
+      (match) => (match.groups?.['selector'] ?? '').includes('.doc-fence') && /--[\w-]+\s*:/.test(match.groups?.['body'] ?? ''),
+    );
+    assert.equal(blocks.length, 1, 'exactly one block declares tokens for .doc-fence');
+    assert.equal((blocks[0]?.groups?.['selector'] ?? '').trim().replaceAll(/\s+/g, ' '), ATTRIBUTE_DARK);
+  });
+
+  it('reads colour tokens where they are used, so the fence scope re-resolves them', () => {
+    // A plain `@theme` would resolve `--color-foreground` once on :root, and
+    // `text-foreground` inside the fence would stay the page's light ink.
+    const theme = /@theme inline\s*\{(?<body>[^}]*)\}/.exec(css)?.groups?.['body'] ?? '';
+    assert.match(theme, /--color-foreground:\s*hsl\(var\(--foreground\)\)/);
+    assert.doesNotMatch(css.replace(/@theme inline\s*\{[^}]*\}/, ''), /--color-foreground:/);
   });
 });

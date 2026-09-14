@@ -13,7 +13,8 @@
   "untranslated": "This page is not translated yet. It is shown in English.",
   "components": {
     "app": "The app",
-    "sync": "The sync server",
+    "core": "The sync server",
     "inference": "The inference runtime"
-  }
+  },
+  "closeSheet": "Close"
 }

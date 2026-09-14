@@ -13,7 +13,8 @@
   "untranslated": "Diese Seite ist noch nicht übersetzt. Sie wird auf Englisch angezeigt.",
   "components": {
     "app": "Die App",
-    "sync": "Der Sync-Server",
+    "core": "Der Sync-Server",
     "inference": "Die Inference-Runtime"
-  }
+  },
+  "closeSheet": "Schließen"
 }

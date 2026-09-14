@@ -241,6 +241,30 @@ describe('the palette, read out of the stylesheet', () => {
     assert.equal(palettes.dark['background'], hslToHex('0 0% 10%'));
   });
 
+  it('finds the dark block when its selector is a list', () => {
+    const palettes = readPalettes(
+      stylesheet(`
+:root { ${TOKEN_BLOCK('40%')} }
+:root[data-theme='dark'],
+.doc-fence { ${TOKEN_BLOCK('10%')} }
+`),
+    );
+    assert.equal(palettes.dark['background'], hslToHex('0 0% 10%'));
+  });
+
+  it('does not take a list that only mentions the dark selector inside a longer one', () => {
+    assert.throws(
+      () =>
+        readPalettes(
+          stylesheet(`
+:root { ${TOKEN_BLOCK('40%')} }
+:root[data-theme='dark'] .doc-fence { ${TOKEN_BLOCK('10%')} }
+`),
+        ),
+      /holds no dark palette/,
+    );
+  });
+
   it('fails by name when the dark block is gone', () => {
     assert.throws(
       () => readPalettes(stylesheet(`:root { ${TOKEN_BLOCK('40%')} }`)),

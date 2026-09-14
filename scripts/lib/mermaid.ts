@@ -191,6 +191,7 @@ function soleBlock(options: { blocks: CssBlock[]; cssFile: string; appearance: s
  * `:root[data-theme='dark']`, the override the toggle writes, and it is asked
  * for `--background` too, because that same selector carries a `color-scheme`
  * rule further down the file and a rule with no tokens in it is not a palette.
+ * The selector may be a list: `.doc-fence` shares the block to stay dark.
  * It holds the same values as the media query and is the copy an attribute
  * selector can be matched against without parsing the query. A missing block, a duplicated one
  * or a missing token fails loudly and by name: a diagram drawn in the wrong
@@ -210,7 +211,9 @@ export function readPalettes(cssFile: string): Palettes {
   });
   const dark = soleBlock({
     blocks: blocks.filter(
-      (block) => block.selector === ":root[data-theme='dark']" && block.body.includes('--background:'),
+      (block) =>
+        block.selector.split(',').some((part) => part.trim() === ":root[data-theme='dark']") &&
+        block.body.includes('--background:'),
     ),
     cssFile,
     appearance: 'dark',

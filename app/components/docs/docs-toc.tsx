@@ -1,15 +1,14 @@
 /**
  * On this page.
  *
- * PORTED FROM collie-website's `src/components/docs-toc.tsx`, minus the
- * scroll-spy: collie marks the heading a reader is on with an IntersectionObserver
- * in a hook of its own. That is a behaviour, not a table of contents, and it is
- * not what spec 02 asks for. The shape it leaves room for is unchanged, so the
- * marker can arrive later without moving this list.
+ * PORTED FROM collie-website's `src/components/docs-toc.tsx`, scroll-spy included.
  */
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import type { Block } from '#app/lib/docs';
+import { PAGE_TOP, SPY_INSET_PX } from './layout';
+import { useActiveHeading } from './use-active-heading';
 
 export interface Section {
   id: string;
@@ -20,12 +19,9 @@ export interface Section {
 /**
  * The h2s and h3s of one doc, in document order.
  *
- * `flatMap` and not `filter`: a filter leaves the array typed as `Block`, so
- * every read below would have to re-narrow it to the heading it already is.
- *
- * H3s ARE INCLUDED, and they are most of the value. H2s alone give four entries
- * for a 40 KB file — a table of contents that says the document has four parts
- * and nothing about where anything is. The nesting is what makes it a map.
+ * `flatMap` and not `filter`: a filter leaves the array typed as `Block`.
+ * H3s are most of the value; h2s alone say a long file has four parts and
+ * nothing about where anything is.
  */
 export function sectionsOf(blocks: Block[]): Section[] {
   return blocks.flatMap((block) =>
@@ -37,21 +33,26 @@ export function sectionsOf(blocks: Block[]): Section[] {
 
 /**
  * ── ONE COMPONENT, TWO PLACES, NEVER BOTH AT ONCE ──
- * `doc-page.tsx` renders this twice: as a sticky rail from `xl`, and as a plain
- * block above the text below it. Each is `display: none` at the other's width,
- * and that matters beyond looks — `display: none` takes a subtree out of the
- * accessibility tree, so a screen reader meets exactly one navigation landmark
- * called "On this page" at any width. Swap either for `opacity` and it hears two.
+ * A sticky rail from `xl`, and a flat block between `lg` and `xl`. Each is
+ * `display: none` at the other's width, which also takes it out of the
+ * accessibility tree, so a screen reader meets one "On this page" landmark.
+ *
+ * Only the rail asks for scroll-spy. The hook is still called, with no ids,
+ * which makes it a no-op.
  */
 export function DocsToc({ sections, rail }: { sections: Section[]; rail: boolean }) {
   const { t } = useTranslation('docs');
+  // Memoised because it is an effect dependency.
+  const watched = useMemo(() => (rail ? sections.map((section) => section.id) : []), [rail, sections]);
+  const active = useActiveHeading({ ids: watched, insetPx: SPY_INSET_PX });
 
   // One heading is not a map of anything.
   if (sections.length < 2) return null;
 
   if (!rail) {
     return (
-      <nav aria-label={t('onThisPage')} className="mt-10 border-t border-border pt-5 xl:hidden">
+      // No rule of its own: the page draws one right above it.
+      <nav aria-label={t('onThisPage')} className="mt-8 xl:hidden">
         <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('onThisPage')}</p>
         <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
           {sections.map((section) => (
@@ -70,24 +71,52 @@ export function DocsToc({ sections, rail }: { sections: Section[]; rail: boolean
   }
 
   return (
-    <nav aria-label={t('onThisPage')} className="sticky top-8 hidden pt-16 xl:block">
+    // `top-0` because the site header is not sticky. The list height is the
+    // viewport minus this block's top padding and label.
+    <nav aria-label={t('onThisPage')} className={`sticky top-0 hidden xl:block ${PAGE_TOP}`}>
       <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('onThisPage')}</p>
-      {/* `overscroll-contain` so reaching the end of a long contents list does
-          not hand the wheel back to the page and jump the reader elsewhere. */}
-      <div className="mt-4 max-h-[calc(100dvh-11.5rem)] overflow-y-auto overscroll-contain">
-        <ul className="space-y-1">
-          {sections.map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className={`block py-1 text-sm leading-snug text-muted-foreground transition-colors hover:text-foreground ${section.level === 3 ? 'pl-4' : ''}`}
-              >
-                {section.text}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div className="mt-4 max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain pb-8">
+        <DocsSectionList sections={sections} active={active} />
       </div>
     </nav>
+  );
+}
+
+/**
+ * The sections as an indented list without a frame, so the rail and the
+ * phone's sheet draw the same indent. `touch` gives rows a thumb-sized height;
+ * `onNavigate` closes the sheet, which an in-page anchor would not.
+ */
+export function DocsSectionList({
+  sections,
+  active = null,
+  onNavigate,
+  touch = false,
+}: {
+  sections: Section[];
+  active?: string | null;
+  onNavigate?: () => void;
+  touch?: boolean;
+}) {
+  return (
+    <ul className={touch ? 'space-y-0.5' : 'space-y-1'}>
+      {sections.map((section) => (
+        <li key={section.id}>
+          <a
+            href={`#${section.id}`}
+            onClick={onNavigate}
+            aria-current={active === section.id ? 'location' : undefined}
+            className={[
+              'block text-sm leading-snug transition-colors',
+              touch ? 'min-h-11 rounded-sm py-3' : 'py-1',
+              section.level === 3 ? 'pl-4' : '',
+              active === section.id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
+            ].join(' ')}
+          >
+            {section.text}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }

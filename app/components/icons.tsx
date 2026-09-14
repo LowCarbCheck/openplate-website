@@ -18,6 +18,9 @@
  * together so the stack cards read as one set: the diary on a device, the copy that travels between
  * devices, and the machine that does the looking.
  *
+ * `PanelLeftIcon`, `ListIcon`: lucide 0.475.0, `panel-left` and `list`, same licence. They open the
+ * documentation's two sheets on a phone.
+ *
  * ── HOW THEY BEHAVE ──
  * Every icon takes a `className` and nothing else. Colour comes from `currentColor`, so an icon
  * inherits the colour of the text it sits next to and needs no colour prop and no theme awareness.
@@ -234,6 +237,28 @@ export function CloseIcon({ className }: IconProps) {
     <svg {...SVG} {...OUTLINE} className={className}>
       <path d="M18 6 6 18" />
       <path d="m6 6 12 12" />
+    </svg>
+  );
+}
+
+export function PanelLeftIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+      <path d="M9 3v18" />
+    </svg>
+  );
+}
+
+export function ListIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M3 12h.01" />
+      <path d="M3 18h.01" />
+      <path d="M3 6h.01" />
+      <path d="M8 12h13" />
+      <path d="M8 18h13" />
+      <path d="M8 6h13" />
     </svg>
   );
 }

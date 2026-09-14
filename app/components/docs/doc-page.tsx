@@ -26,7 +26,7 @@ import { useTranslation } from 'react-i18next';
 import { useLanguage } from '#app/i18n/use-language';
 import { localizePath } from '#app/i18n/language';
 import { docRoute } from '#app/lib/doc-routes';
-import { type ComponentDocs, type DocFile, slugify } from '#app/lib/docs';
+import { type DocFile, type DocsIndex, slugify } from '#app/lib/docs';
 import { DocBlocks, Spans } from './doc-blocks';
 import { DocsShell } from './docs-shell';
 import { DocsToc, sectionsOf } from './docs-toc';
@@ -34,12 +34,13 @@ import { UntranslatedNotice } from './untranslated-notice';
 
 export function DocPage({
   doc,
-  docs,
+  index,
   titleId,
   translated,
 }: {
   doc: DocFile;
-  docs: ComponentDocs;
+  /** Every component's rows; the nav lists all three. */
+  index: DocsIndex;
   /**
    * The h1's anchor, which is the ENGLISH slug of the title and is passed in
    * rather than derived here. A doc that links to another one by its title —
@@ -54,13 +55,14 @@ export function DocPage({
   const language = useLanguage();
   const { t } = useTranslation('docs');
   const sections = sectionsOf(doc.blocks);
+  const docs = index[doc.component];
   const at = docs.entries.findIndex((entry) => entry.slug === doc.slug);
   const entry = docs.entries[at];
   const previous = at > 0 ? docs.entries[at - 1] : undefined;
   const next = docs.entries[at + 1];
 
   return (
-    <DocsShell docs={docs} current={doc.slug} sections={sections}>
+    <DocsShell index={index} place={{ kind: 'doc', component: doc.component, slug: doc.slug }} sections={sections}>
       <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t(`components.${doc.component}`)}</p>
       {/* The title carries its own anchor. A doc that links to another one BY
           ITS TITLE — `sync.md#sync-across-devices` — lands on the h1, and without
