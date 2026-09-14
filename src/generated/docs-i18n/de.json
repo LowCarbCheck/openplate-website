@@ -497,6 +497,12 @@
     "at": "2026-09-06",
     "de": "enthält etwa 0,35 bis 0,6 s Netzwerk- und Proxy-Umlaufzeit"
   },
+  "09b38def9eb5fb26": {
+    "en": "How many AI requests per UTC day the invited account gets. Set this and {{0}}, or neither.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Wie viele KI-Anfragen pro UTC-Tag das eingeladene Konto erhält. Setze diesen Wert und {{0}} zusammen oder keinen von beiden."
+  },
   "09e09762d2d1e809": {
     "en": "Rules:",
     "model": "google/gemini-3.8-flash",
@@ -586,6 +592,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Siehe {{0}}."
+  },
+  "0ba13712f74231d8": {
+    "en": "{{0}} Withdrawing an invitation does not give it back. The count is per account, not per instance. {{1}} leaves the route mounted and gives every member nothing to spend. That is different from unsetting the pair and taking the route away. Read the cap together with {{2}}. The daily allowance above is multiplied by every member on the instance times the cap before it reaches your provider bill.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} Wenn du eine Einladung zurückziehst, wird sie dem Kontingent nicht wieder gutgeschrieben. Die Obergrenze gilt pro Konto, nicht pro Instanz. {{1}} lässt die Route aktiv, gibt den Mitgliedern jedoch kein Guthaben zum Verbrauchen. Das unterscheidet sich davon, beide Variablen zu leeren und die Route ganz zu entfernen. Betrachte die Obergrenze gemeinsam mit {{2}}. Das tägliche Kontingent oben multipliziert sich mit allen Mitgliedern der Instanz mal der Obergrenze, bevor es auf deiner Provider-Rechnung landet."
   },
   "0bb90369a76a2145": {
     "en": "Go to {{0}} and connect an AI provider with your own API key (OpenRouter, Mistral, your own OpenAI-compatible endpoint, or Anthropic). See {{1}} for the OpenRouter one-click flow and for offering an instance-provided endpoint instead.",
@@ -862,6 +874,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "de": "Aufbewahrung: Nutzungszähler werden 90 Tage lang aufbewahrt."
+  },
+  "10ce23c3515bf019": {
+    "en": "{{0}} Setting one alone stops the boot and names the one you left out. With neither set, which is the default, members cannot invite anybody and {{1}} answers 404 to everyone. You then mint every invitation yourself.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} Wenn du nur eine davon setzt, bricht der Startvorgang ab und nennt die fehlende Variable. Wenn keine von beiden gesetzt ist, was der Standard ist, können Mitglieder niemanden einladen und {{1}} antwortet für alle mit 404. Du erstellst dann jede Einladung selbst."
   },
   "10cf7ebbb7c01807": {
     "en": "The optional study console keeps its own, separate accounts on the same server. {{0}} says when it is on, and {{1}} says why it lives in the app.",
@@ -1907,6 +1925,12 @@
     "at": "2026-09-04",
     "de": "{{0}}: Das 16-Byte-GCM-Authentifizierungstag wird an den Geheimtext angehängt (WebCrypto-Konvention)."
   },
+  "2667af08a2bbab9c": {
+    "en": "What an invitation grants is the trial.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Eine Einladung gewährt die Testphase."
+  },
   "268845776a6d2abc": {
     "en": "managed instance",
     "model": "google/gemini-3.8-flash",
@@ -2014,6 +2038,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Sucht Namen in einem mitgelieferten Auszug von {{0}}, {{1}}, enthalten im Image unter {{2}}."
+  },
+  "289d4d571c91d9cd": {
+    "en": "Administrators are exempt.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Administratoren sind ausgenommen."
   },
   "28e3ba304bacadc3": {
     "en": "The escrow is over the CODE, not over {{0}} and not over the DEK. Nothing on the server derives a KEK, unwraps a DEK, or holds one — the code becomes a key only after a client runs HKDF over it. That buys no secrecy from the operator, who can run HKDF too; it buys a server whose code path contains no decryption of user data, which is what makes the claim checkable rather than promised.",
@@ -2597,6 +2627,12 @@
     "at": "2026-09-04",
     "de": "{{0}}, und {{1}} wird nie gesendet. Jeder openplate-Client, unserer, der eines Selbsthosters auf seiner eigenen Domain oder eine Drittanbieter-Implementierung, kann daher unabhängig von der Origin mit jeder Instanz dieses Dienstes sprechen."
   },
+  "3568a6bb458e2c15": {
+    "en": "Let members invite each other, but keep the number small.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Lass Mitglieder einander einladen, aber halte die Zahl klein."
+  },
   "357038502822b399": {
     "en": "The grantor's own grants. {{0}}: a blob addressed to somebody else's key has no use here, so it does not travel where nobody needs it.",
     "model": "google/gemini-3.8-flash",
@@ -3083,6 +3119,12 @@
     "at": "2026-09-06",
     "de": "{{0}} Es beantwortet {{1}} ganz ohne geladene Modelle (Ollama lädt erst verzögert beim ersten Request), ein Status von „ready“ bedeutet also lediglich „erreichbar“, nicht „betriebsbereit“. Dein erster Scan fängt die Ladezeit auf."
   },
+  "3f97482c699d52f4": {
+    "en": "{{0}} On a managed instance, set {{1}} and {{2}} on the sync server. This lets an ordinary member invite somebody without asking you first. If you pay for the provider key, set {{3}} as well. The default is 5, which suits an instance where the AI bill is shared. Setting it to 2 is enough for a partner and a friend, and it keeps growth slow enough to watch. See {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} Setze auf einer verwalteten Instanz {{1}} und {{2}} auf dem Sync-Server. Dadurch kann ein gewöhnliches Mitglied jemanden einladen, ohne dich vorher zu fragen. Wenn du den API-Schlüssel des Providers bezahlst, setze auch {{3}}. Der Standardwert ist 5, was für eine Instanz passt, auf der die KI-Kosten geteilt werden. Ein Wert von 2 reicht für Partner und Freunde, und das Wachstum bleibt kontrollierbar. Siehe {{4}}."
+  },
   "3f97beff2057dfb5": {
     "en": "Day sums are kept 30 days.",
     "model": "google/gemini-3.8-flash",
@@ -3334,6 +3376,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Fingerprint"
+  },
+  "4491073be28ae818": {
+    "en": "configuration.md#member-invites",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "configuration.md#member-invites"
   },
   "44a2820f769229b1": {
     "en": "{{0}} They are exactly {{1}} from the resolved session, {{2}} read from the account row, {{3}} holding the shared secret, and the inbound {{4}}. A copy-then-overwrite forwards cookies and whatever the next client decides to send.",
@@ -3635,6 +3683,12 @@
     "at": "2026-09-06",
     "de": "{{0}} Aktualisiere zuerst die Zeile {{1}} auf {{2}}: Vor-0.1.x-Images wurden unter {{3}} veröffentlicht, und ein Pull ohne diese Änderung lädt nur wieder das alte herunter. Die Migration läuft dann beim Start des Containers. Danach gibt es keine Login-Seite mehr: Jedes Gerät, das bereits Daten hat, behält sie und hört einfach auf, nach deiner Identität zu fragen."
   },
+  "495bdc42c96151ee": {
+    "en": "How many invitations one member may send in total, ever. An integer of 0 or more. Needs the two above to be set.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Wie viele Einladungen ein Mitglied insgesamt jemals versenden darf. Eine Ganzzahl von 0 oder höher. Erfordert, dass die beiden oberen Variablen gesetzt sind."
+  },
   "495d2b2b8b732d3a": {
     "en": "Before M192 there was no escrow, and the cost was the other way round: a forgotten password plus a lost recovery code meant the data was gone, to us and to you, and the app had to show the code once and ask a person to keep it forever. Nobody does.",
     "model": "google/gemini-3.8-flash",
@@ -3743,6 +3797,12 @@
     "at": "2026-09-06",
     "de": "Ein {{0}} ist eine dritte Verpackung desselben DEK, adressiert an den öffentlichen Schlüssel eines anderen Kontos. Der Server speichert ihn, liefert ihn an das eine Konto aus, an das er adressiert ist, und besitzt dafür keinen Schlüssel; §9.1 bleibt durch diese Funktion unverändert."
   },
+  "4adf07d2127bd216": {
+    "en": "Invite somebody",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Jemanden einladen"
+  },
   "4b12c2bc58cd7c5a": {
     "en": "Slow but working: {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -3802,6 +3862,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Eine gemeinsame KI-Rechnung im Haushalt teilen"
+  },
+  "4c76c724aa386b99": {
+    "en": "Member invites",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Mitgliedereinladungen"
+  },
+  "4c8e20ca91daf7fc": {
+    "en": "{{0}} The cap does not apply to them, and neither does the rule that an address which already spent a member invitation gets no second one. They invite from {{1}} as often as they like.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} Die Obergrenze gilt nicht für sie, ebenso wenig wie die Regel, dass eine Adresse nach einer bereits genutzten Mitgliedereinladung keine zweite erhalten darf. Sie können über {{1}} so oft einladen, wie sie möchten."
   },
   "4c9b57ca3f118526": {
     "en": "ADR-0006",
@@ -5338,6 +5410,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-12",
     "de": "Kürzlich"
+  },
+  "6932ea106a8233b8": {
+    "en": "Settings, Account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Einstellungen, Konto"
   },
   "694458cf9987b378": {
     "en": "0.27.1",
@@ -7187,6 +7265,12 @@
     "at": "2026-09-04",
     "de": "Kommagetrennte Bearer-Keys. Setze diesen Wert."
   },
+  "904b0f8cd5abf904": {
+    "en": "How many days after signup that allowance lasts. Set this and {{0}}, or neither.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Wie viele Tage nach der Registrierung dieses Kontingent gilt. Setze diesen Wert und {{0}} zusammen oder keinen von beiden."
+  },
   "905bed85440c0001": {
     "en": "Public URL this instance is reachable at. Required in production: the server refuses to boot without it. Behind a reverse proxy this is the public {{0}} address, not the container port.",
     "model": "google/gemini-3.8-flash",
@@ -8794,6 +8878,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "pino-Log-Level."
+  },
+  "ad145a5c05373846": {
+    "en": "unset (invites off)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "nicht gesetzt (Einladungen aus)"
   },
   "ad18366d25da0799": {
     "en": "4.2 Token lifecycle",
@@ -10775,6 +10865,12 @@
     "at": "2026-09-04",
     "de": "{{0}} Aktualisiere zuerst die Zeile {{1}} auf {{2}}, da Images vor 0.1.x unter {{3}} veröffentlicht wurden und ein Pull ohne diese Änderung nur das alte Image erneut lädt. Die Migration läuft dann beim Start des Containers. Danach gibt es keine Anmeldeseite mehr: Jedes Gerät, das bereits Daten hat, behält diese und fragt einfach nicht mehr danach, wer du bist."
   },
+  "d3644154aaa7dd89": {
+    "en": "The first two are both or neither.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Die ersten beiden gelten ganz oder gar nicht."
+  },
   "d386172edadc75d1": {
     "en": "kept for 90 days and then deleted",
     "model": "google/gemini-3.8-flash",
@@ -10991,6 +11087,12 @@
     "at": "2026-09-04",
     "de": "Dies ist der empfohlene Endpunkt. Alles darunter bedeutet echten Betriebsaufwand."
   },
+  "d78d94740b3f6725": {
+    "en": "The cap counts letters, not successes.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Die Obergrenze zählt Einladungsschreiben, nicht erfolgreiche Anmeldungen."
+  },
   "d792e118c5d9ed3f": {
     "en": "11. Implementing an alternative client",
     "model": "google/gemini-3.8-flash",
@@ -11026,6 +11128,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Stufe 3: Selbst gehostete Inferenz ergänzen"
+  },
+  "d85c1afbefdc71ac": {
+    "en": "A member sees how many invitations they have left in the app. It is in {{0}}, under {{1}}. That section only appears on an instance where the feature is on.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Ein Mitglied sieht in der App, wie viele Einladungen noch übrig sind. Das steht in {{0}}, unter {{1}}. Dieser Abschnitt wird nur auf einer Instanz angezeigt, auf der die Funktion aktiv ist."
   },
   "d89d5f19ca7f49f1": {
     "en": "Topologies",
@@ -11717,6 +11825,12 @@
     "at": "2026-09-04",
     "de": "Rechnung teilen statt Server teilen"
   },
+  "e74858438f1e04ea": {
+    "en": "On a managed instance, an administrator is not the only person who can invite. Three openplate-core variables decide whether an ordinary member may invite someone, and on what terms. They are set on the sync server, not on the app.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "Auf einer verwalteten Instanz kann nicht nur die Administration einladen. Drei Variablen in openplate-core bestimmen, ob ein gewöhnliches Mitglied jemanden einladen darf und unter welchen Bedingungen. Du setzt sie auf dem Sync-Server, nicht in der App."
+  },
   "e761c15a4473ad4c": {
     "en": "{{0}} is a self-hosted, OpenAI-compatible plate-photo endpoint you run on your own hardware with open-weight models, so nobody needs a cloud AI key at all. It, Ollama, vLLM, LM Studio, or anything else speaking the OpenAI chat-completions protocol all connect the same way: in {{1}}, add an {{2}} provider and give it your base URL.",
     "model": "google/gemini-3.8-flash",
@@ -12016,6 +12130,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Der gefährliche Fehler ist nicht die Ablehnung, sondern das Akzeptieren und Ignorieren: eine Runtime, die das Feld {{0}} annimmt, verwirft und plausibles JSON zurückgibt, das die Vorgaben verfehlt. Das äußert sich nicht als Fehler. Es äußert sich in leicht falschen Grammschätzungen."
+  },
+  "ed2563fa49d87f75": {
+    "en": "{{0}} The invited person gets their own account and their own diary, plus {{1}} AI requests per day for {{2}} days after they sign up. When the window closes, the AI proxy answers 403. Their diary keeps working. Sync is never gated on an allowance. The inviter chooses none of this. They send an address and nothing else.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "de": "{{0}} Die eingeladene Person erhält ein eigenes Konto und ein eigenes Tagebuch, dazu {{1}} KI-Anfragen pro Tag für {{2}} Tage nach der Registrierung. Sobald dieses Zeitfenster abgelaufen ist, antwortet der KI-Proxy mit 403. Das Tagebuch funktioniert weiterhin. Die Synchronisierung hängt niemals an einem Kontingent. Wer einlädt, bestimmt nichts davon, sondern sendet nur eine Adresse."
   },
   "ed4044c1941760fa": {
     "en": "{{0}} {{1}} is rounded to the nearest 50 and clamped to 0 to 5000; {{2}} is rounded to the nearest 5 and clamped to 0 to 500. A device that sends an exact figure, a negative one or an absurd one still lands on the grid everybody else is on. A body that is not two finite numbers is {{3}}.",
