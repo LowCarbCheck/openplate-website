@@ -167,6 +167,12 @@
     "at": "2026-09-14",
     "it": "{{0}} Un solo {{1}} lascerebbe il telefono nella tasca di qualcuno a sincronizzare per un altro quarto d'ora, il che non corrisponde a ciò che un operatore intende con questo termine. La riattivazione non ripristina alcuna sessione; la persona accede di nuovo."
   },
+  "03a05695b6c68917": {
+    "en": "What you can run",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Cosa puoi eseguire"
+  },
   "03a9a0de10a7bb97": {
     "en": "{{0}}, even as {{1}}. An absent key is a {{2}}, for the same reason {{3}} is required in §5.4: silence must never be read as consent on a path that can strand data.",
     "model": "google/gemini-3.8-flash",
@@ -281,6 +287,12 @@
     "at": "2026-09-14",
     "it": "Dati sugli alimenti"
   },
+  "065fc1c104495573": {
+    "en": "Ports below 1024.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Porte inferiori a 1024."
+  },
   "066e19a5dc83fc05": {
     "en": "A new field is a protocol revision, never a configuration. See ADR-0003.",
     "model": "google/gemini-3.8-flash",
@@ -346,6 +358,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "non impostato (analisi disattivata)"
+  },
+  "078e10d72d2ae19f": {
+    "en": "{{0}} (a hyphen) is a separate, Python-based reimplementation of the Compose spec. It runs on its own, with no Docker involved, and it supports less of the spec: notably, its support for {{1}} is weaker, and it names networks differently by default.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} (con il trattino) è una reimplementazione separata, scritta in Python, della specifica Compose. Viene eseguita in autonomia, senza Docker, e supporta meno funzionalità della specifica: in particolare, il supporto per {{1}} è più limitato e i nomi di rete predefiniti vengono assegnati diversamente."
   },
   "078efd070a6787eb": {
     "en": "116 strings across all three documents",
@@ -664,6 +682,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "predefinito con limite di fatturato"
+  },
+  "0f2a6deff4c46ad0": {
+    "en": "The app plus self-hosted inference.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "L'applicazione insieme all'inferenza self-hosted."
   },
   "0f2db4dbfb37d4b3": {
     "en": "This is the normative specification of the wire protocol between an openplate client and a sync service. It is written so a third party can implement {{0}} without reading our code: an alternative client that syncs against our hosted service, or an alternative server that an openplate client can be pointed at with {{1}}.",
@@ -1103,6 +1127,12 @@
     "at": "2026-09-14",
     "it": "Sincronizzazione tra dispositivi (facoltativa)"
   },
+  "19162ce1196f1ac1": {
+    "en": "The app on its own.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "L'applicazione da sola."
+  },
   "19189b445c351bb6": {
     "en": "unknown study, unknown contribution, and any other not-found: one code path",
     "model": "google/gemini-3.8-flash",
@@ -1421,6 +1451,12 @@
     "at": "2026-09-14",
     "it": "HTTPS"
   },
+  "206a3c1f3f46a9f5": {
+    "en": "Podman recreates the service the same way, with {{0}}. One rootless difference to know before you skip the reverse proxy: a rootless Podman container cannot bind a host port below 1024 without extra setup, so publishing straight to port 80 or 443 needs {{1}} first. See {{2}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Podman ricrea il servizio nello stesso modo, con {{0}}. Una differenza della modalità rootless da sapere prima di saltare il reverse proxy: un container Podman rootless non può effettuare il bind di una porta host inferiore a 1024 senza configurazione aggiuntiva, quindi pubblicare direttamente sulla porta 80 o 443 richiede prima {{1}}. Vedi {{2}}."
+  },
   "207ab9797be932ff": {
     "en": "A JSON object with an {{0}} key means enforcement works. A haiku means it does not, and this service will return 502 on every scan with a message saying so.",
     "model": "google/gemini-3.8-flash",
@@ -1474,6 +1510,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "0,001 $ per scansione"
+  },
+  "2158112cfab99d9c": {
+    "en": "Rootless notes",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Note sulla modalità rootless"
   },
   "216286565a096b95": {
     "en": "0.6.0 bumps {{0}} to 2, and does it for exactly that reason.",
@@ -1600,6 +1642,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "esattamente"
+  },
+  "24b1c139a9923e76": {
+    "en": "{{0}} Adds {{1}} and Postgres. You gain encrypted sync across devices and an optional shared AI bill. You risk data loss if you do not back up the database, the secret, and your recovery key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Aggiunge {{1}} e Postgres. Ottieni la sincronizzazione cifrata tra dispositivi e una fatturazione AI condivisa opzionale. Rischi di perdere dati se non esegui il backup del database, del segreto e della tua chiave di recupero."
   },
   "24b1dce3dada210a": {
     "en": "8+ modern cores with AVX2 and 4 GB of free RAM",
@@ -2050,6 +2098,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} Ciascuno di questi eventi revoca {{1}} i token {{2}} e {{3}} in sospeso per l'account:"
+  },
+  "2f9dddcb5a67f570": {
+    "en": "Rootless Postgres.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Postgres rootless."
   },
   "2fbee7dc3f1c3493": {
     "en": "Drop the old volume",
@@ -2597,6 +2651,12 @@
     "at": "2026-09-14",
     "it": "Il grafo di condivisione"
   },
+  "3c78734413892385": {
+    "en": "SELinux volume labels.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Etichette di volume per SELinux."
+  },
   "3cc39f1ba4a067e7": {
     "en": "3.4 The share wrap (ADR-0002)",
     "model": "google/gemini-3.8-flash",
@@ -2939,6 +2999,12 @@
     "at": "2026-09-14",
     "it": "la medesima elaborazione"
   },
+  "4477d1b5be8ad280": {
+    "en": "Podman runs rootless by default: your containers run as your own user, not root. That is safer, and it brings three differences from Docker worth knowing before you self-host.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Podman viene eseguito in modalità rootless per impostazione predefinita: i tuoi container girano con il tuo utente, non come root. Questo è più sicuro e comporta tre differenze rispetto a Docker che conviene conoscere prima del self-hosting."
+  },
   "44863b03e9909b71": {
     "en": "fingerprint",
     "model": "google/gemini-3.8-flash",
@@ -3155,6 +3221,12 @@
     "at": "2026-09-14",
     "it": "Una foto del piatto viene letta nel browser e inviata direttamente all'endpoint compatibile con OpenAI che hai configurato. {{0}} Non viene caricata qui, non viene scritta su disco, non viene registrata nei log. Vengono salvati solo i numeri risultanti, nell'archivio locale del dispositivo; la foto rimane sul dispositivo che l'ha scattata, esclusa sia dalle esportazioni JSON sia dai payload di sincronizzazione."
   },
+  "4808b62c4e3fba18": {
+    "en": "Every compose file above also ships as a set of rootless systemd units, generated from it by {{0}} and committed under {{1}}. A unit set survives a reboot under {{2}} with no compose process attached. Each directory has a README with the install steps, the {{3}} it needs, and a record of the run that started it on a Fedora host with SELinux enforcing:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Ciascun file compose sopra è disponibile anche come insieme di unit systemd rootless, generate da esso tramite {{0}} e tracciate in {{1}}. Un set di unit resta attivo dopo il riavvio sotto {{2}} senza alcun processo compose collegato. Ogni directory contiene un README con i passaggi di installazione, i {{3}} necessari e una registrazione dell'esecuzione che lo ha avviato su un host Fedora con SELinux enforcing:"
+  },
   "480bf8f336bcb192": {
     "en": "Custom foods",
     "model": "google/gemini-3.8-flash",
@@ -3196,6 +3268,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Prendere l'indirizzo dell'account da INVITE durante la registrazione e mai dal corpo della richiesta (§5.8), e limitare {{0}}, {{1}} e {{2}} su un unico bucket condiviso per (IP, email) che non viene mai azzerato in caso di successo. Un server che lascia indicare il proprio indirizzo al corpo della richiesta di registrazione ha rimosso l'unico elemento che lo verifica."
+  },
+  "491e7081236265d5": {
+    "en": "Everything.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Tutto quanto."
   },
   "491ec16a12ffcdc6": {
     "en": "{{0}} revokes one family (that device) and leaves the account's other sessions alone.",
@@ -4439,6 +4517,12 @@
     "at": "2026-09-14",
     "it": "Data-encryption key (chiave di cifratura dei dati). 32 byte casuali. Cifra il blob. Non lascia mai il client in chiaro."
   },
+  "646ba4df160ea062": {
+    "en": "{{0}}: the inference endpoint on its own",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: solo l'endpoint di inferenza"
+  },
   "646cef0e424cf34f": {
     "en": "Stage 3: ready:",
     "model": "google/gemini-3.8-flash",
@@ -4504,6 +4588,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Quattro route, tutte protette dall'ordinario {{0}} dell'account (§4.1). Un chiamante anonimo su un'istanza configurata riceve l'ordinario {{1}}."
+  },
+  "65df617fec22ef0a": {
+    "en": "These are two different tools, and the wrong one runs a less compatible implementation with no warning.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Si tratta di due strumenti diversi, e quello sbagliato esegue un'implementazione meno compatibile senza alcun avviso."
   },
   "65fee0d7ee762ebe": {
     "en": "Caddy reverse proxy",
@@ -4703,6 +4793,12 @@
     "at": "2026-09-14",
     "it": "Riduci scala a 896 px"
   },
+  "68ac137628e63fa2": {
+    "en": "Quadlet units",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Unit Quadlet"
+  },
   "68aee627dc07b786": {
     "en": "{{0}} (no domain, no port-forwarding, HTTPS on your own tailnet):",
     "model": "google/gemini-3.8-flash",
@@ -4793,6 +4889,12 @@
     "at": "2026-09-14",
     "it": "Impostazioni → AI → Compatibile con OpenAI"
   },
+  "6a4bf5dd3086a759": {
+    "en": "{{0}}: rung 2, Postgres, the app and openplate-core",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: livello 2, Postgres, l'app e openplate-core"
+  },
   "6a7614b2cd8f06b5": {
     "en": "Retired by M192 (September 2026): the sync server took over the AI proxy that openplate-gateway used to provide. A non-empty {{0}} fails the boot. Use {{1}} instead.",
     "model": "google/gemini-3.8-flash",
@@ -4822,6 +4924,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Si trova sul percorso delle foto, che ne costituisce il costo reale, e la mitigazione è una caratteristica del codice anziché un'impostazione: il tipo di campo del logger accetta solo tipi primitivi, quindi un body non può finire in una riga di log, e le stringhe di errore a monte vengono ripulite prima di essere registrate o restituite. I membri di un'organizzazione condividono la spesa, non i dati; una foto del piatto che raggiunge il proxy viene letta una sola volta e non memorizzata."
+  },
+  "6b2ed140fa9257e0": {
+    "en": "Podman needs the {{0}} subcommand, not the separate {{1}} tool: see {{2}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Podman richiede il sottocomando {{0}}, non lo strumento separato {{1}}: vedi {{2}}."
   },
   "6b6b70edfd5bffcf": {
     "en": "An unknown id is the same {{0}} as every other account route, and the whole tree is behind the credentials above.",
@@ -5243,6 +5351,12 @@
     "at": "2026-09-14",
     "it": "L'inferenza è calcolo, e la foto ci arriva direttamente"
   },
+  "752d963e8d88e03b": {
+    "en": "{{0}} is not {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} non è {{1}}"
+  },
   "7536ef6f7ca0d166": {
     "en": "The body is not an object. The input is never quoted back",
     "model": "google/gemini-3.8-flash",
@@ -5380,6 +5494,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} Il client non deve mai salvare la passphrase in modo persistente, quindi non può ricalcolare silenziosamente un auth-hash per accedere di nuovo. Un refresh token a rotazione e a lunga durata è l'unica cosa che rende possibile una riautenticazione silenziosa in un'architettura a conoscenza zero."
+  },
+  "77b7e38f2a5896ef": {
+    "en": "{{0}} A rootless container cannot bind a host port below 1024 unless you allow it, for example with {{1}}. None of the ports these compose files publish by default (3000, 3001, 8300) are affected. This comes up only if you remap one of them to 80 or 443 to skip a reverse proxy. Because every rung publishes at least one port, it can touch any of the four.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Un container rootless non può effettuare il bind di una porta host inferiore a 1024 a meno che tu non lo consenta esplicitamente, ad esempio con {{1}}. Nessuna delle porte pubblicate per impostazione predefinita da questi file compose (3000, 3001, 8300) è interessata. Il problema si presenta solo se rimappi una di queste porte su 80 o 443 per evitare un reverse proxy. Poiché ogni livello pubblica almeno una porta, può riguardare ciascuno dei quattro."
   },
   "77baa690265ddc0f": {
     "en": "Automating it.",
@@ -5566,6 +5686,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} puntala allo stesso {{1}} e accedi con lo stesso indirizzo email e la stessa password che hai usato sul primo. Questa è l'intera procedura, e non occorre copiare nulla dal primo dispositivo."
+  },
+  "7dc733836f1801fd": {
+    "en": "{{0}}: rung 3, openplate-inference and the app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: livello 3, openplate-inference e l'app"
   },
   "7dc9e1a7fe94b339": {
     "en": "Returns {{0}} for an account that has not completed setup. At most one record per {{1}}.",
@@ -5842,6 +5968,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Il dispositivo si attiva, legge il diario che solo lui può leggere e scrive le parole. Un client conforme DEVE poter mostrare qualcosa per entrambi i tipi senza che il payload gli comunichi nulla, perché il payload non lo farà mai."
+  },
+  "83e5bc28040385ad": {
+    "en": "{{0}} On a host with SELinux enforcing, which is Fedora's default, a container cannot read or write a bind-mounted host directory unless that directory carries a label for container access. Add {{1}} to the mount if only one container uses it, or {{2}} if more than one does, for example {{3}}. None of the compose files in these three repos bind-mount a host directory today; they all use named volumes, which Podman labels for you. This only applies if you change a {{4}} entry to a host path. It touches the sync rungs (2 and 4, for Postgres) and the inference rung (3, for the model weights), if you make that change.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Su un host con SELinux in modalità enforcing, l'impostazione predefinita di Fedora, un container non può leggere o scrivere in una directory host montata tramite bind mount a meno che tale directory non abbia un'etichetta per l'accesso ai container. Aggiungi {{1}} al mount se lo usa un solo container, oppure {{2}} se lo usano più container, ad esempio {{3}}. Nessuno dei file compose in questi tre repository usa bind mount verso directory host; utilizzano tutti volumi con nome, che Podman etichetta in automatico. Questo vale solo se modifichi una voce in {{4}} con un percorso dell'host. Riguarda i livelli di sincronizzazione (2 e 4, per Postgres) e il livello di inferenza (3, per i pesi del modello), se applichi questa modifica."
   },
   "8401e7d7bff1b6ad": {
     "en": "Total bound on one completion call; {{0}} = disabled. Liveness, not latency policy: it releases a worker slot a wedged runtime will never return. Applies in bundled mode too. See {{1}}.",
@@ -6227,6 +6359,12 @@
     "at": "2026-09-14",
     "it": "15 min"
   },
+  "8daed95f8af89ac9": {
+    "en": "{{0}} Sync and inference together, four containers in all. You gain complete data privacy with multi-device sync. You risk the highest operational maintenance and resource load.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Sincronizzazione e inferenza insieme, quattro container in totale. Ottieni la privacy completa dei dati con sincronizzazione multi-dispositivo. Rischi il carico di manutenzione operativa e di risorse più alto."
+  },
   "8dafe6b5e3149901": {
     "en": "The newest versions ({{0}})",
     "model": "google/gemini-3.8-flash",
@@ -6418,6 +6556,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Stato"
+  },
+  "925733dafd743699": {
+    "en": "inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "inferenza"
+  },
+  "92898d5485322f99": {
+    "en": "{{0}} Postgres's container runs as a non-root user inside the container, and that user needs to own its data directory. A named volume, which is what {{1}} and openplate's {{2}} and {{3}} already use, solves this automatically: Podman creates the volume with the right ownership. If you switch to a bind-mounted host directory instead, fix its ownership first, from the host, with {{4}} (70 is the {{5}} user in the {{6}} image these files pin; the Debian-based image uses 999), or the container fails to start with a permissions error. Touches rungs 2 and 4.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Il container di Postgres viene eseguito con un utente non-root al suo interno, e quell'utente deve essere il proprietario della propria directory di dati. Un volume con nome, come già usato da {{1}} e dai file {{2}} e {{3}} di openplate, risolve il problema in automatico: Podman crea il volume con la proprietà corretta. Se invece passi a una directory dell'host con bind mount, correggine prima la proprietà dall'host tramite {{4}} (70 è l'utente {{5}} nell'immagine {{6}} fissata da questi file; l'immagine basata su Debian usa 999), altrimenti il container non si avvia a causa di un errore di permessi. Riguarda i livelli 2 e 4."
   },
   "92a3100e434a77f3": {
     "en": "Store both verifiers as keyed hashes of the submitted {{0}} and {{1}} under a secret held outside the database. Never the submitted value itself, and never in plaintext.",
@@ -7001,6 +7151,12 @@
     "at": "2026-09-14",
     "it": "diversa"
   },
+  "9dbe6134a2384b3f": {
+    "en": "Every {{0}} and {{1}} command in these docs also works with {{2}}: swap {{3}} for {{4}}. This page states the one naming trap and the rootless differences once, so the other docs can link here instead of repeating them.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Ogni comando {{0}} e {{1}} in questa documentazione funziona anche con {{2}}: sostituisci {{3}} con {{4}}. Questa pagina spiega una volta sola la trappola dei nomi e le differenze della modalità rootless, così le altre guide possono rimandare qui invece di ripeterle."
+  },
   "9dc1a21fce36eb41": {
     "en": "openplate app server",
     "model": "google/gemini-3.8-flash",
@@ -7175,11 +7331,23 @@
     "at": "2026-09-14",
     "it": "La versione breve, con OpenRouter"
   },
+  "a172cedcae47474b": {
+    "en": "app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "app"
+  },
   "a186f445e2db1666": {
     "en": "{{0}} Withdrawn and expired invitations count: the cap is on how many letters an account caused, not on how many worked. Exceeding it is {{1}}, and it is the one thing this endpoint says about the caller's own account, which is a fact about them and about nobody else. An administrator is exempt, on this route and on the admin one, which is what {{2}} means (§5.15).",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} Gli inviti ritirati e quelli scaduti contano: il limite si applica a quanti messaggi un account ha generato, non a quanti sono andati a buon fine. Superare questo limite restituisce {{1}}, ed è l'unica informazione che questo endpoint rivela sull'account del chiamante, trattandosi di un dato che riguarda lui e nessun altro. Gli amministratori sono esentati, sia su questa rotta sia su quella amministrativa, che è il significato di {{2}} (§5.15)."
+  },
+  "a18b869b2e81c0c5": {
+    "en": "full",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "completo"
   },
   "a19e79c9473ca92d": {
     "en": "You want a {{0}} cap per person rather than a credit balance per person.",
@@ -7306,6 +7474,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} deve essere presente"
+  },
+  "a4a39b0b282cf1c4": {
+    "en": "Podman runs this the same way: {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Podman esegue questo nello stesso modo: {{0}}."
   },
   "a4c0a05b5351cc95": {
     "en": "The field is {{0}}, on an instance that accepts no reports. {{1}} is a statement every instance makes; this is a promise, and an instance with the feature off has none to make, so it adds no key at all and stays indistinguishable from one built before the field existed, exactly as its {{2}} tree stays indistinguishable from one where the feature was never written.",
@@ -7444,6 +7618,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "2 (uno per {{0}})"
+  },
+  "a89c9927f1fc5c0c": {
+    "en": "{{0}} (a space) is a subcommand built into Podman. It is a thin wrapper: it finds an external compose provider on your machine, either {{1}} or {{2}}, and hands the command to it. If {{3}} is installed, Podman prefers it, because it is the original implementation of the Compose spec. Run {{4}} and the provider it will use is printed once, in a banner.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} (con lo spazio) è un sottocomando integrato in Podman. È un wrapper minimale: individua un provider compose esterno sulla macchina, ovvero {{1}} o {{2}}, e gli passa il comando. Se {{3}} è installato, Podman lo preferisce, perché è l'implementazione originale della specifica Compose. Esegui {{4}} e il provider usato viene mostrato una volta sola, in un banner iniziale."
   },
   "a8d289ace68d98da": {
     "en": "Why a pair at all.",
@@ -8453,6 +8633,12 @@
     "at": "2026-09-14",
     "it": "self-hosting.md"
   },
+  "bcba59fb9336f89e": {
+    "en": "podman.md",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "podman.md"
+  },
   "bd12510c997e61db": {
     "en": "{{0}} runs one ceremony: the invite is redeemed by the signup request itself, in one transaction, and the account carries both the diary and the allowance from that point on. The \"Skip, I already have an account\" action is gone, because on such an instance the person offered it has neither.",
     "model": "google/gemini-3.8-flash",
@@ -8927,11 +9113,23 @@
     "at": "2026-09-14",
     "it": "creato, eliminato, password modificata, reimpostazione della password richiesta, reimpostazione della password completata, configurazione completata"
   },
+  "ca7b49a4cc08bf73": {
+    "en": "The app plus the sync service.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "L'applicazione insieme al servizio di sincronizzazione."
+  },
   "ca7d3e7c3a9d7f22": {
     "en": "openplate-inference",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "openplate-inference"
+  },
+  "ca85ad28d95ef854": {
+    "en": "{{0}} Adds one container. You gain a fast setup with no database or secrets to manage. You risk losing your diary if you clear the browser, there is no sync across devices, and scans require a cloud AI key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Aggiunge un container. Ottieni una configurazione rapida senza database o segreti da gestire. Rischi di perdere il tuo diario se cancelli i dati del browser, non c'è sincronizzazione tra dispositivi e le scansioni richiedono una chiave AI sul cloud."
   },
   "ca864c2b0e4dc62b": {
     "en": "openrouter.ai",
@@ -9214,6 +9412,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "descrittivo, mai autorevole"
+  },
+  "cfd07c965f1ed720": {
+    "en": "Each shape is one compose file under {{0}}; {{1}} explains how to choose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Ogni combinazione corrisponde a un file compose in {{0}}; {{1}} spiega come scegliere."
   },
   "cfd35358e5aaa25e": {
     "en": "The principal has no self, so the self-change rule above cannot apply to it: it cannot suspend, demote or delete anybody, including itself, because none of those routes are reachable.",
@@ -9737,6 +9941,12 @@
     "at": "2026-09-14",
     "it": "Assegna a ogni persona una voce di tale elenco; ciascuno incolla la propria in openplate sotto {{0}} insieme all'URL di base dell'istanza (ad esempio {{1}}) e al modello {{2}}. Rimuovere una chiave dall'elenco e riavviare revoca l'accesso a quella specifica persona."
   },
+  "db10d9374f50871c": {
+    "en": "{{0}}: the sync service on its own",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: solo il servizio di sincronizzazione"
+  },
   "db5a00513db6e47b": {
     "en": "already Apache-2.0 (Qwen3-VL-8B-Instruct)",
     "model": "google/gemini-3.8-flash",
@@ -9784,6 +9994,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} Il profilo piccolo {{1}} richiede 2.0 GiB di pesi e {{2}} su una macchina con sola CPU; il profilo più grande {{3}} richiede 5.8 GiB di pesi e almeno 5.8 GiB di VRAM. Le scansioni su CPU richiedono da pochi secondi a qualche minuto, e il throughput non migliora con la concorrenza: pianifica la capacità come se la macchina operasse in modo seriale. I valori misurati, per ciascun profilo, si trovano in {{4}}. Leggili prima di acquistare qualsiasi cosa."
+  },
+  "dcf103b39c072dc6": {
+    "en": "Podman",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Podman"
   },
   "dd0e8a6f81ddee15": {
     "en": "The key must be present.",
@@ -9856,6 +10072,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "L'intera istanza ha esaurito il proprio tetto giornaliero. {{0}} indica i secondi fino alla successiva mezzanotte UTC"
+  },
+  "df082a6b8fd1b8c0": {
+    "en": "{{0}}: rung 1, the app alone",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: livello 1, solo l'app"
   },
   "df0e583dbd3800f2": {
     "en": "Sharing one AI bill across a household, with a spend limit and revocation per person",
@@ -10289,6 +10511,12 @@
     "at": "2026-09-14",
     "it": "openplate"
   },
+  "e9d4956970f90190": {
+    "en": "Every command below also runs under {{0}}: use {{1}}, not {{2}}, which is a different, less complete tool. See {{3}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Ogni comando qui sotto si esegue anche con {{0}}: usa {{1}}, non {{2}}, che è uno strumento diverso e meno completo. Vedi {{3}}."
+  },
   "ea1c510d1ddb7264": {
     "en": "Scan",
     "model": "google/gemini-3.8-flash",
@@ -10408,6 +10636,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "La guida passo passo completa, incluso HTTPS (necessario per installare la PWA e acquisire immagini dalla fotocamera), si trova in {{0}}."
+  },
+  "ebf40ed199cdfee1": {
+    "en": "{{0}}: rung 4, all four",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}}: livello 4, tutti e quattro"
   },
   "ec041991fcd0f328": {
     "en": "Stay with provider sub-keys when you can.",
@@ -10577,6 +10811,12 @@
     "at": "2026-09-14",
     "it": "Sconosciuto, esterno e mai inviato rispondono tutti con {{0}} {{1}}. L'assenza di una condivisione non deve confermare l'esistenza di un account."
   },
+  "ef7a2708e7541543": {
+    "en": "Running these compose files and containers under Podman instead of Docker: the {{0}} vs. {{1}} distinction, and the rootless notes",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Eseguire questi file compose e i container con Podman invece di Docker: la distinzione tra {{0}} e {{1}}, e le note sulla modalità rootless"
+  },
   "efd81a0b7c9142d3": {
     "en": "The newest version of each UTC calendar day for {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -10708,6 +10948,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Ogni altra variante (sincronizzazione, inferenza self-hosted o entrambe) è un file a parte sotto {{0}}. {{1}} è la guida per scegliere quella che ti serve."
+  },
+  "f22e8b958861c7ee": {
+    "en": "Every compose file in openplate, openplate-core and openplate-inference uses {{0}} to gate a service on Postgres's healthcheck. Run {{1}}, not {{2}}, unless you have confirmed your {{3}} install handles that condition.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "Ogni file compose in openplate, openplate-core e openplate-inference usa {{0}} per vincolare un servizio all'healthcheck di Postgres. Esegui {{1}}, non {{2}}, a meno che tu non abbia verificato che la tua installazione di {{3}} gestisca questa condizione."
   },
   "f290c4d7180db565": {
     "en": "Each entry is {{0}} and {{1}} and nothing else. The address, the name and the allowance belong to {{2}}, which the caller is already reading.",
@@ -10900,6 +11146,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "HTML e JS"
+  },
+  "f84c329a1db32f23": {
+    "en": "{{0}} Adds {{1}}. You gain local plate scans with no cloud account and no photos leaving your network. You risk hardware strain, and every browser must reach the inference container directly.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-14",
+    "it": "{{0}} Aggiunge {{1}}. Ottieni la scansione locale dei piatti senza account cloud e senza foto che lasciano la tua rete. Rischi di sovraccaricare l'hardware, e ogni browser deve raggiungere direttamente il container di inferenza."
   },
   "f88b2a7cfc22d148": {
     "en": "1. Context window: the symptom is garbled output, not a startup error.",

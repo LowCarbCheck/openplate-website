@@ -9,9 +9,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "v0.30.0",
+      "ref": "v0.31.0",
       "editRef": "main",
-      "sha": "43a489ae9e74aa1e7aed5325bcaea28aa86cfe86",
+      "sha": "8277624301dcd71611cf5196898eec04320eaddf",
       "committedAt": "2026-09-14"
     },
     "lead": [
@@ -131,6 +131,33 @@ export const DOCS_INDEX: DocsIndex = {
           {
             "kind": "text",
             "text": "Status of the German legal text, machine-translated and awaiting a lawyer"
+          }
+        ]
+      },
+      {
+        "slug": "podman",
+        "file": "docs/podman.md",
+        "title": "Podman",
+        "blurb": [
+          {
+            "kind": "text",
+            "text": "Running these compose files and containers under Podman instead of Docker: the "
+          },
+          {
+            "kind": "code",
+            "text": "podman compose"
+          },
+          {
+            "kind": "text",
+            "text": " vs. "
+          },
+          {
+            "kind": "code",
+            "text": "podman-compose"
+          },
+          {
+            "kind": "text",
+            "text": " distinction, and the rootless notes"
           }
         ]
       }
