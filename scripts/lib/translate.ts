@@ -160,15 +160,23 @@ export function glossary(locale: string): string[] {
  * contract, said to the model rather than only checked after the fact — the
  * check still runs, in `dashOffenders`, because a rule stated is not a rule
  * kept.
+ *
+ * ── `bundle` IS THE SECOND AXIS THE PARAGRAPH ABOVE DID NOT ANTICIPATE ──
+ * "One voice" holds only where the product itself has one voice, and a legal
+ * document is not written in the informal register a food diary talks in.
+ * `bundle` names which corpus a request is buying: `'legal'` gets the formal
+ * instruction below, everything else keeps the informal default this comment
+ * always described. This site has no `legal` bundle and never asks for the
+ * formal branch; the app repo's copy of this library does.
  */
-export function style(locale: string): string {
+export function style(locale: string, bundle: string): string {
   return [
     "You translate the documentation of openplate, a food and health diary that keeps a person's",
     'data on their own devices. The reader is a developer or a self-hoster reading a technical guide.',
     '',
     'Register: plain, direct, a little dry. Concrete verbs. No marketing adjectives.',
     'Never an em dash or an en dash. Use a comma instead.',
-    register(locale),
+    register(locale, bundle),
     ...glossary(locale),
     '',
     `Leave these terms in English, exactly as written: ${KEEP.join(', ')}.`,
@@ -177,7 +185,21 @@ export function style(locale: string): string {
   ].join('\n');
 }
 
-function register(locale: string): string {
+/**
+ * The register instruction for one request: formal for the `legal` bundle,
+ * informal for every other one.
+ *
+ * The informal branch is UNCHANGED from what this file always asked for: a
+ * `bundle` that is not `'legal'` reaches the same de/fr/else text it always
+ * did, so a request from a non-legal bundle is byte-identical to what this
+ * function returned before it took a second argument.
+ */
+export function register(locale: string, bundle: string): string {
+  if (bundle === 'legal') return formalRegister(locale);
+  return informalRegister(locale);
+}
+
+function informalRegister(locale: string): string {
   if (locale === 'de') {
     return [
       'German: address the reader as "du", which is what the openplate app itself does. Follow German',
@@ -198,6 +220,44 @@ function register(locale: string): string {
     ].join(' ');
   }
   return "Use the register that language's own technical documentation is written in.";
+}
+
+/**
+ * The formal counterpart, for a `legal` bundle: a contract or a privacy notice
+ * is addressed formally even in a language whose product otherwise says "du"
+ * or "tu". Written for every language this workspace names as a target,
+ * including `es` and `tr`, which are not shipped by any site yet: the table
+ * is complete the day a third bundle or a fourth language arrives, rather
+ * than an ad hoc addition made under a deadline.
+ */
+function formalRegister(locale: string): string {
+  if (locale === 'de') {
+    return [
+      'German: address the reader as "Sie", the formal register. This is a legal document, and formal',
+      'address is the German convention for legal and contractual text, even where the rest of the',
+      'product says "du".',
+    ].join(' ');
+  }
+  if (locale === 'fr') {
+    return [
+      'French: address the reader as "vous", the formal register. This is a legal document, and formal',
+      'address is the French convention for legal and contractual text, even where the rest of the',
+      'product says "tu".',
+    ].join(' ');
+  }
+  if (locale === 'es') {
+    return [
+      'Spanish: address the reader as "usted", the formal register. This is a legal document, and',
+      'formal address is the Spanish convention for legal and contractual text.',
+    ].join(' ');
+  }
+  if (locale === 'tr') {
+    return [
+      'Turkish: address the reader as "siz", the formal register. This is a legal document, and formal',
+      'address is the Turkish convention for legal and contractual text.',
+    ].join(' ');
+  }
+  return "Use the formal register that language's own legal documents are written in.";
 }
 
 /**
@@ -358,11 +418,13 @@ export function glossaryOffenders(memory: Memory, locale: string): { key: string
 export async function translate(
   units: Unit[],
   locale: string,
+  bundle: string,
   key: string,
   total: Usage,
   notes: readonly string[] = [],
 ): Promise<string[] | undefined> {
   const sources = units.map((unit) => unit.source);
+  const system = style(locale, bundle);
   const body = {
     model: MODEL,
     // Minimal, because this is a translation and not a problem. Reasoning
@@ -377,7 +439,7 @@ export async function translate(
     usage: { include: true },
     response_format: { type: 'json_object' },
     messages: [
-      { role: 'system', content: style(locale) },
+      { role: 'system', content: system },
       {
         role: 'user',
         content: [
@@ -465,12 +527,13 @@ export async function translate(
 export async function fill(
   batch: Unit[],
   locale: string,
+  bundle: string,
   key: string,
   memory: Map<string, string>,
   total: Usage,
 ): Promise<void> {
   for (let tries = 0; tries < 2; tries += 1) {
-    const text = await translate(batch, locale, key, total);
+    const text = await translate(batch, locale, bundle, key, total);
     if (text === undefined) continue;
     /**
      * ── MARKERS AND DASHES ARE CHECKED HERE, AT THE DOOR, NOT AT THE EMIT ──
@@ -497,8 +560,8 @@ export async function fill(
   }
   const half = Math.ceil(batch.length / 2);
   console.warn(`  splitting ${batch.length} into ${half} + ${batch.length - half}`);
-  await fill(batch.slice(0, half), locale, key, memory, total);
-  await fill(batch.slice(half), locale, key, memory, total);
+  await fill(batch.slice(0, half), locale, bundle, key, memory, total);
+  await fill(batch.slice(half), locale, bundle, key, memory, total);
 }
 
 /**
@@ -534,8 +597,9 @@ export async function price(pending: Unit[]): Promise<Quote | null> {
 
   const payload = pending.reduce((sum, unit) => sum + unit.source.length, 0);
   // The system prompt and the instructions ride along on every chunk, which is
-  // most of the overhead.
-  const overhead = (style('de').length + 400) * requests;
+  // most of the overhead. 'common' rather than 'legal': the two differ by a
+  // sentence, and this is a rough estimate, not the request that gets sent.
+  const overhead = (style('de', 'common').length + 400) * requests;
   const promptTokens = Math.round((payload * 1.3 + overhead) / 4);
   // German is a Latin script that runs a little longer than its English, at
   // roughly four characters to the token. collie's figure is for Japanese and

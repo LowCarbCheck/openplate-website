@@ -111,6 +111,13 @@ const LIMIT = Number(flag('limit') ?? Infinity);
 const PREVIEW = flag('preview');
 const OUT = resolve('src/generated/docs-i18n');
 const FILE = resolve(OUT, `${LOCALE}.json`);
+/**
+ * The register this corpus buys under: always informal, the same default
+ * `register` has always given a non-`legal` request. Named here rather than
+ * left for a default parameter to supply, so the axis this pipeline runs
+ * under is a line in this file and not a value hidden inside `fill`.
+ */
+const BUNDLE = 'docs';
 
 if (!SUPPORTED_LANGUAGES.some((language) => language === LOCALE)) {
   console.error(`translate-docs: ${LOCALE} is not one of the site's languages (${SUPPORTED_LANGUAGES.join(', ')}).`);
@@ -229,7 +236,7 @@ if (batches.length > 0) {
     at += 1;
     process.stdout.write(`  ${LOCALE} ${at}/${batches.length} (${batch.length} sentences) ... `);
     const before = total.cost;
-    await fill(batch, LOCALE, key, done, total);
+    await fill(batch, LOCALE, BUNDLE, key, done, total);
     console.log(`${(total.cost - before).toFixed(6)} USD  (running ${total.cost.toFixed(4)} USD)`);
     // WRITTEN AFTER EVERY CHUNK, not once at the end. This is a paid run of
     // twenty-odd requests over several minutes. A stall, a cancelled job or a

@@ -153,7 +153,7 @@ describe('a run', () => {
     calls = 0;
     const batches = chunk(missesOf(units, done), CHUNK);
     for (const batch of batches)
-      await fill(batch, 'de', 'test-key', done, { prompt_tokens: 0, completion_tokens: 0, cost: 0 });
+      await fill(batch, 'de', 'docs', 'test-key', done, { prompt_tokens: 0, completion_tokens: 0, cost: 0 });
 
     assert.equal(batches.length, 0);
     assert.equal(calls, 0);
@@ -167,7 +167,7 @@ describe('a run', () => {
     calls = 0;
     const misses = missesOf(edited, done);
     for (const batch of chunk(misses, CHUNK)) {
-      await fill(batch, 'de', 'test-key', done, { prompt_tokens: 0, completion_tokens: 0, cost: 0 });
+      await fill(batch, 'de', 'docs', 'test-key', done, { prompt_tokens: 0, completion_tokens: 0, cost: 0 });
     }
 
     assert.equal(calls, 1);

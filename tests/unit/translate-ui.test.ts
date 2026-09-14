@@ -23,9 +23,12 @@ import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
 
 import { hash } from '../../app/lib/docs-i18n.server';
-import { loadMemory, lookup, memo, saveMemory } from '../../scripts/lib/translate';
+import { type Usage, chunk, loadMemory, lookup, memo, saveMemory } from '../../scripts/lib/translate';
 import {
   type CatalogTree,
+  type TranslateFn,
+  type UnitOfLeaf,
+  buy,
   carriesTokens,
   collectLeaves,
   leaves,
@@ -275,5 +278,66 @@ describe('the namespaces', () => {
   it('are read off the English directory rather than listed in the script', () => {
     const found = namespacesOf(ROOT, 'en');
     assert.deepEqual(found, ['common', 'docs']);
+  });
+});
+
+/**
+ * Mirrors the CLI's own purchase loop: for each bundle group, chunk its
+ * units and buy every batch under that bundle. A group with no units
+ * contributes zero batches and so zero calls to the seam -- the same
+ * `for (const batch of group.batches)` structure `scripts/translate-ui.ts`
+ * runs for real, built from the same exported `chunk` and `buy`.
+ */
+async function buyGroups(groups: { bundle: string; units: UnitOfLeaf[] }[], translateFn: TranslateFn): Promise<void> {
+  const total: Usage = { prompt_tokens: 0, completion_tokens: 0, cost: 0 };
+  const done = new Map<string, string>();
+  for (const group of groups) {
+    for (const batch of chunk(group.units, 30)) {
+      await buy(batch, group.bundle, 'test-key', 'de', done, total, [], translateFn);
+    }
+  }
+}
+
+describe('buy: one translate call per bundle', () => {
+  it('makes one translate call per bundle that has pending strings', async () => {
+    const commonUnit: UnitOfLeaf = { hash: 'c1', source: 'Save changes', key: 'common.save' };
+    const legalUnit: UnitOfLeaf = { hash: 'l1', source: 'These terms apply to you.', key: 'legal.intro' };
+
+    // BOTH BUNDLES HAVE MISSES: exactly two calls, one per bundle, common first
+    // because the CLI's own group order is common, then legal.
+    const both: string[] = [];
+    const stubBoth: TranslateFn = async (units, _locale, bundle) => {
+      both.push(bundle);
+      return units.map((unit) => `X ${unit.source}`);
+    };
+    await buyGroups(
+      [
+        { bundle: 'common', units: [commonUnit] },
+        { bundle: 'legal', units: [legalUnit] },
+      ],
+      stubBoth,
+    );
+    assert.deepEqual(both, ['common', 'legal']);
+    // CONTROL: if `buy` dropped its own `bundle` argument and forwarded a
+    // hardcoded value to `translate` instead, both calls above would read the
+    // same bundle. The sequence assertion already fails on that defect; this
+    // makes the failure mode explicit rather than leaving it to be inferred.
+    assert.notEqual(both[0], both[1]);
+
+    // ONLY `common` HAS MISSES: an empty `legal` group chunks to zero
+    // batches, so the seam is called exactly once, for `common`.
+    const commonOnly: string[] = [];
+    const stubCommonOnly: TranslateFn = async (units, _locale, bundle) => {
+      commonOnly.push(bundle);
+      return units.map((unit) => `X ${unit.source}`);
+    };
+    await buyGroups(
+      [
+        { bundle: 'common', units: [commonUnit] },
+        { bundle: 'legal', units: [] },
+      ],
+      stubCommonOnly,
+    );
+    assert.deepEqual(commonOnly, ['common']);
   });
 });

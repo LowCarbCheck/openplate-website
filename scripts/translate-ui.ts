@@ -64,11 +64,12 @@ import {
   memo,
   price,
   saveMemory,
-  translate,
 } from './lib/translate';
 import {
   type CatalogTree,
   type UnitOfLeaf,
+  bundleForNamespace,
+  buy,
   catalogPath,
   collectLeaves,
   leaves,
@@ -76,7 +77,6 @@ import {
   readCatalog,
   saveCatalog,
   skipReason,
-  usable,
   withTranslations,
 } from './lib/translate-ui';
 
@@ -146,6 +146,22 @@ const TARGET = new Map<string, CatalogTree>(
   NAMESPACES.map((namespace) => [namespace, readCatalog(catalogPath(ROOT, LOCALE, namespace))]),
 );
 
+/**
+ * Namespaces split by the register they buy their strings in, via
+ * `bundleForNamespace`. Two groups only, ever: `legal`, formal, and
+ * everything else, informal. This site's own namespaces (`common`, `docs`)
+ * both fall into the informal group today; `LEGAL_NAMESPACES` stays empty
+ * here and is never sent, and it costs nothing to keep the branch alive for
+ * the app repo's copy, which does carry a `legal.json`.
+ */
+const LEGAL_NAMESPACES = NAMESPACES.filter((namespace) => bundleForNamespace(namespace) === 'legal');
+const COMMON_NAMESPACES = NAMESPACES.filter((namespace) => bundleForNamespace(namespace) !== 'legal');
+
+/** The catalogs for a list of namespace names, skipping any that was never read. */
+function catalogsFor(namespaces: string[], source: Map<string, CatalogTree>): CatalogTree[] {
+  return namespaces.map((namespace) => source.get(namespace)).filter((tree): tree is CatalogTree => tree !== undefined);
+}
+
 const units = collectLeaves([...ENGLISH.values()]);
 const skipped = [...ENGLISH.values()]
   .flatMap((tree) => leaves(tree))
@@ -167,8 +183,22 @@ console.log(
     `${misses.length} misses (~${words} words).`,
 );
 
-const batches = chunk(misses, CHUNK);
-const quote = await price(batches.flat());
+/**
+ * The misses, chunked back into the bundle they came from rather than as one
+ * flattened set. Mixing a `legal` string into a `common` chunk would ask for
+ * its formal sentence under an informal system prompt, so each request may
+ * carry strings from ONE bundle only.
+ */
+const commonMisses = [...collectLeaves(catalogsFor(COMMON_NAMESPACES, ENGLISH)).values()].filter(
+  (unit) => !done.has(unit.hash),
+);
+const legalMisses = [...collectLeaves(catalogsFor(LEGAL_NAMESPACES, ENGLISH)).values()].filter(
+  (unit) => !done.has(unit.hash),
+);
+const commonBatches = chunk(commonMisses, CHUNK);
+const legalBatches = chunk(legalMisses, CHUNK);
+
+const quote = await price([...commonBatches.flat(), ...legalBatches.flat()]);
 if (quote === null) {
   console.error(`translate-ui: could not read ${MODEL}'s rate. An unpriced run is an unbounded one.`);
   process.exit(1);
@@ -192,7 +222,8 @@ if (DRY) {
 const total: Usage = { prompt_tokens: 0, completion_tokens: 0, cost: 0 };
 let refused = false;
 
-if (batches.length > 0) {
+const totalBatches = commonBatches.length + legalBatches.length;
+if (totalBatches > 0) {
   // CHECKED BEFORE THE FIRST REQUEST, not at the write. Reaching a refusal at
   // the write means the run already paid for every string and is about to throw
   // it away.
@@ -216,24 +247,33 @@ if (batches.length > 0) {
 
   mkdirSync(OUT, { recursive: true });
   let at = 0;
-  for (const batch of batches) {
-    at += 1;
-    process.stdout.write(`  ${LOCALE} ${at}/${batches.length} (${batch.length} strings) ... `);
-    const before = total.cost;
-    await buy(batch, key);
-    console.log(`${(total.cost - before).toFixed(6)} USD  (running ${total.cost.toFixed(4)} USD)`);
-    // WRITTEN AFTER EVERY CHUNK. A stall or a Ctrl-C must not throw away the
-    // strings already bought.
-    save();
-    // THE SECOND CEILING, against money actually spent rather than money
-    // predicted.
-    if (total.cost > BUDGET) {
-      console.error(
-        `translate-ui: spent ${total.cost.toFixed(4)} USD against a ${BUDGET.toFixed(2)} USD budget. ` +
-          `Stopping. What was bought is saved.`,
-      );
-      refused = true;
-      break;
+  // ONE LOOP OVER THE GROUPS, `common` then `legal`: a group with no batches
+  // (this site's `legal` group, always) contributes nothing to it, so `buy`
+  // is called once per (bundle, batch) pair that actually has misses.
+  const groups: { bundle: string; batches: UnitOfLeaf[][] }[] = [
+    { bundle: 'common', batches: commonBatches },
+    { bundle: 'legal', batches: legalBatches },
+  ];
+  outer: for (const group of groups) {
+    for (const batch of group.batches) {
+      at += 1;
+      process.stdout.write(`  ${LOCALE} ${group.bundle} ${at}/${totalBatches} (${batch.length} strings) ... `);
+      const before = total.cost;
+      await buy(batch, group.bundle, key, LOCALE, done, total, NOTES);
+      console.log(`${(total.cost - before).toFixed(6)} USD  (running ${total.cost.toFixed(4)} USD)`);
+      // WRITTEN AFTER EVERY CHUNK. A stall or a Ctrl-C must not throw away the
+      // strings already bought.
+      save();
+      // THE SECOND CEILING, against money actually spent rather than money
+      // predicted.
+      if (total.cost > BUDGET) {
+        console.error(
+          `translate-ui: spent ${total.cost.toFixed(4)} USD against a ${BUDGET.toFixed(2)} USD budget. ` +
+            `Stopping. What was bought is saved.`,
+        );
+        refused = true;
+        break outer;
+      }
     }
   }
   console.log(
@@ -247,10 +287,10 @@ write();
 
 /**
  * ── THE DASH PASS, OVER THE WHOLE MEMORY AND NOT ONLY OVER WHAT WAS BOUGHT ──
- * `buy` already refuses an answer carrying an em dash or an en dash, so a fresh
- * run cannot store one. This covers the rest: a hand-written bundle adopted with
- * one in it, a hand edit, a model swap. It names the hash, because the hash is
- * what you delete from the file to buy the string again.
+ * `buy` already refuses an answer carrying an em dash or an en dash, so a
+ * fresh run cannot store one. This covers the rest: a hand-written bundle
+ * adopted with one in it, a hand edit, a model swap. It names the hash,
+ * because the hash is what you delete from the file to buy the string again.
  */
 const offenders = dashOffenders(memory, LOCALE);
 if (offenders.length > 0) {
@@ -266,42 +306,6 @@ console.log(
 );
 
 if (refused) process.exit(OVER_BUDGET);
-
-/**
- * One batch: ask, keep what came back clean, ask once more for the rest, then
- * leave the rest in English.
- *
- * ── REJECTION IS PER STRING, NOT PER BATCH ──
- * `fill` in the docs pipeline rejects the whole chunk on one bad answer and then
- * bisects, which is right for thirty sentences of a paragraph where one awkward
- * one spoils its neighbours. A catalog is thirty unrelated labels: one dropped
- * `{{price}}` says nothing about the twenty-nine beside it, and discarding them
- * would pay for them twice. So the good answers are stored, the rejected ones
- * are asked for again on their own, and whatever is still wrong after that is
- * LEFT OUT of the memory. i18next answers a missing key from the English
- * bundle, so the page shows an English label rather than braces, and the next
- * run picks it up again for free.
- */
-async function buy(batch: UnitOfLeaf[], key: string): Promise<void> {
-  let pending = batch;
-  for (let attempt = 0; attempt < 2 && pending.length > 0; attempt += 1) {
-    const text = await translate(pending, LOCALE, key, total, NOTES);
-    // The whole answer was unusable, short or unparseable. The retry is the same
-    // request; `translate` has already reported why.
-    if (text === undefined) continue;
-    const rejected: UnitOfLeaf[] = [];
-    pending.forEach((unit, index) => {
-      const target = text[index] ?? '';
-      if (usable(unit.source, target)) done.set(unit.hash, target);
-      else rejected.push(unit);
-    });
-    if (rejected.length > 0) {
-      console.warn(`\n  rejected ${rejected.length}: ${rejected.map((unit) => unit.key).join(', ')}`);
-    }
-    pending = rejected;
-  }
-  for (const unit of pending) console.warn(`  left in English: ${unit.key}  ${unit.source.slice(0, 70)}`);
-}
 
 /**
  * The bundle as it stands today, recorded as the answer to today's English.
