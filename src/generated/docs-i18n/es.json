@@ -1199,6 +1199,12 @@
     "at": "2026-09-14",
     "es": "En el flujo de openplate, la foto va directamente del dispositivo a tu endpoint."
   },
+  "1a7230967d73acac": {
+    "en": "`{\"nutrientReferenceBasis\": \"dge\" \\",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "`{\"nutrientReferenceBasis\": \"dge\" \\"
+  },
   "1aa5f8988891c249": {
     "en": "Check the {{0}} line.",
     "model": "google/gemini-3.8-flash",
@@ -2651,6 +2657,12 @@
     "at": "2026-09-14",
     "es": "El grafo de uso compartido"
   },
+  "3c6a80d3ca1cb12c": {
+    "en": "It is also the {{0}}. Everything else here is the operator's environment, fixed until a redeploy; this one is stored, and {{1}} (§5.20) writes it. A client therefore reads it on every connect rather than caching it for the life of an install. A service MUST serve this path from a process-local copy of the value and MUST NOT read its store to answer {{2}}: this is the container healthcheck path, polled continuously, and a store read there turns a database hiccup into a restart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "También es el {{0}}. Todo lo demás aquí pertenece al entorno del operador y permanece fijo hasta un nuevo despliegue; este valor sí se almacena, y {{1}} (§5.20) lo escribe. Por tanto, un cliente lo lee en cada conexión en lugar de guardarlo en caché durante toda la vida de la instalación. Un servicio DEBE servir esta ruta desde una copia local en memoria del proceso y NO DEBE leer su almacenamiento para responder a {{2}}: esta es la ruta de healthcheck del contenedor, consultada continuamente, y una lectura del almacenamiento en ese punto convierte un fallo puntual de la base de datos en un reinicio."
+  },
   "3c78734413892385": {
     "en": "SELinux volume labels.",
     "model": "google/gemini-3.8-flash",
@@ -3580,6 +3592,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Siete propiedades que una implementación conforme DEBE mantener:"
+  },
+  "4edfc40ce63e72c9": {
+    "en": "one basis per instance, never per language and never per person",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "un criterio por instancia, nunca por idioma y nunca por persona"
   },
   "4ee8761ab91021de": {
     "en": "{{0}}, ISO 8601, or {{1}} to clear it. The server sends the fast target alert when it passes and clears the column in the same write, so it can never fire twice. An absent field in a {{2}} leaves it exactly as it was.",
@@ -6064,6 +6082,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Establece un límite de gasto mientras estés allí."
+  },
+  "86b20007b18a2e08": {
+    "en": "{{0}} is {{1}}, {{2}} or {{3}}: which body's micronutrient reference values every client on this instance shows, the German DGE, the EU's EFSA, or the US NASEM figures. It is {{4}}, so a service built before the field omits it and a client that has never heard of it ignores it. It is {{5}}: language and reference body are orthogonal, and a locale-following default would be a per-person basis in disguise.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "{{0}} es {{1}}, {{2}} o {{3}}: qué valores de referencia de micronutrientes muestra cada cliente en esta instancia, si los del DGE alemán, los de la EFSA de la UE o las cifras del NASEM de EE. UU. Es {{4}}, de modo que un servicio compilado antes de la existencia de este campo lo omite y un cliente que no lo reconozca lo ignora. Es {{5}}: el idioma y el organismo de referencia son ortogonales, y un valor predeterminado ligado a la configuración regional sería, en la práctica, un criterio por persona."
   },
   "86b53b77972c614c": {
     "en": "openplate app, your box",
@@ -8573,6 +8597,12 @@
     "at": "2026-09-14",
     "es": "Carrera perdida. Otro dispositivo escribió primero."
   },
+  "bb69cc4c54a7f780": {
+    "en": "\"us\"}{{0}}400{{1}}{\"settings\": {...}}` with what the instance now holds",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "\"us\"}{{0}}400{{1}}{\"settings\": {...}}` con lo que la instancia contiene ahora"
+  },
   "bb842cf7543ae23a": {
     "en": "The server writes no notification text.",
     "model": "google/gemini-3.8-flash",
@@ -9436,6 +9466,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "El seudónimo."
+  },
+  "d01b0463a67dfb60": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a biller stands behind this instance so {{13}} exists (§5.22), {{14}} says whether this instance can send web push so {{15}} exists (§5.24), {{16}} says whose micronutrient reference values it shows, and {{17}} is {{18}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "{{0}} describe qué es este despliegue y qué puede hacer, y es {{1}}: un servicio anterior a este campo lo omite, y un cliente que lo exigiera se negaría a comunicarse con cualquiera de esas instancias. {{2}} es la etiqueta que el operador asigna a la instancia, {{3}} es uno de {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (los seis idiomas en los que se redacta su correo; un cliente lo muestra y nunca bifurca su lógica según él, por lo que un séptimo idioma no implica un cambio de protocolo), {{10}} indica si puede enviar correos en absoluto, {{11}} indica si un miembro común puede invitar a otras personas aquí (§5.21), {{12}} indica si hay un sistema de facturación detrás de esta instancia para que exista {{13}} (§5.22), {{14}} indica si esta instancia puede enviar notificaciones web push para que exista {{15}} (§5.24), {{16}} indica de qué organismo muestra los valores de referencia de micronutrientes, y {{17}} es {{18}} cuando no hay ninguna clave upstream configurada."
   },
   "d080ed1a7a246a43": {
     "en": "5.7 {{0}}: pre-login KDF descriptor",
@@ -10751,6 +10787,12 @@
     "at": "2026-09-14",
     "es": "{{0}} o {{1}}. El propio token de acceso de un administrador autentica {{2}}."
   },
+  "ee5645740f4344d8": {
+    "en": "\"efsa\" \\",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "\"efsa\" \\"
+  },
   "ee585755172687d7": {
     "en": "{{0}} (§5.15). A session is always issued; there is nothing left to confirm.",
     "model": "google/gemini-3.8-flash",
@@ -11218,6 +11260,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}}: una {{1}}, un nombre para mostrar opcional, un rol, una cuota diaria de IA, un instante de suspensión, un verificador de autenticación (un hash con clave de un hash con clave de la frase de contraseña, consulta el §5.8), un segundo verificador con la misma construcción sobre la prueba de recuperación y los parámetros KDF de la cuenta. {{2}}, que es una clase de datos personales que la versión 0.5.0 eliminó y la 0.6.0 recuperó deliberadamente (ADR-0005): a las personas de una organización se las identifica por la dirección a la que llegó su invitación, porque ese es el identificador que seguirán recordando dentro de un mes."
+  },
+  "faa5b266b5a85d0e": {
+    "en": "one field in this block an administrator can change while the service runs",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "es": "el único campo de este bloque que un administrador puede modificar mientras el servicio se ejecuta"
   },
   "fadfb70f20f03cb3": {
     "en": "5.11 {{0}}",

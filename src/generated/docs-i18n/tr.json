@@ -1199,6 +1199,12 @@
     "at": "2026-09-14",
     "tr": "openplate'in akışında fotoğraf doğrudan cihazdan senin uç noktana gider."
   },
+  "1a7230967d73acac": {
+    "en": "`{\"nutrientReferenceBasis\": \"dge\" \\",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "`{\"nutrientReferenceBasis\": \"dge\" \\"
+  },
   "1aa5f8988891c249": {
     "en": "Check the {{0}} line.",
     "model": "google/gemini-3.8-flash",
@@ -2651,6 +2657,12 @@
     "at": "2026-09-14",
     "tr": "Paylaşım grafiği"
   },
+  "3c6a80d3ca1cb12c": {
+    "en": "It is also the {{0}}. Everything else here is the operator's environment, fixed until a redeploy; this one is stored, and {{1}} (§5.20) writes it. A client therefore reads it on every connect rather than caching it for the life of an install. A service MUST serve this path from a process-local copy of the value and MUST NOT read its store to answer {{2}}: this is the container healthcheck path, polled continuously, and a store read there turns a database hiccup into a restart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Ayrıca {{0}} alanıdır. Buradaki diğer her şey işletmecinin ortamıdır ve yeniden dağıtıma kadar sabittir; bu alan ise saklanır ve {{1}} (§5.20) tarafından yazılır. Bu yüzden istemci, bir kurulumun ömrü boyunca bunu önbelleğe almak yerine her bağlantıda yeniden okur. Bir servis bu yolu değerin işlem içi kopyasından sunMAK ZORUNDADIR ve {{2}} isteğini yanıtlamak için depolama alanını okuMAMALIDIR: burası sürekli yoklanan konteyner sağlık denetimi yoludur ve orada depolamayı okumak, veritabanındaki ufak bir aksamayı yeniden başlatmaya dönüştürür."
+  },
   "3c78734413892385": {
     "en": "SELinux volume labels.",
     "model": "google/gemini-3.8-flash",
@@ -3580,6 +3592,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Uyumlu bir uygulamanın sağlaması GEREKEN yedi özellik:"
+  },
+  "4edfc40ce63e72c9": {
+    "en": "one basis per instance, never per language and never per person",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "örnek başına tek temel, asla dile göre değil ve asla kişi başına değil"
   },
   "4ee8761ab91021de": {
     "en": "{{0}}, ISO 8601, or {{1}} to clear it. The server sends the fast target alert when it passes and clears the column in the same write, so it can never fire twice. An absent field in a {{2}} leaves it exactly as it was.",
@@ -6064,6 +6082,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Oradayken bir harcama limiti belirle."
+  },
+  "86b20007b18a2e08": {
+    "en": "{{0}} is {{1}}, {{2}} or {{3}}: which body's micronutrient reference values every client on this instance shows, the German DGE, the EU's EFSA, or the US NASEM figures. It is {{4}}, so a service built before the field omits it and a client that has never heard of it ignores it. It is {{5}}: language and reference body are orthogonal, and a locale-following default would be a per-person basis in disguise.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "{{0}}, {{1}}, {{2}} veya {{3}} değerlerinden biridir: bu örnekteki her istemcinin hangi kurumun mikro besin referans değerlerini gösterdiğini, yani Alman DGE, AB'nin EFSA veya ABD'nin NASEM verilerini belirtir. {{4}} olduğundan, alandan önce derlenmiş bir servis bu alanı atlarken alanı hiç tanımayan bir istemci ise görmezden gelir. {{5}}: dil ile referans kurumu birbirinden bağımsızdır ve yerel ayarı takip eden bir varsayılan, gizliden gizliye kişi başına dayatılmış bir temel olurdu."
   },
   "86b53b77972c614c": {
     "en": "openplate app, your box",
@@ -8573,6 +8597,12 @@
     "at": "2026-09-14",
     "tr": "Yarış kaybedildi. Önce başka bir cihaz yazdı."
   },
+  "bb69cc4c54a7f780": {
+    "en": "\"us\"}{{0}}400{{1}}{\"settings\": {...}}` with what the instance now holds",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "\"us\"}{{0}}400{{1}}{\"settings\": {...}}`, örneğin şu anda tuttuklarıyla birlikte"
+  },
   "bb842cf7543ae23a": {
     "en": "The server writes no notification text.",
     "model": "google/gemini-3.8-flash",
@@ -9436,6 +9466,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Rumuz."
+  },
+  "d01b0463a67dfb60": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a biller stands behind this instance so {{13}} exists (§5.22), {{14}} says whether this instance can send web push so {{15}} exists (§5.24), {{16}} says whose micronutrient reference values it shows, and {{17}} is {{18}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "{{0}}, bu dağıtımın ne olduğunu ve neler yapabildiğini açıklar; ayrıca {{1}} alanıdır: bu alandan daha eski bir servis alanı atlarken, alanı zorunlu tutan bir istemci de bu türdeki tüm örneklerle iletişim kurmayı reddeder. {{2}}, işletmecinin örnek için belirlediği etikettir. {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}} veya {{9}} değerlerinden biridir (e-postalarının yazıldığı altı dil; istemci bunu yalnızca görüntüler ve asla buna göre dallanma yapmaz, bu yüzden yedinci bir dil protokol değişikliği sayılmaz). {{10}}, servisin mektup gönderip gönderemeyeceğini belirtir. {{11}}, sıradan bir üyenin buraya birilerini davet edip edemeyeceğini (§5.21), {{12}}, bu örneğin arkasında bir faturalandırıcının bulunup bulunmadığını ve dolayısıyla {{13}} alanının mevcut olup olmadığını (§5.22), {{14}}, bu örneğin web push gönderip gönderemeyeceğini ve dolayısıyla {{15}} alanının mevcut olup olmadığını (§5.24), {{16}}, hangi kurumun mikro besin referans değerlerini gösterdiğini belirtir. {{17}} ise yapılandırılmış bir yukarı akış anahtarı bulunmadığında {{18}} değerini alır."
   },
   "d080ed1a7a246a43": {
     "en": "5.7 {{0}}: pre-login KDF descriptor",
@@ -10751,6 +10787,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} veya {{1}}. Bir yöneticinin kendi erişim belirteci {{2}} için kimlik doğrular."
   },
+  "ee5645740f4344d8": {
+    "en": "\"efsa\" \\",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "\"efsa\" \\"
+  },
   "ee585755172687d7": {
     "en": "{{0}} (§5.15). A session is always issued; there is nothing left to confirm.",
     "model": "google/gemini-3.8-flash",
@@ -11218,6 +11260,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}}: bir {{1}}, isteğe bağlı bir görünen ad, bir rol, günlük bir yapay zeka kotası, bir askıya alma anı, bir kimlik doğrulama doğrulayıcısı (parolanın anahtarlı özetinin anahtarlı özeti, bkz. §5.8), kurtarma kanıtı üzerinde aynı yapıda ikinci bir doğrulayıcı ve hesabın KDF parametreleri. {{2}}, 0.5.0 sürümünün kaldırdığı ve 0.6.0 sürümünün bilinçli olarak geri getirdiği bir kişisel veri sınıfıdır (ADR-0005): bir kuruluştaki kişiler, davetlerinin ulaştığı adresle tanımlanır, çünkü bir ay sonra da bilecekleri tanımlayıcı budur."
+  },
+  "faa5b266b5a85d0e": {
+    "en": "one field in this block an administrator can change while the service runs",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "bu blokta yöneticinin servis çalışırken değiştirebileceği tek alan"
   },
   "fadfb70f20f03cb3": {
     "en": "5.11 {{0}}",
