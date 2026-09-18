@@ -5897,6 +5897,12 @@
     "at": "2026-09-14",
     "it": "corpo non valido, {{0}} sconosciuto, {{1}} assente"
   },
+  "81d8006e84d7b536": {
+    "en": "Which published document the {{0}} screen quotes: {{1}} (German DGE Referenzwerte), {{2}} (EU) or {{3}} (NASEM/IOM). One basis per instance, for every language, because a reference body follows where a person lives and not which language they read. The screen names the document it used under every amount. An unknown value stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "it": "Quale documento pubblicato cita la schermata {{0}}: {{1}} (DGE Referenzwerte tedeschi), {{2}} (UE) o {{3}} (NASEM/IOM). Una sola base per istanza per tutte le lingue, poiché l'ente di riferimento segue il luogo in cui una persona vive e non la lingua che legge. Sotto ogni quantità, la schermata indica il documento utilizzato. Un valore sconosciuto blocca l'avvio intenzionalmente."
+  },
   "8226a6aec642a9c5": {
     "en": "Nutzungsbedingungen §11",
     "model": "google/gemini-3.8-flash",
@@ -7912,6 +7918,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Livello di log di pino."
+  },
+  "ace6e912f81edae0": {
+    "en": "Nutrients",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "it": "Nutrienti"
   },
   "ad145a5c05373846": {
     "en": "unset (invites off)",

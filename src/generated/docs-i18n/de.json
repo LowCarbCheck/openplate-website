@@ -6731,6 +6731,12 @@
     "at": "2026-09-04",
     "de": "Fehlerhafter Body, unbekanntes {{0}}, fehlendes {{1}}"
   },
+  "81d8006e84d7b536": {
+    "en": "Which published document the {{0}} screen quotes: {{1}} (German DGE Referenzwerte), {{2}} (EU) or {{3}} (NASEM/IOM). One basis per instance, for every language, because a reference body follows where a person lives and not which language they read. The screen names the document it used under every amount. An unknown value stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Welches veröffentlichte Dokument der {{0}}-Bildschirm zitiert: {{1}} (DGE-Referenzwerte), {{2}} (EU) oder {{3}} (NASEM/IOM). Eine Grundlage pro Instanz für jede Sprache, da sich ein Referenzgremium danach richtet, wo eine Person lebt, und nicht danach, welche Sprache sie liest. Der Bildschirm nennt das verwendete Dokument unter jedem Betrag. Ein unbekannter Wert bricht den Startvorgang absichtlich ab."
+  },
   "8226a6aec642a9c5": {
     "en": "Nutzungsbedingungen §11",
     "model": "google/gemini-3.8-flash",
@@ -9082,6 +9088,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "pino-Log-Level."
+  },
+  "ace6e912f81edae0": {
+    "en": "Nutrients",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Nährstoffe"
   },
   "ad145a5c05373846": {
     "en": "unset (invites off)",

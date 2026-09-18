@@ -6059,6 +6059,12 @@
     "at": "2026-09-06",
     "fr": "corps malformé, {{0}} inconnu, {{1}} absent"
   },
+  "81d8006e84d7b536": {
+    "en": "Which published document the {{0}} screen quotes: {{1}} (German DGE Referenzwerte), {{2}} (EU) or {{3}} (NASEM/IOM). One basis per instance, for every language, because a reference body follows where a person lives and not which language they read. The screen names the document it used under every amount. An unknown value stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "fr": "Définit le document de référence cité par l'écran {{0}} : {{1}} (DGE Referenzwerte allemande), {{2}} (UE) ou {{3}} (NASEM/IOM). Une seule base s'applique par instance, pour toutes les langues, car l'organisme de référence dépend du lieu de vie d'une personne et non de la langue qu'elle lit. L'écran indique le document utilisé sous chaque quantité. Une valeur inconnue bloque volontairement le démarrage."
+  },
   "8226a6aec642a9c5": {
     "en": "Nutzungsbedingungen §11",
     "model": "google/gemini-3.8-flash",
@@ -8098,6 +8104,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Niveau de journalisation de pino."
+  },
+  "ace6e912f81edae0": {
+    "en": "Nutrients",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "fr": "Nutriments"
   },
   "ad145a5c05373846": {
     "en": "unset (invites off)",
