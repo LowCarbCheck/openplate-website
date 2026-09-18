@@ -779,6 +779,12 @@
     "at": "2026-09-04",
     "de": "Entwicklungsgeschichte"
   },
+  "0ece8e5b79a07978": {
+    "en": "give an email address at {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "eine E-Mail-Adresse unter {{0}} angeben"
+  },
   "0ed87cdf0d395b14": {
     "en": "A client MUST read this document from the service and check it before its first sync of a session.",
     "model": "google/gemini-3.8-flash",
@@ -1127,6 +1133,12 @@
     "at": "2026-09-06",
     "de": "{{0}}: Die Einladung fehlt, ist fehlerhaft, gehört zu einem anderen Dienst, ist unbekannt, abgelaufen, widerrufen oder bereits eingelöst. Sieben Fälle, eine Antwort."
   },
+  "155d9e6f96c84369": {
+    "en": "what you do",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "was du tust"
+  },
   "1564de840af62286": {
     "en": "5.17 {{0}} — atomic DEK rotation (ADR-0002)",
     "model": "google/gemini-3.8-flash",
@@ -1234,6 +1246,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Managed Instances"
+  },
+  "1785cfc3bc6ac773": {
+    "en": "nothing",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "nichts"
   },
   "17b16ecaac054364": {
     "en": "This is a hard requirement. The pipeline makes a single vision call with {{0}} and trusts the shape that comes back. There is no parse-and-retry loop.",
@@ -1979,6 +1997,12 @@
     "at": "2026-09-04",
     "de": "{{0}}: Das 16-Byte-GCM-Authentifizierungstag wird an den Geheimtext angehängt (WebCrypto-Konvention)."
   },
+  "26464802ae004214": {
+    "en": "Optional key for the food database above. Unset is the free anonymous tier, which is rate limited and is enough to try openplate out. A free key with a generous monthly allowance takes an email address and one click at {{0}}. Read server side only and never sent to a browser, so it is safe in your environment file.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Optionaler Schlüssel für die obige Lebensmitteldatenbank. Nicht gesetzt entspricht der kostenlosen anonymen Stufe, die ratenbegrenzt ist und ausreicht, um openplate auszuprobieren. Einen kostenlosen Schlüssel mit einem großzügigen monatlichen Kontingent erhältst du mit einer E-Mail-Adresse und einem Klick auf {{0}}. Wird nur serverseitig gelesen und nie an einen Browser gesendet, liegt also sicher in deiner Umgebungsdatei."
+  },
   "2667af08a2bbab9c": {
     "en": "What an invitation grants is the trial.",
     "model": "google/gemini-3.8-flash",
@@ -2399,11 +2423,23 @@
     "at": "2026-09-04",
     "de": "Eine Begrenzung gab es schon vor dieser Variable: Nodes {{0}} setzt {{1}} standardmäßig auf 300 s, und da ein Non-Streaming-Completion-Aufruf seine Header erst nach Ende der Generierung schreibt, wirkt das wie ein Gesamtlimit von 300 s, das auf von diesem Projekt unterstützter Hardware durchaus erreichbar ist. Das explizite Setzen von {{2}} {{3}} diesen Standardwert."
   },
+  "2f183a4e64493af3": {
+    "en": "anonymous",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "anonym"
+  },
   "2f191788cfc4899f": {
     "en": "Upgrading from a pre-0.1.x image (one time)",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Aktualisierung von einem Image vor 0.1.x (einmalig)"
+  },
+  "2f2fc7f2e9ce13b0": {
+    "en": "ask",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "nachfragen"
   },
   "2f3cab17aa7498b6": {
     "en": "{{0}} Every one of these revokes {{1}} outstanding {{2}} and {{3}} tokens for the account:",
@@ -2567,6 +2603,12 @@
     "at": "2026-09-12",
     "de": "Keine Route gibt jemals einen Endpunkt oder einen Geräteschlüssel zurück, und die Routen protokollieren nur einen Pfad, eine Methode, einen Status und eine Byteanzahl: niemals die Konto-ID und niemals den Endpunkt, bei dem es sich um eine Capability handelt."
   },
+  "32aa636e4422c684": {
+    "en": "The food database key",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Der Schlüssel für die Lebensmitteldatenbank"
+  },
   "32b30692edfdd7da": {
     "en": "The diary leaves the device as ciphertext for the sync server, and the photo goes straight to an AI endpoint, never through the sync server.",
     "model": "google/gemini-3.8-flash",
@@ -2674,6 +2716,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}}, unter Verwendung seines eigenen Zugriffstokens. Dadurch befindet sich die Konsole in der App und nicht in einer Shell."
+  },
+  "3509fd899235fb8b": {
+    "en": "whether",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "ob"
   },
   "351301b72a94c02a": {
     "en": "The server never receives the DEK, either KEK, the passphrase, or the recovery code. It stores {{0}} blobs it has no key for. Decryption is not withheld by policy; it is unavailable.",
@@ -3286,6 +3334,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Fehlerhafte Konfiguration. Die Meldung nennt die Variable. Die Konfiguration wird beim Start geprüft: Ein Dienst, der ohne Modell-Laufzeitumgebung startet, beantwortet jeden Scan mit 502."
+  },
+  "419e646400866c20": {
+    "en": "The URL decides {{0}} this instance looks foods up at all. Set it to an empty string and no food name ever leaves your machine.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Die URL bestimmt, {{0}} diese Instanz Lebensmittel überhaupt nachschlägt. Setze sie auf eine leere Zeichenkette, und kein Lebensmittelname verlässt jemals deinen Rechner."
   },
   "41b17f2fb15f800d": {
     "en": "Off unless the operator set all three `VAPID_",
@@ -4499,6 +4553,12 @@
     "at": "2026-09-04",
     "de": "Die Lizenzbestimmungen für Modelle und Daten sind in {{0}} zusammengefasst."
   },
+  "55f4c783605b1e30": {
+    "en": "no monthly cap",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "keine monatliche Obergrenze"
+  },
   "55f970889ab50d01": {
     "en": "Throttled. {{0}} in seconds.",
     "model": "google/gemini-3.8-flash",
@@ -4576,6 +4636,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Nur vorhanden, wenn das Deployment {{0}} setzt."
+  },
+  "58cdcb646cada85c": {
+    "en": "An instance with no key keeps working. It is the anonymous tier, and for one person trying openplate out it is usually enough. A household, or anything that scans several plates a day, wants the free key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Eine Instanz ohne Schlüssel funktioniert weiterhin. Das ist die anonyme Stufe, und für eine Person, die openplate ausprobiert, reicht sie normalerweise aus. Ein Haushalt oder jede Nutzung, bei der täglich mehrere Teller gescannt werden, benötigt den kostenlosen Schlüssel."
   },
   "59122f7ec506d81c": {
     "en": "The model runtime is unreachable, failed, or does not enforce the JSON schema.",
@@ -4714,6 +4780,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-12",
     "de": "Der Community-Puls"
+  },
+  "5b58095e7a8718ef": {
+    "en": "a small daily allowance, shared per network address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "ein kleines tägliches Kontingent, geteilt pro Netzwerkadresse"
   },
   "5b6590608008b0bb": {
     "en": "ciphertext, no key sent",
@@ -4931,6 +5003,12 @@
     "at": "2026-09-04",
     "de": "0"
   },
+  "6002321b8f1c58ca": {
+    "en": "a generous monthly allowance",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "ein großzügiges monatliches Kontingent"
+  },
   "60036f077ecff0ae": {
     "en": "The server does not validate the pseudonym's shape",
     "model": "google/gemini-3.8-flash",
@@ -4966,6 +5044,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} ist {{1}} oder {{2}}, alles andere ist {{3}}."
+  },
+  "60cf5fea4c7e11e8": {
+    "en": "{{0}} and {{1}} are two different decisions and it helps to keep them apart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "{{0}} und {{1}} sind zwei verschiedene Entscheidungen, und es hilft, sie auseinanderzuhalten."
   },
   "61422199939158f4": {
     "en": "Authenticated with the account's ordinary {{0}} (§4.1). The body is an OpenAI-compatible chat-completion request and this specification does not constrain it further: the service checks only that it is a JSON object, because a stricter schema would reject every field the next provider adds. The response is the provider's, relayed with its status.",
@@ -5381,6 +5465,12 @@
     "at": "2026-09-04",
     "de": "Pseudonyme, die widerrufen haben, mit Zeitstempeln. Der Studien-Client muss diese bereinigen, bevor er Daten anzeigt oder exportiert."
   },
+  "66dd89f68d69f1be": {
+    "en": "lowcarbcheck.org/developers",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "lowcarbcheck.org/developers"
+  },
   "670ad348c65fd53f": {
     "en": "If you mirror the weights on your own storage, set {{0}} to a base URL holding those filenames; Hugging Face stays the fallback and checksums are enforced either way, so a mirror cannot hand you different weights.",
     "model": "google/gemini-3.8-flash",
@@ -5663,6 +5753,12 @@
     "at": "2026-09-04",
     "de": "Eine Instanz kann {{0}} setzen (siehe {{1}}). Das legt eines fest: {{2}} openplate-sync wickelt das ab, das bereits für den Sync vorhandene Konto enthält auch das Kontingent, sodass es keinen zweiten Verbindungsschritt und keine zweiten Anmeldedaten gibt."
   },
+  "6b6d33f066acb212": {
+    "en": "how much",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "wie viel"
+  },
   "6b86b273ff34fce1": {
     "en": "1",
     "model": "google/gemini-3.8-flash",
@@ -5896,6 +5992,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Endpunkte, Struktur von Anfragen und Antworten, Statuscodes, CORS"
+  },
+  "70300625abfe7001": {
+    "en": "what you get",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "was du bekommst"
   },
   "7030313f0d4d0fe6": {
     "en": "LFM Open License v1.0",
@@ -6610,6 +6712,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-08",
     "de": "meldet"
+  },
+  "7f3fa48ca8856781": {
+    "en": "partner",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Partner"
   },
   "7f423c4c6fb129c9": {
     "en": "{{0}} It is a sibling of {{1}}, not a parent and not a child: both are HKDF outputs over the same Argon2id hash under different {{2}} labels, so possession of one gives no information about the other. This is the whole reason the server can authenticate a user it cannot decrypt for. {{3}} is 32 bytes, base64 on the wire.",
@@ -9137,6 +9245,12 @@
     "at": "2026-09-04",
     "de": "Der gerätespezifische JSON-Export ist das entscheidende Backup"
   },
+  "ad95d5fa651ba86d": {
+    "en": "free",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "kostenlos"
+  },
   "ad9641a588fec83a": {
     "en": "that person",
     "model": "google/gemini-3.8-flash",
@@ -10619,6 +10733,12 @@
     "at": "2026-09-04",
     "de": "5.6 {{0}}, Versionsabgleich"
   },
+  "cb106e8f32857c6f": {
+    "en": "The lookup is fail-open either way: if the food database is unreachable, refused or out of allowance, a scan still completes and still shows numbers. Those numbers are then the AI's own estimate rather than a database figure, and the app says so on screen rather than letting the difference pass unnoticed.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Die Abfrage ist in jedem Fall fail-open: Ist die Lebensmitteldatenbank nicht erreichbar, wird die Anfrage abgelehnt oder ist das Kontingent erschöpft, wird ein Scan trotzdem abgeschlossen und zeigt weiterhin Zahlen an. Diese Zahlen sind dann die eigene Schätzung der KI statt eines Werts aus der Datenbank, und die App weist auf dem Bildschirm darauf hin, statt den Unterschied unbemerkt zu lassen."
+  },
   "cb1809563921e25f": {
     "en": "5.19 {{0}} — the AI proxy",
     "model": "google/gemini-3.8-flash",
@@ -11501,6 +11621,12 @@
     "at": "2026-09-04",
     "de": "Dafür gibt es ebenfalls Schlüssel pro Person, wenn auch gröbere. {{0}} auf dem Inferenz-Container ist eine {{1}} akzeptierter Bearer-Schlüssel:"
   },
+  "da32ae6ba62b520d": {
+    "en": "The key decides {{0}} you may look up. There are three tiers:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Der Schlüssel bestimmt, {{0}} du nachschlagen darfst. Es gibt drei Stufen:"
+  },
   "da39bbc0e420f010": {
     "en": "Refuse a suspended account at login, at refresh and on every bearer route, with {{0}} — that exact string.",
     "model": "google/gemini-3.8-flash",
@@ -11806,6 +11932,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "{{0}} ein Tagebuch über deine Geräte hinweg. Am ehrlichsten lässt sich das als {{1}} beschreiben: ein Telefon und ein Laptop, die denselben Stand behalten. Familien sind der {{2}} Einsatzzweck, und ein schwächerer: Die Synchronisierung erfolgt pro Konto, zwei Personen mit einem gemeinsamen Konto teilen sich also ein Tagebuch, statt jeweils ein eigenes zu erhalten. Zwei Personen, die getrennte Tagebücher wollen, brauchen zwei Konten, oder einfach zwei Stufe-1-Geräte ganz ohne Synchronisierung."
+  },
+  "e29ccc00b2e54f1d": {
+    "en": "tier",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "de": "Stufe"
   },
   "e2d65334cffc7a14": {
     "en": "What it counts",

@@ -671,6 +671,12 @@
     "at": "2026-09-14",
     "tr": "Geçmiş"
   },
+  "0ece8e5b79a07978": {
+    "en": "give an email address at {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "{{0}} adresinde bir e-posta adresi ver"
+  },
   "0ed87cdf0d395b14": {
     "en": "A client MUST read this document from the service and check it before its first sync of a session.",
     "model": "google/gemini-3.8-flash",
@@ -995,6 +1001,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}: davet eksik, bozuk, başka bir hizmete ait, bilinmiyor, süresi dolmuş, iptal edilmiş veya zaten kullanılmış. Yedisi de tek bir yanıt."
   },
+  "155d9e6f96c84369": {
+    "en": "what you do",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "ne yaparsın"
+  },
   "15764563142b0eaf": {
     "en": "{{0}}, not an optimization: pull {{1}}, decrypt it, merge it with local state (§3.3), re-encrypt with the AAD bound to the {{2}} {{3}}, and push again with {{4}}. A client that treats {{5}} as a fatal error will strand the user's device permanently out of sync.",
     "model": "google/gemini-3.8-flash",
@@ -1084,6 +1096,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Yönetilen örnekler"
+  },
+  "1785cfc3bc6ac773": {
+    "en": "nothing",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "hiçbir şey"
   },
   "17b16ecaac054364": {
     "en": "This is a hard requirement. The pipeline makes a single vision call with {{0}} and trusts the shape that comes back. There is no parse-and-retry loop.",
@@ -1733,6 +1751,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}: 16 baytlık GCM kimlik doğrulama etiketi şifreli metne eklenir (WebCrypto kuralı)."
   },
+  "26464802ae004214": {
+    "en": "Optional key for the food database above. Unset is the free anonymous tier, which is rate limited and is enough to try openplate out. A free key with a generous monthly allowance takes an email address and one click at {{0}}. Read server side only and never sent to a browser, so it is safe in your environment file.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Yukarıdaki gıda veritabanı için isteğe bağlı anahtar. Ayarlanmadığında, istek sınırına tabi olan ve openplate'i denemek için yeterli gelen ücretsiz anonim katman kullanılır. Cömert bir aylık kota sunan ücretsiz bir anahtar almak için {{0}} adresinde bir e-posta adresi ve tek bir tıklama yeterlidir. Yalnızca sunucu tarafında okunur ve asla bir tarayıcıya gönderilmez, bu nedenle ortam dosyasında bulunması güvenlidir."
+  },
   "2667af08a2bbab9c": {
     "en": "What an invitation grants is the trial.",
     "model": "google/gemini-3.8-flash",
@@ -2093,11 +2117,23 @@
     "at": "2026-09-14",
     "tr": "6,8 sn / tabak"
   },
+  "2f183a4e64493af3": {
+    "en": "anonymous",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "anonim"
+  },
   "2f191788cfc4899f": {
     "en": "Upgrading from a pre-0.1.x image (one time)",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "0.1.x öncesi bir imajdan yükseltme (tek seferlik)"
+  },
+  "2f2fc7f2e9ce13b0": {
+    "en": "ask",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "talep et"
   },
   "2f3cab17aa7498b6": {
     "en": "{{0}} Every one of these revokes {{1}} outstanding {{2}} and {{3}} tokens for the account:",
@@ -2237,6 +2273,12 @@
     "at": "2026-09-14",
     "tr": "Hiçbir rota asla bir uç nokta veya bir cihaz anahtarı döndürmez ve rotalar yalnızca bir yol, bir yöntem, bir durum ve bir bayt sayısı günlüğe kaydeder: Bir yetenek olan uç noktayı asla ve hesap kimliğini asla günlüğe kaydetmez."
   },
+  "32aa636e4422c684": {
+    "en": "The food database key",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Gıda veritabanı anahtarı"
+  },
   "32ccc17521e06c27": {
     "en": "Hardware honesty.",
     "model": "google/gemini-3.8-flash",
@@ -2332,6 +2374,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kendi erişim belirtecini kullanan {{0}}. Konsolu bir kabuk yerine uygulamanın içine yerleştiren şey budur."
+  },
+  "3509fd899235fb8b": {
+    "en": "whether",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "aramayacağını"
   },
   "351301b72a94c02a": {
     "en": "The server never receives the DEK, either KEK, the passphrase, or the recovery code. It stores {{0}} blobs it has no key for. Decryption is not withheld by policy; it is unavailable.",
@@ -2872,6 +2920,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Hatalı yapılandırma. Mesaj değişkenin adını verir. Yapılandırma önyükleme sırasında doğrulanır: bir model çalışma zamanı olmadan başlayan bir servis her taramaya 502 ile yanıt verir."
+  },
+  "419e646400866c20": {
+    "en": "The URL decides {{0}} this instance looks foods up at all. Set it to an empty string and no food name ever leaves your machine.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "URL, bu örneğin gıdaları arayıp {{0}} belirler. Boş bir dize olarak ayarlarsan hiçbir gıda adı makinenin dışına çıkmaz."
   },
   "41b17f2fb15f800d": {
     "en": "Off unless the operator set all three `VAPID_",
@@ -3941,6 +3995,12 @@
     "at": "2026-09-14",
     "tr": "Model ve veri lisansı koşulları {{0}} içinde toplanmıştır."
   },
+  "55f4c783605b1e30": {
+    "en": "no monthly cap",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "aylık sınır yok"
+  },
   "55f970889ab50d01": {
     "en": "Throttled. {{0}} in seconds.",
     "model": "google/gemini-3.8-flash",
@@ -4012,6 +4072,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Yalnızca dağıtım {{0}} değerini ayarladığında mevcuttur."
+  },
+  "58cdcb646cada85c": {
+    "en": "An instance with no key keeps working. It is the anonymous tier, and for one person trying openplate out it is usually enough. A household, or anything that scans several plates a day, wants the free key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Anahtarı olmayan bir örnek çalışmaya devam eder. Bu anonim katmandır ve openplate'i deneyen tek bir kişi için genellikle yeterlidir. Bir ev halkı veya günde birkaç tabak tarayan herhangi biri ücretsiz anahtarı tercih eder."
   },
   "59122f7ec506d81c": {
     "en": "The model runtime is unreachable, failed, or does not enforce the JSON schema.",
@@ -4126,6 +4192,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Topluluk nabzı"
+  },
+  "5b58095e7a8718ef": {
+    "en": "a small daily allowance, shared per network address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "ağ adresi başına paylaşılan küçük bir günlük kota"
   },
   "5bda8302b5ecf4d3": {
     "en": "Recovery code",
@@ -4295,6 +4367,12 @@
     "at": "2026-09-14",
     "tr": "0"
   },
+  "6002321b8f1c58ca": {
+    "en": "a generous monthly allowance",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "cömert bir aylık kota"
+  },
   "60036f077ecff0ae": {
     "en": "The server does not validate the pseudonym's shape",
     "model": "google/gemini-3.8-flash",
@@ -4330,6 +4408,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}}, {{1}} veya {{2}} değeridir, bunun dışındaki her şey {{3}} olur."
+  },
+  "60cf5fea4c7e11e8": {
+    "en": "{{0}} and {{1}} are two different decisions and it helps to keep them apart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "{{0}} ve {{1}} iki farklı karardır ve bunları ayrı tutmak işe yarar."
   },
   "61422199939158f4": {
     "en": "Authenticated with the account's ordinary {{0}} (§4.1). The body is an OpenAI-compatible chat-completion request and this specification does not constrain it further: the service checks only that it is a JSON object, because a stricter schema would reject every field the next provider adds. The response is the provider's, relayed with its status.",
@@ -4709,6 +4793,12 @@
     "at": "2026-09-14",
     "tr": "Zaman damgalarıyla birlikte çekilen takma adlar. Araştırma istemcisi herhangi bir şeyi sunmadan veya dışa aktarmadan önce bunları temizlemelidir."
   },
+  "66dd89f68d69f1be": {
+    "en": "lowcarbcheck.org/developers",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "lowcarbcheck.org/developers"
+  },
   "670ad348c65fd53f": {
     "en": "If you mirror the weights on your own storage, set {{0}} to a base URL holding those filenames; Hugging Face stays the fallback and checksums are enforced either way, so a mirror cannot hand you different weights.",
     "model": "google/gemini-3.8-flash",
@@ -4955,6 +5045,12 @@
     "at": "2026-09-14",
     "tr": "Bilinmeyen bir kimlik, diğer tüm hesap yollarıyla aynı {{0}} sonucunu verir ve tüm ağaç yukarıdaki kimlik bilgilerinin arkasındadır."
   },
+  "6b6d33f066acb212": {
+    "en": "how much",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "ne kadar"
+  },
   "6b86b273ff34fce1": {
     "en": "1",
     "model": "google/gemini-3.8-flash",
@@ -5176,6 +5272,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Uç noktalar, istek ve yanıt yapısı, durum kodları, CORS"
+  },
+  "70300625abfe7001": {
+    "en": "what you get",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "ne alırsın"
   },
   "7030313f0d4d0fe6": {
     "en": "LFM Open License v1.0",
@@ -5782,6 +5884,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "bildirir"
+  },
+  "7f3fa48ca8856781": {
+    "en": "partner",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "iş ortağı"
   },
   "7f423c4c6fb129c9": {
     "en": "{{0}} It is a sibling of {{1}}, not a parent and not a child: both are HKDF outputs over the same Argon2id hash under different {{2}} labels, so possession of one gives no information about the other. This is the whole reason the server can authenticate a user it cannot decrypt for. {{3}} is 32 bytes, base64 on the wire.",
@@ -7961,6 +8069,12 @@
     "at": "2026-09-14",
     "tr": "Asıl önemli yedek cihaz başına alınan JSON dışa aktarımıdır"
   },
+  "ad95d5fa651ba86d": {
+    "en": "free",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "ücretsiz"
+  },
   "ad9641a588fec83a": {
     "en": "that person",
     "model": "google/gemini-3.8-flash",
@@ -9227,6 +9341,12 @@
     "at": "2026-09-14",
     "tr": "RAM (ölçülen RSS):"
   },
+  "cb106e8f32857c6f": {
+    "en": "The lookup is fail-open either way: if the food database is unreachable, refused or out of allowance, a scan still completes and still shows numbers. Those numbers are then the AI's own estimate rather than a database figure, and the app says so on screen rather than letting the difference pass unnoticed.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Arama her iki durumda da hata durumunda açık kalacak şekilde (fail-open) çalışır: Gıda veritabanına ulaşılamazsa, istek reddedilirse veya kota biterse, tarama yine de tamamlanır ve sayıları göstermeyi sürdürür. Bu sayılar veritabanı değeri yerine yapay zekanın kendi tahmini olur ve uygulama, farkın fark edilmeden geçip gitmesine izin vermek yerine bunu ekranda belirtir."
+  },
   "cb4454d8ce890c49": {
     "en": "The escrow is over the CODE, not over {{0}} and not over the DEK. Nothing on the server derives a KEK, unwraps a DEK, or holds one; the code becomes a key only after a client runs HKDF over it. That buys no secrecy from the operator, who can run HKDF too; it buys a server whose code path contains no decryption of user data, which is what makes the claim checkable rather than promised.",
     "model": "google/gemini-3.8-flash",
@@ -9971,6 +10091,12 @@
     "at": "2026-09-14",
     "tr": "Daha kaba olsa da kişi başı anahtarları bu yöntemin de vardır. Çıkarım konteynerindeki {{0}}, kabul edilen taşıyıcı anahtarların {{1}} biçimidir:"
   },
+  "da32ae6ba62b520d": {
+    "en": "The key decides {{0}} you may look up. There are three tiers:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "Anahtar, {{0}} arama yapabileceğini belirler. Üç katman bulunur:"
+  },
   "da43680da57da7ea": {
     "en": "Nothing. No database, no secrets, no state.",
     "model": "google/gemini-3.8-flash",
@@ -10234,6 +10360,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Tek bir günlüğü cihazların arasında {{0}}. Bunu dürüstçe anlatmanın yolu şudur: birbiriyle uyumlu kalan bir telefon ve bir dizüstü bilgisayar, yani {{1}}. Aileler {{2}} kullanım senaryosudur ve daha zayıf kalır: eşitleme hesap bazındadır, bu yüzden aynı hesabı paylaşan iki kişi ayrı birer günlük almak yerine tek bir günlüğü paylaşır. Ayrı günlükler isteyen iki kişinin iki hesaba ya da doğrudan basamak 1 düzeyinde iki cihaza ihtiyacı vardır, eşitlemeye hiç gerek kalmaz."
+  },
+  "e29ccc00b2e54f1d": {
+    "en": "tier",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-18",
+    "tr": "katman"
   },
   "e2d65334cffc7a14": {
     "en": "What it counts",
