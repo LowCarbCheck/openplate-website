@@ -426,7 +426,21 @@ export function translateIndex(index: DocsIndex, memory: Map<string, string>): D
 }
 
 /**
- * One diagram's fence in the reader's language, or `null` when it must stay English.
+ * What became of one diagram's fence in one language.
+ *
+ * ── A UNION, BECAUSE `null` USED TO MEAN TWO DIFFERENT THINGS ──
+ * This function used to return `string | null`, and `null` stood for both "a
+ * label has not been bought yet", which is a real gap, and "this fence has no
+ * quoted label at all", which is not a gap and never will be. `sync-docs.ts`
+ * counted every `null` the same way, so a run that had bought every real label
+ * still printed "1 of 9 diagrams have no de labels yet, drawn in English" for
+ * the one diagram, PROTOCOL.md's sequence diagram, whose mermaid source is
+ * participants and arrows and carries no quoted string to buy. Nobody can buy a
+ * label that is not there, so counting that diagram as a gap sent two people
+ * looking for a translation that could never exist. A three-way union closes
+ * that hole the way `null` could not: a caller has to name `nothing-to-translate`
+ * as its own case, or TypeScript says so, where it could read a `null` and
+ * assume the only meaning it already knew about.
  *
  * ── WHY THE FENCE IS TRANSLATED AT ALL, HAVING SAID IT NEVER WOULD BE ──
  * The rule this module opens with stands: a translator is handed text and never
@@ -445,7 +459,9 @@ export function translateIndex(index: DocsIndex, memory: Map<string, string>): D
  * way. Half of its boxes in German and half in English reads as a bug in the
  * software, where a wholly English drawing reads as a diagram nobody has got to
  * yet. So one missing label sends the whole fence back to English, which is
- * what returning `null` means here.
+ * what `{ kind: 'missing' }` means here. It carries the FIRST label that had no
+ * translation, not every one, because the sync reports diagrams, not labels,
+ * and the one name is what an operator needs to go and buy it.
  *
  * ── AND IT IS ONLY EVER CALLED AT SYNC TIME ──
  * `sync-docs.ts` calls this once per diagram per language and draws the answer
@@ -454,13 +470,20 @@ export function translateIndex(index: DocsIndex, memory: Map<string, string>): D
  * it is the one running the sync, and a label carrying a quote character would
  * otherwise end the mermaid string early and ship a broken picture.
  */
-export function translateDiagram(source: string, memory: Map<string, string>): string | null {
-  if (memory.size === 0) return null;
+export type DiagramTranslation =
+  { kind: 'translated'; source: string } | { kind: 'nothing-to-translate' } | { kind: 'missing'; label: string };
 
-  const labels = new Map<string, string>();
-  for (const label of diagramLabels(source)) {
+export function translateDiagram(source: string, memory: Map<string, string>): DiagramTranslation {
+  const labels = diagramLabels(source);
+  // A fence with no quoted label, checked BEFORE the memory is consulted at all: a diagram like
+  // this has nothing to buy no matter how empty or how complete the memory is, so it can never
+  // be the "missing" case below and must not be read as one.
+  if (labels.length === 0) return { kind: 'nothing-to-translate' };
+
+  const translated = new Map<string, string>();
+  for (const label of labels) {
     const target = memory.get(hash(label));
-    if (target === undefined) return null;
+    if (target === undefined) return { kind: 'missing', label };
     // A QUOTE OR A LINE BREAK IS NOT A TRANSLATION, it is the end of the label
     // and the start of whatever mermaid makes of the rest of the line. The
     // model has never returned one; if it ever does, the sync says so with the
@@ -470,11 +493,10 @@ export function translateDiagram(source: string, memory: Map<string, string>): s
         `docs-i18n: the translation of "${label}" carries a quote or a line break, which would end the label early: ${target}`,
       );
     }
-    labels.set(label, target);
+    translated.set(label, target);
   }
-  if (labels.size === 0) return null;
 
-  return withDiagramLabels(source, labels);
+  return { kind: 'translated', source: withDiagramLabels(source, translated) };
 }
 
 /**

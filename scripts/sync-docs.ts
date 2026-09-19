@@ -48,7 +48,7 @@ import { fileURLToPath } from 'node:url';
 
 import { docRoute } from '../app/lib/doc-routes';
 import { SOURCE_LANGUAGE, SUPPORTED_LANGUAGES, type LanguageCode } from '../app/i18n/language';
-import { translateDiagram, translationsFor } from '../app/lib/docs-i18n.server';
+import { type DiagramTranslation, translateDiagram, translationsFor } from '../app/lib/docs-i18n.server';
 import type {
   Block,
   ComponentDocs,
@@ -571,6 +571,12 @@ function describeAddress(from: SectionSource): string {
  * stops on a fence that will not parse leaves the tree exactly as it found it rather than deleting
  * the old copy of the diagram the author was in the middle of editing.
  */
+/** One language's running count of diagrams with a genuinely unbought label, and the first one seen. */
+interface GapReport {
+  count: number;
+  firstMissingLabel: string;
+}
+
 /**
  * One drawing per diagram per language, with the labels of the fence translated.
  *
@@ -582,40 +588,56 @@ function describeAddress(from: SectionSource): string {
  * same quotes. Nothing else in the fence moves, so the drawing is the same drawing.
  *
  * ── A DIAGRAM WITH NO GERMAN IS DRAWN IN ENGLISH, NOT LEFT OUT ──
- * `translateDiagram` returns `null` for a fence whose labels are not all bought yet, and every
- * language then falls back to the English source. That is what makes the ordering of the two
- * scripts a non-issue: sync, translate, sync again is the sequence, and the first sync of a new
- * diagram simply draws the English twice. The stamp on each file carries a hash of the words in
- * it, so the second sync notices that the German copy is out of date and redraws only that one.
+ * `translateDiagram` answers `{ kind: 'missing' }` for a fence whose labels are not all bought
+ * yet, and every language then falls back to the English source. That is what makes the ordering
+ * of the two scripts a non-issue: sync, translate, sync again is the sequence, and the first sync
+ * of a new diagram simply draws the English twice. The stamp on each file carries a hash of the
+ * words in it, so the second sync notices that the German copy is out of date and redraws only
+ * that one.
+ *
+ * ── AND A DIAGRAM WITH NO LABELS AT ALL IS NOT COUNTED AS ONE OF THESE ──
+ * `translateDiagram` answers `{ kind: 'nothing-to-translate' }` for a fence with no quoted label,
+ * a sequence diagram's participants and arrows being the example on this site, and that answer is
+ * excluded from the report below on purpose. It is not a diagram missing German; it is a diagram
+ * with nothing in it to buy, in German or in any language, ever. Counting it as a gap is what
+ * used to make this script print "1 of 9 diagrams have no de labels yet" on a tree where every
+ * real label was already bought.
  */
 function localise(jobs: DiagramJob[]): DiagramJob[] {
   const memories = new Map(SUPPORTED_LANGUAGES.map((language) => [language, translationsFor(language)] as const));
-  const english = new Map<LanguageCode, number>();
+  const gaps = new Map<LanguageCode, GapReport>();
 
   const localised = jobs.flatMap((job) =>
     SUPPORTED_LANGUAGES.map((language) => {
       const memory = required(memories.get(language), `the ${language} translation memory`);
       // The one throw this walk catches. An unusable translation is an operator's problem and it
       // reads as one sentence, not as a stack through three frames of a module they did not open.
-      let translated: string | null;
+      let result: DiagramTranslation;
       try {
-        translated = translateDiagram(job.source, memory);
+        result = translateDiagram(job.source, memory);
       } catch (error) {
         return fail(`${job.where}: ${error instanceof Error ? error.message : String(error)}`);
       }
-      if (translated === null) english.set(language, (english.get(language) ?? 0) + 1);
+      // A diagram with nothing to translate never touches `gaps`: it is not a language falling
+      // behind, and there is no label it could ever buy to catch up.
+      if (result.kind === 'missing') {
+        const seen = gaps.get(language);
+        gaps.set(language, { count: (seen?.count ?? 0) + 1, firstMissingLabel: seen?.firstMissingLabel ?? result.label });
+      }
       return {
         id: `${job.id}-${language}`,
-        source: translated ?? job.source,
+        source: result.kind === 'translated' ? result.source : job.source,
         where: `${job.where} (${language})`,
       };
     }),
   );
 
   for (const language of SUPPORTED_LANGUAGES) {
-    const untranslated = english.get(language) ?? 0;
-    if (language === SOURCE_LANGUAGE || untranslated === 0) continue;
-    console.log(`sync-docs: ${untranslated} of ${jobs.length} diagrams have no ${language} labels yet, drawn in English.`);
+    const report = gaps.get(language);
+    if (language === SOURCE_LANGUAGE || report === undefined) continue;
+    console.log(
+      `sync-docs: ${report.count} of ${jobs.length} diagrams have no ${language} labels yet, drawn in English (starting with "${report.firstMissingLabel}").`,
+    );
   }
   return localised;
 }

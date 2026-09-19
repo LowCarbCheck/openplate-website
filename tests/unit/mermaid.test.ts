@@ -386,19 +386,28 @@ describe('the labels, lifted out of a fence and put back', () => {
     assert.ok(german.includes('-->|"ciphertext"|'), 'a label with no translation keeps its English');
   });
 
-  it('renders the whole fence in English when one label is missing', () => {
+  it('reports a missing label by name when one label is missing', () => {
     // PER DIAGRAM, NOT PER LABEL. Half a drawing in German reads as a bug in the
     // software; a whole one in English reads as a diagram nobody has got to yet.
+    // Naming the label is the one thing an operator reading the sync's report needs next.
     const nearly = new Map([
       [hash('Your device'), 'Dein Gerät'],
       [hash('ciphertext'), 'Geheimtext'],
       [hash('openplate-core'), 'openplate-core'],
     ]);
-    assert.equal(translateDiagram(SOURCE, nearly), null, 'Postgres was never bought');
+    assert.deepEqual(translateDiagram(SOURCE, nearly), { kind: 'missing', label: 'Postgres' });
+  });
 
-    const whole = new Map([...nearly, [hash('Postgres'), 'Postgres']]);
-    const german = translateDiagram(SOURCE, whole);
-    assert.ok(german !== null && german.includes('Dein Gerät') && german.includes('Geheimtext'));
+  it('translates the whole fence once every label is bought', () => {
+    const whole = new Map([
+      [hash('Your device'), 'Dein Gerät'],
+      [hash('ciphertext'), 'Geheimtext'],
+      [hash('openplate-core'), 'openplate-core'],
+      [hash('Postgres'), 'Postgres'],
+    ]);
+    const result = translateDiagram(SOURCE, whole);
+    assert.equal(result.kind, 'translated');
+    assert.ok(result.kind === 'translated' && result.source.includes('Dein Gerät') && result.source.includes('Geheimtext'));
   });
 
   it('refuses a translation that would end the label early', () => {
@@ -408,9 +417,15 @@ describe('the labels, lifted out of a fence and put back', () => {
     );
   });
 
-  it('leaves a fence that quotes nothing in English', () => {
+  it('calls a fence that quotes nothing "nothing to translate", not "missing"', () => {
+    // THE CONTROL FOR THIS TEST IS THE DEFECT ITSELF: before this change, a diagram with no
+    // quoted label answered the same `null` as a diagram with a genuinely unbought label, and
+    // the sync counted it as a gap forever. `kind` has to read 'nothing-to-translate', and
+    // specifically NOT 'missing', or the false report this fixes is back.
     const source = 'sequenceDiagram\n    C->>S: GET /health';
     assert.deepEqual(diagramLabels(source), []);
-    assert.equal(translateDiagram(source, new Map([[hash('GET /health'), 'nein']])), null);
+    assert.deepEqual(translateDiagram(source, new Map([[hash('GET /health'), 'nein']])), {
+      kind: 'nothing-to-translate',
+    });
   });
 });
