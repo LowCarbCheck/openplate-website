@@ -9,9 +9,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "v0.34.1",
+      "ref": "main",
       "editRef": "main",
-      "sha": "77b702d2c5b6ea82c77e14dfb02d08c55db25b53",
+      "sha": "544dc77825e59047a9f9e7c317e10682d534519b",
       "committedAt": "2026-09-19"
     },
     "lead": [
@@ -51,7 +51,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
+            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no required secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
           }
         ]
       }
@@ -167,10 +167,10 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "core",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-core",
-      "ref": "v0.17.0",
+      "ref": "main",
       "editRef": "main",
-      "sha": "3b0046ff88a7289f63e2b668fe6d10129ad87e6e",
-      "committedAt": "2026-09-18"
+      "sha": "2a28276c38fff0e292008f9facf1fb8c870ca58f",
+      "committedAt": "2026-09-19"
     },
     "lead": [
       {
@@ -241,7 +241,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -257,13 +257,13 @@ export const DOCS_INDEX: DocsIndex = {
             "spans": [
               {
                 "kind": "text",
-                "text": "And four places the zero-knowledge claim does not hold."
+                "text": "And five places the zero-knowledge claim does not hold."
               }
             ]
           },
           {
             "kind": "text",
-            "text": " All four are optional, all four are off until somebody turns them on, and they are not the same kind of thing."
+            "text": " All five are optional, all five are off until somebody turns them on, and they are not the same kind of thing."
           }
         ]
       },
@@ -284,11 +284,19 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "code",
+            "text": "UPSTREAM_BASE_URL"
+          },
+          {
+            "kind": "text",
+            "text": " and "
+          },
+          {
+            "kind": "code",
             "text": "UPSTREAM_API_KEY"
           },
           {
             "kind": "text",
-            "text": " unset and the route does not exist."
+            "text": " unset, and the route does not exist."
           }
         ]
       },
@@ -315,7 +323,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -370,7 +378,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0007"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/adr/0007-the-pulse-is-a-named-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/adr/0007-the-pulse-is-a-named-exception.md"
           },
           {
             "kind": "text",
@@ -449,7 +457,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0008"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/adr/0008-push-is-a-scheduling-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/adr/0008-push-is-a-scheduling-exception.md"
           },
           {
             "kind": "text",
@@ -477,11 +485,90 @@ export const DOCS_INDEX: DocsIndex = {
         "kind": "paragraph",
         "spans": [
           {
+            "kind": "text",
+            "text": "The fifth is the plans pass-through. With "
+          },
+          {
+            "kind": "code",
+            "text": "PLANS_UPSTREAM_URL"
+          },
+          {
+            "kind": "text",
+            "text": " and "
+          },
+          {
+            "kind": "code",
+            "text": "PLANS_UPSTREAM_SECRET"
+          },
+          {
+            "kind": "text",
+            "text": " both set, a signed-in request to "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/plans/*"
+          },
+          {
+            "kind": "text",
+            "text": " goes on to the one plans service the operator configured. This service tells that plans service who is asking. Every forwarded request carries "
+          },
+          {
+            "kind": "code",
+            "text": "X-Account-Id"
+          },
+          {
+            "kind": "text",
+            "text": ", "
+          },
+          {
+            "kind": "code",
+            "text": "X-Account-Email"
+          },
+          {
+            "kind": "text",
+            "text": " read from the account row, and "
+          },
+          {
+            "kind": "code",
+            "text": "X-Plans-Secret"
+          },
+          {
+            "kind": "text",
+            "text": ". All three are built here, and none are copied from the request. The caller's own token is never forwarded. An address stored here is sent, on every call, to a second service. Leave both variables unset, and the whole "
+          },
+          {
+            "kind": "code",
+            "text": "/v1/plans"
+          },
+          {
+            "kind": "text",
+            "text": " subtree answers the ordinary unknown-path 404. "
+          },
+          {
+            "kind": "link",
+            "spans": [
+              {
+                "kind": "text",
+                "text": "Paid plans"
+              }
+            ],
+            "href": "#paid-plans-and-what-the-plans-service-can-reach"
+          },
+          {
+            "kind": "text",
+            "text": " has the details."
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "spans": [
+          {
             "kind": "strong",
             "spans": [
               {
                 "kind": "text",
-                "text": "One opinion about a blob, and it is not a fifth hole."
+                "text": "One opinion about a blob, and it is not a sixth hole."
               }
             ]
           },
@@ -505,7 +592,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "docs/operations/restoring-a-wiped-diary.md"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/operations/restoring-a-wiped-diary.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/operations/restoring-a-wiped-diary.md"
           },
           {
             "kind": "text",
@@ -519,7 +606,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0009"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/docs/adr/0009-a-shrinking-blob-is-acknowledged-or-refused.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/docs/adr/0009-a-shrinking-blob-is-acknowledged-or-refused.md"
           },
           {
             "kind": "text",
@@ -609,7 +696,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/3b0046ff88a7289f63e2b668fe6d10129ad87e6e/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/2a28276c38fff0e292008f9facf1fb8c870ca58f/LICENSE"
           },
           {
             "kind": "text",
