@@ -389,6 +389,12 @@
     "at": "2026-09-14",
     "it": "non impostato (analisi disattivata)"
   },
+  "075f058c2346fdc6": {
+    "en": "{{0}} Without it the path answers the ordinary unknown-path {{1}} to everybody, credentialed or not, and {{2}} carries no {{3}} (§5.6). A client MUST read {{4}} before it offers a report. It MUST state the retention window that field advertises and no other.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Senza di esso, il percorso risponde con il consueto errore di percorso sconosciuto {{1}} a chiunque, con o senza credenziali, e {{2}} non include {{3}} (§5.6). Un client DEVE leggere {{4}} prima di proporre una segnalazione. DEVE indicare la finestra di conservazione dichiarata da quel campo e nessun'altra."
+  },
   "078e10d72d2ae19f": {
     "en": "{{0}} (a hyphen) is a separate, Python-based reimplementation of the Compose spec. It runs on its own, with no Docker involved, and it supports less of the spec: notably, its support for {{1}} is weaker, and it names networks differently by default.",
     "model": "google/gemini-3.8-flash",
@@ -467,6 +473,12 @@
     "at": "2026-09-14",
     "it": "stesso"
   },
+  "09a5877b9d092003": {
+    "en": "{{0}} Nothing here is derived from a diary: no code path on the server decrypts one. Every number below arrives as a small delta from a device whose owner asked for it, and {{1}} states exactly what leaves the device and why.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Nessun dato qui deriva da un diario: nessun percorso di codice sul server ne decifra uno. Ciascun numero sottostante arriva come una piccola differenza da un dispositivo il cui proprietario ne ha fatto richiesta, e {{1}} specifica esattamente cosa lascia il dispositivo e per quale motivo."
+  },
   "09a6535cd8ddf966": {
     "en": "include roughly 0.35 to 0.6 s of network and proxy round trip",
     "model": "google/gemini-3.8-flash",
@@ -496,6 +508,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}}, compresi i campi consentiti adiacenti. Uno scarto silenzioso farebbe sembrare riuscita un'operazione viziata da un difetto nel servizio di fatturazione."
+  },
+  "0a158ab04e10b464": {
+    "en": "Deletes the photograph, then the report. {{0}}, or {{1}} for an unknown id",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Elimina la fotografia, poi la segnalazione. {{0}}, oppure {{1}} se l'identificativo è sconosciuto"
   },
   "0a35f99d3f6e27dd": {
     "en": "{{0}} An openplate client uses exactly one of these endpoints, and only when the signed-in account is an admin: the console the app renders at {{1}}. An alternative client may ignore this section entirely.",
@@ -617,6 +635,12 @@
     "at": "2026-09-14",
     "it": "Metti a disposizione della famiglia la tua macchina {{0}}, priva di qualsiasi dashboard del provider; un'istanza gestita aggiunge la quota a persona e il monitoraggio dei consumi assenti nella allowlist {{1}} descritta sotto."
   },
+  "0d3d47fffef612d7": {
+    "en": "Present only when the operator set {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Presente solo se chi gestisce l'istanza ha impostato {{0}}."
+  },
   "0d3f0401cf94c80a": {
     "en": "What is never counted, at any level",
     "model": "google/gemini-3.8-flash",
@@ -730,6 +754,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "predefinito con limite di fatturato"
+  },
+  "0f132dfcd0df4f00": {
+    "en": "5.25 {{0}}: a reported estimate (ADR-0006)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "5.25 {{0}}: una stima segnalata (ADR-0006)"
   },
   "0f2a6deff4c46ad0": {
     "en": "The app plus self-hosted inference.",
@@ -1061,11 +1091,23 @@
     "at": "2026-09-14",
     "it": "{{0}}, non un'ottimizzazione: scarica {{1}}, decifralo, uniscilo allo stato locale (§3.3), cifra nuovamente con l'AAD associato a {{2}} {{3}} e invia di nuovo con un push specificando {{4}}. Un client che tratta {{5}} come un errore irreversibile lascerà il dispositivo dell'utente costantemente non sincronizzato."
   },
+  "158577294e8e1d1c": {
+    "en": "Not knowable from the metadata above: what was eaten, when, how much, or anything else inside the payload. Two entries above do give it away. The sealed recovery code opens the whole diary to whoever also holds {{0}}, and a reported estimate shows the one entry it carries.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Elementi che non si possono dedurre dai metadati sopra indicati: cosa si è mangiato, quando, quanto, o qualsiasi altra informazione all'interno del payload. Due delle voci precedenti, tuttavia, rivelano questi dati. Il codice di recupero sigillato consente l'accesso all'intero diario a chiunque possieda anche {{0}}, e una stima segnalata mostra la specifica voce che contiene."
+  },
   "15af50a07d8a6785": {
     "en": "Laptop",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Portatile"
+  },
+  "15d11de7ecf5f7d0": {
+    "en": "Without {{0}}, {{1}} runs on LowCarbCheck's anonymous tier: 1,000 credits per UTC day, shared by all requests from your IP address. A search costs 1 credit. A scan issues up to 3 search queries per identified item, set by the refinement cap in {{2}}, across up to 8 items. This makes the worst case 24 credits per scan. The pipeline never calls the per-food endpoint, so that covers the entire cost. That worst case permits about 41 scans a day. Most days permit more, because a search stops as soon as one query clears the accept threshold. When the tier runs out, every remaining item resolves to null macros until the next UTC day, and the scan still returns 200. A free key from {{3}} raises the allowance to 100,000 credits a month at up to 120 requests a minute. This allowance belongs to the key rather than your IP address. Set it as {{4}}. The service sends it as a bearer token to {{5}} and nowhere else, and never logs it. A key LowCarbCheck rejects fails the same way an empty allowance does: null macros and a 200. {{6}} needs no network and no allowance.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Senza {{0}}, {{1}} usa il livello anonimo di LowCarbCheck: 1.000 crediti per giorno UTC, condivisi tra tutte le richieste dal tuo indirizzo IP. Una ricerca costa 1 credito. Una scansione esegue fino a 3 query di ricerca per elemento individuato, valore stabilito dal limite di perfezionamento in {{2}}, su un massimo di 8 elementi. Nel caso peggiore, questo comporta 24 crediti per scansione. La pipeline non chiama mai l'endpoint per singolo alimento, quindi questo copre l'intero costo. Tale caso peggiore consente circa 41 scansioni al giorno. La maggior parte dei giorni ne permette di più, poiché una ricerca si ferma non appena una query supera la soglia di accettazione. Esaurito il livello, ogni elemento rimanente restituisce macronutrienti nulli fino al giorno UTC successivo, e la scansione restituisce comunque 200. Una chiave gratuita da {{3}} porta la quota a 100.000 crediti al mese fino a 120 richieste al minuto. Questa quota è associata alla chiave anziché al tuo indirizzo IP. Impostala come {{4}}. Il servizio la trasmette come bearer token a {{5}} e in nessun altro luogo, e non la inserisce mai nei log. Una chiave rifiutata da LowCarbCheck fallisce nello stesso modo di una quota esaurita: macronutrienti nulli e un codice 200. {{6}} non richiede connettività di rete né alcuna quota."
   },
   "161b9df3be9b40ad": {
     "en": "THIS ENDPOINT WRITES NOTHING TO THE ACCOUNT",
@@ -1721,6 +1763,12 @@
     "at": "2026-09-19",
     "it": "La tua password non lascia mai il tuo browser. Viene estesa con Argon2id e suddivisa da HKDF in rami indipendenti. Due rami restano sul dispositivo per decifrare la chiave dei dati e le tue impostazioni private. Un terzo ramo raggiunge il servizio come credenziale di accesso. Sono fratelli crittografici, non genitore e figlio, quindi possederne uno non svela nulla sugli altri. Il tuo diario viene cifrato sul dispositivo prima del caricamento e rimane cifrato durante il transito; il servizio memorizza testo cifrato opaco, e ciò che vede oltre a questo è un indirizzo email insieme a dimensioni e orari dei tuoi caricamenti."
   },
+  "24030f251844969c": {
+    "en": "Without {{0}}, the anonymous tier is exhausted (1,000 credits per UTC day per IP). With a key, its monthly allowance is spent or LowCarbCheck rejected the key. LowCarbCheck may also be unreachable. The log carries a warn line with {{1}}, {{2}}, {{3}}, and {{4}} fields. Set {{5}}, check the key, switch to {{6}}, or wait for the next UTC day.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Senza {{0}}, il livello anonimo si esaurisce (1.000 crediti per giorno UTC per IP). Con una chiave, la sua quota mensile è terminata oppure LowCarbCheck ha rifiutato la chiave. LowCarbCheck potrebbe anche non essere raggiungibile. Il log contiene una riga di avviso con i campi {{1}}, {{2}}, {{3}} e {{4}}. Imposta {{5}}, controlla la chiave, passa a {{6}} o attendi il giorno UTC successivo."
+  },
   "2405244e7c169742": {
     "en": "{{0}} A push whose decoded {{1}} is {{2}} of the stored version's {{3}} ({{4}}) is REFUSED with {{5}} unless the request carries {{6}}. An account with no blob yet is never refused; a first push is not a deletion.",
     "model": "google/gemini-3.8-flash",
@@ -2171,6 +2219,12 @@
     "at": "2026-09-14",
     "it": "{{0}} Una sottoscrizione la cui ultima registrazione o modifica della pianificazione risale a più di sette giorni locali fa non riceve alcun allineamento finché non si riconnette."
   },
+  "2e7c3ad3008dd5cc": {
+    "en": "{{0}} A missing key or {{1}} means no photograph. The device's photo cache may already have evicted it, and the figures are still worth reviewing. When present, it is {{2}}. {{3}} is {{4}}, {{5}} or {{6}}. It is never {{7}}, which can carry script. {{8}} is base64 that decodes to 1 to 5,000,000 bytes. Larger is {{9}}, and empty or another type is {{10}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Una chiave mancante o {{1}} indica l'assenza della fotografia. La cache delle foto del dispositivo potrebbe averla già rimossa, ma le cifre restano utili da esaminare. Quando presente, è {{2}}. {{3}} corrisponde a {{4}}, {{5}} o {{6}}. Non è mai {{7}}, che può contenere script. {{8}} è in base64 e si decodifica da 1 a 5.000.000 di byte. Se più grande produce {{9}}, mentre se vuoto o di altro tipo produce {{10}}."
+  },
   "2e8b8c774611b9be": {
     "en": "Optional mirror; Hugging Face is the fallback.",
     "model": "google/gemini-3.8-flash",
@@ -2284,6 +2338,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Questi eventi non contengono valori. Un evento di digiuno non ne riporta la durata, e un evento relativo al peso non riporta il peso misurato. Tuttavia gli eventi hanno una marcatura temporale, come tutti gli eventi di analisi, quindi un inizio e una fine indicano per sottrazione una durata, e un evento di condivisione rivela che la persona è seguita da un medico. La partecipazione a uno studio rientra nelle categorie particolari di dati personali secondo l'Art. 9 del GDPR."
+  },
+  "30d464aef3c6800d": {
+    "en": "{{0}} A person who thinks an estimate is wrong sends the figures of that entry. If the device still has the plate photograph, it sends that too. The person must first agree that both leave the device. The server keeps them readable until the window runs out. {{1}} explains why this exception exists.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Chi ritiene errata una stima invia le cifre di quella voce. Se il dispositivo conserva ancora la foto del piatto, invia anche quella. La persona deve prima acconsentire all'uscita di entrambi i dati dal dispositivo. Il server li mantiene leggibili fino allo scadere della finestra temporale. {{1}} spiega la ragione di questa eccezione."
   },
   "30dea15d64d8e3dc": {
     "en": "{{0}} No address, no display name, no role, no suspension, no usage, no blob. {{1}} selects two columns in the query rather than filtering a row afterwards.",
@@ -2843,6 +2903,12 @@
     "at": "2026-09-14",
     "it": "Etichette di volume per SELinux."
   },
+  "3c7e7a3090e75f70": {
+    "en": "A page of reported estimates (§5.25), newest first: {{0}} each, plus {{1}}, {{2}} and {{3}}. No figures and no photograph",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Una pagina di stime segnalate (§5.25), dalle più recenti: {{0}} ciascuna, oltre a {{1}}, {{2}} e {{3}}. Senza cifre e senza fotografia"
+  },
   "3cc39f1ba4a067e7": {
     "en": "3.4 The share wrap (ADR-0002)",
     "model": "google/gemini-3.8-flash",
@@ -3196,6 +3262,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Postgres"
+  },
+  "444ff84ef5dbd01e": {
+    "en": "{{0}} It is unique per account. A second submission with an existing key answers {{1}} with the stored report instead of {{2}}. It stores no second report and does not count against the daily limit. It writes the photograph again if one was included. That repairs a report whose first photograph write was interrupted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} È univoco per account. Un secondo invio con una chiave già esistente restituisce {{1}} con la segnalazione memorizzata invece di {{2}}. Non memorizza una seconda segnalazione e non incide sul limite giornaliero. Scrive nuovamente la fotografia, se ne era inclusa una, riparando così una segnalazione la cui prima scrittura dell'immagine era stata interrotta."
   },
   "4475930a8570f4f2": {
     "en": "identical work",
@@ -4103,6 +4175,12 @@
     "at": "2026-09-14",
     "it": "{{0}} una scheda di {{1}} (L4, e il segmento adatto all'inferenza della maggior parte delle schede per workstation) ha circa 3 volte meno larghezza di banda rispetto alla 3090, portandola a una {{2}}. Si tratta di una stima proporzionale calcolata a partire dalla riga della 3090, non di una misurazione diretta, e i valori effettivi sono in genere peggiori di una semplice scala lineare."
   },
+  "55675fa67f996c67": {
+    "en": "{{0}}, {{1}}, 5 by default, counted per UTC day in the same transaction as the insert. Over it is {{2}}, which names no identifier.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}}, {{1}}, 5 per impostazione predefinita, conteggiati per giorno UTC nella medesima transazione dell'inserimento. Oltre tale valore si riceve {{2}}, che non indica alcun identificativo."
+  },
   "5591f420f14e73b8": {
     "en": "Deletion removes the account and, by cascade, every blob, key record, reset token and usage row it owns. There is no soft delete and no grace period. This is the self-serve erasure path, and it is complete by construction rather than by a cleanup job someone has to remember to run.",
     "model": "google/gemini-3.8-flash",
@@ -4690,6 +4768,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} 1 comprime il testo in chiaro con gzip, guadagnando circa un ordine di grandezza su un JSON così ripetitivo (gli stessi nomi di chiave su ciascuno di migliaia di record) e allontanando il limite critico abbastanza da non renderlo un problema imminente. Non lo elimina."
+  },
+  "62eb1da69ca1d97f": {
+    "en": "Every field except {{0}} is required.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Tutti i campi sono obbligatori tranne {{0}}."
   },
   "62f19519bed8904f": {
     "en": "Cloud provider, or inference",
@@ -5572,6 +5656,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Un codice di recupero trasmesso sulla rete è TESTO in base32 di Crockford"
+  },
+  "7300e46f498bbf04": {
+    "en": "{{0}} {{1}} is 1 to 128 characters after trimming, {{2}} is 1 to 64, and {{3}} is an instant. It is stored as the device's own clock and never corrected. The server's {{4}} sits beside it. {{5}} is a JSON object of at most 16 KB once serialised. The server has no schema for it and MUST NOT grow one: the bound exists so nobody can park a diary in the field. Any other body is {{6}}, one sentence for every field.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} {{1}} è composto da 1 a 128 caratteri dopo il troncamento degli spazi, {{2}} da 1 a 64, e {{3}} è un istante temporale. Viene memorizzato in base all'orologio del dispositivo e non viene mai corretto. Il valore {{4}} del server gli è affiancato. {{5}} è un oggetto JSON di al massimo 16 KB una volta serializzato. Il server non ha alcuno schema per questo campo e NON DEVE aggiungerne uno: il limite esiste per impedire a chiunque di depositare un diario nel campo. Qualsiasi altro corpo produce {{6}}, con una frase per ciascun campo."
   },
   "731c8add40bc43d9": {
     "en": "Access tokens minted by earlier rotations are deliberately left alone; they expire within minutes on their own, and revoking them at rotation time would break a request that is legitimately in flight.",
@@ -6821,6 +6911,12 @@
     "at": "2026-09-14",
     "it": "Autenticazione"
   },
+  "8ec706bdd142b189": {
+    "en": "{{0}}, and macros turn null partway through the day",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}}, e i macronutrienti diventano null a metà giornata"
+  },
   "8f2d5f8d8228b203": {
     "en": "That is the only field an account may change about itself. {{0}} is the identity and moves only through an operator; {{1}} and {{2}} are standing an account must not be able to raise for itself; everything authentication-shaped moves through §5.14.",
     "model": "google/gemini-3.8-flash",
@@ -7355,6 +7451,12 @@
     "at": "2026-09-14",
     "it": "Versioni sostituite da una riduzione consistente confermata, per {{0}}, dalla più recente fino a {{1}}"
   },
+  "98f1f753b52ff7cd": {
+    "en": "The client holds all the keys. It serializes its whole local store, gzips it, encrypts it with AES-256-GCM under a key the server has never seen, and pushes the result as one opaque blob. The server stores bytes, versions them, and refuses writes that would clobber another device's. It also stores two small {{0}} (the same data-encryption key wrapped under two different key-encryption keys, one derived from the user's passphrase and one from a recovery code) so a second device can bootstrap. No code path on the server decrypts any of it. The server does keep each account's recovery code, sealed under a secret of its own (§3.1), so the operator of a managed instance holds what it takes to open a diary. §9 states exactly what the server knows.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Il client conserva tutte le chiavi. Serializza l'intero archivio locale, lo comprime con gzip, lo cifra con AES-256-GCM usando una chiave che il server non ha mai visto e invia il risultato come un unico blob opaco. Il server memorizza i byte, ne tiene traccia delle versioni e rifiuta le scritture che sovrascriverebbero quelle di un altro dispositivo. Memorizza anche due piccoli {{0}} (la stessa chiave di cifratura dei dati incapsulata con due diverse chiavi di cifratura della chiave, una derivata dalla passphrase dell'utente e una da un codice di recupero) per consentire l'avvio di un secondo dispositivo. Nessun percorso di codice sul server decifra alcuna parte di questi dati. Il server conserva il codice di recupero di ciascun account, sigillato con un proprio segreto (§3.1), quindi chi gestisce un'istanza possiede gli elementi necessari per aprire un diario. Il §9 indica con esattezza ciò di cui il server è a conoscenza."
+  },
   "99216530be1574b7": {
     "en": "Scan completed.",
     "model": "google/gemini-3.8-flash",
@@ -7522,6 +7624,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Le chiavi API dei provider non vengono mai lette dall'ambiente. La chiave di un utente viene inserita nel browser, memorizzata sul dispositivo e inviata direttamente browser → provider; il server non ne conserva alcuna copia. {{0}} / {{1}} in {{2}} esistono solo perché uno sviluppatore possa puntare gli script di verifica a un provider attivo. Impostarli su un'istanza distribuita non ha alcun effetto."
+  },
+  "9c79e216a65af02e": {
+    "en": "{{0}} Not the request headers, the IP address, the user agent or a device identifier.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Non le intestazioni della richiesta, l'indirizzo IP, lo user agent o un identificativo del dispositivo."
   },
   "9c7c260037f437b6": {
     "en": "Settings → Data & backup → Download everything (JSON)",
@@ -8033,6 +8141,12 @@
     "at": "2026-09-14",
     "it": "Contatore monotonico per account. Il token di compare-and-swap."
   },
+  "a720889d657d21a7": {
+    "en": "{{0}}, 8 MB by default, and applies to this route only. It sits above the image cap because base64 grows by a third. A larger body is {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}}, pari a 8 MB come impostazione predefinita, si applica unicamente a questa rotta. Si colloca sopra il limite dell'immagine poiché il base64 aumenta le dimensioni di un terzo. Un corpo più grande restituisce {{1}}."
+  },
   "a7b25461e98191d7": {
     "en": "5.8 {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -8068,6 +8182,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} ({{1}}, RFC 1952) viene applicato al testo in chiaro {{2}} della cifratura. Il testo cifrato non è comprimibile, quindi o si comprime prima o non si comprime affatto. Vedi il §8 per capire perché questo sia importante e il §9.2 per l'indicazione trasparente di ciò che trapela."
+  },
+  "a89208bea9056e1b": {
+    "en": "One report: the list fields, {{0}} exactly as the device sent them, and {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Una segnalazione: i campi dell'elenco, {{0}} esattamente come inviati dal dispositivo, e {{1}}"
   },
   "a89a774cb65f8f6b": {
     "en": "2 (one per {{0}})",
@@ -8867,6 +8987,12 @@
     "at": "2026-09-14",
     "it": "{{0}}, un modello a pagamento, circa {{1}}. È stato scelto rispetto a qualunque modello {{2}} perché gli endpoint {{3}} di OpenRouter diventano raggiungibili solo dopo aver attivato, a livello di account per quel provider, le opzioni \"può addestrare sui dati delle richieste\" / \"può pubblicare i prompt\", e alcuni modelli di visione gratuiti conservano i prompt per settimane. Puoi comunque scegliere autonomamente un modello {{4}} dall'elenco dei modelli, con un consenso esplicito e trasparente."
   },
+  "b75fe23b1b863886": {
+    "en": "The broadest data of the three (curated + BLS + USDA), and remote-only permanently, because BLS 4.0 forbids redistribution. Attribution is passed through to the response so it reaches the UI. Without {{0}}, every request runs on LowCarbCheck's free anonymous tier; see below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "I dati più completi tra i tre (curati + BLS + USDA), permanentemente solo remoti, poiché BLS 4.0 vieta la redistribuzione. L'attribuzione viene passata direttamente alla risposta affinché arrivi alla UI. Senza {{0}}, ogni richiesta usa il livello anonimo gratuito di LowCarbCheck, vedi sotto."
+  },
   "b7daa3d00a0fd481": {
     "en": "Every six hours the server asks {{0}} for the tag list of the openplate repository, compares the newest {{1}} with the version it is running, and reports the answer at {{2}}. There is also a \"Check now\" button, which is limited to one real request a minute across the whole instance.",
     "model": "google/gemini-3.8-flash",
@@ -8884,6 +9010,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "{{0}} (ADR-0005). L'{{1}} della versione 1, un identificatore opaco per server che non poteva contenere un {{2}}, non esiste più: la colonna, il parser e la regola sono stati rimossi. Un client che usa la versione 1 deve rifiutarsi di comunicare con un servizio in versione 2 invece di funzionare a metà; vedi §6."
+  },
+  "b7fca144d893c6a0": {
+    "en": "This is the one write in this protocol that the server can read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Questa è l'unica scrittura di questo protocollo che il server può leggere."
   },
   "b8134e51aa370fd8": {
     "en": "{{0}}, re-asserted inside the transaction. It is not the authentication, which already happened; it is what stops two concurrent recoveries from overwriting a credential the user has already been told is theirs.",
@@ -8932,6 +9064,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Usa il tuo runtime"
+  },
+  "b8d2d45f31fa838c": {
+    "en": "What is stored is the photograph, the figures, the consent record, the account id and the arrival time, and nothing else.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Vengono memorizzati soltanto la fotografia, le cifre, la registrazione del consenso, l'identificativo dell'account e l'ora di arrivo."
   },
   "b8d31e852725afb1": {
     "en": "on",
@@ -9431,6 +9569,12 @@
     "at": "2026-09-14",
     "it": "Configurazione familiare"
   },
+  "c54702d7c391200e": {
+    "en": "{{0}} is optional, and absent is not an error.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} è facoltativo, e l'assenza non costituisce un errore."
+  },
   "c57d85e0865d711b": {
     "en": "boolean and not an optional promise",
     "model": "google/gemini-3.8-flash",
@@ -9604,6 +9748,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Livello 4: tutto"
+  },
+  "c99a17340d4c458f": {
+    "en": "A report and its photograph go after {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Una segnalazione e la sua fotografia vengono rimosse dopo {{0}}"
   },
   "c9a1a823b79389a3": {
     "en": "Re-authentication is required even though the caller already holds a valid token",
@@ -10169,6 +10319,12 @@
     "at": "2026-09-14",
     "it": "{{0}} Un terzo push viene ignorato, mai accodato."
   },
+  "d42e19c693771a0a": {
+    "en": "{{0}} (30 in this implementation, deleted by an hourly sweep), sooner when an operator deletes the report (§5.20), and with the account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} (30 in questa implementazione, eliminati con una scansione oraria), prima se chi gestisce l'istanza cancella la segnalazione (§5.20), e insieme all'account."
+  },
   "d4735e3a265e16ee": {
     "en": "2",
     "model": "google/gemini-3.8-flash",
@@ -10343,6 +10499,12 @@
     "at": "2026-09-14",
     "it": "{{0}} Entrambi i servizi pubblicano le loro porte su ogni interfaccia, quindi il servizio degli account è esposto non appena si avvia, e gestire un servizio account è un impegno più grande rispetto a gestire l'app."
   },
+  "d7e0142c1478e36c": {
+    "en": "The photograph's bytes under its stored {{0}}, with {{1}} and {{2}}. {{3}} when the report has none. Every read is logged with the report id and which credential asked",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "I byte della fotografia con il suo {{0}} memorizzato, con {{1}} e {{2}}. {{3}} quando la segnalazione ne è priva. Ogni lettura viene registrata con l'identificativo della segnalazione e con la credenziale richiedente"
+  },
   "d7f49a059ef4a45d": {
     "en": "{{0}} Two contributors submitting the same pseudonym would silently merge into one participant series, and a researcher would analyse two people as one with nothing failing. An accidental collision is about 2^-128, so the constraint should never fire, which is the point: it makes the corruption impossible rather than improbable.",
     "model": "google/gemini-3.8-flash",
@@ -10384,6 +10546,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Un'azienda sotto {{0}} che lo usa a fini commerciali: consentito."
+  },
+  "d8c6cb57327b054a": {
+    "en": "{{0}} The service makes exactly three kinds of outbound request: one-time weight downloads at first boot, (only if you enable a networked {{1}}) a {{2}} food-name lookup, and (only if you set {{3}}) a {{4}} embedding call. No image ever leaves the container, under any configuration.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}} Il servizio effettua esattamente tre tipi di richieste in uscita: il download una tantum dei pesi al primo avvio, una ricerca del nome dell'alimento tramite {{2}} (solo se abiliti un {{1}} connesso alla rete), e una chiamata per l'embedding tramite {{4}} (solo se imposti {{3}}). Nessuna immagine lascia mai il container, con qualsiasi configurazione."
   },
   "d8f1ee5bd44a9513": {
     "en": "Upgrading",
@@ -10625,6 +10793,12 @@
     "at": "2026-09-14",
     "it": "{{0}} è l'unico campo qui a essere una {{1}}, ed è l'eccezione al paragrafo precedente. Un'istanza che accetta le stime segnalate conserva la foto del cibo di qualcuno, e pubblica per quanto tempo:"
   },
+  "de7f8772da535f5a": {
+    "en": "{{0}}, on a deployment with {{1}} set (§5.25, ADR-0006): the figures of each entry a person chose to report, the plate photograph when the device still had one, the account id, the consent record and the arrival time, all readable. They are kept for {{2}}, then deleted by a sweep, and they go with the account. An operator can read them through §5.20, and every read of a photograph is logged. A deployment without the flag has no report and no photograph to hold.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "{{0}}, su un'installazione con {{1}} impostato (§5.25, ADR-0006): le cifre di ogni voce che una persona ha scelto di segnalare, la foto del piatto se ancora presente sul dispositivo, l'identificativo dell'account, la registrazione del consenso e l'ora di arrivo, tutti leggibili. Rimangono conservati per {{2}}, poi vengono rimossi da una scansione di pulizia, e si cancellano insieme all'account. Chi gestisce l'istanza può leggerli tramite il §5.20, e ogni lettura di una fotografia viene registrata nei log. Un'installazione senza questo parametro non conserva alcuna segnalazione né alcuna fotografia."
+  },
   "deb3cd28290d2feb": {
     "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
     "model": "google/gemini-3.8-flash",
@@ -10654,6 +10828,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Cosa succede a una foto e cosa non esce mai dal contenitore"
+  },
+  "df13cd3ec7f18794": {
+    "en": "The body limit is {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Il limite del corpo è {{0}}"
   },
   "df1a646cbf89f5b4": {
     "en": "{{0}}: {{1}}, {{2}}: a wrapped DEK is not bound to any particular blob version. Length is always {{3}} bytes.",
@@ -10787,6 +10967,12 @@
     "at": "2026-09-14",
     "it": "(generato)"
   },
+  "e30cf2582fe516e0": {
+    "en": "The idempotency key makes a retry safe.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "La chiave di idempotenza rende sicuro un nuovo tentativo."
+  },
   "e323a1f6dc16fced": {
     "en": "A scoped service token",
     "model": "google/gemini-3.8-flash",
@@ -10834,6 +11020,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Le {{0}} sono stringhe di byte fisse, codificate in UTF-8. Forniscono una separazione dei domini affinché i valori derivati siano crittograficamente indipendenti: - {{1}} - {{2}} - {{3}} - {{4}}"
+  },
+  "e44a4a0df9acdf6a": {
+    "en": "The server never receives the DEK, either KEK, or the passphrase. It does receive the recovery code at signup and at every rotation, and keeps that code sealed (§3.1 and the escrow entry in §9.2). No code path in this service derives a key from the code or decrypts a blob. For the service's own code, decryption is unavailable, not withheld. For whoever holds both the database and {{0}}, it is available. That means the operator of a managed instance, or you on your own.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Il server non riceve mai la DEK, nessuna delle KEK e nemmeno la passphrase. Riceve il codice di recupero alla registrazione e a ogni rotazione, e conserva tale codice sigillato (§3.1 e la voce di deposito fiduciario nel §9.2). Nessun percorso di codice in questo servizio ricava una chiave dal codice o decifra un blob. Per il codice stesso del servizio la decifratura non è disponibile, non semplicemente trattenuta. Per chi possiede sia il database sia {{0}}, la decifratura è invece disponibile: questo include chi gestisce un'istanza, oppure tu in autonomia."
   },
   "e471a65677e76ec2": {
     "en": "Present only when the operator configured an upstream key.",
@@ -11218,6 +11410,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "5.15 {{0}}, {{1}} e {{2}}"
+  },
+  "ebad56295e5ada41": {
+    "en": "A daily limit per account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Un limite giornaliero per ciascun account"
   },
   "ebdc2ed9bb467f7b": {
     "en": "Full walkthrough, including HTTPS (which you need for PWA install and for camera capture), is in {{0}}.",
@@ -11956,6 +12154,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "+ un database e un segreto"
+  },
+  "fe9a265e717e8e89": {
+    "en": "This service sets {{0}} to {{1}} on a food record when the food database supplies its macros. It adds an {{2}} string when the source requires one, see {{3}}. When nothing resolves the item, both fields are omitted and {{4}} is null. This service never emits {{5}}, as the shared contract reserves that value for a cloud provider. A source failure, such as a timeout, a refusal, or a network error, looks the same as no match: {{6}} is null, the response is still {{7}}, and nothing in the response marks which occurred.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "it": "Questo servizio imposta {{0}} su {{1}} in una voce alimentare quando il database degli alimenti ne fornisce i macronutrienti. Aggiunge una stringa {{2}} quando la fonte ne richiede una, vedi {{3}}. Quando nulla risolve la voce, entrambi i campi vengono omessi e {{4}} è null. Questo servizio non emette mai {{5}}, poiché il contratto condiviso riserva tale valore a un provider cloud. Un errore della fonte, come un timeout, un rifiuto o un errore di rete, appare identico a una mancata corrispondenza: {{6}} è null, la risposta è comunque {{7}} e nulla nella risposta segnala quale dei due casi si sia verificato."
   },
   "fef26d4ac5ed9ffa": {
     "en": "{{0}} The tier name is metadata, not content (it travels in the clear and the server already stores it) and without this check ADR-0003's prohibition 1 has no teeth anywhere but the client. An unknown tier is {{1}}.",

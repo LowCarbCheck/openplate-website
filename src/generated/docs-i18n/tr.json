@@ -389,6 +389,12 @@
     "at": "2026-09-14",
     "tr": "ayarlanmamış (analitik kapalı)"
   },
+  "075f058c2346fdc6": {
+    "en": "{{0}} Without it the path answers the ordinary unknown-path {{1}} to everybody, credentialed or not, and {{2}} carries no {{3}} (§5.6). A client MUST read {{4}} before it offers a report. It MUST state the retention window that field advertises and no other.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Bu olmadan yol, kimlik bilgisi olsun ya da olmasın herkese sıradan bilinmeyen yol yanıtı olan {{1}} verir ve {{2}}, {{3}} taşımaz (§5.6). Bir istemci, bir bildirim sunmadan önce {{4}} okumalıdır. O alanın duyurduğu saklama penceresini belirtmelidir, başkasını değil."
+  },
   "078e10d72d2ae19f": {
     "en": "{{0}} (a hyphen) is a separate, Python-based reimplementation of the Compose spec. It runs on its own, with no Docker involved, and it supports less of the spec: notably, its support for {{1}} is weaker, and it names networks differently by default.",
     "model": "google/gemini-3.8-flash",
@@ -467,6 +473,12 @@
     "at": "2026-09-14",
     "tr": "aynı"
   },
+  "09a5877b9d092003": {
+    "en": "{{0}} Nothing here is derived from a diary: no code path on the server decrypts one. Every number below arrives as a small delta from a device whose owner asked for it, and {{1}} states exactly what leaves the device and why.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Buradaki hiçbir şey bir günlükten türetilmemiştir: sunucudaki hiçbir kod yolu bir günlüğün şifresini çözmez. Aşağıdaki her sayı, sahibinin talep ettiği bir cihazdan küçük bir fark olarak gelir ve {{1}}, tam olarak neyin cihazdan ayrıldığını ve nedenini belirtir."
+  },
   "09a6535cd8ddf966": {
     "en": "include roughly 0.35 to 0.6 s of network and proxy round trip",
     "model": "google/gemini-3.8-flash",
@@ -496,6 +508,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Yanındaki izin verilen alanlar bile değil, {{0}}. Sessizce göz ardı etmek, faturalandırma hizmetindeki bir hatanın başarılı gibi algılanmasına yol açardı."
+  },
+  "0a158ab04e10b464": {
+    "en": "Deletes the photograph, then the report. {{0}}, or {{1}} for an unknown id",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Önce fotoğrafı, ardından bildirimi siler. {{0}} veya bilinmeyen bir kimlik için {{1}}"
   },
   "0a35f99d3f6e27dd": {
     "en": "{{0}} An openplate client uses exactly one of these endpoints, and only when the signed-in account is an admin: the console the app renders at {{1}}. An alternative client may ignore this section entirely.",
@@ -617,6 +635,12 @@
     "at": "2026-09-14",
     "tr": "Ev halkını hiçbir sağlayıcı kontrol panelinin bulunmadığı kendi {{0}} makinene bağlıyorsan, yönetilen bir örnek, aşağıdaki {{1}} izin listesinde bulunmayan kişi başına kota ve kullanım takibini ekler."
   },
+  "0d3d47fffef612d7": {
+    "en": "Present only when the operator set {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Yalnızca işletmen {{0}} ayarladığında bulunur."
+  },
   "0d3f0401cf94c80a": {
     "en": "What is never counted, at any level",
     "model": "google/gemini-3.8-flash",
@@ -730,6 +754,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "gelir sınırlı varsayılan"
+  },
+  "0f132dfcd0df4f00": {
+    "en": "5.25 {{0}}: a reported estimate (ADR-0006)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "5.25 {{0}}: bildirilen bir tahmin (ADR-0006)"
   },
   "0f2a6deff4c46ad0": {
     "en": "The app plus self-hosted inference.",
@@ -1061,11 +1091,23 @@
     "at": "2026-09-14",
     "tr": "Bir optimizasyon değil, {{0}}: {{1}} bilgisini pull et, şifresini çöz, yerel durumla birleştir (§3.3), {{2}} {{3}} değerine bağlı AAD ile yeniden şifrele ve {{4}} ile tekrar push et. {{5}} durumunu ölümcül bir hata sayan bir istemci, kullanıcının cihazını kalıcı olarak senkronizasyon dışı bırakır."
   },
+  "158577294e8e1d1c": {
+    "en": "Not knowable from the metadata above: what was eaten, when, how much, or anything else inside the payload. Two entries above do give it away. The sealed recovery code opens the whole diary to whoever also holds {{0}}, and a reported estimate shows the one entry it carries.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Yukarıdaki meta verilerden bilinemeyenler: ne yenildiği, ne zaman yenildiği, ne kadar yenildiği veya yükün içindeki başka herhangi bir şey. Yukarıdaki iki girdi bunu ele verir. Mühürlü kurtarma kodu, {{0}} da elinde bulunduran kişiye günlüğün tamamını açar ve bildirilen bir tahmin, taşıdığı tek kaydı gösterir."
+  },
   "15af50a07d8a6785": {
     "en": "Laptop",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Dizüstü bilgisayar"
+  },
+  "15d11de7ecf5f7d0": {
+    "en": "Without {{0}}, {{1}} runs on LowCarbCheck's anonymous tier: 1,000 credits per UTC day, shared by all requests from your IP address. A search costs 1 credit. A scan issues up to 3 search queries per identified item, set by the refinement cap in {{2}}, across up to 8 items. This makes the worst case 24 credits per scan. The pipeline never calls the per-food endpoint, so that covers the entire cost. That worst case permits about 41 scans a day. Most days permit more, because a search stops as soon as one query clears the accept threshold. When the tier runs out, every remaining item resolves to null macros until the next UTC day, and the scan still returns 200. A free key from {{3}} raises the allowance to 100,000 credits a month at up to 120 requests a minute. This allowance belongs to the key rather than your IP address. Set it as {{4}}. The service sends it as a bearer token to {{5}} and nowhere else, and never logs it. A key LowCarbCheck rejects fails the same way an empty allowance does: null macros and a 200. {{6}} needs no network and no allowance.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} olmadan, {{1}} LowCarbCheck'in anonim katmanında çalışır: IP adresinden gelen tüm istekler tarafından paylaşılan, UTC günü başına 1.000 kredi. Bir arama 1 krediye mal olur. Bir tarama, en fazla 8 öğe genelinde, {{2}} içindeki iyileştirme sınırı ile belirlenen, tanımlanan öğe başına en fazla 3 arama sorgusu çalıştırır. Bu, en kötü durumu tarama başına 24 kredi yapar. İşlem hattı besin başına uç noktasını asla çağırmaz, bu nedenle bu tüm maliyeti kapsar. Bu en kötü durum, günde yaklaşık 41 taramaya izin verir. Çoğu gün daha fazlasına izin verir, çünkü bir sorgu kabul eşiğini geçer geçmez arama durur. Katman tükendiğinde, kalan her öğe bir sonraki UTC gününe kadar boş makrolara çözülür ve tarama yine de 200 döner. {{3}} üzerinden alınan ücretsiz bir anahtar, kotayı dakikada 120 isteğe kadar olacak şekilde ayda 100.000 krediye çıkarır. Bu kota IP adresin yerine anahtara aittir. Bunu {{4}} olarak ayarla. Hizmet bunu {{5}} adresine taşıyıcı belirteç olarak gönderir, başka hiçbir yere göndermez ve asla günlüğe kaydetmez. LowCarbCheck'in reddettiği bir anahtar, boş bir kotanın başarısız olduğu gibi başarısız olur: boş makrolar ve 200 yanıtı. {{6}} hiçbir ağa ve hiçbir kotaya ihtiyaç duymaz."
   },
   "161b9df3be9b40ad": {
     "en": "THIS ENDPOINT WRITES NOTHING TO THE ACCOUNT",
@@ -1721,6 +1763,12 @@
     "at": "2026-09-19",
     "tr": "Parolan tarayıcından asla ayrılmaz. Argon2id ile uzatılır ve HKDF tarafından bağımsız kollara ayrılır. İki kol, veri anahtarını ve özel ayarlarını çözmek için cihazda kalır. Üçüncü bir kol ise giriş kimlik bilgisi olarak hizmete gider. Bunlar üst ve alt ögeler değil, kriptografik kardeşlerdir; bu yüzden birini elinde bulundurmak diğerleri hakkında hiçbir şey ortaya çıkarmaz. Günlüğün yüklenmeden önce cihazda şifrelenir ve iletim sırasında da şifreli kalır; hizmet yalnızca mat şifreli metin saklar ve bunun dışında gördüğü tek şey bir e-posta adresi ile yüklemelerinin boyutu ve zamanlamasıdır."
   },
+  "24030f251844969c": {
+    "en": "Without {{0}}, the anonymous tier is exhausted (1,000 credits per UTC day per IP). With a key, its monthly allowance is spent or LowCarbCheck rejected the key. LowCarbCheck may also be unreachable. The log carries a warn line with {{1}}, {{2}}, {{3}}, and {{4}} fields. Set {{5}}, check the key, switch to {{6}}, or wait for the next UTC day.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} olmadan, anonim kademe tükenir (IP başına her UTC gününde 1.000 kredi). Bir anahtar varsa, aylık kotası tükenmiştir ya da LowCarbCheck anahtarı reddetmiştir. LowCarbCheck'e ulaşılamıyor da olabilir. Günlükte {{1}}, {{2}}, {{3}} ve {{4}} alanlarını içeren bir warn satırı yer alır. {{5}} ayarla, anahtarı kontrol et, {{6}} seçeneğine geç veya bir sonraki UTC gününü bekle."
+  },
   "2405244e7c169742": {
     "en": "{{0}} A push whose decoded {{1}} is {{2}} of the stored version's {{3}} ({{4}}) is REFUSED with {{5}} unless the request carries {{6}}. An account with no blob yet is never refused; a first push is not a deletion.",
     "model": "google/gemini-3.8-flash",
@@ -2171,6 +2219,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Son kaydı veya zamanlama değişikliği yedi yerel günden daha uzun bir süre önce yapılmış bir abonelik, geri gelene kadar telafi bildirimi almaz."
   },
+  "2e7c3ad3008dd5cc": {
+    "en": "{{0}} A missing key or {{1}} means no photograph. The device's photo cache may already have evicted it, and the figures are still worth reviewing. When present, it is {{2}}. {{3}} is {{4}}, {{5}} or {{6}}. It is never {{7}}, which can carry script. {{8}} is base64 that decodes to 1 to 5,000,000 bytes. Larger is {{9}}, and empty or another type is {{10}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Eksik bir anahtar veya {{1}}, fotoğraf olmadığı anlamına gelir. Cihazın fotoğraf önbelleği onu zaten temizlemiş olabilir ve sayısal veriler hala incelemeye değerdir. Mevcut olduğunda {{2}} olur. {{3}}, {{4}}, {{5}} veya {{6}} olur. Komut dosyası taşıyabilen {{7}} asla olamaz. {{8}}, 1 ila 5.000.000 bayta çözülen base64 verisidir. Daha büyüğü {{9}}, boş veya başka bir türde olanı ise {{10}} sonucunu verir."
+  },
   "2e8b8c774611b9be": {
     "en": "Optional mirror; Hugging Face is the fallback.",
     "model": "google/gemini-3.8-flash",
@@ -2284,6 +2338,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bunlar değer taşımaz. Bir açlık olayı süresini taşımaz, bir kilo olayı da kilo değerini taşımaz. Ancak her analitik olayında olduğu gibi olaylar zaman damgalıdır, dolayısıyla bir başlangıç ve bir bitiş çıkarılarak bir süre elde edilir ve bir paylaşım olayı kişinin bir klinisyeni olduğunu söyler. Araştırma katılımı GDPR Madde 9 kapsamında özel nitelikli veridir."
+  },
+  "30d464aef3c6800d": {
+    "en": "{{0}} A person who thinks an estimate is wrong sends the figures of that entry. If the device still has the plate photograph, it sends that too. The person must first agree that both leave the device. The server keeps them readable until the window runs out. {{1}} explains why this exception exists.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Bir tahminin yanlış olduğunu düşünen kişi, o kaydın sayısal verilerini gönderir. Cihazda tabak fotoğrafı hala duruyorsa, onu da gönderir. Kişi öncelikle her ikisinin de cihazdan çıkacağını kabul etmelidir. Sunucu, süre bitene kadar bunları okunabilir halde tutar. Bu istisnanın neden var olduğunu {{1}} açıklar."
   },
   "30dea15d64d8e3dc": {
     "en": "{{0}} No address, no display name, no role, no suspension, no usage, no blob. {{1}} selects two columns in the query rather than filtering a row afterwards.",
@@ -2843,6 +2903,12 @@
     "at": "2026-09-14",
     "tr": "SELinux birim etiketleri."
   },
+  "3c7e7a3090e75f70": {
+    "en": "A page of reported estimates (§5.25), newest first: {{0}} each, plus {{1}}, {{2}} and {{3}}. No figures and no photograph",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Bildirilen tahminlerin bulunduğu bir sayfa (§5.25), en yeniden başlar: her biri {{0}}, artı {{1}}, {{2}} ve {{3}}. Sayısal veriler ve fotoğraf yok"
+  },
   "3cc39f1ba4a067e7": {
     "en": "3.4 The share wrap (ADR-0002)",
     "model": "google/gemini-3.8-flash",
@@ -3196,6 +3262,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Postgres"
+  },
+  "444ff84ef5dbd01e": {
+    "en": "{{0}} It is unique per account. A second submission with an existing key answers {{1}} with the stored report instead of {{2}}. It stores no second report and does not count against the daily limit. It writes the photograph again if one was included. That repairs a report whose first photograph write was interrupted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Hesap başına benzersizdir. Mevcut bir anahtarla yapılan ikinci bir gönderim, {{2}} yerine saklanan bildirimle {{1}} yanıtı verir. İkinci bir bildirim saklamaz ve günlük sınıra dahil edilmez. Eğer bir fotoğraf eklendiyse, fotoğrafı yeniden yazar. Bu, ilk fotoğraf yazma işlemi kesintiye uğrayan bir bildirimi onarır."
   },
   "4475930a8570f4f2": {
     "en": "identical work",
@@ -4103,6 +4175,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} bir {{1}} kart (L4 ve çoğu iş istasyonu kartının çıkarım yapabilen tarafı) 3090'a kıyasla yaklaşık 3 kat daha az bant genişliğine sahiptir, bu da onu {{2}} seviyesine getirir. Bu değer 3090 satırından oranlanmıştır, ölçülmemiştir ve gerçek sayılar genellikle doğrusal bir oranlamadan daha kötü çıkar."
   },
+  "55675fa67f996c67": {
+    "en": "{{0}}, {{1}}, 5 by default, counted per UTC day in the same transaction as the insert. Over it is {{2}}, which names no identifier.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}}, {{1}}, varsayılan olarak 5, ekleme ile aynı işlem içinde UTC günü başına sayılır. Üzeri, hiçbir tanımlayıcı belirtmeyen {{2}} sonucunu verir."
+  },
   "5591f420f14e73b8": {
     "en": "Deletion removes the account and, by cascade, every blob, key record, reset token and usage row it owns. There is no soft delete and no grace period. This is the self-serve erasure path, and it is complete by construction rather than by a cleanup job someone has to remember to run.",
     "model": "google/gemini-3.8-flash",
@@ -4690,6 +4768,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} 1 düz metni gzip ile sıkıştırır, bu da bu kadar tekrarlayan bir JSON üzerinde (binlerce kaydın her birinde aynı anahtar adları) yaklaşık bir büyüklük sırası kazandırır ve uçurumu yakın vadeli bir sorun olmayacak kadar ileriye öteler. Sorunu ortadan kaldırmaz."
+  },
+  "62eb1da69ca1d97f": {
+    "en": "Every field except {{0}} is required.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} dışındaki her alan zorunludur."
   },
   "62f19519bed8904f": {
     "en": "Cloud provider, or inference",
@@ -5572,6 +5656,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Ağdaki bir kurtarma kodu Crockford base32 METNİDİR"
+  },
+  "7300e46f498bbf04": {
+    "en": "{{0}} {{1}} is 1 to 128 characters after trimming, {{2}} is 1 to 64, and {{3}} is an instant. It is stored as the device's own clock and never corrected. The server's {{4}} sits beside it. {{5}} is a JSON object of at most 16 KB once serialised. The server has no schema for it and MUST NOT grow one: the bound exists so nobody can park a diary in the field. Any other body is {{6}}, one sentence for every field.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Kırpmadan sonra {{1}} 1 ila 128 karakter, {{2}} 1 ila 64 karakterdir ve {{3}} bir anlık zamandır. Cihazın kendi saati olarak saklanır ve asla düzeltilmez. Sunucunun {{4}} değeri yanındadır. {{5}}, serileştirildiğinde en fazla 16 KB olan bir JSON nesnesidir. Sunucunun bunun için bir şeması yoktur ve bir şema GELİŞTİRMEMELİDİR: bu sınır, hiç kimsenin bu alana bir günlük koyamaması için vardır. Başka herhangi bir gövde, her alan için bir cümle olacak şekilde {{6}} sonucunu verir."
   },
   "731c8add40bc43d9": {
     "en": "Access tokens minted by earlier rotations are deliberately left alone; they expire within minutes on their own, and revoking them at rotation time would break a request that is legitimately in flight.",
@@ -6821,6 +6911,12 @@
     "at": "2026-09-14",
     "tr": "Kimlik doğrulama"
   },
+  "8ec706bdd142b189": {
+    "en": "{{0}}, and macros turn null partway through the day",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} ve makro besinler günün ortasında null değerine dönüyor"
+  },
   "8f2d5f8d8228b203": {
     "en": "That is the only field an account may change about itself. {{0}} is the identity and moves only through an operator; {{1}} and {{2}} are standing an account must not be able to raise for itself; everything authentication-shaped moves through §5.14.",
     "model": "google/gemini-3.8-flash",
@@ -7355,6 +7451,12 @@
     "at": "2026-09-14",
     "tr": "Onaylanmış büyük bir küçülmeyle değiştirilen sürümler, {{0}} için, en fazla {{1}} adede kadar en yeni olanlar önce"
   },
+  "98f1f753b52ff7cd": {
+    "en": "The client holds all the keys. It serializes its whole local store, gzips it, encrypts it with AES-256-GCM under a key the server has never seen, and pushes the result as one opaque blob. The server stores bytes, versions them, and refuses writes that would clobber another device's. It also stores two small {{0}} (the same data-encryption key wrapped under two different key-encryption keys, one derived from the user's passphrase and one from a recovery code) so a second device can bootstrap. No code path on the server decrypts any of it. The server does keep each account's recovery code, sealed under a secret of its own (§3.1), so the operator of a managed instance holds what it takes to open a diary. §9 states exactly what the server knows.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Tüm anahtarları istemci tutar. Tüm yerel deposunu serileştirir, gzip ile sıkıştırır, sunucunun hiç görmediği bir anahtarla AES-256-GCM kullanarak şifreler ve sonucu tek bir opak ikili nesne olarak gönderir. Sunucu baytları saklar, sürümlerini tutar ve başka bir cihazınkileri ezecek yazma işlemlerini reddeder. Ayrıca, ikinci bir cihazın önyükleme yapabilmesi için iki küçük {{0}} (biri kullanıcının parola ifadesinden, diğeri ise bir kurtarma kodundan türetilen iki farklı anahtar şifreleme anahtarıyla sarmalanmış aynı veri şifreleme anahtarı) saklar. Sunucudaki hiçbir kod yolu bunların hiçbirinin şifresini çözmez. Sunucu, her hesabın kurtarma kodunu kendi sırrı altında mühürlü olarak saklar (§3.1), bu nedenle yönetilen bir örneğin işletmeni bir günlüğü açmak için gerekenleri elinde tutar. Sunucunun tam olarak ne bildiğini §9 belirtir."
+  },
   "99216530be1574b7": {
     "en": "Scan completed.",
     "model": "google/gemini-3.8-flash",
@@ -7522,6 +7624,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Sağlayıcı API anahtarları asla ortamdan okunmaz. Kullanıcının anahtarı tarayıcıya girilir, cihazda saklanır ve doğrudan tarayıcı → sağlayıcı yönünde gönderilir; sunucuda bir kopyası bulunmaz. {{2}} içindeki {{0}} / {{1}} değişkenleri, yalnızca bir geliştiricinin doğrulama betiklerini canlı bir sağlayıcıya yönlendirebilmesi için vardır. Bunları dağıtılmış bir örnekte ayarlamak hiçbir işe yaramaz."
+  },
+  "9c79e216a65af02e": {
+    "en": "{{0}} Not the request headers, the IP address, the user agent or a device identifier.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} İstek üstbilgileri, IP adresi, kullanıcı aracısı veya bir cihaz tanımlayıcısı değil."
   },
   "9c7c260037f437b6": {
     "en": "Settings → Data & backup → Download everything (JSON)",
@@ -8033,6 +8141,12 @@
     "at": "2026-09-14",
     "tr": "Hesap başına monotonik sayaç. Karşılaştır ve değiştir belirteci."
   },
+  "a720889d657d21a7": {
+    "en": "{{0}}, 8 MB by default, and applies to this route only. It sits above the image cap because base64 grows by a third. A larger body is {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}}, varsayılan olarak 8 MB boyutundadır ve yalnızca bu rota için geçerlidir. Base64 üçte bir oranında büyüdüğü için görüntü sınırının üzerinde yer alır. Daha büyük bir gövde {{1}} ile sonuçlanır."
+  },
   "a7b25461e98191d7": {
     "en": "5.8 {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -8068,6 +8182,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Düz metne şifrelemeden {{2}} {{0}} ({{1}}, RFC 1952) uygulanır. Şifreli metin sıkıştırılamaz, bu yüzden ya önce sıkıştırırsın ya da hiç sıkıştıramazsın. Bunun neden önemli olduğunu görmek için §8'e, neyi sızdırdığına dair dürüst açıklama için §9.2'ye bak."
+  },
+  "a89208bea9056e1b": {
+    "en": "One report: the list fields, {{0}} exactly as the device sent them, and {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Tek bir bildirim: liste alanları, cihazın gönderdiği haliyle {{0}} ve {{1}}"
   },
   "a89a774cb65f8f6b": {
     "en": "2 (one per {{0}})",
@@ -8867,6 +8987,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, ücretli bir model, tarama başına yaklaşık {{1}}. Herhangi bir {{2}} modele tercih edilme sebebi, OpenRouter'ın {{3}} uç noktalarının yalnızca sağlayıcının hesap düzeyindeki \"istek verileri üzerinde eğitilebilir\" / \"istemler yayımlanabilir\" seçeneklerini etkinleştirdikten sonra erişilebilir hale gelmesi ve bazı ücretsiz görüntü modellerinin istemleri haftalarca saklamasıdır. Yine de model listesinden kendin bir {{4}} model seçebilirsin, bu açıkça belirtilmiş bir tercihtir."
   },
+  "b75fe23b1b863886": {
+    "en": "The broadest data of the three (curated + BLS + USDA), and remote-only permanently, because BLS 4.0 forbids redistribution. Attribution is passed through to the response so it reaches the UI. Without {{0}}, every request runs on LowCarbCheck's free anonymous tier; see below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Üçü arasındaki en kapsamlı veri (derlenmiş + BLS + USDA) ve kalıcı olarak yalnızca uzaktandır, çünkü BLS 4.0 yeniden dağıtımı yasaklar. Arayüze ulaşması için atıf yanıta aktarılır. {{0}} olmadan her istek LowCarbCheck'in ücretsiz anonim katmanında çalışır, aşağıya bak."
+  },
   "b7daa3d00a0fd481": {
     "en": "Every six hours the server asks {{0}} for the tag list of the openplate repository, compares the newest {{1}} with the version it is running, and reports the answer at {{2}}. There is also a \"Check now\" button, which is limited to one real request a minute across the whole instance.",
     "model": "google/gemini-3.8-flash",
@@ -8884,6 +9010,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} (ADR-0005). Sürüm 1'in {{1}} değeri, yani {{2}} içeremeyen sunucuya özel mat tanımlayıcı artık yok: sütun, ayrıştırıcı ve kural kaldırıldı. Sürüm 1 konuşan bir istemci, yarım yamalak çalışmak yerine sürüm 2 servisiyle konuşmayı reddetmelidir, bkz. §6."
+  },
+  "b7fca144d893c6a0": {
+    "en": "This is the one write in this protocol that the server can read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Bu protokolde sunucunun okuyabildiği tek yazma işlemi budur."
   },
   "b8134e51aa370fd8": {
     "en": "{{0}}, re-asserted inside the transaction. It is not the authentication, which already happened; it is what stops two concurrent recoveries from overwriting a credential the user has already been told is theirs.",
@@ -8932,6 +9064,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kendi çalışma zamanını getir"
+  },
+  "b8d2d45f31fa838c": {
+    "en": "What is stored is the photograph, the figures, the consent record, the account id and the arrival time, and nothing else.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Saklanan şey fotoğraf, sayısal veriler, onay kaydı, hesap kimliği ve varış zamanıdır, başka bir şey değil."
   },
   "b8d31e852725afb1": {
     "en": "on",
@@ -9431,6 +9569,12 @@
     "at": "2026-09-14",
     "tr": "Aile kurulumu"
   },
+  "c54702d7c391200e": {
+    "en": "{{0}} is optional, and absent is not an error.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} isteğe bağlıdır ve bulunmaması bir hata değildir."
+  },
   "c57d85e0865d711b": {
     "en": "boolean and not an optional promise",
     "model": "google/gemini-3.8-flash",
@@ -9604,6 +9748,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "4. basamak: her şey"
+  },
+  "c99a17340d4c458f": {
+    "en": "A report and its photograph go after {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Bir bildirim ve fotoğrafı {{0}} sonra kaldırılır"
   },
   "c9a1a823b79389a3": {
     "en": "Re-authentication is required even though the caller already holds a valid token",
@@ -10169,6 +10319,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Üçüncüsü atlanır, asla kuyruğa alınmaz."
   },
+  "d42e19c693771a0a": {
+    "en": "{{0}} (30 in this implementation, deleted by an hourly sweep), sooner when an operator deletes the report (§5.20), and with the account.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} (bu uygulamada 30 gün, saatlik bir tarama ile silinir), bir işletmen bildirimi sildiğinde (§5.20) ve hesapla birlikte daha erken silinir."
+  },
   "d4735e3a265e16ee": {
     "en": "2",
     "model": "google/gemini-3.8-flash",
@@ -10343,6 +10499,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Her iki servis de portlarını tüm arayüzlerde yayımlar, dolayısıyla hesap servisi başladığı anda dışa açılır ve bir hesap servisi çalıştırmak uygulama çalıştırmaktan daha büyük bir sorumluluktur."
   },
+  "d7e0142c1478e36c": {
+    "en": "The photograph's bytes under its stored {{0}}, with {{1}} and {{2}}. {{3}} when the report has none. Every read is logged with the report id and which credential asked",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Fotoğrafın depolanan {{0}} altındaki baytları, {{1}} ve {{2}} ile birlikte. Bildirimde bulunmadığında {{3}}. Her okuma, bildirim kimliği ve hangi kimlik bilgisinin sorduğu bilgisiyle günlüğe kaydedilir"
+  },
   "d7f49a059ef4a45d": {
     "en": "{{0}} Two contributors submitting the same pseudonym would silently merge into one participant series, and a researcher would analyse two people as one with nothing failing. An accidental collision is about 2^-128, so the constraint should never fire, which is the point: it makes the corruption impossible rather than improbable.",
     "model": "google/gemini-3.8-flash",
@@ -10384,6 +10546,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bunu ticari olarak kullanan ve geliri {{0}} altında olan bir şirket: izin verilir."
+  },
+  "d8c6cb57327b054a": {
+    "en": "{{0}} The service makes exactly three kinds of outbound request: one-time weight downloads at first boot, (only if you enable a networked {{1}}) a {{2}} food-name lookup, and (only if you set {{3}}) a {{4}} embedding call. No image ever leaves the container, under any configuration.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}} Servis tam olarak üç tür giden istek yapar: ilk açılışta yapılan tek seferlik ağırlık indirmeleri, (yalnızca ağa bağlı bir {{1}} etkinleştirirsen) bir {{2}} yiyecek adı araması ve (yalnızca {{3}} ayarlarsan) bir {{4}} gömme çağrısı. Hiçbir yapılandırmada, hiçbir görsel asla konteynerin dışına çıkmaz."
   },
   "d8f1ee5bd44a9513": {
     "en": "Upgrading",
@@ -10625,6 +10793,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} buradaki {{1}} niteliğinde olan tek alandır ve yukarıdaki paragrafın istisnasıdır. Bildirilen tahminleri kabul eden bir örnek, birinin yiyeceğine ait bir fotoğrafı saklar ve bunu ne kadar süreyle yapacağını yayınlar:"
   },
+  "de7f8772da535f5a": {
+    "en": "{{0}}, on a deployment with {{1}} set (§5.25, ADR-0006): the figures of each entry a person chose to report, the plate photograph when the device still had one, the account id, the consent record and the arrival time, all readable. They are kept for {{2}}, then deleted by a sweep, and they go with the account. An operator can read them through §5.20, and every read of a photograph is logged. A deployment without the flag has no report and no photograph to hold.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "{{0}}, {{1}} ayarlanmış bir dağıtımda (§5.25, ADR-0006): bir kişinin bildirmeyi seçtiği her kaydın sayısal verileri, cihazda hala varsa tabak fotoğrafı, hesap kimliği, onay kaydı ve varış zamanı, hepsi okunabilir durumdadır. {{2}} boyunca saklanırlar, ardından bir tarama ile silinirler ve hesapla birlikte giderler. Bir işletmen bunları §5.20 aracılığıyla okuyabilir ve bir fotoğrafın her okunuşu günlüğe kaydedilir. Bu bayrağın bulunmadığı bir dağıtımda tutulacak hiçbir bildirim ve fotoğraf yoktur."
+  },
   "deb3cd28290d2feb": {
     "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
     "model": "google/gemini-3.8-flash",
@@ -10654,6 +10828,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bir fotoğrafa ne olur ve konteynerden neler asla çıkmaz"
+  },
+  "df13cd3ec7f18794": {
+    "en": "The body limit is {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Gövde boyutu sınırı {{0}}"
   },
   "df1a646cbf89f5b4": {
     "en": "{{0}}: {{1}}, {{2}}: a wrapped DEK is not bound to any particular blob version. Length is always {{3}} bytes.",
@@ -10787,6 +10967,12 @@
     "at": "2026-09-14",
     "tr": "(oluşturuldu)"
   },
+  "e30cf2582fe516e0": {
+    "en": "The idempotency key makes a retry safe.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Eşkuvvetlilik anahtarı yeniden denemeyi güvenli kılar."
+  },
   "e323a1f6dc16fced": {
     "en": "A scoped service token",
     "model": "google/gemini-3.8-flash",
@@ -10834,6 +11020,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} dondurulmuş, UTF-8 ile kodlanmış bayt dizileridir. Türetilen değerlerin kriptografik olarak bağımsız olması için alan ayrımı sağlarlar: - {{1}} - {{2}} - {{3}} - {{4}}"
+  },
+  "e44a4a0df9acdf6a": {
+    "en": "The server never receives the DEK, either KEK, or the passphrase. It does receive the recovery code at signup and at every rotation, and keeps that code sealed (§3.1 and the escrow entry in §9.2). No code path in this service derives a key from the code or decrypts a blob. For the service's own code, decryption is unavailable, not withheld. For whoever holds both the database and {{0}}, it is available. That means the operator of a managed instance, or you on your own.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Sunucu DEK'i, iki KEK'i de veya parola ifadesini asla almaz. Kaydolma sırasında ve her rotasyonda kurtarma kodunu alır ve bu kodu mühürlü olarak saklar (§3.1 ve §9.2'deki emanet girdisi). Bu hizmetteki hiçbir kod yolu, koddan bir anahtar türetmez veya bir ikili nesnenin şifresini çözmez. Hizmetin kendi kodu için şifre çözme mevcut değildir, esirgenmiş değildir. Hem veritabanını hem de {{0}} elinde tutan kişi için mevcuttur. Bu, yönetilen bir örneğin işletmeni veya kendi başına sen anlamına gelir."
   },
   "e471a65677e76ec2": {
     "en": "Present only when the operator configured an upstream key.",
@@ -11218,6 +11410,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "5.15 {{0}}, {{1}} ve {{2}}"
+  },
+  "ebad56295e5ada41": {
+    "en": "A daily limit per account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Hesap başına günlük limit"
   },
   "ebdc2ed9bb467f7b": {
     "en": "Full walkthrough, including HTTPS (which you need for PWA install and for camera capture), is in {{0}}.",
@@ -11956,6 +12154,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "+ bir veritabanı ve bir gizli anahtar"
+  },
+  "fe9a265e717e8e89": {
+    "en": "This service sets {{0}} to {{1}} on a food record when the food database supplies its macros. It adds an {{2}} string when the source requires one, see {{3}}. When nothing resolves the item, both fields are omitted and {{4}} is null. This service never emits {{5}}, as the shared contract reserves that value for a cloud provider. A source failure, such as a timeout, a refusal, or a network error, looks the same as no match: {{6}} is null, the response is still {{7}}, and nothing in the response marks which occurred.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Besin veri tabanı bir yiyeceğin makro besinlerini sağladığında, bu servis yiyecek kaydındaki {{0}} değerini {{1}} olarak ayarlar. Kaynak gerektirdiğinde bir {{2}} dizesi ekler, bkz. {{3}}. Öğeyi hiçbir şey çözümleyemezse her iki alan da atlanır ve {{4}} null olur. Paylaşılan sözleşme bu değeri bir bulut sağlayıcısına ayırdığı için, bu servis asla {{5}} değerini üretmez. Zaman aşımı, ret veya ağ hatası gibi bir kaynak hatası, eşleşme bulunamamasıyla aynı görünür: {{6}} null olur, yanıt yine {{7}} döner ve yanıttaki hiçbir işaret hangisinin gerçekleştiğini belirtmez."
   },
   "fef26d4ac5ed9ffa": {
     "en": "{{0}} The tier name is metadata, not content (it travels in the clear and the server already stores it) and without this check ADR-0003's prohibition 1 has no teeth anywhere but the client. An unknown tier is {{1}}.",
