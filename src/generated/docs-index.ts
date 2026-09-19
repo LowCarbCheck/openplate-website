@@ -11,7 +11,7 @@ export const DOCS_INDEX: DocsIndex = {
       "repo": "https://github.com/LowCarbCheck/openplate",
       "ref": "main",
       "editRef": "main",
-      "sha": "544dc77825e59047a9f9e7c317e10682d534519b",
+      "sha": "51db9b5a72966021c06cc88ed99e409909e238a0",
       "committedAt": "2026-09-19"
     },
     "lead": [
@@ -64,7 +64,7 @@ export const DOCS_INDEX: DocsIndex = {
         "blurb": [
           {
             "kind": "text",
-            "text": "The four programs, what each one stores, and how they compose"
+            "text": "The three programs and the food database, what each one holds, and how they compose"
           }
         ]
       },
