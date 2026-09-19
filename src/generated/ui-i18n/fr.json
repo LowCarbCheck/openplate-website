@@ -282,9 +282,9 @@
   "4db16451bd5ec9a2": {
     "en": "openplate app server",
     "path": "common:pages.home.illustrations.flow.appServer",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Serveur d'application openplate"
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "fr": "Serveur d'app openplate"
   },
   "4e43e4e349643066": {
     "en": "openplate-core carries your diary between your devices. It stores an email address and an encrypted copy of your diary. It also keeps your recovery code, sealed under a secret of its own, so a forgotten password returns your diary. That same code lets the operator of an instance open a diary on it.",
@@ -366,9 +366,9 @@
   "61617f8e1db33b8c": {
     "en": "openplate app server",
     "path": "common:pages.home.illustrations.holders.appServer",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Serveur d'application openplate"
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "fr": "Serveur d'app openplate"
   },
   "61d99d0b181b5997": {
     "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
@@ -464,9 +464,9 @@
   "78b1b2df1202318b": {
     "en": "Your AI endpoint",
     "path": "common:pages.home.illustrations.flow.aiEndpoint",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Ton point de terminaison d'IA"
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "fr": "Ton service d'IA"
   },
   "794f3d31133512a8": {
     "en": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams.",

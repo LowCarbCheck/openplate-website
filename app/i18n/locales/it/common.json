@@ -70,7 +70,7 @@
         "flow": {
           "label": "Cinque riquadri e cinque frecce. Il server dell'applicazione invia la pagina al tuo dispositivo. Il tuo dispositivo invia il diario a openplate-core, cifrato. Il tuo dispositivo invia la foto del piatto all'endpoint di IA che hai scelto. Il tuo dispositivo invia i nomi degli alimenti al server dell'applicazione, che li inoltra al database degli alimenti. Il server dell'applicazione non si trova sul percorso del diario né su quello delle foto.",
           "device": "Il tuo dispositivo",
-          "appServer": "Server dell'applicazione openplate",
+          "appServer": "Server app openplate",
           "sync": "openplate-core",
           "aiEndpoint": "Il tuo endpoint di IA",
           "foodDb": "Database degli alimenti",
@@ -82,7 +82,7 @@
         "holders": {
           "caption": "Il disegno mostra cosa memorizza ciascun componente. La tabella aggiunge cosa vede ciascuno mentre i tuoi dati vi transitano attraverso.",
           "browser": "Il tuo browser",
-          "appServer": "Server dell'applicazione openplate",
+          "appServer": "Server app openplate",
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Database degli alimenti",

@@ -283,8 +283,8 @@
     "en": "openplate app server",
     "path": "common:pages.home.illustrations.flow.appServer",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "es": "Servidor de la aplicación openplate"
+    "at": "2026-09-19",
+    "es": "Servidor de app openplate"
   },
   "4e43e4e349643066": {
     "en": "openplate-core carries your diary between your devices. It stores an email address and an encrypted copy of your diary. It also keeps your recovery code, sealed under a secret of its own, so a forgotten password returns your diary. That same code lets the operator of an instance open a diary on it.",
@@ -367,8 +367,8 @@
     "en": "openplate app server",
     "path": "common:pages.home.illustrations.holders.appServer",
     "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "es": "Servidor de la aplicación openplate"
+    "at": "2026-09-19",
+    "es": "Servidor de app openplate"
   },
   "61d99d0b181b5997": {
     "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",

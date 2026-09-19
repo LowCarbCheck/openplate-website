@@ -70,9 +70,9 @@
         "flow": {
           "label": "Cinq cases et cinq flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-core, sous forme chiffrée. Ton appareil envoie la photo d'assiette au point de terminaison IA que tu as choisi. Ton appareil envoie les noms d'aliments au serveur d'application, qui les transmet à la base de données alimentaire. Le serveur d'application ne se trouve ni sur le chemin du journal, ni sur celui des photos.",
           "device": "Ton appareil",
-          "appServer": "Serveur d'application openplate",
+          "appServer": "Serveur d'app openplate",
           "sync": "openplate-core",
-          "aiEndpoint": "Ton point de terminaison d'IA",
+          "aiEndpoint": "Ton service d'IA",
           "foodDb": "Base de données alimentaire",
           "pageEdge": "la page",
           "diaryEdge": "journal, chiffré",
@@ -82,7 +82,7 @@
         "holders": {
           "caption": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent.",
           "browser": "Ton navigateur",
-          "appServer": "Serveur d'application openplate",
+          "appServer": "Serveur d'app openplate",
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Base de données alimentaire",
