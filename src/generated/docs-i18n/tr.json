@@ -4265,6 +4265,12 @@
     "at": "2026-09-14",
     "tr": "günlük istek"
   },
+  "57737ece2f47d140": {
+    "en": "The three programs and the food database, what each one holds, and how they compose",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Üç program ve besin veritabanı, her birinin ne içerdiği ve birlikte nasıl çalıştıkları"
+  },
   "57bb6021727bb1ec": {
     "en": "33 versions",
     "model": "google/gemini-3.8-flash",

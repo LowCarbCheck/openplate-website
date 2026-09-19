@@ -4829,6 +4829,12 @@
     "at": "2026-09-04",
     "de": "tägliches Anfrage-"
   },
+  "57737ece2f47d140": {
+    "en": "The three programs and the food database, what each one holds, and how they compose",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Die drei Programme und die Lebensmitteldatenbank, was jedes davon enthält, und wie sie zusammenspielen"
+  },
   "57bb6021727bb1ec": {
     "en": "33 versions",
     "model": "google/gemini-3.8-flash",
