@@ -68,14 +68,16 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Vier Kästen und drei Pfeile. Der openplate-App-Server sendet die Seite an dein Gerät. Dein Gerät sendet das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Foto an deinen gewählten KI-Endpunkt. Der openplate-App-Server liegt auf keinem dieser beiden Pfade.",
+          "label": "Fünf Kästen und fünf Pfeile. Der App-Server liefert die Seite an dein Gerät aus. Dein Gerät überträgt das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Tellerfoto an den KI-Endpunkt, den du gewählt hast. Dein Gerät schickt Lebensmittelbezeichnungen an den App-Server, der sie an die Lebensmitteldatenbank weiterleitet. Der App-Server liegt weder auf dem Pfad für das Tagebuch noch auf dem für die Fotos.",
           "device": "Dein Gerät",
           "appServer": "openplate-App-Server",
           "sync": "openplate-core",
           "aiEndpoint": "Dein KI-Endpunkt",
+          "foodDb": "Lebensmitteldatenbank",
           "pageEdge": "die Seite",
           "diaryEdge": "Tagebuch, verschlüsselt",
-          "photoEdge": "Foto"
+          "photoEdge": "Foto",
+          "namesEdge": "Namen"
         },
         "holders": {
           "caption": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen.",
@@ -83,6 +85,7 @@
           "appServer": "openplate-App-Server",
           "sync": "openplate-core",
           "inference": "openplate-inference",
+          "foodDb": "Lebensmitteldatenbank",
           "cloudProvider": "Cloud-KI-Anbieter"
         }
       },
@@ -135,9 +138,9 @@
     },
     "core": {
       "title": "Der Sync-Server",
-      "lead": "openplate-core überträgt dein Tagebuch zwischen deinen eigenen Geräten. Es speichert eine E-Mail-Adresse, ein verschlüsseltes Blob deines Tagebuchs, das es nicht lesen kann, und einen Wiederherstellungscode, versiegelt für den einen Fall, dass du dein Passwort vergisst.",
+      "lead": "openplate-core synchronisiert dein Tagebuch zwischen deinen Geräten. Es speichert eine E-Mail-Adresse und eine verschlüsselte Kopie deines Tagebuchs. Zudem verwahrt es deinen Wiederherstellungscode, geschützt durch ein eigenes Geheimnis, damit ein vergessenes Passwort dein Tagebuch wiederherstellt. Derselbe Code ermöglicht es der Person, die eine Instanz betreibt, ein Tagebuch darauf zu öffnen.",
       "reads": {
-        "heading": "Was er nicht lesen kann"
+        "heading": "Was es lesen kann und was nicht"
       },
       "knows": {
         "heading": "Was er tatsächlich weiß"

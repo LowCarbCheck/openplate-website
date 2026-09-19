@@ -185,11 +185,11 @@ export default function HomeRoute() {
 
       {/* ── THE PROSE IS THE DOCUMENT'S. THE PICTURE IS NO LONGER THE DOCUMENT'S. ──
           The three paragraphs still come out of `architecture.md`, and the second of them says
-          "the drawing below is the whole system in three arrows", which is exactly what `DataFlow`
+          "the drawing below is the whole system in five arrows", which is exactly what `DataFlow`
           draws. The mermaid diagram that used to sit here is filtered out, and the filter is what
           drops it: leave it in and the flowchart renders inside the reading column.
 
-          WHY THE SWAP, since the two say the same three things. The mermaid one is 1728 pixels of
+          WHY THE SWAP, since the two say the same five things. The mermaid one is 1728 pixels of
           flowchart at its natural size, so a phone drags it sideways; its colours are baked into a
           committed SVG per language per appearance, so it cannot follow the theme toggle in the
           header; and it does not move. `DataFlow` is one component, sized by a class, painted from
@@ -203,7 +203,7 @@ export default function HomeRoute() {
       <Section heading={t(section(sections, 'topology').headingKey)}>
         <DocBlocks blocks={topology.blocks.filter((block) => block.kind !== 'diagram')} />
         {/* The one drawing on this page that gets a name read aloud. `frame.tsx` argues the case
-            and this is the component it names: the three arrows, and which of them the app server
+            and this is the component it names: the five arrows, and which of them the app server
             is NOT on, are the page's whole claim, and the paragraphs above say it in prose but not
             in the shape the picture says it in. */}
         <Drawing>
@@ -214,9 +214,11 @@ export default function HomeRoute() {
             appServer={t('pages.home.illustrations.flow.appServer')}
             sync={t('pages.home.illustrations.flow.sync')}
             aiEndpoint={t('pages.home.illustrations.flow.aiEndpoint')}
+            foodDb={t('pages.home.illustrations.flow.foodDb')}
             pageEdge={t('pages.home.illustrations.flow.pageEdge')}
             diaryEdge={t('pages.home.illustrations.flow.diaryEdge')}
             photoEdge={t('pages.home.illustrations.flow.photoEdge')}
+            namesEdge={t('pages.home.illustrations.flow.namesEdge')}
           />
         </Drawing>
       </Section>
@@ -255,13 +257,13 @@ export default function HomeRoute() {
       <Section heading={t(section(sections, 'holds').headingKey)}>
         {/* ── A SUMMARY OF ONE COLUMN OF THE TABLE, SAID SO IN WORDS ──
             The table under this has two columns, "what it stores" and "what it sees in transit",
-            and they do not agree: openplate-core stores ciphertext it holds no key for and on a
-            managed instance also forwards a photo it never keeps. The drawing carries storage
-            only, because one bar cannot carry both without lying about one of them. Unlabelled
+            and they do not agree: openplate-core stores ciphertext and the escrowed code that opens
+            it, and on a managed instance also forwards a photo it never keeps. The drawing carries
+            storage only, because one bar cannot carry both without lying about one of them. Unlabelled
             that would read as a competing claim, so the caption names the column it draws and
             hands the reader to the table for the other one. Above the table, never instead of it.
 
-            No `label` here, unlike `DataFlow`: the table below is the same five rows in prose, so
+            No `label` here, unlike `DataFlow`: the table below is the same six rows in prose, so
             a reader who gets no drawing has already been given everything it says. */}
         <figure>
           <Drawing>
@@ -272,6 +274,7 @@ export default function HomeRoute() {
                 appServer: t('pages.home.illustrations.holders.appServer'),
                 sync: t('pages.home.illustrations.holders.sync'),
                 inference: t('pages.home.illustrations.holders.inference'),
+                foodDb: t('pages.home.illustrations.holders.foodDb'),
                 cloudProvider: t('pages.home.illustrations.holders.cloudProvider'),
               }}
             />
@@ -332,7 +335,7 @@ export default function HomeRoute() {
  *
  * ── AND A CEILING, WHICH THE DIAGRAM DID NOT NEED ──
  * A committed SVG stops at its natural size. These are vectors with no natural size at all, so in
- * a 72rem section `DataFlow` would render 1152 wide and 602 tall and own the screen. 44rem is about
+ * a 72rem section `DataFlow` would render 1152 wide and 682 tall and own the screen. 44rem is about
  * as wide as the drawings were designed to be read at, and it is why neither of them uses
  * `FullWidth`: they want a cap, not the window. 44 and not 46, so that at a 768 pixel window the
  * drawing still fits the column and the sync box at its right edge is not against the margin.

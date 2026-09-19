@@ -68,14 +68,16 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Dört kutu ve üç ok. Uygulama sunucusu sayfayı cihazına gönderir. Cihazın günlüğü şifrelenmiş halde openplate-core bileşenine gönderir. Cihazın tabak fotoğrafını seçtiğin yapay zeka uç noktasına gönderir. Uygulama sunucusu bu iki yolun hiçbirinde yer almaz.",
+          "label": "Beş kutu ve beş ok. Uygulama sunucusu sayfayı cihazına gönderir. Cihazın günlüğü şifrelenmiş olarak openplate-core'a gönderir. Cihazın tabak fotoğrafını seçtiğin yapay zeka uç noktasına gönderir. Cihazın yemek adlarını uygulama sunucusuna gönderir, sunucu da bunları yemek veritabanına iletir. Uygulama sunucusu ne günlük yolunda ne de fotoğraf yolundadır.",
           "device": "Cihazın",
           "appServer": "openplate uygulama sunucusu",
           "sync": "openplate-core",
           "aiEndpoint": "Yapay zeka uç noktan",
+          "foodDb": "Yemek veritabanı",
           "pageEdge": "sayfa",
           "diaryEdge": "günlük, şifrelenmiş",
-          "photoEdge": "fotoğraf"
+          "photoEdge": "fotoğraf",
+          "namesEdge": "adlar"
         },
         "holders": {
           "caption": "Çizim, her birinin ne depoladığını gösterir. Tablo ise verilerin içinden geçerken her birinin ne gördüğünü ekler.",
@@ -83,6 +85,7 @@
           "appServer": "openplate uygulama sunucusu",
           "sync": "openplate-core",
           "inference": "openplate-inference",
+          "foodDb": "Yemek veritabanı",
           "cloudProvider": "Bulut yapay zeka sağlayıcısı"
         }
       },
@@ -135,9 +138,9 @@
     },
     "core": {
       "title": "Eşitleme sunucusu",
-      "lead": "openplate-core günlüğünü kendi cihazların arasında taşır. Bir e-posta adresi, günlüğünün okuyamadığı şifrelenmiş bir öbeğini ve parolanın unutulduğu tek duruma mahsus mühürlenmiş bir kurtarma kodu saklar.",
+      "lead": "openplate-core günlüğünü cihazların arasında taşır. Bir e-posta adresini ve günlüğünün şifrelenmiş bir kopyasını depolar. Ayrıca, unutulan bir parolanın günlüğünü geri getirmesi için kendi sırrıyla mühürlenmiş kurtarma kodunu saklar. Aynı kod, bir sunucu örneğinin işleticisinin üzerindeki bir günlüğü açmasına da olanak tanır.",
       "reads": {
-        "heading": "Neyi okuyamaz"
+        "heading": "Neleri okuyabilir, neleri okuyamaz"
       },
       "knows": {
         "heading": "Neyi bilir"

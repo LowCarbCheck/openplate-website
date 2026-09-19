@@ -68,14 +68,16 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Cuatro cuadros y tres flechas. El servidor de la aplicación envía la página a tu dispositivo. Tu dispositivo envía el diario a openplate-core, cifrado. Tu dispositivo envía la foto del plato al endpoint de IA que hayas elegido. El servidor de la aplicación no está en ninguna de esas dos rutas.",
+          "label": "Cinco casillas y cinco flechas. El servidor de la aplicación envía la página a tu dispositivo. Tu dispositivo envía el diario a openplate-core, cifrado. Tu dispositivo envía la foto del plato al endpoint de IA que hayas elegido. Tu dispositivo envía los nombres de los alimentos al servidor de la aplicación, que los reenvía a la base de datos de alimentos. El servidor de la aplicación no se encuentra ni en la ruta del diario ni en la de la foto.",
           "device": "Tu dispositivo",
           "appServer": "Servidor de la aplicación openplate",
           "sync": "openplate-core",
           "aiEndpoint": "Tu endpoint de IA",
+          "foodDb": "Base de datos de alimentos",
           "pageEdge": "la página",
           "diaryEdge": "diario, cifrado",
-          "photoEdge": "foto"
+          "photoEdge": "foto",
+          "namesEdge": "nombres"
         },
         "holders": {
           "caption": "El diagrama muestra lo que almacena cada uno. La tabla añade lo que ve cada uno mientras tus datos pasan a través de él.",
@@ -83,6 +85,7 @@
           "appServer": "Servidor de la aplicación openplate",
           "sync": "openplate-core",
           "inference": "openplate-inference",
+          "foodDb": "Base de datos de alimentos",
           "cloudProvider": "Proveedor de IA en la nube"
         }
       },
@@ -135,9 +138,9 @@
     },
     "core": {
       "title": "El servidor de sincronización",
-      "lead": "openplate-core transfiere tu diario entre tus propios dispositivos. Guarda una dirección de correo, un bloque cifrado de tu diario que no puede leer y un código de recuperación sellado por si una contraseña olvidada lo necesita.",
+      "lead": "openplate-core transfiere tu diario entre tus dispositivos. Almacena una dirección de correo electrónico y una copia cifrada de tu diario. También guarda tu código de recuperación, sellado bajo su propio secreto, de modo que si olvidas tu contraseña puedas recuperar tu diario. Ese mismo código permite al operador de una instancia abrir un diario en ella.",
       "reads": {
-        "heading": "Qué no puede leer"
+        "heading": "Qué puede leer y qué no"
       },
       "knows": {
         "heading": "Qué sabe"

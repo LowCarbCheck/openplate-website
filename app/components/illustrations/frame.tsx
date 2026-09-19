@@ -58,7 +58,7 @@
  * time: these drawings sit beside prose that already says what they say, so a screen reader
  * announcing them says everything twice. Leave `label` off and the drawing is `aria-hidden`. Pass
  * one only where the drawing carries something the words around it do not, which in this folder is
- * `DataFlow`: the three arrows, and which of them the app server is not on, are the page's whole
+ * `DataFlow`: the five arrows, and which of them the app server is not on, are the page's whole
  * claim, and a reader who cannot see them gets that claim from nowhere else on the page.
  */
 export interface IllustrationProps {

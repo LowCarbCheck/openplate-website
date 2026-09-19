@@ -68,14 +68,16 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Quatre boîtes et trois flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-core, chiffré. Ton appareil envoie la photo de l'assiette au point de terminaison d'IA que tu as choisi. Le serveur d'application ne se trouve sur aucun de ces deux chemins.",
+          "label": "Cinq cases et cinq flèches. Le serveur d'application envoie la page à ton appareil. Ton appareil envoie le journal à openplate-core, sous forme chiffrée. Ton appareil envoie la photo d'assiette au point de terminaison IA que tu as choisi. Ton appareil envoie les noms d'aliments au serveur d'application, qui les transmet à la base de données alimentaire. Le serveur d'application ne se trouve ni sur le chemin du journal, ni sur celui des photos.",
           "device": "Ton appareil",
           "appServer": "Serveur d'application openplate",
           "sync": "openplate-core",
           "aiEndpoint": "Ton point de terminaison d'IA",
+          "foodDb": "Base de données alimentaire",
           "pageEdge": "la page",
           "diaryEdge": "journal, chiffré",
-          "photoEdge": "photo"
+          "photoEdge": "photo",
+          "namesEdge": "noms"
         },
         "holders": {
           "caption": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent.",
@@ -83,6 +85,7 @@
           "appServer": "Serveur d'application openplate",
           "sync": "openplate-core",
           "inference": "openplate-inference",
+          "foodDb": "Base de données alimentaire",
           "cloudProvider": "Fournisseur d'IA dans le cloud"
         }
       },
@@ -135,9 +138,9 @@
     },
     "core": {
       "title": "Le serveur de synchronisation",
-      "lead": "openplate-core transmet ton journal entre tes propres appareils. Il stocke une adresse e-mail, un bloc chiffré de ton journal qu'il ne peut pas lire, et un code de récupération scellé pour le seul cas où un mot de passe oublié le nécessiterait.",
+      "lead": "openplate-core relaie ton journal entre tes appareils. Il stocke une adresse e-mail et une copie chiffrée de ton journal. Il conserve aussi ton code de récupération, scellé sous un secret qui lui est propre, afin qu'un mot de passe oublié te permette de récupérer ton journal. Ce même code permet à la personne qui administre l'instance d'y ouvrir un journal.",
       "reads": {
-        "heading": "Ce qu'il ne peut pas lire"
+        "heading": "Ce qu'il peut et ne peut pas lire"
       },
       "knows": {
         "heading": "Ce qu'il sait"

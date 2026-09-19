@@ -55,6 +55,13 @@
     "at": "2026-09-14",
     "tr": "Telefonda openplate günlüğü: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ve kahvaltı ile öğle yemeği altında gruplanmış günün öğünleri."
   },
+  "14f41d62f9eb0560": {
+    "en": "Five boxes and five arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. Your device sends food names to the app server, which passes them on to the food database. The app server is on neither the diary path nor the photo path.",
+    "path": "common:pages.home.illustrations.flow.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Beş kutu ve beş ok. Uygulama sunucusu sayfayı cihazına gönderir. Cihazın günlüğü şifrelenmiş olarak openplate-core'a gönderir. Cihazın tabak fotoğrafını seçtiğin yapay zeka uç noktasına gönderir. Cihazın yemek adlarını uygulama sunucusuna gönderir, sunucu da bunları yemek veritabanına iletir. Uygulama sunucusu ne günlük yolunda ne de fotoğraf yolundadır."
+  },
   "154693adedb9b763": {
     "en": "Docs",
     "path": "common:site.nav.docs",
@@ -97,6 +104,13 @@
     "at": "2026-09-14",
     "tr": "Belgeler sayfası"
   },
+  "1b4a8127deb3238f": {
+    "en": "What it can and cannot read",
+    "path": "common:pages.core.reads.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Neleri okuyabilir, neleri okuyamaz"
+  },
   "1b9db799e8389c4f": {
     "en": "See where the day stands",
     "path": "common:pages.home.features.overview.title",
@@ -131,6 +145,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bu bileşen henüz sürüm notu yayımlamadı."
+  },
+  "33c5b34914aa0287": {
+    "en": "Food database",
+    "path": "common:pages.home.illustrations.flow.foodDb",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Yemek veritabanı"
   },
   "36a20a82f9b321e2": {
     "en": "The inference runtime",
@@ -264,6 +285,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "openplate uygulama sunucusu"
+  },
+  "4e43e4e349643066": {
+    "en": "openplate-core carries your diary between your devices. It stores an email address and an encrypted copy of your diary. It also keeps your recovery code, sealed under a secret of its own, so a forgotten password returns your diary. That same code lets the operator of an instance open a diary on it.",
+    "path": "common:pages.core.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "openplate-core günlüğünü cihazların arasında taşır. Bir e-posta adresini ve günlüğünün şifrelenmiş bir kopyasını depolar. Ayrıca, unutulan bir parolanın günlüğünü geri getirmesi için kendi sırrıyla mühürlenmiş kurtarma kodunu saklar. Aynı kod, bir sunucu örneğinin işleticisinin üzerindeki bir günlüğü açmasına da olanak tanır."
   },
   "4faf536325f6937f": {
     "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
@@ -425,6 +453,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Neyi bilir"
+  },
+  "729ad15836a765f9": {
+    "en": "Food database",
+    "path": "common:pages.home.illustrations.holders.foodDb",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "Yemek veritabanı"
   },
   "78b1b2df1202318b": {
     "en": "Your AI endpoint",
@@ -866,6 +901,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kimin elinde ne var"
+  },
+  "f1d4e34d1e0d06b5": {
+    "en": "names",
+    "path": "common:pages.home.illustrations.flow.namesEdge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "tr": "adlar"
   },
   "f396acd84ed6cdb6": {
     "en": "Deployment",

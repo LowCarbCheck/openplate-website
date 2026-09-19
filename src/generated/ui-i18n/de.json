@@ -55,6 +55,13 @@
     "at": "2026-09-14",
     "de": "Das openplate Tagebuch auf einem Smartphone: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den Mahlzeiten des Tages, gruppiert unter Frühstück und Mittagessen."
   },
+  "14f41d62f9eb0560": {
+    "en": "Five boxes and five arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. Your device sends food names to the app server, which passes them on to the food database. The app server is on neither the diary path nor the photo path.",
+    "path": "common:pages.home.illustrations.flow.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Fünf Kästen und fünf Pfeile. Der App-Server liefert die Seite an dein Gerät aus. Dein Gerät überträgt das Tagebuch verschlüsselt an openplate-core. Dein Gerät sendet das Tellerfoto an den KI-Endpunkt, den du gewählt hast. Dein Gerät schickt Lebensmittelbezeichnungen an den App-Server, der sie an die Lebensmitteldatenbank weiterleitet. Der App-Server liegt weder auf dem Pfad für das Tagebuch noch auf dem für die Fotos."
+  },
   "154693adedb9b763": {
     "en": "Docs",
     "path": "common:site.nav.docs",
@@ -97,6 +104,13 @@
     "at": "2026-09-14",
     "de": "Dokumentationsseite"
   },
+  "1b4a8127deb3238f": {
+    "en": "What it can and cannot read",
+    "path": "common:pages.core.reads.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Was es lesen kann und was nicht"
+  },
   "1b9db799e8389c4f": {
     "en": "See where the day stands",
     "path": "common:pages.home.features.overview.title",
@@ -131,6 +145,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Für diese Komponente wurden noch keine Versionshinweise veröffentlicht."
+  },
+  "33c5b34914aa0287": {
+    "en": "Food database",
+    "path": "common:pages.home.illustrations.flow.foodDb",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Lebensmitteldatenbank"
   },
   "36a20a82f9b321e2": {
     "en": "The inference runtime",
@@ -264,6 +285,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "openplate-App-Server"
+  },
+  "4e43e4e349643066": {
+    "en": "openplate-core carries your diary between your devices. It stores an email address and an encrypted copy of your diary. It also keeps your recovery code, sealed under a secret of its own, so a forgotten password returns your diary. That same code lets the operator of an instance open a diary on it.",
+    "path": "common:pages.core.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "openplate-core synchronisiert dein Tagebuch zwischen deinen Geräten. Es speichert eine E-Mail-Adresse und eine verschlüsselte Kopie deines Tagebuchs. Zudem verwahrt es deinen Wiederherstellungscode, geschützt durch ein eigenes Geheimnis, damit ein vergessenes Passwort dein Tagebuch wiederherstellt. Derselbe Code ermöglicht es der Person, die eine Instanz betreibt, ein Tagebuch darauf zu öffnen."
   },
   "4faf536325f6937f": {
     "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
@@ -425,6 +453,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Was er tatsächlich weiß"
+  },
+  "729ad15836a765f9": {
+    "en": "Food database",
+    "path": "common:pages.home.illustrations.holders.foodDb",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Lebensmitteldatenbank"
   },
   "78b1b2df1202318b": {
     "en": "Your AI endpoint",
@@ -866,6 +901,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "de": "Wer welche Daten hält"
+  },
+  "f1d4e34d1e0d06b5": {
+    "en": "names",
+    "path": "common:pages.home.illustrations.flow.namesEdge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-19",
+    "de": "Namen"
   },
   "f396acd84ed6cdb6": {
     "en": "Deployment",

@@ -68,14 +68,16 @@
       },
       "illustrations": {
         "flow": {
-          "label": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
+          "label": "Five boxes and five arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. Your device sends food names to the app server, which passes them on to the food database. The app server is on neither the diary path nor the photo path.",
           "device": "Your device",
           "appServer": "openplate app server",
           "sync": "openplate-core",
           "aiEndpoint": "Your AI endpoint",
+          "foodDb": "Food database",
           "pageEdge": "the page",
           "diaryEdge": "diary, encrypted",
-          "photoEdge": "photo"
+          "photoEdge": "photo",
+          "namesEdge": "names"
         },
         "holders": {
           "caption": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
@@ -83,6 +85,7 @@
           "appServer": "openplate app server",
           "sync": "openplate-core",
           "inference": "openplate-inference",
+          "foodDb": "Food database",
           "cloudProvider": "Cloud AI provider"
         }
       },
@@ -135,9 +138,9 @@
     },
     "core": {
       "title": "The sync server",
-      "lead": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
+      "lead": "openplate-core carries your diary between your devices. It stores an email address and an encrypted copy of your diary. It also keeps your recovery code, sealed under a secret of its own, so a forgotten password returns your diary. That same code lets the operator of an instance open a diary on it.",
       "reads": {
-        "heading": "What it cannot read"
+        "heading": "What it can and cannot read"
       },
       "knows": {
         "heading": "What it does know"
