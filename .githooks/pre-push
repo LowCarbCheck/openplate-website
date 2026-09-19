@@ -113,10 +113,21 @@ if [ "${SKIP_SYNC:-0}" = "1" ]; then
 else
   echo "▶ pre-push: re-quoting the docs at the refs SOURCE.json records (needs the network)"
   # One `-e` per source, read out of the file rather than written down here.
+  # THE KEYS ARE THE FILE'S, NOT THE ENV NAMES'. `SOURCE.json` calls the sync
+  # service `core`; its variable is still `OPENPLATE_SYNC_REF`, from before the
+  # rename. A map that spelled the key `sync` produced `undefined=<ref>`, left
+  # core unpinned, and let the sync re-derive it from `released()`: a core push
+  # with any code in it then silently moved the site's core pages back to the
+  # last tag inside somebody else's unrelated push. An unknown key is a failure
+  # here rather than a shrug, for the same reason.
   sync_env=$(run node -e '
     const source = require("node:fs").readFileSync("src/generated/SOURCE.json", "utf8");
-    const env = { app: "OPENPLATE_APP_REF", sync: "OPENPLATE_SYNC_REF", inference: "OPENPLATE_INFERENCE_REF" };
-    const out = Object.entries(JSON.parse(source)).map(([key, value]) => `${env[key]}=${value.ref}`);
+    const env = { app: "OPENPLATE_APP_REF", core: "OPENPLATE_SYNC_REF", inference: "OPENPLATE_INFERENCE_REF" };
+    const out = Object.entries(JSON.parse(source)).map(([key, value]) => {
+      const name = env[key];
+      if (name === undefined) throw new Error(`SOURCE.json names a source this hook cannot pin: ${key}`);
+      return `${name}=${value.ref}`;
+    });
     process.stdout.write(out.join(" "));
   ')
   run env $sync_env pnpm sync:docs
