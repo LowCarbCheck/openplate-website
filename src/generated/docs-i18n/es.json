@@ -7883,6 +7883,12 @@
     "at": "2026-09-14",
     "es": "El rendimiento de la CPU no mejora con la concurrencia."
   },
+  "a0afb877754949fc": {
+    "en": "The service stores each entry as ciphertext and never receives your password. It does hold each account's recovery code, sealed under a secret of its own, so a forgotten password is reset by a mailed link and the diary comes back. That also means the operator of the service can, in principle, open a diary on it. {{0}} states that trade-off in full, and so does the app before you finish setting sync up.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "es": "El servicio almacena cada entrada como texto cifrado y nunca recibe tu contraseña. Sí conserva el código de recuperación de cada cuenta, protegido bajo una clave secreta propia, de modo que si olvidas la contraseña se restablece mediante un enlace enviado por correo y recuperas el diario. Esto también implica que, en principio, el operador del servicio puede abrir un diario alojado en él. {{0}} expone este compromiso al detalle, al igual que lo hace la app antes de que termines de configurar la sincronización."
+  },
   "a0be2afec469aff6": {
     "en": "Set {{0}} and {{1}} to point an instance at a {{2}} install you run yourself. Leave both unset, which is the default, and the instance loads no analytics script, sends no request, and serves the same Content-Security-Policy header it served before analytics existed. Set one without the other and the boot fails on purpose: an operator who believes they have analytics and does not is worse off than one who sees an error.",
     "model": "google/gemini-3.8-flash",
@@ -10732,6 +10738,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} antes de confiar en él. Pide texto libre mientras exiges un esquema; si la respuesta sigue teniendo la forma del esquema, la gramática es real:"
+  },
+  "dbb45957370063d7": {
+    "en": "The app always carries a {{0}} route, and it is inert on an ordinary instance. It comes to life only when the sync service it talks to has {{1}}, which is {{2}}: an instance you stand up without touching that flag runs no study, holds no study graph, and offers nothing to enrol in. Read {{3}}'s {{4}} before turning it on: it makes the server hold health-adjacent personal data, which is a different undertaking from holding an encrypted diary.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "es": "La app siempre incluye una ruta {{0}}, y esta permanece inerte en una instancia normal. Solo cobra vida cuando el servicio de sincronización con el que se comunica tiene {{1}}, que es {{2}}: una instancia que levantes sin tocar ese flag no ejecuta ningún estudio, no almacena ningún grafo de estudio y no ofrece nada en lo que inscribirse. Lee {{4}} de {{3}} antes de activarlo: hace que el servidor guarde datos personales relacionados con la salud, lo cual es una tarea muy distinta de alojar un diario cifrado."
   },
   "dc937b59892604f5": {
     "en": "None",

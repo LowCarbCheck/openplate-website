@@ -7883,6 +7883,12 @@
     "at": "2026-09-14",
     "tr": "CPU işleme hızı eşzamanlılıkla artmaz."
   },
+  "a0afb877754949fc": {
+    "en": "The service stores each entry as ciphertext and never receives your password. It does hold each account's recovery code, sealed under a secret of its own, so a forgotten password is reset by a mailed link and the diary comes back. That also means the operator of the service can, in principle, open a diary on it. {{0}} states that trade-off in full, and so does the app before you finish setting sync up.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "tr": "Hizmet her girdiyi şifreli metin olarak saklar ve parolanı asla almaz. Her hesabın kurtarma kodunu kendi gizli anahtarıyla mühürlenmiş olarak tutar, böylece unutulan bir parola e-posta ile gönderilen bir bağlantıyla sıfırlanır ve günlük geri gelir. Bu aynı zamanda hizmeti işleten kişinin, ilke olarak, üzerindeki bir günlüğü açabileceği anlamına gelir. {{0}} bu tercihin getirdiği ödünleşimi tüm ayrıntılarıyla belirtir, eşitleme kurulumunu tamamlamadan önce uygulama da aynısını yapar."
+  },
   "a0be2afec469aff6": {
     "en": "Set {{0}} and {{1}} to point an instance at a {{2}} install you run yourself. Leave both unset, which is the default, and the instance loads no analytics script, sends no request, and serves the same Content-Security-Policy header it served before analytics existed. Set one without the other and the boot fails on purpose: an operator who believes they have analytics and does not is worse off than one who sees an error.",
     "model": "google/gemini-3.8-flash",
@@ -10732,6 +10738,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Güvenmeden önce {{0}}. Bir şema talep ederken düzyazı iste; yanıt yine de şema biçimindeyse, dilbilgisi gerçektir:"
+  },
+  "dbb45957370063d7": {
+    "en": "The app always carries a {{0}} route, and it is inert on an ordinary instance. It comes to life only when the sync service it talks to has {{1}}, which is {{2}}: an instance you stand up without touching that flag runs no study, holds no study graph, and offers nothing to enrol in. Read {{3}}'s {{4}} before turning it on: it makes the server hold health-adjacent personal data, which is a different undertaking from holding an encrypted diary.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "tr": "Uygulama her zaman bir {{0}} rotası barındırır ve bu rota sıradan bir kurulumda etkisizdir. Yalnızca konuştuğu eşitleme hizmetinde {{2}} olan {{1}} bulunduğunda etkinleşir: bu bayrağa dokunmadan ayağa kaldırdığın bir kurulum hiçbir araştırma yürütmez, hiçbir araştırma grafiği tutmaz ve kaydolunacak hiçbir şey sunmaz. Bunu açmadan önce {{3}} belgesindeki {{4}} kısmını oku: bu seçenek sunucunun sağlığa ilişkin kişisel verileri tutmasına yol açar, bu da şifreli bir günlük tutmaktan farklı bir sorumluluktur."
   },
   "dc937b59892604f5": {
     "en": "None",
