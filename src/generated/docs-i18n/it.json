@@ -527,6 +527,12 @@
     "at": "2026-09-14",
     "it": "data URL base64"
   },
+  "0a46e8a0b14ff02e": {
+    "en": "On an instance whose sync service sets {{0}}, a person can let a clinician, such as a dietitian, read their diary. The clinician sends the person a connect link. The person opens it and types the twelve characters the clinician reads aloud, so a wrong key is caught before anything is shared. The person then grants the share under {{1}}: the app wraps the data key once more, under the clinician's public key, and uploads that wrapped copy. The clinician's browser unwraps it and shows the diary at {{2}}. The server stores the wrapped copy and never the key to it. A share can be revoked at any time. A private compartment of the diary holds the person's own sharing and research keys, and a clinician can never open it. Those keys are in the JSON export too, unencrypted, so that a restored device can still open what was shared with it; {{3}} says what that means for the file.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "it": "Su un'istanza in cui il servizio di sincronizzazione imposta {{0}}, una persona può consentire a un medico, come un dietista, di leggere il proprio diario. Il medico invia alla persona un link di connessione. La persona lo apre e digita i dodici caratteri letti ad alta voce dal medico, così da rilevare un'eventuale chiave errata prima di condividere qualsiasi dato. La persona autorizza poi la condivisione da {{1}}: l'app incapsula un'altra volta la chiave dei dati, usando la chiave pubblica del medico, e carica questa copia incapsulata. Il browser del medico la decapsula e mostra il diario su {{2}}. Il server memorizza la copia incapsulata e mai la relativa chiave. È possibile revocare una condivisione in qualsiasi momento. Un comparto privato del diario contiene le chiavi di ricerca e di condivisione della persona, e un medico non può mai aprirlo. Anche queste chiavi sono presenti nell'esportazione JSON, non cifrate, affinché un dispositivo ripristinato possa comunque aprire quanto condiviso con esso; {{3}} spiega cosa comporta questo per il file."
+  },
   "0b0a693996bd9fb4": {
     "en": "The two version numbers are independent on purpose: re-framing the crypto and re-shaping the HTTP API are different kinds of change with different blast radii.",
     "model": "google/gemini-3.8-flash",
@@ -7895,6 +7901,12 @@
     "at": "2026-09-14",
     "it": "La versione breve, con OpenRouter"
   },
+  "a161a3365e05eca9": {
+    "en": "{{0}} It holds every entry in the clear, and it also holds the private key of this device's sharing identity and the root the research pseudonym is derived from. Whoever holds the file can open a diary that was shared with this person, and can link their study contributions back to them. Two things stay out of it: the AI provider key, and the plate photographs, which never leave the device.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "it": "{{0}} Contiene ogni voce in chiaro, oltre alla chiave privata dell'identità di condivisione di questo dispositivo e alla radice da cui deriva lo pseudonimo di ricerca. Chiunque abbia il file può aprire un diario condiviso con questa persona e può ricollegare a lei i suoi contributi allo studio. Due elementi ne restano esclusi: la chiave del provider IA e le foto del piatto, che non lasciano mai il dispositivo."
+  },
   "a172cedcae47474b": {
     "en": "app",
     "model": "google/gemini-3.8-flash",
@@ -9424,6 +9436,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Licenza"
+  },
+  "c0602a968569bcb9": {
+    "en": "Keep the export as private as the diary.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "it": "Mantieni l'esportazione privata quanto il diario."
   },
   "c06c85939782238d": {
     "en": "from the browser",

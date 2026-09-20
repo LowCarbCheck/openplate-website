@@ -9,10 +9,10 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "v0.34.1",
+      "ref": "v0.35.0",
       "editRef": "main",
-      "sha": "77b702d2c5b6ea82c77e14dfb02d08c55db25b53",
-      "committedAt": "2026-09-19"
+      "sha": "465f0a6d74222ec3e896a4ecc3024541565fda71",
+      "committedAt": "2026-09-20"
     },
     "lead": [
       {
@@ -51,7 +51,7 @@ export const DOCS_INDEX: DocsIndex = {
           },
           {
             "kind": "text",
-            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
+            "text": " No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no required secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever."
           }
         ]
       }
@@ -64,7 +64,7 @@ export const DOCS_INDEX: DocsIndex = {
         "blurb": [
           {
             "kind": "text",
-            "text": "The four programs, what each one stores, and how they compose"
+            "text": "The three programs and the food database, what each one holds, and how they compose"
           }
         ]
       },

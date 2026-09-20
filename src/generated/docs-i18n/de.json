@@ -605,6 +605,12 @@
     "at": "2026-09-04",
     "de": "Base64-Data-URL"
   },
+  "0a46e8a0b14ff02e": {
+    "en": "On an instance whose sync service sets {{0}}, a person can let a clinician, such as a dietitian, read their diary. The clinician sends the person a connect link. The person opens it and types the twelve characters the clinician reads aloud, so a wrong key is caught before anything is shared. The person then grants the share under {{1}}: the app wraps the data key once more, under the clinician's public key, and uploads that wrapped copy. The clinician's browser unwraps it and shows the diary at {{2}}. The server stores the wrapped copy and never the key to it. A share can be revoked at any time. A private compartment of the diary holds the person's own sharing and research keys, and a clinician can never open it. Those keys are in the JSON export too, unencrypted, so that a restored device can still open what was shared with it; {{3}} says what that means for the file.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Auf einer Instanz, deren Sync-Dienst {{0}} setzt, kann eine Person Fachpersonal, wie etwa einer Ernährungsberatung, Lesezugriff auf ihr Tagebuch geben. Die Fachkraft sendet der Person einen Connect-Link. Die Person öffnet ihn und tippt die zwölf Zeichen ein, die die Fachkraft vorliest, damit ein falscher Schlüssel auffällt, bevor Daten geteilt werden. Die Person gewährt die Freigabe dann unter {{1}}: Die App verpackt den Datenschlüssel ein weiteres Mal mit dem öffentlichen Schlüssel der Fachkraft und lädt diese verpackte Kopie hoch. Der Browser der Fachkraft entpackt sie und zeigt das Tagebuch unter {{2}} an. Der Server speichert die verpackte Kopie und niemals den passenden Schlüssel. Eine Freigabe lässt sich jederzeit widerrufen. Ein privater Bereich des Tagebuchs enthält die eigenen Freigabe- und Forschungsschlüssel der Person, die eine Fachkraft niemals öffnen kann. Diese Schlüssel liegen ebenfalls unverschlüsselt im JSON-Export, damit ein wiederhergestelltes Gerät weiterhin Zugriff auf geteilte Daten hat, {{3}} beschreibt, was das für die Datei bedeutet."
+  },
   "0b0952676d98721b": {
     "en": "1. Context window — the symptom is garbled output, not a startup error.",
     "model": "google/gemini-3.8-flash",
@@ -8969,6 +8975,12 @@
     "at": "2026-09-04",
     "de": "Die Kurzfassung, mit OpenRouter"
   },
+  "a161a3365e05eca9": {
+    "en": "{{0}} It holds every entry in the clear, and it also holds the private key of this device's sharing identity and the root the research pseudonym is derived from. Whoever holds the file can open a diary that was shared with this person, and can link their study contributions back to them. Two things stay out of it: the AI provider key, and the plate photographs, which never leave the device.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "{{0}} Sie enthält jeden Eintrag im Klartext, und sie enthält außerdem den privaten Schlüssel der Freigabe-Identität dieses Geräts sowie die Wurzel, aus der das Forschungs-Pseudonym abgeleitet wird. Wer die Datei besitzt, kann ein Tagebuch öffnen, das für diese Person freigegeben wurde, und die Studienbeiträge zu dieser Person zurückverfolgen. Zwei Dinge bleiben außen vor: der Schlüssel des KI-Anbieters und die Tellerfotos, die das Gerät nie verlassen."
+  },
   "a172cedcae47474b": {
     "en": "app",
     "model": "google/gemini-3.8-flash",
@@ -10744,6 +10756,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Lizenz"
+  },
+  "c0602a968569bcb9": {
+    "en": "Keep the export as private as the diary.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Behandle den Export genauso vertraulich wie das Tagebuch."
   },
   "c06c85939782238d": {
     "en": "from the browser",

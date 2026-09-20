@@ -527,6 +527,12 @@
     "at": "2026-09-14",
     "tr": "base64 data URL'si"
   },
+  "0a46e8a0b14ff02e": {
+    "en": "On an instance whose sync service sets {{0}}, a person can let a clinician, such as a dietitian, read their diary. The clinician sends the person a connect link. The person opens it and types the twelve characters the clinician reads aloud, so a wrong key is caught before anything is shared. The person then grants the share under {{1}}: the app wraps the data key once more, under the clinician's public key, and uploads that wrapped copy. The clinician's browser unwraps it and shows the diary at {{2}}. The server stores the wrapped copy and never the key to it. A share can be revoked at any time. A private compartment of the diary holds the person's own sharing and research keys, and a clinician can never open it. Those keys are in the JSON export too, unencrypted, so that a restored device can still open what was shared with it; {{3}} says what that means for the file.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "tr": "Eşitleme hizmetinde {{0}} ayarı yapılmış bir örnekte, bir kişi diyetisyen gibi bir klinisyenin günlüğünü okumasına izin verebilir. Klinisyen kişiye bir bağlantı linki gönderir. Kişi bu linki açar ve klinisyenin sesli okuduğu on iki karakteri yazar, böylece hiçbir şey paylaşılmadan önce yanlış bir anahtar yakalanmış olur. Ardından kişi paylaşım iznini {{1}} altında verir: uygulama, veri anahtarını klinisyenin genel anahtarıyla bir kez daha sarar ve bu sarılmış kopyayı yükler. Klinisyenin tarayıcısı bu sarmalamayı açar ve günlüğü {{2}} adresinde gösterir. Sunucu, sarılmış kopyayı saklar, bunun anahtarını ise asla saklamaz. Bir paylaşım istendiği zaman iptal edilebilir. Günlüğün özel bir bölmesi kişinin kendi paylaşım ve araştırma anahtarlarını tutar ve bir klinisyen burayı asla açamaz. Geri yüklenen bir cihazın kendisiyle paylaşılanları açabilmesi için bu anahtarlar şifrelenmemiş halde JSON dışa aktarımında da yer alır; {{3}} bunun dosya için ne anlama geldiğini açıklar."
+  },
   "0b0a693996bd9fb4": {
     "en": "The two version numbers are independent on purpose: re-framing the crypto and re-shaping the HTTP API are different kinds of change with different blast radii.",
     "model": "google/gemini-3.8-flash",
@@ -7895,6 +7901,12 @@
     "at": "2026-09-14",
     "tr": "OpenRouter ile kısa versiyon"
   },
+  "a161a3365e05eca9": {
+    "en": "{{0}} It holds every entry in the clear, and it also holds the private key of this device's sharing identity and the root the research pseudonym is derived from. Whoever holds the file can open a diary that was shared with this person, and can link their study contributions back to them. Two things stay out of it: the AI provider key, and the plate photographs, which never leave the device.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "tr": "{{0}} Her girdiyi açık metin olarak tutar; ayrıca bu cihazın paylaşım kimliğine ait özel anahtarı ve araştırma takma adının türetildiği kökü de içerir. Dosyayı elinde bulunduran kişi, bu kişiyle paylaşılmış olan bir günlüğü açabilir ve araştırma katkılarını o kişiye geri bağlayabilir. İki şey dosyanın dışında kalır: yapay zeka sağlayıcısı anahtarı ve cihazdan asla ayrılmayan tabak fotoğrafları."
+  },
   "a172cedcae47474b": {
     "en": "app",
     "model": "google/gemini-3.8-flash",
@@ -9424,6 +9436,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Lisans"
+  },
+  "c0602a968569bcb9": {
+    "en": "Keep the export as private as the diary.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "tr": "Dışa aktarma dosyasını da günlüğün kendisi kadar gizli tut."
   },
   "c06c85939782238d": {
     "en": "from the browser",
