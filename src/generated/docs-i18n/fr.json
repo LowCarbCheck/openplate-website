@@ -1373,6 +1373,12 @@
     "at": "2026-09-18",
     "fr": "`{\"nutrientReferenceBasis\": \"dge\" \\"
   },
+  "1a99997bc347e29d": {
+    "en": "What travels between your devices",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "Ce qui circule entre tes appareils"
+  },
   "1aa5f8988891c249": {
     "en": "Check the {{0}} line.",
     "model": "google/gemini-3.8-flash",
@@ -1504,6 +1510,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "La console de recherche ({{0}})"
+  },
+  "1dee1f3ab3e502b0": {
+    "en": "{{0}} Your device writes down the removals it performed so it can prove they were deliberate, and that list stays on the device. The removals themselves travel; the list does not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "{{0}} Ton appareil consigne les suppressions qu'il a effectuées pour pouvoir prouver qu'elles étaient délibérées, et cette liste reste sur l'appareil. Les suppressions elles-mêmes circulent ; la liste ne circule pas."
   },
   "1e0f1dd48e9dbb33": {
     "en": "Blob size",
@@ -2044,6 +2056,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "fr": "Les administrateurs sont exemptés."
+  },
+  "28f8e9722be982ed": {
+    "en": "Your sharing and research keys travel as well, in a sealed part of the blob that only your own devices can open. A clinician you grant a diary to cannot read it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "Tes clés de partage et de recherche circulent aussi, dans une partie scellée du blob que seuls tes propres appareils peuvent ouvrir. Un médecin à qui tu accordes l'accès à un journal ne peut pas la lire."
   },
   "297b2a44ced02373": {
     "en": "Inference is the compute layer, openplate-core is the tenancy layer on a managed instance, and they compose",
@@ -9179,6 +9197,12 @@
     "at": "2026-09-06",
     "fr": "J'ai un lien d'invitation"
   },
+  "b6c057e7beaa87b9": {
+    "en": "Your AI provider key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "La clé de ton fournisseur d'IA."
+  },
   "b6d1b5195529b0c5": {
     "en": "{{0}} is the whole switch. It skips the weight download and starts no {{1}}, so there is no {{2}} volume.",
     "model": "google/gemini-3.8-flash",
@@ -9538,6 +9562,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Famille"
+  },
+  "bd32d48137cd8157": {
+    "en": "Everything the sync engine calls an entity is merged per row, so a change made on one device reaches the others and a deletion made on one device removes the row on the others. As of this version that is your personal foods, your food log, your weight entries, your profile and goals, your fasts, your pantry, your fasting routine, and the activity marks and awards behind the streak. Your saved meals travel too, as a whole list rather than row by row, which is the last part of the diary still waiting for a per-row merge.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "Tout ce que le moteur de synchronisation appelle une entité est fusionné ligne par ligne, donc une modification effectuée sur un appareil arrive sur les autres et une suppression effectuée sur un appareil supprime la ligne sur les autres. Dans cette version, cela concerne tes aliments personnels, ton journal alimentaire, tes saisies de poids, ton profil et tes objectifs, tes jeûnes, ton garde-manger, ta routine de jeûne, ainsi que les marques d'activité et les récompenses associées à la série. Tes repas enregistrés circulent également, sous forme de liste globale plutôt que ligne par ligne, ce qui est la dernière partie du journal attendant encore une fusion par ligne."
   },
   "bd5a59f5ff672391": {
     "en": "{{0}} A new address, an address that already holds a pending invitation and an address that already holds an account are one {{1}} with one body. This is the anti-enumeration property of §5.7 and §5.12 applied to the one endpoint a member points at somebody else's mailbox: a person who types their colleague's address must not learn from a status code, a body or a header that the colleague is already here. The admin mint's {{2}} is exempt, and only because it is behind the operator's own credential.",
@@ -10559,6 +10589,12 @@
     "at": "2026-09-06",
     "fr": "Navigateur"
   },
+  "d326c961887671ca": {
+    "en": "Plate photos.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "Les photos d'assiette."
+  },
   "d34a569ab7aaa54d": {
     "en": "family",
     "model": "google/gemini-3.8-flash",
@@ -10582,6 +10618,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Pourquoi"
+  },
+  "d3affb453063f187": {
+    "en": "{{0}} It lives in its own database on the device you entered it on, and it goes to nobody but the provider you chose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "{{0}} Elle réside dans sa propre base de données sur l'appareil où tu l'as saisie, et elle n'est transmise à personne d'autre qu'au fournisseur que tu as choisi."
   },
   "d3c9630a6d0a9703": {
     "en": "Why refusal rather than best-effort:",
@@ -11158,6 +11200,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un partage (§5.16) ne compte pas ici comme un enregistrement de clé."
+  },
+  "e07a8650a5b1a419": {
+    "en": "Three things never travel, whatever you switch on:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "Trois éléments ne circulent jamais, quels que soient tes réglages :"
   },
   "e07e1e667cda67dc": {
     "en": "{{0}} turns it off, and then no food name leaves your server.",
@@ -12119,6 +12167,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} avec un {{1}} non nul (le chemin de récupération utilise uniquement HKDF, il n'y a aucun paramètre à enregistrer)"
   },
+  "f3e918574f778e73": {
+    "en": "{{0}} They live in a separate database on the device that took them, they are excluded from the sync payload and from every backup file, and they clear themselves out on a schedule you set.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "{{0}} Elles résident dans une base de données distincte sur l'appareil qui les a prises, elles sont exclues de la charge utile de synchronisation et de chaque fichier de sauvegarde, et elles s'effacent selon un calendrier que tu définis."
+  },
   "f3eef575d92d9654": {
     "en": "An invite is the only way to create an account",
     "model": "google/gemini-3.8-flash",
@@ -12328,6 +12382,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "C'est à toi de générer et de distribuer les clés."
+  },
+  "f929ddac24a7e041": {
+    "en": "The record of what you deleted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "fr": "L'historique de tes suppressions."
   },
   "f94656ad73db05b1": {
     "en": "The refusal is {{0}} and deliberately NOT {{1}}: a {{2}} on this route means \"another device wrote first\" and obliges the recovery loop below, which would push the same bytes again. {{3}} was not used either: the request is not too large.",

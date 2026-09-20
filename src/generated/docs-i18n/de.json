@@ -1505,6 +1505,12 @@
     "at": "2026-09-18",
     "de": "`{\"nutrientReferenceBasis\": \"dge\" \\"
   },
+  "1a99997bc347e29d": {
+    "en": "What travels between your devices",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Was zwischen deinen Geräten übertragen wird"
+  },
   "1aa5f8988891c249": {
     "en": "Check the {{0}} line.",
     "model": "google/gemini-3.8-flash",
@@ -1660,6 +1666,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die Forschungskonsole ({{0}})"
+  },
+  "1dee1f3ab3e502b0": {
+    "en": "{{0}} Your device writes down the removals it performed so it can prove they were deliberate, and that list stays on the device. The removals themselves travel; the list does not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "{{0}} Dein Gerät protokolliert die durchgeführten Löschungen, um nachweisen zu können, dass sie beabsichtigt waren. Diese Liste bleibt auf dem Gerät. Die Löschungen selbst werden übertragen, die Liste nicht."
   },
   "1df8568a978ed007": {
     "en": "Curated nutrition data and food images for identified foods. Only food {{0}} are sent — never photos, never anything about you — and the lookup fails open. Set to an empty string to disable it entirely.",
@@ -2260,6 +2272,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das Escrow bezieht sich auf den SCHLÜSSEL, nicht auf {{0}} und nicht auf den DEK. Nichts auf dem Server leitet einen KEK ab, entschlüsselt einen DEK oder hält einen solchen vor, der Schlüssel wird erst zu einem kryptographischen Schlüssel, nachdem ein Client HKDF darauf anwendet. Das schafft keine Geheimhaltung gegenüber dem Betreiber, der HKDF ebenfalls ausführen kann; es sorgt für einen Server, dessen Codepfad keine Entschlüsselung von Benutzerdaten enthält, wodurch diese Eigenschaft überprüfbar wird, statt nur ein Versprechen zu bleiben."
+  },
+  "28f8e9722be982ed": {
+    "en": "Your sharing and research keys travel as well, in a sealed part of the blob that only your own devices can open. A clinician you grant a diary to cannot read it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Deine Freigabe- und Forschungsschlüssel werden ebenfalls übertragen, in einem versiegelten Teil des Blobs, den nur deine eigenen Geräte öffnen können. Eine medizinische Fachkraft, der du Zugriff auf ein Tagebuch gewährst, kann ihn nicht lesen."
   },
   "2966a70da1460612": {
     "en": "Total bound on one completion call; {{0}} = disabled. Liveness, not latency policy — it releases a worker slot a wedged runtime will never return. Applies in bundled mode too. See {{1}}.",
@@ -10235,6 +10253,12 @@
     "at": "2026-09-04",
     "de": "Ich habe einen Einladungslink"
   },
+  "b6c057e7beaa87b9": {
+    "en": "Your AI provider key.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Dein Schlüssel für den KI-Anbieter."
+  },
   "b6d1b5195529b0c5": {
     "en": "{{0}} is the whole switch. It skips the weight download and starts no {{1}}, so there is no {{2}} volume.",
     "model": "google/gemini-3.8-flash",
@@ -10636,6 +10660,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Familie"
+  },
+  "bd32d48137cd8157": {
+    "en": "Everything the sync engine calls an entity is merged per row, so a change made on one device reaches the others and a deletion made on one device removes the row on the others. As of this version that is your personal foods, your food log, your weight entries, your profile and goals, your fasts, your pantry, your fasting routine, and the activity marks and awards behind the streak. Your saved meals travel too, as a whole list rather than row by row, which is the last part of the diary still waiting for a per-row merge.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Alles, was die Sync-Engine als Entität bezeichnet, wird zeilenweise zusammengeführt. Eine Änderung auf einem Gerät erreicht also die anderen, und ein Löschvorgang auf einem Gerät entfernt die Zeile auf den anderen. Ab dieser Version sind das deine persönlichen Lebensmittel, dein Ernährungsprotokoll, deine Gewichtseinträge, dein Profil und deine Ziele, deine Fastenzeiten, deine Vorratskammer, deine Fastenroutine sowie die Aktivitätsmarkierungen und Auszeichnungen hinter der Serie. Deine gespeicherten Mahlzeiten werden ebenfalls übertragen, allerdings als vollständige Liste statt zeilenweise. Das ist der letzte Teil des Tagebuchs, der noch auf eine zeilenweise Zusammenführung wartet."
   },
   "bd5a59f5ff672391": {
     "en": "{{0}} A new address, an address that already holds a pending invitation and an address that already holds an account are one {{1}} with one body. This is the anti-enumeration property of §5.7 and §5.12 applied to the one endpoint a member points at somebody else's mailbox: a person who types their colleague's address must not learn from a status code, a body or a header that the colleague is already here. The admin mint's {{2}} is exempt, and only because it is behind the operator's own credential.",
@@ -11789,6 +11819,12 @@
     "at": "2026-09-06",
     "de": "Browser"
   },
+  "d326c961887671ca": {
+    "en": "Plate photos.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Tellerfotos."
+  },
   "d34a569ab7aaa54d": {
     "en": "family",
     "model": "google/gemini-3.8-flash",
@@ -11818,6 +11854,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Grund"
+  },
+  "d3affb453063f187": {
+    "en": "{{0}} It lives in its own database on the device you entered it on, and it goes to nobody but the provider you chose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "{{0}} Er liegt in einer eigenen Datenbank auf dem Gerät, auf dem du ihn eingegeben hast, und wird an niemanden außer den von dir gewählten Anbieter übermittelt."
   },
   "d3c9630a6d0a9703": {
     "en": "Why refusal rather than best-effort:",
@@ -12454,6 +12496,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Eine Freigabe (§5.16) zählt hier nicht als Schlüsseldatensatz."
+  },
+  "e07a8650a5b1a419": {
+    "en": "Three things never travel, whatever you switch on:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Drei Dinge werden niemals übertragen, unabhängig von deinen Einstellungen:"
   },
   "e07e1e667cda67dc": {
     "en": "{{0}} turns it off, and then no food name leaves your server.",
@@ -13559,6 +13607,12 @@
     "at": "2026-09-04",
     "de": "Ein {{0}} ist eine dritte Verpackung desselben DEK, adressiert an den öffentlichen Schlüssel eines anderen Kontos. Der Server speichert ihn, liefert ihn an genau das Konto aus, an das er adressiert ist, und besitzt dafür keinen Schlüssel, §9.1 bleibt von dieser Funktion unberührt."
   },
+  "f3e918574f778e73": {
+    "en": "{{0}} They live in a separate database on the device that took them, they are excluded from the sync payload and from every backup file, and they clear themselves out on a schedule you set.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "{{0}} Sie liegen in einer separaten Datenbank auf dem Gerät, das sie aufgenommen hat, sind von der Sync-Nutzlast sowie aus jeder Sicherungsdatei ausgeschlossen und löschen sich nach einem von dir festgelegten Zeitplan selbst."
+  },
   "f3eef575d92d9654": {
     "en": "An invite is the only way to create an account",
     "model": "google/gemini-3.8-flash",
@@ -13792,6 +13846,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Du musst die Schlüssel selbst erzeugen und verteilen."
+  },
+  "f929ddac24a7e041": {
+    "en": "The record of what you deleted.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-20",
+    "de": "Das Protokoll deiner Löschungen."
   },
   "f94656ad73db05b1": {
     "en": "The refusal is {{0}} and deliberately NOT {{1}}: a {{2}} on this route means \"another device wrote first\" and obliges the recovery loop below, which would push the same bytes again. {{3}} was not used either: the request is not too large.",
