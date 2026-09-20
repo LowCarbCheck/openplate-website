@@ -122,8 +122,10 @@ jobs:
           # exists.
           #
           # Empty on a dispatch and on a schedule. The workflow_dispatch inputs
-          # are the one override, for a docs-only fix that cannot wait for a
-          # release.
+          # are the one override, for reading an unreleased ref WHOLE. Since
+          # ADR-0008 a documentation-only fix needs no override at all: it is
+          # quoted per file over the tag, and any run of this workflow picks it
+          # up.
           OPENPLATE_APP_REF: ${{ inputs.app_ref }}
           OPENPLATE_SYNC_REF: ${{ inputs.sync_ref }}
           OPENPLATE_INFERENCE_REF: ${{ inputs.inference_ref }}
@@ -265,7 +267,10 @@ jobs:
           if [ -n "$repo" ] && [ -n "$tag" ]; then
             subject="chore(docs): re-quote $repo at $tag"
           else
-            subject="chore(docs): re-quote $(jq -r '[to_entries[] | "\(.key) at \(.value.ref)"] | join(", ")' src/generated/SOURCE.json)"
+            # AND HOW MANY FILES CAME FROM THE BRANCH. Since ADR-0008 a
+            # documentation fix does not move a tag, so a subject built from
+            # `ref` alone reads identically on every docs-only re-quote.
+            subject="chore(docs): re-quote $(jq -r '[to_entries[] | "\(.key) at \(.value.ref)" + (if ((.value.documentationFrom // []) | length) > 0 then " plus \((.value.documentationFrom | length)) docs" else "" end)] | join(", ")' src/generated/SOURCE.json)"
           fi
 
           git config user.name "openplate-docs-bot"
@@ -438,14 +443,22 @@ jobs:
             echo "::notice::No OPENPLATE_WEBSITE_ORIGIN set, so there is no live site to poll. The commit is pushed. Set the variable when the site is on Bay (M194)."
             exit 0
           fi
-          want="$(jq -Sc '[.app.commit, .sync.commit, .inference.commit]' src/generated/SOURCE.json)"
+          # COMMIT AND branchCommit, BOTH, and keyed `core` and not `sync`.
+          # Since ADR-0008 a documentation fix reaches the site without moving a
+          # tag, so `commit` alone does not change and this poll would be
+          # satisfied by the deploy that is already live. `branchCommit` is the
+          # commit the overlaid documentation was read at, and it is what moves.
+          # The old expression also asked for `.sync`, a key this file has always
+          # called `core`, so core was compared as null on both sides.
+          fingerprint="[.app, .core, .inference] | map([.commit, .branchCommit])"
+          want="$(jq -Sc "$fingerprint" src/generated/SOURCE.json)"
           echo "waiting for ${SITE_ORIGIN} to serve ${want}"
           # 30 MINUTES. Bay builds the image and rolls it out as two steps, and
           # the gap between them is not small. A false alarm here is worse than
           # a slow job, because the whole point of the step is that a red run
           # means something.
           for attempt in $(seq 1 60); do
-            live="$(curl -fsS --max-time 10 "${SITE_ORIGIN}/SOURCE.json" 2>/dev/null | jq -Sc '[.app.commit, .sync.commit, .inference.commit]' 2>/dev/null || true)"
+            live="$(curl -fsS --max-time 10 "${SITE_ORIGIN}/SOURCE.json" 2>/dev/null | jq -Sc "$fingerprint" 2>/dev/null || true)"
             if [ "$live" = "$want" ]; then
               echo "${SITE_ORIGIN} is serving the new commits after $((attempt * 30))s"
               exit 0

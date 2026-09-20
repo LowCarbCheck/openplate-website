@@ -31,30 +31,45 @@ documentation change reaches the site without a hand in the loop.
 yet. That page would be internally consistent, read perfectly, and describe a
 program the reader cannot run, which is the kind of wrong nobody reports.
 
-There is one exception, and it rests on an invariant rather than on trust. The
-sync compares the tree at the tag with the tree at the default branch. If every
-path that differs is `README.md`, `CHANGELOG.md` or under `docs/`, then the code
-on the branch IS the released code, byte for byte. There is no unreleased
-behaviour for the branch's documentation to be describing, so the branch is
-quoted instead of the tag and a correction to a guide reaches the site without a
-version bump for a change that ships no code. One differing path outside those
-three and the argument is gone, so the tag is quoted again and the fix waits for
-the next release. The comparison is the NET difference between the two trees and
-not a walk of the commits: a branch that changed a source file and then reverted
-it has moved no code.
+**And the documentation on top of it, decided per file.** Documentation is not a
+release, so a correction to a guide must reach a reader without a version bump.
+The tree the site publishes is therefore a HYBRID: the tag, with individual
+documentation files laid over it from the default branch. A documentation file
+is taken from the branch when it differs from the tag AND every commit since the
+tag that touched it touched documentation and nothing else. Everything else in
+the tree, every source file, every compose file, every `.env.example`, is the
+tag's, always.
 
-The sync says which of the three cases it took, per source, with the tag, the
-branch and the short sha:
+The criterion is provenance. A file whose last change rode in beside a code
+change belongs to that code's release and waits for its tag; a file only ever
+touched by documentation-only commits is a documentation fix, and the code
+around it is irrelevant to it. It is decided per FILE and never once per
+repository, which is the whole point: the rule this replaced asked one question
+of the whole range, so one code change anywhere sent every page back to the tag,
+and a published documentation fix could be reverted by somebody who had never
+touched it. [ADR-0008](.adr/0008-documentation-is-quoted-per-file.md) records
+both incidents and the decision, including the cost it accepts.
+
+The sync says what it took, per source, with the tag, the branch and the short
+shas:
 
 ```
 sync-docs: app — main is exactly v0.12.0, quoting the tag at 20c6010
-sync-docs: app — v0.12.0 plus documentation only, quoting main at a205674
-sync-docs: app — code has moved past v0.12.0 on main, so a documentation fix there waits for the next release. Quoting v0.12.0 at 20c6010
+sync-docs: app — v0.12.0 plus 3 documentation file(s) from main at a205674, 1 more waiting for the next release. Quoting v0.12.0 at 20c6010
+sync-docs: app — code has moved past v0.12.0 on main and no documentation file there is a documentation-only change, so a fix in one waits for the next release. Quoting v0.12.0 at 20c6010
 ```
 
-In the middle case `SOURCE.json` records the branch as `ref` and the branch's
-commit as `commit`, and the documentation index shows `main` where it usually
-shows a tag. That is honest: those pages are ahead of the release.
+`SOURCE.json` records `ref` and `commit` for the tag, and `branch`,
+`branchCommit` and `documentationFrom` for the overlay, which together rebuild
+the same tree byte for byte. The documentation index shows the tag, because the
+code those pages describe is the tag's.
+
+One thing the hybrid can break, and it fails loudly rather than quietly. The
+README is the manifest, and it is a documentation file with its own verdict, so
+a new `docs/` page can arrive from the branch beside a README from the tag that
+has never heard of it. The sync refuses, names the file and both refs, and tells
+you to land a documentation-only commit that changes both or wait for the tag.
+It never falls back to quoting the whole repository at the tag.
 
 ## Where the site's own copy comes from
 
@@ -139,14 +154,16 @@ it says today, which is what makes a documentation table written five minutes
 ago testable. Everything it writes under `src/generated/` is committed.
 
 That override reads the checkout IN PLACE and skips ref resolution entirely, so
-it cannot exercise the tag-or-branch rule above. A path with no `.git` directory
-in it is cloned like any other, so a BARE repository (`/tmp/thing.git`) is how
-that code path is driven locally with no network writes.
+it cannot exercise the per-file rule above. A path with no `.git` directory in
+it is cloned like any other, so a BARE repository (`/tmp/thing.git`) is how that
+code path is driven locally with no network writes, and it is how
+`tests/unit/released-mixed-diff.test.ts` drives the hybrid tree.
 
 `sync-docs.ts` runs its whole sync at import: the refusals ARE the exit code and
 the printed line, so its tests spawn it as a child process against fixture
 repositories in `/tmp`. Any pure function that deserves a direct unit test has
-to be moved into `scripts/lib/` first, which is where `documentationOnly` lives.
+to be moved into `scripts/lib/` first, which is where `documentationOnly` and
+`documentationAhead` live.
 
 The sync also draws the diagrams. A ```mermaid fence in a source document is
 rendered here into `public/docs/diagrams/<id>-<language>-light.svg` and
@@ -218,19 +235,21 @@ the production build, in that order. There is no cloud test runner: a push from 
 what triggers the deploy, so the gate sits in front of it. The build tier is the
 one that matters most here, because prerendering happens there and nowhere else.
 
-The staleness tier re-runs `sync:docs` at the refs `src/generated/SOURCE.json`
+The staleness tier re-runs `sync:docs` at the releases `src/generated/SOURCE.json`
 records and fails on any diff under `src/generated/`, so a generated file edited
 by hand, or a sync run and only half committed, cannot be pushed. The ref and
 not the `commit` beside it. Pinning the commit was tried, on the argument that a
 `ref` can now be a branch and a branch moves, and this tier caught it: the sync
 records whatever ref it is given, so a run pinned to a bare sha writes that sha
 into `ref`, into `docs-index.ts` and into all three `releases/*.ts`, and the
-check then fails on a clean tree. The branch case is not the flake it looks
-like either. A source quoted at `main` and re-resolved here asks whether this
-tree still matches the branch it came from, and if somebody pushed
-documentation upstream since, the answer is genuinely no. It clones the three
-repositories, so it needs the network. `SKIP_SYNC=1 git push` skips that
-tier alone; `SKIP_TESTS=1 git push` skips the whole gate.
+check then fails on a clean tree. It pins that `ref` through `OPENPLATE_*_TAG`,
+which fixes the BASE and lets the per-file documentation rule run again.
+`OPENPLATE_*_REF` would rebuild the tag alone and drop the overlay, and the tier
+would then fail on every clean tree. Re-resolving the overlay is also what keeps
+it honest: if somebody pushed documentation upstream since, this tree is
+genuinely stale and the check says so. It clones the three repositories, so it
+needs the network. `SKIP_SYNC=1 git push` skips that tier alone;
+`SKIP_TESTS=1 git push` skips the whole gate.
 
 Copy `.env.example` to `.env` if you need it. The running site needs no secret;
 the only key in there is read by the translation script.
@@ -252,11 +271,16 @@ client_payload: { "repo": "openplate-core", "tag": "v0.6.0" }
 
 The payload says which release woke the run and nothing more. Which release the
 site documents is decided in one place, `released` in `scripts/sync-docs.ts`: the
-highest `vX.Y.Z` tag each repository has, or that repository's default branch
-when the branch is that tag plus documentation and nothing else. "Where the
-documentation comes from" above says why the second case is safe. Every run syncs
-all three sources, so a dispatch that is lost is healed by the next release or by
-the schedule.
+highest `vX.Y.Z` tag each repository has, plus the documentation files that are a
+documentation-only change since it. "Where the documentation comes from" above
+says why that is safe. Every run syncs all three sources, so a dispatch that is
+lost is healed by the next release or by the schedule.
+
+A documentation-only push to a source repository dispatches NOTHING, because a
+member's release job only runs on a `v*` tag. The daily pass at 06:41 UTC is the
+delivery path for such a fix, so it reaches the site up to roughly 24 hours
+later, plus the build and the rollout. Sooner, by hand:
+`gh workflow run sync-docs.yml -f budget=0`.
 
 The workflow passes its `app_ref`, `sync_ref` and `inference_ref` inputs through,
 and they are empty on a dispatch and on a schedule, so CI resolves the ref afresh

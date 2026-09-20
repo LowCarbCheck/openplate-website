@@ -97,11 +97,17 @@ run pnpm test:unit
 # all three `releases/*.ts`. The check then fails on a clean tree, and the /docs
 # page offers a reader a forty character sha where a version was.
 #
-# So the ref it is, and the branch case is not the flake it looks like. A source
-# quoted at `main` and re-resolved here answers "does this tree still match the
-# branch it came from". If somebody pushed documentation upstream since, the
-# answer is genuinely no, this tree IS stale, and the fix is the one printed
-# below: run the sync and commit what it writes.
+# ── `_TAG` AND NOT `_REF`, SINCE ADR-0008 ──
+# A source's tree is now a HYBRID: its highest tag, plus the individual
+# documentation files that are a documentation-only change since that tag.
+# `OPENPLATE_*_REF` means "read this ref whole", so pinning the recorded `ref`
+# with it would rebuild the tag and drop the overlay, and this tier would fail on
+# every clean tree. `OPENPLATE_*_TAG` pins only the BASE and lets the per-file
+# rule run again, which is what keeps this a staleness check: a new tag upstream
+# is still the sync workflow's business, and a guide pushed upstream since still
+# reads as the stale tree it is, because the hybrid tree genuinely changed. That
+# is not the flake it looks like; the fix is the one printed below, run the sync
+# and commit what it writes.
 #
 # IT NEEDS THE NETWORK. The sync clones the three repositories, so this tier is
 # the one that fails on a plane.
@@ -114,7 +120,7 @@ else
   echo "▶ pre-push: re-quoting the docs at the refs SOURCE.json records (needs the network)"
   # One `-e` per source, read out of the file rather than written down here.
   # THE KEYS ARE THE FILE'S, NOT THE ENV NAMES'. `SOURCE.json` calls the sync
-  # service `core`; its variable is still `OPENPLATE_SYNC_REF`, from before the
+  # service `core`; its variable is still `OPENPLATE_SYNC_TAG`, from before the
   # rename. A map that spelled the key `sync` produced `undefined=<ref>`, left
   # core unpinned, and let the sync re-derive it from `released()`: a core push
   # with any code in it then silently moved the site's core pages back to the
@@ -122,7 +128,7 @@ else
   # here rather than a shrug, for the same reason.
   sync_env=$(run node -e '
     const source = require("node:fs").readFileSync("src/generated/SOURCE.json", "utf8");
-    const env = { app: "OPENPLATE_APP_REF", core: "OPENPLATE_SYNC_REF", inference: "OPENPLATE_INFERENCE_REF" };
+    const env = { app: "OPENPLATE_APP_TAG", core: "OPENPLATE_SYNC_TAG", inference: "OPENPLATE_INFERENCE_TAG" };
     const out = Object.entries(JSON.parse(source)).map(([key, value]) => {
       const name = env[key];
       if (name === undefined) throw new Error(`SOURCE.json names a source this hook cannot pin: ${key}`);

@@ -13,7 +13,14 @@
  *
  *   pnpm sync:docs                                   # every source at its highest tag
  *   OPENPLATE_APP_REPO=../openplate pnpm sync:docs   # a checkout you already have
- *   OPENPLATE_SYNC_REF=v0.6.0 pnpm sync:docs         # any ref
+ *   OPENPLATE_SYNC_REF=v0.6.0 pnpm sync:docs         # any ref, read whole
+ *   OPENPLATE_SYNC_TAG=v0.6.0 pnpm sync:docs         # that release, plus the documentation fixes since
+ *
+ * ── WHAT A SOURCE IS QUOTED AT, IN ONE LINE ──
+ * The highest `vX.Y.Z` tag, plus each documentation file that has only ever been touched by
+ * documentation-only commits since that tag. The decision is per FILE, not per repository, so one
+ * code change upstream cannot revert somebody else's already-published typo fix. `released` below
+ * and ADR-0008 both carry the reasoning.
  *
  * ── THE README IS THE MANIFEST, SO THIS SCRIPT NAMES NO PAGE ──
  * Which files, in what order, and what each one is for, all come out of each
@@ -66,7 +73,7 @@ import {
   sectionBlocks,
 } from '../app/lib/stack-sections';
 import { parseChangelog } from './lib/changelog';
-import { changedPaths, cloneAt, documentationOnly } from './lib/clone';
+import { cloneAt, documentationAhead, fetchBranch, takeFrom } from './lib/clone';
 import { IMAGES_DIR, type LinkBase, extractLead, extractSection, parseBlocks, parseInline } from './lib/markdown';
 import {
   type DiagramJob,
@@ -98,6 +105,15 @@ interface Source {
   web: string;
   envRepo: string;
   envRef: string;
+  /**
+   * Pin the BASE of the quote and still run the per-file documentation overlay.
+   *
+   * `envRef` says "read this ref and nothing else", which is what a person checking a claim wants.
+   * This says "this release is the released code", which is what the push gate wants: it re-quotes
+   * at the tag `SOURCE.json` records rather than at whatever has been tagged since, and still
+   * re-resolves the documentation, so a guide pushed upstream since reads as the stale tree it is.
+   */
+  envTag: string;
 }
 
 const SOURCES: Source[] = [
@@ -107,6 +123,7 @@ const SOURCES: Source[] = [
     web: 'https://github.com/LowCarbCheck/openplate',
     envRepo: 'OPENPLATE_APP_REPO',
     envRef: 'OPENPLATE_APP_REF',
+    envTag: 'OPENPLATE_APP_TAG',
   },
   {
     component: 'core',
@@ -114,6 +131,7 @@ const SOURCES: Source[] = [
     web: 'https://github.com/LowCarbCheck/openplate-core',
     envRepo: 'OPENPLATE_SYNC_REPO',
     envRef: 'OPENPLATE_SYNC_REF',
+    envTag: 'OPENPLATE_SYNC_TAG',
   },
   {
     component: 'inference',
@@ -121,6 +139,7 @@ const SOURCES: Source[] = [
     web: 'https://github.com/LowCarbCheck/openplate-inference',
     envRepo: 'OPENPLATE_INFERENCE_REPO',
     envRef: 'OPENPLATE_INFERENCE_REF',
+    envTag: 'OPENPLATE_INFERENCE_TAG',
   },
 ];
 
@@ -246,16 +265,29 @@ function highestTag(repo: string): string | null {
   return tags[0] ?? null;
 }
 
+/** The documentation files of one source that are read from its default branch, not from its tag. */
+interface Overlay {
+  branch: string;
+  /** The branch tip the file lists were decided against, which the fetch below has to still find. */
+  tip: string;
+  /** The commit the files are READ at, and the one `SOURCE.json` records. See `DocumentationAhead`. */
+  commit: string;
+  take: string[];
+  drop: string[];
+}
+
 interface Quoted {
-  /** The ref to read the words from, and to record in `SOURCE.json`. */
+  /** The ref the tree is BASED on, and what `SOURCE.json` records as `ref`. */
   ref: string;
-  /** Why that ref and not the other one, printed once the sha is known. */
+  /** The documentation to lay over that tree, or `null` when the tag's tree is the whole answer. */
+  overlay: Overlay | null;
+  /** Why that tree and not another, printed once the sha is known. */
   say: string;
 }
 
 /**
- * Which ref of a released source repository this run publishes: its highest tag, or its default
- * branch when the branch is that tag plus documentation and nothing else.
+ * Which tree of a released source repository this run publishes: its highest tag, with the
+ * documentation files that are a documentation-only change since that tag laid over it.
  *
  * ── THE RULE THIS REPLACED, AND WHY IT COULD NOT STAY ──
  * The site quoted the highest tag, full stop. The reason was sound and it is kept below: the
@@ -264,33 +296,46 @@ interface Quoted {
  * `docs/` could only be corrected by cutting a version that shipped no code, which is a release
  * nobody should have to make and a version number that means nothing afterwards.
  *
- * ── THE INVARIANT THAT MAKES THE OTHER ANSWER SAFE ──
- * The risk has a precise shape, and it is about TREES and not about words. If the only difference
- * between the tag and the branch is documentation, then the code on the branch IS the released
- * code, byte for byte. There is no unreleased behaviour for the branch's documentation to be
- * describing, so quoting the branch cannot describe one. The moment a single path outside `docs/`,
- * `README.md` or `CHANGELOG.md` differs, that argument is gone and the tag is quoted again.
+ * The first way round that asked ONE question of the whole range, tag against branch: if nothing
+ * outside `docs/`, `README.md` and `CHANGELOG.md` differed, the branch was quoted whole. It broke
+ * twice in two days. A documentation fix went live and was then reverted by somebody else's
+ * unrelated code push joining the same range, and a new documentation-only page sat behind an
+ * unrelated code change waiting for a release it had nothing to do with. ADR-0008 records both.
  *
- * ── THE NET DIFFERENCE, NOT A WALK OF THE COMMITS ──
- * `git diff --name-only T origin/B` compares the two trees. A branch that changed a source file in
- * one commit and reverted it in the next has moved no code, and a rule that read the history would
- * say it had. The invariant is about what the branch IS, not about how it got there.
+ * ── THE CRITERION, WHICH IS NOW PER FILE ──
+ * `documentationAhead` decides it and its comment states it exactly. A documentation file is read
+ * from the branch when it differs from the tag AND every commit in the range that touches it
+ * touches documentation and nothing else. Everything else in the tree, every source file, every
+ * compose file, every `.env.example`, is the tag's, always. What comes back is therefore a HYBRID
+ * tree: the released code, with the corrections to the words about it.
  *
  * Not reached when `OPENPLATE_*_REF` pins a ref, and not reached for a checkout on disk. Both of
  * those say which tree to read outright, and this function's whole job is deciding that.
+ * `OPENPLATE_*_TAG` pins only the BASE and still runs the overlay, which is how this repository's
+ * push gate re-quotes a tree at what `SOURCE.json` says it came from.
  */
-function released(options: { component: DocComponent; repo: string; branch: string }): Quoted {
+function released(options: { component: DocComponent; repo: string; branch: string; tag: string }): Quoted {
   const { component, repo, branch } = options;
-  const tag = highestTag(repo) ?? fail(`${component}: ${repo} has no vX.Y.Z tag to quote.`);
-  const changed = changedPaths({ repo, from: tag, to: `origin/${branch}` });
+  const tag = options.tag === '' ? (highestTag(repo) ?? fail(`${component}: ${repo} has no vX.Y.Z tag to quote.`)) : options.tag;
+  const ahead = documentationAhead({ repo, tag, branch });
+  const held = ahead.heldBack.length > 0 ? `, ${ahead.heldBack.length} more waiting for the next release` : '';
 
-  if (changed.length === 0) return { ref: tag, say: `${branch} is exactly ${tag}, quoting the tag` };
-  if (documentationOnly(changed)) return { ref: branch, say: `${tag} plus documentation only, quoting ${branch}` };
+  if (ahead.commit === null) {
+    if (ahead.changed === 0) return { ref: tag, overlay: null, say: `${branch} is exactly ${tag}, quoting the tag` };
+    return {
+      ref: tag,
+      overlay: null,
+      say:
+        `code has moved past ${tag} on ${branch} and no documentation file there is a ` +
+        `documentation-only change, so a fix in one waits for the next release. Quoting ${tag}`,
+    };
+  }
+
+  const files = ahead.take.length + ahead.drop.length;
   return {
     ref: tag,
-    say:
-      `code has moved past ${tag} on ${branch}, so a documentation fix there waits ` +
-      `for the next release. Quoting ${tag}`,
+    overlay: { branch, tip: ahead.tip, commit: ahead.commit, take: ahead.take, drop: ahead.drop },
+    say: `${tag} plus ${files} documentation file(s) from ${branch} at ${ahead.commit.slice(0, 7)}${held}. Quoting ${tag}`,
   };
 }
 
@@ -303,6 +348,48 @@ interface Worktree {
   committedAt: string;
   /** The branch an edit lands on, which is never the tag the words were read from. */
   editRef: string;
+  /** The documentation in this directory that came from `editRef` rather than from `ref`. */
+  overlay: Overlay | null;
+}
+
+/**
+ * The commit ONE file's words actually came from, which in a hybrid tree is not one answer.
+ *
+ * Every link this site writes into GitHub is `blob/<sha>/<file>`, and a link at the tag's sha for a
+ * file overlaid from the branch shows a reader the copy that was just corrected away.
+ */
+function shaOf(tree: Worktree, file: string): string {
+  if (tree.overlay === null) return tree.sha;
+  return tree.overlay.take.includes(file) ? tree.overlay.commit : tree.sha;
+}
+
+/**
+ * Why a hybrid tree contradicts itself, when the per-file quote is what put the contradiction there.
+ *
+ * ── THE ONE THING THE PER-FILE RULE CAN BREAK, SAID OUT LOUD ──
+ * `README.md` is the manifest: it names every page this site publishes. It is also a documentation
+ * file, so it has its own verdict, and a new `docs/` page added by a documentation-only commit can
+ * arrive beside a README still quoted at the tag that has never heard of it. The manifest check
+ * below then fails, correctly, with a message about a table that has drifted, which is the wrong
+ * diagnosis: nothing drifted upstream, the two halves of this tree came from different refs.
+ *
+ * So the sync refuses, and it names the file and the two refs. It does NOT fall back to quoting the
+ * whole repository at the tag: a silent fallback is how a documentation fix goes live and then
+ * vanishes, which is the failure this whole change exists to end. `null` means the overlay cannot
+ * be the cause and the caller's own message is the right one.
+ */
+function overlayBlame(tree: Worktree, file: string): string | null {
+  const overlay = tree.overlay;
+  if (overlay === null) return null;
+  const from = (path: string) => (overlay.take.includes(path) || overlay.drop.includes(path) ? overlay.branch : tree.ref);
+  const its = from(file);
+  const manifest = from('README.md');
+  if (its === manifest) return null;
+  return (
+    `${file} is quoted from ${its} while README.md is quoted from ${manifest}, so the ` +
+    `Documentation table and the tree come from different refs and disagree. Land a ` +
+    `documentation-only commit that changes both, or wait for the next tag.`
+  );
 }
 
 /**
@@ -337,16 +424,30 @@ function worktree(source: Source): Worktree {
       sha: git(['rev-parse', 'HEAD'], dir),
       committedAt: git(['log', '-1', '--format=%cs'], dir),
       editRef: branch,
+      overlay: null,
     };
   }
 
   const editRef = defaultBranch(repo);
-  const chosen: { ref: string; say: string | null } =
-    pinned === '' ? released({ component: source.component, repo, branch: editRef }) : { ref: pinned, say: null };
+  const chosen: Quoted | { ref: string; overlay: null; say: null } =
+    pinned === ''
+      ? released({ component: source.component, repo, branch: editRef, tag: process.env[source.envTag] ?? '' })
+      : { ref: pinned, overlay: null, say: null };
   const dir = mkdtempSync(join(tmpdir(), `openplate-docs-${source.component}-`));
   console.log(`sync-docs: ${source.component} — cloning ${repo} at ${chosen.ref} (edits land on ${editRef})`);
   cloneAt(repo, chosen.ref, dir);
   const sha = git(['rev-parse', 'HEAD'], dir);
+  // THE HYBRID TREE, BUILT FROM OBJECTS. The clone above is the tag, whole; this brings in the
+  // files the per-file rule cleared and deletes the ones a documentation-only commit removed. The
+  // branch is fetched by NAME because that is the only ref a shallow fetch is guaranteed to reach,
+  // and the sha it lands on has to be the one the file list was decided against.
+  if (chosen.overlay !== null) {
+    const fetched = fetchBranch(dir, chosen.overlay.branch);
+    if (fetched !== chosen.overlay.tip) {
+      fail(`${source.component}: ${chosen.overlay.branch} moved while this run was reading it. Run the sync again.`);
+    }
+    takeFrom({ dir, commit: fetched, take: chosen.overlay.take, drop: chosen.overlay.drop });
+  }
   // SAID OUT LOUD, AND AT THE SAME VOLUME EITHER WAY. "Why is my documentation
   // fix not on the site" has exactly one answer and this line is it.
   if (chosen.say !== null) console.log(`sync-docs: ${source.component} — ${chosen.say} at ${sha.slice(0, 7)}`);
@@ -355,6 +456,7 @@ function worktree(source: Source): Worktree {
     scratch: true,
     ref: chosen.ref,
     sha,
+    overlay: chosen.overlay,
     // `%cs` is the committer date as YYYY-MM-DD. A fact about the commit, so
     // re-running the sync over an unchanged source is byte-identical.
     committedAt: git(['log', '-1', '--format=%cs'], dir),
@@ -433,6 +535,12 @@ function syncSource(source: Source, tree: Worktree): Synced {
     .filter((file) => file.startsWith(`${DIR}/`))
     .toSorted();
   if (onDisk.join() !== listed.join()) {
+    // THE HYBRID TREE'S OWN FAILURE, DIAGNOSED AS ITSELF. `overlayBlame` says why.
+    for (const file of [...onDisk, ...listed]) {
+      if (onDisk.includes(file) && listed.includes(file)) continue;
+      const blame = overlayBlame(tree, file);
+      if (blame !== null) fail(`${component}: ${blame}`);
+    }
     console.error(`sync-docs: ${component}: the Documentation table and ${DIR}/ disagree.`);
     console.error(`  table: ${listed.join(', ')}`);
     console.error(`  disk:  ${onDisk.join(', ')}`);
@@ -440,6 +548,8 @@ function syncSource(source: Source, tree: Worktree): Synced {
   }
   for (const row of rows) {
     if (existsSync(join(tree.dir, row.file))) continue;
+    const blame = overlayBlame(tree, row.file);
+    if (blame !== null) fail(`${component}: ${blame}`);
     fail(`${component}: the Documentation table points at ${row.file}, which is not in the tree.`);
   }
 
@@ -458,7 +568,9 @@ function syncSource(source: Source, tree: Worktree): Synced {
 
   for (const row of rows) {
     const dir = row.file.includes('/') ? row.file.slice(0, row.file.lastIndexOf('/')) : '';
-    const base: LinkBase = { repo: source.web, sha: tree.sha, dir, routes, imageRoute };
+    // `shaOf` and not `tree.sha`: in a hybrid tree a link into GitHub has to point at the commit
+    // THIS file's words came from, which is the tag for most of them and the overlay for the rest.
+    const base: LinkBase = { repo: source.web, sha: shaOf(tree, row.file), dir, routes, imageRoute };
     const { title, body } = splitTitle(readFileSync(join(tree.dir, row.file), 'utf8'), row.file);
     const parsed = parseBlocks(body, base);
     dropped.push(...parsed.dropped.map((line) => `${row.file}: ${line}`));
@@ -503,7 +615,7 @@ function syncSource(source: Source, tree: Worktree): Synced {
   // of these three, and a card with no words in it is not a smaller page, it is a broken one.
   const leadMarkdown = extractLead(readme);
   if (leadMarkdown === null) fail(`${component}: README.md has no \`# \` title, so it has no lead.`);
-  const readmeBase: LinkBase = { repo: source.web, sha: tree.sha, dir: '', routes, imageRoute };
+  const readmeBase: LinkBase = { repo: source.web, sha: shaOf(tree, 'README.md'), dir: '', routes, imageRoute };
   const lead = parseBlocks(leadMarkdown, readmeBase).blocks;
   if (!lead.some((block) => block.kind === 'paragraph')) {
     fail(`${component}: README.md says nothing between its title and its first \`##\`.`);
@@ -511,7 +623,13 @@ function syncSource(source: Source, tree: Worktree): Synced {
 
   return {
     docs: { component, source: provenance, lead, entries },
-    releases: readReleases(source, tree, provenance, { repo: source.web, sha: tree.sha, dir: '', routes, imageRoute }),
+    releases: readReleases(source, tree, provenance, {
+      repo: source.web,
+      sha: shaOf(tree, 'CHANGELOG.md'),
+      dir: '',
+      routes,
+      imageRoute,
+    }),
     files,
     imageCount: copiedImages.length,
     diagrams,
@@ -740,10 +858,25 @@ function write(file: string, body: string): void {
   writeFileSync(file, body);
 }
 
+/**
+ * What one source was quoted at, in enough detail to build the same tree again.
+ *
+ * ── `ref` AND `commit` STILL MEAN WHAT THEY MEANT ──
+ * The ref the words are based on and its sha. Everything that reads this file reads those two: the
+ * push gate pins them, the sync workflow's commit subject prints them, the deploy poll compares
+ * them. The three fields below are ADDED beside them rather than folded into them, because a
+ * hybrid tree is two refs and `ref` can only honestly be the one the code came from.
+ */
 interface SourceStamp {
   repo: string;
   ref: string;
   commit: string;
+  /** The default branch documentation may be quoted from per file. */
+  branch: string;
+  /** The commit on that branch the files below were READ at, or `null` when none were taken. */
+  branchCommit: string | null;
+  /** Repo-relative paths quoted from `branchCommit` instead of from `ref`, sorted. */
+  documentationFrom: string[];
   syncedAt: string;
 }
 
@@ -769,14 +902,22 @@ function stampSources(stamps: SourceStamps): SourceStamps {
   if (!existsSync(SOURCE_JSON)) return stamps;
   // SAFETY: our own generated file, whose shape is `SourceStamps` and is
   // rewritten by this function on every run. A file that is not that shape
-  // reads as a component with no previous stamp and gets a fresh one.
-  const previous = JSON.parse(readFileSync(SOURCE_JSON, 'utf8')) as Partial<SourceStamps>;
+  // reads as a component with no previous stamp and gets a fresh one. Every
+  // field is optional here and not just every component, because a file written
+  // before a field existed is exactly the case a fresh stamp is right for.
+  const previous = JSON.parse(readFileSync(SOURCE_JSON, 'utf8')) as Partial<
+    Record<keyof SourceStamps, Partial<SourceStamp>>
+  >;
   const kept = { ...stamps };
   for (const component of ['app', 'core', 'inference'] as const) {
     const before = previous[component];
     const now = kept[component];
-    if (before === undefined) continue;
+    if (before === undefined || before.syncedAt === undefined) continue;
     if (before.repo !== now.repo || before.ref !== now.ref || before.commit !== now.commit) continue;
+    // AND THE OVERLAY, or a documentation fix that reached the site without a tag would be stamped
+    // with the date of the release it is ahead of.
+    if (before.branchCommit !== now.branchCommit) continue;
+    if ((before.documentationFrom ?? []).join() !== now.documentationFrom.join()) continue;
     kept[component] = { ...now, syncedAt: before.syncedAt };
   }
   return kept;
@@ -812,7 +953,7 @@ try {
     for (const doc of result.files) {
       write(
         join(OUT, 'docs', component, `${doc.slug}.ts`),
-        `${BANNER}\n//\n// ${source.web}'s ${doc.file} at ${tree.sha.slice(0, 12)},\n` +
+        `${BANNER}\n//\n// ${source.web}'s ${doc.file} at ${shaOf(tree, doc.file).slice(0, 12)},\n` +
           `// parsed into the block tree in app/lib/docs.ts.\n` +
           `import type { DocFile } from '../../../../app/lib/docs';\n\n` +
           `export const DOC: DocFile = ${JSON.stringify(doc, null, 2)};\n`,
@@ -827,12 +968,20 @@ try {
 
     write(
       join(OUT, 'releases', `${component}.ts`),
-      `${BANNER}\n//\n// ${source.web}'s CHANGELOG.md at ${tree.sha.slice(0, 12)}.\n` +
+      `${BANNER}\n//\n// ${source.web}'s CHANGELOG.md at ${shaOf(tree, 'CHANGELOG.md').slice(0, 12)}.\n` +
         `import type { ComponentReleases } from '../../../app/lib/docs';\n\n` +
         `export const RELEASES: ComponentReleases = ${JSON.stringify(result.releases, null, 2)};\n`,
     );
 
-    stamps.set(component, { repo: source.web, ref: tree.ref, commit: tree.sha, syncedAt });
+    stamps.set(component, {
+      repo: source.web,
+      ref: tree.ref,
+      commit: tree.sha,
+      branch: tree.editRef,
+      branchCommit: tree.overlay?.commit ?? null,
+      documentationFrom: [...(tree.overlay?.take ?? []), ...(tree.overlay?.drop ?? [])].toSorted(),
+      syncedAt,
+    });
   }
 
   write(
