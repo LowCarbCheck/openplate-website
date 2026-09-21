@@ -98,7 +98,7 @@ export function Layout({ children }: { children: ReactNode }) {
           browser chrome. With no script there is no override to express, so the pair is exactly
           right here and wrong anywhere else.
 
-          DELIBERATELY NO WEB MANIFEST BESIDE THEM. beta.openplate.de is the installable application
+          DELIBERATELY NO WEB MANIFEST BESIDE THEM. app.openplate.de is the installable application
           and it ships its own. A second installable origin, serving a page that describes the app
           and cannot log a meal, is worse than none: a reader who installs it gets a home screen
           icon that looks like openplate, opens on marketing copy, and has nowhere to go from there.

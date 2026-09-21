@@ -12,7 +12,7 @@
  * `openplate/app/routes/index.tsx` is 1487 lines and has been through two
  * overhaul rounds and a critique pass: the hero with the product under it, the
  * grid of screens, the media column, the step spine. Since M194 that page is
- * served at `beta.openplate.de`, the application host, while `openplate.de` is
+ * served at `app.openplate.de`, the application host, while `openplate.de` is
  * the address people are given, so the designed landing was on the wrong door.
  * What moved here is the SHAPE. The words come from the repositories and the
  * pictures come from the capture script in the reader's language, so the two
@@ -151,8 +151,9 @@ export default function HomeRoute() {
         actions={
           <>
             {/* The one filled action on the page, and it leaves for another host: this site is
-                `openplate.de` and the application is `beta.openplate.de` (M194). `ExternalLink`
-                rather than `SiteLink`, so nothing tries to route it. */}
+                `openplate.de` and the application is `app.openplate.de`, the consumer instance
+                that sells the plan (M194, pointed at the consumer instance in M214).
+                `ExternalLink` rather than `SiteLink`, so nothing tries to route it. */}
             <ExternalLink href={APP_URL} className={PRIMARY_ACTION}>
               {t('pages.home.hero.openApp')}
             </ExternalLink>

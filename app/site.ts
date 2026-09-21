@@ -28,12 +28,17 @@ export const DOC_PATHS = {
 /**
  * The hosted application, which is a DIFFERENT HOST from this one.
  *
- * `openplate.de` is this site and `beta.openplate.de` is the application, split that way in M194.
- * The front page's one filled action goes here, so this constant is the only place the app's
- * address is written down: a marketing site that links a reader to the wrong host is a marketing
- * site that does not work.
+ * `openplate.de` is this site and `app.openplate.de` is the CONSUMER
+ * instance that sells the plan, split from this site in M194 and pointed at
+ * the consumer instance rather than the beta in M214. The front page's one
+ * filled action goes here, so this constant is the only place the app's
+ * address is written down: a marketing site that links a reader to the wrong
+ * host is a marketing site that does not work. The beta this replaced,
+ * `beta.openplate.de`, is not linked from this site; Stripe reviews the path
+ * from the product page to the thing being sold, and that path has to lead
+ * to the instance the payment is actually made to.
  */
-export const APP_URL = 'https://beta.openplate.de';
+export const APP_URL = 'https://app.openplate.de';
 
 /**
  * The terms of use, which live in the APPLICATION and not on this site.
@@ -43,12 +48,10 @@ export const APP_URL = 'https://beta.openplate.de';
  * links a reader there rather than repeating a document that would then have
  * two versions and one date.
  *
- * NOT derived from `APP_URL`: the terms sold against are the CONSUMER
- * instance's on `app.openplate.de`, and `APP_URL` is the beta on
- * `beta.openplate.de`, which is a different instance and not the one a payment
- * is made to.
+ * Derived from `APP_URL`: both name the CONSUMER instance now, the one a
+ * payment is made to, so one written-down host serves both.
  */
-export const APP_TERMS_URL = 'https://app.openplate.de/terms';
+export const APP_TERMS_URL = `${APP_URL}/terms`;
 
 /** Release notes pages. The app's live on GitHub; the core service's are rendered here. */
 export const CORE_RELEASES_PATH = '/releases/core';

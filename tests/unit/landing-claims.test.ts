@@ -114,8 +114,9 @@ describe('the page itself', () => {
   });
 
   it('sends a reader to the application host and not to this one', () => {
-    // `openplate.de` is this site and `beta.openplate.de` is the app, split in M194. The constant
-    // is what the page uses; a literal here would be the fifth place the address is written down.
+    // `openplate.de` is this site and `app.openplate.de` is the consumer instance that sells the
+    // plan (M194, pointed at the consumer instance in M214). The constant is what the page uses; a
+    // literal here would be the fifth place the address is written down.
     assert.match(read('app/routes/home.tsx'), /href=\{APP_URL\}/);
   });
 });
