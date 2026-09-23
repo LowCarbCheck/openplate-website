@@ -320,7 +320,7 @@
    * matches and the block is simply there. Each keyframe travels TOWARDS the
    * element's ordinary state, the same rule as the drawings in
    * `components/illustrations/frame.tsx`. Opacity and transform only, so
-   * nothing reflows. Used on `/research` and nowhere else.
+   * nothing reflows. Used on `/research` and `/sources` and nowhere else.
    */
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {

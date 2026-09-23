@@ -290,7 +290,7 @@
     },
     "research": {
       "title": "Araştırma",
-      "heading": "Araştırmalar için openplate",
+      "heading": "Beslenme araştırmaları için bir yemek günlüğü",
       "lead": "Araştırma ortakları arıyoruz: üniversite grupları, beslenme araştırmacıları, diyetisyenler ve besin alımını inceleyen halk sağlığı ekipleri. openplate, katılımcının cihazında çalışan açık kaynaklı bir yemek günlüğüdür, günlük kayıt tutmanın yanı sıra araştırmalara da hizmet etmesini istiyoruz.",
       "why": {
         "heading": "openplate bir araştırmaya neden uygundur",
@@ -309,6 +309,10 @@
         "photo": {
           "title": "Fotoğraflardan kayıt tutma",
           "body": "Katılımcılar tabaklarının fotoğrafını çekerek öğünleri kaydedebilir. Görsel tahminleri bir bulut modeli üzerinden veya kurumunun denetlediği donanım üzerindeki openplate-inference aracılığıyla çalışabilir."
+        },
+        "pwa": {
+          "title": "Uygulama mağazası yok",
+          "body": "Katılımcılar örneğini tarayıcıdaki bir bağlantıdan yükler. Kimsenin Apple veya Google hesabına ihtiyacı yoktur ve bir güncelleme mağaza yayını olmadan her katılımcıya ulaşır."
         }
       },
       "offer": {
@@ -358,6 +362,43 @@
         "button": "Bize yaz",
         "subject": "openplate ile araştırma ortaklığı"
       }
+    },
+    "sources": {
+      "title": "Veri kaynakları",
+      "heading": "Sayıların geldiği yerler",
+      "lead": "openplate birkaç kaynaktan alınan sayıları gösterir: gıdaların besin değerleri, vitaminler ve mineraller için referans alımları, önerilen hedefler için formüller ve bir yapay zeka modelinden alınan tahminler. Bu sayfa her kaynağın adını, amacını ve hangi koşullar altında yayınlandığını belirtir.",
+      "foods": {
+        "heading": "Gıdaların besin değerleri",
+        "body": "Bir gıda aradığında veya taranmış bir tabağı onayladığında openplate, gıdayı lowcarbcheck.org adresindeki LowCarbCheck veritabanında arar. Bu veritabanı üç satır kümesini birleştirir: LowCarbCheck tarafından derlenen satırlar, Max Rubner-Institut'tan Alman Federal Gıda Kodu (Bundeslebensmittelschlüssel, BLS) 4.0 ve ABD Tarım Bakanlığı'ndan USDA FoodData Central.",
+        "attribution": "BLS'den gelen bir gıda, uygulamada atfını taşır: \"Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adapted)\". USDA FoodData Central kamu malıdır.",
+        "hosted": "LowCarbCheck barındırılan bir hizmettir. Kodu openplate'in açık kaynak depolarının bir parçası değildir. BLS lisansı yeniden dağıtıma izin vermez, bu nedenle openplate gıda verilerini uzaktan sorgular ve bir kopyasını barındırmaz. Yalnızca bu veritabanındaki gıdalar vitamin ve mineral değerlerini taşır. Yapay zeka tarafından tahmin edilen bir tabak veya kendi girdiğin bir gıda bunları taşımaz."
+      },
+      "references": {
+        "heading": "Vitaminler ve mineraller için referans alımları",
+        "body": "Besin öğeleri görünümü, yediklerini cinsiyetin ve yaşın için, geçerli olduğu durumlarda da hamilelik veya emzirme için geçerli bir referans alımla karşılaştırır. Örneği çalıştıran kişi üç temelden birini seçer ve her satır kullanımda olanı belirtir:",
+        "dge": "Alman Beslenme Derneği (DGE), Referenzwerte für die Nährstoffzufuhr, 3. baskı (2025). Varsayılan budur.",
+        "efsa": "Avrupa Gıda Güvenliği Otoritesi (EFSA), Summary of Dietary Reference Values, 4. sürüm (2017), EFSA'nın sodyum hakkındaki 2019 görüşüyle birlikte.",
+        "nasem": "ABD Ulusal Bilimler, Mühendislik ve Tıp Akademileri (NASEM) Besinsel Referans Alımları, ABD ve Kanada'da kullanılan referans değerlerdir.",
+        "note": "Bir çalışma için referans temeli, her katılımcı için aynı olan ve her değerin yanında adı belirtilen bir örnek ayarıdır."
+      },
+      "goals": {
+        "heading": "Önerilen hedefler",
+        "body": "openplate senin için asla bir hedef belirlemez. Bir hedef önerdiğinde sayılar yayınlanmış formüllerden ve referans değerlerden gelir:",
+        "calories": "Günlük kalori: dinlenme enerjisi harcaması için Mifflin-St Jeor denklemi (Mifflin, St Jeor ve ark., American Journal of Clinical Nutrition, 1990).",
+        "protein": "Protein alt sınırı: Devine formülünden (1974) gelen ideal vücut ağırlığının kg'ı başına 1,6 g. Bir hedef olmadığında uygulama, EFSA'nın vücut ağırlığının kg'ı başına 0,83 g (2012) değerine veya 1169/2011 sayılı AB Tüzüğü Ek XIII'teki 50 g referans alımına geri döner.",
+        "fiber": "Lif, herhangi bir lif hedefi belirlenmediğinde: Günde 25 g, ABD Tıp Enstitüsü'nün yeterli alım miktarının alt sınırı."
+      },
+      "ai": {
+        "heading": "Taranan tabaklar, alerjenler ve hamilelik uyarıları",
+        "body": "Bir tabak fotoğrafı, senin veya örneğinin seçtiği yapay zeka modeli tarafından, o sağlayıcının koşulları altında tahmin edilir. Model ayrıca 1169/2011 sayılı AB Tüzüğü Ek II'de listelenen 14 alerjeni ve openplate'in NHS, Alman Federal Risk Değerlendirme Enstitüsü (BfR) ve Amerikan Doğum Uzmanları ve Jinekologlar Koleji (ACOG) kılavuzlarından listelediği hamilelik ve emzirme uyarılarını işaretler. Bu işaretler modelin fotoğrafı okumasıdır, bir veritabanından alınan değerler değildir.",
+        "inference": "Kendi kendine barındırılan openplate-inference çıkarım çalışma zamanı, gıdaları imajının içinde gelen kendi USDA FoodData Central (Foundation ve SR Legacy, 8.041 gıda) kopyasında arar. Bunun yerine LowCarbCheck'i veya Open Food Facts'i sorgulayabilir. Open Food Facts, bir aynıyla-paylaş lisansı olan ODbL altında yayınlanır ve işletmeci açmadığı sürece kapalıdır."
+      },
+      "linkLabel": "Veri kaynakları"
+    },
+    "pwa": {
+      "heading": "Arada uygulama mağazası yok",
+      "body": "openplate, bir telefona veya bilgisayara tarayıcıdan yüklediğin bir web uygulamasıdır (PWA). Uygulama mağazası yoktur. Kimsenin Apple veya Google hesabına ihtiyacı yoktur ve bir sürüm ile cihazın arasında hiçbir mağaza incelemesi veya mağaza ücreti durmaz. openplate'i barındıran bir kurum, uygulamayı kendi alan adından sunar ve bir güncelleme, uygulamanın bir sonraki açılışında her cihaza ulaşır.",
+      "push": "Hatırlatıcılar isteğe bağlıdır. Onları açarsan, her web anlık bildiriminde olduğu gibi tarayıcının üreticisinin anlık bildirim hizmeti üzerinden iletilirler."
     }
   }
 }

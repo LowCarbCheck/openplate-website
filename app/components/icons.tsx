@@ -22,7 +22,10 @@
  * documentation's two sheets on a phone.
  *
  * The research page's eleven, from `CodeIcon` to `MailIcon`: lucide 0.475.0, same licence. Their
- * own block at the foot of this file names each one.
+ * own block names each one.
+ *
+ * `DatabaseIcon`, `BookOpenIcon`, `MonitorSmartphoneIcon`: lucide 0.475.0, same licence, for the
+ * data sources page and the "no app store" blocks. Their block at the foot of this file names them.
  *
  * ── HOW THEY BEHAVE ──
  * Every icon takes a `className` and nothing else. Colour comes from `currentColor`, so an icon
@@ -421,6 +424,50 @@ export function MailIcon({ className }: IconProps) {
     <svg {...SVG} {...OUTLINE} className={className}>
       <rect width="20" height="16" x="2" y="4" rx="2" />
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+/**
+ * The data sources page's three group icons, and the install mark the app page and the front page
+ * put beside "no app store".
+ *
+ * ── PROVENANCE, SAME LICENCE, SAME SET ──
+ * lucide 0.475.0: `database`, `book-open` and `monitor-smartphone`, path data copied from
+ * `lucide-react@0.475.0/dist/esm/icons/<name>.js`. ISC, copyright Lucide Contributors 2022, with
+ * portions from Feather (MIT) copyright Cole Bemis 2013 to 2022. The sources page also reuses
+ * `GoalsIcon` (`target`) and `ScanIcon` (`camera`) from above, so the goals and the scanned plate
+ * wear the same marks there as in the front page's feature grid.
+ *
+ * `MonitorSmartphoneIcon` is a phone beside a computer because the install it stands for is the
+ * same on both, which is the point the copy next to it makes.
+ */
+export function DatabaseIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+      <path d="M3 12A9 3 0 0 0 21 12" />
+    </svg>
+  );
+}
+
+export function BookOpenIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M12 7v14" />
+      <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+    </svg>
+  );
+}
+
+export function MonitorSmartphoneIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
+      <path d="M10 19v-3.96 3.15" />
+      <path d="M7 19h5" />
+      <rect width="6" height="10" x="16" y="12" rx="2" />
     </svg>
   );
 }

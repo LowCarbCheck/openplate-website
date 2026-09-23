@@ -18,7 +18,8 @@ import type { Route } from './+types/app';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { PageHero } from '#app/components/hero';
 import { AppIcon } from '#app/components/icons';
-import { Copy, LinkRow, MEASURE, Section } from '#app/components/page';
+import { InstallNote } from '#app/components/install-note';
+import { Copy, LinkRow, MEASURE, PageLink, Section } from '#app/components/page';
 import { ExampleDataNote, PhoneShot } from '#app/components/shot';
 import { RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
@@ -57,6 +58,8 @@ export default function AppRoute() {
         <div className="space-y-4 leading-relaxed">
           <Copy text={t('pages.app.shotIntro')} />
           <ExampleDataNote />
+          {/* The picture is full of numbers, and this is where a reader asks where they come from. */}
+          <PageLink to="/sources">{t('pages.sources.linkLabel')}</PageLink>
         </div>
         <PhoneShot
           view="diary"
@@ -64,6 +67,16 @@ export default function AppRoute() {
           className="mx-auto mt-6 w-full max-w-[13rem] sm:mt-0 sm:max-w-none"
         />
       </div>
+
+      {/* ── NO APP STORE, SAID HIGH ──
+          Straight after the first screen, before the architecture, because it is the first
+          difference a reader meets: there is nothing to find in a store. For a study or a hosting
+          institution it is the largest one, which is why the research page leads with it too. The
+          reminder line goes with it here, since push is the one thing that still passes a
+          browser maker's service. */}
+      <Section heading={t('pages.pwa.heading')}>
+        <InstallNote body={t('pages.pwa.body')} push={t('pages.pwa.push')} />
+      </Section>
 
       {sections.map((entry) => (
         <Section key={entry.id} heading={t(entry.headingKey)}>

@@ -6,9 +6,11 @@
  * deliberately text first: one accent color, no cards with colored fills, no
  * borders used as decoration.
  */
-import type { ReactNode } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 
 import { CodeChip, HUGS_AFTER, HUGS_BEFORE } from './docs/prose';
+import type { IconProps } from './icons';
+import { SiteLink } from './site-link';
 
 /**
  * The copy is written in the same markdown the rest of the project is written
@@ -137,6 +139,40 @@ export function Section({
         {children}
       </div>
     </section>
+  );
+}
+
+/**
+ * A 40 pixel square with a 20 pixel icon, the same on a card, a tile and a section heading.
+ *
+ * It started on `/research` and moved here when `/sources`, `/app` and the front page wanted the
+ * same tile: one border, the muted surface and the icon in the foreground colour, never in teal.
+ */
+export function IconTile({ icon: TileIcon }: { icon: ComponentType<IconProps> }) {
+  return (
+    <span className="flex size-10 shrink-0 items-center justify-center border border-border bg-muted text-foreground">
+      <TileIcon className="size-5" />
+    </span>
+  );
+}
+
+/**
+ * A link to another page of this site on a line of its own, with the arrow the front page's
+ * research badge uses.
+ *
+ * The arrow sits OUTSIDE the link, so the underline stops at the words, and it is joined to them
+ * by a non-breaking space, so a line that has to break never leaves the arrow alone on the next
+ * one. `className` is for the wrapper: a prose section passes `MEASURE`, because a `div` is not
+ * one of the elements `Section` centres on its own.
+ */
+export function PageLink({ to, className, children }: { to: string; className?: string; children: ReactNode }) {
+  return (
+    <div className={`text-sm ${className ?? ''}`}>
+      <SiteLink to={to}>{children}</SiteLink>
+      <span aria-hidden="true" className="text-primary">
+        {'\u00a0→'}
+      </span>
+    </div>
   );
 }
 

@@ -20,7 +20,7 @@ import { PRICING_PATH, priceEurFromEnvironment } from '#app/pricing-config';
 import { SITE_ORIGIN } from '#app/site';
 
 /** Every page with a fixed path that exists in every build, in the canonical unprefixed form. */
-const ALWAYS_PATHS = ['/', '/app', '/core', '/inference', '/deploy', '/research', '/docs'] as const;
+const ALWAYS_PATHS = ['/', '/app', '/core', '/inference', '/deploy', '/research', '/sources', '/docs'] as const;
 
 /**
  * The fixed paths of a build that was given `priceEur`, or of one given no price.

@@ -39,6 +39,7 @@ const ALWAYS_PAGES: SitePage[] = [
   { id: 'inference', path: 'inference', file: 'routes/inference.tsx' },
   { id: 'deploy', path: 'deploy', file: 'routes/deploy.tsx' },
   { id: 'research', path: 'research', file: 'routes/research.tsx' },
+  { id: 'sources', path: 'sources', file: 'routes/sources.tsx' },
   { id: 'docs', path: 'docs', file: 'routes/docs.tsx' },
   { id: 'docs-page', path: 'docs/:component/:slug', file: 'routes/docs.$component.$slug.tsx' },
   { id: 'releases', path: 'releases/:component', file: 'routes/releases.$component.tsx' },

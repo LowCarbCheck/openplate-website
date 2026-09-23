@@ -290,7 +290,7 @@
     },
     "research": {
       "title": "Forschung",
-      "heading": "openplate für die Forschung",
+      "heading": "Ein Ernährungstagebuch für die Ernährungsforschung",
       "lead": "Wir suchen Forschungspartner: Universitätsgruppen, Ernährungsforscher, Diätassistenten und Public-Health-Teams, die die Nahrungsaufnahme untersuchen. openplate ist ein Open-Source-Ernährungstagebuch, das auf dem Gerät der teilnehmenden Person läuft, und wir möchten, dass es sowohl der Forschung als auch der täglichen Protokollierung dient.",
       "why": {
         "heading": "Warum sich openplate für eine Studie eignet",
@@ -309,6 +309,10 @@
         "photo": {
           "title": "Erfassung über Fotos",
           "body": "Teilnehmende können Mahlzeiten erfassen, indem sie ihr Tellerfoto aufnehmen. Bildschätzungen laufen wahlweise über ein Cloud-Modell oder über openplate-inference auf Hardware, die deine Institution kontrolliert."
+        },
+        "pwa": {
+          "title": "Kein App-Store",
+          "body": "Teilnehmende installieren deine Instanz über einen Link im Browser. Niemand braucht ein Apple- oder Google-Konto, und ein Update erreicht jeden Teilnehmenden ohne Store-Freigabe."
         }
       },
       "offer": {
@@ -358,6 +362,43 @@
         "button": "Schreib uns",
         "subject": "Forschungskooperation mit openplate"
       }
+    },
+    "sources": {
+      "title": "Datenquellen",
+      "heading": "Woher die Zahlen stammen",
+      "lead": "openplate zeigt Zahlen aus verschiedenen Quellen: Nährwerte für Lebensmittel, Referenzwerte für Vitamine und Mineralstoffe, Formeln für vorgeschlagene Ziele und Schätzungen eines KI-Modells. Diese Seite nennt jede Quelle, ihren Zweck und die Lizenzbedingungen, unter denen sie veröffentlicht ist.",
+      "foods": {
+        "heading": "Nährwerte von Lebensmitteln",
+        "body": "Wenn du nach einem Lebensmittel suchst oder einen gescannten Teller bestätigst, schlägt openplate das Lebensmittel in der LowCarbCheck-Datenbank auf lowcarbcheck.org nach. Diese Datenbank kombiniert drei Datensätze: von LowCarbCheck kuratierte Zeilen, den Bundeslebensmittelschlüssel (BLS) 4.0 des Max Rubner-Instituts und USDA FoodData Central des US-Landwirtschaftsministeriums.",
+        "attribution": "Ein Lebensmittel aus dem BLS trägt den entsprechenden Quellenhinweis in der App: „Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adapted)“. USDA FoodData Central ist gemeinfrei (Public Domain).",
+        "hosted": "LowCarbCheck ist ein gehosteter Dienst. Sein Quelltext ist nicht Teil der Open-Source-Repositories von openplate. Da die BLS-Lizenz keine Weiterverbreitung erlaubt, fragt openplate die Lebensmitteldaten remote ab und liefert keine Kopie davon mit. Nur Lebensmittel aus dieser Datenbank enthalten Angaben zu Vitaminen und Mineralstoffen. Ein per KI geschätzter Teller oder ein manuell eingetipptes Lebensmittel enthält diese nicht."
+      },
+      "references": {
+        "heading": "Referenzwerte für Vitamine und Mineralstoffe",
+        "body": "Die Nährstoffansicht vergleicht deine Mahlzeiten mit den Referenzwerten für dein Geschlecht und dein Alter, gegebenenfalls angepasst für Schwangerschaft oder Stillzeit. Wer die Instanz betreibt, wählt eine von drei Grundlagen aus, und jede Zeile gibt die verwendete Grundlage an:",
+        "dge": "Deutsche Gesellschaft für Ernährung (DGE), Referenzwerte für die Nährstoffzufuhr, 3. Auflage (2025). Dies ist der Standard.",
+        "efsa": "Europäische Behörde für Lebensmittelsicherheit (EFSA), Summary of Dietary Reference Values, Version 4 (2017), zusammen mit der EFSA-Stellungnahme zu Natrium von 2019.",
+        "nasem": "US National Academies of Sciences, Engineering, and Medicine (NASEM), Dietary Reference Intakes, die in den USA und Kanada verwendeten Referenzwerte.",
+        "note": "Für eine Studie ist die Referenzbasis eine Instanzeinstellung, für alle Teilnehmenden identisch und neben jedem Wert angegeben."
+      },
+      "goals": {
+        "heading": "Vorgeschlagene Ziele",
+        "body": "openplate legt nie eigenmächtig ein Ziel für dich fest. Schlägt die App eines vor, stammen die Zahlen aus veröffentlichten Formeln und Referenzwerten:",
+        "calories": "Tägliche Kalorien: die Mifflin-St-Jeor-Gleichung für den Grundumsatz (Mifflin, St Jeor et al., American Journal of Clinical Nutrition, 1990).",
+        "protein": "Protein-Untergrenze: 1,6 g pro kg Idealgewicht, berechnet nach der Devine-Formel (1974). Ohne Ziel greift die App auf den EFSA-Wert von 0,83 g pro kg Körpergewicht (2012) zurück, oder auf den Referenzwert von 50 g aus der EU-Verordnung 1169/2011, Anhang XIII.",
+        "fiber": "Ballaststoffe ohne festgelegtes Ziel: 25 g pro Tag, das untere Ende der Zufuhrempfehlung des US Institute of Medicine."
+      },
+      "ai": {
+        "heading": "Gescannte Teller, Allergene und Hinweise für Schwangere",
+        "body": "Ein Tellerfoto wird von dem KI-Modell geschätzt, das du oder deine Instanz gewählt haben, zu den Bedingungen des jeweiligen Anbieters. Das Modell erkennt außerdem die 14 Allergene aus der EU-Verordnung 1169/2011, Anhang II, sowie die Vorsichtshinweise für Schwangerschaft und Stillzeit, die openplate nach Empfehlungen des NHS, des Bundesinstituts für Risikobewertung (BfR) und des American College of Obstetricians and Gynecologists (ACOG) aufführt. Diese Markierungen sind die Interpretation des Fotos durch das Modell, keine Werte aus einer Datenbank.",
+        "inference": "Die selbst gehostete openplate-inference Inferenz-Runtime schlägt Lebensmittel in ihrer eigenen Kopie von USDA FoodData Central nach (Foundation und SR Legacy, 8.041 Lebensmittel), die direkt im Image enthalten ist. Sie kann stattdessen LowCarbCheck oder Open Food Facts abfragen. Open Food Facts steht unter der ODbL, einer Share-Alike-Lizenz, und ist standardmäßig deaktiviert, bis die betreibende Person sie einschaltet."
+      },
+      "linkLabel": "Datenquellen"
+    },
+    "pwa": {
+      "heading": "Kein zwischengeschalteter App-Store",
+      "body": "openplate ist eine Web-App (eine PWA), die du direkt aus dem Browser installierst, auf dem Smartphone oder dem Computer. Es gibt keinen App-Store. Niemand benötigt ein Apple- oder Google-Konto, und kein Prüfprozess oder Gebührenmodell steht zwischen einem Release und deinem Gerät. Eine Institution, die openplate hostet, stellt die App unter ihrer eigenen Domain bereit, und ein Update erreicht jedes Gerät beim nächsten Öffnen der App.",
+      "push": "Erinnerungen sind optional. Wenn du sie aktivierst, werden sie über den Push-Dienst deines Browserherstellers zugestellt, wie bei jedem Web-Push."
     }
   }
 }

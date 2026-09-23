@@ -290,7 +290,7 @@
     },
     "research": {
       "title": "Research",
-      "heading": "openplate for research",
+      "heading": "A food diary for nutrition research",
       "lead": "We are looking for research partners: university groups, nutrition researchers, dietitians and public health teams who study dietary intake. openplate is an open-source food diary that runs on the participant's device, and we want it to serve research as well as daily logging.",
       "why": {
         "heading": "Why openplate suits a study",
@@ -309,6 +309,10 @@
         "photo": {
           "title": "Logging from photos",
           "body": "Participants can log meals by photographing their plate. Image estimates can run through a cloud model or through openplate-inference on hardware your institution controls."
+        },
+        "pwa": {
+          "title": "No app store",
+          "body": "Participants install your instance from a link in the browser. Nobody needs an Apple or Google account, and an update reaches every participant without a store release."
         }
       },
       "offer": {
@@ -358,6 +362,43 @@
         "button": "Write to us",
         "subject": "Research collaboration with openplate"
       }
+    },
+    "sources": {
+      "title": "Data sources",
+      "heading": "Where the numbers come from",
+      "lead": "openplate shows numbers from several sources: nutrient values for foods, reference intakes for vitamins and minerals, formulas for suggested goals, and estimates from an AI model. This page names each source, its purpose, and the terms under which it is published.",
+      "foods": {
+        "heading": "Nutrient values of foods",
+        "body": "When you search for a food or confirm a scanned plate, openplate looks up the food in the LowCarbCheck database at lowcarbcheck.org. That database combines three sets of rows: rows curated by LowCarbCheck, the German Federal Food Code (Bundeslebensmittelschlüssel, BLS) 4.0 from the Max Rubner-Institut, and USDA FoodData Central from the US Department of Agriculture.",
+        "attribution": "A food that comes from the BLS carries its attribution in the app: \"Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adapted)\". USDA FoodData Central is in the public domain.",
+        "hosted": "LowCarbCheck is a hosted service. Its code is not part of openplate's open-source repositories. The BLS licence does not allow redistribution, so openplate queries the food data remotely and does not ship a copy of it. Only foods from this database carry vitamin and mineral figures. A plate estimated by AI or a food you typed in yourself does not."
+      },
+      "references": {
+        "heading": "Reference intakes for vitamins and minerals",
+        "body": "The nutrients view compares what you ate with a reference intake for your sex and age, and for pregnancy or breastfeeding where it applies. Whoever runs the instance picks one of three bases, and every row names the one in use:",
+        "dge": "German Nutrition Society (DGE), Referenzwerte für die Nährstoffzufuhr, 3rd edition (2025). This is the default.",
+        "efsa": "European Food Safety Authority (EFSA), Summary of Dietary Reference Values, version 4 (2017), with EFSA's 2019 opinion on sodium.",
+        "nasem": "US National Academies of Sciences, Engineering, and Medicine (NASEM), Dietary Reference Intakes, the reference values used in the US and Canada.",
+        "note": "For a study, the reference basis is an instance setting, the same for every participant, and named next to every value."
+      },
+      "goals": {
+        "heading": "Suggested goals",
+        "body": "openplate never sets a goal for you. When it suggests one, the numbers come from published formulas and reference values:",
+        "calories": "Daily calories: the Mifflin-St Jeor equation for resting energy expenditure (Mifflin, St Jeor et al., American Journal of Clinical Nutrition, 1990).",
+        "protein": "Protein floor: 1.6 g per kg of ideal body weight, with ideal body weight from the Devine formula (1974). Without a goal, the app falls back to EFSA's 0.83 g per kg body weight (2012), or to the 50 g reference intake of EU Regulation 1169/2011, Annex XIII.",
+        "fiber": "Fibre, when no fibre goal is set: 25 g a day, the low end of the adequate intake from the US Institute of Medicine."
+      },
+      "ai": {
+        "heading": "Scanned plates, allergens and pregnancy cautions",
+        "body": "A plate photo is estimated by the AI model you or your instance chose, under that provider's terms. The model also flags the 14 allergens listed in EU Regulation 1169/2011, Annex II, and the pregnancy and breastfeeding cautions openplate lists from guidance by the NHS, the German Federal Institute for Risk Assessment (BfR) and the American College of Obstetricians and Gynecologists (ACOG). These flags are the model's reading of the photo, not values from a database.",
+        "inference": "The self-hosted openplate-inference runtime looks foods up in its own copy of USDA FoodData Central (Foundation and SR Legacy, 8,041 foods), which ships inside its image. It can instead query LowCarbCheck, or Open Food Facts. Open Food Facts is published under the ODbL, a share-alike licence, and is off unless the operator turns it on."
+      },
+      "linkLabel": "Data sources"
+    },
+    "pwa": {
+      "heading": "No app store in between",
+      "body": "openplate is a web app (a PWA) that you install from the browser, on a phone or a computer. There is no app store. Nobody needs an Apple or Google account, and no store review or store fee stands between a release and your device. An institution that hosts openplate serves it from its own domain, and an update reaches every device the next time the app opens.",
+      "push": "Reminders are optional. If you turn them on, they travel through the push service of your browser's maker, as every web push does."
     }
   }
 }

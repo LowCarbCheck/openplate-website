@@ -64,6 +64,15 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /**
+ * The data sources page, in the footer's Project column and NOT in the header row, which is full.
+ *
+ * A reader looks for it after a number made them ask, not on arrival, and the pages that show
+ * numbers link to it where they do. The label is the page's own link label, the same words those
+ * inline links use.
+ */
+const SOURCES_ITEM: NavItem = { to: '/sources', labelKey: 'pages.sources.linkLabel' };
+
+/**
  * The last link, in a build that has a price and in no other.
  *
  * It borrows the page's own title rather than a nav label of its own: a
@@ -561,6 +570,7 @@ function SiteFooter() {
         </FooterColumn>
         <FooterColumn title={t('site.footer.project')}>
           <FooterSiteLink item={researchItem} />
+          <FooterSiteLink item={SOURCES_ITEM} />
           <li>
             <ExternalLink href={REPOSITORIES.app} className={FOOTER_LINK}>
               {t('site.footer.sourceCode')}

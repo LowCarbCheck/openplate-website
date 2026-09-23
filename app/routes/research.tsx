@@ -29,6 +29,7 @@ import {
   GraduationCapIcon,
   HandshakeIcon,
   MailIcon,
+  MonitorSmartphoneIcon,
   PointerClickIcon,
   ScanEyeIcon,
   ScanIcon,
@@ -38,7 +39,7 @@ import {
   type IconProps,
 } from '#app/components/icons';
 import { ResearchFlow } from '#app/components/illustrations/research-flow';
-import { FullBleedBackdrop, Lead, PageTitle, Section } from '#app/components/page';
+import { FullBleedBackdrop, IconTile, Lead, PageLink, PageTitle, Section } from '#app/components/page';
 import { ExternalLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageMeta } from '#app/seo';
@@ -71,7 +72,16 @@ interface SeekCopy {
 
 // The keys are written out rather than built from a list of ids, so a grep for any one of them
 // finds the page that prints it.
+//
+// THE APP STORE CARD LEADS. For a study it is the reason with the widest reach: no participant
+// needs a store account, and no store review sits between the study's release and their phone.
+// `WhyGrid` puts it first in a row of two, over the other three.
 const WHY: readonly CardCopy[] = [
+  {
+    titleKey: 'pages.research.why.pwa.title',
+    bodyKey: 'pages.research.why.pwa.body',
+    icon: MonitorSmartphoneIcon,
+  },
   { titleKey: 'pages.research.why.open.title', bodyKey: 'pages.research.why.open.body', icon: CodeIcon },
   { titleKey: 'pages.research.why.device.title', bodyKey: 'pages.research.why.device.body', icon: AppIcon },
   {
@@ -148,35 +158,58 @@ function ResearchHero() {
   );
 }
 
-/** A 40 pixel square with a 20 pixel icon, the same on a card, a tile and the contact heading. */
-function IconTile({ icon: TileIcon }: { icon: Icon }) {
+/**
+ * One card: the icon tile, a title and a short paragraph.
+ *
+ * Grid rows stretch their items, so every card in a row is as tall as the tallest. The hover is
+ * decoration only: a card is not a link, so the border moves to grey and never to teal.
+ *
+ * `spanClassName` is how many columns the card takes, for a grid that is not all one width.
+ */
+function Card({ card, spanClassName = '' }: { card: CardCopy; spanClassName?: string }) {
+  const { t } = useTranslation();
+
   return (
-    <span className="flex size-10 shrink-0 items-center justify-center border border-border bg-muted text-foreground">
-      <TileIcon className="size-5" />
-    </span>
+    <li
+      className={`flex flex-col border border-border bg-card p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-muted-foreground/50 ${spanClassName}`}
+    >
+      <IconTile icon={card.icon} />
+      <h3 className="mt-4 font-semibold">{t(card.titleKey)}</h3>
+      <p className="mt-2 font-prose text-sm leading-relaxed text-muted-foreground">{t(card.bodyKey)}</p>
+    </li>
+  );
+}
+
+/** Four cards: one column on a phone, two from `sm`, four from `lg`. */
+function CardGrid({ cards }: { cards: readonly CardCopy[] }) {
+  return (
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((card) => (
+        <Card key={card.titleKey} card={card} />
+      ))}
+    </ul>
   );
 }
 
 /**
- * One column on a phone, two from `sm`, four from `lg`.
+ * The five reasons, in full rows at every width: two over three from `lg`.
  *
- * Grid rows stretch their items, so every card in a row is as tall as the tallest. The hover is
- * decoration only: a card is not a link, so the border moves to grey and never to teal.
+ * Five cards in `CardGrid`'s four columns left one card alone on a second row. From `lg` this grid
+ * has six tracks: the first two cards take three each and the last three take two each, so the app
+ * store card leads at half the width. From `sm`, at two columns, the first card takes the whole row
+ * and the other four fill two rows of two.
+ *
+ * Two other layouts were rendered at 1440 pixels and dropped. Three columns with the first card two
+ * wide left that card half empty, because its row is as tall as the card beside it. Five columns made
+ * every card about twice as tall as it is wide, with titles breaking mid phrase.
  */
-function CardGrid({ cards }: { cards: readonly CardCopy[] }) {
-  const { t } = useTranslation();
+const WHY_SPANS = ['sm:col-span-2 lg:col-span-3', 'lg:col-span-3'] as const;
 
+function WhyGrid({ cards }: { cards: readonly CardCopy[] }) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {cards.map((card) => (
-        <li
-          key={card.titleKey}
-          className="flex flex-col border border-border bg-card p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-muted-foreground/50"
-        >
-          <IconTile icon={card.icon} />
-          <h3 className="mt-4 font-semibold">{t(card.titleKey)}</h3>
-          <p className="mt-2 font-prose text-sm leading-relaxed text-muted-foreground">{t(card.bodyKey)}</p>
-        </li>
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      {cards.map((card, index) => (
+        <Card key={card.titleKey} card={card} spanClassName={WHY_SPANS[index] ?? 'lg:col-span-2'} />
       ))}
     </ul>
   );
@@ -285,7 +318,10 @@ export default function ResearchRoute() {
       <ResearchHero />
 
       <Section heading={t('pages.research.why.heading')} isWide className="reveal">
-        <CardGrid cards={WHY} />
+        <WhyGrid cards={WHY} />
+        {/* Where the numbers a participant sees come from, for the ethics board that asks. The
+            reference basis is an instance setting, which the sources page says in its own note. */}
+        <PageLink to="/sources">{t('pages.sources.linkLabel')}</PageLink>
       </Section>
 
       <Section heading={t('pages.research.offer.heading')} isWide className="reveal">

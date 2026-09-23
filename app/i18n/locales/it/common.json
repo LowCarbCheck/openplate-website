@@ -290,7 +290,7 @@
     },
     "research": {
       "title": "Ricerca",
-      "heading": "openplate per la ricerca",
+      "heading": "Un diario alimentare per la ricerca sulla nutrizione",
       "lead": "Cerchiamo partner di ricerca: gruppi universitari, ricercatori della nutrizione, dietisti ed équipe di salute pubblica che studiano l'apporto nutrizionale. openplate è un diario alimentare open source eseguito sul dispositivo del partecipante, e vogliamo che sia utile sia per la ricerca che per la registrazione quotidiana.",
       "why": {
         "heading": "Perché openplate è adatto per uno studio",
@@ -309,6 +309,10 @@
         "photo": {
           "title": "Registrazione da foto",
           "body": "I partecipanti possono registrare i pasti fotografando il proprio piatto. Le stime dalle immagini possono essere elaborate da un modello in cloud o da openplate-inference su hardware controllato dal tuo istituto."
+        },
+        "pwa": {
+          "title": "Nessun app store",
+          "body": "I partecipanti installano la tua istanza da un link nel browser. Nessuno ha bisogno di un account Apple o Google, e un aggiornamento raggiunge ogni partecipante senza un rilascio su uno store."
         }
       },
       "offer": {
@@ -358,6 +362,43 @@
         "button": "Scrivici",
         "subject": "Collaborazione di ricerca con openplate"
       }
+    },
+    "sources": {
+      "title": "Fonti dei dati",
+      "heading": "Da dove arrivano i numeri",
+      "lead": "openplate mostra numeri provenienti da diverse fonti: valori dei nutrienti per gli alimenti, assunzioni di riferimento per vitamine e minerali, formule per gli obiettivi suggeriti e stime da un modello di IA. Questa pagina indica ogni fonte, il suo scopo e le condizioni con cui viene pubblicata.",
+      "foods": {
+        "heading": "Valori dei nutrienti degli alimenti",
+        "body": "Quando cerchi un alimento o confermi un piatto scansionato, openplate cerca l'alimento nella banca dati di LowCarbCheck su lowcarbcheck.org. Questa banca dati unisce tre serie di righe: righe curate da LowCarbCheck, il Codice federale tedesco degli alimenti (Bundeslebensmittelschlüssel, BLS) 4.0 del Max Rubner-Institut, e USDA FoodData Central del Dipartimento dell'Agricoltura degli Stati Uniti.",
+        "attribution": "Un alimento che proviene dal BLS riporta la sua attribuzione nell'applicazione: \"Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adapted)\". USDA FoodData Central è di pubblico dominio.",
+        "hosted": "LowCarbCheck è un servizio ospitato. Il suo codice non fa parte dei repository open source di openplate. La licenza del BLS non consente la ridistribuzione, quindi openplate interroga i dati sugli alimenti da remoto e non ne distribuisce una copia. Solo gli alimenti di questa banca dati riportano valori per vitamine e minerali. Un piatto stimato dall'IA o un alimento inserito da te non li riportano."
+      },
+      "references": {
+        "heading": "Assunzioni di riferimento per vitamine e minerali",
+        "body": "La vista dei nutrienti confronta ciò che hai mangiato con un'assunzione di riferimento per il tuo sesso e la tua età, e per gravidanza o allattamento se pertinenti. Chi gestisce l'istanza sceglie una delle tre basi, e ogni riga indica quella in uso:",
+        "dge": "Società tedesca di nutrizione (DGE), Referenzwerte für die Nährstoffzufuhr, 3ª edizione (2025). Questa è l'impostazione predefinita.",
+        "efsa": "Autorità europea per la sicurezza alimentare (EFSA), Summary of Dietary Reference Values, versione 4 (2017), con il parere dell'EFSA del 2019 sul sodio.",
+        "nasem": "National Academies of Sciences, Engineering, and Medicine (NASEM) statunitensi, Dietary Reference Intakes, i valori di riferimento utilizzati negli Stati Uniti e in Canada.",
+        "note": "Per uno studio, la base di riferimento è un'impostazione dell'istanza, uguale per tutti i partecipanti, e indicata accanto a ogni valore."
+      },
+      "goals": {
+        "heading": "Obiettivi suggeriti",
+        "body": "openplate non imposta mai un obiettivo al posto tuo. Quando ne suggerisce uno, i numeri arrivano da formule pubblicate e valori di riferimento:",
+        "calories": "Calorie giornaliere: l'equazione di Mifflin-St Jeor per il dispendio energetico a riposo (Mifflin, St Jeor et al., American Journal of Clinical Nutrition, 1990).",
+        "protein": "Soglia minima di proteine: 1,6 g per kg di peso corporeo ideale, con peso corporeo ideale dalla formula di Devine (1974). Senza un obiettivo, l'applicazione ripiega sui 0,83 g per kg di peso corporeo dell'EFSA (2012), o sui 50 g dell'assunzione di riferimento del Regolamento UE 1169/2011, Allegato XIII.",
+        "fiber": "Fibre, quando non è impostato un obiettivo di fibre: 25 g al giorno, il limite inferiore dell'assunzione adeguata dell'Institute of Medicine statunitense."
+      },
+      "ai": {
+        "heading": "Piatti scansionati, allergeni e avvertenze per la gravidanza",
+        "body": "Una foto del piatto viene stimata dal modello di IA che tu o la tua istanza avete scelto, secondo le condizioni di quel fornitore. Il modello segnala anche i 14 allergeni elencati nel Regolamento UE 1169/2011, Allegato II, e le avvertenze per gravidanza e allattamento che openplate elenca a partire dalle indicazioni di NHS, Istituto federale tedesco per la valutazione dei rischi (BfR) e American College of Obstetricians and Gynecologists (ACOG). Queste segnalazioni sono l'interpretazione della foto da parte del modello, non valori estratti da una banca dati.",
+        "inference": "Il runtime di inferenza autonomo openplate-inference cerca gli alimenti nella propria copia di USDA FoodData Central (Foundation e SR Legacy, 8.041 alimenti), che viene inclusa nella sua immagine. In alternativa, può interrogare LowCarbCheck, oppure Open Food Facts. Open Food Facts è pubblicato sotto licenza ODbL, una licenza copyleft, ed è disattivato a meno che il gestore non lo attivi."
+      },
+      "linkLabel": "Fonti dei dati"
+    },
+    "pwa": {
+      "heading": "Nessun app store di mezzo",
+      "body": "openplate è un'applicazione web (una PWA) che installi dal browser, su un telefono o un computer. Non c'è alcun app store. Nessuno ha bisogno di un account Apple o Google, e nessuna revisione o commissione di uno store si frappone tra un rilascio e il tuo dispositivo. Un'istituzione che ospita openplate la serve dal proprio dominio, e un aggiornamento raggiunge ogni dispositivo alla successiva apertura dell'applicazione.",
+      "push": "I promemoria sono facoltativi. Se li attivi, viaggiano tramite il servizio push del produttore del tuo browser, come avviene per ogni web push."
     }
   }
 }

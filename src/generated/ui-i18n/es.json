@@ -125,6 +125,13 @@
     "at": "2026-09-23",
     "es": "Buscar en la documentación"
   },
+  "120c2bef3954c054": {
+    "en": "When you search for a food or confirm a scanned plate, openplate looks up the food in the LowCarbCheck database at lowcarbcheck.org. That database combines three sets of rows: rows curated by LowCarbCheck, the German Federal Food Code (Bundeslebensmittelschlüssel, BLS) 4.0 from the Max Rubner-Institut, and USDA FoodData Central from the US Department of Agriculture.",
+    "path": "common:pages.sources.foods.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cuando buscas un alimento o confirmas el escaneo de un plato, openplate consulta la base de datos de LowCarbCheck en lowcarbcheck.org. Dicha base de datos combina tres fuentes de registros: registros seleccionados por LowCarbCheck, el Código Federal de Alimentos alemán (Bundeslebensmittelschlüssel, BLS) 4.0 del Max Rubner-Institut, y FoodData Central del Departamento de Agricultura de EE. UU. (USDA)."
+  },
   "124e83951a633684": {
     "en": "We are looking for research partners: university groups, nutrition researchers, dietitians and public health teams who study dietary intake. openplate is an open-source food diary that runs on the participant's device, and we want it to serve research as well as daily logging.",
     "path": "common:pages.research.lead",
@@ -153,6 +160,13 @@
     "at": "2026-09-14",
     "es": "Docs"
   },
+  "1591a9aec2ed1a68": {
+    "en": "Nutrient values of foods",
+    "path": "common:pages.sources.foods.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Valores nutricionales de los alimentos"
+  },
   "162ceec13206f664": {
     "en": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
     "path": "common:pages.home.hero.body",
@@ -166,6 +180,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Por qué existe openplate"
+  },
+  "16cf7f6b6c06a01c": {
+    "en": "German Nutrition Society (DGE), Referenzwerte für die Nährstoffzufuhr, 3rd edition (2025). This is the default.",
+    "path": "common:pages.sources.references.dge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sociedad Alemana de Nutrición (DGE), Referenzwerte für die Nährstoffzufuhr, 3.ª edición (2025). Es la opción predeterminada."
   },
   "189119f99e6cdaa6": {
     "en": "What should I run?",
@@ -244,6 +265,13 @@
     "at": "2026-09-23",
     "es": "Cualquiera puede <signUp>registrarse</signUp> con una dirección de correo electrónico en la instancia alojada en app.openplate.de. No hace falta invitación. El diario, la cuenta y la sincronización son gratuitos. Una cuenta nueva recibe {{count}} escaneos de IA gratuitos, sin límite de tiempo. Después de ellos, el escaneo de platos y las demás funciones de IA vienen con un plan de pago. Ejecutar tu propia copia no cuesta nada. Consulta <selfHosting>Autohospedaje</selfHosting>."
   },
+  "2201e5e63522bf19": {
+    "en": "openplate shows numbers from several sources: nutrient values for foods, reference intakes for vitamins and minerals, formulas for suggested goals, and estimates from an AI model. This page names each source, its purpose, and the terms under which it is published.",
+    "path": "common:pages.sources.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "openplate muestra cifras procedentes de varias fuentes: valores nutricionales de alimentos, ingestas de referencia para vitaminas y minerales, fórmulas para objetivos sugeridos y estimaciones generadas por un modelo de IA. Esta página detalla cada fuente, su finalidad y las condiciones bajo las que se publica."
+  },
   "2264c1b69805c5fa": {
     "en": "Most food trackers store your diary on their servers, where you cannot control it. openplate works the other way around. Your diary stays on your device. The source code is public, so anyone can inspect it. Every additional service, sync and photo scanning included, is optional, and you can host each part yourself.",
     "path": "common:pages.home.why.body",
@@ -286,12 +314,33 @@
     "at": "2026-09-14",
     "es": "Página no encontrada"
   },
+  "2ae01514ce58e8bf": {
+    "en": "Protein floor: 1.6 g per kg of ideal body weight, with ideal body weight from the Devine formula (1974). Without a goal, the app falls back to EFSA's 0.83 g per kg body weight (2012), or to the 50 g reference intake of EU Regulation 1169/2011, Annex XIII.",
+    "path": "common:pages.sources.goals.protein",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Mínimo de proteínas: 1,6 g por kg de peso corporal ideal, calculando este último con la fórmula de Devine (1974). Si no defines un objetivo, la app recurre a los 0,83 g por kg de peso corporal de la EFSA (2012), o a la ingesta de referencia de 50 g indicada en el anexo XIII del Reglamento (UE) 1169/2011."
+  },
+  "2af3ab56a871ea5b": {
+    "en": "A food that comes from the BLS carries its attribution in the app: \"Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adapted)\". USDA FoodData Central is in the public domain.",
+    "path": "common:pages.sources.foods.attribution",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los alimentos procedentes del BLS incluyen su correspondiente atribución en la app: \"Bundeslebensmittelschlüssel (BLS) 4.0, Max Rubner-Institut, CC BY 4.0 (adaptado)\". USDA FoodData Central pertenece al dominio público."
+  },
   "2d3c4484745e0d9a": {
     "en": "Open code",
     "path": "common:pages.research.why.open.title",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Código abierto"
+  },
+  "2de7cb66f0aa88d2": {
+    "en": "Reference intakes for vitamins and minerals",
+    "path": "common:pages.sources.references.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Ingestas de referencia para vitaminas y minerales"
   },
   "30622ac4e100cda7": {
     "en": "the page",
@@ -306,6 +355,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Este componente aún no ha publicado notas de la versión."
+  },
+  "32066cbbd7b9d0bc": {
+    "en": "openplate is a web app (a PWA) that you install from the browser, on a phone or a computer. There is no app store. Nobody needs an Apple or Google account, and no store review or store fee stands between a release and your device. An institution that hosts openplate serves it from its own domain, and an update reaches every device the next time the app opens.",
+    "path": "common:pages.pwa.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "openplate es una aplicación web (una PWA) que instalas directamente desde el navegador, ya sea en un teléfono o en un ordenador. No hay ninguna tienda de aplicaciones. Nadie necesita una cuenta de Apple o de Google, y ninguna revisión ni comisión de tienda se interpone entre una versión y tu dispositivo. La institución que aloja openplate lo sirve desde su propio dominio, y cualquier actualización llega a cada dispositivo la próxima vez que se abre la app."
   },
   "33c5b34914aa0287": {
     "en": "Food database",
@@ -496,6 +552,13 @@
     "at": "2026-09-14",
     "es": "Tu navegador"
   },
+  "460dd0058b720bbc": {
+    "en": "No app store in between",
+    "path": "common:pages.pwa.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sin intermediarios ni tiendas de aplicaciones"
+  },
   "462ed9265b2d0120": {
     "en": "How to self-host",
     "path": "common:pages.pricing.selfHost.cta",
@@ -517,6 +580,13 @@
     "at": "2026-09-23",
     "es": "Escríbenos"
   },
+  "49bf5976f76e090a": {
+    "en": "LowCarbCheck is a hosted service. Its code is not part of openplate's open-source repositories. The BLS licence does not allow redistribution, so openplate queries the food data remotely and does not ship a copy of it. Only foods from this database carry vitamin and mineral figures. A plate estimated by AI or a food you typed in yourself does not.",
+    "path": "common:pages.sources.foods.hosted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "LowCarbCheck es un servicio alojado. Su código no forma parte de los repositorios de código abierto de openplate. Como la licencia del BLS no permite la redistribución, openplate consulta los datos de los alimentos de forma remota y no distribuye una copia local. Solo los alimentos de esta base de datos incluyen cifras de vitaminas y minerales. Un plato estimado por IA o un alimento introducido manualmente no los contienen."
+  },
   "4a8332dee048e901": {
     "en": "Pricing",
     "path": "common:pages.pricing.title",
@@ -530,6 +600,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Tu diario se queda en el dispositivo. Sin sincronización, ningún servidor tiene una copia."
+  },
+  "4c920ee318fd6a2e": {
+    "en": "Reminders are optional. If you turn them on, they travel through the push service of your browser's maker, as every web push does.",
+    "path": "common:pages.pwa.push",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los recordatorios son opcionales. Si decides activarlos, se envían mediante el servicio push del fabricante de tu navegador, exactamente como cualquier notificación web."
   },
   "4cd639667a5118b4": {
     "en": "An open-source food diary that runs on your device.",
@@ -559,6 +636,13 @@
     "at": "2026-09-23",
     "es": "La pantalla de resumen: los carbohidratos netos, calorías, proteínas, grasas y fibra del día, cada uno mostrado con una barra frente a su objetivo."
   },
+  "4f37e037e54eae33": {
+    "en": "Data sources",
+    "path": "common:pages.sources.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Fuentes de datos"
+  },
   "4f995cf93b4289e5": {
     "en": "Search the documentation",
     "path": "docs:search.label",
@@ -579,6 +663,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "IVA incluido."
+  },
+  "523f5caba132f35a": {
+    "en": "European Food Safety Authority (EFSA), Summary of Dietary Reference Values, version 4 (2017), with EFSA's 2019 opinion on sodium.",
+    "path": "common:pages.sources.references.efsa",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Autoridad Europea de Seguridad Alimentaria (EFSA), Resumen de los valores dietéticos de referencia, versión 4 (2017), con el dictamen de la EFSA de 2019 sobre el sodio."
   },
   "5276118bcc8b387a": {
     "en": "Documentation",
@@ -650,6 +741,13 @@
     "at": "2026-09-14",
     "es": "Cerrar"
   },
+  "5a55ba73bc386140": {
+    "en": "For a study, the reference basis is an instance setting, the same for every participant, and named next to every value.",
+    "path": "common:pages.sources.references.note",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "En el caso de un estudio, la base de referencia es un ajuste de la instancia, idéntico para todos los participantes y visible junto a cada valor."
+  },
   "5ab2a89eb93d01bf": {
     "en": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
     "path": "common:pages.pricing.cancel",
@@ -691,6 +789,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "La pantalla de alimentación y objetivos: opciones de estilo de alimentación, desde bajo en carbohidratos hasta seguimiento simple, y límites diarios de carbohidratos predefinidos."
+  },
+  "5fe42a9002735a95": {
+    "en": "A plate photo is estimated by the AI model you or your instance chose, under that provider's terms. The model also flags the 14 allergens listed in EU Regulation 1169/2011, Annex II, and the pregnancy and breastfeeding cautions openplate lists from guidance by the NHS, the German Federal Institute for Risk Assessment (BfR) and the American College of Obstetricians and Gynecologists (ACOG). These flags are the model's reading of the photo, not values from a database.",
+    "path": "common:pages.sources.ai.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una foto del plato la evalúa el modelo de IA que hayáis elegido tú o tu instancia, conforme a los términos de dicho proveedor. El modelo también detecta los 14 alérgenos recogidos en el anexo II del Reglamento (UE) 1169/2011, además de las advertencias para embarazo y lactancia que openplate extrae de las guías del NHS, el Instituto Federal Alemán para la Evaluación de Riesgos (BfR) y el Colegio Estadounidense de Obstetras y Ginecólogos (ACOG). Estos avisos son interpretaciones de la foto hechas por el modelo, no datos extraídos de una base de datos."
   },
   "61617f8e1db33b8c": {
     "en": "openplate app server",
@@ -818,12 +923,33 @@
     "at": "2026-09-14",
     "es": "Qué es openplate"
   },
+  "6e11964dd2caecbb": {
+    "en": "Participants install your instance from a link in the browser. Nobody needs an Apple or Google account, and an update reaches every participant without a store release.",
+    "path": "common:pages.research.why.pwa.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los participantes instalan tu instancia desde un enlace en el navegador. Nadie necesita una cuenta de Apple o de Google, y las actualizaciones llegan a cada participante sin pasar por una tienda."
+  },
   "6e4daa7e85d42ce6": {
     "en": "The openplate diary for one day on a computer screen. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets. The day's food splits into carbs, fiber, protein, and fat.",
     "path": "common:pages.home.hero.shotAlt",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "El diario de openplate de un día en la pantalla de un ordenador. Los carbohidratos netos se registran frente al límite diario. Las calorías, las proteínas, las grasas y la fibra se muestran frente a sus objetivos. La comida del día se divide en carbohidratos, fibra, proteínas y grasas."
+  },
+  "6e638f5d99fc9946": {
+    "en": "openplate never sets a goal for you. When it suggests one, the numbers come from published formulas and reference values:",
+    "path": "common:pages.sources.goals.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "openplate nunca te impone un objetivo. Cuando sugiere uno, los valores provienen de fórmulas y referencias publicadas:"
+  },
+  "6f9fc8106c05eb30": {
+    "en": "Suggested goals",
+    "path": "common:pages.sources.goals.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Objetivos sugeridos"
   },
   "707074fc089c18b4": {
     "en": "Sync server",
@@ -860,12 +986,26 @@
     "at": "2026-09-23",
     "es": "Guardado en texto plano"
   },
+  "7437953d548e7215": {
+    "en": "The self-hosted openplate-inference runtime looks foods up in its own copy of USDA FoodData Central (Foundation and SR Legacy, 8,041 foods), which ships inside its image. It can instead query LowCarbCheck, or Open Food Facts. Open Food Facts is published under the ODbL, a share-alike licence, and is off unless the operator turns it on.",
+    "path": "common:pages.sources.ai.inference",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "El runtime de inferencia autoalojado de openplate-inference consulta los alimentos en su propia copia de USDA FoodData Central (Foundation y SR Legacy, 8041 alimentos), incluida dentro de su imagen. También puede realizar consultas a LowCarbCheck o a Open Food Facts. Open Food Facts se publica bajo la licencia ODbL, de tipo compartir igual, y permanece desactivado salvo que quien administre la instancia lo habilite."
+  },
   "7452c7550822728d": {
     "en": "Write to us",
     "path": "common:pages.research.contact.button",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Escríbenos"
+  },
+  "78393d7074332008": {
+    "en": "Where the numbers come from",
+    "path": "common:pages.sources.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "De dónde salen los números"
   },
   "78b1b2df1202318b": {
     "en": "Your AI endpoint",
@@ -1063,6 +1203,13 @@
     "at": "2026-09-23",
     "es": "Registras un alimento"
   },
+  "8e7abaf9f37f6c09": {
+    "en": "US National Academies of Sciences, Engineering, and Medicine (NASEM), Dietary Reference Intakes, the reference values used in the US and Canada.",
+    "path": "common:pages.sources.references.nasem",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Las Academias Nacionales de Ciencias, Ingeniería y Medicina de EE. UU. (NASEM), Ingestas Dietéticas de Referencia, los valores de referencia utilizados en EE. UU. y Canadá."
+  },
   "9038b3b724bc35d6": {
     "en": "Researchers in human-computer interaction who study self-tracking",
     "path": "common:pages.research.seek.hci",
@@ -1196,6 +1343,13 @@
     "at": "2026-09-23",
     "es": "{{price}} al mes"
   },
+  "a58bb40f9d874872": {
+    "en": "The nutrients view compares what you ate with a reference intake for your sex and age, and for pregnancy or breastfeeding where it applies. Whoever runs the instance picks one of three bases, and every row names the one in use:",
+    "path": "common:pages.sources.references.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La vista de nutrientes compara lo que has comido con una ingesta de referencia según tu sexo y edad, contemplando también el embarazo o la lactancia cuando corresponde. La persona que administra la instancia elige una de estas tres bases, y cada fila indica cuál se está usando:"
+  },
   "a6dd790d0a85c71d": {
     "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
     "path": "common:pages.core.lead",
@@ -1272,6 +1426,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Escanea en tu propio hardware"
+  },
+  "b0d90e0fed7e3974": {
+    "en": "Daily calories: the Mifflin-St Jeor equation for resting energy expenditure (Mifflin, St Jeor et al., American Journal of Clinical Nutrition, 1990).",
+    "path": "common:pages.sources.goals.calories",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Calorías diarias: la ecuación de Mifflin-St Jeor para el gasto energético en reposo (Mifflin, St Jeor et al., American Journal of Clinical Nutrition, 1990)."
   },
   "b1522665f2102d15": {
     "en": "Switch to the dark theme",
@@ -1405,6 +1566,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Resultados: {{count}}"
+  },
+  "c4fd87f2f111614b": {
+    "en": "US National Academies of Sciences, Engineering, and Medicine (NASEM), Dietary Reference Intakes.",
+    "path": "common:pages.sources.references.nasem",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Academias Nacionales de Ciencias, Ingeniería y Medicina de EE. UU. (NASEM), Ingestas dietéticas de referencia."
   },
   "c5dd0163f8083dce": {
     "en": "Every price is a final price in euros, German VAT included.",
@@ -1560,6 +1728,13 @@
     "at": "2026-09-14",
     "es": "Hardware"
   },
+  "d7c81d497ce38294": {
+    "en": "No app store",
+    "path": "common:pages.research.why.pwa.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sin tiendas de aplicaciones"
+  },
   "d8cefdb0b2327b58": {
     "en": "We configure openplate for your protocol, including custom dietary targets, questions, food databases and languages.",
     "path": "common:pages.research.offer.custom.body",
@@ -1580,6 +1755,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Conservado según sus condiciones"
+  },
+  "d94b00d39075296a": {
+    "en": "Scanned plates, allergens and pregnancy cautions",
+    "path": "common:pages.sources.ai.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Platos escaneados, alérgenos y precauciones en el embarazo"
   },
   "d9832f497c7628e5": {
     "en": "Read more",
@@ -1650,6 +1832,27 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Escanear un plato"
+  },
+  "ea005c7a897287e4": {
+    "en": "Data sources",
+    "path": "common:pages.sources.linkLabel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Fuentes de datos"
+  },
+  "eafe6fd7b1d7fcbb": {
+    "en": "Fibre, when no fibre goal is set: 25 g a day, the low end of the adequate intake from the US Institute of Medicine.",
+    "path": "common:pages.sources.goals.fiber",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Fibra, si no se define un objetivo: 25 g al día, el límite inferior de la ingesta adecuada según el Instituto de Medicina de EE. UU."
+  },
+  "ecca322aee0d6db8": {
+    "en": "A food diary for nutrition research",
+    "path": "common:pages.research.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Un diario de alimentación para la investigación nutricional"
   },
   "ecd8f8e09adaa35c": {
     "en": "Copied",

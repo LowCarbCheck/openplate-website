@@ -35,7 +35,8 @@ import { Hero, PRIMARY_ACTION, SECONDARY_ACTION } from '#app/components/hero';
 import { DATA_FLOW_BOX, DataFlow, DataFlowSteps } from '#app/components/illustrations/data-flow';
 import { DATA_HOLDERS_BOX, DataHolders, DataHoldersKey } from '#app/components/illustrations/data-holders';
 import { STACK_MARKS } from '#app/components/illustrations/stack-marks';
-import { FullBleedBackdrop, MEASURE, Section } from '#app/components/page';
+import { InstallNote } from '#app/components/install-note';
+import { FullBleedBackdrop, MEASURE, PageLink, Section } from '#app/components/page';
 import { ExampleDataNote, HeroShot } from '#app/components/shot';
 import { ExternalLink, RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
@@ -203,6 +204,13 @@ export default function HomeRoute() {
         <p>{t('pages.home.why.body')}</p>
       </Section>
 
+      {/* The install claim follows the reason, while the reader is still on the first screens: no
+          store account, no store review, and an institution serves it from its own domain. The
+          reminder line is `/app`'s detail and stays there. */}
+      <Section heading={t('pages.pwa.heading')}>
+        <InstallNote body={t('pages.pwa.body')} />
+      </Section>
+
       <Section heading={t(section(sections, 'whatItIs').headingKey)}>
         <DocBlocks blocks={section(sections, 'whatItIs').blocks} />
       </Section>
@@ -276,6 +284,11 @@ export default function HomeRoute() {
             }}
           />
         </Stage>
+        {/* The drawing names the food database; this is where its numbers and the others are
+            accounted for. */}
+        <PageLink to="/sources" className={MEASURE}>
+          {t('pages.sources.linkLabel')}
+        </PageLink>
       </Section>
 
       <Section heading={t('pages.home.stack.heading')}>
