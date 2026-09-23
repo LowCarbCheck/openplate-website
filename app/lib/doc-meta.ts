@@ -14,5 +14,5 @@ import { languageFromPathname } from '#app/i18n/language';
 
 export function translatedTitle(location: Location, key: string): string {
   const language = languageFromPathname(location.pathname);
-  return `${i18n.t(key, { lng: language, ns: 'docs' })} — openplate`;
+  return `${i18n.t(key, { lng: language, ns: 'docs' })} | openplate`;
 }

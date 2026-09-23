@@ -16,5 +16,20 @@
     "core": "Eşitleme sunucusu",
     "inference": "Çıkarım çalışma zamanı"
   },
-  "closeSheet": "Kapat"
+  "closeSheet": "Kapat",
+  "startHere": "Buradan başla",
+  "allGuides": "Tüm kılavuzlar ({{count}})",
+  "search": {
+    "label": "Belgelerde ara",
+    "placeholder": "Belgeleri ara",
+    "loading": "Arama dizini yükleniyor",
+    "noResults": "Bu aramayla eşleşen sayfa yok.",
+    "results": "Sonuçlar: {{count}}",
+    "unavailable": "Arama için bir üretim derlemesi gerekir."
+  },
+  "copy": {
+    "idle": "Kodu kopyala",
+    "done": "Kopyalandı",
+    "failed": "Kopyalanamadı"
+  }
 }

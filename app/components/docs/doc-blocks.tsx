@@ -2,7 +2,7 @@
  * Render the doc tree that `sync-docs` produced.
  *
  * Components, not `dangerouslySetInnerHTML`. The text is quoted from READMEs we
- * control, so the injection risk is small — but small is not the reason to
+ * control, so the injection risk is small, but small is not the reason to
  * avoid it. Rendering the tree means the doc text arrives in this page's own
  * type, colour and spacing rather than carrying a second stylesheet in with it,
  * and it means the site can never render markup it did not itself build.
@@ -15,34 +15,23 @@
  * draws its diagrams at sync time and commits them, so the diagram block is two
  * committed SVG files and a <picture>, and no reader downloads a renderer.
  */
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 
 import { useLanguage } from '#app/i18n/use-language';
 import { localizePath } from '#app/i18n/language';
 import { type Block, type Inline, spansText } from '#app/lib/docs';
-import { CodeTokens } from './code-tokens';
+import { CodeFence } from './code-fence';
+import { CodeChip, HUGS_AFTER, HUGS_BEFORE, PROSE_LINK } from './prose';
 
 /**
- * A fenced block, dark in both themes like a terminal. `doc-fence` borrows the
- * dark palette block in `app.css`, so every token utility on and inside it
- * resolves to its dark value without a colour of its own.
+ * A diagram's source, dark in both themes like every fence. A code block with a
+ * copy button is `CodeFence`, which says why `doc-fence` and `text-foreground`
+ * sit where they do. This one is plain text behind a disclosure, and has no bar.
  */
 const FENCE =
   'doc-fence overflow-x-auto border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed text-foreground';
-
-/**
- * The punctuation a chip must sit tight against, on each side.
- *
- * THE GAP WAS THE CHIP, NOT THE MARKUP. The DOM is clean —
- * `<code>.env</code><span>:</span>` with nothing between them — and the padding
- * inside the chip still reads as a typed space before the colon. Padding is
- * what makes the chip a chip, so it goes only where the character beside it is
- * punctuation that belongs to the sentence rather than to the code.
- */
-const HUGS_AFTER = /^[.,:;)!?]/;
-const HUGS_BEFORE = /[(["']$/;
 
 export function Spans({
   spans,
@@ -73,22 +62,18 @@ export function Spans({
           );
         }
         if (span.kind === 'code') {
-          // A MUTED CHIP IN THE MONOSPACE FACE. It was a teal wash, and teal is
-          // rationed now to links, the one filled button, the active nav item
-          // and the wordmark. In a paragraph the face change from Inter already
-          // marks what to type, and the ground carries it in a heading, where
-          // the face is the same.
+          // The chip and its reasoning live in `prose.tsx`, shared with the
+          // marketing pages. It is not teal: teal is rationed to links, the one
+          // filled button, the active nav item and the wordmark.
           const next = spans[i + 1];
           const previous = spans[i - 1];
-          const before = previous?.kind === 'text' && HUGS_BEFORE.test(previous.text);
-          const after = next?.kind === 'text' && HUGS_AFTER.test(next.text);
           return (
-            <code
+            <CodeChip
               key={key}
-              className={`border border-border bg-muted py-0.5 font-mono text-[0.9em] text-foreground ${before ? 'pl-0' : 'pl-1'} ${after ? 'pr-0' : 'pr-1'}`}
-            >
-              {span.text}
-            </code>
+              text={span.text}
+              hugBefore={previous?.kind === 'text' && HUGS_BEFORE.test(previous.text)}
+              hugAfter={next?.kind === 'text' && HUGS_AFTER.test(next.text)}
+            />
           );
         }
         if (span.kind === 'link' && isInsideLink) {
@@ -99,10 +84,11 @@ export function Spans({
           );
         }
         if (span.kind === 'link') {
-          const style = 'text-foreground underline decoration-foreground underline-offset-4 hover:decoration-current';
+          // The underline and its reasoning live in `prose.tsx`.
+          const style = PROSE_LINK;
           // NOT EVERY LINK LEAVES. The sync rewrites a link to a doc this site
           // publishes into that page's route, so those are routed rather than
-          // followed — through an <a> they would reload the whole app to get
+          // followed: through an <a> they would reload the whole app to get
           // somewhere it already has. The generated href is the canonical
           // English-rooted path, so a German reader's link is localised here
           // and in no other place.
@@ -207,10 +193,15 @@ function DiagramFigure({ block }: { block: DiagramBlock }) {
           below, which was never measured as a defect, so the padding that takes this button to a 44
           pixel tall touch target belongs to the button alone. A fixed height would do the same for
           this one line of text and then stop matching a longer translation. */}
-      <button type="button" onClick={() => setIsFullSize(!isFullSize)} className={`mt-2 py-3 sm:hidden ${quiet}`}>
+      <button
+        type="button"
+        data-pagefind-ignore
+        onClick={() => setIsFullSize(!isFullSize)}
+        className={`mt-2 py-3 sm:hidden ${quiet}`}
+      >
         {isFullSize ? t('diagramZoomOut') : t('diagramZoomIn')}
       </button>
-      <details className="mt-2">
+      <details data-pagefind-ignore className="mt-2">
         <summary className={quiet}>{t('diagramSource')}</summary>
         <pre className={`${FENCE} mt-2`}>
           <code className="language-mermaid">{block.source}</code>
@@ -256,8 +247,9 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
           }
           case 'list': {
             const List = block.ordered ? 'ol' : 'ul';
-            // Blocks that sit UNDER an item — the command a step ends by telling
-            // you to run. They arrive beside the items rather than inside them.
+            // Blocks that sit UNDER an item, such as the command a step ends by
+            // telling you to run. They arrive beside the items rather than inside
+            // them.
             const under = new Map((block.nested ?? []).map((entry) => [entry.item, entry.blocks]));
             return (
               <List key={key} className="mt-5 max-w-[68ch] space-y-2 border-t border-border pt-4">
@@ -268,12 +260,25 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                   // reordered while the page is open, so there is nothing for a
                   // content-derived key to survive that a positional one does
                   // not. The same holds for the table cells below.
-                  // oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see above
-                  <li key={`item-${j}`} className="grid grid-cols-[1.5rem_1fr] items-baseline leading-relaxed">
+                  //
+                  // `minmax(0, 1fr)` and `min-w-0`, not `1fr`: a track's floor
+                  // is its content's min-content width, so a fence under an item
+                  // widened the list past the column instead of scrolling inside
+                  // itself. Same reason as the middle track in `docs-shell.tsx`.
+                  <li
+                    /* oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see above */
+                    key={`item-${j}`}
+                    className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-baseline leading-relaxed"
+                  >
                     <span aria-hidden="true" className="font-mono text-sm text-muted-foreground">
-                      {block.ordered ? String(j + 1).padStart(2, '0') : '—'}
+                      {/* THE SITE'S SQUARE BULLET, not a dash glyph: 6 pixels of
+                          `muted-foreground`, as the research page's list drew it.
+                          `align-middle` puts it on the x-height of the line. */}
+                      {block.ordered ?
+                        String(j + 1).padStart(2, '0')
+                      : <span className="inline-block size-1.5 bg-muted-foreground align-middle" />}
                     </span>
-                    <div className="font-prose">
+                    <div className="min-w-0 font-prose">
                       <Spans spans={item} />
                       {/* In the SAME grid cell as the item's text, so a fence
                           under step 3 keeps the step's left edge instead of
@@ -286,18 +291,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
             );
           }
           case 'code': {
-            return (
-              <Fragment key={key}>
-                <pre className={`${FENCE} mt-5`}>
-                  {/* The language is on the <code>, not just used by it.
-                      `class="language-bash"` is what a reader's view-source and
-                      every scraper read to know what this is. */}
-                  <code className={block.lang === '' ? undefined : `language-${block.lang}`}>
-                    <CodeTokens text={block.text} lang={block.lang} />
-                  </code>
-                </pre>
-              </Fragment>
-            );
+            return <CodeFence key={key} text={block.text} lang={block.lang} className="mt-5" />;
           }
           case 'quote': {
             // IT IS AN ADMONITION, AND IT WOULD BE WRONG TO DRESS IT AS A
@@ -321,12 +315,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
           case 'image': {
             return (
               <figure key={key} className="mt-5 flex flex-col items-center">
-                <img
-                  src={block.src}
-                  alt={block.alt}
-                  loading="lazy"
-                  className="max-w-full border border-border"
-                />
+                <img src={block.src} alt={block.alt} loading="lazy" className="max-w-full border border-border" />
                 {block.alt !== '' && (
                   <figcaption className="mt-2 max-w-[68ch] text-center text-sm text-muted-foreground">
                     {block.alt}
@@ -370,7 +359,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
             // otherwise print its backticks.
             const labels = block.head.map((cell) => spansText(cell));
             return (
-              <div key={key} className="-mx-6 mt-5 overflow-x-auto px-6 sm:mx-0 sm:px-0">
+              <div key={key} className="-mx-5 mt-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
                 <table className="doc-table w-full min-w-0 border-collapse text-left text-sm sm:min-w-[34rem]">
                   <thead>
                     <tr className="border-b border-border">

@@ -16,5 +16,20 @@
     "core": "El servidor de sincronización",
     "inference": "El runtime de inferencia"
   },
-  "closeSheet": "Cerrar"
+  "closeSheet": "Cerrar",
+  "startHere": "Empieza aquí",
+  "allGuides": "Todas las guías ({{count}})",
+  "search": {
+    "label": "Buscar en la documentación",
+    "placeholder": "Buscar en la documentación",
+    "loading": "Cargando el índice de búsqueda",
+    "noResults": "Ninguna página coincide con esta búsqueda.",
+    "results": "Resultados: {{count}}",
+    "unavailable": "La búsqueda requiere una compilación de producción."
+  },
+  "copy": {
+    "idle": "Copiar código",
+    "done": "Copiado",
+    "failed": "No se pudo copiar"
+  }
 }

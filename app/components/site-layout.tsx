@@ -20,6 +20,7 @@ import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'rea
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useRouteLoaderData } from 'react-router';
 
+import { FRAME } from './frame';
 import { ChevronDownIcon, CloseIcon, GitHubMark, LanguagesIcon, MenuIcon } from './icons';
 import { ExternalLink, SiteLink } from './site-link';
 import { ThemeToggle } from './theme-toggle';
@@ -581,74 +582,36 @@ function SiteFooter() {
 }
 
 /**
- * How wide the page under this frame is allowed to be.
+ * How wide the page under the frame is allowed to be. The frame itself does not change.
  *
- * ── THREE, BECAUSE TWO STOPPED BEING ENOUGH ──
- * `reading` is one column of prose at 48rem, and it is right for a page that is
- * nothing but prose, which the imprint and the privacy notice were until they
- * moved to the app (M246). It was also what the
- * marketing pages got, and there it was wrong, because those pages are not one
- * column: a grid of four screenshots and a row of three cards were being folded
- * into a measure chosen for sentences, and the cards came out visibly cramped.
- * `marketing` gives them 72rem. `full` is the documentation, unchanged, which
- * carries a file list on one side and a contents rail on the other and fits
- * neither beside the text at 48rem.
+ * ── THREE PAGE WIDTHS, ONE FRAME ──
+ * `reading` is one column of prose at 48rem, for a page that is nothing but prose. `marketing` is
+ * 72rem, because those pages carry grids of screenshots and rows of cards that a measure chosen for
+ * sentences folds up. `docs` is a page that draws its own grid, the file list, the article and the
+ * contents rail, so `main` only spans the window and `DocsShell` lays the columns out inside `FRAME`.
  *
- * A WIDER PAGE IS NOT A WIDER PARAGRAPH. Running text keeps its own measure
- * inside a `marketing` page: `Section` in `page.tsx` caps the paragraphs it
- * holds, and `DocBlocks` caps the quoted ones. The extra width is for the
- * things that were never sentences.
+ * A WIDER PAGE IS NOT A WIDER PARAGRAPH. Running text keeps its own measure inside a `marketing`
+ * page: `Section` in `page.tsx` caps the paragraphs it holds, and `DocBlocks` caps the quoted ones.
+ *
+ * The header and the footer take `FRAME` on every one of these, and they used to follow the page
+ * instead. See `frame.ts` for why that stopped.
  */
-const WIDTH = {
-  reading: 'max-w-3xl',
-  marketing: 'max-w-6xl',
-  full: 'max-w-[88rem]',
-} as const;
+export const PAGE_WIDTHS = ['reading', 'marketing', 'docs'] as const;
 
-/**
- * The gutter, which is the page's own and not the header's.
- *
- * `docs-shell.tsx` sets `px-6` on the documentation grid and every other page
- * here sets `px-5`. The header matches whichever one is under it, because a
- * wordmark one pixel off the left edge of the file list below it is the same
- * defect as a wordmark in the middle of the window, only smaller.
- */
-const PADDING = {
-  reading: 'px-5',
-  marketing: 'px-5',
-  full: 'px-6',
-} as const;
+export type PageWidth = (typeof PAGE_WIDTHS)[number];
 
-/**
- * The header row's width, which is never narrower than the marketing measure.
- *
- * ── THE NAVIGATION OUTGREW THE READING MEASURE ──
- * The row now carries four or five links, a menu button, two icons and a filled button, and in
- * French or Turkish that is wider than 48rem. On a reading page the header therefore takes the
- * marketing width and not the page's; a wordmark that sits left of a narrow prose column is a far
- * smaller defect than a nav that runs out of its row. The documentation keeps its own, wider grid.
- */
-const HEADER_WIDTH = {
-  reading: WIDTH.marketing,
-  marketing: WIDTH.marketing,
-  full: WIDTH.full,
-} as const;
-
-export type PageWidth = keyof typeof WIDTH;
+const MAIN = {
+  reading: 'mx-auto w-full max-w-3xl grow px-5 py-12',
+  marketing: `${FRAME} grow py-12`,
+  docs: 'w-full grow',
+} as const satisfies Record<PageWidth, string>;
 
 export function SiteLayout({
   children,
   width = 'reading',
 }: {
   children: ReactNode;
-  /**
-   * THE HEADER FOLLOWS THE PAGE, down to the marketing measure. It used to keep
-   * the narrow measure on every page, which put the wordmark and the nav in the
-   * middle of a documentation page whose own content starts at the left edge of
-   * an 88rem grid, so the chrome looked unrelated to the page under it.
-   * `HEADER_WIDTH` says why it no longer goes narrower. The footer follows the
-   * header, since its four columns are the same site map.
-   */
+  /** The width of `main` only. The header and the footer are `FRAME` whatever this says. */
   width?: PageWidth;
 }) {
   const { t } = useTranslation();
@@ -682,8 +645,6 @@ export function SiteLayout({
     syncPicturesToTheme();
   }, [pathname]);
 
-  const frameWidth = `mx-auto w-full ${HEADER_WIDTH[width]} ${PADDING[width]}`;
-
   return (
     /* `overflow-x-clip` and not `overflow-hidden`: the front page's diagram steps out of the
        reading column with `w-screen`, and `100vw` counts the vertical scrollbar, so that block is a
@@ -702,7 +663,7 @@ export function SiteLayout({
           a stacking context, and without an index of its own the hero's `isolate` section, later in
           the DOM, would paint over the open panel. */}
       <header className="relative z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className={frameWidth}>
+        <div className={FRAME}>
           {/* ITEMS-CENTER, AND IT USED TO BE ITEMS-BASELINE. A flex container takes its baseline from
               its first item, the wordmark link, and that link is itself a flex box whose first item
               is the 24 pixel mark. An image's baseline is its bottom edge, so aligning the row on it
@@ -797,12 +758,12 @@ export function SiteLayout({
         </div>
       </header>
 
-      <main id="main" className={width === 'full' ? 'w-full grow' : `mx-auto w-full ${WIDTH[width]} grow px-5 py-12`}>
+      <main id="main" className={MAIN[width]}>
         {children}
       </main>
 
       <footer className="border-t border-border">
-        <div className={`${frameWidth} py-10`}>
+        <div className={`${FRAME} py-10`}>
           <SiteFooter />
         </div>
       </footer>

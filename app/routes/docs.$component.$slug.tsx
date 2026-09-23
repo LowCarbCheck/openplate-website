@@ -57,14 +57,14 @@ export function loader({ params, request }: Route.LoaderArgs) {
 export function meta({ loaderData }: Route.MetaArgs) {
   // The document's own title, which is quoted rather than written and is the
   // one string on this page that is the same in both languages until spec 03.
-  return [{ title: loaderData === undefined ? 'openplate' : `${loaderData.doc.title} — openplate` }];
+  return [{ title: loaderData === undefined ? 'openplate' : `${loaderData.doc.title} | openplate` }];
 }
 
 export default function DocsPageRoute() {
   const { doc, index, titleId, translated } = useLoaderData<typeof loader>();
 
   return (
-    <SiteLayout width="full">
+    <SiteLayout width="docs">
       <DocPage doc={doc} index={index} titleId={titleId} translated={translated} />
     </SiteLayout>
   );

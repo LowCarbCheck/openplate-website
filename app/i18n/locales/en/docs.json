@@ -16,5 +16,20 @@
     "core": "The sync server",
     "inference": "The inference runtime"
   },
-  "closeSheet": "Close"
+  "closeSheet": "Close",
+  "startHere": "Start here",
+  "allGuides": "All guides ({{count}})",
+  "search": {
+    "label": "Search the documentation",
+    "placeholder": "Search the docs",
+    "loading": "Loading the search index",
+    "noResults": "No pages match this search.",
+    "results": "Results: {{count}}",
+    "unavailable": "Search needs a production build."
+  },
+  "copy": {
+    "idle": "Copy code",
+    "done": "Copied",
+    "failed": "Could not copy"
+  }
 }

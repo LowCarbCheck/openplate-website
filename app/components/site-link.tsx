@@ -20,8 +20,12 @@ import { useLanguage } from '#app/i18n/use-language';
  * `className` on the two components below overrides this string wholesale, which is right for a
  * link that is styled as something else entirely and wrong for one that wants the ordinary link
  * plus one property. A second copy of these four classes is a second thing to keep in step.
+ *
+ * The underline is the full teal, not 40% of it. At 40% it measured about 2:1 against the page in
+ * light and read as no underline at all, the defect collie-website fixed on its own prose links. A
+ * hover thickens the rule instead of darkening it, which moves nothing.
  */
-export const LINK_CLASS = 'text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary';
+export const LINK_CLASS = 'text-primary underline underline-offset-4 decoration-primary hover:decoration-2';
 
 /**
  * `children` is optional because `<Trans>` supplies it: a link inside a

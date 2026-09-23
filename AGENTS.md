@@ -188,6 +188,7 @@ indexes.
 | [0005](.adr/0005-oxlint-and-anti-slop-are-the-lint-gate.md) | oxlint + anti-slop is the lint gate | Accepted |
 | [0007](.adr/0007-one-linter-and-typescript-7.md) | One linter (oxlint), and TypeScript 7 | Accepted |
 | [0008](.adr/0008-documentation-is-quoted-per-file.md) | Documentation is quoted per file | Accepted |
+| [0009](.adr/0009-docs-search-is-pagefind-after-the-prerender.md) | Docs search is Pagefind, run over the prerendered pages | Accepted |
 
 This repository was cloned from `ts-factory-stack` and stripped of everything
 that needed a database, a session or a worker process: the ORM, the tenancy

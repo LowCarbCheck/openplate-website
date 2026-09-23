@@ -16,5 +16,20 @@
     "core": "Le serveur de synchronisation",
     "inference": "Le moteur d'inférence"
   },
-  "closeSheet": "Fermer"
+  "closeSheet": "Fermer",
+  "startHere": "Commence ici",
+  "allGuides": "Tous les guides ({{count}})",
+  "search": {
+    "label": "Rechercher dans la documentation",
+    "placeholder": "Rechercher dans la doc",
+    "loading": "Chargement de l'index de recherche",
+    "noResults": "Aucune page ne correspond à cette recherche.",
+    "results": "Résultats : {{count}}",
+    "unavailable": "La recherche nécessite un build de production."
+  },
+  "copy": {
+    "idle": "Copier le code",
+    "done": "Copié",
+    "failed": "Impossible de copier"
+  }
 }

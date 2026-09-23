@@ -7,7 +7,9 @@ French, Italian, Spanish and Turkish. The app itself lives at `beta.openplate.de
 and is a separate repository.
 
 The site is a React Router 7 project in framework mode, prerendered at build
-time. `pnpm build` writes one static HTML file per URL under `build/client/`.
+time. `pnpm build` writes one static HTML file per URL under `build/client/`,
+then runs Pagefind over those files to write the docs search index to
+`build/client/pagefind/` ([ADR-0009](.adr/0009-docs-search-is-pagefind-after-the-prerender.md)).
 There is no database, no session, no background worker and no account. German
 is at `/`, every other language under its prefix (`/en/`, `/fr/`, `/it/`,
 `/es/`, `/tr/`), and all of them are written to disk, so a page is a file

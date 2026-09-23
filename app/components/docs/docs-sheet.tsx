@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 
 import { CloseIcon } from '#app/components/icons';
+import { THIN_SCROLLBAR } from './layout';
 
 const SIDE = {
   left: 'm-0 h-dvh max-h-none w-[min(20rem,85vw)] border-r',
@@ -87,7 +88,9 @@ export function DocsSheet({
               <span className="sr-only">{t('closeSheet')}</span>
             </button>
           </div>
-          <div className="-mx-4 min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">{children(close)}</div>
+          <div className={`-mx-4 min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6 ${THIN_SCROLLBAR}`}>
+            {children(close)}
+          </div>
         </div>
       </dialog>
     </>

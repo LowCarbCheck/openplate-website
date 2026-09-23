@@ -5,7 +5,7 @@
  *
  * Nothing on these pages is written here. The blocks come from
  * `src/generated/docs/`, which `pnpm sync:docs` reads out of each repository at
- * a pinned commit — so what the site says openplate does and what the repository
+ * a pinned commit, so what the site says openplate does and what the repository
  * says cannot drift apart, and moving them forward is one command rather than a
  * re-read and a re-type.
  *
@@ -19,6 +19,15 @@
  * usually a tag; you cannot commit to a tag, so `edit/v0.10.1/docs/sync.md` is
  * not an edit link. Neither value is hardcoded: both follow the sync, which is
  * the only thing that can be right on both sides of a move.
+ *
+ * ── THE ARTICLE IS WHAT THE SEARCH INDEXES ──
+ * `data-pagefind-body` on the <article> tells Pagefind, which indexes the
+ * built pages, to read this and nothing else, and to skip every page that has
+ * no such element: the front page, the marketing pages and the release notes
+ * are not search results. Inside it, the parts that are furniture rather than
+ * the guide (the notice, the contents list) are `data-pagefind-ignore`. The
+ * title is the h1, which Pagefind takes as the result's title, and the
+ * component rides along as `component` metadata for the result list.
  */
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -43,8 +52,8 @@ export function DocPage({
   index: DocsIndex;
   /**
    * The h1's anchor, which is the ENGLISH slug of the title and is passed in
-   * rather than derived here. A doc that links to another one by its title —
-   * `sync.md#sync-across-devices` — has to land on the h1 in both languages, and
+   * rather than derived here. A doc that links to another one by its title,
+   * `sync.md#sync-across-devices`, has to land on the h1 in both languages, and
    * `slugify` of a translated title would move the German page's anchor out from
    * under every one of those links.
    */
@@ -63,41 +72,47 @@ export function DocPage({
 
   return (
     <DocsShell index={index} place={{ kind: 'doc', component: doc.component, slug: doc.slug }} sections={sections}>
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t(`components.${doc.component}`)}</p>
-      {/* The title carries its own anchor. A doc that links to another one BY
-          ITS TITLE — `sync.md#sync-across-devices` — lands on the h1, and without
+      <article data-pagefind-body data-pagefind-meta={`component:${t(`components.${doc.component}`)}`}>
+        <p data-pagefind-ignore className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          {t(`components.${doc.component}`)}
+        </p>
+        {/* The title carries its own anchor. A doc that links to another one BY
+          ITS TITLE, `sync.md#sync-across-devices`, lands on the h1, and without
           an id here that link arrives at the top of the page and scrolls
           nowhere. */}
-      <h1
-        id={titleId ?? slugify(doc.title)}
-        className="mt-4 scroll-mt-20 text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
-      >
-        {doc.title}
-      </h1>
+        <h1
+          id={titleId ?? slugify(doc.title)}
+          className="mt-4 scroll-mt-20 text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
+        >
+          {doc.title}
+        </h1>
 
-      {/* WHAT THIS PAGE IS, BEFORE THE PROVENANCE OF IT. The sentence is the
+        {/* WHAT THIS PAGE IS, BEFORE THE PROVENANCE OF IT. The sentence is the
           README table's second column, already synced, and is not written here:
           same rule as the nav, for the same reason. */}
-      {entry === undefined ? null : (
-        <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-          <Spans spans={entry.blurb} />
-        </p>
-      )}
+        {entry === undefined ? null : (
+          <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
+            <Spans spans={entry.blurb} />
+          </p>
+        )}
 
-      <UntranslatedNotice translated={translated} />
+        <div data-pagefind-ignore>
+          <UntranslatedNotice translated={translated} />
+        </div>
 
-      <div className="mt-8 border-t border-border" />
+        <div className="mt-8 border-t border-border" />
 
-      {/* The same contents, for the width band that has neither rail: from `lg`,
+        {/* The same contents, for the width band that has neither rail: from `lg`,
           where the file list has taken the left column, to `xl`, where the
           contents rail arrives. */}
-      <div className="hidden lg:block xl:hidden">
-        <DocsToc sections={sections} rail={false} />
-      </div>
+        <div data-pagefind-ignore className="hidden lg:block xl:hidden">
+          <DocsToc sections={sections} rail={false} />
+        </div>
 
-      <div className="mt-12">
-        <DocBlocks blocks={doc.blocks} />
-      </div>
+        <div className="mt-12">
+          <DocBlocks blocks={doc.blocks} />
+        </div>
+      </article>
 
       <p className="mt-16 border-t border-border pt-6 text-sm">
         <a

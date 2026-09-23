@@ -52,6 +52,7 @@ gets an edit.
 | [0005](0005-oxlint-and-anti-slop-are-the-lint-gate.md) | oxlint + anti-slop is the lint gate | Accepted |
 | [0007](0007-one-linter-and-typescript-7.md) | One linter (oxlint), and TypeScript 7 | Accepted |
 | [0008](0008-documentation-is-quoted-per-file.md) | Documentation is quoted per file | Accepted |
+| [0009](0009-docs-search-is-pagefind-after-the-prerender.md) | Docs search is Pagefind, run over the prerendered pages | Accepted |
 
 Numbers 0001 to 0004 are not missing by accident. This repository was cloned
 from `ts-factory-stack`, and those four ADRs recorded the CLI transport, the

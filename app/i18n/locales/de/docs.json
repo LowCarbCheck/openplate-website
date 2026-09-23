@@ -16,5 +16,20 @@
     "core": "Der Sync-Server",
     "inference": "Die Inferenz-Runtime"
   },
-  "closeSheet": "Schließen"
+  "closeSheet": "Schließen",
+  "startHere": "Hier anfangen",
+  "allGuides": "Alle Anleitungen ({{count}})",
+  "search": {
+    "label": "Dokumentation durchsuchen",
+    "placeholder": "Doku durchsuchen",
+    "loading": "Suchindex wird geladen",
+    "noResults": "Keine Seiten entsprechen dieser Suche.",
+    "results": "Ergebnisse: {{count}}",
+    "unavailable": "Die Suche erfordert einen Produktions-Build."
+  },
+  "copy": {
+    "idle": "Code kopieren",
+    "done": "Kopiert",
+    "failed": "Konnte nicht kopiert werden"
+  }
 }

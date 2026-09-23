@@ -1,6 +1,6 @@
 /**
- * The documentation nav's grouping: every component in one rail, blurbs only
- * for the component being read, and exactly one row marked.
+ * The documentation nav's grouping: every component in one rail, titles only,
+ * and exactly one row marked.
  */
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
@@ -46,29 +46,37 @@ describe('docsNavGroups', () => {
     assert.equal(groups[2]?.rows.at(-1)?.kind, 'releases');
   });
 
-  it('gives blurbs to the component being read and to no other', () => {
+  it('marks the component being read and no other', () => {
     const groups = docsNavGroups({ index: INDEX, place: { kind: 'doc', component: 'core', slug: 'protocol' } });
-    const withBlurbs = groups.filter((group) => group.rows.some((row) => row.kind === 'doc' && row.blurb !== null));
-    assert.deepEqual(
-      withBlurbs.map((group) => group.component),
-      ['core'],
-    );
     assert.deepEqual(
       groups.filter((group) => group.isCurrent).map((group) => group.component),
       ['core'],
     );
   });
 
-  it('shows no blurbs on the index, where no component is being read', () => {
-    const rows = docsNavGroups({ index: INDEX }).flatMap((group) => group.rows);
-    assert.ok(rows.every((row) => row.kind === 'releases' || row.blurb === null));
+  it('gives every row its title and nothing else to print', () => {
+    const rows = docsNavGroups({
+      index: INDEX,
+      place: { kind: 'doc', component: 'app', slug: 'architecture' },
+    }).flatMap((group) => group.rows);
+    // Control: the index rows carry blurbs, so a row that copied its entry whole would fail here.
+    assert.ok(INDEX.app.entries.every((entry) => entry.blurb.length > 0));
+    assert.ok(rows.every((row) => !('blurb' in row)));
+    assert.equal(rows[0]?.kind === 'doc' ? rows[0].title : null, 'app architecture');
+  });
+
+  it('marks nothing on the index, where no component is being read', () => {
     assert.deepEqual(marked(docsNavGroups({ index: INDEX })), []);
+    assert.ok(docsNavGroups({ index: INDEX }).every((group) => !group.isCurrent));
   });
 
   it('marks a shared slug only inside its own component', () => {
     // Control: `configuration` exists in app AND inference. Matching by slug
     // alone would mark two rows.
-    const groups = docsNavGroups({ index: INDEX, place: { kind: 'doc', component: 'inference', slug: 'configuration' } });
+    const groups = docsNavGroups({
+      index: INDEX,
+      place: { kind: 'doc', component: 'inference', slug: 'configuration' },
+    });
     assert.deepEqual(marked(groups), ['/docs/inference/configuration']);
   });
 

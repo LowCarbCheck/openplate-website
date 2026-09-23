@@ -1,13 +1,17 @@
 allowBuilds:
   esbuild: true
 
-# Restrict optional native deps to the build/deploy target arch. The
-# package.json `pnpm` field is not read by pnpm 11 at all, so this belongs here.
+# Restrict optional native deps to Linux, on both CPUs an image may be built for.
+# The package.json `pnpm` field is not read by pnpm 11 at all, so this belongs here.
+# arm64 is listed because `pagefind` ships its indexer as a per-platform optional
+# package: with x64 alone an arm64 build installs no binary and `pnpm build` fails
+# at the search index step. Leave `libc` unset, the pagefind binaries are static.
 supportedArchitectures:
   os:
     - linux
   cpu:
     - x64
+    - arm64
 
 # Supply-chain hardening: a published version must be at least 7 days old before
 # pnpm will resolve it. pnpm 11's own default is 1440 minutes (24h); this widens

@@ -13,3 +13,12 @@ export const PAGE_TOP = 'pt-10 sm:pt-12 lg:pt-16';
  * `scroll-mt-20` (80px); 64 keeps it inside the band and the heading above it out.
  */
 export const SPY_INSET_PX = 64;
+
+/**
+ * A thin scrollbar in the border colour on a transparent track, for the rails
+ * and sheets that scroll inside themselves. The native one drew a grey track
+ * the full height of the file list, which was the loudest thing in the rail.
+ * Firefox and Chromium both read these two properties; Safari keeps its own
+ * overlay scrollbar, which already has no track.
+ */
+export const THIN_SCROLLBAR = '[scrollbar-width:thin] [scrollbar-color:hsl(var(--border))_transparent]';

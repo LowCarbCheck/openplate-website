@@ -49,14 +49,12 @@ export default function ReleasesRoute() {
   const { t } = useTranslation('docs');
 
   return (
-    <SiteLayout width="full">
+    <SiteLayout width="docs">
       <DocsShell index={index} place={{ kind: 'releases', component: releases.component }}>
         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           {t(`components.${releases.component}`)}
         </p>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          {t('releases')}
-        </h1>
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{t('releases')}</h1>
         <UntranslatedNotice />
 
         {releases.releases.length === 0 ?
@@ -65,10 +63,7 @@ export default function ReleasesRoute() {
             <section key={release.version} className="mt-14 border-t border-border pt-8 first-of-type:border-t-0">
               {/* The version is the heading and the date is beside it, not under
                   it: a reader scanning this page is looking for a number. */}
-              <h2
-                id={`v${release.version}`}
-                className="scroll-mt-20 text-2xl font-semibold tracking-tight"
-              >
+              <h2 id={`v${release.version}`} className="scroll-mt-20 text-2xl font-semibold tracking-tight">
                 {release.version}
               </h2>
               <p className="mt-1 font-mono text-sm text-muted-foreground">{release.date}</p>

@@ -9,36 +9,49 @@
  * reordered upstream arrives on the next `pnpm sync:docs` instead of being
  * missed. The grouping itself is `docsNavGroups`, which is pure and tested.
  *
- * ── ONE RAIL FOR THREE COMPONENTS ──
+ * ── ONE RAIL FOR THREE COMPONENTS, TITLES ONLY ──
  * A reader of the app's docs who needs the sync server's protocol should not
- * have to go back to the index to find it. Only the component being read shows
- * its blurbs, which are the second column of its README table and not written
- * here; the other groups are titles, so the rail stays scannable.
+ * have to go back to the index to find it. Each group is headed by its
+ * component's icon and name, and each row is a title and nothing else: the
+ * README blurbs made the rail louder than the article, and they are on the docs
+ * start page now.
  *
- * ── THE MARKER IS A BACKGROUND, NOT A LEFT BAR ──
- * A thick left accent is banned house-wide. A filled row says the same thing,
- * across the whole target rather than at one edge of it.
+ * ── THE MARKER IS A SQUARE, NOT A LEFT BAR ──
+ * A thick left accent is banned house-wide. The current page gets a 6 pixel
+ * teal square before its title, the site's bullet in the colour that marks the
+ * way in, and its title in the foreground ink. Every row reserves the square's
+ * box, so marking a row moves no text.
  */
 import { useId } from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
+import { STACK_ICONS } from '#app/components/icons';
 import { useLanguage } from '#app/i18n/use-language';
 import { localizePath } from '#app/i18n/language';
 import { type DocsPlace, docsNavGroups } from '#app/lib/docs-nav';
-import { type DocsIndex, spansText } from '#app/lib/docs';
-import { PAGE_TOP } from './layout';
+import type { DocsIndex } from '#app/lib/docs';
+import { DocsSearch } from './docs-search';
+import { PAGE_TOP, THIN_SCROLLBAR } from './layout';
 
 /**
- * The application's sidebar row: square, the current page on the muted ground at medium weight,
- * the rest at the regular weight. The weight change moves nothing, because every letter of the
+ * One row. `touch` is the phone's sheet, where a row is a 44 pixel target; the
+ * rail's rows are tighter because a pointer does not need the height. The
+ * weight change on the current row moves nothing, because every letter of the
  * monospace body face is the same width at every weight.
  */
-function rowClass(isActive: boolean): string {
-  return `block px-3 py-2.5 transition-colors ${isActive ? 'bg-muted font-medium' : 'hover:bg-muted/60'}`;
+function rowClass({ isActive, isTouch }: { isActive: boolean; isTouch: boolean }): string {
+  return [
+    'flex items-center gap-2.5 px-3 text-sm leading-snug transition-colors',
+    isTouch ? 'min-h-11 py-2.5' : 'py-1.5',
+    isActive ? 'font-medium text-foreground' : 'text-muted-foreground hover:text-foreground',
+  ].join(' ');
 }
 
-const TITLE = 'block text-sm leading-snug text-foreground';
+/** The current row's square, and every other row's empty box of the same size. */
+function Marker({ isActive }: { isActive: boolean }) {
+  return <span aria-hidden="true" className={`size-1.5 shrink-0 ${isActive ? 'bg-primary' : 'bg-transparent'}`} />;
+}
 
 /**
  * The grouped rows without a frame, so the desktop rail and the phone's sheet
@@ -48,10 +61,13 @@ export function DocsFileList({
   index,
   place,
   onNavigate,
+  isTouch = false,
 }: {
   index: DocsIndex;
   place?: DocsPlace;
   onNavigate?: () => void;
+  /** The phone's sheet: taller rows. */
+  isTouch?: boolean;
 }) {
   const language = useLanguage();
   const { t } = useTranslation('docs');
@@ -60,63 +76,56 @@ export function DocsFileList({
 
   return (
     <div className="space-y-6">
-      {docsNavGroups({ index, place }).map((group) => (
-        <div key={group.component}>
-          <p
-            id={`${idPrefix}-${group.component}`}
-            className="px-3 text-base font-semibold text-foreground"
-          >
-            {t(`components.${group.component}`)}
-          </p>
-          {/* The gap between rows beats the gap inside one, so a title and its
-              blurb read as a pair. */}
-          <ul aria-labelledby={`${idPrefix}-${group.component}`} className="mt-2 space-y-0.5">
-            {group.rows.map((row) => (
-              <li key={row.to}>
-                {/* `Link` and `isCurrent`, not `NavLink`: a prerendered URL ends in a
-                    slash, which `NavLink end` does not count as active. */}
-                <Link
-                  to={localizePath(row.to, language)}
-                  onClick={onNavigate}
-                  aria-current={row.isCurrent ? 'page' : undefined}
-                  className={rowClass(row.isCurrent)}
-                >
-                  {row.kind === 'releases' ?
-                    <span className={TITLE}>{t('releases')}</span>
-                  : <>
-                      <span className={TITLE}>{row.title}</span>
-                      {/* `spansText`, not `<Spans>`: a link span would nest an
-                          anchor inside this anchor. No `block` beside
-                          `line-clamp-2`, which sets `display` too. */}
-                      {row.blurb === null ? null : (
-                        <span className="mt-1.5 line-clamp-2 text-[0.8125rem] leading-snug text-muted-foreground">
-                          {spansText(row.blurb)}
-                        </span>
-                      )}
-                    </>
-                  }
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {docsNavGroups({ index, place }).map((group) => {
+        const Icon = STACK_ICONS[group.component];
+        return (
+          <div key={group.component}>
+            <p
+              id={`${idPrefix}-${group.component}`}
+              className="flex items-center gap-2 px-3 text-sm font-semibold text-foreground"
+            >
+              <Icon className="size-4 shrink-0 text-muted-foreground" />
+              {t(`components.${group.component}`)}
+            </p>
+            <ul aria-labelledby={`${idPrefix}-${group.component}`} className="mt-1.5">
+              {group.rows.map((row) => (
+                <li key={row.to}>
+                  {/* `Link` and `isCurrent`, not `NavLink`: a prerendered URL ends in a
+                      slash, which `NavLink end` does not count as active. */}
+                  <Link
+                    to={localizePath(row.to, language)}
+                    onClick={onNavigate}
+                    aria-current={row.isCurrent ? 'page' : undefined}
+                    className={rowClass({ isActive: row.isCurrent, isTouch })}
+                  >
+                    <Marker isActive={row.isCurrent} />
+                    {row.kind === 'releases' ? t('releases') : row.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 /**
- * The list as the desktop rail. `top-0`: the site header scrolls away, so
- * nothing sits above a stuck rail. It scrolls inside itself, and
- * `overscroll-contain` keeps the end of the list from scrolling the page.
+ * The list as the desktop rail, with the search box at its top. `top-0`: the
+ * site header scrolls away, so nothing sits above a stuck rail. The list
+ * scrolls inside itself, and `overscroll-contain` keeps the end of the list from
+ * scrolling the page. `z-20` so the search results, which overlay the article
+ * to the right of the rail, paint above it: a sticky element is a stacking
+ * context of its own.
  */
 export function DocsSidebar({ index, place }: { index: DocsIndex; place?: DocsPlace }) {
   const { t } = useTranslation('docs');
 
   return (
-    <nav aria-label={t('nav')} className={`sticky top-0 flex max-h-dvh flex-col pb-8 ${PAGE_TOP}`}>
-      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('nav')}</p>
-      <div className="-mx-3 mt-4 min-h-0 overflow-y-auto overscroll-contain">
+    <nav aria-label={t('nav')} className={`sticky top-0 z-20 flex max-h-dvh flex-col pb-8 ${PAGE_TOP}`}>
+      <DocsSearch wrapperClassName="relative" panelClassName="left-0 mt-1 w-[28rem] border-x" />
+      <div className={`-mx-3 mt-6 min-h-0 overflow-y-auto overscroll-contain ${THIN_SCROLLBAR}`}>
         <DocsFileList index={index} place={place} />
       </div>
     </nav>
