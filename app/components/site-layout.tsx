@@ -3,7 +3,7 @@
  * switcher, the page itself, and a footer with the site map, the links to the
  * app's legal pages and the source.
  *
- * The switcher is a list of plain links behind a globe button: every page
+ * The switcher is a list of plain links behind a language button: every page
  * exists as a real file in every language, so switching is a navigation and
  * needs no script beyond the one that opens the list. It is built by canonicalizing the current path and localizing it
  * again, which keeps a reader on the same page rather than dropping them on a
@@ -20,7 +20,7 @@ import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'rea
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useRouteLoaderData } from 'react-router';
 
-import { ChevronDownIcon, CloseIcon, GitHubMark, GlobeIcon, MenuIcon } from './icons';
+import { ChevronDownIcon, CloseIcon, GitHubMark, LanguagesIcon, MenuIcon } from './icons';
 import { ExternalLink, SiteLink } from './site-link';
 import { ThemeToggle } from './theme-toggle';
 import { Wordmark } from './wordmark';
@@ -357,7 +357,7 @@ function LanguageLinks({ linkClassName, onSelect }: { linkClassName: string; onS
 }
 
 /**
- * The language switcher in the wide header: a globe button that opens the list of languages.
+ * The language switcher in the wide header: a language button that opens the list of languages.
  *
  * The same disclosure as `SelfHostingMenu`, with the same three ways to close, and its panel
  * overlays the page the same way. It is anchored to the RIGHT edge of its button, not the left:
@@ -378,7 +378,7 @@ function LanguageMenu() {
         onClick={toggle}
         className={ICON_BUTTON}
       >
-        <GlobeIcon className="h-5 w-5" />
+        <LanguagesIcon className="h-5 w-5" />
         <span className="sr-only">{t('site.language.label')}</span>
       </button>
       {isOpen && (
@@ -403,7 +403,7 @@ function LanguageMenu() {
  * ── THE LANGUAGES ARE A DISCLOSURE OF THEIR OWN, NEVER A LIST ──
  * Six names spelled out do not fit one 390 pixel row beside two icons, and a language switcher
  * belongs behind a button on a phone exactly as it does in the wide header, not spelled out on the
- * page. The globe button names the current language so a reader can see what it will change, and
+ * page. The language button names the current language so a reader can see what it will change, and
  * pressing it opens the same kind of panel `LanguageMenu` opens there: `absolute`, square, one
  * language per row. It opens upward, `bottom-full`, because this button sits at the bottom of the
  * phone panel and a panel opening down would run off the screen. Anchored to the button and overlaid
@@ -431,7 +431,7 @@ function PhoneControls() {
             onClick={toggle}
             className="flex min-h-11 items-center gap-2 px-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
-            <GlobeIcon className="h-5 w-5" />
+            <LanguagesIcon className="h-5 w-5" />
             <span className="sr-only">{t('site.language.label')}: </span>
             <span lang={language}>{LANGUAGE_LABELS[language]}</span>
             <ChevronDownIcon className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -725,7 +725,7 @@ export function SiteLayout({
                 app, the Self-hosting button, two or three flat links, three icons and a filled
                 button. It was `lg` until the language menu joined the icons, and measured in a
                 build with a price, French and Turkish then ran 94 pixels past the row at 1024 and
-                18 past it at 1100; they were already 46 over at 1024 before the globe. At 1280
+                18 past it at 1100; they were already 46 over at 1024 before the language button. At 1280
                 every language fits. Below `xl` the links move into a panel a reader opens. */}
             {/* NAMED, because the page carries several of these landmarks at once and two unnamed
                 navigation landmarks are one landmark as far as a screen reader's landmark list is
