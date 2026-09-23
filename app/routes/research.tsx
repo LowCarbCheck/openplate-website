@@ -11,15 +11,16 @@
  * `isWide`, so each heading starts on its grid's left edge. Then the contact panel, centred, which
  * the hero's button jumps to.
  *
- * Teal marks the way in and nothing else: the two filled buttons, which are one offer and not two,
- * and the check and moving dots in the drawing. Icons sit in the foreground colour on a muted tile,
- * and the step numbers stay grey.
+ * Teal marks the way in and nothing else: the one filled button, at the foot, and the check and
+ * moving dots in the drawing. The hero's button to the same target is the outline style, so the
+ * page keeps to one filled offer. Icons sit in the foreground colour on a muted tile, and the step
+ * numbers stay grey.
  */
 import type { ComponentType } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/research';
-import { PRIMARY_ACTION } from '#app/components/hero';
+import { PRIMARY_ACTION, SECONDARY_ACTION } from '#app/components/hero';
 import {
   AppIcon,
   BlocksIcon,
@@ -135,7 +136,7 @@ function ResearchHero() {
         <div>
           <PageTitle>{t('pages.research.heading')}</PageTitle>
           <Lead text={t('pages.research.lead')} />
-          <a href="#contact" className={`${PRIMARY_ACTION} mt-8`}>
+          <a href="#contact" className={`${SECONDARY_ACTION} mt-8`}>
             {t('pages.research.contact.button')}
           </a>
         </div>
