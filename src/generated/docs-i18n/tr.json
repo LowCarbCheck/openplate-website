@@ -17,6 +17,12 @@
     "at": "2026-09-14",
     "tr": "İkinci basamakta her iki cihaz da eşitleme sunucusuna tek bir şifrelenmiş veri gönderir, fotoğraf ise doğrudan sağlayıcıya gitmeyi sürdürür."
   },
+  "0090e49f20eab72e": {
+    "en": "{{0}}, below the instance's ({{1}}): requests per UTC day across every account the scan gate applies to, taken before the instance's unit. It refuses those accounts, and only those, with the same {{2}}, so a burst of new trials runs out of its own budget before it reaches the capacity paying accounts need. It is not published either; {{3}} reports it as {{4}}, beside {{5}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, örneğinkinin altında ({{1}}): tarama kapısının geçerli olduğu tüm hesaplarda, örneğin biriminden önce alınan, UTC günü başına istek sayısı. Bu hesapları ve yalnızca bu hesapları aynı {{2}} ile reddeder, böylece yeni denemelerin oluşturduğu ani yük, ödeme yapan hesapların ihtiyaç duyduğu kapasiteye ulaşmadan önce kendi bütçesini tüketir. Ayrıca yayımlanmaz; {{3}} bunu {{5}} yanında {{4}} olarak bildirir."
+  },
   "00a51c6dd5675723": {
     "en": "8 bytes, unsigned, big-endian, always eight",
     "model": "google/gemini-3.8-flash",
@@ -71,6 +77,12 @@
     "at": "2026-09-14",
     "tr": "Eğer §5.21'deki üye oluşturma uç noktasını uyguluyorsa; yeni bir adres, bekleyen bir daveti olan bir adres ve bir hesabı olan bir adres için TEK bir yanıt ver. Üçüncü durum için {{0}} yanıtı veren bir sunucu, her üyeye örnekte başka kimlerin bulunduğunu gösteren bir kâhin sunmuş olur; e-posta aktarıcısı çalışmadığında {{1}} yanıtı veren bir sunucu ise onlara daha yavaş çalışan bir kâhin sunar. Üye davetlerini uygulamayan bir sunucu, yolda sıradan bilinmeyen yol yanıtı olan {{2}} döndürür ve {{3}} bildirir."
   },
+  "013ee8e98e60cfff": {
+    "en": "{{0}} is {{1}} in protocol 2, along with the setting it described: an account is created only by redeeming an invite, and {{2}} says whether a person may ask for one (§5.8). A service that still publishes {{3}} is speaking version 1.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, açıkladığı ayarla birlikte protokol 2'de {{1}} durumuna gelmiştir: bir hesap yalnızca bir daveti kullanarak oluşturulur ve {{2}}, bir kişinin davet isteyip isteyemeyeceğini belirtir (§5.8). Hâlâ {{3}} yayımlayan bir servis, sürüm 1 konuşuyor demektir."
+  },
   "013f1daa571c211e": {
     "en": "5.6 {{0}}: version handshake",
     "model": "google/gemini-3.8-flash",
@@ -112,6 +124,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "düzenlendi, silindi"
+  },
+  "01be600643fcaa92": {
+    "en": "trial key",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "deneme anahtarı"
   },
   "02109f95680ef8f1": {
     "en": "{{0}} needs no operator setting: each person turns it on under {{1}}. It sends rounded counts. A meal counts once with its calories rounded to 50 and its protein to 5 g. A scan counts once, and a running fast sends a heartbeat. The home screen shows the instance total for today. The server keeps day totals and a record of who contributed on each day, for 30 days.",
@@ -208,6 +226,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Sağlayıcı alt anahtarlarına kıyasla iki dürüst sınırlama:"
+  },
+  "0489eb49dcd68eab": {
+    "en": "no answer gives its scan back",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "yanıt alamayan istek taramasını geri verir"
   },
   "04945f2da1e78e1e": {
     "en": "{{0}} is the KEEP list, and every share row not named in it is deleted in the same transaction.",
@@ -413,6 +437,12 @@
     "at": "2026-09-19",
     "tr": "{{0}} Bu olmadan yol, kimlik bilgisi olsun veya olmasın herkese alışılagelen bilinmeyen yol yanıtı olan {{1}} değerini döndürür ve {{2}} hiçbir {{3}} taşımaz (§5.6). İstemci bir bildirim sunmadan önce {{4}} değerini okumalıdır. Yalnızca bu alanın bildirdiği saklama penceresini belirtmelidir, başka hiçbir süreyi değil."
   },
+  "0778e4a9108429f7": {
+    "en": "The unit protects the bill: generation may have run. The scan protects the promise that a failed attempt costs nothing, and the person got no answer. A retry loop on a flaky provider is still bounded by the daily unit",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Birim faturayı korur: üretim çalışmış olabilir. Tarama ise başarısız bir denemenin hiçbir maliyet getirmeyeceği ve kişinin yanıt alamadığı vaadini korur. Güvenilmez bir sağlayıcıdaki yeniden deneme döngüsü yine de günlük birimle sınırlandırılır"
+  },
   "078e10d72d2ae19f": {
     "en": "{{0}} (a hyphen) is a separate, Python-based reimplementation of the Compose spec. It runs on its own, with no Docker involved, and it supports less of the spec: notably, its support for {{1}} is weaker, and it names networks differently by default.",
     "model": "google/gemini-3.8-flash",
@@ -455,11 +485,29 @@
     "at": "2026-09-14",
     "tr": "test edilmedi"
   },
+  "08cccd29eda697ad": {
+    "en": "The account's free scans are used up and it has no allowance date. Refused before anything leaves the host, and before a usage row is written. {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Hesabın ücretsiz taramaları tükendi ve kota tarihi yok. Sunucudan hiçbir şey çıkmadan ve bir kullanım satırı yazılmadan önce reddedildi. {{0}}"
+  },
+  "08fd4264a4e7ac81": {
+    "en": "{{0}}, on an instance that runs one: the free scans granted and used, two integers on the account row. For a scan-trial account only, {{1}}: an opaque id the client chose, a time, a request count and whether an answer was delivered, {{2}} and then deleted, and never logged. Each invitation row carries a {{3}} (HMAC-SHA256 under {{4}}, a secret only the operator holds, over the trial key of §5.8.3), never a second copy of the address.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, çalıştıran bir örnekte: hesap satırındaki iki tam sayı olan, tanımlanan ve kullanılan ücretsiz taramalar. Yalnızca bir tarama denemesi hesabı için, {{1}}: istemcinin seçtiği opak bir kimlik, bir zaman, bir istek sayısı ve bir yanıtın iletilip iletilmediği, {{2}} ve ardından silinir, asla günlüğe kaydedilmez. Her davet satırı, adresin ikinci bir kopyasını değil, bir {{3}} (yalnızca operatörün elinde bulunan bir sır olan {{4}} altında, §5.8.3'ün deneme anahtarı üzerinde HMAC-SHA256) taşır."
+  },
   "093490165f1c933f": {
     "en": "Reported estimates",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Bildirilen tahminler"
+  },
+  "0940e8976d122d5c": {
+    "en": "Bearer, throttled per source address with {{0}}. Present only when the deployment sets both {{1}} and {{2}}, or instead {{3}} beside the instance's scan trial; without either this path answers the ordinary unknown-path {{4}} to every caller, signed in or not, and {{5}} is {{6}} (§5.6).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bearer, {{0}} ile kaynak adres başına kısıtlanır. Yalnızca dağıtım hem {{1}} hem de {{2}} belirlediğinde veya bunun yerine örneğin tarama denemesinin yanında {{3}} belirlediğinde mevcuttur; ikisi de yoksa bu yol, oturum açmış olsun ya da olmasın her arayana sıradan bilinmeyen yol yanıtı olan {{4}} verir ve {{5}}, {{6}} olur (§5.6)."
   },
   "094cc073e926d0ce": {
     "en": "The CAS is checked FIRST: a push off a stale {{0}} is the ordinary {{1}}, whatever its size, because that client's job is to pull and merge and it is usually not shrinking once it has. The guard speaks only about a push that would otherwise have been accepted.",
@@ -629,6 +677,12 @@
     "at": "2026-09-14",
     "tr": "Üçü de taşıyıcıdır."
   },
+  "0c6e70d9a59fda7e": {
+    "en": "lets a later request with the same id ride on that scan while the id is younger than 30 minutes and has carried fewer than 3 requests, and makes a fourth request, or one after 30 minutes, a new action with a new scan;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "kimlik 30 dakikadan daha yeniyken ve 3'ten az istek taşımışken, aynı kimliğe sahip daha sonraki bir isteğin bu taramadan yararlanmasına izin verir ve dördüncü bir isteği veya 30 dakika sonraki bir isteği yeni bir taramaya sahip yeni bir eylem yapar;"
+  },
   "0c7a13c16b60d78b": {
     "en": "{{0}} shape (everything inside {{1}} is opaque to this protocol):",
     "model": "google/gemini-3.8-flash",
@@ -652,6 +706,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "{{0}} ve bir anahtar ile openplate, bir kullanıcının fotoğraftan veya yazarak girdiği öğünden kaydettiği her yiyeceği bu sunucu üzerinden LowCarbCheck'e iletir:"
+  },
+  "0cec65f4cd26d65c": {
+    "en": "{{0}} is {{1}} for an account with a scan trial, and {{2}} for one without, which is every account on an instance that runs none. {{3}} is {{4}} minus the scans used, never below {{5}}. A client may render it and {{6}}: the proxy counts (§5.19), {{7}} is a snapshot taken when this view was built, and every proxied response carries the fresh number in {{8}}. A future {{9}} lifts the scan gate, so a paying account may still carry this field.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, tarama denemesi olan bir hesap için {{1}}, olmayan bir hesap için {{2}} değerindedir; bu da hiç deneme çalıştırmayan bir örnekteki her hesaptır. {{3}}, kullanılan taramalar çıkarılmış {{4}} değeridir, asla {{5}} değerinin altına düşmez. Bir istemci bunu ve {{6}} değerini ekrana çizebilir: vekil sunucu sayar (§5.19), {{7}} bu görünüm oluşturulduğunda alınan bir anlık görüntüdür ve vekil sunucudan geçen her yanıt {{8}} içinde güncel sayıyı taşır. Gelecekteki bir {{9}} tarama kapısını kaldırır, bu nedenle ödeme yapan bir hesap bu alanı taşımaya devam edebilir."
   },
   "0d3d47fffef612d7": {
     "en": "Present only when the operator set {{0}}.",
@@ -1247,6 +1307,12 @@
     "at": "2026-09-14",
     "tr": "Her deponun sabitlerini aktarılan sabit değerlere ({{0}} ve {{1}}) karşı doğrulayan bir birim testi vardır. Depolar arasında paylaşılan bir CI yoktur, bu nedenle bu testler bizimle sessiz bir protokol bölünmesi arasında duran tek şeydir. {{2}}"
   },
+  "18254c128906ee07": {
+    "en": "MUST NOT authorize on it",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "buna göre yetkilendirme YAPILMAMALIDIR"
+  },
   "184c09c20f1c8642": {
     "en": "{{0}} takes {{1}} → {{2}} {{3}}. The key MUST be present, even as {{4}}: an absent key is a {{5}}, the same rule {{6}} and {{7}} follow, because a PATCH that quietly did nothing over a misspelled field name is a change the client believes it made.",
     "model": "google/gemini-3.8-flash",
@@ -1270,6 +1336,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Gönderimin tamamı tek bir işlemde işlenir"
+  },
+  "18c12c8633ddb326": {
+    "en": "The ids are kept for 24 hours and then deleted (§9.2). They are never logged.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kimlikler 24 saat boyunca saklanır ve ardından silinir (§9.2). Asla günlüğe kaydedilmezler."
   },
   "18db561339e5db4c": {
     "en": "The drawing below is the whole system in five arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core. The photo leaves for whichever AI endpoint you configured. The app server sends the page, and it passes the names of the foods you look up on to a food database. It stands on neither the diary path nor the photo path.",
@@ -1300,6 +1372,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} niteliğindedir. {{1}} bir mektubun ulaşacağını vaat etmez ve {{2}} herhangi bir yetki vermek yerine operatörün ne yapılandırdığını bildirir; bu ne derse desin {{3}} sahibi bir hesap {{4}} alır."
+  },
+  "195583555b83ebc9": {
+    "en": "The order of the refusals",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Retlerin sırası"
   },
   "198327c59e026441": {
     "en": "{{0}} The service makes exactly two kinds of outbound request: one-time weight downloads at first boot, and (only if you enable a networked {{1}}) a {{2}} food-name lookup. No image ever leaves the container, under any configuration.",
@@ -1445,6 +1523,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Herhangi bir rastgele dize işe yarar ({{1}}), bir panel yoktur ve kişi başı kullanım raporu da bulunmaz: eline konteynerin günlükleri geçer."
   },
+  "1bfcfce2e1268838": {
+    "en": "The {{0}}s describe the request, never the instance's accounts: a domain says nothing about who holds an account, so refusing one is not an oracle.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} yanıtları isteği tanımlar, asla örneğin hesaplarını değil: bir alan adı, kimin hesap sahibi olduğu hakkında hiçbir şey söylemez, bu nedenle birini reddetmek bir kahin işlevi görmez."
+  },
   "1c0dfee49000c6eb": {
     "en": "It speaks the OpenAI chat-completions protocol, so {{0}} connects to it as a normal \"OpenAI-compatible\" provider. One container, one port.",
     "model": "google/gemini-3.8-flash",
@@ -1505,11 +1589,23 @@
     "at": "2026-09-14",
     "tr": "5.8 GiB"
   },
+  "1d18fcc20bf415b3": {
+    "en": "Statutory declarations",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yasal bildirimler"
+  },
   "1d44bae7348d6b77": {
     "en": "Downscale target. Latency rises with the square.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Ölçek küçültme hedefi. Gecikme karesiyle artar."
+  },
+  "1d50d390168dc9b2": {
+    "en": "After an account is deleted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir hesap silindikten sonra"
   },
   "1d995a96d26149b4": {
     "en": "The research console ({{0}})",
@@ -1919,6 +2015,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, yerel günün 0 ile 1439 arasındaki bir dakikasıdır veya {{1}} değeridir"
   },
+  "258ffe452e1850c6": {
+    "en": "{{0}} is a {{1}}, like {{2}} and {{3}}: it says only whether a door exists. {{4}} means {{5}} takes an address (§5.8.3); {{6}}, and a service built before the field, means the path answers the ordinary unknown-path {{7}}, and a client shows its invite wording instead of a sign-up form. It is descriptive, never a grant: the throttles, the captcha, the refused domains and the one letter per mailbox per day stay on the service.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, tıpkı {{2}} ve {{3}} gibi bir {{1}} değeridir: yalnızca bir kapının var olup olmadığını belirtir. {{4}}, {{5}} bir adres kabul ettiği (§5.8.3) anlamına gelir; {{6}} ve bu alandan önce derlenmiş bir servis ise bu yolun sıradan bilinmeyen yol yanıtı olan {{7}} döndürdüğü ve bir istemcinin kayıt formu yerine davet metnini gösterdiği anlamına gelir. Bu değer tanımlayıcıdır, asla bir yetki değildir: hız sınırları, captcha, reddedilen alan adları ve posta kutusu başına günde bir mektup kuralı serviste kalmaya devam eder."
+  },
   "259b1502debd7f71": {
     "en": "Instance-provided AI",
     "model": "google/gemini-3.8-flash",
@@ -1990,6 +2092,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "{{0}} ({{1}}). Sahip, veri anahtarını üçüncü kez, uzmanın genel anahtarıyla sarmalar ve sunucu bu sarmalanmış anahtarı saklar. Uzmanın tarayıcısı bunun sarmalamasını çözer ve günlüğü {{2}} adresinde okur. Paylaşım sunucuya açabileceği yeni hiçbir şey vermez."
+  },
+  "272acc36417a816a": {
+    "en": "The response MUST NOT vary with what is true about the address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yanıt, adresle ilgili neyin doğru olduğuna göre DEĞİŞMEMELİDİR"
   },
   "274b18d3bb4ad373": {
     "en": "5.16 Shares: {{0}} and {{1}} (ADR-0002)",
@@ -2381,6 +2489,12 @@
     "at": "2026-09-14",
     "tr": "Compose dosyası:"
   },
+  "3041e1f4a54d5aab": {
+    "en": "An invite is still the only thing that creates an account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Hesap oluşturan tek şey hâlâ bir davettir"
+  },
   "305531dcc50ebca3": {
     "en": "ciphertext",
     "model": "google/gemini-3.8-flash",
@@ -2398,6 +2512,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Dördü de isteğe bağlıdır, birisi açana kadar dördü de kapalıdır ve dördü aynı türde şeyler değildir."
+  },
+  "30ab23e4df987d4b": {
+    "en": "{{0}}, which a conforming server MUST keep: identity and suspension; {{1}} of {{2}} ({{3}}); an allowance date that has passed ({{4}}); the body; {{5}}'s shape; then, only for an account with free scans and {{6}} allowance date, the scan claim ({{7}}). A date in the future lifts the scan gate: it is a paid or granted window, and the count decides only where there is no date at all. Then the scan-trial accounts' ceiling, the instance ceiling and the daily allowance, as below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Uyumlu bir sunucunun KORUMASI GEREKEN {{0}}: kimlik ve askıya alma durumu; {{2}} için {{1}} ({{3}}); geçmiş bir kota tarihi ({{4}}); gövde; {{5}} biçimi; ardından, yalnızca ücretsiz taramaları olan ve kota tarihi {{6}} bir hesap için tarama talebi ({{7}}). Gelecekteki bir tarih tarama kapısını kaldırır: bu ödenmiş veya tanımlanmış bir aralıktır ve sayı yalnızca hiç tarih olmadığında belirleyicidir. Ardından, aşağıda belirtildiği gibi tarama denemesi hesaplarının tavanı, örnek tavanı ve günlük kota gelir."
   },
   "30d125ce8d8de471": {
     "en": "These carry no values. A fast event does not carry its length, and a weight event does not carry a weight. But the events are timestamped, as every analytics event is, so a start and an end together give a duration by subtraction, and a share event says the person has a clinician. Study participation is special-category data under Art. 9 GDPR.",
@@ -2452,6 +2572,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Gönderdiği her anlık bildirim tek bir alandan oluşur:"
+  },
+  "31d316c463da6e9e": {
+    "en": "one row per AI action",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "yapay zeka eylemi başına bir satır"
   },
   "320d9314375fed0f": {
     "en": "Measured first-hand on 2026-08-15. Rows we have not run ourselves say so.",
@@ -2699,6 +2825,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} isteğe bağlıdır. Bunu {{1}} sunan OpenAI uyumlu ikinci bir çalışma zamanına yönlendirirsen (örneğin {{2}}), geri getirme işlemi {{3}} hale gelir: sözcüksel puanlayıcı adayları bulur ve yerleştirme modeli bunları yeniden sıralar, böylece veritabanında farklı ifade edilse bile \"ızgara tavuk pirzola\" doğru satırla eşleşir. Boş bırakırsan (varsayılan değer) geri getirme yalnızca sözcüksel olur, bu da sıralamayı biraz zayıflatır ancak asla bir hataya yol açmaz. Erişilemeyen bir yerleştirme çalışma zamanı, tek bir uyarıyla yalnızca sözcüksel moda geçer; taramayı hiçbir zaman aksatmaz."
   },
+  "3642860f623dd009": {
+    "en": "one keyed hash of the mailbox is kept, and nothing else",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "posta kutusunun tek bir anahtarlı karması saklanır, başka hiçbir şey saklanmaz"
+  },
   "3661998e0e2179c2": {
     "en": "The caller's own credential is never forwarded.",
     "model": "google/gemini-3.8-flash",
@@ -2861,6 +2993,12 @@
     "at": "2026-09-14",
     "tr": "Hiçbir zaman hesap kimliği içermez."
   },
+  "3a6d71f32d094df2": {
+    "en": "Unauthenticated. {{0}}; everywhere else the path answers the ordinary unknown-path {{1}}. An instance needs mail configured to open it, because the letter is the address check.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kimlik doğrulaması yok. {{0}}; diğer her yerde yol, sıradan bilinmeyen yol yanıtı olan {{1}} döndürür. Bir örneğin bunu açabilmesi için e-posta yapılandırmasına ihtiyacı vardır, çünkü mektup adresin kontrolüdür."
+  },
   "3a6eb0790f39ac87": {
     "en": "data",
     "model": "google/gemini-3.8-flash",
@@ -2974,6 +3112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Bildirilen tahminlerin bulunduğu bir sayfa (§5.25), en yeniden başlar: her biri {{0}}, artı {{1}}, {{2}} ve {{3}}. Sayısal veriler ve fotoğraf içermez"
+  },
+  "3c8322603ce6ef1c": {
+    "en": "Two throttles.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İki hız sınırı."
   },
   "3cc39f1ba4a067e7": {
     "en": "3.4 The share wrap (ADR-0002)",
@@ -3136,6 +3280,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Kullanıcının bizzat yazdığı veya değiştirdiği bir ad asla gönderilmez."
+  },
+  "3fb9a3dabab6f676": {
+    "en": "keeps one keyed one-way hash of the mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "posta kutusunun anahtarlı tek yönlü bir özetini tutar"
   },
   "3fe317e74339ac7e": {
     "en": "{{0}} shall mean annual revenue of 10 million United States dollars ($10,000,000) or more.",
@@ -3347,6 +3497,12 @@
     "at": "2026-09-14",
     "tr": "Postgres"
   },
+  "4442eb95cccc5426": {
+    "en": "Every custom request header a route reads is named in {{0}}: {{1}}, {{2}}, {{3}} (§5.23) and {{4}} (§5.19). Every custom response header a client reads is named in {{5}}: {{6}}, {{7}}, {{8}} and {{9}}. A browser refuses to send a header the first list omits, and hides one the second list omits, with nothing in any log.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir rotanın okuduğu her özel istek başlığı {{0}} içinde listelenir: {{1}}, {{2}}, {{3}} (§5.23) ve {{4}} (§5.19). Bir istemcinin okuduğu her özel yanıt başlığı ise {{5}} içinde listelenir: {{6}}, {{7}}, {{8}} ve {{9}}. Bir tarayıcı, ilk listenin atladığı bir başlığı göndermeyi reddeder, ikinci listenin atladığı başlığı ise hiçbir günlüğe yazmadan gizler."
+  },
   "444ff84ef5dbd01e": {
     "en": "{{0}} It is unique per account. A second submission with an existing key answers {{1}} with the stored report instead of {{2}}. It stores no second report and does not count against the daily limit. It writes the photograph again if one was included. That repairs a report whose first photograph write was interrupted.",
     "model": "google/gemini-3.8-flash",
@@ -3382,6 +3538,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Bunlar tam olarak çözümlenen oturumdan gelen {{1}}, hesap satırından okunan {{2}}, paylaşılan gizli anahtarı tutan {{3}} ve gelen {{4}} başlığıdır. Kopyalayıp üzerine yazma yaklaşımı, çerezleri ve sonraki istemcinin göndermeye karar verdiği her şeyi iletir."
+  },
+  "44ab99a0e2413152": {
+    "en": "Minting is {{0}}. An older PENDING invite for the same address is revoked by a new one, so there is never more than one live capability per address; an address that already has an account cannot be invited at all ({{1}}). The one exception is the request door of §5.8.3, which leaves a pending invite from the operator or a member alone rather than withdraw it on a stranger's say.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Basım işlemi {{0}} niteliğindedir. Aynı adres için bekleyen daha eski bir davet yenisiyle iptal edilir; böylece adres başına birden fazla etkin yetki asla bulunmaz; zaten bir hesabı olan adresler ise hiçbir şekilde davet edilemez ({{1}}). Tek istisna, yabancı birinin sözüyle geri çekmek yerine işletmeciden veya bir üyeden bekleyen davete dokunmayan §5.8.3'teki istek kapısıdır."
   },
   "44b835460069f6d6": {
     "en": "Everything. It is your device.",
@@ -3617,11 +3779,23 @@
     "at": "2026-09-14",
     "tr": "Bu ön ekin arkasındaki hiçbir şey bu protokolün parçası değildir."
   },
+  "486bd29be2c3c796": {
+    "en": "{{0}}: not an address. {{1}}: an address at a known throwaway mail service, matched on the domain and every parent of it. {{2}}: the captcha token is missing or was refused; solve it again",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}: adres değil. {{1}}: bilinen tek kullanımlık bir e-posta servisindeki bir adres; alan adı ve onun tüm üst alan adlarıyla eşleştirilir. {{2}}: captcha belirteci eksik veya reddedildi; yeniden çöz"
+  },
   "487eb7600a7bd9f7": {
     "en": "openplate-core, on a managed instance, is the tenancy layer.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Yönetilen bir kurulumdaki openplate-core, çoklu kiracılık katmanıdır."
+  },
+  "488807e88db8440c": {
+    "en": "On an instance that runs a scan trial, the same transaction also {{0}}, and, when the account held a trial, {{1}} so the one trial per mailbox rule of §5.8.3 survives the deletion. Nothing else about the person is kept (§9.2).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tarama denemesi çalıştıran bir örnekte, aynı işlem ayrıca {{0}} ve hesap bir deneme içerdiğinde, §5.8.3'teki posta kutusu başına bir deneme kuralının silme işleminden sonra da geçerli kalması için {{1}}. Kişi hakkında başka hiçbir şey tutulmaz (§9.2)."
   },
   "48eaf5bd6ca7beff": {
     "en": "Everything above is unchanged on an open instance ({{0}} unset or {{1}}), and a test pins both variants side by side.",
@@ -3749,6 +3923,12 @@
     "at": "2026-09-14",
     "tr": "Birini davet et"
   },
+  "4b0d6f0a0726b325": {
+    "en": "Body timeout / stream aborted by the provider",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Gövde zaman aşımı / akış sağlayıcı tarafından iptal edildi"
+  },
   "4b12c2bc58cd7c5a": {
     "en": "Slow but working: {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -3791,6 +3971,12 @@
     "at": "2026-09-14",
     "tr": "2 MiB ({{0}})"
   },
+  "4c05c78b360fbc6e": {
+    "en": "{{0}}: role {{1}}, the default invite lifetime, no inviter, and the instance's terms, which are its scan trial when it runs one (§5.19) and no AI otherwise. The mailed link leads to §5.8.2 and §5.8, unchanged. {{2}}, as in §5.21: a new address, an address that holds an account, an address that already holds a pending letter from the operator or a member, and a mailbox that already got a letter today are one {{3}} with one body. The letters are the door's own, never the invitation or the note of §5.21, which say somebody invited the reader: a new address gets a letter saying that it, or someone using it, asked to create an account, with the one link, its expiry, and that ignoring the mail changes nothing; an account holder gets a note saying the same and that no second account was made, with no link. A pending letter from another door is left alone, so a stranger cannot withdraw an operator's invitation by posting the address. Only the letters differ.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}: {{1}} rolü, varsayılan davet geçerlilik süresi, davet eden yok ve örneğin koşulları (çalıştırdığı durumlarda tarama denemesi (§5.19), aksi halde yapay zeka yok). Postalanan bağlantı değişmeden §5.8.2 ve §5.8'e yönlendirir. §5.21'deki gibi {{2}}: yeni bir adres, bir hesabı olan adres, işletmeciden veya üyeden bekleyen bir mektubu zaten bulunan adres ve bugün zaten mektup almış bir posta kutusu, tek bir gövdeye sahip tek bir {{3}} sonucudur. Mektuplar kapının kendisine aittir; okuyucuyu birinin davet ettiğini söyleyen §5.21'deki davet veya not kesinlikle değildir: yeni bir adres; kendisinin veya onu kullanan birinin hesap açma isteğinde bulunduğunu, tek bağlantıyı, son kullanma süresini ve postayı yok saymanın hiçbir şeyi değiştirmeyeceğini bildiren bir mektup alır; bir hesap sahibi ise aynı şeyleri söyleyen, ikinci bir hesabın açılmadığını belirten ve bağlantı içermeyen bir not alır. Başka bir kapıdan bekleyen bir mektuba dokunulmaz, böylece bir yabancı adresi girerek işletmecinin davetini geri çekemez. Yalnızca mektuplar farklıdır."
+  },
   "4c090c42bd424ed5": {
     "en": "If this service ever grows durable per-caller state (per-key quotas, a usage ledger, anything that must be listed or revoked), this decision should be revisited, and that is the trigger to watch for.",
     "model": "google/gemini-3.8-flash",
@@ -3802,6 +3988,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "sahip"
+  },
+  "4c319e116b10d083": {
+    "en": "{{0}} is how a client says which requests are one action. It is {{1}}, 16 to 64 characters of {{2}} (a UUID with or without its dashes fits), {{3}}, and sent only to this proxy, never to a provider the person configured themselves. The service:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, bir istemcinin hangi isteklerin tek bir eylem olduğunu bildirme yöntemidir. {{1}}, 16 ila 64 karakter {{2}} (kısa çizgileri olan veya olmayan bir UUID uygundur), {{3}} şeklindedir ve kişinin kendisinin yapılandırdığı bir sağlayıcıya asla gönderilmez, yalnızca bu vekil sunucuya gönderilir. Servis:"
   },
   "4c3dfcc215e4a3f0": {
     "en": "Sharing one AI bill across a household",
@@ -4127,6 +4319,12 @@
     "at": "2026-09-14",
     "tr": "Boyutlandırmayı bu sayılara göre yapma: kendi değerlerini oku. Çalışma zamanına karşı tek bir tarama çalıştır ve bildirdiği değere bak:"
   },
+  "519610538d4873e5": {
+    "en": "Free scans left after this request, on an account the scan gate applies to (below). Absent otherwise",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tarama kapısının geçerli olduğu bir hesapta bu istekten sonra kalan ücretsiz taramalar (aşağıda). Aksi takdirde bulunmaz"
+  },
   "51a996545f4d759f": {
     "en": "Nothing here is a reduced edition. Local-first tracking, BYOK AI plate scanning, PWA install, JSON export/import, the whole interface: identical to the hosted instance, because it is the same image. The only thing the hosted deployment adds is that we operate the optional sync service for you, and that is also open source, for you to run yourself.",
     "model": "google/gemini-3.8-flash",
@@ -4223,6 +4421,12 @@
     "at": "2026-09-14",
     "tr": "Çalışma zamanları"
   },
+  "53dfb1a4b3faefad": {
+    "en": "{{0}}. Accepted, whatever is true about the address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}. Adres hakkında ne doğru olursa olsun kabul edildi"
+  },
   "542a0ed1201a2a59": {
     "en": "{{0}} not strictly greater than the stored one",
     "model": "google/gemini-3.8-flash",
@@ -4276,6 +4480,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} bir {{1}} kart (L4 ve çoğu iş istasyonu kartının çıkarım yapabilen tarafı) 3090'a kıyasla yaklaşık 3 kat daha az bant genişliğine sahiptir, bu da onu {{2}} seviyesine getirir. Bu değer 3090 satırından oranlanmıştır, ölçülmemiştir ve gerçek sayılar genellikle doğrusal bir oranlamadan daha kötü çıkar."
+  },
+  "551fcf5e0e0e2479": {
+    "en": "A scan is one AI action the person started",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tarama, kişinin başlattığı tek bir yapay zeka eylemidir"
   },
   "55675fa67f996c67": {
     "en": "{{0}}, {{1}}, 5 by default, counted per UTC day in the same transaction as the insert. Over it is {{2}}, which names no identifier.",
@@ -4462,6 +4672,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} (her önyüklemede 5 ila 60 saniye):"
+  },
+  "5a504384e47baf77": {
+    "en": "Daily unit",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Günlük birim"
   },
   "5a525ddb849713e6": {
     "en": "derived database",
@@ -4859,6 +5075,12 @@
     "at": "2026-09-14",
     "tr": "0.5.0 sürümünde e-posta göndericiyle birlikte gitti ve bu servis yeniden e-posta gönderiyor olsa bile protokol 2 onu geri getirmez."
   },
+  "6276a23ae81c1c96": {
+    "en": "The instance runs no open sign-up",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Örnek açık kayıt çalıştırmıyor"
+  },
   "62845f31a2fe00be": {
     "en": "Rule",
     "model": "google/gemini-3.8-flash",
@@ -4876,6 +5098,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "bağlandı (manuel, OAuth, örnek önayarı), anahtar denetimi başarısız oldu, bağlantı kesildi"
+  },
+  "62c89e490f87a320": {
+    "en": "serialises parallel requests with one new id, so they claim exactly one scan between them;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "aralarında tam olarak bir tarama talep etmeleri için paralel istekleri tek bir yeni kimlikle sıralar;"
   },
   "62e6a65441ba4904": {
     "en": "{{0}} 1 gzips the plaintext, which buys roughly an order of magnitude on JSON this repetitive (the same key names on every one of thousands of records) and pushes the cliff far enough out to not be the near-term problem. It does not remove it.",
@@ -4973,6 +5201,12 @@
     "at": "2026-09-14",
     "tr": "Telefon"
   },
+  "63f37ebcbee774af": {
+    "en": "kept 24 hours",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "24 saat saklanır"
+  },
   "6436b894eb06628a": {
     "en": "Your photos are processed in memory and never persisted.",
     "model": "google/gemini-3.8-flash",
@@ -5015,11 +5249,23 @@
     "at": "2026-09-14",
     "tr": "asla"
   },
+  "64acdf38a8d1a12d": {
+    "en": "More than five requests from one source address in an hour. {{0}} in seconds",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir kaynak adresinden bir saatte beşten fazla istek. Saniye cinsinden {{0}}"
+  },
   "64b442f877141327": {
     "en": "Minimum CPU box for {{0}}:",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} için minimum CPU makinesi:"
+  },
+  "64fbf086760a5f63": {
+    "en": "A ceiling or the daily allowance refuses after the claim",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Talepten sonra bir tavan veya günlük kota isteği reddeder"
   },
   "6518c57a026b0390": {
     "en": "With {{0}} configured nor matching, the whole subtree answers the same {{1}} any unknown path does, to everybody. An instance that configured neither token is indistinguishable from one built before the feature existed. A {{2}} there would announce that a credential exists and is merely locked. Setting either token turns that {{3}} into the {{4}} a wrong value gets.",
@@ -5158,6 +5404,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Zaman damgalarıyla birlikte çekilen takma adlar. Araştırma istemcisi herhangi bir şeyi sunmadan veya dışa aktarmadan önce bunları temizlemelidir."
+  },
+  "66d024fa2b7b5705": {
+    "en": "{{0}} is present only while {{1}} is {{2}} and the operator runs a captcha. {{3}} is {{4}} today; {{5}} is Cloudflare Turnstile's public site key, which a client renders the widget with and which grants nothing. The token the widget produces travels as {{6}} in the sign-up request. Absent means the request needs no token.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, yalnızca {{1}} değeri {{2}} olduğunda ve işletmeci bir captcha çalıştırdığında mevcuttur. {{3}}, bugün {{4}} değerindedir; {{5}}, Cloudflare Turnstile'ın istemcinin widget'ı oluşturmakta kullandığı ve hiçbir yetki sağlamayan genel site anahtarıdır. Widget'ın ürettiği belirteç, kayıt isteğinde {{6}} olarak iletilir. Bulunmaması, isteğin belirtece ihtiyaç duymadığı anlamına gelir."
   },
   "66dd89f68d69f1be": {
     "en": "lowcarbcheck.org/developers",
@@ -5465,6 +5717,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, yönetici üretiminin aksine {{1}} da taşır. Arayan kişi işletmeci değildir ve hesap oluşturan bir yetkiyi elinde tutmamalıdır."
   },
+  "6c2e231f61203fab": {
+    "en": "{{0}} ({{1}}, a cancellation or a withdrawal, on every instance): the name, the address, the contract reference, the reason and the dates the person typed, the time it arrived, and the account it matched, if any. It is {{2}}, counted in Europe/Berlin time, and then deleted by the hourly sweep: one received on 2026-09-21 is deleted from 2030-01-01 00:00 in Berlin. {{3}}; the row loses its account id and stays, because it is the record of what the person declared.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} (her örnekte bir iptal veya cayma olan {{1}}): kişinin yazdığı ad, adres, sözleşme referansı, neden ve tarihler, ulaştığı zaman ve varsa eşleştiği hesap. Europe/Berlin saatine göre hesaplanarak {{2}} ve ardından saatlik süpürme ile silinir: 2026-09-21 tarihinde alınan bir kayıt, Berlin'de 2030-01-01 00:00 itibarıyla silinir. {{3}}; satır hesap kimliğini kaybeder ve kalır, çünkü kişinin beyan ettiği şeyin kaydıdır."
+  },
   "6c4b1e0455e9b0cb": {
     "en": "link pasted, join completed",
     "model": "google/gemini-3.8-flash",
@@ -5669,6 +5927,12 @@
     "at": "2026-09-14",
     "tr": "Depolanan kayıt, bir {{0}} girdisiyle aynı yapıda."
   },
+  "705e7a967abba7aa": {
+    "en": "claims one scan for an id it has not seen, before the upstream call, in one statement whose {{0}} is the bound, so ten parallel requests on three scans claim three;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "sınırın {{0}} olduğu tek bir ifadede, yukarı akış çağrısından önce, daha önce görmediği bir kimlik için bir tarama talep eder; böylece üç tarama varken gelen on paralel istek üç tarama talep eder;"
+  },
   "709c21e1aedb5360": {
     "en": "The connected key appears in your {{0}} labeled {{1}}. Disconnecting in openplate only clears the key from that device: it does {{2}} revoke it at OpenRouter. Revoke it from that page yourself.",
     "model": "google/gemini-3.8-flash",
@@ -5710,6 +5974,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Bu durum, dokunulmamış bir anahtar kaydının kasıtlı olarak saklandığı §5.14'ü tersine çevirir, çünkü bu satırlar çağıranın günlüğü üzerinde başkasının yetkisidir ve sessizlik güvenli varsayılan olmalıdır. Bu nedenle {{1}} her şeyi iptal eder ve geçerlidir; bir {{2}} {{3}} anahtarı, §5.4'ün {{5}} değerinin açıkça yazılmasını gerektirme gerekçesiyle bir {{4}} hatasıdır. {{6}} bulunmayan bir dağıtımda liste boş olmalıdır; boş olmayan bir liste, o örneğin tutamayacağı bir durumu ileri sürdüğü için bir {{7}} hatasıdır."
+  },
+  "717e0acf33c35cc7": {
+    "en": "{{0}} is present and not 16 to 64 characters of {{1}}. Refused before any row is written",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} mevcut ve 16 ila 64 karakter uzunluğunda {{1}} değil. Herhangi bir satır yazılmadan önce reddedildi"
   },
   "71801d255da1f22e": {
     "en": "Two easy paths to a real certificate on a home server.",
@@ -5789,6 +6059,12 @@
     "at": "2026-09-14",
     "tr": "Daha önceki yenilemelerde üretilen erişim belirteçlerine bilerek dokunulmaz; birkaç dakika içinde kendiliğinden geçerliliklerini yitirirler ve bunları yenileme anında iptal etmek, yolda olan meşru bir isteği kesintiye uğratır."
   },
+  "7349d1155a0774ee": {
+    "en": "An account may carry free AI scans with no end date ({{0}}, §5.15), granted by the instance's trial ({{1}}, §5.6). {{2}}, and one action may be more than one upstream request: a client may retry once without {{3}} after a provider refusal, and once after a stale bearer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir hesap, örneğin denemesi tarafından verilen ({{1}}, §5.6), bitiş tarihi olmayan ücretsiz yapay zeka taramaları taşıyabilir ({{0}}, §5.15). {{2}} ve bir eylem birden fazla yukarı akış isteği olabilir: bir istemci, sağlayıcı reddinden sonra {{3}} olmadan bir kez ve süresi geçmiş bir taşıyıcıdan sonra bir kez yeniden deneyebilir."
+  },
   "7363f0e073e0058c": {
     "en": "No body is logged, in either direction.",
     "model": "google/gemini-3.8-flash",
@@ -5854,6 +6130,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Uyumlu bir uygulamanın SAĞLAMASI GEREKEN üç özellik vardır ve istek gövdesi birinin yemeğinin fotoğrafı olduğu için bunların her biri mevcuttur:"
+  },
+  "74a9e70831088571": {
+    "en": "For a new address the service mints an ordinary addressed invite and mails it",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Servis yeni bir adres için sıradan bir adrese tanımlı davet basar ve postalar"
   },
   "74ca3910cc3707c5": {
     "en": "{{0}} The routes, the request bodies and the response bodies belong to the biller, which is a separate service on its own release cycle. This document specifies only what the gateway does to a request on its way there and to an answer on its way back. That is deliberate: the alternative is a normative document that self-hosters cannot use, churning on somebody else's VAT calendar.",
@@ -6035,6 +6317,12 @@
     "at": "2026-09-14",
     "tr": "Bunu otomatikleştirme."
   },
+  "77bba4763a2c34c1": {
+    "en": "scan trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "tarama denemesi"
+  },
   "77de971982ba2ac5": {
     "en": "{{0}} is the window of the endpoint above, clamped the same way: an integer of at least 1 or a {{1}}, more than 90 answered with 90, and {{2}} reports what was drawn.",
     "model": "google/gemini-3.8-flash",
@@ -6064,6 +6352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "bir kişi, iki cihaz"
+  },
+  "78d5bc4630a0147e": {
+    "en": "{{0}}, and the caller is still told {{1}}. The evidence outlives the account: the invite row keeps its address and its redemption instant when either account is deleted, so a self-delete followed by a friend's re-invite is not a fresh allowance. On an instance that runs a scan trial the deletion removes the address from the row instead and keeps the keyed hash of §5.15, and the rule reads that hash. An operator's mint is not a member-caused invitation and is never withheld by this rule.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ve arayana yine de {{1}} bildirilir. Kanıt hesaptan daha uzun yaşar: hesaplardan biri silindiğinde davet satırı adresini ve kullanım anını korur, bu nedenle kendi kendini silmenin ardından bir arkadaşın yeniden davet etmesi yeni bir kota sağlamaz. Tarama denemesi çalıştıran bir örnekte silme işlemi bunun yerine adresi satırdan kaldırır ve §5.15'teki anahtarlı karmayı saklar, kural da bu karmayı okur. Bir operatörün basımı üye kaynaklı bir davet değildir ve bu kural tarafından asla alıkonmaz."
   },
   "78ea74dc86513359": {
     "en": "An account already exists for the invite's address. The invite is NOT consumed.",
@@ -6605,6 +6899,12 @@
     "at": "2026-09-14",
     "tr": "openplate-core, yönetilen"
   },
+  "863e6fd913e4226c": {
+    "en": "The scan trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tarama denemesi"
+  },
   "8653b8f95d74d9fe": {
     "en": "{{0}} This service used to accept any correctly versioned blob without looking at it at all. Since M224 it refuses one shape: a push whose ciphertext is under half the size of the stored one, unless the request explicitly says the deletion is intended. A person lost her whole diary to a client that found its local store evicted, concluded she had deleted everything, and pushed a tombstone per entry, and a second device then pulled that blob and deleted its own rows. The guard compares two byte counts this service already stored for the storage figure it already reports, so it learns nothing new about anybody; what it gives up is the claim to be a store with no opinion. An operator can put an account back with {{1}}, and {{2}} is the procedure, including the step on the person's own devices that the rollback cannot do. {{3}} states what it costs when it is wrong.",
     "model": "google/gemini-3.8-flash",
@@ -6712,6 +7012,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Ayarlar → Yapay Zeka"
+  },
+  "8773aef4ed956970": {
+    "en": "Headers arrived, so the provider may bill; the person still got no answer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Üstbilgiler ulaştı, bu yüzden sağlayıcı faturalandırabilir; kişi yine de yanıt alamadı"
   },
   "87863b8f544c1c4d": {
     "en": "anything in {{0}}",
@@ -7097,6 +7403,12 @@
     "at": "2026-09-14",
     "tr": "Bu örneğe erişilebilen genel URL. Üretimde zorunludur: sunucu bu olmadan başlatmayı reddeder. Ters proxy arkasındayken, konteyner bağlantı noktası değil, genel {{0}} adresidir."
   },
+  "906bb4c49371f618": {
+    "en": "{{0}}. Lists, or with {{1}} grants the instance's scan trial to, every member whose day trial of {{2}} ended and was never moved: its allowance date still equals its redemption plus {{3}} to the millisecond, which only a payment or an operator changes. Clears the date and sets the trial's daily limit. Idempotent: a granted account is never listed again. Answers {{4}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}. {{2}} günlük denemesi sona eren ve hiçbir zaman taşınmayan her üyenin listesini çıkarır veya {{1}} ile örneğin tarama denemesini tanımlar: kota tarihi, yalnızca bir ödemenin veya bir operatörün değiştirebileceği şekilde, milisaniyesine kadar kullanım artı {{3}} değerine eşit kalır. Tarihi temizler ve denemenin günlük sınırını belirler. Eşgüçlüdür: hak tanımlanmış bir hesap bir daha asla listelenmez. {{4}} yanıtını verir"
+  },
   "908f815ac31a350a": {
     "en": "The sync server is tenancy, and it sits in front of the compute on a managed instance",
     "model": "google/gemini-3.8-flash",
@@ -7199,6 +7511,12 @@
     "at": "2026-09-14",
     "tr": "inference"
   },
+  "926d2cd9cd185e52": {
+    "en": "Aggregate counts: accounts, blobs, bytes, key records, {{0}}, {{1}}, {{2}}, and the {{3}} that bounds it ({{4}} for no ceiling); {{5}}; and {{6}}: invites the request door of §5.8.3 minted today and in the last seven days, trials granted in the last seven days, and today's scan-trial requests",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Toplam sayımlar: hesaplar, bloblar, baytlar, anahtar kayıtları, {{0}}, {{1}}, {{2}} ve bunu sınırlayan {{3}} (tavan olmaması durumunda {{4}}); {{5}}; ve {{6}}: §5.8.3'teki istek kapısının bugün ve son yedi günde bastığı davetler, son yedi günde tanımlanan denemeler ve bugünün tarama denemesi istekleri"
+  },
   "92898d5485322f99": {
     "en": "{{0}} Postgres's container runs as a non-root user inside the container, and that user needs to own its data directory. A named volume, which is what {{1}} and openplate's {{2}} and {{3}} already use, solves this automatically: Podman creates the volume with the right ownership. If you switch to a bind-mounted host directory instead, fix its ownership first, from the host, with {{4}} (70 is the {{5}} user in the {{6}} image these files pin; the Debian-based image uses 999), or the container fails to start with a permissions error. Touches rungs 2 and 4.",
     "model": "google/gemini-3.8-flash",
@@ -7210,6 +7528,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Her iki doğrulayıcıyı da, veritabanının dışında tutulan bir sır altında, iletilen {{0}} ve {{1}} değerlerinin anahtarlı karmaları olarak sakla. İletilen değerin kendisini asla saklama ve asla düz metin olarak tutma."
+  },
+  "92a762837cd59b27": {
+    "en": "Deleting the account does not delete it earlier",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Hesabı silmek bunu daha erken silmez"
   },
   "92e62c82b2aa7e1f": {
     "en": "Argon2id",
@@ -7252,6 +7576,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "10. Alternatif bir sunucu geliştirmek"
+  },
+  "9390298f3fb0c5b1": {
+    "en": "no",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "olmayan"
   },
   "93c94bce78aa4601": {
     "en": "Because the browser makes that call, the endpoint must be an address a {{0}} can reach. A compose hostname like {{1}} will not work even though the two containers can reach each other that way. Use the host's LAN address, a tailnet name, or a hostname on your reverse proxy.",
@@ -7349,6 +7679,12 @@
     "at": "2026-09-14",
     "tr": "RTX 4090"
   },
+  "9594346a65393513": {
+    "en": "{{0}} is a {{1}} on an instance that runs no scan trial. {{2}} is the number of free AI scans a new account gets there, with no end date (§5.19, \"The scan trial\"). A client that finds no {{3}} {{4}}. The number is the one every trial door writes, published from the same setting, so the sentence a person reads before signing up and the count the proxy keeps cannot drift apart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, tarama denemesi çalıştırmayan bir örnekte {{1}} niteliğindedir. {{2}}, yeni bir hesabın orada elde ettiği, bitiş tarihi olmayan ücretsiz yapay zeka taramalarının sayısıdır (§5.19, \"Tarama denemesi\"). Hiçbir {{3}} bulamayan bir istemci {{4}}. Bu sayı, her deneme kapısının yazdığı ve aynı ayardan yayımlanan sayıdır; böylece bir kişinin kaydolmadan önce okuduğu cümle ile vekil sunucunun tuttuğu sayaç birbirinden farklı olamaz."
+  },
   "9597af1d1dcad2ac": {
     "en": "{{0}}: 12 random bytes, fresh per encryption, packed as the {{1}}. There is no separate IV field anywhere in this protocol.",
     "model": "google/gemini-3.8-flash",
@@ -7396,6 +7732,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Neler reddedilir?"
+  },
+  "962a634897fc5f28": {
+    "en": "promise, like {{0}} below, so it is absent rather than {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "aşağıdaki {{0}} gibi bir taahhüt olduğundan, {{1}} yerine hiç bulunmaz"
   },
   "9644705bac5d73db": {
     "en": "The request never left this host",
@@ -7534,6 +7876,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kurulum üst sınırı"
+  },
+  "9819743392f4cb7e": {
+    "en": "treats a request with {{0}} id as its own action, so a client that never sends one is counted correctly for every single-request action.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} kimliğine sahip bir isteği kendi eylemi olarak değerlendirir, böylece hiçbir zaman kimlik göndermeyen bir istemci, tek istekli her eylem için doğru şekilde sayılır."
   },
   "982d9e3eb996f559": {
     "en": "text",
@@ -7787,6 +8135,12 @@
     "at": "2026-09-14",
     "tr": "El sıkışmaya ulaşılamıyorsa veya bozuksa, bunu bir uyumsuzluk olarak ele al. Doğrulanamayan bir servis uyumlu bir servis değildir."
   },
+  "9cb6b395f9424352": {
+    "en": "{{0}} A mailbox whose key already redeemed an invite that carried free scans, under any spelling, or whose account held a trial and was deleted, gets an invite whose trial is {{1}}: the person still gets an account, and the first scan answers {{2}}. The service recognises the mailbox by a keyed hash of its trial key, never by a stored address (§9.2).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} Anahtarı, herhangi bir yazımla ücretsiz tarama içeren bir daveti zaten kullanmış olan veya hesabı bir deneme süresine sahip olup silinmiş olan bir posta kutusu, deneme süresi {{1}} olan bir davet alır: kişi yine de bir hesap edinir ve ilk tarama {{2}} yanıtını verir. Servis, posta kutusunu saklanan bir adresle değil, deneme anahtarının anahtarlı bir özetiyle tanır (§9.2)."
+  },
   "9ccdb48a424e03f6": {
     "en": "the protocol",
     "model": "google/gemini-3.8-flash",
@@ -7877,11 +8231,23 @@
     "at": "2026-09-14",
     "tr": "{{0}}: Kaç etkin oturumun bulunduğu, her birinin ne zaman oluşturulduğu ve belirteçlerin en son ne zaman döndürüldüğü veya iptal edildiği. Belirteç değerlerinin kendileri yalnızca özet olarak saklanır."
   },
+  "9df6526f8ce9325d": {
+    "en": "The answer was on its way",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yanıt yoldaydı"
+  },
   "9e0e9c51d278af43": {
     "en": "{{0}}: {{1}}. That file is the copy that outlives a cleared browser or a dead phone. The app shows a reminder banner when a device holds data you have never exported, or have not exported in a while.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}}: {{1}}. Bu dosya, temizlenmiş bir tarayıcıdan veya bozulan bir telefondan geriye kalan kopyadır. Bir cihaz hiç dışa aktarmadığın ya da bir süredir dışa aktarmadığın veriler barındırdığında, uygulama bir hatırlatma başlığı gösterir."
+  },
+  "9e39129880f0547f": {
+    "en": "Why the scan differs, where it does",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Taramanın nerede ve neden farklılaştığı"
   },
   "9e793e927ed6387d": {
     "en": "{{0}} raise that key's limit. Takes effect immediately, no restart anywhere.",
@@ -7997,6 +8363,12 @@
     "at": "2026-09-14",
     "tr": "CPU işleme hızı eşzamanlılıkla artmaz."
   },
+  "a0a6951324926230": {
+    "en": "Present only where {{0}} is {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yalnızca {{0}} değerinin {{1}} olduğu durumlarda mevcuttur"
+  },
   "a0afb877754949fc": {
     "en": "The service stores each entry as ciphertext and never receives your password. It does hold each account's recovery code, sealed under a secret of its own, so a forgotten password is reset by a mailed link and the diary comes back. That also means the operator of the service can, in principle, open a diary on it. {{0}} states that trade-off in full, and so does the app before you finish setting sync up.",
     "model": "google/gemini-3.8-flash",
@@ -8068,6 +8440,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "İlk katılım"
+  },
+  "a225602d519570b9": {
+    "en": "The request reached nobody",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İstek kimseye ulaşmadı"
   },
   "a23c727801240061": {
     "en": "off by default",
@@ -8249,6 +8627,12 @@
     "at": "2026-09-14",
     "tr": "Harici mod değişkenleri ({{0}}, {{1}}, {{2}}), {{3}} içinde belgelenmiştir."
   },
+  "a6c8e5d7f1ab29ac": {
+    "en": "{{0}} is a {{1}} machine code, for a third sentence: \"you used your free scans\". A client shows the plan offer for it, not \"ask your administrator\" ({{2}}) and not \"your time ran out\" ({{3}}). A client older than the code reads an unknown {{4}}, which is why it is separate rather than folded into either.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, üçüncü bir cümle için bir {{1}} makine kodudur: \"ücretsiz taramalarını kullandın\". Bir istemci bunun için \"yöneticine danış\" ({{2}}) veya \"süren doldu\" ({{3}}) uyarısını değil, plan teklifini gösterir. Koddan daha eski bir istemci bilinmeyen bir {{4}} okur, bu yüzden ikisinden birine dahil edilmek yerine ayrı tutulmuştur."
+  },
   "a6cad970843b79b8": {
     "en": "Not knowable from the above: what was eaten, when, how much, or anything else inside the payload.",
     "model": "google/gemini-3.8-flash",
@@ -8345,11 +8729,23 @@
     "at": "2026-09-14",
     "tr": "Neden en başta bir çift."
   },
+  "a8e1c33a449f0b57": {
+    "en": "{{0}} Per source address, five requests an hour with every attempt counted, which bounds one script. Per mailbox, one letter a day: further requests still answer {{1}} and send nothing, so the bound cannot say which addresses somebody else asked about. The mailbox key is the {{2}}: the canonical address (§5.8) with a {{3}} removed from the local part, and for {{4}} and {{5}} with every dot removed and the domain written {{6}}. {{7}}, {{8}} and {{9}} share one key; {{10}} and {{11}} do not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} Kaynak adresi başına, her denemenin sayıldığı saatte beş istek; bu bir betiği sınırlandırır. Posta kutusu başına günde bir mektup: sonraki istekler yine {{1}} yanıtını verir ve hiçbir şey göndermez, böylece bu sınır başkasının hangi adresleri sorguladığını belli edemez. Posta kutusu anahtarı {{2}} değeridir: yerel kısmından {{3}} çıkarılmış kurallı adres (§5.8); {{4}} ve {{5}} için ise her noktanın kaldırıldığı ve alan adının {{6}} olarak yazıldığı halidir. {{7}}, {{8}} ve {{9}} tek bir anahtarı paylaşır; {{10}} ile {{11}} paylaşmaz."
+  },
   "a8e89cea090faa43": {
     "en": "A window longer than 90 days is answered with 90",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "90 günden uzun bir aralığa 90 ile yanıt verilir"
+  },
+  "a8e95d25b0d1eee8": {
+    "en": "not taken, or released",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "alınmadı veya serbest bırakıldı"
   },
   "a90cfbb2a37916a6": {
     "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
@@ -8513,6 +8909,12 @@
     "at": "2026-09-14",
     "tr": "MIT Lisansı"
   },
+  "abdc7835abda2059": {
+    "en": "An invite may carry a {{0}} ({{1}}, §5.19): open sign-up, an admin mint with {{2}} and, where the instance runs it, a member invite write the instance's number on the row, and redemption copies it to the account with no end date.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir davet {{0}} taşıyabilir ({{1}}, §5.19): açık kayıt, {{2}} ile yönetici basımı ve örneğin bunu çalıştırdığı durumlarda üye daveti satıra örneğin sayısını yazar; davetin kullanılması ise bunu bitiş tarihi olmaksızın hesaba kopyalar."
+  },
   "abe1f250520cf41d": {
     "en": "Minting is {{0}}. An older PENDING invite for the same address is revoked by a new one, so there is never more than one live capability per address; an address that already has an account cannot be invited at all ({{1}}).",
     "model": "google/gemini-3.8-flash",
@@ -8639,6 +9041,12 @@
     "at": "2026-09-14",
     "tr": "Yazma işlemi, kanıtın eşleştiği kurtarma doğrulayıcısı üzerinde bir karşılaştır ve takas et işlemidir"
   },
+  "ad3278c7ad1eea29": {
+    "en": "Request: {{0}}. {{1}} is required when {{2}} is present and ignored otherwise; nothing else in the body is read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İstek: {{0}}. {{1}}, {{2}} mevcut olduğunda zorunludur, aksi halde yok sayılır; gövdedeki başka hiçbir şey okunmaz."
+  },
   "ad52ad1e280430fd": {
     "en": "Common failures, in the order they happen",
     "model": "google/gemini-3.8-flash",
@@ -8704,6 +9112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "openplate varsayılan olarak yerel bir uygulamadır: günlüğün kullandığın cihazdaki tarayıcının IndexedDB alanında durur ve hiçbir veri buradan dışarı çıkmaz. Bu günlüğü cihazlar arasında taşımak hesap gerektiren tek işlemdir, bu nedenle kendi kalıbı, veritabanı ve gizli anahtarlarıyla ayrı bir hizmette, {{0}} üzerinde çalışır."
+  },
+  "ae9048f511dfe636": {
+    "en": "removes the address and the name from every invitation row about that mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "o posta kutusuna ait her davet satırından adresi ve adı kaldırır"
   },
   "aea46507e0283fa4": {
     "en": "Scans return 401",
@@ -8795,6 +9209,12 @@
     "at": "2026-09-14",
     "tr": "belirti"
   },
+  "b0bd592061a46a38": {
+    "en": "{{0}}: for each, an address, an optional name, a role and an allowance, belonging to somebody who has NO account yet and gave no consent. Minting one is an operator action, and {{1}} withdraws the row. A row the request door of §5.8.3 minted is marked as such, so an operator can count them.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}: her biri için, henüz bir hesabı OLMAYAN ve onay vermemiş birine ait bir adres, isteğe bağlı bir ad, bir rol ve bir kota. Bir tane basmak operatör eylemidir ve {{1}} satırı geri çeker. §5.8.3'teki istek kapısının bastığı bir satır bu şekilde işaretlenir, böylece bir operatör bunları sayabilir."
+  },
   "b0ec42d6f0895175": {
     "en": "{{0}} {{1}}, {{2}}, {{3}}, {{4}}, every bearer-guarded route and the admin tree answer {{5}}, that exact string, so a client can recognise it and say what happened. On {{6}} and the recovery paths the check runs AFTER the credential is verified, so an unknown address still gets the ordinary indistinguishable {{7}}.",
     "model": "google/gemini-3.8-flash",
@@ -8842,6 +9262,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "\"Yapay zeka uç noktan\" ifadesinin ardına üç şey uyabilir: anahtarına sahip olduğun bir bulut sağlayıcı, kendi donanımındaki bir openplate-inference kutusu ya da yönetilen bir kurulumda, fotoğrafı ileten ve kotandan düşen eşitleme sunucusunun kendisi. {{0}}, openplate'i çalıştırmanın dört yolunun her birini küçük birer resimle çizer."
+  },
+  "b1e99324505bd32d": {
+    "en": "third",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "üçüncü"
   },
   "b239ecb13dfa34ce": {
     "en": "{{0}}: unauthenticated, throttled per (IP, email), NEVER cleared on success.",
@@ -8926,6 +9352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Günlük"
+  },
+  "b37c9c5c2e10f5f9": {
+    "en": "{{0}}, {{1}}, {{2}} (an ISO instant, or {{3}} to clear it), {{4}} (the free scans granted, an integer from 0 to 100, or {{5}} to take the scan trial away; it never touches how many are used), {{6}}, {{7}}. At least one required",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, {{1}}, {{2}} (bir ISO anı veya temizlemek için {{3}}), {{4}} (tanımlanan ücretsiz taramalar, 0 ile 100 arasında bir tam sayı veya tarama denemesini kaldırmak için {{5}}; kullanılan miktara asla dokunmaz), {{6}}, {{7}}. En az biri zorunludur"
   },
   "b3b309cccc091778": {
     "en": "{{0}} and {{1}} on any port. {{2}} is not on the list, because a CSP source cannot name an IPv6 address; point a client at {{3}} instead.",
@@ -9040,6 +9472,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "eşitlemeyi reddeder"
+  },
+  "b608043517173349": {
+    "en": "kept until the end of the third calendar year after the year it arrived",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "ulaştığı yılı takip eden üçüncü takvim yılının sonuna kadar saklanır"
   },
   "b60905d1c07a11f5": {
     "en": "5.8.2 {{0}}",
@@ -9226,6 +9664,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Alternatif: paylaşılan bir çıkarım kutusu"
+  },
+  "b8fa3a2599f05880": {
+    "en": "{{0}}, on an instance that runs a scan trial: the address and the name are removed from every invitation row about that mailbox, and, only when the account held a trial, {{1}}: no date, no name, no id. It is what stops the same mailbox from getting a second trial. Without the operator's secret the hash cannot be reversed or matched against a list of addresses. On an instance that runs no scan trial, invitation rows keep their address after a deletion, for the member re-invite rule of §5.21.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, tarama denemesi çalıştıran bir örnekte: adres ve ad, o posta kutusuyla ilgili her davet satırından kaldırılır ve yalnızca hesap bir denemeye sahip olduğunda {{1}}: tarih yok, ad yok, kimlik yok. Aynı posta kutusunun ikinci bir deneme almasını engelleyen şey budur. Operatörün sırrı olmadan karma geri döndürülemez veya bir adres listesiyle eşleştirilemez. Tarama denemesi çalıştırmayan bir örnekte, davet satırları §5.21'deki üyeyi yeniden davet etme kuralı için silme işleminden sonra adreslerini korur."
   },
   "b9014eaab626647d": {
     "en": "requires",
@@ -9473,6 +9917,18 @@
     "at": "2026-09-14",
     "tr": "{{0}}: tek bir tamamlama çağrısındaki milisaniye cinsinden toplam sınır. {{1}} {{2}} içinde de geçerlidir: kilitlenmiş bir {{3}}, yanlış yönlendirilmiş bir vekil kadar sessizdir. Donanımın tabak başına haklı olarak on dakikadan uzun bir süreye ihtiyaç duyuyorsa, bu değeri artır veya {{4}} olarak ayarla; hata mesajı değişkenin adını belirtir."
   },
+  "bdb9e95057a2d50e": {
+    "en": "{{0}} A server MUST NOT log the submitted address or the captcha token.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} Bir sunucu, gönderilen adresi veya captcha belirtecini GÜNLÜĞE KAYDETMEMELİDİR."
+  },
+  "bdc6419e6b1595ab": {
+    "en": "One mailbox, one trial, ever.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tek bir posta kutusu, tek bir deneme, her zaman."
+  },
   "bdcd1280fae1349b": {
     "en": "The whole diary, in the clear, in IndexedDB. Your AI key. Cached plate photos.",
     "model": "google/gemini-3.8-flash",
@@ -9539,6 +9995,12 @@
     "at": "2026-09-14",
     "tr": "Bu bloktaki diğer her şey gibi {{0}} da {{1}} niteliğindedir. Bir istemci bunu yalnızca bir davet kartı çizip çizmeyeceğine karar vermek için okur; asla basım yapıp yapamayacağına karar vermek için okumaz. {{2}} değeri {{3}} yolunun sıradan bilinmeyen yol {{4}} yanıtı verdiği anlamına gelir ve {{5}} değeri ömür boyu sınırı, yeniden davet kuralını ve hız sınırlamasını yine servise bırakır."
   },
+  "bf84d3d60e93cc95": {
+    "en": "boolean",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "boolean"
+  },
   "bf8cee3cfc7f7682": {
     "en": "Matomo",
     "model": "google/gemini-3.8-flash",
@@ -9599,11 +10061,23 @@
     "at": "2026-09-14",
     "tr": "{{0}} OpenRouter kontrol paneli kullanımı anahtar bazında ayırır. Her anahtara bir kişinin adı verildiği için, kişi başına faturanız budur."
   },
+  "c1e6494c21e5071a": {
+    "en": "one fresh id per person action, reused by every retry of that action",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "kişi eylemi başına yeni bir kimlik oluşturur, bu eylemin her yeniden denemesinde aynı kimlik kullanılır"
+  },
   "c1f3877233332e6e": {
     "en": "strictly greater than the stored one",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "saklanan sürümden kesinlikle daha büyük olması"
+  },
+  "c1f39ef5568a56c1": {
+    "en": "Unauthenticated, IP-throttled. {{0}}, on every instance. On an instance with {{1}}, a person may ASK for an invite addressed to themselves (§5.8.3); what they receive is an ordinary invite, redeemed here exactly like one an operator minted. {{2}} is a boot failure, because there is no mode to set: the only switch is whether the request door of §5.8.3 exists.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kimlik doğrulaması yok, IP hız sınırlandırması var. Her örnekte {{0}}. {{1}} bulunan bir örnekte kişi, kendisine hitap eden bir davet İSTEYEBİLİR (§5.8.3); eline geçen, tıpkı bir işletmecinin bastığı gibi burada kullanılan sıradan bir davettir. {{2}} bir önyükleme hatasıdır, çünkü ayarlanacak bir mod yoktur: tek anahtar, §5.8.3'teki istek kapısının var olup olmadığıdır."
   },
   "c236590c52503564": {
     "en": "The lead, above the cancellation form.",
@@ -9941,6 +10415,12 @@
     "at": "2026-09-19",
     "tr": "Bir bildirim ve fotoğrafı {{0}} sonra silinir"
   },
+  "c99ba48abfb60bbd": {
+    "en": "No address is logged, on any branch.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Hiçbir dalda hiçbir adres günlüğe kaydedilmez."
+  },
   "c9a1a823b79389a3": {
     "en": "Re-authentication is required even though the caller already holds a valid token",
     "model": "google/gemini-3.8-flash",
@@ -10061,6 +10541,12 @@
     "at": "2026-09-14",
     "tr": "Oturum meta verileri"
   },
+  "cb75716387553a62": {
+    "en": "Connection refused / header timeout",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bağlantı reddedildi / üstbilgi zaman aşımı"
+  },
   "cb92b9cfe31d70b1": {
     "en": "A bearer token in an {{0}} header. {{1}}",
     "model": "google/gemini-3.8-flash",
@@ -10162,6 +10648,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Mimari"
+  },
+  "cd99506b6589dc7a": {
+    "en": "MUST NOT state a number of free scans",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "ücretsiz tarama sayısı BİLDİRMEMELİDİR"
   },
   "cda202ddc74170e8": {
     "en": "{{0}} carries {{1}} day in the window, in order, with {{2}} for a day that has no row. A missing day and a quiet day must not look the same to whoever reads the strip.",
@@ -10547,6 +11039,12 @@
     "at": "2026-09-19",
     "tr": "{{0}} (bu uygulamada 30 gün, saatlik bir temizlikle silinir), bir işletmeci bildirimi sildiğinde (§5.20) ve hesapla birlikte daha erken silinir."
   },
+  "d45e495b391d5fcd": {
+    "en": "The whole instance has spent its daily ceiling, or the scan-trial accounts have spent theirs. {{0}} is seconds to the next UTC midnight",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tüm örnek günlük tavanını harcadı veya tarama denemesi hesapları kendilerininkini harcadı. {{0}}, bir sonraki UTC gece yarısına kalan saniyedir"
+  },
   "d4735e3a265e16ee": {
     "en": "2",
     "model": "google/gemini-3.8-flash",
@@ -10642,6 +11140,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} değerini ayarlamadan önce, herkese açık olduğunu bil"
+  },
+  "d5b51aa424afde10": {
+    "en": "Mints one (§5.8). The token is returned {{0}}. {{1}} writes the instance's scan trial instead of an allowance: {{2}} on an instance that runs none, and {{3}} beside a {{4}}. Without the field the mint is a standing grant, as before",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir tane basar (§5.8). Belirteç {{0}} olarak döndürülür. {{1}}, bir kota yerine örneğin tarama denemesini yazar: hiç çalıştırmayan bir örnekte {{2}} ve bir {{4}} yanında {{3}}. Alan olmadan basım, eskisi gibi süresiz bir haktır"
   },
   "d5ed145afd2a522d": {
     "en": "Tailscale issues and renews the certificate; the app becomes reachable at {{0}}. Set {{1}} to that URL.",
@@ -10907,6 +11411,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}: tek başına eşitleme hizmeti"
   },
+  "db1bc1d05c3f35b0": {
+    "en": "The scan-trial accounts may have a ceiling of their own",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tarama denemesi hesaplarının kendilerine ait bir tavanı olabilir"
+  },
   "db3fb9b8cac3b4a1": {
     "en": "One opinion about a blob, and it is not a sixth hole.",
     "model": "google/gemini-3.8-flash",
@@ -10978,6 +11488,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Anahtar bulunmalıdır."
+  },
+  "dd16582dda3a9879": {
+    "en": "Upstream {{0}}, then the caller hangs up",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yukarı akışta {{0}}, ardından arayan taraf bağlantıyı keser"
   },
   "dd167905de0defca": {
     "en": "Version",
@@ -11056,6 +11572,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "openplate, yasal sayfaları konteyner içine bağladığın markdown dosyalarından yükler. Deponun kendisinde hiçbir yasal metin bulunmaz. Şartları, gizlilik politikasını, künyeyi ve yasal zorunluluğu olan iki butonun sayfalarını sen yazarsın. Bunlar senin kurulumunu tanımlar ve seni işletmeci olarak belirtir."
+  },
+  "def48e9264b06cb1": {
+    "en": "keyed one-way hash of its mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "posta kutusunun anahtarlı tek yönlü karması"
   },
   "df082a6b8fd1b8c0": {
     "en": "{{0}}: rung 1, the app alone",
@@ -11729,6 +12251,12 @@
     "at": "2026-09-14",
     "tr": "openplate-inference içindeki docs/hardware.md"
   },
+  "ecb7a94d274691ca": {
+    "en": "5.8.3 {{0}}: a person asks for an account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "5.8.3 {{0}}: kişi hesap ister"
+  },
   "ed0edec523037bf1": {
     "en": "The path a scan takes is short, and the grammar sits in the middle of it. The browser posts one photo to this service, which checks the key, admits the request, downscales the image and makes a single vision call under a JSON schema. Your runtime is the only thing that enforces that schema, which is why the matrix below is about enforcement rather than about speed. What comes back is names and grams; the macros are looked up afterwards, from the configured food source, and the model never writes one.",
     "model": "google/gemini-3.8-flash",
@@ -11795,6 +12323,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}. Monotonik bir {{1}} üzerinde CAS. Katkı, ilgili aralık için yeniden hesaplanıp bütünüyle tekrar itilen kümülatif veri kümesidir, istemci kaynağı her zaman elinde tutar, bu yüzden bu satır bir projeksiyondur, asla birincil kopya değildir."
   },
+  "ede0d909a7b8f5ef": {
+    "en": "Write {{0}} and {{1}}, and nothing else. {{2}} is refused like every other field: a credential that pays for an allowance does not hand out free scans",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ve {{1}} yaz, başka hiçbir şey yazma. {{2}} diğer tüm alanlar gibi reddedilir: bir kota için ödeme yapan bir kimlik bilgisi, ücretsiz tarama dağıtmaz"
+  },
   "ee04fe83962f46e2": {
     "en": "{{0}} or {{1}}. An admin's own access token authenticates {{2}}.",
     "model": "google/gemini-3.8-flash",
@@ -11824,6 +12358,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "openplate-core'un README dosyası"
+  },
+  "eea6d4ece284018b": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a person may ask for an account here (§5.8.3), {{13}} says what that request needs, {{14}} promises the free scans a new account gets (§5.19), {{15}} says whether a biller stands behind this instance so {{16}} exists (§5.22), {{17}} says whether this instance can send web push so {{18}} exists (§5.24), {{19}} says whose micronutrient reference values it shows, and {{20}} is {{21}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}, bu dağıtımın ne olduğunu ve neler yapabileceğini tanımlar; ayrıca {{1}} niteliğindedir: bu alandan daha eski bir servis onu atlarsa, onu zorunlu kılan bir istemci böyle her örnekle konuşmayı reddeder. {{2}}, işletmecinin bu örnek için belirlediği etikettir; {{3}}, e-postalarının yazıldığı altı dilden biri olan {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} değerlerinden biridir (istemci bunu yalnızca gösterir ve ona göre dallanma yapmaz, bu yüzden yedinci bir dil protokol değişikliği sayılmaz); {{10}}, hiç e-posta gönderip gönderemeyeceğini belirtir; {{11}}, sıradan bir üyenin buraya kişi davet edip edemeyeceğini (§5.21) belirtir; {{12}}, bir kişinin buradan hesap isteyip isteyemeyeceğini (§5.8.3) belirtir; {{13}}, bu isteğin neye ihtiyaç duyduğunu belirtir; {{14}}, yeni bir hesabın alacağı ücretsiz taramaları taahhüt eder (§5.19); {{15}}, bu örneğin arkasında bir faturalandırıcının durup durmadığını ve dolayısıyla {{16}} varlığını (§5.22) belirtir; {{17}}, bu örneğin web push bildirimi gönderip gönderemeyeceğini ve dolayısıyla {{18}} varlığını (§5.24) belirtir; {{19}}, kimin mikro besin referans değerlerini gösterdiğini belirtir; {{20}} ise hiçbir yukarı akış anahtarı yapılandırılmadığında {{21}} değerini alır."
+  },
+  "eeb6bc176516f21b": {
+    "en": "{{0}} The invited account gets {{1}}, the same invite lifetime the admin mint defaults to, and ONE of two grants, never both: under the day pair, {{2}} from {{3}} and an {{4}} of redemption plus {{5}} written at signup; under {{6}}, the instance's scan trial (§5.19) with no date. A member invitation minted under the day pair and redeemed after the instance switched gets the scan trial, not a date. A {{7}}, a {{8}} or an {{9}} in the body is not refused, it is simply not read. Those three ARE body fields on {{10}} (§5.20), which is the difference between a member and an operator.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} Davet edilen hesap {{1}}, yönetici basımının varsayılan olarak kullandığı davet ömrünü ve iki haktan YALNIZCA birini alır, asla ikisini birden değil: gün çifti altında, {{3}} üzerinden {{2}} ve kayıt sırasında yazılan kullanım artı {{5}} şeklinde bir {{4}}; {{6}} altında, tarihsiz olarak örneğin tarama denemesi (§5.19). Gün çifti altında basılan ve örnek geçiş yaptıktan sonra kullanılan bir üye daveti, tarih değil tarama denemesi alır. Gövdedeki bir {{7}}, {{8}} veya {{9}} reddedilmez, yalnızca okunmaz. Bu üçü, bir üye ile bir operatör arasındaki farkı oluşturan {{10}} (§5.20) üzerindeki gövde alanlarıdır."
   },
   "eebf638b5ebd8e75": {
     "en": "Settings → Account",
@@ -11902,6 +12448,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "30 dakika"
+  },
+  "f0297348141b8602": {
+    "en": "{{0}}: the captcha provider could not be asked. Retry later",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}}: captcha sağlayıcısına erişilemedi. Daha sonra tekrar dene"
   },
   "f04cbaa3d84c8352": {
     "en": "{{0}} is unset. Retrieval is lexical-only by configuration. Normal.",
@@ -12178,6 +12730,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "openplate e-posta listesi olmadan gelir. Hem {{0}} hem {{1}} ayarlandığında, açılış sayfası bir kayıt formu ekler. Tarayıcı bunu openplate sunucusuna gönderir, o da bir adresten dakikada en fazla beş istek olacak şekilde {{2}} verisini URL adresine iletir. Tarayıcı bu URL adresini asla öğrenmez, bu sayede özel bir ağda bulunabilir. Birini ayarlayıp diğerini ayarlamazsan önyükleme durur. İkisini de ayarlanmamış bırakırsan, ki varsayılanı budur, form olmaz, fazladan betik olmaz ve CSP değişmez."
+  },
+  "f686241ec48f0526": {
+    "en": "A request that got {{0}}: the give-back runs on every row of the table below except a delivered {{1}}, and on every refusal after the claim (the ceilings and the daily allowance). This differs from the daily unit on purpose, row by row:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} alan bir istek: geri verme işlemi, iletilen bir {{1}} hariç aşağıdaki tablonun her satırında ve talep sonrasındaki her rette (tavanlar ve günlük kota) çalışır. Bu, satır satır, kasıtlı olarak günlük birimden farklıdır:"
   },
   "f68d99d3b1e0fcc8": {
     "en": "Once it is running, you can either hand each person a key ({{0}}) or set {{1}} and friends so every visitor gets a one-tap connect, with the caveat that {{2}} is embedded in the page and readable by anyone who can open the app. See {{3}}.",

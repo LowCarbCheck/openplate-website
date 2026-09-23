@@ -175,9 +175,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "core",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate-core",
-      "ref": "v0.19.0",
+      "ref": "v0.20.0",
       "editRef": "main",
-      "sha": "7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682",
+      "sha": "8b19ce05735b192140603da66d83522b2700c11d",
       "committedAt": "2026-09-23"
     },
     "lead": [
@@ -249,7 +249,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0005"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/adr/0005-organization-accounts-and-escrowed-recovery.md"
           },
           {
             "kind": "text",
@@ -331,7 +331,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0006"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/adr/0006-a-reported-photograph-is-the-second-hole-in-the-claim.md"
           },
           {
             "kind": "text",
@@ -386,7 +386,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0007"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/adr/0007-the-pulse-is-a-named-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/adr/0007-the-pulse-is-a-named-exception.md"
           },
           {
             "kind": "text",
@@ -465,7 +465,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0008"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/adr/0008-push-is-a-scheduling-exception.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/adr/0008-push-is-a-scheduling-exception.md"
           },
           {
             "kind": "text",
@@ -600,7 +600,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "docs/operations/restoring-a-wiped-diary.md"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/operations/restoring-a-wiped-diary.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/operations/restoring-a-wiped-diary.md"
           },
           {
             "kind": "text",
@@ -614,7 +614,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "ADR-0009"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/docs/adr/0009-a-shrinking-blob-is-acknowledged-or-refused.md"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/docs/adr/0009-a-shrinking-blob-is-acknowledged-or-refused.md"
           },
           {
             "kind": "text",
@@ -704,7 +704,7 @@ export const DOCS_INDEX: DocsIndex = {
                 "text": "MIT License"
               }
             ],
-            "href": "https://github.com/LowCarbCheck/openplate-core/blob/7c42953ca8bbf75360eb3f3b3f76eee9f0e7b682/LICENSE"
+            "href": "https://github.com/LowCarbCheck/openplate-core/blob/8b19ce05735b192140603da66d83522b2700c11d/LICENSE"
           },
           {
             "kind": "text",

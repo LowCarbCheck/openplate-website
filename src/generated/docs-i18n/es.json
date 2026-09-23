@@ -17,6 +17,12 @@
     "at": "2026-09-14",
     "es": "En el nivel dos, ambos dispositivos envían un bloque cifrado al servidor de sincronización, y la foto sigue yendo directa al proveedor."
   },
+  "0090e49f20eab72e": {
+    "en": "{{0}}, below the instance's ({{1}}): requests per UTC day across every account the scan gate applies to, taken before the instance's unit. It refuses those accounts, and only those, with the same {{2}}, so a burst of new trials runs out of its own budget before it reaches the capacity paying accounts need. It is not published either; {{3}} reports it as {{4}}, beside {{5}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, por debajo del de la instancia ({{1}}): peticiones por día UTC en todas las cuentas a las que se aplica el filtro de escaneo, consumidas antes de la unidad de la instancia. Rechaza esas cuentas, y solo esas, con el mismo {{2}}, de modo que una ráfaga de pruebas nuevas agota su propio presupuesto antes de alcanzar la capacidad que necesitan las cuentas de pago. Tampoco se publica; {{3}} lo reporta como {{4}}, junto a {{5}}."
+  },
   "00a51c6dd5675723": {
     "en": "8 bytes, unsigned, big-endian, always eight",
     "model": "google/gemini-3.8-flash",
@@ -71,6 +77,12 @@
     "at": "2026-09-14",
     "es": "Si implementa ese endpoint, responde a la creación de miembros de §5.21 con UNA sola respuesta para una dirección nueva, una dirección con una invitación pendiente y una dirección con una cuenta. Un servidor que responda {{0}} en el tercer caso le entrega a cada miembro un oráculo sobre quién más está en la instancia, y un servidor que responda {{1}} cuando su relay de correo esté caído les entrega uno más lento. Un servidor que no implemente invitaciones de miembros responde con el {{2}} habitual de ruta desconocida en esa ruta y notifica {{3}}."
   },
+  "013ee8e98e60cfff": {
+    "en": "{{0}} is {{1}} in protocol 2, along with the setting it described: an account is created only by redeeming an invite, and {{2}} says whether a person may ask for one (§5.8). A service that still publishes {{3}} is speaking version 1.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} está {{1}} en el protocolo 2, junto con el ajuste que describía: una cuenta solo se crea al canjear una invitación, y {{2}} indica si una persona puede solicitar una (§5.8). Un servicio que todavía publica {{3}} está hablando la versión 1."
+  },
   "013f1daa571c211e": {
     "en": "5.6 {{0}}: version handshake",
     "model": "google/gemini-3.8-flash",
@@ -112,6 +124,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "editado, eliminado"
+  },
+  "01be600643fcaa92": {
+    "en": "trial key",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "clave de prueba"
   },
   "02109f95680ef8f1": {
     "en": "{{0}} needs no operator setting: each person turns it on under {{1}}. It sends rounded counts. A meal counts once with its calories rounded to 50 and its protein to 5 g. A scan counts once, and a running fast sends a heartbeat. The home screen shows the instance total for today. The server keeps day totals and a record of who contributed on each day, for 30 days.",
@@ -208,6 +226,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Dos limitaciones claras frente a las subclaves del proveedor:"
+  },
+  "0489eb49dcd68eab": {
+    "en": "no answer gives its scan back",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "la ausencia de respuesta devuelve su escaneo"
   },
   "04945f2da1e78e1e": {
     "en": "{{0}} is the KEEP list, and every share row not named in it is deleted in the same transaction.",
@@ -413,6 +437,12 @@
     "at": "2026-09-19",
     "es": "{{0}} Sin él, la ruta responde a todo el mundo con el {{1}} habitual de ruta desconocida, con o sin credenciales, y {{2}} no incluye {{3}} (§5.6). Un cliente DEBE leer {{4}} antes de ofrecer un reporte. DEBE indicar la ventana de retención que ese campo anuncia y ninguna otra."
   },
+  "0778e4a9108429f7": {
+    "en": "The unit protects the bill: generation may have run. The scan protects the promise that a failed attempt costs nothing, and the person got no answer. A retry loop on a flaky provider is still bounded by the daily unit",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La unidad protege la factura: puede que la generación se haya ejecutado. El escaneo protege la promesa de que un intento fallido no cuesta nada y de que la persona no recibió respuesta. Un bucle de reintentos contra un proveedor inestable sigue estando limitado por la unidad diaria"
+  },
   "078e10d72d2ae19f": {
     "en": "{{0}} (a hyphen) is a separate, Python-based reimplementation of the Compose spec. It runs on its own, with no Docker involved, and it supports less of the spec: notably, its support for {{1}} is weaker, and it names networks differently by default.",
     "model": "google/gemini-3.8-flash",
@@ -455,11 +485,29 @@
     "at": "2026-09-14",
     "es": "no probado"
   },
+  "08cccd29eda697ad": {
+    "en": "The account's free scans are used up and it has no allowance date. Refused before anything leaves the host, and before a usage row is written. {{0}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los escaneos gratuitos de la cuenta se han agotado y no tiene fecha de cuota. Se rechaza antes de que nada salga del host, y antes de escribir una fila de uso. {{0}}"
+  },
+  "08fd4264a4e7ac81": {
+    "en": "{{0}}, on an instance that runs one: the free scans granted and used, two integers on the account row. For a scan-trial account only, {{1}}: an opaque id the client chose, a time, a request count and whether an answer was delivered, {{2}} and then deleted, and never logged. Each invitation row carries a {{3}} (HMAC-SHA256 under {{4}}, a secret only the operator holds, over the trial key of §5.8.3), never a second copy of the address.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, en una instancia que ejecute una: los escaneos gratuitos concedidos y usados, dos enteros en la fila de la cuenta. Solo para una cuenta de prueba de escaneo, {{1}}: un id opaco elegido por el cliente, una hora, un conteo de peticiones y si se entregó una respuesta, {{2}} y luego eliminado, y nunca registrado. Cada fila de invitación lleva un {{3}} (HMAC-SHA256 bajo {{4}}, un secreto que solo posee el operador, sobre la clave de prueba de §5.8.3), nunca una segunda copia de la dirección."
+  },
   "093490165f1c933f": {
     "en": "Reported estimates",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "es": "Estimaciones notificadas"
+  },
+  "0940e8976d122d5c": {
+    "en": "Bearer, throttled per source address with {{0}}. Present only when the deployment sets both {{1}} and {{2}}, or instead {{3}} beside the instance's scan trial; without either this path answers the ordinary unknown-path {{4}} to every caller, signed in or not, and {{5}} is {{6}} (§5.6).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Bearer, con limitación de frecuencia por dirección de origen mediante {{0}}. Solo presente cuando el despliegue define tanto {{1}} como {{2}}, o en su lugar {{3}} junto a la prueba de escaneo de la instancia; sin ninguna de las dos opciones, esta ruta responde con el {{4}} habitual de ruta desconocida a cualquiera que llame, haya iniciado sesión o no, y {{5}} es {{6}} (§5.6)."
   },
   "094cc073e926d0ce": {
     "en": "The CAS is checked FIRST: a push off a stale {{0}} is the ordinary {{1}}, whatever its size, because that client's job is to pull and merge and it is usually not shrinking once it has. The guard speaks only about a push that would otherwise have been accepted.",
@@ -629,6 +677,12 @@
     "at": "2026-09-14",
     "es": "Las tres al portador."
   },
+  "0c6e70d9a59fda7e": {
+    "en": "lets a later request with the same id ride on that scan while the id is younger than 30 minutes and has carried fewer than 3 requests, and makes a fourth request, or one after 30 minutes, a new action with a new scan;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "permite que una solicitud posterior con el mismo identificador aproveche ese escaneo mientras el identificador tenga menos de 30 minutos y haya llevado menos de 3 solicitudes, y convierte una cuarta solicitud, o una tras 30 minutos, en una nueva acción con un nuevo escaneo;"
+  },
   "0c7a13c16b60d78b": {
     "en": "{{0}} shape (everything inside {{1}} is opaque to this protocol):",
     "model": "google/gemini-3.8-flash",
@@ -652,6 +706,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Con {{0}} y una clave, openplate envía a LowCarbCheck, a través de este servidor, cada alimento que una persona guarda a partir de una foto o de una comida que haya escrito:"
+  },
+  "0cec65f4cd26d65c": {
+    "en": "{{0}} is {{1}} for an account with a scan trial, and {{2}} for one without, which is every account on an instance that runs none. {{3}} is {{4}} minus the scans used, never below {{5}}. A client may render it and {{6}}: the proxy counts (§5.19), {{7}} is a snapshot taken when this view was built, and every proxied response carries the fresh number in {{8}}. A future {{9}} lifts the scan gate, so a paying account may still carry this field.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} es {{1}} para una cuenta con una prueba de escaneo, y {{2}} para una sin ella, que es cualquier cuenta en una instancia que no ejecute ninguna. {{3}} es {{4}} menos los escaneos usados, nunca por debajo de {{5}}. Un cliente puede representarlo y {{6}}: el proxy cuenta (§5.19), {{7}} es una instantánea tomada al construir esta vista, y cada respuesta intermediada lleva el número actualizado en {{8}}. Un {{9}} futuro levanta la restricción de escaneo, por lo que una cuenta de pago aún puede incluir este campo."
   },
   "0d3d47fffef612d7": {
     "en": "Present only when the operator set {{0}}.",
@@ -1247,6 +1307,12 @@
     "at": "2026-09-14",
     "es": "Cada repositorio tiene una prueba unitaria que valida sus constantes frente a literales transcritos ({{0}} y {{1}}). No hay una CI compartida entre los repositorios, de modo que esas pruebas son lo único que evita una divergencia silenciosa del protocolo. {{2}}"
   },
+  "18254c128906ee07": {
+    "en": "MUST NOT authorize on it",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "NO DEBE autorizar sobre él"
+  },
   "184c09c20f1c8642": {
     "en": "{{0}} takes {{1}} → {{2}} {{3}}. The key MUST be present, even as {{4}}: an absent key is a {{5}}, the same rule {{6}} and {{7}} follow, because a PATCH that quietly did nothing over a misspelled field name is a change the client believes it made.",
     "model": "google/gemini-3.8-flash",
@@ -1270,6 +1336,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Todo el envío se confirma en una sola transacción"
+  },
+  "18c12c8633ddb326": {
+    "en": "The ids are kept for 24 hours and then deleted (§9.2). They are never logged.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los identificadores se conservan durante 24 horas y luego se eliminan (§9.2). Nunca se registran."
   },
   "18db561339e5db4c": {
     "en": "The drawing below is the whole system in five arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core. The photo leaves for whichever AI endpoint you configured. The app server sends the page, and it passes the names of the foods you look up on to a food database. It stands on neither the diary path nor the photo path.",
@@ -1300,6 +1372,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Es {{0}}. {{1}} no promete que llegue una carta, y {{2}} informa de lo que configuró el operador en lugar de conceder nada; una cuenta con {{3}} recibe un {{4}} sin importar lo que diga esto."
+  },
+  "195583555b83ebc9": {
+    "en": "The order of the refusals",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "El orden de los rechazos"
   },
   "198327c59e026441": {
     "en": "{{0}} The service makes exactly two kinds of outbound request: one-time weight downloads at first boot, and (only if you enable a networked {{1}}) a {{2}} food-name lookup. No image ever leaves the container, under any configuration.",
@@ -1445,6 +1523,12 @@
     "at": "2026-09-14",
     "es": "{{0}} Sirve cualquier cadena aleatoria ({{1}}); no hay panel de control ni informe de uso por persona: solo tienes los registros del contenedor."
   },
+  "1bfcfce2e1268838": {
+    "en": "The {{0}}s describe the request, never the instance's accounts: a domain says nothing about who holds an account, so refusing one is not an oracle.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Los {{0}} describen la petición, nunca las cuentas de la instancia: un dominio no dice nada sobre quién tiene una cuenta, por lo que rechazarlo no actúa como oráculo."
+  },
   "1c0dfee49000c6eb": {
     "en": "It speaks the OpenAI chat-completions protocol, so {{0}} connects to it as a normal \"OpenAI-compatible\" provider. One container, one port.",
     "model": "google/gemini-3.8-flash",
@@ -1505,11 +1589,23 @@
     "at": "2026-09-14",
     "es": "5.8 GiB"
   },
+  "1d18fcc20bf415b3": {
+    "en": "Statutory declarations",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Declaraciones legales"
+  },
   "1d44bae7348d6b77": {
     "en": "Downscale target. Latency rises with the square.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Objetivo de reducción de escala. La latencia aumenta con el cuadrado."
+  },
+  "1d50d390168dc9b2": {
+    "en": "After an account is deleted",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Tras eliminar una cuenta"
   },
   "1d995a96d26149b4": {
     "en": "The research console ({{0}})",
@@ -1919,6 +2015,12 @@
     "at": "2026-09-14",
     "es": "{{0}} es un minuto del día local, de 0 a 1439, o {{1}}"
   },
+  "258ffe452e1850c6": {
+    "en": "{{0}} is a {{1}}, like {{2}} and {{3}}: it says only whether a door exists. {{4}} means {{5}} takes an address (§5.8.3); {{6}}, and a service built before the field, means the path answers the ordinary unknown-path {{7}}, and a client shows its invite wording instead of a sign-up form. It is descriptive, never a grant: the throttles, the captcha, the refused domains and the one letter per mailbox per day stay on the service.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} es un {{1}}, como {{2}} y {{3}}: solo indica si existe una puerta. {{4}} significa que {{5}} acepta una dirección (§5.8.3); {{6}}, así como un servicio compilado antes del campo, significa que la ruta responde con el {{7}} habitual de ruta desconocida, y un cliente muestra el texto de invitación en lugar de un formulario de registro. Es descriptivo, nunca una concesión: los límites de tasa, el captcha, los dominios rechazados y el límite de un correo por buzón al día se mantienen en el servicio."
+  },
   "259b1502debd7f71": {
     "en": "Instance-provided AI",
     "model": "google/gemini-3.8-flash",
@@ -1990,6 +2092,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "es": "{{0}} ({{1}}). El propietario envuelve la clave de datos una tercera vez, bajo la clave pública del médico, y el servidor almacena esa clave envuelta. El navegador del médico la desenvuelve y lee el diario en {{2}}. La acción de compartir no le da al servidor nada nuevo que abrir."
+  },
+  "272acc36417a816a": {
+    "en": "The response MUST NOT vary with what is true about the address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La respuesta NO DEBE variar según el estado real de la dirección"
   },
   "274b18d3bb4ad373": {
     "en": "5.16 Shares: {{0}} and {{1}} (ADR-0002)",
@@ -2381,6 +2489,12 @@
     "at": "2026-09-14",
     "es": "Archivo Compose:"
   },
+  "3041e1f4a54d5aab": {
+    "en": "An invite is still the only thing that creates an account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una invitación sigue siendo lo único que crea una cuenta"
+  },
   "305531dcc50ebca3": {
     "en": "ciphertext",
     "model": "google/gemini-3.8-flash",
@@ -2398,6 +2512,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} Las cuatro son opcionales, las cuatro están desactivadas hasta que alguien las activa, y no son el mismo tipo de cosa."
+  },
+  "30ab23e4df987d4b": {
+    "en": "{{0}}, which a conforming server MUST keep: identity and suspension; {{1}} of {{2}} ({{3}}); an allowance date that has passed ({{4}}); the body; {{5}}'s shape; then, only for an account with free scans and {{6}} allowance date, the scan claim ({{7}}). A date in the future lifts the scan gate: it is a paid or granted window, and the count decides only where there is no date at all. Then the scan-trial accounts' ceiling, the instance ceiling and the daily allowance, as below.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, que un servidor conforme DEBE mantener: identidad y suspensión; {{1}} de {{2}} ({{3}}); una fecha de cuota que ya ha pasado ({{4}}); el cuerpo; la forma de {{5}}; luego, solo para una cuenta con escaneos gratuitos y {{6}} fecha de cuota, la reserva de escaneo ({{7}}). Una fecha en el futuro levanta la restricción de escaneo: es una ventana pagada o concedida, y el recuento decide únicamente cuando no hay ninguna fecha. Después, el límite de las cuentas con prueba de escaneo, el límite de la instancia y la cuota diaria, como se indica abajo."
   },
   "30d125ce8d8de471": {
     "en": "These carry no values. A fast event does not carry its length, and a weight event does not carry a weight. But the events are timestamped, as every analytics event is, so a start and an end together give a duration by subtraction, and a share event says the person has a clinician. Study participation is special-category data under Art. 9 GDPR.",
@@ -2452,6 +2572,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} Cada push que envía tiene un único campo:"
+  },
+  "31d316c463da6e9e": {
+    "en": "one row per AI action",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "una fila por acción de IA"
   },
   "320d9314375fed0f": {
     "en": "Measured first-hand on 2026-08-15. Rows we have not run ourselves say so.",
@@ -2699,6 +2825,12 @@
     "at": "2026-09-14",
     "es": "{{0}} es opcional. Apúntalo a un segundo runtime compatible con OpenAI que sirva {{1}} (por ejemplo, {{2}}) y la recuperación pasará a ser {{3}}: el evaluador léxico busca candidatos y el modelo de embeddings los reordena, de modo que \"grilled chicken thigh\" dé con la fila correcta aunque la base de datos use otras palabras. Si no lo configuras, que es la opción por omisión, la recuperación será solo léxica, lo cual ofrece una clasificación ligeramente peor pero nunca un error. Si el runtime de embeddings no está accesible, se degrada a solo léxico con una única advertencia; nunca hace fallar un análisis."
   },
+  "3642860f623dd009": {
+    "en": "one keyed hash of the mailbox is kept, and nothing else",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "se conserva un hash con clave del buzón de correo, y nada más"
+  },
   "3661998e0e2179c2": {
     "en": "The caller's own credential is never forwarded.",
     "model": "google/gemini-3.8-flash",
@@ -2861,6 +2993,12 @@
     "at": "2026-09-14",
     "es": "Nunca un id de cuenta."
   },
+  "3a6d71f32d094df2": {
+    "en": "Unauthenticated. {{0}}; everywhere else the path answers the ordinary unknown-path {{1}}. An instance needs mail configured to open it, because the letter is the address check.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sin autenticar. {{0}}; en cualquier otro lugar la ruta responde con el {{1}} habitual de ruta desconocida. Una instancia necesita tener el correo configurado para abrirla, ya que el mensaje sirve para verificar la dirección."
+  },
   "3a6eb0790f39ac87": {
     "en": "data",
     "model": "google/gemini-3.8-flash",
@@ -2974,6 +3112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "es": "Una página de estimaciones reportadas (§5.25), las más recientes primero: {{0}} cada una, más {{1}}, {{2}} y {{3}}. Sin cifras y sin fotografía"
+  },
+  "3c8322603ce6ef1c": {
+    "en": "Two throttles.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Dos límites de frecuencia."
   },
   "3cc39f1ba4a067e7": {
     "en": "3.4 The share wrap (ADR-0002)",
@@ -3136,6 +3280,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Nunca se envía un nombre que la persona haya escrito o modificado directamente."
+  },
+  "3fb9a3dabab6f676": {
+    "en": "keeps one keyed one-way hash of the mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "conserva un hash unidireccional con clave del buzón"
   },
   "3fe317e74339ac7e": {
     "en": "{{0}} shall mean annual revenue of 10 million United States dollars ($10,000,000) or more.",
@@ -3347,6 +3497,12 @@
     "at": "2026-09-14",
     "es": "Postgres"
   },
+  "4442eb95cccc5426": {
+    "en": "Every custom request header a route reads is named in {{0}}: {{1}}, {{2}}, {{3}} (§5.23) and {{4}} (§5.19). Every custom response header a client reads is named in {{5}}: {{6}}, {{7}}, {{8}} and {{9}}. A browser refuses to send a header the first list omits, and hides one the second list omits, with nothing in any log.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cada cabecera de petición personalizada que lee una ruta figura en {{0}}: {{1}}, {{2}}, {{3}} (§5.23) y {{4}} (§5.19). Cada cabecera de respuesta personalizada que lee un cliente figura en {{5}}: {{6}}, {{7}}, {{8}} y {{9}}. Un navegador se niega a enviar una cabecera omitida en la primera lista, y oculta la omitida en la segunda lista, sin dejar rastro en ningún registro."
+  },
   "444ff84ef5dbd01e": {
     "en": "{{0}} It is unique per account. A second submission with an existing key answers {{1}} with the stored report instead of {{2}}. It stores no second report and does not count against the daily limit. It writes the photograph again if one was included. That repairs a report whose first photograph write was interrupted.",
     "model": "google/gemini-3.8-flash",
@@ -3382,6 +3538,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} Son exactamente {{1}} de la sesión resuelta, {{2}} leída de la fila de la cuenta, {{3}} con el secreto compartido y la {{4}} entrante. Un esquema de copiar y sobreescribir reenviaría las cookies y cualquier otra cosa que el siguiente cliente decida mandar."
+  },
+  "44ab99a0e2413152": {
+    "en": "Minting is {{0}}. An older PENDING invite for the same address is revoked by a new one, so there is never more than one live capability per address; an address that already has an account cannot be invited at all ({{1}}). The one exception is the request door of §5.8.3, which leaves a pending invite from the operator or a member alone rather than withdraw it on a stranger's say.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La generación es {{0}}. Una invitación más antigua en estado PENDING para la misma dirección queda revocada por una nueva, de modo que nunca hay más de una capacidad activa por dirección; una dirección que ya tiene una cuenta no puede ser invitada en absoluto ({{1}}). La única excepción es la puerta de solicitud del §5.8.3, que no toca una invitación pendiente del operador o de un miembro en lugar de retirarla por la petición de un extraño."
   },
   "44b835460069f6d6": {
     "en": "Everything. It is your device.",
@@ -3617,11 +3779,23 @@
     "at": "2026-09-14",
     "es": "Nada de lo que hay tras este prefijo forma parte de este protocolo."
   },
+  "486bd29be2c3c796": {
+    "en": "{{0}}: not an address. {{1}}: an address at a known throwaway mail service, matched on the domain and every parent of it. {{2}}: the captcha token is missing or was refused; solve it again",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}: no es una dirección. {{1}}: una dirección en un servicio conocido de correo desechable, cotejada con el dominio y cada uno de sus dominios superiores. {{2}}: falta el token del captcha o fue rechazado; resuélvelo de nuevo"
+  },
   "487eb7600a7bd9f7": {
     "en": "openplate-core, on a managed instance, is the tenancy layer.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "openplate-core, en una instancia gestionada, es la capa de gestión de usuarios."
+  },
+  "488807e88db8440c": {
+    "en": "On an instance that runs a scan trial, the same transaction also {{0}}, and, when the account held a trial, {{1}} so the one trial per mailbox rule of §5.8.3 survives the deletion. Nothing else about the person is kept (§9.2).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "En una instancia que ejecuta una prueba de escaneo, la misma transacción también {{0}}, y, si la cuenta tenía una prueba, {{1}} para que la regla de una prueba por buzón de §5.8.3 se mantenga tras la eliminación. No se conserva nada más sobre la persona (§9.2)."
   },
   "48eaf5bd6ca7beff": {
     "en": "Everything above is unchanged on an open instance ({{0}} unset or {{1}}), and a test pins both variants side by side.",
@@ -3749,6 +3923,12 @@
     "at": "2026-09-14",
     "es": "Invitar a alguien"
   },
+  "4b0d6f0a0726b325": {
+    "en": "Body timeout / stream aborted by the provider",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Tiempo de espera agotado para el cuerpo / flujo cancelado por el proveedor"
+  },
   "4b12c2bc58cd7c5a": {
     "en": "Slow but working: {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -3791,6 +3971,12 @@
     "at": "2026-09-14",
     "es": "2 MiB ({{0}})"
   },
+  "4c05c78b360fbc6e": {
+    "en": "{{0}}: role {{1}}, the default invite lifetime, no inviter, and the instance's terms, which are its scan trial when it runs one (§5.19) and no AI otherwise. The mailed link leads to §5.8.2 and §5.8, unchanged. {{2}}, as in §5.21: a new address, an address that holds an account, an address that already holds a pending letter from the operator or a member, and a mailbox that already got a letter today are one {{3}} with one body. The letters are the door's own, never the invitation or the note of §5.21, which say somebody invited the reader: a new address gets a letter saying that it, or someone using it, asked to create an account, with the one link, its expiry, and that ignoring the mail changes nothing; an account holder gets a note saying the same and that no second account was made, with no link. A pending letter from another door is left alone, so a stranger cannot withdraw an operator's invitation by posting the address. Only the letters differ.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}: rol {{1}}, la duración de invitación por defecto, sin remitente de invitación y los términos de la instancia, que corresponden a su prueba de escaneo si tiene una activa (§5.19) o a nada de IA en caso contrario. El enlace enviado por correo lleva a §5.8.2 y §5.8, sin cambios. {{2}}, como en §5.21: una dirección nueva, una dirección que ya tiene una cuenta, una dirección que ya tiene un mensaje pendiente del operador o de un miembro, y un buzón que ya ha recibido un mensaje hoy son un único {{3}} con un solo cuerpo. Los mensajes son propios del punto de acceso, nunca la invitación ni la nota de §5.21, que indican que alguien invitó al lector: una dirección nueva recibe un mensaje indicando que ella misma, o alguien usándola, pidió crear una cuenta, con el enlace único, su caducidad y la indicación de que ignorar el correo no cambia nada; quien ya tiene una cuenta recibe una nota diciendo lo mismo y que no se ha creado una segunda cuenta, sin enlace. Un mensaje pendiente de otro punto de acceso no se toca, de modo que un desconocido no pueda revocar la invitación de un operador enviando la dirección. Solo los mensajes cambian."
+  },
   "4c090c42bd424ed5": {
     "en": "If this service ever grows durable per-caller state (per-key quotas, a usage ledger, anything that must be listed or revoked), this decision should be revisited, and that is the trigger to watch for.",
     "model": "google/gemini-3.8-flash",
@@ -3802,6 +3988,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "propietario"
+  },
+  "4c319e116b10d083": {
+    "en": "{{0}} is how a client says which requests are one action. It is {{1}}, 16 to 64 characters of {{2}} (a UUID with or without its dashes fits), {{3}}, and sent only to this proxy, never to a provider the person configured themselves. The service:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} es la forma en que un cliente indica qué solicitudes forman una misma acción. Es {{1}}, de 16 a 64 caracteres de {{2}} (un UUID con o sin guiones encaja), {{3}}, y se envía solo a este proxy, nunca a un proveedor configurado por la propia persona. El servicio:"
   },
   "4c3dfcc215e4a3f0": {
     "en": "Sharing one AI bill across a household",
@@ -4127,6 +4319,12 @@
     "at": "2026-09-14",
     "es": "No calcules el tamaño con estos números: consulta los tuyos. Ejecuta un análisis en tu runtime y revisa lo que devuelve:"
   },
+  "519610538d4873e5": {
+    "en": "Free scans left after this request, on an account the scan gate applies to (below). Absent otherwise",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Escaneos gratuitos restantes tras esta solicitud, en una cuenta a la que se aplica la restricción de escaneo (abajo). Ausente en caso contrario"
+  },
   "51a996545f4d759f": {
     "en": "Nothing here is a reduced edition. Local-first tracking, BYOK AI plate scanning, PWA install, JSON export/import, the whole interface: identical to the hosted instance, because it is the same image. The only thing the hosted deployment adds is that we operate the optional sync service for you, and that is also open source, for you to run yourself.",
     "model": "google/gemini-3.8-flash",
@@ -4223,6 +4421,12 @@
     "at": "2026-09-14",
     "es": "Runtimes"
   },
+  "53dfb1a4b3faefad": {
+    "en": "{{0}}. Accepted, whatever is true about the address",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}. Aceptada, sea cual sea el estado real de la dirección"
+  },
   "542a0ed1201a2a59": {
     "en": "{{0}} not strictly greater than the stored one",
     "model": "google/gemini-3.8-flash",
@@ -4276,6 +4480,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} una tarjeta de la {{1}} (L4 y la mayoría de tarjetas para estaciones de trabajo aptas para inferencia) tiene aproximadamente tres veces menos ancho de banda que la 3090, lo que la sitúa en un {{2}}. Esta cifra es una estimación a partir de la fila de la 3090, no una medición, y los números reales suelen ser peores que una extrapolación lineal."
+  },
+  "551fcf5e0e0e2479": {
+    "en": "A scan is one AI action the person started",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Un escaneo es una acción de IA iniciada por la persona"
   },
   "55675fa67f996c67": {
     "en": "{{0}}, {{1}}, 5 by default, counted per UTC day in the same transaction as the insert. Over it is {{2}}, which names no identifier.",
@@ -4462,6 +4672,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} (de 5 a 60 s, en cada arranque):"
+  },
+  "5a504384e47baf77": {
+    "en": "Daily unit",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Unidad diaria"
   },
   "5a525ddb849713e6": {
     "en": "derived database",
@@ -4859,6 +5075,12 @@
     "at": "2026-09-14",
     "es": "Se eliminó con el gestor de correo en 0.5.0, y el protocolo 2 no lo recupera aunque este servicio vuelva a enviar correo."
   },
+  "6276a23ae81c1c96": {
+    "en": "The instance runs no open sign-up",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La instancia no tiene activado el registro abierto"
+  },
   "62845f31a2fe00be": {
     "en": "Rule",
     "model": "google/gemini-3.8-flash",
@@ -4876,6 +5098,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "conectado (manual, OAuth, ajuste predeterminado de la instancia), fallo al comprobar la clave, desconectado"
+  },
+  "62c89e490f87a320": {
+    "en": "serialises parallel requests with one new id, so they claim exactly one scan between them;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "serializa las solicitudes paralelas con un identificador nuevo, de modo que entre todas reservan exactamente un escaneo;"
   },
   "62e6a65441ba4904": {
     "en": "{{0}} 1 gzips the plaintext, which buys roughly an order of magnitude on JSON this repetitive (the same key names on every one of thousands of records) and pushes the cliff far enough out to not be the near-term problem. It does not remove it.",
@@ -4973,6 +5201,12 @@
     "at": "2026-09-14",
     "es": "Teléfono"
   },
+  "63f37ebcbee774af": {
+    "en": "kept 24 hours",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "conservado 24 horas"
+  },
   "6436b894eb06628a": {
     "en": "Your photos are processed in memory and never persisted.",
     "model": "google/gemini-3.8-flash",
@@ -5015,11 +5249,23 @@
     "at": "2026-09-14",
     "es": "nunca"
   },
+  "64acdf38a8d1a12d": {
+    "en": "More than five requests from one source address in an hour. {{0}} in seconds",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Más de cinco peticiones desde una misma dirección de origen en una hora. {{0}} en segundos"
+  },
   "64b442f877141327": {
     "en": "Minimum CPU box for {{0}}:",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Máquina mínima con CPU para {{0}}:"
+  },
+  "64fbf086760a5f63": {
+    "en": "A ceiling or the daily allowance refuses after the claim",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Un tope o la cuota diaria rechazan la petición tras la reclamación"
   },
   "6518c57a026b0390": {
     "en": "With {{0}} configured nor matching, the whole subtree answers the same {{1}} any unknown path does, to everybody. An instance that configured neither token is indistinguishable from one built before the feature existed. A {{2}} there would announce that a credential exists and is merely locked. Setting either token turns that {{3}} into the {{4}} a wrong value gets.",
@@ -5158,6 +5404,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Seudónimos que se retiraron, con marcas de tiempo. El cliente del estudio debe purgarlos antes de presentar o exportar nada."
+  },
+  "66d024fa2b7b5705": {
+    "en": "{{0}} is present only while {{1}} is {{2}} and the operator runs a captcha. {{3}} is {{4}} today; {{5}} is Cloudflare Turnstile's public site key, which a client renders the widget with and which grants nothing. The token the widget produces travels as {{6}} in the sign-up request. Absent means the request needs no token.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} solo está presente mientras {{1}} sea {{2}} y el operador ejecute un captcha. {{3}} es {{4}} hoy; {{5}} es la clave pública de sitio de Cloudflare Turnstile, con la que un cliente renderiza el widget y que no otorga nada. El token que genera el widget viaja como {{6}} en la solicitud de registro. Que esté ausente significa que la solicitud no necesita ningún token."
   },
   "66dd89f68d69f1be": {
     "en": "lowcarbcheck.org/developers",
@@ -5465,6 +5717,12 @@
     "at": "2026-09-14",
     "es": "{{0}} tampoco incluye {{1}}, a diferencia de la creación por el administrador. El emisor de la llamada no es el operador y no debe tener permisos para crear una cuenta."
   },
+  "6c2e231f61203fab": {
+    "en": "{{0}} ({{1}}, a cancellation or a withdrawal, on every instance): the name, the address, the contract reference, the reason and the dates the person typed, the time it arrived, and the account it matched, if any. It is {{2}}, counted in Europe/Berlin time, and then deleted by the hourly sweep: one received on 2026-09-21 is deleted from 2030-01-01 00:00 in Berlin. {{3}}; the row loses its account id and stays, because it is the record of what the person declared.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} ({{1}}, una cancelación o un desistimiento, en cada instancia): el nombre, la dirección, la referencia del contrato, el motivo y las fechas que escribió la persona, la hora a la que llegó, y la cuenta con la que coincidió, si la hubiera. Se {{2}}, contando en la hora de Europe/Berlin, y luego el barrido horario lo elimina: uno recibido el 2026-09-21 se elimina a partir del 2030-01-01 00:00 en Berlín. {{3}}; la fila pierde su id de cuenta y permanece, ya que es el registro de lo que declaró la persona."
+  },
   "6c4b1e0455e9b0cb": {
     "en": "link pasted, join completed",
     "model": "google/gemini-3.8-flash",
@@ -5669,6 +5927,12 @@
     "at": "2026-09-14",
     "es": "El registro almacenado, con la misma estructura que una entrada {{0}}."
   },
+  "705e7a967abba7aa": {
+    "en": "claims one scan for an id it has not seen, before the upstream call, in one statement whose {{0}} is the bound, so ten parallel requests on three scans claim three;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "reserva un escaneo para un identificador que no ha visto, antes de la llamada upstream, en una única sentencia cuyo {{0}} es el límite, de modo que diez solicitudes paralelas sobre tres escaneos reservan tres;"
+  },
   "709c21e1aedb5360": {
     "en": "The connected key appears in your {{0}} labeled {{1}}. Disconnecting in openplate only clears the key from that device: it does {{2}} revoke it at OpenRouter. Revoke it from that page yourself.",
     "model": "google/gemini-3.8-flash",
@@ -5710,6 +5974,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}} Esto invierte el §5.14, donde un registro de clave no modificado se conserva, deliberadamente, porque estas filas son la autorización de otra persona sobre el diario de quien llama y el silencio debe ser el valor predeterminado seguro. Por lo tanto, {{1}} revoca todo y es válido; una clave {{2}} {{3}} es un {{4}}, por la razón de que el §5.4 exige que {{5}} se escriba explícitamente. En un despliegue sin {{6}} la lista debe estar vacía; una lista que no esté vacía es un {{7}}, ya que afirma un estado que esa instancia no puede albergar."
+  },
+  "717e0acf33c35cc7": {
+    "en": "{{0}} is present and not 16 to 64 characters of {{1}}. Refused before any row is written",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} está presente y no tiene de 16 a 64 caracteres de {{1}}. Se rechaza antes de escribir cualquier fila"
   },
   "71801d255da1f22e": {
     "en": "Two easy paths to a real certificate on a home server.",
@@ -5789,6 +6059,12 @@
     "at": "2026-09-14",
     "es": "Los tokens de acceso generados en rotaciones anteriores se dejan intactos deliberadamente; caducan por sí solos en pocos minutos y revocarlos al momento de la rotación interrumpiría una petición legítima en curso."
   },
+  "7349d1155a0774ee": {
+    "en": "An account may carry free AI scans with no end date ({{0}}, §5.15), granted by the instance's trial ({{1}}, §5.6). {{2}}, and one action may be more than one upstream request: a client may retry once without {{3}} after a provider refusal, and once after a stale bearer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una cuenta puede incluir escaneos de IA gratuitos sin fecha de finalización ({{0}}, §5.15), concedidos por la prueba de la instancia ({{1}}, §5.6). {{2}}, y una acción puede suponer más de una solicitud hacia el servidor upstream: un cliente puede reintentar una vez sin {{3}} tras un rechazo del proveedor, y una vez tras un token portador caducado."
+  },
   "7363f0e073e0058c": {
     "en": "No body is logged, in either direction.",
     "model": "google/gemini-3.8-flash",
@@ -5854,6 +6130,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Tres propiedades que una implementación conforme DEBE cumplir, y cada una existe porque el cuerpo de la solicitud es una fotografía de la comida de alguien:"
+  },
+  "74a9e70831088571": {
+    "en": "For a new address the service mints an ordinary addressed invite and mails it",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Para una dirección nueva, el servicio genera una invitación nominativa ordinaria y la envía por correo"
   },
   "74ca3910cc3707c5": {
     "en": "{{0}} The routes, the request bodies and the response bodies belong to the biller, which is a separate service on its own release cycle. This document specifies only what the gateway does to a request on its way there and to an answer on its way back. That is deliberate: the alternative is a normative document that self-hosters cannot use, churning on somebody else's VAT calendar.",
@@ -6035,6 +6317,12 @@
     "at": "2026-09-14",
     "es": "Automatizarlo."
   },
+  "77bba4763a2c34c1": {
+    "en": "scan trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "prueba de escaneo"
+  },
   "77de971982ba2ac5": {
     "en": "{{0}} is the window of the endpoint above, clamped the same way: an integer of at least 1 or a {{1}}, more than 90 answered with 90, and {{2}} reports what was drawn.",
     "model": "google/gemini-3.8-flash",
@@ -6064,6 +6352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "una persona, dos dispositivos"
+  },
+  "78d5bc4630a0147e": {
+    "en": "{{0}}, and the caller is still told {{1}}. The evidence outlives the account: the invite row keeps its address and its redemption instant when either account is deleted, so a self-delete followed by a friend's re-invite is not a fresh allowance. On an instance that runs a scan trial the deletion removes the address from the row instead and keeps the keyed hash of §5.15, and the rule reads that hash. An operator's mint is not a member-caused invitation and is never withheld by this rule.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, y aun así se le dice {{1}} a quien llama. La prueba sobrevive a la cuenta: la fila de la invitación conserva su dirección y su instante de canje cuando se elimina cualquiera de las dos cuentas, por lo que una autoeliminación seguida de una reinvitación de un amigo no supone una cuota nueva. En una instancia que ejecuta una prueba de escaneo, la eliminación quita en su lugar la dirección de la fila y conserva el hash con clave de §5.15, y la regla lee ese hash. La generación realizada por un operador no es una invitación provocada por un miembro y esta regla nunca la retiene."
   },
   "78ea74dc86513359": {
     "en": "An account already exists for the invite's address. The invite is NOT consumed.",
@@ -6605,6 +6899,12 @@
     "at": "2026-09-14",
     "es": "openplate-core, administrado"
   },
+  "863e6fd913e4226c": {
+    "en": "The scan trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La prueba de escaneo"
+  },
   "8653b8f95d74d9fe": {
     "en": "{{0}} This service used to accept any correctly versioned blob without looking at it at all. Since M224 it refuses one shape: a push whose ciphertext is under half the size of the stored one, unless the request explicitly says the deletion is intended. A person lost her whole diary to a client that found its local store evicted, concluded she had deleted everything, and pushed a tombstone per entry, and a second device then pulled that blob and deleted its own rows. The guard compares two byte counts this service already stored for the storage figure it already reports, so it learns nothing new about anybody; what it gives up is the claim to be a store with no opinion. An operator can put an account back with {{1}}, and {{2}} is the procedure, including the step on the person's own devices that the rollback cannot do. {{3}} states what it costs when it is wrong.",
     "model": "google/gemini-3.8-flash",
@@ -6712,6 +7012,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Ajustes → IA"
+  },
+  "8773aef4ed956970": {
+    "en": "Headers arrived, so the provider may bill; the person still got no answer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Llegaron las cabeceras, por lo que el proveedor puede facturar; la persona siguió sin recibir respuesta"
   },
   "87863b8f544c1c4d": {
     "en": "anything in {{0}}",
@@ -7097,6 +7403,12 @@
     "at": "2026-09-14",
     "es": "URL pública en la que está accesible esta instancia. Obligatoria en producción: el servidor no arranca sin ella. Detrás de un proxy inverso, esta es la dirección {{0}} pública, no el puerto del contenedor."
   },
+  "906bb4c49371f618": {
+    "en": "{{0}}. Lists, or with {{1}} grants the instance's scan trial to, every member whose day trial of {{2}} ended and was never moved: its allowance date still equals its redemption plus {{3}} to the millisecond, which only a payment or an operator changes. Clears the date and sets the trial's daily limit. Idempotent: a granted account is never listed again. Answers {{4}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}. Lista, o con {{1}} concede la prueba de escaneo de la instancia a, cada miembro cuya prueba diaria de {{2}} terminó y nunca se movió: la fecha de su cuota sigue siendo igual a su canje más {{3}} al milisegundo, algo que solo cambia un pago o un operador. Borra la fecha y establece el límite diario de la prueba. Idempotente: una cuenta concedida nunca se lista de nuevo. Responde {{4}}"
+  },
   "908f815ac31a350a": {
     "en": "The sync server is tenancy, and it sits in front of the compute on a managed instance",
     "model": "google/gemini-3.8-flash",
@@ -7199,6 +7511,12 @@
     "at": "2026-09-14",
     "es": "inference"
   },
+  "926d2cd9cd185e52": {
+    "en": "Aggregate counts: accounts, blobs, bytes, key records, {{0}}, {{1}}, {{2}}, and the {{3}} that bounds it ({{4}} for no ceiling); {{5}}; and {{6}}: invites the request door of §5.8.3 minted today and in the last seven days, trials granted in the last seven days, and today's scan-trial requests",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Conteos agregados: cuentas, blobs, bytes, registros de clave, {{0}}, {{1}}, {{2}}, y el {{3}} que lo limita ({{4}} si no hay tope); {{5}}; y {{6}}: invitaciones generadas hoy y en los últimos siete días por la puerta de peticiones de §5.8.3, pruebas concedidas en los últimos siete días, y las peticiones de prueba de escaneo de hoy"
+  },
   "92898d5485322f99": {
     "en": "{{0}} Postgres's container runs as a non-root user inside the container, and that user needs to own its data directory. A named volume, which is what {{1}} and openplate's {{2}} and {{3}} already use, solves this automatically: Podman creates the volume with the right ownership. If you switch to a bind-mounted host directory instead, fix its ownership first, from the host, with {{4}} (70 is the {{5}} user in the {{6}} image these files pin; the Debian-based image uses 999), or the container fails to start with a permissions error. Touches rungs 2 and 4.",
     "model": "google/gemini-3.8-flash",
@@ -7210,6 +7528,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Almacenar ambos verificadores como hashes con clave de los valores {{0}} y {{1}} enviados, bajo un secreto guardado fuera de la base de datos. Nunca el valor enviado en sí, y jamás en texto no cifrado."
+  },
+  "92a762837cd59b27": {
+    "en": "Deleting the account does not delete it earlier",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Eliminar la cuenta no hace que se borre antes"
   },
   "92e62c82b2aa7e1f": {
     "en": "Argon2id",
@@ -7252,6 +7576,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "10. Implementar un servidor alternativo"
+  },
+  "9390298f3fb0c5b1": {
+    "en": "no",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "ninguna"
   },
   "93c94bce78aa4601": {
     "en": "Because the browser makes that call, the endpoint must be an address a {{0}} can reach. A compose hostname like {{1}} will not work even though the two containers can reach each other that way. Use the host's LAN address, a tailnet name, or a hostname on your reverse proxy.",
@@ -7349,6 +7679,12 @@
     "at": "2026-09-14",
     "es": "RTX 4090"
   },
+  "9594346a65393513": {
+    "en": "{{0}} is a {{1}} on an instance that runs no scan trial. {{2}} is the number of free AI scans a new account gets there, with no end date (§5.19, \"The scan trial\"). A client that finds no {{3}} {{4}}. The number is the one every trial door writes, published from the same setting, so the sentence a person reads before signing up and the count the proxy keeps cannot drift apart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} es una {{1}} en una instancia que no ejecuta ninguna prueba de escaneo. {{2}} es el número de escaneos gratuitos de IA que una cuenta nueva recibe allí, sin fecha de finalización (§5.19, \"La prueba de escaneo\"). Un cliente que no encuentra {{3}} {{4}}. El número es el que escribe cada puerta de prueba, publicado a partir del mismo ajuste, por lo que la frase que lee una persona antes de registrarse y el cómputo que lleva el proxy no pueden desfasarse."
+  },
   "9597af1d1dcad2ac": {
     "en": "{{0}}: 12 random bytes, fresh per encryption, packed as the {{1}}. There is no separate IV field anywhere in this protocol.",
     "model": "google/gemini-3.8-flash",
@@ -7396,6 +7732,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Qué se rechaza"
+  },
+  "962a634897fc5f28": {
+    "en": "promise, like {{0}} below, so it is absent rather than {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "promesa, como {{0}} abajo, por lo que está ausente en lugar de {{1}}"
   },
   "9644705bac5d73db": {
     "en": "The request never left this host",
@@ -7534,6 +7876,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "El tope de la instancia"
+  },
+  "9819743392f4cb7e": {
+    "en": "treats a request with {{0}} id as its own action, so a client that never sends one is counted correctly for every single-request action.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "trata una solicitud con identificador {{0}} como su propia acción, de modo que un cliente que nunca envíe uno se contabiliza correctamente para cada acción de una sola solicitud."
   },
   "982d9e3eb996f559": {
     "en": "text",
@@ -7787,6 +8135,12 @@
     "at": "2026-09-14",
     "es": "Si no se puede acceder al saludo o este tiene un formato incorrecto, trátalo como una discrepancia. Un servicio que no se puede verificar no es un servicio compatible."
   },
+  "9cb6b395f9424352": {
+    "en": "{{0}} A mailbox whose key already redeemed an invite that carried free scans, under any spelling, or whose account held a trial and was deleted, gets an invite whose trial is {{1}}: the person still gets an account, and the first scan answers {{2}}. The service recognises the mailbox by a keyed hash of its trial key, never by a stored address (§9.2).",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} Un buzón cuya clave ya canjeó una invitación con escaneos gratuitos, bajo cualquier grafía, o cuya cuenta tuvo una prueba y se eliminó, recibe una invitación cuya prueba es {{1}}: la persona sigue obteniendo una cuenta, y el primer escaneo responde {{2}}. El servicio reconoce el buzón mediante un hash con clave de su clave de prueba, nunca mediante una dirección almacenada (§9.2)."
+  },
   "9ccdb48a424e03f6": {
     "en": "the protocol",
     "model": "google/gemini-3.8-flash",
@@ -7877,11 +8231,23 @@
     "at": "2026-09-14",
     "es": "{{0}}: cuántas sesiones activas existen, cuándo se creó cada una y cuándo se rotaron o revocaron tokens por última vez. Los valores de los tokens en sí solo se guardan como resúmenes criptográficos."
   },
+  "9df6526f8ce9325d": {
+    "en": "The answer was on its way",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La respuesta estaba en camino"
+  },
   "9e0e9c51d278af43": {
     "en": "{{0}}: {{1}}. That file is the copy that outlives a cleared browser or a dead phone. The app shows a reminder banner when a device holds data you have never exported, or have not exported in a while.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "{{0}}: {{1}}. Ese archivo es la copia que sobrevive si borras los datos del navegador o si el teléfono se rompe. La app muestra un aviso si un dispositivo guarda datos que nunca has exportado, o que hace tiempo que no exportas."
+  },
+  "9e39129880f0547f": {
+    "en": "Why the scan differs, where it does",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Por qué el escaneo difiere, donde lo hace"
   },
   "9e793e927ed6387d": {
     "en": "{{0}} raise that key's limit. Takes effect immediately, no restart anywhere.",
@@ -7997,6 +8363,12 @@
     "at": "2026-09-14",
     "es": "El rendimiento de la CPU no mejora con la concurrencia."
   },
+  "a0a6951324926230": {
+    "en": "Present only where {{0}} is {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Solo está presente cuando {{0}} es {{1}}"
+  },
   "a0afb877754949fc": {
     "en": "The service stores each entry as ciphertext and never receives your password. It does hold each account's recovery code, sealed under a secret of its own, so a forgotten password is reset by a mailed link and the diary comes back. That also means the operator of the service can, in principle, open a diary on it. {{0}} states that trade-off in full, and so does the app before you finish setting sync up.",
     "model": "google/gemini-3.8-flash",
@@ -8068,6 +8440,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Onboarding"
+  },
+  "a225602d519570b9": {
+    "en": "The request reached nobody",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La petición no llegó a nadie"
   },
   "a23c727801240061": {
     "en": "off by default",
@@ -8249,6 +8627,12 @@
     "at": "2026-09-14",
     "es": "Las variables del modo externo ({{0}}, {{1}}, {{2}}) se documentan en {{3}}."
   },
+  "a6c8e5d7f1ab29ac": {
+    "en": "{{0}} is a {{1}} machine code, for a third sentence: \"you used your free scans\". A client shows the plan offer for it, not \"ask your administrator\" ({{2}}) and not \"your time ran out\" ({{3}}). A client older than the code reads an unknown {{4}}, which is why it is separate rather than folded into either.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} es un código de máquina {{1}}, para una tercera frase: \"has agotado tus escaneos gratuitos\". El cliente muestra la oferta del plan para este caso, no \"consulta a tu administrador\" ({{2}}) ni \"tu tiempo ha terminado\" ({{3}}). Un cliente más antiguo que el código lee un {{4}} desconocido, motivo por el cual va por separado en vez de integrarse en cualquiera de ellos."
+  },
   "a6cad970843b79b8": {
     "en": "Not knowable from the above: what was eaten, when, how much, or anything else inside the payload.",
     "model": "google/gemini-3.8-flash",
@@ -8345,11 +8729,23 @@
     "at": "2026-09-14",
     "es": "Por qué usar un par."
   },
+  "a8e1c33a449f0b57": {
+    "en": "{{0}} Per source address, five requests an hour with every attempt counted, which bounds one script. Per mailbox, one letter a day: further requests still answer {{1}} and send nothing, so the bound cannot say which addresses somebody else asked about. The mailbox key is the {{2}}: the canonical address (§5.8) with a {{3}} removed from the local part, and for {{4}} and {{5}} with every dot removed and the domain written {{6}}. {{7}}, {{8}} and {{9}} share one key; {{10}} and {{11}} do not.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} Por dirección de origen, cinco peticiones por hora contando cada intento, lo que limita la acción de un script. Por buzón, un mensaje al día: las peticiones adicionales siguen respondiendo {{1}} y no envían nada, de modo que el límite no puede revelar por qué direcciones preguntó otra persona. La clave del buzón es el {{2}}: la dirección canónica (§5.8) eliminando cualquier {{3}} de la parte local, y para {{4}} y {{5}} eliminando cada punto y escribiendo el dominio como {{6}}. {{7}}, {{8}} y {{9}} comparten una misma clave; {{10}} y {{11}} no."
+  },
   "a8e89cea090faa43": {
     "en": "A window longer than 90 days is answered with 90",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Una ventana superior a 90 días se responde con 90"
+  },
+  "a8e95d25b0d1eee8": {
+    "en": "not taken, or released",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "no consumida, o liberada"
   },
   "a90cfbb2a37916a6": {
     "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
@@ -8513,6 +8909,12 @@
     "at": "2026-09-14",
     "es": "Licencia MIT"
   },
+  "abdc7835abda2059": {
+    "en": "An invite may carry a {{0}} ({{1}}, §5.19): open sign-up, an admin mint with {{2}} and, where the instance runs it, a member invite write the instance's number on the row, and redemption copies it to the account with no end date.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una invitación puede llevar una {{0}} ({{1}}, §5.19): el registro abierto, una generación por parte del administrador con {{2}} y, si la instancia la ejecuta, una invitación de miembro escriben el número de la instancia en la fila, y el canje lo copia a la cuenta sin fecha de finalización."
+  },
   "abe1f250520cf41d": {
     "en": "Minting is {{0}}. An older PENDING invite for the same address is revoked by a new one, so there is never more than one live capability per address; an address that already has an account cannot be invited at all ({{1}}).",
     "model": "google/gemini-3.8-flash",
@@ -8639,6 +9041,12 @@
     "at": "2026-09-14",
     "es": "La escritura es un compare-and-swap sobre el verificador de recuperación con el que coincidió la prueba"
   },
+  "ad3278c7ad1eea29": {
+    "en": "Request: {{0}}. {{1}} is required when {{2}} is present and ignored otherwise; nothing else in the body is read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Petición: {{0}}. Se requiere {{1}} cuando {{2}} está presente y se ignora en caso contrario; no se lee nada más del cuerpo."
+  },
   "ad52ad1e280430fd": {
     "en": "Common failures, in the order they happen",
     "model": "google/gemini-3.8-flash",
@@ -8704,6 +9112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "openplate es una app local por defecto: tu diario reside en el IndexedDB del navegador en el dispositivo que utilizas, y nada sale de él. Mover ese diario entre dispositivos es lo único que requiere una cuenta, por lo que reside en un servicio independiente, {{0}}, con su propia imagen, base de datos y secretos."
+  },
+  "ae9048f511dfe636": {
+    "en": "removes the address and the name from every invitation row about that mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "elimina la dirección y el nombre de cada fila de invitación sobre ese buzón"
   },
   "aea46507e0283fa4": {
     "en": "Scans return 401",
@@ -8795,6 +9209,12 @@
     "at": "2026-09-14",
     "es": "síntoma"
   },
+  "b0bd592061a46a38": {
+    "en": "{{0}}: for each, an address, an optional name, a role and an allowance, belonging to somebody who has NO account yet and gave no consent. Minting one is an operator action, and {{1}} withdraws the row. A row the request door of §5.8.3 minted is marked as such, so an operator can count them.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}: para cada una, una dirección, un nombre opcional, un rol y una cuota, pertenecientes a alguien que todavía NO tiene cuenta y no dio su consentimiento. Generar una es una acción de operador, y {{1}} retira la fila. Una fila generada por la puerta de peticiones de §5.8.3 queda marcada como tal, para que un operador pueda contarlas."
+  },
   "b0ec42d6f0895175": {
     "en": "{{0}} {{1}}, {{2}}, {{3}}, {{4}}, every bearer-guarded route and the admin tree answer {{5}}, that exact string, so a client can recognise it and say what happened. On {{6}} and the recovery paths the check runs AFTER the credential is verified, so an unknown address still gets the ordinary indistinguishable {{7}}.",
     "model": "google/gemini-3.8-flash",
@@ -8842,6 +9262,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Hay tres opciones detrás de «tu endpoint de IA»: un proveedor en la nube donde tengas una clave, un equipo con openplate-inference en tu propio hardware o, en una instancia gestionada, el propio servidor de sincronización, que reenvía la foto y la descuenta de tu cuota. {{0}} ilustra las cuatro formas de ejecutar openplate, con un pequeño esquema para cada una."
+  },
+  "b1e99324505bd32d": {
+    "en": "third",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "tercero"
   },
   "b239ecb13dfa34ce": {
     "en": "{{0}}: unauthenticated, throttled per (IP, email), NEVER cleared on success.",
@@ -8926,6 +9352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Diario"
+  },
+  "b37c9c5c2e10f5f9": {
+    "en": "{{0}}, {{1}}, {{2}} (an ISO instant, or {{3}} to clear it), {{4}} (the free scans granted, an integer from 0 to 100, or {{5}} to take the scan trial away; it never touches how many are used), {{6}}, {{7}}. At least one required",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, {{1}}, {{2}} (un instante ISO, o {{3}} para borrarlo), {{4}} (los escaneos gratuitos concedidos, un entero de 0 a 100, o {{5}} para retirar la prueba de escaneo; nunca altera cuántos se han usado), {{6}}, {{7}}. Se requiere al menos uno"
   },
   "b3b309cccc091778": {
     "en": "{{0}} and {{1}} on any port. {{2}} is not on the list, because a CSP source cannot name an IPv6 address; point a client at {{3}} instead.",
@@ -9040,6 +9472,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "se niega a sincronizar"
+  },
+  "b608043517173349": {
+    "en": "kept until the end of the third calendar year after the year it arrived",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "se conserva hasta el final del tercer año natural posterior al año en que llegó"
   },
   "b60905d1c07a11f5": {
     "en": "5.8.2 {{0}}",
@@ -9226,6 +9664,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "La alternativa: una máquina de inferencia compartida"
+  },
+  "b8fa3a2599f05880": {
+    "en": "{{0}}, on an instance that runs a scan trial: the address and the name are removed from every invitation row about that mailbox, and, only when the account held a trial, {{1}}: no date, no name, no id. It is what stops the same mailbox from getting a second trial. Without the operator's secret the hash cannot be reversed or matched against a list of addresses. On an instance that runs no scan trial, invitation rows keep their address after a deletion, for the member re-invite rule of §5.21.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}, en una instancia que ejecuta una prueba de escaneo: la dirección y el nombre se eliminan de cada fila de invitación correspondiente a ese buzón de correo y, únicamente cuando la cuenta tenía una prueba, {{1}}: sin fecha, sin nombre, sin id. Es lo que impide que el mismo buzón obtenga una segunda prueba. Sin el secreto del operador, el hash no se puede revertir ni contrastar con una lista de direcciones. En una instancia que no ejecuta ninguna prueba de escaneo, las filas de invitación conservan su dirección tras una eliminación, para la regla de reinvitación de miembros de §5.21."
   },
   "b9014eaab626647d": {
     "en": "requires",
@@ -9473,6 +9917,18 @@
     "at": "2026-09-14",
     "es": "{{0}}: límite total para una llamada de completado, en milisegundos. {{1}} Se aplica en {{2}}: un {{3}} bloqueado queda tan mudo como un proxy mal enrutado. Si tu hardware legítimamente necesita más de diez minutos por plato, auméntalo o establécelo en {{4}}; el mensaje de fallo indicará el nombre de la variable."
   },
+  "bdb9e95057a2d50e": {
+    "en": "{{0}} A server MUST NOT log the submitted address or the captcha token.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} Un servidor NO DEBE registrar la dirección enviada ni el token de captcha."
+  },
+  "bdc6419e6b1595ab": {
+    "en": "One mailbox, one trial, ever.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Un buzón, una prueba, para siempre."
+  },
   "bdcd1280fae1349b": {
     "en": "The whole diary, in the clear, in IndexedDB. Your AI key. Cached plate photos.",
     "model": "google/gemini-3.8-flash",
@@ -9539,6 +9995,12 @@
     "at": "2026-09-14",
     "es": "{{0}} es {{1}}, como todo lo demás en este bloque. Un cliente lo lee para decidir si dibuja una tarjeta de invitación o no; nunca lo lee para decidir si puede acuñar. {{2}} significa que {{3}} responde con el habitual {{4}} de ruta desconocida, y {{5}} sigue dejando el límite total, la regla de reinvitación y la limitación de tasa en manos del servicio."
   },
+  "bf84d3d60e93cc95": {
+    "en": "boolean",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "booleano"
+  },
   "bf8cee3cfc7f7682": {
     "en": "Matomo",
     "model": "google/gemini-3.8-flash",
@@ -9599,11 +10061,23 @@
     "at": "2026-09-14",
     "es": "{{0}} el panel de OpenRouter desglosa el uso por clave. Como cada clave lleva el nombre de una persona, esa es tu factura por persona."
   },
+  "c1e6494c21e5071a": {
+    "en": "one fresh id per person action, reused by every retry of that action",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "un identificador nuevo por acción de la persona, reutilizado en cada reintento de esa acción"
+  },
   "c1f3877233332e6e": {
     "en": "strictly greater than the stored one",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "estrictamente mayor que la almacenada"
+  },
+  "c1f39ef5568a56c1": {
+    "en": "Unauthenticated, IP-throttled. {{0}}, on every instance. On an instance with {{1}}, a person may ASK for an invite addressed to themselves (§5.8.3); what they receive is an ordinary invite, redeemed here exactly like one an operator minted. {{2}} is a boot failure, because there is no mode to set: the only switch is whether the request door of §5.8.3 exists.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sin autenticación, con límite de tasa por IP. {{0}}, en cada instancia. En una instancia con {{1}}, una persona puede SOLICITAR una invitación dirigida a sí misma (§5.8.3); lo que recibe es una invitación ordinaria, canjeada aquí exactamente como una generada por un operador. {{2}} es un fallo de arranque, porque no hay ningún modo que configurar: el único interruptor es si existe la puerta de solicitud del §5.8.3."
   },
   "c236590c52503564": {
     "en": "The lead, above the cancellation form.",
@@ -9941,6 +10415,12 @@
     "at": "2026-09-19",
     "es": "Un reporte y su fotografía desaparecen tras {{0}}"
   },
+  "c99ba48abfb60bbd": {
+    "en": "No address is logged, on any branch.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "No se registra ninguna dirección, en ninguna rama."
+  },
   "c9a1a823b79389a3": {
     "en": "Re-authentication is required even though the caller already holds a valid token",
     "model": "google/gemini-3.8-flash",
@@ -10061,6 +10541,12 @@
     "at": "2026-09-14",
     "es": "Metadatos de sesión"
   },
+  "cb75716387553a62": {
+    "en": "Connection refused / header timeout",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Conexión rechazada / tiempo de espera agotado para la cabecera"
+  },
   "cb92b9cfe31d70b1": {
     "en": "A bearer token in an {{0}} header. {{1}}",
     "model": "google/gemini-3.8-flash",
@@ -10162,6 +10648,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Arquitectura"
+  },
+  "cd99506b6589dc7a": {
+    "en": "MUST NOT state a number of free scans",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "NO DEBE indicar un número de escaneos gratuitos"
   },
   "cda202ddc74170e8": {
     "en": "{{0}} carries {{1}} day in the window, in order, with {{2}} for a day that has no row. A missing day and a quiet day must not look the same to whoever reads the strip.",
@@ -10547,6 +11039,12 @@
     "at": "2026-09-19",
     "es": "{{0}} (30 en esta implementación, eliminados mediante un barrido cada hora), antes si un operador elimina el reporte (§5.20), y junto con la cuenta."
   },
+  "d45e495b391d5fcd": {
+    "en": "The whole instance has spent its daily ceiling, or the scan-trial accounts have spent theirs. {{0}} is seconds to the next UTC midnight",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Toda la instancia ha agotado su límite diario, o las cuentas con prueba de escaneo han agotado el suyo. {{0}} son los segundos hasta la próxima medianoche UTC"
+  },
   "d4735e3a265e16ee": {
     "en": "2",
     "model": "google/gemini-3.8-flash",
@@ -10642,6 +11140,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Antes de configurar {{0}}, ten en cuenta que es público"
+  },
+  "d5b51aa424afde10": {
+    "en": "Mints one (§5.8). The token is returned {{0}}. {{1}} writes the instance's scan trial instead of an allowance: {{2}} on an instance that runs none, and {{3}} beside a {{4}}. Without the field the mint is a standing grant, as before",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Genera uno (§5.8). El token se devuelve {{0}}. {{1}} escribe la prueba de escaneo de la instancia en lugar de una cuota: {{2}} en una instancia que no ejecuta ninguna, y {{3}} junto a un {{4}}. Sin el campo, la generación es una concesión permanente, como antes"
   },
   "d5ed145afd2a522d": {
     "en": "Tailscale issues and renews the certificate; the app becomes reachable at {{0}}. Set {{1}} to that URL.",
@@ -10907,6 +11411,12 @@
     "at": "2026-09-14",
     "es": "{{0}}: el servicio de sincronización por separado"
   },
+  "db1bc1d05c3f35b0": {
+    "en": "The scan-trial accounts may have a ceiling of their own",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Las cuentas de prueba de escaneo pueden tener su propio tope"
+  },
   "db3fb9b8cac3b4a1": {
     "en": "One opinion about a blob, and it is not a sixth hole.",
     "model": "google/gemini-3.8-flash",
@@ -10978,6 +11488,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "La clave debe estar presente."
+  },
+  "dd16582dda3a9879": {
+    "en": "Upstream {{0}}, then the caller hangs up",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} ascendente, luego quien llama cuelga"
   },
   "dd167905de0defca": {
     "en": "Version",
@@ -11056,6 +11572,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "openplate carga páginas legales a partir de archivos markdown que montas en el contenedor. El repositorio no contiene ningún texto legal propio. Tú redactas los términos, la política de privacidad, el aviso legal (imprint) y las páginas de los dos botones reglamentarios. Describen tu instancia y te identifican como el operador."
+  },
+  "def48e9264b06cb1": {
+    "en": "keyed one-way hash of its mailbox",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "hash unidireccional con clave de su buzón de correo"
   },
   "df082a6b8fd1b8c0": {
     "en": "{{0}}: rung 1, the app alone",
@@ -11729,6 +12251,12 @@
     "at": "2026-09-14",
     "es": "docs/hardware.md de openplate-inference"
   },
+  "ecb7a94d274691ca": {
+    "en": "5.8.3 {{0}}: a person asks for an account",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "5.8.3 {{0}}: una persona solicita una cuenta"
+  },
   "ed0edec523037bf1": {
     "en": "The path a scan takes is short, and the grammar sits in the middle of it. The browser posts one photo to this service, which checks the key, admits the request, downscales the image and makes a single vision call under a JSON schema. Your runtime is the only thing that enforces that schema, which is why the matrix below is about enforcement rather than about speed. What comes back is names and grams; the macros are looked up afterwards, from the configured food source, and the model never writes one.",
     "model": "google/gemini-3.8-flash",
@@ -11795,6 +12323,12 @@
     "at": "2026-09-14",
     "es": "{{0}}. CAS sobre un {{1}} monotónico. La contribución es el conjunto de datos acumulativo de la ventana, recalculado y reenviado entero; el cliente siempre conserva el origen, así que esta fila es una proyección, nunca una copia primaria."
   },
+  "ede0d909a7b8f5ef": {
+    "en": "Write {{0}} and {{1}}, and nothing else. {{2}} is refused like every other field: a credential that pays for an allowance does not hand out free scans",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Escribe {{0}} y {{1}}, y nada más. {{2}} se rechaza como cualquier otro campo: una credencial que paga por una cuota no regala escaneos gratuitos"
+  },
   "ee04fe83962f46e2": {
     "en": "{{0}} or {{1}}. An admin's own access token authenticates {{2}}.",
     "model": "google/gemini-3.8-flash",
@@ -11824,6 +12358,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "el README de openplate-core"
+  },
+  "eea6d4ece284018b": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a person may ask for an account here (§5.8.3), {{13}} says what that request needs, {{14}} promises the free scans a new account gets (§5.19), {{15}} says whether a biller stands behind this instance so {{16}} exists (§5.22), {{17}} says whether this instance can send web push so {{18}} exists (§5.24), {{19}} says whose micronutrient reference values it shows, and {{20}} is {{21}} when no upstream key is configured.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} describe qué es este despliegue y qué puede hacer, y es {{1}}: un servicio anterior al campo lo omite, y un cliente que lo exigiera se negaría a comunicarse con cualquiera de esas instancias. {{2}} es la etiqueta que el operador da a la instancia, {{3}} es uno de {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (los seis idiomas en los que se redactan sus correos; un cliente lo muestra y nunca bifurca según su valor, por lo que un séptimo no supone un cambio de protocolo), {{10}} indica si puede enviar correos en absoluto, {{11}} indica si un miembro ordinario puede invitar a personas aquí (§5.21), {{12}} indica si una persona puede solicitar una cuenta aquí (§5.8.3), {{13}} indica qué necesita esa solicitud, {{14}} promete los escaneos gratuitos que recibe una cuenta nueva (§5.19), {{15}} indica si hay un sistema de facturación detrás de esta instancia de modo que {{16}} existe (§5.22), {{17}} indica si esta instancia puede enviar notificaciones push web de modo que {{18}} existe (§5.24), {{19}} indica los valores de referencia de micronutrientes de quién muestra, y {{20}} es {{21}} cuando no hay ninguna clave upstream configurada."
+  },
+  "eeb6bc176516f21b": {
+    "en": "{{0}} The invited account gets {{1}}, the same invite lifetime the admin mint defaults to, and ONE of two grants, never both: under the day pair, {{2}} from {{3}} and an {{4}} of redemption plus {{5}} written at signup; under {{6}}, the instance's scan trial (§5.19) with no date. A member invitation minted under the day pair and redeemed after the instance switched gets the scan trial, not a date. A {{7}}, a {{8}} or an {{9}} in the body is not refused, it is simply not read. Those three ARE body fields on {{10}} (§5.20), which is the difference between a member and an operator.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}} La cuenta invitada obtiene {{1}}, la misma duración de invitación predeterminada para la generación de admin, y UNA de dos concesiones, nunca ambas: bajo el par diario, {{2}} de {{3}} y una {{4}} de canje más {{5}} escrita al registrarse; bajo {{6}}, la prueba de escaneo de la instancia (§5.19) sin fecha. Una invitación de miembro generada bajo el par diario y canjeada después de que la instancia cambiara obtiene la prueba de escaneo, no una fecha. Un {{7}}, un {{8}} o un {{9}} en el cuerpo no se rechaza, simplemente no se lee. Esos tres SÍ son campos del cuerpo en {{10}} (§5.20), que es lo que distingue a un miembro de un operador."
   },
   "eebf638b5ebd8e75": {
     "en": "Settings → Account",
@@ -11902,6 +12448,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "30 minutos"
+  },
+  "f0297348141b8602": {
+    "en": "{{0}}: the captcha provider could not be asked. Retry later",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{0}}: no se pudo consultar al proveedor de captcha. Inténtalo de nuevo más tarde"
   },
   "f04cbaa3d84c8352": {
     "en": "{{0}} is unset. Retrieval is lexical-only by configuration. Normal.",
@@ -12178,6 +12730,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "es": "openplate no incluye lista de correo. Si defines a la vez {{0}} y {{1}}, la página de inicio añade un formulario de registro. El navegador lo envía al servidor de openplate, que reenvía {{2}} a tu URL, con un máximo de cinco peticiones por minuto desde una misma dirección. El navegador nunca llega a conocer esa URL, por lo que puede residir en una red privada. Si defines uno sin el otro, el arranque se detiene. Si dejas ambos sin definir, que es el valor predeterminado, no habrá formulario, ni script adicional, ni cambios en la CSP."
+  },
+  "f686241ec48f0526": {
+    "en": "A request that got {{0}}: the give-back runs on every row of the table below except a delivered {{1}}, and on every refusal after the claim (the ceilings and the daily allowance). This differs from the daily unit on purpose, row by row:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una solicitud que obtuvo {{0}}: la devolución se ejecuta en cada fila de la tabla siguiente excepto en un {{1}} entregado, y en cada rechazo tras la reserva (los límites y la cuota diaria). Difiere a propósito de la unidad diaria, fila por fila:"
   },
   "f68d99d3b1e0fcc8": {
     "en": "Once it is running, you can either hand each person a key ({{0}}) or set {{1}} and friends so every visitor gets a one-tap connect, with the caveat that {{2}} is embedded in the page and readable by anyone who can open the app. See {{3}}.",
