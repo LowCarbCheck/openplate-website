@@ -221,6 +221,12 @@
     "at": "2026-09-14",
     "tr": "Çalışma zamanı uyumluluk sorunları (her taramada 502, bozuk çıktı, yanlış eşzamanlılık): {{0}}."
   },
+  "049ded1e11f91ead": {
+    "en": "{{0}} is the page heading. {{1}} is a calendar date, and the app draws it under the heading as \"Last updated\", in the reader's language. Do not repeat either one in the body.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} sayfa başlığıdır. {{1}} bir takvim tarihidir ve uygulama bunu başlığın altına, okuyucunun dilinde \"Son güncelleme\" olarak çizer. Gövdede ikisini de tekrarlama."
+  },
   "04bf7ff7366b80e3": {
     "en": "{{0}} ({{1}}, {{2}}, {{3}}). The server stores one subscription per device: the browser's push address and its keys, a time zone, a language and the reminder settings. It sends each device at most two notifications a day, and each one carries only its kind, never text about you. Your browser's push service delivers it.",
     "model": "google/gemini-3.8-flash",
@@ -305,6 +311,12 @@
     "at": "2026-09-14",
     "tr": "Yemek verileri"
   },
+  "0654e6dc45535253": {
+    "en": "After the receipt lines, before the print button.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Makbuz satırlarından sonra, yazdır düğmesinden önce."
+  },
   "065fc1c104495573": {
     "en": "Ports below 1024.",
     "model": "google/gemini-3.8-flash",
@@ -382,6 +394,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "ayarlanmamış (analitik kapalı)"
+  },
+  "073cffc70c71ecf0": {
+    "en": "Headings {{0}} and {{1}}. {{2}} is the title and is never written.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ve {{1}} başlıkları. {{2}} başlıktır ve asla yazılmaz."
   },
   "075f058c2346fdc6": {
     "en": "{{0}} Without it the path answers the ordinary unknown-path {{1}} to everybody, credentialed or not, and {{2}} carries no {{3}} (§5.6). A client MUST read {{4}} before it offers a report. It MUST state the retention window that field advertises and no other.",
@@ -496,6 +514,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Önce fotoğrafı, ardından bildirimi siler. Bilinmeyen bir kimlik için {{0}} veya {{1}}"
+  },
+  "0a1f870083c775e7": {
+    "en": "Content pages",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İçerik sayfaları"
   },
   "0a35f99d3f6e27dd": {
     "en": "{{0}} An openplate client uses exactly one of these endpoints, and only when the signed-in account is an admin: the console the app renders at {{1}}. An alternative client may ignore this section entirely.",
@@ -887,6 +911,12 @@
     "at": "2026-09-14",
     "tr": "yeni"
   },
+  "115c5bf4eb7ec851": {
+    "en": "UTF-8, LF line ends, no byte order mark. Each file starts with exactly this front matter:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "UTF-8, LF satır sonları, bayt sırası işareti yok. Her dosya tam olarak şu ön kısımla başlar:"
+  },
   "116d5f9a14b0d613": {
     "en": "Diary in this browser",
     "model": "google/gemini-3.8-flash",
@@ -929,6 +959,12 @@
     "at": "2026-09-19",
     "tr": "Ayarlar, Plan"
   },
+  "1287ddcc19cfe707": {
+    "en": "A definition list: a term line followed by one or more {{0}} lines, with no blank line between the entries.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Tanım listesi: bir terim satırı ve ardından gelen bir veya daha fazla {{0}} satırı; girdiler arasında boş satır bırakılmaz."
+  },
   "12e9ff0b6ea221be": {
     "en": "So at most {{0}}, and therefore at most {{1}}, per account. The daily tier is per calendar DAY rather than per count on purpose: two devices in a merge loop produce versions as fast as the network allows, and a count-based tier is exhausted by that in minutes. The pin tier is capped because a pin is taken on a client's own claim.",
     "model": "google/gemini-3.8-flash",
@@ -946,6 +982,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Gramer"
+  },
+  "133a4c40d463074f": {
+    "en": "Links {{0}}. The target is a path in the app ({{1}}), {{2}}, {{3}} or {{4}}. A path in the app opens without a reload.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bağlantılar {{0}} şeklindedir. Hedef, uygulama içindeki bir yol ({{1}}), {{2}}, {{3}} veya {{4}} olabilir. Uygulama içindeki bir yol, sayfa yeniden yüklenmeden açılır."
   },
   "13582c37aee4c263": {
     "en": "{{0}} {{1}} being set revokes every outstanding {{2}} and {{3}} token in the same transaction, so a suspension takes effect immediately rather than when the current access token expires.",
@@ -976,6 +1018,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "ölçtüğümüz tek boyut 24 GB"
+  },
+  "13f70091e784bc06": {
+    "en": "Every other page has no sections: its whole body is the page.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Diğer tüm sayfalar bölümsüzdür: gövdenin tamamı sayfayı oluşturur."
   },
   "140bedbf9c3f6d56": {
     "en": "none",
@@ -1018,6 +1066,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Onaylanmış bir küçülme kabul EDİLDİĞİNDE, hemen önceki sürüm {{0}} boyunca budanmaya karşı tutulur (§8)."
+  },
+  "14f285bb8c056430": {
+    "en": "Hosted instances mount files kept in a private repository, one tree per instance. That repository checks every file against this format before it ships. A refused page is caught before it reaches a server.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Barındırılan örnekler, her örnek için bir dizin ağacı olacak biçimde, özel bir depoda tutulan dosyaları bağlar. Bu depo, gönderilmeden önce her dosyayı bu biçime göre denetler. Reddedilen bir sayfa, sunucuya ulaşmadan yakalanır."
   },
   "15013c961c269d68": {
     "en": "1.72 s",
@@ -1264,6 +1318,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Eşitleme hizmetinde {{0}} ayarlanmış bir örnekte, bir kişi diyetisyen gibi bir klinisyenin günlüğünü okumasına izin verebilir. Klinisyen kişiye bir bağlantı linki gönderir. Kişi bu linki açar ve klinisyenin sesli okuduğu on iki karakteri yazar; böylece herhangi bir şey paylaşılmadan önce yanlış bir anahtar yakalanmış olur. Kişi daha sonra {{1}} altından paylaşım izni verir; uygulama, veri anahtarını klinisyenin genel anahtarıyla bir kez daha sarar ve bu sarılmış kopyayı yükler. Klinisyenin tarayıcısı bunu çözer ve günlüğü {{2}} adresinde gösterir. Sunucu, sarılmış kopyayı saklar ve bu kopyanın anahtarını asla tutmaz. Bir paylaşım istendiği zaman iptal edilebilir. Günlüğün özel bir bölmesi kişinin kendi paylaşım ve araştırma anahtarlarını tutar ve bir klinisyen bunu asla açamaz."
+  },
+  "19ed869677f778b1": {
+    "en": "Named sections",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Adlandırılmış bölümler"
   },
   "19f8475f9f9bf9a7": {
     "en": "No cookies, in either direction.",
@@ -1738,6 +1798,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Parolan tarayıcından asla ayrılmaz. Argon2id ile uzatılır ve HKDF tarafından bağımsız kollara ayrılır. İki kol, veri anahtarını ve özel ayarlarını çözmek için cihazda kalır. Üçüncü bir kol ise giriş kimlik bilgisi olarak hizmete gider. Bunlar üst ve alt ögeler değil, kriptografik kardeşlerdir; bu yüzden birini elinde bulundurmak diğerleri hakkında hiçbir şey ortaya çıkarmaz. Günlüğün yüklenmeden önce cihazda şifrelenir ve iletim sırasında da şifreli kalır; hizmet yalnızca mat şifreli metin saklar ve bunun dışında gördüğü tek şey bir e-posta adresi ile yüklemelerinin boyutu ve zamanlamasıdır."
+  },
+  "23d900bca148a10b": {
+    "en": "Paragraphs before the first heading are the page's lead and are drawn larger.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İlk başlıktan önceki paragraflar sayfanın giriş bölümüdür ve daha büyük çizilir."
   },
   "24030f251844969c": {
     "en": "Without {{0}}, the anonymous tier is exhausted (1,000 credits per UTC day per IP). With a key, its monthly allowance is spent or LowCarbCheck rejected the key. LowCarbCheck may also be unreachable. The log carries a warn line with {{1}}, {{2}}, {{3}}, and {{4}} fields. Set {{5}}, check the key, switch to {{6}}, or wait for the next UTC day.",
@@ -2459,6 +2525,12 @@
     "at": "2026-09-14",
     "tr": "Bu basamakta senin çalıştıracağın hiçbir şey yoktur. Günlüğü tarayıcı tutar, tarayıcı sağlayıcıyı içine yapıştırdığın anahtarla çağırır ve işleticinin sunucusu yalnızca sayfayı gönderir."
   },
+  "33b70f3629c9c3c9": {
+    "en": "A page that is missing in the reader's language is served in English. A page that is missing in English too is a 404. The app reads only these slugs. It never builds a path from a URL.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Okuyucunun dilinde eksik olan bir sayfa İngilizce olarak sunulur. İngilizcesi de eksik olan bir sayfa 404 verir. Uygulama yalnızca bu kısaltmaları okur. Asla bir URL üzerinden yol oluşturmaz."
+  },
   "33edb84fd6990e75": {
     "en": "Service ({{0}}), mirrored client-side for a better error",
     "model": "google/gemini-3.8-flash",
@@ -2620,6 +2692,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Özdeş iş yaptıktan sonra her {{1}} için {{0}} yanıtı ver ve {{2}} işleminin hesaba hiçbir şey yazmamasını sağla (§5.12). Bir doğrulayıcının yerini alan bir sıfırlama işlemi, adı ne olursa olsun, bu protokolün sildiği hesap ele geçirme yoludur."
+  },
+  "36f04a072e8ca341": {
+    "en": "Usually empty.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Genellikle boş."
   },
   "371a286d5872a373": {
     "en": "base64",
@@ -3101,6 +3179,12 @@
     "at": "2026-09-14",
     "tr": "Operatör her üç `VAPID_ değerini de ayarlamadıkça kapalıdır"
   },
+  "41be37eb5d1a8d85": {
+    "en": "Where the openplate instances get their files",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "openplate örnekleri dosyalarını nereden alır?"
+  },
   "41d82128bf3307e2": {
     "en": "{{0}}. {{1}}: §3.2's AAD binds it, so a grantee without it cannot decrypt at all.",
     "model": "google/gemini-3.8-flash",
@@ -3148,6 +3232,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "ve dayandığı tanım:"
+  },
+  "42c89f3028621e27": {
+    "en": "A hard line break: a backslash as the last character of a line, followed by the next line of the same paragraph. Use it for a postal address.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Sert satır sonu: bir satırın son karakteri olarak ters eğik çizgi ve hemen ardından aynı paragrafın sonraki satırı. Bunu posta adresleri için kullan."
   },
   "42d3cbd0ef8d2f8a": {
     "en": "Your browser",
@@ -3311,6 +3401,12 @@
     "at": "2026-09-14",
     "tr": "Diğer her şey için: çalışma zamanı türün ve sürümün, kullanılan model, ilgili istek ve yanıt ile {{0}} çıktını ekleyerek bir sorun kaydı aç."
   },
+  "45c8de333765adb4": {
+    "en": "The file format",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Dosya biçimi"
+  },
   "45cb1418b25099cd": {
     "en": "Your runtime must enforce grammar-constrained decoding",
     "model": "google/gemini-3.8-flash",
@@ -3388,6 +3484,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Geri çekme işlemi bu tarafta verileri gerçekten siler."
+  },
+  "469fc0e151093dc5": {
+    "en": "Two pages keep a form in the app's code: {{0}} (cancel a contract) and {{1}} (withdraw from a contract). Their confirmation pages keep the receipt in code. The form labels, the buttons, the validation messages and the receipt lines are part of the app. The prose around them comes from the file. A named section carries each piece the app places around the form:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "İki sayfa, formları uygulamanın kodunda tutar: {{0}} (sözleşme feshi) ve {{1}} (sözleşmeden cayma). Bu sayfaların onay ekranları da makbuzu kod içinde tutar. Form etiketleri, düğmeler, doğrulama iletileri ve makbuz satırları uygulamanın parçasıdır. Bunları çevreleyen metinler ise dosyadan gelir. Adlandırılmış bir bölüm, uygulamanın formun etrafına yerleştirdiği her bir parçayı taşır:"
   },
   "46c49d46a1da7973": {
     "en": "openplate app",
@@ -3869,6 +3971,12 @@
     "at": "2026-09-14",
     "tr": "openplate-core bir günlüğü cihazlar arasında taşır. openplate içinde hesapları tutan tek hizmettir. Kendi imajı, veritabanı ve sırrı olan ayrı bir dağıtılabilir birimdir ve tarayıcı onunla doğrudan konuşur. Uygulama sunucusu onun adına hiçbir şeyi vekil olarak iletmez ve hiçbir eşitleme rotasına hizmet vermez."
   },
+  "4fa4c95c86932539": {
+    "en": "Every content route answers 404: {{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}} and {{8}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Her içerik rotası 404 yanıtı verir: {{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}} ve {{8}}."
+  },
   "4fbaa4102fd51326": {
     "en": "This wrap carries AAD; the §3.2 wrapped DEKs do not.",
     "model": "google/gemini-3.8-flash",
@@ -3922,6 +4030,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Çevrimdışı, anahtar yok, hesap yok, giden istek yok. Kamu malı. Kimseden hiçbir şeye ihtiyaç duymayan tek seçenek olduğu için varsayılandır."
+  },
+  "5024dd12ab8a9bf8": {
+    "en": "In place of the form when {{0}} is unset, and under the submit button when a submission cannot reach the declaration service.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ayarlanmadığında formun yerine, bir gönderim bildirim servisine ulaşamadığında ise gönder düğmesinin altına yerleştirilir."
   },
   "504f987c67cd67f4": {
     "en": "or a response",
@@ -4433,6 +4547,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, istemcininkine {{1}}. \"≥\" değil, \"uyumlu gibi\" değil."
   },
+  "5c77a063b558ae83": {
+    "en": "The folder",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Klasör"
+  },
   "5caf5bef19d35bf3": {
     "en": "Per key.",
     "model": "google/gemini-3.8-flash",
@@ -4571,6 +4691,12 @@
     "at": "2026-09-14",
     "tr": "Sunucu, takma adın biçimini doğrulamaz"
   },
+  "6015a0463be2875c": {
+    "en": "With {{0}} unset",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ayarlanmadığında"
+  },
   "6021e49bc284df53": {
     "en": "3.2 The envelope",
     "model": "google/gemini-3.8-flash",
@@ -4606,6 +4732,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-18",
     "tr": "{{0}} ve {{1}} iki farklı karardır ve bunları ayrı tutmak işe yarar."
+  },
+  "60ee3bd2f2b99347": {
+    "en": "As for {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} için olduğu gibi."
   },
   "61422199939158f4": {
     "en": "Authenticated with the account's ordinary {{0}} (§4.1). The body is an OpenAI-compatible chat-completion request and this specification does not constrain it further: the service checks only that it is a JSON object, because a stricter schema would reject every field the next provider adds. The response is the provider's, relayed with its status.",
@@ -5507,6 +5639,12 @@
     "at": "2026-09-14",
     "tr": "Bağlanan anahtar {{0}} sayfanda {{1}} etiketiyle görünür. openplate üzerinden bağlantıyı kesmek, anahtarı yalnızca o cihazdan temizler: anahtarı OpenRouter tarafında {{2}} iptal eder. Anahtarı o sayfadan kendin iptal et."
   },
+  "709d8a802dea7066": {
+    "en": "The app reads each file on request and keeps the parsed page in memory. It reads the file again when its modification time or size changes. An edit to a mounted file appears on the next request without a restart.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Uygulama her dosyayı istek üzerine okur ve ayrıştırılmış sayfayı bellekte tutar. Değiştirilme zamanı veya boyutu değiştiğinde dosyayı yeniden okur. Bağlanan bir dosyada yapılan düzenleme, yeniden başlatmaya gerek kalmadan bir sonraki istekte görünür."
+  },
   "70f7bd0fcf22cd94": {
     "en": "the built-in providers' own origins (OpenRouter, Mistral, Anthropic), derived automatically from the provider registry: see {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -5596,6 +5734,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Ağdaki bir kurtarma kodu Crockford base32 METNİDİR"
+  },
+  "7295d7b2bb6370aa": {
+    "en": "The body uses this subset and nothing else:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Gövde bu alt kümeyi kullanır ve başka hiçbir şey içermez:"
   },
   "7300e46f498bbf04": {
     "en": "{{0}} {{1}} is 1 to 128 characters after trimming, {{2}} is 1 to 64, and {{3}} is an instant. It is stored as the device's own clock and never corrected. The server's {{4}} sits beside it. {{5}} is a JSON object of at most 16 KB once serialised. The server has no schema for it and MUST NOT grow one: the bound exists so nobody can park a diary in the field. Any other body is {{6}}, one sentence for every field.",
@@ -5818,6 +5962,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Her iki taraf da bir paylaşıma yapay bir paylaşım kimliğiyle değil, {{0}} ile başvurur: bir paylaşımın değişmeyen kimliği (veren, alan) çiftidir ve DEK döndürme işleminden sonra da bu korunur."
+  },
+  "7764d961f3fee353": {
+    "en": "Raw HTML of any kind (a {{0}} followed by a letter, {{1}}, {{2}} or {{3}}), HTML character references such as {{4}}, images, tables, code, block quotes, {{5}} or {{6}} headings, nested or indented lists, and any {{7}} placeholder.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Her türlü ham HTML (bir harfin, {{1}}, {{2}} veya {{3}} karakterlerinin izlediği {{0}}), {{4}} gibi HTML karakter başvuruları, görseller, tablolar, kodlar, blok alıntılar, {{5}} veya {{6}} başlıkları, iç içe geçmiş veya girintili listeler ve herhangi bir {{7}} yer tutucusu."
   },
   "777df4b419868434": {
     "en": "{{0}} Foods matched against the database include a {{1}} of {{2}}, plus an {{3}} string when required by the source. Unmatched foods omit both fields, and {{4}} is null. openplate exposes these values, so users can separate confirmed database entries from items with no macro data.",
@@ -6065,6 +6215,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, {{1}}, {{2}} (bir ISO anı ya da temizlemek için {{3}}), {{4}}, {{5}}. En az biri zorunludur"
   },
+  "7dfb630757614adc": {
+    "en": "With a container, mount the folder read only and point the variable at the mount:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir konteyner kullanırken klasörü salt okunur bağla ve değişkeni bu bağlama noktasına yönlendir:"
+  },
   "7e14ab07ad2d1ba3": {
     "en": "Open an existing instance, such as <https://openplate.lowcarbcheck.org>, and paste your own provider key into {{0}}. There is no sign-up. Your diary lives in that browser's storage and never reaches the instance's server, so \"using someone else's instance\" gives that operator far less than the phrase suggests: see {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -6101,6 +6257,12 @@
     "at": "2026-09-14",
     "tr": "İlki AI vekilidir. İşletmeci bir sağlayıcı anahtarı yapılandırırsa, bu servis uygulamanın yemek fotoğrafı isteklerini {{0}} adresindeki ilgili sağlayıcıya vekiller, bu yüzden fotoğraf ile modelin yanıtı bu süreçten geçer. İkisi de yazılmaz, önbelleğe alınmaz veya günlüğe kaydedilmez: gövde değil, bir önek değil, kodu çözülmüş bir arabellek değil. Bir günlük satırının taşıdığı şey bir hesap kimliği, bir yukarı akış durumu, bayt sayıları ve bir süredir. Fotoğrafı GÖRÜR ve hiçbir şey tutmaz. {{1}} değerini ayarlanmamış bırakırsan bu rota var olmaz."
   },
+  "7e9456fb7042e3bf": {
+    "en": "A folder of markdown files for the legal pages ({{0}}), mounted read only. Unset, every content route answers 404 and no legal link is drawn. A value that names no folder stops the boot on purpose. See {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Salt okunur bağlanan, yasal sayfalara ait markdown dosyalarını içeren bir klasör ({{0}}). Ayarlanmadığında her içerik rotası 404 yanıtı verir ve hiçbir yasal bağlantı çizilmez. Herhangi bir klasörü göstermeyen bir değer, önyüklemeyi bilerek durdurur. Bkz. {{1}}."
+  },
   "7ea165cba74c9981": {
     "en": "Four routes, all behind the account's ordinary {{0}} (§4.1). An anonymous caller gets the ordinary {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -6130,6 +6292,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} {{1}} değerinin kardeşidir, ebeveyni veya çocuğu değildir: her ikisi de farklı {{2}} etiketleri altında aynı Argon2id özeti üzerindeki HKDF çıktılarıdır, bu yüzden birine sahip olmak diğeri hakkında hiçbir bilgi vermez. Sunucunun şifresini çözemediği bir kullanıcının kimliğini doğrulayabilmesinin tüm nedeni budur. {{3}} 32 bayttır, hatta base64 olarak iletilir."
+  },
+  "7f56e00d532e0efa": {
+    "en": "An escape: a backslash before {{0}}, {{1}}, {{2}} or {{3}} makes it literal.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kaçış karakteri: {{0}}, {{1}}, {{2}} veya {{3}} karakterlerinden önceki bir ters eğik çizgi, ilgili karakteri düz metne dönüştürür."
+  },
+  "7f5ed759c2182d3b": {
+    "en": "Paragraphs, separated by a blank line.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Boş bir satırla ayrılmış paragraflar."
   },
   "7f625939030e811a": {
     "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. The hosted instances at beta.openplate.de and app.openplate.de use this mode. It is off by default: a self-hoster who sets nothing gets the open app.",
@@ -6256,6 +6430,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Hesabın olağan {{0}} bilgisiyle doğrulanır (§4.1). Anonim bir arayan olağan {{1}} yanıtını alır."
+  },
+  "82467fffb97734f6": {
+    "en": "The note a signed-out visitor sees on a personal page links home and to sign in, with no imprint or privacy link.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Oturum açmamış bir ziyaretçinin kişisel sayfada gördüğü not, künye veya gizlilik bağlantısı olmadan ana sayfaya ve giriş yapmaya bağlantı verir."
   },
   "828249dd8e25799b": {
     "en": "A conforming {{0}} server needs, in full:",
@@ -6599,6 +6779,12 @@
     "at": "2026-09-14",
     "tr": "5.10 {{0}}"
   },
+  "8a24125c1f1fa2a1": {
+    "en": "Each of these pages must carry exactly the sections below, once each. A missing section or an extra one is refused like any other error.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bu sayfaların her biri, aşağıdaki bölümleri tam olarak birer kez içermek zorundadır. Eksik veya fazladan bir bölüm, diğer hatalar gibi reddedilir."
+  },
   "8a3b8fd2f0c7fc2d": {
     "en": "The tracker runs with cookies disabled. It stores nothing on the device, so there is no consent banner to build.",
     "model": "google/gemini-3.8-flash",
@@ -6742,6 +6928,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Tanımsız"
+  },
+  "8d5df074e084bfed": {
+    "en": "Path in the app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Uygulamadaki yol"
   },
   "8d616d3509613e95": {
     "en": "15 min",
@@ -7097,6 +7289,12 @@
     "at": "2026-09-14",
     "tr": "Açlık"
   },
+  "94e786c523324067": {
+    "en": "The public footer draws Source, Licence and Preferences only. The five legal links (Privacy, Terms, Imprint and the two statutory buttons) are not drawn.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Herkese açık altbilgi yalnızca Kaynak, Lisans ve Tercihler öğelerini çizer. Beş yasal bağlantı (Gizlilik, Şartlar, Künye ve yasal zorunluluğu olan iki buton) çizilmez."
+  },
   "956cfd60a191cefe": {
     "en": "{{0}} At signup the app generates a recovery code and wraps the data key under it. It sends the code to openplate-core, which seals it under its own secret. That is what lets a mailed password reset return your diary instead of an empty account. It also means the operator of an instance can restore, and in principle read, a diary on it. On an instance you host yourself, you are that operator. {{1}} states the trade in full.",
     "model": "google/gemini-3.8-flash",
@@ -7156,6 +7354,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Argon2id algoritmasını ana iş parçacığı dışında çalıştır. 64 MiB değerinde, düşük seviye telefonları gözle görülür şekilde dondurur."
+  },
+  "9628cd47419df69e": {
+    "en": "What is refused",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Neler reddedilir?"
   },
   "9644705bac5d73db": {
     "en": "The request never left this host",
@@ -7354,6 +7558,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Tüm anahtarlar istemcidedir. Tüm yerel deposunu serileştirir, gzip ile sıkıştırır, sunucunun hiç görmediği bir anahtarla AES-256-GCM kullanarak şifreler ve sonucu tek bir opak ikili nesne (blob) olarak gönderir. Sunucu baytları saklar, sürümlerini tutar ve başka bir cihazın verilerini ezecek yazma işlemlerini reddeder. İkinci bir cihazın ilk kurulumu yapabilmesi için iki küçük {{0}} (biri kullanıcının parola cümlesinden, diğeri ise bir kurtarma kodundan türetilmiş iki farklı anahtar şifreleme anahtarıyla sarılmış aynı veri şifreleme anahtarı) da saklar. Sunucudaki hiçbir kod yolu bunların hiçbirinin şifresini çözmez. Sunucu, yönetilen bir bulut kopyasının işletmecisi bir günlüğü açmak için gerekeni elinde tutabilsin diye her hesabın kurtarma kodunu kendi gizli anahtarı altında mühürlü olarak saklar (§3.1). Sunucunun tam olarak ne bildiğini §9 belirtir."
+  },
+  "9915cb77e4d6c2aa": {
+    "en": "The newsletter form, if you turned it on, drops its privacy line.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bülten formu, eğer açtıysan, gizlilik satırını kaldırır."
   },
   "99216530be1574b7": {
     "en": "Scan completed.",
@@ -8039,6 +8249,12 @@
     "at": "2026-09-14",
     "tr": "katkı"
   },
+  "a813e7dd8262b264": {
+    "en": "A file that breaks the format is {{0}}. The app logs every problem with its line number, once per version of the file. The page answers 503 with the neutral error screen. A legal page that silently dropped a table, or printed a tag as text, would publish a document nobody wrote. Fix the file, and the next request serves it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Biçimi bozan bir dosya {{0}}. Uygulama her sorunu satır numarasıyla birlikte, dosyanın sürümü başına bir kez kaydeder. Sayfa, tarafsız hata ekranıyla 503 yanıtı verir. Bir tabloyu sessizce atan ya da bir etiketi metin olarak basan yasal bir sayfa, kimsenin yazmadığı bir belgeyi yayımlamış olurdu. Dosyayı düzelt, sonraki istek dosyayı sunacaktır."
+  },
   "a81e2f1f95691213": {
     "en": "{{0}} The submitted value {{1}}, not a base; it binds into the AAD, so it must be the value the ciphertext was sealed under. The rule is {{2}}: a client that recomputes and re-pushes the whole projection must never be wedged by a version that never left the device. A losing write is {{3}}, matching §5.1's shape.",
     "model": "google/gemini-3.8-flash",
@@ -8080,6 +8296,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} (boşluklu), Podman içinde yerleşik bir alt komuttur. İnce bir sarmalayıcıdır: makinende harici bir compose sağlayıcısı ({{1}} veya {{2}}) bulur ve komutu ona devreder. {{3}} kuruluysa Podman onu tercih eder, çünkü Compose belirtiminin orijinal uygulaması odur. {{4}} komutunu çalıştırırsan kullanacağı sağlayıcı bir başlık içinde bir kez yazdırılır."
+  },
+  "a8a1c3277c9b48e3": {
+    "en": "One folder per language: {{0}}, {{1}}, {{2}}, {{3}}, {{4}} or {{5}}. One file per page, named by its slug:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Her dil için bir klasör: {{0}}, {{1}}, {{2}}, {{3}}, {{4}} veya {{5}}. Her sayfa için kendi kısaltmasıyla adlandırılmış bir dosya:"
   },
   "a8d289ace68d98da": {
     "en": "Why a pair at all.",
@@ -8759,6 +8981,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, 20 baytlık Crockford base32 olarak doğrulanır (boşluklar ve tireler kaldırılıp değer büyük harfe çevrildikten sonra 32 karakter) ve mühürlenmeden önce bu biçime kurallaştırılır. Hiçbir biçimde, hiçbir yolda asla günlüğe kaydedilmez."
   },
+  "b5abbcdb5cc7ac87": {
+    "en": "The title of {{0}} is the label the German statute requires for that page, and the same goes for {{1}}. The app's footer and submit buttons carry the statutory button labels themselves.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} başlığı, Alman yasalarının o sayfa için zorunlu kıldığı etikettir; aynı durum {{1}} için de geçerlidir. Uygulamanın altbilgisi ve gönder düğmeleri, yasal düğme etiketlerini doğrudan kendisi taşır."
+  },
   "b5cf12492c050dd6": {
     "en": "{{0}}: when a device syncs, and how often.",
     "model": "google/gemini-3.8-flash",
@@ -9233,6 +9461,12 @@
     "at": "2026-09-14",
     "tr": "\"Bir API anahtarını elle yapıştır\" paneli üzerinden OpenRouter dahil {{0}}."
   },
+  "be8ac01fa0acd281": {
+    "en": "The links return when the folder holds an {{0}}, in the reader's language or in English. The imprint is the probe because German law requires it on every instance that publishes any of the others.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Klasörde okuyucunun dilinde veya İngilizce bir {{0}} bulunduğunda bağlantılar geri gelir. Künye denetim aracıdır, çünkü Alman yasaları diğerlerinden herhangi birini yayımlayan her kurulumda bunu zorunlu kılar."
+  },
   "bebd2161c4b5eff9": {
     "en": "{{0}} ({{1}}, §3.1). This is the entry on this list that a reader should stop at. It is AES-256-GCM under a subkey of {{2}}, so a dumped database alone does not open it, and the operator of a managed instance has both. {{3}} Not through an endpoint, and not through any code path in this service, but by reading that column with the secret in hand and running the client's own HKDF. A self-hosted instance is its own operator, so the older promise holds there. Deciding whether to trust a hosted instance is therefore a decision about its operator.",
     "model": "google/gemini-3.8-flash",
@@ -9329,6 +9563,12 @@
     "at": "2026-09-14",
     "tr": "saklanan sürümden kesinlikle daha büyük olması"
   },
+  "c236590c52503564": {
+    "en": "The lead, above the cancellation form.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Fesih formunun üstündeki giriş bölümü."
+  },
   "c28a4963d80db748": {
     "en": "Obviously",
     "model": "google/gemini-3.8-flash",
@@ -9352,6 +9592,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "9.2 Neleri bilir"
+  },
+  "c2e2813482fbf8bb": {
+    "en": "Where the app draws it",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Uygulamanın çizdiği yer"
   },
   "c31877db83a81d3c": {
     "en": "§5.12.1 {{0}}",
@@ -9449,6 +9695,12 @@
     "at": "2026-09-14",
     "tr": "Aile kurulumu"
   },
+  "c531e5612ef958b3": {
+    "en": "The legal pages as markdown files you mount ({{0}}): the folder, the file format, what is refused, and the named sections of the two statutory button pages",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bağladığın markdown dosyaları olarak yasal sayfalar ({{0}}): klasör, dosya biçimi, nelerin reddedildiği ve yasal zorunluluğu olan iki buton sayfasına ait adlandırılmış bölümler"
+  },
   "c54702d7c391200e": {
     "en": "{{0}} is optional, and absent is not an error.",
     "model": "google/gemini-3.8-flash",
@@ -9466,6 +9718,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kendi çalıştırdığın bir {{0}} kurulumunun temel URL adresi. Varsayılan olan ayarlanmamış durumu, analitik betiği olmaması, istek yapılmaması ve CSP başlığının değişmemesi anlamına gelir. Bkz. {{1}}."
+  },
+  "c59e650e3b9f951d": {
+    "en": "content.md",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "content.md"
   },
   "c5a285e512d878fd": {
     "en": "The billing principal may",
@@ -9881,6 +10139,12 @@
     "at": "2026-09-14",
     "tr": "llama.cpp tarafındaki {{1}} ucundan gelen bir {{0}}, {{2}} anlamına gelir ve hazır değil olarak bildirilir: hiçbir zaman \"bu çalışma zamanında {{3}} yok\" şeklinde ele alınmaz."
   },
+  "cdd69014c6ef9152": {
+    "en": "{{0}} and {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ve {{1}}."
+  },
   "cde6c0ea974a6f12": {
     "en": "{{0}} (GPU build)",
     "model": "google/gemini-3.8-flash",
@@ -10091,6 +10355,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} openplate içinde: {{1}}, {{2}} seçeneğini belirle ve \"paste an API key manually\" panelini kullan. Anahtar sadece o tarayıcıda saklanır. JSON dışa aktarımına dahil edilmez ve openplate sunucusuna asla ulaşmaz."
   },
+  "d15387ecc6c5e22d": {
+    "en": "Slug",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kısaltma"
+  },
   "d1cd8d987ad6206c": {
     "en": "ADR-0012",
     "model": "google/gemini-3.8-flash",
@@ -10108,6 +10378,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "5. Uç noktalar"
+  },
+  "d21b9508e7a1a43f": {
+    "en": "The example is illustrative: the biller's routes are its own. openplate's biller serves {{0}}, {{1}}, {{2}} and the portal route; its older {{3}} now answers {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bu örnek açıklama amaçlıdır: faturalandırıcının rotaları kendine aittir. openplate faturalandırıcısı {{0}}, {{1}}, {{2}} ve portal rotasını sunar; eski {{3}} rotası artık {{4}} yanıtı verir."
   },
   "d2320c47040d9fa2": {
     "en": "Point this at an llama.cpp, Ollama or vLLM you already run, the grammar-enforcement requirement, per-runtime setup traps",
@@ -10205,6 +10481,12 @@
     "at": "2026-09-14",
     "tr": "Neden elden gelenin en iyisi yerine ret:"
   },
+  "d3d5f048b413ed3d": {
+    "en": "This is the default, and it suits a household instance that sells nothing.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bu varsayılandır ve hiçbir şey satmayan bir ev kurulumu için uygundur."
+  },
   "d4130df32bd7853a": {
     "en": "{{0}} A third is skipped, never queued.",
     "model": "google/gemini-3.8-flash",
@@ -10222,6 +10504,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "2"
+  },
+  "d47512bdae633da1": {
+    "en": "A value that names no folder stops the boot. A failed mount shows at once. The app cannot start and appear as an instance with no legal pages.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Herhangi bir klasörü göstermeyen bir değer önyüklemeyi durdurur. Başarısız bir bağlama işlemi hemen kendini gösterir. Uygulama, yasal sayfası olmayan bir kurulum gibi başlayıp görünemez."
   },
   "d47c018179e55b3a": {
     "en": "Restart; it resumes.",
@@ -10709,6 +10997,12 @@
     "at": "2026-09-14",
     "tr": "Tüm kurulum günlük üst sınırını tüketti. {{0}}, bir sonraki UTC gece yarısına kalan saniyedir"
   },
+  "deed18d15950a806": {
+    "en": "openplate loads legal pages from markdown files that you mount into the container. The repository holds no legal text of its own. You write the terms, the privacy policy, the imprint, and the pages for the two statutory buttons. They describe your instance and name you as the operator.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "openplate, yasal sayfaları konteyner içine bağladığın markdown dosyalarından yükler. Deponun kendisinde hiçbir yasal metin bulunmaz. Şartları, gizlilik politikasını, künyeyi ve yasal zorunluluğu olan iki butonun sayfalarını sen yazarsın. Bunlar senin kurulumunu tanımlar ve seni işletmeci olarak belirtir."
+  },
   "df082a6b8fd1b8c0": {
     "en": "{{0}}: rung 1, the app alone",
     "model": "google/gemini-3.8-flash",
@@ -10757,6 +11051,12 @@
     "at": "2026-09-14",
     "tr": "5.5 {{0}}"
   },
+  "dfca5da56b8cdb62": {
+    "en": "Section",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bölüm"
+  },
   "e00d4603fd54bb47": {
     "en": "A share (§5.16) does not count as a key record here.",
     "model": "google/gemini-3.8-flash",
@@ -10792,6 +11092,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Karışık: uç nokta başına belirtilir"
+  },
+  "e173dfb6263cd081": {
+    "en": "refused, not repaired",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "onarılmaz, reddedilir"
   },
   "e1870a8256b9926e": {
     "en": "Neither quotes the input back",
@@ -11171,6 +11477,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, hiç oturum açmamış bir hesap için {{1}} değerindedir; yalnızca bir oturum açma ve bir vekil tamamlama işlemi tarafından yazılır, asla bir belirteç yenileme veya eşitleme yoklaması (§9.2) ile yazılmaz. Ağdan bir {{2}} olarak geçer; göreli bir ifade bir görselleştirme kararıdır ve istemciye aittir."
   },
+  "e9808950d0189801": {
+    "en": "The lead, above the withdrawal form.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Cayma formunun üstündeki giriş bölümü."
+  },
   "e9ad43b956029d83": {
     "en": "openplate",
     "model": "google/gemini-3.8-flash",
@@ -11224,6 +11536,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "asla 1 mod 4 olmamalıdır"
+  },
+  "ea9693f420d1b0f1": {
+    "en": "Lists with {{0}} or {{1}}, one level, no indentation.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} veya {{1}} ile listeler, tek seviye, girinti yok."
   },
   "eaa3005a9b3b2a9e": {
     "en": "5.21 {{0}}: a member invites somebody",
@@ -11765,6 +12083,12 @@
     "at": "2026-09-14",
     "tr": "Donanım ve ölçülen gecikme"
   },
+  "f5c41ed252f7e5ec": {
+    "en": "(body)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "(gövde)"
+  },
   "f5ca654878938fb0": {
     "en": "The account id is the session's, and the address is the row's.",
     "model": "google/gemini-3.8-flash",
@@ -11909,6 +12233,12 @@
     "at": "2026-09-14",
     "tr": "kendisidir"
   },
+  "fa756a94a19d5fac": {
+    "en": "Set {{0}} to a folder that the app can read:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} değerini uygulamanın okuyabileceği bir klasöre ayarla:"
+  },
   "fa75fa608d122d02": {
     "en": "Rotating the recovery code is all-or-nothing, and in protocol 2 that is a THREE-way rule.",
     "model": "google/gemini-3.8-flash",
@@ -12022,6 +12352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kaynak adrese göre hız sınırla"
+  },
+  "fdd0b416f48ed412": {
+    "en": "unset (no legal pages)",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "ayarlanmamış (yasal sayfa yok)"
   },
   "fe24e5d70ed828fa": {
     "en": "{{0}} {{1}} holds one integer per account per UTC day (§9.2). An hourly sweep inside the service deletes every row older than 90 days, counting today, on every instance and without an operator action or a cron entry. Deleting an account removes its counters and its {{2}} in the same statement as the rest of the erasure, through {{3}}. Ninety is one number in one place: it is what the sweep prunes at and the longest window the endpoint above can answer.",
