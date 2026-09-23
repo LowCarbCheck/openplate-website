@@ -14,7 +14,7 @@
       "docs": "Docs",
       "selfHosting": "Autohospedaje",
       "research": "Investigación",
-      "openApp": "Abre la aplicación",
+      "openApp": "Pruébalo gratis",
       "deployHint": "Usa una versión alojada o ejecuta cada componente tú mismo.",
       "coreHint": "Sincroniza tu diario cifrado entre tus dispositivos.",
       "inferenceHint": "Lee fotos del plato en hardware bajo tu control."
@@ -46,12 +46,11 @@
       "hero": {
         "body": "openplate es un diario de alimentos de código abierto que se ejecuta en tu dispositivo, con un escaneo opcional por foto que estima los macros de tu plato. Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona.",
         "lead": "openplate es para quienes quieren registrar lo que comen sin enviar sus datos al servidor de otra persona.",
-        "openApp": "Abrir la app",
+        "openApp": "Pruébalo gratis",
         "readSource": "Leer el código",
-        "inviteNote": "La instancia alojada es solo con invitación. Ejecutar tu propia copia no necesita invitación.",
+        "inviteNote": "Regístrate en la instancia alojada en app.openplate.de sin invitación, o ejecuta tu propia copia sin coste alguno.",
         "shotAlt": "El diario de openplate de un día en la pantalla de un ordenador. Los carbohidratos netos se registran frente al límite diario. Las calorías, las proteínas, las grasas y la fibra se muestran frente a sus objetivos. La comida del día se divide en carbohidratos, fibra, proteínas y grasas.",
-        "researchBadge": "Buscamos colaboradores de investigación",
-        "researchLink": "Leer más"
+        "researchBadge": "Buscamos colaboradores de investigación"
       },
       "whatItIs": {
         "heading": "Qué es openplate"
@@ -127,7 +126,7 @@
       },
       "access": {
         "heading": "Obtener acceso",
-        "body": "La instancia alojada en openplate.de funciona solo con invitación. Un administrador envía la invitación; no hay registro abierto. Si prefieres ejecutar tu propia copia, consulta <selfHosting>Autohospedaje</selfHosting>."
+        "body": "Cualquiera puede registrarse en la instancia alojada en app.openplate.de sin invitación. El escaneo de fotos y la sincronización entre dispositivos forman parte de un plan de pago con prueba gratuita. Todo lo demás es gratis. Ejecutar tu propia copia no cuesta nada. Consulta <selfHosting>Autohospedaje</selfHosting>."
       },
       "openSource": {
         "heading": "Código abierto",
@@ -239,7 +238,7 @@
     },
     "privacy": {
       "title": "Privacidad",
-      "body": "Este sitio web utiliza Matomo sin cookies para contar las visitas; no te rastrea en otros sitios web ni crea un perfil sobre ti. En este sitio web no hay cuentas; las cuentas a las que solo se accede por invitación pertenecen a la app alojada, no a openplate.de. Para consultar qué almacena y envía la app, revisa su propia página de privacidad, enlazada desde la app."
+      "body": "Este sitio utiliza Matomo sin cookies para contar las visitas. No te rastrea entre sitios web ni crea un perfil sobre ti. No hay cuentas en este sitio web en sí. Las cuentas pertenecen a la aplicación alojada, no a openplate.de. Para ver qué almacena y envía la aplicación, consulta la propia página de privacidad de la aplicación, enlazada desde dentro de ella."
     },
     "pricing": {
       "title": "Precios",

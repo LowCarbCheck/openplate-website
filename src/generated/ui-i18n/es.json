@@ -279,6 +279,13 @@
     "at": "2026-09-14",
     "es": "Este componente aún no ha publicado notas de la versión."
   },
+  "32822427fda2ccff": {
+    "en": "This site uses Matomo without cookies to count visits. It does not track you across sites or build a profile of you. There are no accounts on this site itself. Accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
+    "path": "common:pages.privacy.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Este sitio utiliza Matomo sin cookies para contar las visitas. No te rastrea entre sitios web ni crea un perfil sobre ti. No hay cuentas en este sitio web en sí. Las cuentas pertenecen a la aplicación alojada, no a openplate.de. Para ver qué almacena y envía la aplicación, consulta la propia página de privacidad de la aplicación, enlazada desde dentro de ella."
+  },
   "33c5b34914aa0287": {
     "en": "Food database",
     "path": "common:pages.home.illustrations.flow.foodDb",
@@ -538,6 +545,13 @@
     "at": "2026-09-23",
     "es": "Proyecto"
   },
+  "5798bfb5d93d8505": {
+    "en": "Sign up on the hosted instance at app.openplate.de without an invitation, or run your own copy at no cost.",
+    "path": "common:pages.home.hero.inviteNote",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Regístrate en la instancia alojada en app.openplate.de sin invitación, o ejecuta tu propia copia sin coste alguno."
+  },
   "57de36189577f443": {
     "en": "The openplate diary on a phone: net carbs logged against the daily limit, and meals listed under breakfast and lunch.",
     "path": "common:pages.app.shotAlt",
@@ -628,6 +642,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Principal"
+  },
+  "66b87c16e65c373c": {
+    "en": "Try it free",
+    "path": "common:pages.home.hero.openApp",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Pruébalo gratis"
   },
   "66f8336d8ec71b34": {
     "en": "Use a hosted version, or run every component yourself.",
@@ -768,6 +789,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Privacidad"
+  },
+  "7f0e38c8a2e8ca40": {
+    "en": "Try it free",
+    "path": "common:site.nav.openApp",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Pruébalo gratis"
   },
   "80ccd300e6c6b424": {
     "en": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
@@ -1020,6 +1048,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Buscamos colaboradores de investigación"
+  },
+  "a91259ebf0e6db5c": {
+    "en": "Anyone can sign up on the hosted instance at app.openplate.de without an invitation. Photo scans and sync across devices are part of a paid plan with a free trial. Everything else is free. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cualquiera puede registrarse en la instancia alojada en app.openplate.de sin invitación. El escaneo de fotos y la sincronización entre dispositivos forman parte de un plan de pago con prueba gratuita. Todo lo demás es gratis. Ejecutar tu propia copia no cuesta nada. Consulta <selfHosting>Autohospedaje</selfHosting>."
   },
   "aa310df593e92a54": {
     "en": "Dietitians and clinical teams running intervention studies",

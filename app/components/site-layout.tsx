@@ -1,11 +1,11 @@
 /**
- * The frame every page renders inside: a wordmark and nav, the page itself, a
- * footer with the site map, the legal pages and the source, and a language
- * switcher.
+ * The frame every page renders inside: a wordmark, the nav and a language
+ * switcher, the page itself, and a footer with the site map, the legal pages
+ * and the source.
  *
- * The switcher is a pair of plain links, not a control: every page exists as a
- * real file in both languages, so switching is a navigation and needs no
- * script. It is built by canonicalizing the current path and localizing it
+ * The switcher is a list of plain links behind a globe button: every page
+ * exists as a real file in every language, so switching is a navigation and
+ * needs no script beyond the one that opens the list. It is built by canonicalizing the current path and localizing it
  * again, which keeps a reader on the same page rather than dropping them on a
  * language root.
  *
@@ -16,21 +16,15 @@
  * `app/i18n/language.ts`, and a language added there arrives here in the
  * position it was written in.
  */
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useRouteLoaderData } from 'react-router';
 
-import { ChevronDownIcon, CloseIcon, GitHubMark, MenuIcon } from './icons';
+import { ChevronDownIcon, CloseIcon, GitHubMark, GlobeIcon, MenuIcon } from './icons';
 import { ExternalLink, SiteLink } from './site-link';
 import { ThemeToggle } from './theme-toggle';
 import { Wordmark } from './wordmark';
-import {
-  LANGUAGE_LABELS,
-  SUPPORTED_LANGUAGES,
-  canonicalizePath,
-  localizePath,
-  type LanguageCode,
-} from '#app/i18n/language';
+import { LANGUAGE_LABELS, SUPPORTED_LANGUAGES, canonicalizePath, localizePath } from '#app/i18n/language';
 import { useLanguage } from '#app/i18n/use-language';
 import { syncPicturesToTheme } from '#app/lib/theme';
 import { PRICING_PATH } from '#app/pricing-config';
@@ -105,14 +99,16 @@ function useNavItems(): NavItem[] {
  */
 const MENU_PANEL_ID = 'site-nav-panel';
 const SELF_HOSTING_PANEL_ID = 'site-self-hosting-panel';
+const LANGUAGE_PANEL_ID = 'site-language-panel';
+const PHONE_LANGUAGE_PANEL_ID = 'site-phone-language-panel';
 
 /**
  * A square icon button, and the SECOND copy of the string `theme-toggle.tsx` calls `BUTTON`.
  *
- * The two are deliberately the same shape: the source link, the appearance toggle and the menu
- * button sit in one row at the right edge, and a reader reads them as three of a kind. Exporting
- * one of them from the other file would put a layout decision about this header inside a component
- * that knows nothing about it, so the string is repeated and named instead.
+ * The two are deliberately the same shape: the source link, the appearance toggle, the language
+ * button and the menu button sit in one row at the right edge, and a reader reads them as one kind.
+ * Exporting one of them from the other file would put a layout decision about this header inside a
+ * component that knows nothing about it, so the string is repeated and named instead.
  *
  * `p-3` around a 20 pixel icon is 44 pixels square, the smallest a touch target is allowed to be.
  * `p-2` measured at 36 pixels and was under it.
@@ -126,10 +122,12 @@ const ICON_BUTTON =
  * `h-9` and `text-sm`, because the header row is 64 pixels and the hero's 44 pixel button with its
  * larger type would fill it edge to edge. It is not a second copy of the hero's string on purpose:
  * the two differ in exactly the properties that make one a header control and the other a call to
- * action. `whitespace-nowrap` so the longest translation widens the button rather than wrapping.
+ * action. The header's copy adds `whitespace-nowrap`, so the longest translation widens the button
+ * rather than wrapping in a row that must not grow. The phone panel's copy wraps instead, inside a
+ * `min-h-11` box, because a full width button that cannot wrap is a label that leaves its border.
  */
 const HEADER_ACTION =
-  'items-center whitespace-nowrap bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90';
+  'items-center bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90';
 
 /** The grey eyebrow over a group of links, the application's section label. */
 const EYEBROW = 'text-xs font-semibold uppercase tracking-wide text-muted-foreground';
@@ -207,34 +205,29 @@ function MenuItemLink({ item, className, onSelect }: { item: MenuItem; className
   );
 }
 
+/** What a disclosure button and the list it opens share: whether it is open, and how to close it. */
+interface Disclosure {
+  isOpen: boolean;
+  toggle: () => void;
+  close: () => void;
+  /** The element a press must land outside of to close the list: the button and the list together. */
+  wrapperRef: RefObject<HTMLDivElement | null>;
+  /** Where Escape hands focus back to. */
+  buttonRef: RefObject<HTMLButtonElement | null>;
+}
+
 /**
- * The Self-hosting disclosure in the wide header.
+ * The open and close rules of every disclosure in this frame, written once.
  *
- * ── A DISCLOSURE, NOT A MENU ──
- * It is a button that shows and hides a list of ordinary links, so it carries `aria-expanded` and
- * `aria-controls` and nothing else. The ARIA `menu` role would promise arrow-key navigation and a
- * roving focus that three links do not need; Tab walks them.
- *
- * ── IT OVERLAYS, IT NEVER PUSHES ──
- * The panel is `absolute`, anchored to a wrapper exactly as tall as the header row, so its top edge
- * is the header's bottom border and opening it moves nothing on the page. The header carries a
- * `z-40` so the panel paints over the hero, which is its own stacking context later in the DOM.
- *
- * ── THREE WAYS TO CLOSE ──
- * Escape, which also hands focus back to the button so a keyboard reader is not left on a link that
- * just disappeared; a press anywhere outside the wrapper; and a navigation, heard as a change of
- * pathname. A click on the link to the page already open changes no pathname, so the list items
- * close it themselves. The listeners exist only while the panel is open.
+ * The Self-hosting menu, the language menu and the phone panel's language list all close the same
+ * three ways, described on `SelfHostingMenu` below. Three copies of two listeners is where one of
+ * them quietly stops handing focus back.
  */
-function SelfHostingMenu() {
-  const { t } = useTranslation();
+function useDisclosure(): Disclosure {
   const { pathname } = useLocation();
-  const canonical = canonicalizePath(pathname);
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const isCurrentSection = SELF_HOSTING_ITEMS.some((item) => isActiveItem({ item, canonical }));
 
   useEffect(() => {
     setIsOpen(false);
@@ -264,6 +257,45 @@ function SelfHostingMenu() {
     };
   }, [isOpen]);
 
+  return {
+    isOpen,
+    toggle: () => {
+      setIsOpen((open) => !open);
+    },
+    close: () => {
+      setIsOpen(false);
+    },
+    wrapperRef,
+    buttonRef,
+  };
+}
+
+/**
+ * The Self-hosting disclosure in the wide header.
+ *
+ * ── A DISCLOSURE, NOT A MENU ──
+ * It is a button that shows and hides a list of ordinary links, so it carries `aria-expanded` and
+ * `aria-controls` and nothing else. The ARIA `menu` role would promise arrow-key navigation and a
+ * roving focus that three links do not need; Tab walks them.
+ *
+ * ── IT OVERLAYS, IT NEVER PUSHES ──
+ * The panel is `absolute`, anchored to a wrapper exactly as tall as the header row, so its top edge
+ * is the header's bottom border and opening it moves nothing on the page. The header carries a
+ * `z-40` so the panel paints over the hero, which is its own stacking context later in the DOM.
+ *
+ * ── THREE WAYS TO CLOSE ──
+ * Escape, which also hands focus back to the button so a keyboard reader is not left on a link that
+ * just disappeared; a press anywhere outside the wrapper; and a navigation, heard as a change of
+ * pathname. A click on the link to the page already open changes no pathname, so the list items
+ * close it themselves. The listeners exist only while the panel is open.
+ */
+function SelfHostingMenu() {
+  const { t } = useTranslation();
+  const canonical = useCanonicalPath();
+  const { isOpen, toggle, close, wrapperRef, buttonRef } = useDisclosure();
+
+  const isCurrentSection = SELF_HOSTING_ITEMS.some((item) => isActiveItem({ item, canonical }));
+
   return (
     <div ref={wrapperRef} className="relative flex h-16 items-center">
       <button
@@ -271,9 +303,7 @@ function SelfHostingMenu() {
         type="button"
         aria-expanded={isOpen}
         aria-controls={SELF_HOSTING_PANEL_ID}
-        onClick={() => {
-          setIsOpen((open) => !open);
-        }}
+        onClick={toggle}
         className={`flex items-center gap-1 whitespace-nowrap transition-colors ${linkTone(isCurrentSection)}`}
       >
         {t('site.nav.selfHosting')}
@@ -286,16 +316,129 @@ function SelfHostingMenu() {
           className="absolute top-full left-0 z-50 mt-px w-80 border border-border bg-card py-2 shadow-lg"
         >
           {SELF_HOSTING_ITEMS.map((item) => (
-            <MenuItemLink
-              key={item.to}
-              item={item}
-              className="px-4 py-3 hover:bg-muted"
-              onSelect={() => {
-                setIsOpen(false);
-              }}
-            />
+            <MenuItemLink key={item.to} item={item} className="px-4 py-3 hover:bg-muted" onSelect={close} />
           ))}
         </ul>
+      )}
+    </div>
+  );
+}
+
+/**
+ * One link per language, each to the page being read in that language, in declared order.
+ *
+ * The desktop menu and the phone panel draw the same list, so it is written once. Each language is
+ * named in itself, "Deutsch" and not "German", because the reader looking for it may not read the
+ * language the page is in. `lang` says so to a screen reader, which would otherwise pronounce
+ * "Français" with a German voice. The current language is a link too, marked teal and with
+ * `aria-current`, so the list keeps one shape and a reader can see where they are in it.
+ */
+function LanguageLinks({ linkClassName, onSelect }: { linkClassName: string; onSelect: () => void }) {
+  const current = useLanguage();
+  const canonical = useCanonicalPath();
+
+  return SUPPORTED_LANGUAGES.map((language) => {
+    const isCurrent = language === current;
+    return (
+      <li key={language}>
+        <Link
+          to={localizePath(canonical, language)}
+          lang={language}
+          hrefLang={language}
+          aria-current={isCurrent ? 'true' : undefined}
+          onClick={onSelect}
+          className={`transition-colors ${linkTone(isCurrent)} ${linkClassName}`}
+        >
+          {LANGUAGE_LABELS[language]}
+        </Link>
+      </li>
+    );
+  });
+}
+
+/**
+ * The language switcher in the wide header: a globe button that opens the list of languages.
+ *
+ * The same disclosure as `SelfHostingMenu`, with the same three ways to close, and its panel
+ * overlays the page the same way. It is anchored to the RIGHT edge of its button, not the left:
+ * the button is one of the last things in the header row, and a panel hanging to its right would
+ * leave the window.
+ */
+function LanguageMenu() {
+  const { t } = useTranslation();
+  const { isOpen, toggle, close, wrapperRef, buttonRef } = useDisclosure();
+
+  return (
+    <div ref={wrapperRef} className="relative flex h-16 items-center">
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={LANGUAGE_PANEL_ID}
+        onClick={toggle}
+        className={ICON_BUTTON}
+      >
+        <GlobeIcon className="h-5 w-5" />
+        <span className="sr-only">{t('site.language.label')}</span>
+      </button>
+      {isOpen && (
+        <nav aria-label={t('site.language.label')} id={LANGUAGE_PANEL_ID}>
+          <ul className="absolute top-full right-0 z-50 mt-px w-48 border border-border bg-card py-2 text-sm shadow-lg">
+            <LanguageLinks linkClassName="block px-4 py-2.5 hover:bg-muted" onSelect={close} />
+          </ul>
+        </nav>
+      )}
+    </div>
+  );
+}
+
+/**
+ * The last row of the phone panel: the source link, the appearance toggle and the languages.
+ *
+ * ── THE CONTROLS MOVED HERE FROM THE HEADER ROW ──
+ * Below `xl` the header line carries the wordmark and the menu button and nothing else. The three
+ * icons beside them made a crowded line on a phone for controls a reader uses once, if at all, so
+ * they wait at the bottom of the panel, at the same 44 pixel size they have in the header.
+ *
+ * ── THE LANGUAGES ARE A DISCLOSURE OF THEIR OWN ──
+ * Six names spelled out do not fit one 390 pixel row beside two icons. The globe button names the
+ * current language so a reader can see what it will change, and it opens the six as a three column
+ * grid under the row. That grid pushes nothing but the space below the button the reader pressed,
+ * which is the one kind of movement a reader asks for.
+ */
+function PhoneControls() {
+  const { t } = useTranslation();
+  const language = useLanguage();
+  const { isOpen, toggle, close, wrapperRef, buttonRef } = useDisclosure();
+
+  return (
+    <div ref={wrapperRef} className="mt-4 border-t border-border pt-2">
+      <div className="flex items-center gap-1">
+        <ExternalLink href={REPOSITORIES.app} className={ICON_BUTTON}>
+          <GitHubMark className="h-5 w-5" />
+          <span className="sr-only">{t('site.footer.sourceCode')}</span>
+        </ExternalLink>
+        <ThemeToggle />
+        <button
+          ref={buttonRef}
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={PHONE_LANGUAGE_PANEL_ID}
+          onClick={toggle}
+          className="ms-auto flex min-h-11 items-center gap-2 px-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        >
+          <GlobeIcon className="h-5 w-5" />
+          <span className="sr-only">{t('site.language.label')}: </span>
+          <span lang={language}>{LANGUAGE_LABELS[language]}</span>
+          <ChevronDownIcon className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+      </div>
+      {isOpen && (
+        <nav aria-label={t('site.language.label')} id={PHONE_LANGUAGE_PANEL_ID}>
+          <ul className="grid grid-cols-3 gap-x-2">
+            <LanguageLinks linkClassName="flex min-h-11 items-center" onSelect={close} />
+          </ul>
+        </nav>
       )}
     </div>
   );
@@ -323,10 +466,15 @@ function PhoneNav() {
         ))}
       </ul>
       <NavLinks items={navItems} linkClassName="py-3" />
-      {/* Hidden from `md`, where the header row carries the same button beside the icons. */}
-      <ExternalLink href={APP_URL} className={`${HEADER_ACTION} mt-3 flex h-11 justify-center md:hidden`}>
+      {/* The panel is only ever drawn below `xl`, and below `xl` the header row does not carry this
+          button, so the panel always does. */}
+      <ExternalLink
+        href={APP_URL}
+        className={`${HEADER_ACTION} mt-3 flex min-h-11 justify-center py-2.5 text-center leading-snug text-balance`}
+      >
         {t('site.nav.openApp')}
       </ExternalLink>
+      <PhoneControls />
     </div>
   );
 }
@@ -363,7 +511,6 @@ function FooterSiteLink({ item }: { item: NavItem }) {
  */
 function SiteFooter() {
   const { t } = useTranslation();
-  const language = useLanguage();
   const hasPrice = usePriceEur() !== null;
   const docsItem: NavItem = { to: '/docs', labelKey: 'site.nav.docs' };
   const researchItem: NavItem = { to: '/research', labelKey: 'site.nav.research' };
@@ -406,34 +553,7 @@ function SiteFooter() {
           <FooterSiteLink item={{ to: '/privacy', labelKey: 'pages.privacy.title' }} />
         </FooterColumn>
       </nav>
-      <div className="border-t border-border pt-6">
-        <LanguageSwitcher current={language} />
-      </div>
     </div>
-  );
-}
-
-function LanguageSwitcher({ current }: { current: LanguageCode }) {
-  const { t } = useTranslation();
-  const { pathname } = useLocation();
-  const canonical = canonicalizePath(pathname);
-
-  return (
-    <nav aria-label={t('site.language.label')} className="flex flex-wrap items-center gap-3 text-sm">
-      {SUPPORTED_LANGUAGES.map((language) =>
-        language === current ?
-          <span key={language} aria-current="true" className="text-foreground">
-            {LANGUAGE_LABELS[language]}
-          </span>
-        : <Link
-            key={language}
-            to={localizePath(canonical, language)}
-            className="text-muted-foreground hover:text-foreground"
-          >
-            {LANGUAGE_LABELS[language]}
-          </Link>,
-      )}
-    </nav>
   );
 }
 
@@ -546,10 +666,7 @@ export function SiteLayout({
        few pixels wider than the document. Clipping horizontally swallows those pixels and leaves
        vertical scrolling alone. See `FullWidth` in `page.tsx` for the other half of the pair. */
     <div className="flex min-h-screen flex-col overflow-x-clip">
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:m-3 focus:bg-card focus:p-2"
-      >
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:m-3 focus:bg-card focus:p-2">
         {t('site.skipToContent')}
       </a>
 
@@ -569,7 +686,10 @@ export function SiteLayout({
               There is no common baseline to share between a picture and a line of text: centring is
               the alignment that means what it says here. */}
           <div className="flex h-16 items-center gap-x-6">
-            <SiteLink to="/" className="flex shrink-0 items-center gap-3 text-foreground transition-opacity hover:opacity-80">
+            <SiteLink
+              to="/"
+              className="flex shrink-0 items-center gap-3 text-foreground transition-opacity hover:opacity-80"
+            >
               {/* Decorative: the link already says "openplate" in text, so a
                   screen reader announcing the mark too would say the name twice. */}
               <img src="/icons/icon-192.png?v=2" alt="" className="h-6 w-6" />
@@ -577,17 +697,18 @@ export function SiteLayout({
                   and a lowercase word on its baseline otherwise hangs low against the mark. */}
               <Wordmark className="relative top-[-0.08em] text-lg" />
             </SiteLink>
-            {/* HIDDEN BELOW `lg`, WHERE THE MENU BUTTON OWNS THESE LINKS INSTEAD. The row holds the
-                app, the Self-hosting button, two or three flat links, two icons and a filled
-                button, and in the longer translations that does not fit a tablet. Below `lg` the
-                links move into a panel a reader opens, and the first line keeps the wordmark and
-                the controls. */}
+            {/* HIDDEN BELOW `xl`, WHERE THE MENU BUTTON OWNS THESE LINKS INSTEAD. The row holds the
+                app, the Self-hosting button, two or three flat links, three icons and a filled
+                button. It was `lg` until the language menu joined the icons, and measured in a
+                build with a price, French and Turkish then ran 94 pixels past the row at 1024 and
+                18 past it at 1100; they were already 46 over at 1024 before the globe. At 1280
+                every language fits. Below `xl` the links move into a panel a reader opens. */}
             {/* NAMED, because the page carries several of these landmarks at once and two unnamed
                 navigation landmarks are one landmark as far as a screen reader's landmark list is
                 concerned. axe-core reports it as `landmark-unique`; a one word label is the whole
                 fix. The panel below is a second `<nav>` and carries its own, different name for the
                 same reason, and the footer's `<nav>` carries `site.footer.label`. */}
-            <nav aria-label={t('site.nav.label')} className="hidden items-center gap-x-5 text-sm lg:flex">
+            <nav aria-label={t('site.nav.label')} className="hidden items-center gap-x-5 text-sm xl:flex">
               <NavLinks items={[APP_ITEM]} />
               <SelfHostingMenu />
               <NavLinks items={navItems} />
@@ -597,17 +718,25 @@ export function SiteLayout({
                 own line on a phone. The menu button is last because it opens the row beneath it,
                 and a control should sit next to what it moves. */}
             <div className="ms-auto flex shrink-0 items-center gap-1">
-              <ExternalLink href={REPOSITORIES.app} className={ICON_BUTTON}>
-                <GitHubMark className="h-5 w-5" />
-                {/* The mark is `aria-hidden`, so without these words the link has no accessible name
-                    at all. It reuses the footer's key: it is the same link to the same place. */}
-                <span className="sr-only">{t('site.footer.sourceCode')}</span>
-              </ExternalLink>
-              <ThemeToggle />
+              {/* BELOW `xl` THE ROW IS THE WORDMARK AND THE MENU BUTTON, NOTHING ELSE. These three
+                  controls wait at the bottom of the phone panel there, see `PhoneControls`. */}
+              <div className="hidden items-center gap-1 xl:flex">
+                <ExternalLink href={REPOSITORIES.app} className={ICON_BUTTON}>
+                  <GitHubMark className="h-5 w-5" />
+                  {/* The mark is `aria-hidden`, so without these words the link has no accessible
+                      name at all. It reuses the footer's key: it is the same link to the same place. */}
+                  <span className="sr-only">{t('site.footer.sourceCode')}</span>
+                </ExternalLink>
+                <ThemeToggle />
+                <LanguageMenu />
+              </div>
               {/* The header's one filled control, and it leaves for the application's host, so it is
-                  an `ExternalLink`. Hidden on a phone, where the panel ends with the same button at
-                  full width and the row has no room for it beside the wordmark. */}
-              <ExternalLink href={APP_URL} className={`${HEADER_ACTION} ms-2 hidden h-9 md:inline-flex`}>
+                  an `ExternalLink`. Hidden below `xl`, where the panel carries the same button at
+                  full width and the row keeps only the wordmark and the menu button. */}
+              <ExternalLink
+                href={APP_URL}
+                className={`${HEADER_ACTION} ms-2 hidden h-9 whitespace-nowrap xl:inline-flex`}
+              >
                 {t('site.nav.openApp')}
               </ExternalLink>
               {/* CLOSED IS THE ONLY STATE THE SERVER MAY RENDER. This document is prerendered to a
@@ -621,7 +750,7 @@ export function SiteLayout({
                 onClick={() => {
                   setIsMenuOpen((open) => !open);
                 }}
-                className={`${ICON_BUTTON} lg:hidden`}
+                className={`${ICON_BUTTON} xl:hidden`}
               >
                 {isMenuOpen ?
                   <CloseIcon className="h-5 w-5" />
@@ -637,7 +766,7 @@ export function SiteLayout({
               out of the button arrives at the first link. It pushes the page down, which is allowed:
               the reader asked for it, and nothing above the button moves. */}
           {isMenuOpen && (
-            <nav id={MENU_PANEL_ID} aria-label={t('site.nav.menu')} className="lg:hidden">
+            <nav id={MENU_PANEL_ID} aria-label={t('site.nav.menu')} className="xl:hidden">
               <PhoneNav />
             </nav>
           )}

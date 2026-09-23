@@ -148,14 +148,20 @@ export default function HomeRoute() {
       <Hero
         badge={
           // The one announcement on the page, above the headline and in the first paint. The whole
-          // chip is the link; only its second half is teal, because that half is the way in.
-          <SiteLink to="/research" className="inline-flex items-center gap-2 border border-border bg-card px-3 py-1 text-sm">
-            <span className="text-foreground">{t('pages.home.hero.researchBadge')}</span>
-            <span aria-hidden="true" className="text-muted-foreground">
-              ·
-            </span>
-            <span className="text-primary">
-              {t('pages.home.hero.researchLink')} <span aria-hidden="true">→</span>
+          // chip is ONE link with one sentence in it; only the arrow is teal, because the arrow is
+          // what says the chip goes somewhere.
+          //
+          // THE ARROW IS GLUED TO THE LAST WORD. It is joined by a non-breaking space, so a line
+          // that has to break breaks before the word and the arrow together, and the arrow never
+          // lands alone on a line of its own. `inline-block` rather than a flex row, so a sentence
+          // too long for the line wraps like a sentence and the chip grows around it.
+          <SiteLink
+            to="/research"
+            className="inline-block max-w-full border border-border bg-card px-3 py-1.5 text-sm text-foreground transition-colors text-balance hover:border-primary"
+          >
+            {t('pages.home.hero.researchBadge')}
+            <span aria-hidden="true" className="text-primary">
+              {' →'}
             </span>
           </SiteLink>
         }

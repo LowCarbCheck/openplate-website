@@ -274,3 +274,18 @@ export function ListIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+/**
+ * lucide 0.475.0: `globe`. Same licence and grid as every icon above. It stands for the language
+ * switcher in the header and in the phone panel, where six language names spelled out would take a
+ * row of their own.
+ */
+export function GlobeIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+      <path d="M2 12h20" />
+    </svg>
+  );
+}

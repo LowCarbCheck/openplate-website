@@ -19,4 +19,17 @@ export default {
   prerender({ getStaticPaths }) {
     return [...getStaticPaths(), ...prerenderDynamicPaths()];
   },
+
+  /**
+   * Every route is in the first page's manifest, so a link click never asks the server for one.
+   *
+   * The default is `lazy`: the browser discovers the routes it does not know yet by fetching
+   * `/__manifest` on the first click. Only the framework's own server answers that URL. This site
+   * is a folder of static files behind nginx, which answers it with 404, so every internal link
+   * click ended on the router's "Error" page, on openplate.de as well as on a local static server.
+   * `initial` ships the whole route manifest with the first document instead. The site has under a
+   * hundred routes, so the manifest is a few kilobytes compressed, and a static host then needs
+   * nothing but the files.
+   */
+  routeDiscovery: { mode: 'initial' },
 } satisfies Config;

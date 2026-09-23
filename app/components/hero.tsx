@@ -81,21 +81,29 @@ function HeroBackdrop() {
  * site has one thing to offer at a time. The second way out of a hero is `SECONDARY_ACTION` below,
  * which is the same shape in outline and stays subordinate.
  *
- * Square, `h-11`, as the application's default button is since M243: 44 pixels is the smallest a
- * touch target is allowed to be, and a fixed height keeps the pair level with each other.
+ * Square, and at least 44 pixels tall, as the application's default button is since M243: 44 pixels
+ * is the smallest a touch target is allowed to be.
+ *
+ * ── A FLOOR, NOT A HEIGHT ──
+ * It used to be `h-11`, a fixed 44 pixels, and a label that needed two lines on a phone then ran out
+ * of its own border. `min-h-11` keeps the short label at exactly the old size and lets a long one
+ * grow the box. `py-2.5` is the room above and below the second line, `leading-snug` keeps the two
+ * lines close enough to read as one label, `text-balance` splits it into two lines of similar
+ * length rather than one full line and a single word, and `max-w-full` stops a label from widening
+ * the box past its column before it starts to wrap.
  */
 export const PRIMARY_ACTION =
-  'inline-flex h-11 items-center justify-center bg-primary px-5 font-medium text-primary-foreground transition-colors hover:bg-primary/90';
+  'inline-flex min-h-11 max-w-full items-center justify-center bg-primary px-5 py-2.5 text-center leading-snug font-medium text-balance text-primary-foreground transition-colors hover:bg-primary/90';
 
 /**
  * The quieter half of an action pair: the application's outline button.
  *
- * The same box as the filled one, a hairline on the card ground instead of a fill. It used to be
- * an underlined link, and beside a square button that read as a note about the button rather than
- * as a second thing to press. No teal: the filled button is the only teal action on the page.
+ * The same box as the filled one, with the same floor and the same wrapping, and a hairline on the
+ * card ground instead of a fill. It used to be an underlined link, and beside a square button that
+ * read as a note about the button rather than as a second thing to press. No teal: the filled button is the only teal action on the page.
  */
 export const SECONDARY_ACTION =
-  'inline-flex h-11 items-center justify-center border border-border bg-card px-5 font-medium text-foreground transition-colors hover:bg-muted';
+  'inline-flex min-h-11 max-w-full items-center justify-center border border-border bg-card px-5 py-2.5 text-center leading-snug font-medium text-balance text-foreground transition-colors hover:bg-muted';
 
 export function Hero({
   badge,

@@ -14,7 +14,7 @@
       "docs": "Docs",
       "selfHosting": "Self-hosting",
       "research": "Research",
-      "openApp": "Open the app",
+      "openApp": "Try it free",
       "deployHint": "Use a hosted version, or run every component yourself.",
       "coreHint": "Syncs your encrypted diary between your devices.",
       "inferenceHint": "Reads plate photos on hardware you control."
@@ -46,12 +46,11 @@
       "hero": {
         "body": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
         "lead": "openplate is for people who want to track what they eat without sending their data to someone else's server.",
-        "openApp": "Open the app",
+        "openApp": "Try it free",
         "readSource": "Read the source",
-        "inviteNote": "The hosted instance is invite-only. Running your own copy needs no invitation.",
+        "inviteNote": "Sign up on the hosted instance at app.openplate.de without an invitation, or run your own copy at no cost.",
         "shotAlt": "The openplate diary for one day on a computer screen. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets. The day's food splits into carbs, fiber, protein, and fat.",
-        "researchBadge": "We are looking for research partners",
-        "researchLink": "Read more"
+        "researchBadge": "We are looking for research partners"
       },
       "whatItIs": {
         "heading": "What openplate is"
@@ -127,7 +126,7 @@
       },
       "access": {
         "heading": "Getting access",
-        "body": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>."
+        "body": "Anyone can sign up on the hosted instance at app.openplate.de without an invitation. Photo scans and sync across devices are part of a paid plan with a free trial. Everything else is free. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -239,7 +238,7 @@
     },
     "privacy": {
       "title": "Privacy",
-      "body": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app."
+      "body": "This site uses Matomo without cookies to count visits. It does not track you across sites or build a profile of you. There are no accounts on this site itself. Accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app."
     },
     "pricing": {
       "title": "Pricing",

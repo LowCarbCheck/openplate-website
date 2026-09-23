@@ -14,7 +14,7 @@
       "docs": "Belgeler",
       "selfHosting": "Kendi sunucunda barındırma",
       "research": "Araştırma",
-      "openApp": "Uygulamayı aç",
+      "openApp": "Ücretsiz dene",
       "deployHint": "Barındırılan bir sürümü kullan veya her bileşeni kendin çalıştır.",
       "coreHint": "Şifrelenmiş günlüğünü cihazların arasında eşitler.",
       "inferenceHint": "Tabak fotoğraflarını denetimin altındaki donanımda okur."
@@ -46,12 +46,11 @@
       "hero": {
         "body": "openplate, cihazında çalışan açık kaynaklı bir yemek günlüğüdür; tabağındaki makro değerlerini tahmin eden isteğe bağlı bir fotoğraf tarama özelliğine sahiptir. Günlüğünü başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
         "lead": "openplate, verilerini başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
-        "openApp": "Uygulamayı aç",
+        "openApp": "Ücretsiz dene",
         "readSource": "Kaynağı oku",
-        "inviteNote": "Barındırılan bulut örneği yalnızca davetiyelidir. Kendi kopyanı çalıştırmak davetiye gerektirmez.",
+        "inviteNote": "Davetiye olmadan app.openplate.de adresindeki barındırılan örnekte kaydol veya hiçbir ücret ödemeden kendi kopyanı çalıştır.",
         "shotAlt": "Bilgisayar ekranında bir günlük openplate günlüğü. Net karbonhidratlar günlük sınıra göre kaydedilir. Kalori, protein, yağ ve lif hedeflerine göre gösterilir. Günün yiyecekleri karbonhidrat, lif, protein ve yağa ayrılır.",
-        "researchBadge": "Araştırma ortakları arıyoruz",
-        "researchLink": "Daha fazla bilgi"
+        "researchBadge": "Araştırma ortakları arıyoruz"
       },
       "whatItIs": {
         "heading": "openplate nedir"
@@ -127,7 +126,7 @@
       },
       "access": {
         "heading": "Erişim sağlama",
-        "body": "openplate.de adresindeki barındırılan örnek yalnızca davetiyeyle çalışır. Davetiyeyi bir yönetici gönderir, herkese açık kayıt yoktur. Kendi kopyanı çalıştırmayı tercih edersen <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
+        "body": "Herkes davetiye olmadan app.openplate.de adresindeki barındırılan örnekte kaydolabilir. Fotoğraf taramaları ve cihazlar arası eşitleme, ücretsiz deneme süresi sunan ücretli bir planın parçasıdır. Geri kalan her şey ücretsizdir. Kendi kopyanı çalıştırmak hiçbir ücrete tabi değildir. <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
       },
       "openSource": {
         "heading": "Açık kaynak",
@@ -239,7 +238,7 @@
     },
     "privacy": {
       "title": "Gizlilik",
-      "body": "Bu site, ziyaretleri saymak için çerez kullanmadan Matomo kullanır; seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hesap bulunmaz; yalnızca davetle açılan hesaplar openplate.de adresine değil, barındırılan uygulamaya aittir. Uygulamanın ne sakladığını ve gönderdiğini görmek için, uygulama içinden bağlantı verilen uygulamanın kendi gizlilik sayfasına bak."
+      "body": "Bu site ziyaretleri saymak için çerezsiz Matomo kullanır. Seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hiçbir hesap bulunmaz. Hesaplar openplate.de sitesine değil, barındırılan uygulamaya aittir. Uygulamanın neleri sakladığını ve gönderdiğini görmek için uygulamanın içinden bağlantı verilen, uygulamanın kendi gizlilik sayfasına bak."
     },
     "pricing": {
       "title": "Fiyatlandırma",

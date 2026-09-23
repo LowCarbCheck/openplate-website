@@ -150,7 +150,7 @@
 @layer base {
   :root {
     --background: 192 34% 96%;
-    --foreground: 200 18% 8%;
+    --foreground: 200 16% 15%;
     --card: 0 0% 100%;
     --muted: 192 26% 93%;
     --muted-foreground: 197 14% 38%;

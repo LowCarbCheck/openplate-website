@@ -14,7 +14,7 @@
       "docs": "Documentation",
       "selfHosting": "Auto-hébergement",
       "research": "Recherche",
-      "openApp": "Ouvrir l'application",
+      "openApp": "Essayer gratuitement",
       "deployHint": "Utilise une version hébergée, ou fais tourner chaque composant toi-même.",
       "coreHint": "Synchronise ton journal chiffré entre tes appareils.",
       "inferenceHint": "Analyse les photos d'assiette sur du matériel que tu contrôles."
@@ -46,12 +46,11 @@
       "hero": {
         "body": "openplate est un journal alimentaire open source qui tourne sur ton appareil, avec une analyse photo facultative pour estimer les macros dans ton assiette. Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers.",
         "lead": "openplate s'adresse aux personnes qui veulent suivre leur alimentation sans envoyer leurs données sur le serveur d'un tiers.",
-        "openApp": "Ouvrir l'application",
+        "openApp": "Essayer gratuitement",
         "readSource": "Consulter le code",
-        "inviteNote": "L'instance hébergée est accessible sur invitation. Déployer ta propre copie ne demande aucune invitation.",
+        "inviteNote": "Inscris-toi sur l'instance hébergée à l'adresse app.openplate.de sans invitation, ou fais tourner ta propre copie gratuitement.",
         "shotAlt": "Le journal openplate pour une journée sur un écran d'ordinateur. Les glucides nets sont comptabilisés par rapport à la limite quotidienne. Les calories, les protéines, les lipides et les fibres sont comparés à leurs cibles. Les aliments de la journée se répartissent en glucides, fibres, protéines et lipides.",
-        "researchBadge": "Nous recherchons des partenaires de recherche",
-        "researchLink": "En savoir plus"
+        "researchBadge": "Nous recherchons des partenaires de recherche"
       },
       "whatItIs": {
         "heading": "Ce qu'est openplate"
@@ -127,7 +126,7 @@
       },
       "access": {
         "heading": "Obtenir l'accès",
-        "body": "L'instance hébergée sur openplate.de est accessible uniquement sur invitation. Un administrateur envoie l'invitation ; il n'y a pas d'inscription libre. Si tu préfères exécuter ta propre instance, consulte <selfHosting>Auto-hébergement</selfHosting>."
+        "body": "Tout le monde peut s'inscrire sur l'instance hébergée à l'adresse app.openplate.de sans invitation. L'analyse des photos et la synchronisation entre appareils font partie d'un abonnement payant avec un essai gratuit. Tout le reste est gratuit. Faire tourner ta propre copie ne coûte rien. Consulte <selfHosting>Auto-hébergement</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -239,7 +238,7 @@
     },
     "privacy": {
       "title": "Confidentialité",
-      "body": "Ce site utilise Matomo sans cookies pour compter les visites ; il ne te suit pas d'un site à l'autre et n'établit aucun profil te concernant. Ce site ne gère aucun compte en soi ; les comptes accessibles sur invitation appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application stocke et envoie, consulte sa propre page de confidentialité, accessible depuis l'application."
+      "body": "Ce site utilise Matomo sans cookies pour compter les visites. Il ne te piste pas sur d'autres sites et ne dresse aucun profil sur toi. Il n'y a aucun compte sur ce site lui-même. Les comptes appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application enregistre et envoie, consulte sa propre page de confidentialité, accessible par un lien depuis l'application."
     },
     "pricing": {
       "title": "Tarifs",
