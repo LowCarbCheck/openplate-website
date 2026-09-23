@@ -39,9 +39,11 @@ import { Section } from '#app/components/page';
 import { ExampleDataNote, HeroShot } from '#app/components/shot';
 import { ExternalLink, RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
+import { AccessBody } from '#app/components/trial-copy';
 import { section } from '#app/lib/stack-sections';
 import { pageSections } from '#app/lib/stack-sections.server';
 import type { DocComponent } from '#app/lib/docs';
+import { trialScansFromEnvironment } from '#app/pricing-config';
 import { pageMeta } from '#app/seo';
 import { APP_URL, DOC_PATHS, REPOSITORIES } from '#app/site';
 
@@ -51,9 +53,12 @@ import { APP_URL, DOC_PATHS, REPOSITORIES } from '#app/site';
  * synced documents and the German translation memory stay on the build machine
  * and the reader of the front page downloads the front page. The doc routes do
  * it for the same reason and say so at more length.
+ *
+ * The free scans ride along for the access paragraph: a build variable, read at
+ * build time like the pricing page's prices (`app/pricing-config.ts`).
  */
 export function loader({ request }: Route.LoaderArgs) {
-  return { sections: pageSections('home', request.url) };
+  return { sections: pageSections('home', request.url), trialScans: trialScansFromEnvironment() };
 }
 
 export function meta({ location }: Route.MetaArgs) {
@@ -132,7 +137,7 @@ const STACK = [
 
 export default function HomeRoute() {
   const { t } = useTranslation();
-  const { sections } = useLoaderData<typeof loader>();
+  const { sections, trialScans } = useLoaderData<typeof loader>();
   // Split in the component and not in the manifest: the manifest addresses WORDS, and "the lead of
   // architecture.md" is one address. Which of those blocks is a drawing is a question about layout.
   const topology = section(sections, 'topology');
@@ -335,12 +340,7 @@ export default function HomeRoute() {
       </Section>
 
       <Section heading={t('pages.home.access.heading')}>
-        <p>
-          <Trans
-            i18nKey="pages.home.access.body"
-            components={{ selfHosting: <SiteLink to={DOC_PATHS.appSelfHosting} /> }}
-          />
-        </p>
+        <AccessBody trialScans={trialScans} />
       </Section>
 
       <Section heading={t('pages.home.openSource.heading')}>

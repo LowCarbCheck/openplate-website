@@ -41,6 +41,15 @@ export const DOC_PATHS = {
 export const APP_URL = 'https://app.openplate.de';
 
 /**
+ * Where a reader signs up, on the hosted application (M253).
+ *
+ * Anyone can ask for an account there with an email address; the app mails a
+ * link, and the link creates the account. Every "sign up" link on this site
+ * points here, and it derives from `APP_URL` like the legal links below.
+ */
+export const APP_SIGN_UP_URL = `${APP_URL}/sign-up`;
+
+/**
  * The legal pages, which live in the APPLICATION and not on this site (M246).
  *
  * The app renders them from markdown files mounted into its container, so the

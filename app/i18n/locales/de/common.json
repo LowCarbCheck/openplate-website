@@ -129,7 +129,8 @@
       },
       "access": {
         "heading": "Zugang erhalten",
-        "body": "Jeder kann sich ohne Einladung auf der gehosteten Instanz unter app.openplate.de registrieren. Das Tagebuch, das Konto und der Sync sind kostenlos. Teller-Scans und die weiteren KI-Funktionen erfordern nach einem kostenlosen dreitägigen Testzeitraum ein kostenpflichtiges Abo. Eine eigene Instanz zu betreiben kostet nichts. Siehe <selfHosting>Selbst-Hosten</selfHosting>."
+        "body": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+        "bodyTrial": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open Source",
@@ -236,7 +237,7 @@
       "title": "Preise",
       "heading": "Abos",
       "vatNote": "Jeder Preis ist ein Endpreis in Euro, inklusive deutscher Umsatzsteuer.",
-      "trial": "Ein neues Konto auf der gehosteten Instanz erhält einen kostenlosen dreitägigen Testzeitraum. Nach dem Testzeitraum pausieren Teller-Scans, bis ein Abo gebucht wird, und der Rest funktioniert weiter.",
+      "trial": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
       "termsLink": "Bedingungen lesen",
       "intro": "openplate lässt sich kostenlos nutzen. Ein Abo deckt Teller-Scans und die weiteren KI-Funktionen auf der gehosteten Instanz unter app.openplate.de ab.",
       "selfHost": {

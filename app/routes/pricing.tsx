@@ -21,7 +21,13 @@ import { Copy, PageTitle } from '#app/components/page';
 import { PricingPlans } from '#app/components/pricing-plans';
 import { ExternalLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
-import { PRICE_ENV_VAR, priceEurFromEnvironment, yearlyEurFromEnvironment } from '#app/pricing-config';
+import { PricingTrial } from '#app/components/trial-copy';
+import {
+  PRICE_ENV_VAR,
+  priceEurFromEnvironment,
+  trialScansFromEnvironment,
+  yearlyEurFromEnvironment,
+} from '#app/pricing-config';
 import { pageMeta } from '#app/seo';
 import { APP_TERMS_URL, APP_URL } from '#app/site';
 
@@ -40,8 +46,8 @@ export function loader() {
   }
   // Null is a real answer here and not a failure: it is a build that sells no yearly plan, and
   // the yearly card is simply not drawn. The page itself still exists, because it follows the
-  // monthly price alone.
-  return { priceEur, yearlyEur: yearlyEurFromEnvironment() };
+  // monthly price alone. The free scans are the same kind of answer: null draws no trial sentence.
+  return { priceEur, yearlyEur: yearlyEurFromEnvironment(), trialScans: trialScansFromEnvironment() };
 }
 
 /**
@@ -62,7 +68,7 @@ export function meta({ location }: { location: { pathname: string } }) {
 
 export default function PricingRoute() {
   const { t } = useTranslation();
-  const { priceEur, yearlyEur } = useLoaderData<typeof loader>();
+  const { priceEur, yearlyEur, trialScans } = useLoaderData<typeof loader>();
 
   return (
     <SiteLayout width="marketing">
@@ -74,7 +80,7 @@ export default function PricingRoute() {
       <section className="mt-10 space-y-4 leading-relaxed">
         <Copy text={t('pages.pricing.includes')} />
         <Copy text={t('pages.pricing.free')} />
-        <Copy text={t('pages.pricing.trial')} />
+        <PricingTrial trialScans={trialScans} />
         <p className="max-w-[68ch] text-sm text-muted-foreground">{t('pages.pricing.vatNote')}</p>
       </section>
 

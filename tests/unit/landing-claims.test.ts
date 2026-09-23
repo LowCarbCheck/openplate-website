@@ -25,10 +25,16 @@ import { STACK_SECTIONS } from '../../app/lib/stack-sections';
 /**
  * The files the front page is made of.
  *
- * The route and the three components it composes, because a sentence typed into `Hero` is on the
- * landing page just as surely as one typed into the route, and the rule is about the page.
+ * The route and the components it composes, because a sentence typed into `Hero` is on the landing
+ * page just as surely as one typed into the route, and the rule is about the page. `trial-copy.tsx`
+ * prints the "Getting access" paragraph, in its two forms (M253).
  */
-const SOURCES = ['app/routes/home.tsx', 'app/components/hero.tsx', 'app/components/feature-grid.tsx'];
+const SOURCES = [
+  'app/routes/home.tsx',
+  'app/components/hero.tsx',
+  'app/components/feature-grid.tsx',
+  'app/components/trial-copy.tsx',
+];
 
 function read(path: string): string {
   return readFileSync(resolve(import.meta.dirname, '../..', path), 'utf8');

@@ -129,7 +129,8 @@
       },
       "access": {
         "heading": "Erişim sağlama",
-        "body": "Herkes davetiye olmadan app.openplate.de adresindeki barındırılan kurulumda hesap açabilir. Günlük, hesap ve eşitleme ücretsizdir. Tabak tarama ve diğer yapay zeka özellikleri, üç günlük ücretsiz deneme süresinden sonra ücretli bir planla sunulur. Kendi kopyanı çalıştırmak hiçbir ücrete tabi değildir. <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
+        "body": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+        "bodyTrial": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Açık kaynak",
@@ -236,7 +237,7 @@
       "title": "Fiyatlandırma",
       "heading": "Planlar",
       "vatNote": "Tüm fiyatlar avro cinsinden nihai fiyattır, Almanya KDV'si dahildir.",
-      "trial": "Barındırılan kurulumdaki yeni bir hesap, üç günlük ücretsiz deneme süresi alır. Deneme süresinden sonra, bir plan satın alınana kadar tabak tarama duraklatılır, geri kalan özellikler çalışmaya devam eder.",
+      "trial": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
       "termsLink": "Koşulları oku",
       "intro": "openplate uygulamasını kullanmak ücretsizdir. Satın alınan plan, app.openplate.de adresindeki barındırılan kurulumda tabak tarama ve diğer yapay zeka özelliklerinin masrafını karşılar.",
       "selfHost": {

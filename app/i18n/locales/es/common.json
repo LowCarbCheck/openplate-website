@@ -129,7 +129,8 @@
       },
       "access": {
         "heading": "Obtener acceso",
-        "body": "Cualquiera puede registrarse en la instancia alojada en app.openplate.de sin invitación. El diario, la cuenta y la sincronización son gratuitos. El escaneo de platos y las demás funciones de IA vienen con un plan de pago, tras una prueba gratuita de tres días. Ejecutar tu propia copia no cuesta nada. Consulta <selfHosting>Autohospedaje</selfHosting>."
+        "body": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+        "bodyTrial": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Código abierto",
@@ -236,7 +237,7 @@
       "title": "Precios",
       "heading": "Planes",
       "vatNote": "Todos los precios son finales en euros, con el IVA alemán incluido.",
-      "trial": "Una cuenta nueva en la instancia alojada obtiene una prueba gratuita de tres días. Tras la prueba, el escaneo de platos se pausa hasta contratar un plan, y el resto sigue funcionando.",
+      "trial": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
       "termsLink": "Lee las condiciones",
       "intro": "Usar openplate es gratis. Un plan paga el escaneo de platos y las demás funciones de IA en la instancia alojada en app.openplate.de.",
       "selfHost": {

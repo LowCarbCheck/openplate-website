@@ -21,13 +21,24 @@
  * computed here from the two prices and are never a third variable, so they
  * cannot disagree with the prices they are derived from.
  *
+ * ── THE FREE SCANS ARE A THIRD VARIABLE, AND THEY NEVER HAVE A DEFAULT ──
+ * `PRICING_TRIAL_SCANS` is how many free AI scans a new account on the hosted
+ * instance gets (M253). The core counts them and the app reads the number from
+ * the core; this site reads it here, from the same Bay configuration, so the
+ * number is typed in one place and never in this repository. Unset means the
+ * site states no trial at all: no sentence on the pricing page, and a front
+ * page paragraph that names no number. A default would be a promise the core
+ * may not keep.
+ *
  * ── THE SPLIT IN THIS MODULE ──
- * `priceEurFromEnvironment` and `yearlyEurFromEnvironment` are the ONLY things
- * here that touch `process.env`, and they are called from build-time and loader
- * code only: `app/routes.ts`, `app/sitemap.ts`, `app/root.tsx` and the pricing
- * page's own loader (the yearly one from that loader alone, since the frame does
- * not need it). Everything else is a pure function of a value that was passed
- * in, which is what lets a test drive every answer without a build.
+ * `priceEurFromEnvironment`, `yearlyEurFromEnvironment` and
+ * `trialScansFromEnvironment` are the ONLY things here that touch `process.env`,
+ * and they are called from build-time and loader code only: `app/routes.ts`,
+ * `app/sitemap.ts`, `app/root.tsx`, the pricing page's own loader (the yearly one
+ * from that loader alone, since the frame does not need it) and, for the free
+ * scans, the front page's loader too. Everything else is a pure function of a
+ * value that was passed in, which is what lets a test drive every answer
+ * without a build.
  */
 import type { LanguageCode } from './i18n/language';
 
@@ -37,6 +48,9 @@ export const PRICE_ENV_VAR = 'PRICING_PRICE_EUR';
 /** The yearly plan's build variable. Shows the yearly card; never creates the page on its own. */
 export const YEARLY_ENV_VAR = 'PRICING_YEARLY_EUR';
 
+/** The free scans' build variable. States the trial; never creates a page on its own. */
+export const TRIAL_SCANS_ENV_VAR = 'PRICING_TRIAL_SCANS';
+
 /** The pricing page's canonical, unprefixed path. `app/i18n/language.ts` localizes it. */
 export const PRICING_PATH = '/pricing';
 
@@ -45,6 +59,9 @@ const CURRENCY = 'EUR';
 
 /** A euro amount as it is written in the environment: digits, optionally a point and one or two more. */
 const PRICE_PATTERN = /^\d+(\.\d{1,2})?$/;
+
+/** A scan count as it is written in the environment: a whole number with no leading zero. */
+const SCANS_PATTERN = /^[1-9]\d*$/;
 
 /** Twelve monthly payments make the year the yearly plan is compared against. */
 const MONTHS_PER_YEAR = 12;
@@ -80,14 +97,38 @@ export function parseYearlyEur(raw: string | undefined): string | null {
   return parseEuroAmount({ raw, envVar: YEARLY_ENV_VAR });
 }
 
-/** The build environment's monthly answer. One of the two readers of `process.env` here; see the note above. */
+/**
+ * The free scans as `PRICING_TRIAL_SCANS` is written, or null when it is unset.
+ *
+ * A value that is present and not a positive whole number THROWS, for the
+ * reason `parseEuroAmount` gives: a typo would otherwise ship a site that
+ * silently states no trial. Zero throws too, because "0 free AI scans" is a
+ * sentence nobody means; a build that offers no trial leaves the variable unset.
+ */
+export function parseTrialScans(raw: string | undefined): number | null {
+  const value = raw?.trim() ?? '';
+  if (value === '') return null;
+
+  if (!SCANS_PATTERN.test(value)) {
+    throw new Error(`${TRIAL_SCANS_ENV_VAR} must be a whole number of scans such as '10', and it is '${value}'`);
+  }
+
+  return Number(value);
+}
+
+/** The build environment's monthly answer. One of the three readers of `process.env` here; see the note above. */
 export function priceEurFromEnvironment(): string | null {
   return parsePriceEur(process.env[PRICE_ENV_VAR]);
 }
 
-/** The build environment's yearly answer. The other reader of `process.env` here. */
+/** The build environment's yearly answer. The second reader of `process.env` here. */
 export function yearlyEurFromEnvironment(): string | null {
   return parseYearlyEur(process.env[YEARLY_ENV_VAR]);
+}
+
+/** The build environment's free scans. The third reader of `process.env` here. */
+export function trialScansFromEnvironment(): number | null {
+  return parseTrialScans(process.env[TRIAL_SCANS_ENV_VAR]);
 }
 
 /**
