@@ -129,7 +129,7 @@
       },
       "access": {
         "heading": "Getting access",
-        "body": "Anyone can sign up on the hosted instance at app.openplate.de without an invitation. Photo scans and sync across devices are part of a paid plan with a free trial. Everything else is free. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
+        "body": "Anyone can sign up on the hosted instance at app.openplate.de without an invitation. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan, after a free three-day trial. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -234,13 +234,31 @@
     },
     "pricing": {
       "title": "Pricing",
-      "heading": "One plan",
-      "price": "{{price}} a month",
-      "vatNote": "VAT included.",
-      "trial": "Try it free for three days.",
-      "body": "You pay for photo scans that estimate macros on your plate, and sync across your devices. Everything else in openplate is free and stays free.",
-      "cancel": "Cancel any time. Your access runs to the end of the month you paid for, and does not renew.",
-      "termsLink": "Read the terms"
+      "heading": "Plans",
+      "vatNote": "Every price is a final price in euros, German VAT included.",
+      "trial": "A new account on the hosted instance gets a free three-day trial. After the trial, plate scanning pauses until a plan is bought, and the rest keeps working.",
+      "termsLink": "Read the terms",
+      "intro": "openplate is free to use. A plan pays for plate scanning and the other AI features on the hosted instance at app.openplate.de.",
+      "selfHost": {
+        "name": "Self-host",
+        "price": "Free",
+        "body": "Run openplate on your own server. Every feature is included, you connect your own AI provider, and you pay us nothing.",
+        "cta": "How to self-host"
+      },
+      "monthly": {
+        "name": "Monthly",
+        "body": "Renews each month until you cancel. A cancellation takes effect at the end of the paid month.",
+        "period": "a month"
+      },
+      "yearly": {
+        "name": "Yearly",
+        "perMonth": "{{perMonth}} a month, you save {{saving}} percent",
+        "body": "Paid in advance for one year. A cancellation during the year takes effect at its end. After the year it continues as the monthly plan, cancellable every month, and never renews for another year.",
+        "period": "for the first year"
+      },
+      "includes": "openplate Plus includes plate scanning and the other AI features, up to 200 AI requests a day.",
+      "free": "Without a plan, the diary, the account and sync across devices stay free.",
+      "cta": "Try it free"
     },
     "notFound": {
       "title": "Page not found"

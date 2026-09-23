@@ -129,7 +129,7 @@
       },
       "access": {
         "heading": "Obtenir l'accès",
-        "body": "Tout le monde peut s'inscrire sur l'instance hébergée à l'adresse app.openplate.de sans invitation. L'analyse des photos et la synchronisation entre appareils font partie d'un abonnement payant avec un essai gratuit. Tout le reste est gratuit. Faire tourner ta propre copie ne coûte rien. Consulte <selfHosting>Auto-hébergement</selfHosting>."
+        "body": "Tout le monde peut s'inscrire sur l'instance hébergée sur app.openplate.de, sans invitation. Le journal, le compte et la synchronisation sont gratuits. L'analyse des photos d'assiette et les autres fonctionnalités d'IA nécessitent un forfait payant, après un essai gratuit de trois jours. Héberger ta propre instance ne coûte rien. Consulte la section <selfHosting>Auto-hébergement</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -234,13 +234,31 @@
     },
     "pricing": {
       "title": "Tarifs",
-      "heading": "Une seule formule",
-      "price": "{{price}} par mois",
-      "vatNote": "TVA incluse.",
-      "trial": "Essaie gratuitement pendant trois jours.",
-      "body": "Tu paies pour l'analyse photo qui estime les macros dans ton assiette, et la synchronisation entre tes appareils. Tout le reste dans openplate est gratuit et le restera.",
-      "cancel": "Résilie à tout moment. Ton accès reste actif jusqu'à la fin du mois payé, et ne se renouvelle pas.",
-      "termsLink": "Lire les conditions"
+      "heading": "Forfaits",
+      "vatNote": "Chaque prix est un prix final en euros, TVA allemande incluse.",
+      "trial": "Tout nouveau compte sur l'instance hébergée bénéficie d'un essai gratuit de trois jours. Après cet essai, l'analyse des photos d'assiette se met en pause tant qu'aucun forfait n'est souscrit, et le reste continue de fonctionner.",
+      "termsLink": "Lire les conditions",
+      "intro": "L'utilisation d'openplate est gratuite. Un forfait finance l'analyse des photos d'assiette et les autres fonctionnalités d'IA sur l'instance hébergée à l'adresse app.openplate.de.",
+      "selfHost": {
+        "name": "Auto-hébergement",
+        "price": "Gratuit",
+        "body": "Déploie openplate sur ton propre serveur. Toutes les fonctionnalités sont incluses, tu connectes ton propre fournisseur d'IA, et tu ne nous paies rien.",
+        "cta": "Comment s'auto-héberger"
+      },
+      "monthly": {
+        "name": "Mensuel",
+        "body": "Renouvelé chaque mois jusqu'à résiliation. La résiliation prend effet à la fin du mois payé.",
+        "period": "par mois"
+      },
+      "yearly": {
+        "name": "Annuel",
+        "perMonth": "{{perMonth}} par mois, tu économises {{saving}} pour cent",
+        "body": "Paiement d'avance pour un an. Une résiliation au cours de l'année prend effet à la fin de celle-ci. L'année terminée, l'abonnement bascule sur le forfait mensuel, résiliable chaque mois, et ne se réengage jamais pour une autre année.",
+        "period": "pendant la première année"
+      },
+      "includes": "openplate Plus inclut l'analyse des photos d'assiette et les autres fonctionnalités d'IA, avec un quota de 200 requêtes d'IA par jour.",
+      "free": "Sans forfait, le journal, le compte et la synchronisation entre appareils restent gratuits.",
+      "cta": "Essayer gratuitement"
     },
     "notFound": {
       "title": "Page introuvable"

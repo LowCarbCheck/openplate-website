@@ -129,7 +129,7 @@
       },
       "access": {
         "heading": "Ottenere l'accesso",
-        "body": "Chiunque può registrarsi sull'istanza ospitata su app.openplate.de senza invito. Le scansioni delle foto e la sincronizzazione tra dispositivi fanno parte di un piano a pagamento con prova gratuita. Tutto il resto è gratuito. Eseguire la propria copia non costa nulla. Consulta <selfHosting>Self-hosting</selfHosting>."
+        "body": "Chiunque può registrarsi senza invito sull'istanza ospitata su app.openplate.de. Il diario, l'account e la sincronizzazione sono gratuiti. La scansione dei piatti e le altre funzioni IA richiedono un piano a pagamento, dopo una prova gratuita di tre giorni. Eseguire la propria istanza non costa nulla. Vedi <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -234,13 +234,31 @@
     },
     "pricing": {
       "title": "Prezzi",
-      "heading": "Un unico piano",
-      "price": "{{price}} al mese",
-      "vatNote": "IVA inclusa.",
-      "trial": "Provalo gratis per tre giorni.",
-      "body": "Paghi per le scansioni delle foto che stimano i macronutrienti nel tuo piatto e per la sincronizzazione tra i tuoi dispositivi. Tutto il resto in openplate è gratuito e rimane gratuito.",
-      "cancel": "Annulla quando vuoi. L'accesso rimane attivo fino alla fine del mese che hai pagato e non si rinnova.",
-      "termsLink": "Leggi i termini"
+      "heading": "Piani",
+      "vatNote": "Tutti i prezzi sono finali e in euro, con IVA tedesca inclusa.",
+      "trial": "Un nuovo account sull'istanza ospitata include una prova gratuita di tre giorni. Al termine della prova, la scansione dei piatti si interrompe fino all'acquisto di un piano, mentre il resto continua a funzionare.",
+      "termsLink": "Leggi i termini",
+      "intro": "L'uso di openplate è gratuito. Un piano serve a coprire i costi della scansione dei piatti e delle altre funzioni IA sull'istanza ospitata su app.openplate.de.",
+      "selfHost": {
+        "name": "Self-host",
+        "price": "Gratuito",
+        "body": "Esegui openplate sul tuo server. Tutte le funzioni sono incluse, colleghi il tuo provider IA e non paghi nulla.",
+        "cta": "Come fare self-hosting"
+      },
+      "monthly": {
+        "name": "Mensile",
+        "body": "Si rinnova ogni mese fino alla disdetta. La disdetta ha effetto alla fine del mese già pagato.",
+        "period": "al mese"
+      },
+      "yearly": {
+        "name": "Annuale",
+        "perMonth": "{{perMonth}} al mese, risparmi il {{saving}} per cento",
+        "body": "Pagamento anticipato per un anno. La disdetta durante l'anno ha effetto al termine dello stesso. Dopo il primo anno prosegue come piano mensile, disattivabile ogni mese, e non si rinnova mai per un altro anno.",
+        "period": "per il primo anno"
+      },
+      "includes": "openplate Plus include la scansione dei piatti e le altre funzioni IA, fino a 200 richieste IA al giorno.",
+      "free": "Senza un piano, il diario, l'account e la sincronizzazione tra dispositivi restano gratuiti.",
+      "cta": "Provalo gratis"
     },
     "notFound": {
       "title": "Pagina non trovata"

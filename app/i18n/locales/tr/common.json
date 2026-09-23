@@ -129,7 +129,7 @@
       },
       "access": {
         "heading": "Erişim sağlama",
-        "body": "Herkes davetiye olmadan app.openplate.de adresindeki barındırılan örnekte kaydolabilir. Fotoğraf taramaları ve cihazlar arası eşitleme, ücretsiz deneme süresi sunan ücretli bir planın parçasıdır. Geri kalan her şey ücretsizdir. Kendi kopyanı çalıştırmak hiçbir ücrete tabi değildir. <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
+        "body": "Herkes davetiye olmadan app.openplate.de adresindeki barındırılan kurulumda hesap açabilir. Günlük, hesap ve eşitleme ücretsizdir. Tabak tarama ve diğer yapay zeka özellikleri, üç günlük ücretsiz deneme süresinden sonra ücretli bir planla sunulur. Kendi kopyanı çalıştırmak hiçbir ücrete tabi değildir. <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
       },
       "openSource": {
         "heading": "Açık kaynak",
@@ -234,13 +234,31 @@
     },
     "pricing": {
       "title": "Fiyatlandırma",
-      "heading": "Tek plan",
-      "price": "Ayda {{price}}",
-      "vatNote": "KDV dahildir.",
-      "trial": "Üç gün ücretsiz dene.",
-      "body": "Tabağındaki makroları tahmin eden fotoğraf taramaları ve cihazların arasındaki eşitleme için ödeme yaparsın. openplate içindeki diğer her şey ücretsizdir ve ücretsiz kalır.",
-      "cancel": "İstediğin zaman iptal et. Erişimin, parasını ödediğin ayın sonuna kadar sürer ve yenilenmez.",
-      "termsLink": "Koşulları oku"
+      "heading": "Planlar",
+      "vatNote": "Tüm fiyatlar avro cinsinden nihai fiyattır, Almanya KDV'si dahildir.",
+      "trial": "Barındırılan kurulumdaki yeni bir hesap, üç günlük ücretsiz deneme süresi alır. Deneme süresinden sonra, bir plan satın alınana kadar tabak tarama duraklatılır, geri kalan özellikler çalışmaya devam eder.",
+      "termsLink": "Koşulları oku",
+      "intro": "openplate uygulamasını kullanmak ücretsizdir. Satın alınan plan, app.openplate.de adresindeki barındırılan kurulumda tabak tarama ve diğer yapay zeka özelliklerinin masrafını karşılar.",
+      "selfHost": {
+        "name": "Kendi sunucunda barındır",
+        "price": "Ücretsiz",
+        "body": "openplate uygulamasını kendi sunucunda çalıştır. Tüm özellikler dahildir, kendi yapay zeka sağlayıcını bağlarsın ve bize hiçbir ücret ödemezsin.",
+        "cta": "Kendi sunucunda nasıl barındırırsın"
+      },
+      "monthly": {
+        "name": "Aylık",
+        "body": "Sen iptal edene kadar her ay yenilenir. İptal işlemi, ödemesi yapılmış ayın sonunda geçerli olur.",
+        "period": "ayda"
+      },
+      "yearly": {
+        "name": "Yıllık",
+        "perMonth": "Ayda {{perMonth}}, yüzde {{saving}} tasarruf edersin",
+        "body": "Bir yıl için peşin ödenir. Yıl içindeki bir iptal, yılın sonunda geçerli olur. Bir yıldan sonra aylık plan olarak devam eder, her ay iptal edilebilir ve asla bir yıl daha yenilenmez.",
+        "period": "ilk yıl için"
+      },
+      "includes": "openplate Plus, günde en fazla 200 yapay zeka isteğine kadar tabak tarama ve diğer yapay zeka özelliklerini içerir.",
+      "free": "Bir plan olmadan da günlük, hesap ve cihazlar arası eşitleme ücretsiz kalır.",
+      "cta": "Ücretsiz dene"
     },
     "notFound": {
       "title": "Sayfa bulunamadı"

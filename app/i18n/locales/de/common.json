@@ -129,7 +129,7 @@
       },
       "access": {
         "heading": "Zugang erhalten",
-        "body": "Jeder kann sich ohne Einladung auf der gehosteten Instanz unter app.openplate.de registrieren. Fotoscan und die Synchronisierung über Geräte hinweg gehören zu einem kostenpflichtigen Tarif mit kostenloser Testphase. Alles andere ist kostenlos. Der Betrieb einer eigenen Instanz kostet nichts. Siehe <selfHosting>Self-Hosting</selfHosting>."
+        "body": "Jeder kann sich ohne Einladung auf der gehosteten Instanz unter app.openplate.de registrieren. Das Tagebuch, das Konto und der Sync sind kostenlos. Teller-Scans und die weiteren KI-Funktionen erfordern nach einem kostenlosen dreitägigen Testzeitraum ein kostenpflichtiges Abo. Eine eigene Instanz zu betreiben kostet nichts. Siehe <selfHosting>Selbst-Hosten</selfHosting>."
       },
       "openSource": {
         "heading": "Open Source",
@@ -234,13 +234,31 @@
     },
     "pricing": {
       "title": "Preise",
-      "heading": "Ein Tarif",
-      "price": "{{price}} pro Monat",
-      "vatNote": "Preis inklusive Mehrwertsteuer.",
-      "trial": "Drei Tage kostenlos testen.",
-      "body": "Du zahlst für Foto-Scans, die Makronährstoffe auf deinem Teller schätzen, und die Synchronisierung über deine Geräte. Alles andere in openplate ist kostenlos und bleibt kostenlos.",
-      "cancel": "Jederzeit kündbar. Dein Zugriff läuft bis zum Ende des bezahlten Monats weiter und verlängert sich nicht.",
-      "termsLink": "Bedingungen lesen"
+      "heading": "Abos",
+      "vatNote": "Jeder Preis ist ein Endpreis in Euro, inklusive deutscher Umsatzsteuer.",
+      "trial": "Ein neues Konto auf der gehosteten Instanz erhält einen kostenlosen dreitägigen Testzeitraum. Nach dem Testzeitraum pausieren Teller-Scans, bis ein Abo gebucht wird, und der Rest funktioniert weiter.",
+      "termsLink": "Bedingungen lesen",
+      "intro": "openplate lässt sich kostenlos nutzen. Ein Abo deckt Teller-Scans und die weiteren KI-Funktionen auf der gehosteten Instanz unter app.openplate.de ab.",
+      "selfHost": {
+        "name": "Selbst hosten",
+        "price": "Kostenlos",
+        "body": "Betreibe openplate auf deinem eigenen Server. Alle Funktionen sind enthalten, du bindest deinen eigenen KI-Anbieter an und zahlst uns nichts.",
+        "cta": "Anleitung zum Selbst-Hosten"
+      },
+      "monthly": {
+        "name": "Monatlich",
+        "body": "Verlängert sich monatlich, bis du kündigst. Eine Kündigung wird zum Ende des bezahlten Monats wirksam.",
+        "period": "pro Monat"
+      },
+      "yearly": {
+        "name": "Jährlich",
+        "perMonth": "{{perMonth}} pro Monat, du sparst {{saving}} Prozent",
+        "body": "Im Voraus für ein Jahr bezahlt. Eine Kündigung während des Jahres wird an dessen Ende wirksam. Nach dem Jahr läuft es als monatliches Abo weiter, monatlich kündbar, und verlängert sich nie um ein weiteres Jahr.",
+        "period": "im ersten Jahr"
+      },
+      "includes": "openplate Plus enthält Teller-Scans und die weiteren KI-Funktionen, bis zu 200 KI-Anfragen am Tag.",
+      "free": "Ohne Abo bleiben das Tagebuch, das Konto und der Sync über Geräte hinweg kostenlos.",
+      "cta": "Kostenlos testen"
     },
     "notFound": {
       "title": "Seite nicht gefunden"

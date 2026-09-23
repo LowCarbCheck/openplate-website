@@ -16,14 +16,17 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN corepack prepare --activate
 RUN CI=true pnpm install --frozen-lockfile
 COPY . .
-# The price, and the ONE variable this build reads. app/pricing-config.ts explains why it is a
-# build variable and not a constant: the site is prerendered to a file per URL, so there is no
+# The prices, and the only two variables this build reads. app/pricing-config.ts explains why they
+# are build variables and not constants: the site is prerendered to a file per URL, so there is no
 # request time at which a price could be read instead. Unset means there is no pricing page, in
-# the route table, the sitemap or the navigation, which is what every local build gets. The pair
-# sits here rather than at the top of the stage so that changing the price does not invalidate
+# the route table, the sitemap or the navigation, which is what every local build gets.
+# PRICING_YEARLY_EUR only adds the yearly card to a page the monthly price already made. The pairs
+# sit here rather than at the top of the stage so that changing the price does not invalidate
 # the COPY layer above it.
 ARG PRICING_PRICE_EUR
 ENV PRICING_PRICE_EUR=$PRICING_PRICE_EUR
+ARG PRICING_YEARLY_EUR
+ENV PRICING_YEARLY_EUR=$PRICING_YEARLY_EUR
 # src/generated is committed (docs and translations are synced and translated out of band, by
 # scripts/sync-docs.ts and scripts/translate-docs.ts, never inside this build) so the build needs
 # no network beyond the pnpm install above.

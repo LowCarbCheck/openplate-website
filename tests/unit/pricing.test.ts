@@ -10,14 +10,29 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
+import { createElement } from 'react';
+import { renderToString } from 'react-dom/server';
+import { StaticRouterProvider, createStaticHandler, createStaticRouter, type RouteObject } from 'react-router';
+
+import { PricingPlansFrame } from './lib/pricing-plans-frame';
+
 import deCommon from '../../app/i18n/locales/de/common.json';
 import enCommon from '../../app/i18n/locales/en/common.json';
 import esCommon from '../../app/i18n/locales/es/common.json';
 import frCommon from '../../app/i18n/locales/fr/common.json';
 import itCommon from '../../app/i18n/locales/it/common.json';
 import trCommon from '../../app/i18n/locales/tr/common.json';
-import { SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '../../app/i18n/language';
-import { PRICE_ENV_VAR, PRICING_PATH, formatPriceEur, parsePriceEur } from '../../app/pricing-config';
+import { LANGUAGE_PREFIXES, SUPPORTED_LANGUAGES, localizePath, type LanguageCode } from '../../app/i18n/language';
+import {
+  PRICE_ENV_VAR,
+  PRICING_PATH,
+  YEARLY_ENV_VAR,
+  formatPriceEur,
+  monthlyEquivalentEur,
+  parsePriceEur,
+  parseYearlyEur,
+  yearlySavingPercent,
+} from '../../app/pricing-config';
 import { pagesForPrice } from '../../app/routes';
 import { buildSitemapXml, staticPathsForPrice } from '../../app/sitemap';
 import { SITE_ORIGIN } from '../../app/site';
@@ -25,16 +40,54 @@ import { SITE_ORIGIN } from '../../app/site';
 /** A price in the shape a deploy would set, used everywhere a set variable is needed. */
 const PRICE = '4.99';
 
-/** Every key the page renders, so a bundle that lost one fails here rather than on the page. */
-const COPY_KEYS = ['title', 'heading', 'price', 'vatNote', 'trial', 'body', 'cancel', 'termsLink'] as const;
+/** Every flat key the page renders, so a bundle that lost one fails here rather than on the page. */
+const COPY_KEYS = ['title', 'heading', 'intro', 'vatNote', 'includes', 'free', 'trial', 'cta', 'termsLink'] as const;
 
 type CopyKey = (typeof COPY_KEYS)[number];
+
+/** The plan cards' keys, one group per card. */
+type PlanCopy = {
+  selfHost: { name: string; price: string; body: string; cta: string };
+  monthly: { name: string; body: string; period: string };
+  yearly: { name: string; perMonth: string; body: string; period: string };
+};
 
 const BUNDLES = { de: deCommon, en: enCommon, fr: frCommon, it: itCommon, es: esCommon, tr: trCommon };
 
 /** The page's copy in one language. Typed by the bundles themselves, so a key removed from a file is a type error too. */
-function pricingCopy(language: LanguageCode): Record<CopyKey, string> {
+function pricingCopy(language: LanguageCode): Record<CopyKey, string> & PlanCopy {
   return BUNDLES[language].pages.pricing;
+}
+
+/** A yearly price in the shape a deploy would set, against a monthly `MONTHLY`. */
+const MONTHLY = '5.00';
+const YEARLY = '40.00';
+
+/** The plan cards as the prerender draws them, in `language`, for a build given these prices. */
+async function renderPlans(options: {
+  language: LanguageCode;
+  priceEur: string;
+  yearlyEur: string | null;
+}): Promise<string> {
+  const { language, priceEur, yearlyEur } = options;
+  const pathname = `${LANGUAGE_PREFIXES[language]}${PRICING_PATH}`;
+  const routeObjects: RouteObject[] = [
+    {
+      id: 'root',
+      path: '/*',
+      Component: () => createElement(PricingPlansFrame, { language, priceEur, yearlyEur }),
+    },
+  ];
+  const handler = createStaticHandler(routeObjects);
+  const context = await handler.query(new Request(`${SITE_ORIGIN}${pathname}`));
+  if (context instanceof Response) throw new Error(`the cards answered ${context.status}, not a page`);
+  const router = createStaticRouter(handler.dataRoutes, context);
+  return renderToString(createElement(StaticRouterProvider, { router, context, hydrate: false }));
+}
+
+/** The `data-plan` names in the markup, in the order the cards are drawn. */
+function planNames(markup: string): string[] {
+  return [...markup.matchAll(/data-plan="([^"]+)"/g)].map((match) => match[1] ?? '');
 }
 
 describe('parsePriceEur', () => {
@@ -56,6 +109,87 @@ describe('parsePriceEur', () => {
     assert.throws(() => parsePriceEur('4,99'), new RegExp(PRICE_ENV_VAR));
     assert.throws(() => parsePriceEur('4.99 EUR'), new RegExp(PRICE_ENV_VAR));
     assert.throws(() => parsePriceEur('free'), new RegExp(PRICE_ENV_VAR));
+  });
+});
+
+describe('parseYearlyEur', () => {
+  it('reads an unset variable as no yearly plan, and an amount as itself', () => {
+    assert.equal(parseYearlyEur(undefined), null);
+    assert.equal(parseYearlyEur('  '), null);
+    assert.equal(parseYearlyEur(' 40.00 '), YEARLY);
+  });
+
+  it('throws on garbage, and names ITS variable rather than the monthly one', () => {
+    // The control for the name: the same garbage through the monthly parser names the other
+    // variable, so a yearly parser that reused the monthly message would fail the second line.
+    assert.throws(() => parseYearlyEur('40,00'), new RegExp(YEARLY_ENV_VAR));
+    assert.throws(() => parseYearlyEur('40,00'), (error: Error) => !error.message.includes(PRICE_ENV_VAR));
+    assert.throws(() => parsePriceEur('40,00'), (error: Error) => !error.message.includes(YEARLY_ENV_VAR));
+    assert.throws(() => parseYearlyEur('forty'), new RegExp(YEARLY_ENV_VAR));
+  });
+});
+
+describe('monthlyEquivalentEur', () => {
+  it('divides the year by twelve and rounds to the nearest cent', () => {
+    assert.equal(monthlyEquivalentEur(YEARLY), '3.33');
+    assert.equal(monthlyEquivalentEur('48'), '4.00');
+  });
+
+  it('rounds a half cent and more UP, which a truncating version would not', () => {
+    // 50 / 12 is 4.1666..., so a floor would print 4.16. The control for the case above,
+    // where 3.333... reads the same under either rounding.
+    assert.equal(monthlyEquivalentEur('50.00'), '4.17');
+  });
+});
+
+describe('yearlySavingPercent', () => {
+  it('compares the year with twelve monthly payments', () => {
+    assert.equal(yearlySavingPercent({ monthlyEur: MONTHLY, yearlyEur: YEARLY }), 33);
+  });
+
+  it('rounds DOWN, so 16.67 percent is promised as 16 and never as 17', () => {
+    assert.equal(yearlySavingPercent({ monthlyEur: MONTHLY, yearlyEur: '50.00' }), 16);
+  });
+
+  it('gets a round saving exactly, which float division gets one below', () => {
+    // 1 - 48 / 60 is 0.19999999999999996 in floating point: a float version prints 19 here.
+    assert.equal(yearlySavingPercent({ monthlyEur: MONTHLY, yearlyEur: '48.00' }), 20);
+  });
+
+  it('throws on a yearly price that saves nothing, rather than print a zero saving', () => {
+    assert.throws(() => yearlySavingPercent({ monthlyEur: MONTHLY, yearlyEur: '60.00' }), new RegExp(YEARLY_ENV_VAR));
+    assert.throws(() => yearlySavingPercent({ monthlyEur: MONTHLY, yearlyEur: '70.00' }), new RegExp(YEARLY_ENV_VAR));
+  });
+});
+
+describe('the plan cards', () => {
+  it('draw the yearly card when the build was given a yearly price', async () => {
+    const markup = await renderPlans({ language: 'en', priceEur: MONTHLY, yearlyEur: YEARLY });
+
+    assert.deepEqual(planNames(markup), ['self-host', 'monthly', 'yearly']);
+    // The amount and the period are two separate elements now (the large heading and the caption
+    // under it), so they no longer sit in one string together; each is checked on its own.
+    assert.ok(markup.includes('€40.00'), 'the yearly amount is not on the card');
+    assert.ok(markup.includes('for the first year'), 'the yearly period is not on the card');
+    assert.ok(markup.includes('€3.33 a month, you save 33 percent'), 'the per-month line is not on the card');
+  });
+
+  it('leave it out when the build was given none', async () => {
+    // The case above is this one's control: the same render with a yearly price finds the card, so
+    // an empty list here is the card being absent and not the matcher being blind.
+    const markup = await renderPlans({ language: 'en', priceEur: MONTHLY, yearlyEur: null });
+
+    assert.deepEqual(planNames(markup), ['self-host', 'monthly']);
+    assert.ok(!markup.includes(enCommon.pages.pricing.yearly.name), 'a yearly plan name leaked into the page');
+  });
+
+  it('link the self-host card to the deploy page in the reader\'s language', async () => {
+    const english = await renderPlans({ language: 'en', priceEur: MONTHLY, yearlyEur: null });
+    const german = await renderPlans({ language: 'de', priceEur: MONTHLY, yearlyEur: null });
+
+    assert.ok(english.includes('href="/en/deploy"'), 'the English card does not link /en/deploy');
+    assert.ok(german.includes('href="/deploy"'), 'the German card does not link /deploy');
+    assert.ok(!german.includes('href="/en/deploy"'), 'the German card links the English page');
   });
 });
 
@@ -155,11 +289,25 @@ describe('the pricing copy', () => {
       }
     });
 
-    it(`carries the price placeholder in ${language}`, () => {
-      // The one interpolation on the page. A translation that dropped it would
-      // render a sentence with no number in it and no error anywhere.
-      const pricing = pricingCopy(language);
-      assert.ok(pricing.price.includes('{{price}}'), `${language}: the price line lost {{price}}`);
+    it(`carries every card's key and placeholder in ${language}`, () => {
+      // The interpolations on the page. A translation that dropped one would render a sentence
+      // with no number in it and no error anywhere.
+      const { selfHost, monthly, yearly } = pricingCopy(language);
+
+      for (const text of [
+        selfHost.name,
+        selfHost.price,
+        selfHost.body,
+        selfHost.cta,
+        monthly.name,
+        monthly.body,
+        monthly.period,
+        yearly.period,
+      ]) {
+        assert.ok(text.length > 0, `${language}: a plan card string is empty`);
+      }
+      assert.ok(yearly.perMonth.includes('{{perMonth}}'), `${language}: the yearly line lost {{perMonth}}`);
+      assert.ok(yearly.perMonth.includes('{{saving}}'), `${language}: the yearly line lost {{saving}}`);
     });
   }
 

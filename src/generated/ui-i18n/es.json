@@ -34,6 +34,13 @@
     "at": "2026-09-14",
     "es": "App"
   },
+  "08f03901a3fee9a9": {
+    "en": "Plans",
+    "path": "common:pages.pricing.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Planes"
+  },
   "08ff1b81ef9fe719": {
     "en": "Low-carb, calories, high protein, or simple tracking. The style you pick sets which goal grades the day, and every goal is optional.",
     "path": "common:pages.home.features.goals.body",
@@ -68,6 +75,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Código fuente del diagrama"
+  },
+  "0da3ee444eafe0bc": {
+    "en": "Run openplate on your own server. Every feature is included, you connect your own AI provider, and you pay us nothing.",
+    "path": "common:pages.pricing.selfHost.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Ejecuta openplate en tu propio servidor. Incluye todas las funciones, conectas tu propio proveedor de IA y no nos pagas nada."
   },
   "0f17bce3c4c5fe39": {
     "en": "{{price}} a month",
@@ -180,6 +194,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Comprueba cómo va el día"
+  },
+  "1c970e9f60b44371": {
+    "en": "{{perMonth}} a month, you save {{saving}} percent",
+    "path": "common:pages.pricing.yearly.perMonth",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{perMonth}} al mes, ahorras un {{saving}} por ciento"
   },
   "1dcd3aa0d3ac8d6b": {
     "en": "Research collaboration with openplate",
@@ -356,6 +377,13 @@
     "at": "2026-09-14",
     "es": "Cambiar al tema claro"
   },
+  "3d8353d8651477e3": {
+    "en": "openplate is free to use. A plan pays for plate scanning and the other AI features on the hosted instance at app.openplate.de.",
+    "path": "common:pages.pricing.intro",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Usar openplate es gratis. Un plan paga el escaneo de platos y las demás funciones de IA en la instancia alojada en app.openplate.de."
+  },
   "3eebe83fcdfb6ed8": {
     "en": "Analytics",
     "path": "common:pages.home.analytics.heading",
@@ -383,6 +411,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "El diagrama muestra lo que almacena cada uno. La tabla añade lo que ve cada uno mientras tus datos pasan a través de él."
+  },
+  "403a823c34d586d0": {
+    "en": "Yearly",
+    "path": "common:pages.pricing.yearly.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Anual"
   },
   "40d7d8e01393fd3c": {
     "en": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level.",
@@ -432,6 +467,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Tu navegador"
+  },
+  "462ed9265b2d0120": {
+    "en": "How to self-host",
+    "path": "common:pages.pricing.selfHost.cta",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cómo autohospedar"
   },
   "47159c53798be533": {
     "en": "Where your data goes",
@@ -573,6 +615,13 @@
     "at": "2026-09-14",
     "es": "Cancela en cualquier momento. Tu acceso continuará hasta el final del mes que hayas pagado y no se renovará."
   },
+  "5ac3796ed868598a": {
+    "en": "A new account on the hosted instance gets a free three-day trial. After the trial, plate scanning pauses until a plan is bought, and the rest keeps working.",
+    "path": "common:pages.pricing.trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Una cuenta nueva en la instancia alojada obtiene una prueba gratuita de tres días. Tras la prueba, el escaneo de platos se pausa hasta contratar un plan, y el resto sigue funcionando."
+  },
   "5caa52f6258b4b28": {
     "en": "How to run openplate",
     "path": "common:pages.deploy.title",
@@ -600,6 +649,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "es": "Servidor de app openplate"
+  },
+  "61ca56451225f048": {
+    "en": "Anyone can sign up on the hosted instance at app.openplate.de without an invitation. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan, after a free three-day trial. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cualquiera puede registrarse en la instancia alojada en app.openplate.de sin invitación. El diario, la cuenta y la sincronización son gratuitos. El escaneo de platos y las demás funciones de IA vienen con un plan de pago, tras una prueba gratuita de tres días. Ejecutar tu propia copia no cuesta nada. Consulta <selfHosting>Autohospedaje</selfHosting>."
   },
   "61d99d0b181b5997": {
     "en": "The hosted instance is invite-only. Running your own copy needs no invitation.",
@@ -649,6 +705,20 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "autoalojamiento"
+  },
+  "6ae57aaf6148f928": {
+    "en": "Self-host",
+    "path": "common:pages.pricing.selfHost.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Autohospedar"
+  },
+  "6afecfb328d6755f": {
+    "en": "{{price}} for the first year",
+    "path": "common:pages.pricing.yearly.price",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{price}} durante el primer año"
   },
   "6b9b8069874f559a": {
     "en": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>.",
@@ -782,6 +852,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Busca en la base de datos de alimentos o elige algo que registraste antes, y la entrada se añade al día bajo la comida que elegiste."
+  },
+  "82c24789c5f24abd": {
+    "en": "Without a plan, the diary, the account and sync across devices stay free.",
+    "path": "common:pages.pricing.free",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Sin un plan, el diario, la cuenta y la sincronización entre dispositivos siguen siendo gratuitos."
   },
   "83855bc381fe3cb9": {
     "en": "The inference runtime",
@@ -965,6 +1042,20 @@
     "at": "2026-09-14",
     "es": "Personas que se autoalojan el servicio y quieren escanear platos sin una cuenta de IA en la nube y sin que ninguna foto salga de su red. No forma parte de la instancia alojada en openplate.de."
   },
+  "9f140ff1a440b9b2": {
+    "en": "Paid in advance for one year. A cancellation during the year takes effect at its end. After the year it continues as the monthly plan, cancellable every month, and never renews for another year.",
+    "path": "common:pages.pricing.yearly.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Pago por adelantado durante un año. Si cancelas durante el año, surte efecto a su término. Tras el año continúa como el plan mensual, cancelable cada mes, y nunca se renueva por otro año."
+  },
+  "a1712bbcd54d5b51": {
+    "en": "Free",
+    "path": "common:pages.pricing.selfHost.price",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Gratis"
+  },
   "a1ff1cb9289c7248": {
     "en": "Cloud AI provider",
     "path": "common:pages.home.illustrations.holders.cloudProvider",
@@ -972,12 +1063,26 @@
     "at": "2026-09-14",
     "es": "Proveedor de IA en la nube"
   },
+  "a3875e02aa08fab9": {
+    "en": "for the first year",
+    "path": "common:pages.pricing.yearly.period",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "durante el primer año"
+  },
   "a3aa74b76c9d84f4": {
     "en": "What we measure",
     "path": "common:pages.home.analytics.heading",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Qué medimos"
+  },
+  "a44a4cc449027638": {
+    "en": "{{price}} a month",
+    "path": "common:pages.pricing.monthly.price",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "{{price}} al mes"
   },
   "a6dd790d0a85c71d": {
     "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
@@ -1006,6 +1111,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Comentamos tu protocolo, qué admite openplate actualmente y qué ajustes necesita tu estudio."
+  },
+  "a89a0610af287429": {
+    "en": "openplate Plus includes plate scanning and the other AI features, up to 200 AI requests a day.",
+    "path": "common:pages.pricing.includes",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "openplate Plus incluye el escaneo de platos y las demás funciones de IA, hasta 200 peticiones de IA al día."
   },
   "a8eed070fecbb675": {
     "en": "We are looking for research partners",
@@ -1154,6 +1266,13 @@
     "at": "2026-09-14",
     "es": "openplate registra alimentos y, si quieres, estima los macronutrientes de un plato a partir de una foto. Busca un alimento o escanea un plato, y la entrada irá a tu diario del día. En tu propia instalación no hay pantalla de registro: abre la aplicación y empieza a registrar. En la instancia alojada, inicias sesión primero."
   },
+  "c5dd0163f8083dce": {
+    "en": "Every price is a final price in euros, German VAT included.",
+    "path": "common:pages.pricing.vatNote",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Todos los precios son finales en euros, con el IVA alemán incluido."
+  },
   "c7296fd66ef8914b": {
     "en": "Source code",
     "path": "common:site.footer.sourceCode",
@@ -1230,6 +1349,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Define los objetivos"
+  },
+  "cfe07749c5e9aae9": {
+    "en": "Try it free",
+    "path": "common:pages.pricing.cta",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Pruébalo gratis"
   },
   "d03fc6aac257834a": {
     "en": "Initial call",
@@ -1364,6 +1490,13 @@
     "at": "2026-09-14",
     "es": "Escanear un plato"
   },
+  "edb9011ac8e721f2": {
+    "en": "Renews each month until you cancel. A cancellation takes effect at the end of the paid month.",
+    "path": "common:pages.pricing.monthly.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Se renueva cada mes hasta que canceles. La cancelación surte efecto al final del mes pagado."
+  },
   "ee1b887e7bc5365f": {
     "en": "Participants share diary records with the study only after granting consent. We structure exports to match your analysis pipeline.",
     "path": "common:pages.research.offer.export.body",
@@ -1392,6 +1525,13 @@
     "at": "2026-09-19",
     "es": "nombres"
   },
+  "f2e090a986cb6164": {
+    "en": "Monthly",
+    "path": "common:pages.pricing.monthly.name",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Mensual"
+  },
   "f30921ce48dfc9c9": {
     "en": "Three components, each optional beyond the app",
     "path": "common:pages.home.stack.heading",
@@ -1412,6 +1552,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Despliegue"
+  },
+  "f5b6afbc55082848": {
+    "en": "a month",
+    "path": "common:pages.pricing.monthly.period",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "al mes"
   },
   "f7dfe3e7fa81a873": {
     "en": "The sync server",
