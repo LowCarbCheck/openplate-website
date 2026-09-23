@@ -400,11 +400,14 @@ function LanguageMenu() {
  * icons beside them made a crowded line on a phone for controls a reader uses once, if at all, so
  * they wait at the bottom of the panel, at the same 44 pixel size they have in the header.
  *
- * ── THE LANGUAGES ARE A DISCLOSURE OF THEIR OWN ──
- * Six names spelled out do not fit one 390 pixel row beside two icons. The globe button names the
- * current language so a reader can see what it will change, and it opens the six as a three column
- * grid under the row. That grid pushes nothing but the space below the button the reader pressed,
- * which is the one kind of movement a reader asks for.
+ * ── THE LANGUAGES ARE A DISCLOSURE OF THEIR OWN, NEVER A LIST ──
+ * Six names spelled out do not fit one 390 pixel row beside two icons, and a language switcher
+ * belongs behind a button on a phone exactly as it does in the wide header, not spelled out on the
+ * page. The globe button names the current language so a reader can see what it will change, and
+ * pressing it opens the same kind of panel `LanguageMenu` opens there: `absolute`, square, one
+ * language per row. It opens upward, `bottom-full`, because this button sits at the bottom of the
+ * phone panel and a panel opening down would run off the screen. Anchored to the button and overlaid
+ * on the page, it pushes nothing.
  */
 function PhoneControls() {
   const { t } = useTranslation();
@@ -412,34 +415,36 @@ function PhoneControls() {
   const { isOpen, toggle, close, wrapperRef, buttonRef } = useDisclosure();
 
   return (
-    <div ref={wrapperRef} className="mt-4 border-t border-border pt-2">
+    <div className="mt-4 border-t border-border pt-2">
       <div className="flex items-center gap-1">
         <ExternalLink href={REPOSITORIES.app} className={ICON_BUTTON}>
           <GitHubMark className="h-5 w-5" />
           <span className="sr-only">{t('site.footer.sourceCode')}</span>
         </ExternalLink>
         <ThemeToggle />
-        <button
-          ref={buttonRef}
-          type="button"
-          aria-expanded={isOpen}
-          aria-controls={PHONE_LANGUAGE_PANEL_ID}
-          onClick={toggle}
-          className="ms-auto flex min-h-11 items-center gap-2 px-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-        >
-          <GlobeIcon className="h-5 w-5" />
-          <span className="sr-only">{t('site.language.label')}: </span>
-          <span lang={language}>{LANGUAGE_LABELS[language]}</span>
-          <ChevronDownIcon className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-        </button>
+        <div ref={wrapperRef} className="relative ms-auto">
+          <button
+            ref={buttonRef}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls={PHONE_LANGUAGE_PANEL_ID}
+            onClick={toggle}
+            className="flex min-h-11 items-center gap-2 px-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <GlobeIcon className="h-5 w-5" />
+            <span className="sr-only">{t('site.language.label')}: </span>
+            <span lang={language}>{LANGUAGE_LABELS[language]}</span>
+            <ChevronDownIcon className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {isOpen && (
+            <nav aria-label={t('site.language.label')} id={PHONE_LANGUAGE_PANEL_ID}>
+              <ul className="absolute right-0 bottom-full z-50 mb-px w-48 border border-border bg-card py-2 text-sm shadow-lg">
+                <LanguageLinks linkClassName="flex min-h-11 items-center px-4 hover:bg-muted" onSelect={close} />
+              </ul>
+            </nav>
+          )}
+        </div>
       </div>
-      {isOpen && (
-        <nav aria-label={t('site.language.label')} id={PHONE_LANGUAGE_PANEL_ID}>
-          <ul className="grid grid-cols-3 gap-x-2">
-            <LanguageLinks linkClassName="flex min-h-11 items-center" onSelect={close} />
-          </ul>
-        </nav>
-      )}
     </div>
   );
 }
