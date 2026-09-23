@@ -9,9 +9,9 @@ export const DOCS_INDEX: DocsIndex = {
     "component": "app",
     "source": {
       "repo": "https://github.com/LowCarbCheck/openplate",
-      "ref": "v0.40.0",
+      "ref": "v0.41.0",
       "editRef": "main",
-      "sha": "86d85d1b127f4e108a3a0bcd97df56025d4d45ac",
+      "sha": "a7411ba75dfb1b0e000618258a141fb8369b1cc3",
       "committedAt": "2026-09-23"
     },
     "lead": [
@@ -124,13 +124,21 @@ export const DOCS_INDEX: DocsIndex = {
         ]
       },
       {
-        "slug": "legal-review",
-        "file": "docs/legal-review.md",
-        "title": "Legal review",
+        "slug": "content",
+        "file": "docs/content.md",
+        "title": "Content pages",
         "blurb": [
           {
             "kind": "text",
-            "text": "Status of the German legal text, machine-translated and awaiting a lawyer"
+            "text": "The legal pages as markdown files you mount ("
+          },
+          {
+            "kind": "code",
+            "text": "CONTENT_DIR"
+          },
+          {
+            "kind": "text",
+            "text": "): the folder, the file format, what is refused, and the named sections of the two statutory button pages"
           }
         ]
       },

@@ -179,12 +179,6 @@
     "at": "2026-09-06",
     "de": "Das Löschen des {{0}}-Schlüsseldatensatzes macht jeden gespeicherten Blob dauerhaft unentschlüsselbar. Der Server verhindert dies nicht; ein Client darf dies nicht ohne unmissverständliche Warnung anbieten. {{1}} Kryptographisch ist es eine dritte Verpackung desselben DEK, aber es ist die Zugriffsberechtigung einer anderen Person, von ihr widerrufbar, von dir nicht verifizierbar und abhängig von ihrer fortwährenden Kooperation und Ehrlichkeit. Das Löschen beider Schlüsseldatensätze macht das Konto selbst bei existierenden aktiven Freigaben unbrauchbar, und kein Client darf jemals \"Daten über Ernährungsberatung wiederherstellen\" als Wiederherstellungspfad anbieten."
   },
-  "02e55ceedd7aef07": {
-    "en": "German legal text: review record",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "Deutscher Rechtstext: Prüfprotokoll"
-  },
   "033e8154451adffb": {
     "en": "Send each person their own key.",
     "model": "google/gemini-3.8-flash",
@@ -455,12 +449,6 @@
     "at": "2026-09-14",
     "de": "{{0}} (mit Bindestrich) ist eine separate, Python-basierte Neuimplementierung der Compose-Spezifikation. Es läuft eigenständig ohne Beteiligung von Docker und unterstützt einen kleineren Teil der Spezifikation: Insbesondere ist die Unterstützung für {{1}} schwächer, und Netzwerke werden standardmäßig anders benannt."
   },
-  "078efd070a6787eb": {
-    "en": "116 strings across all three documents",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "116 Zeichenketten über alle drei Dokumente hinweg"
-  },
   "07b2114aadb3224e": {
     "en": "{{0}} — when a device syncs, and how often.",
     "model": "google/gemini-3.8-flash",
@@ -514,12 +502,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "ungetestet"
-  },
-  "08b421eab6909809": {
-    "en": "The German Impressum, Datenschutzerklärung and Nutzungsbedingungen are {{0}}. They are live. This file exists so that fact is written down somewhere other than a commit message.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Das deutsche Impressum, die Datenschutzerklärung und die Nutzungsbedingungen sind {{0}}. Sie sind live geschaltet. Diese Datei existiert, damit dieser Umstand nicht nur in einer Commit-Nachricht festgehalten ist."
   },
   "093490165f1c933f": {
     "en": "Reported estimates",
@@ -652,12 +634,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "vLLM und Ollama benötigen beide den genauen Namen des bereitgestellten Modells"
-  },
-  "0b84bc16adb1e8c9": {
-    "en": "{{0}}: Governing law, and whether the German phrasing preserves the consumer-protection carve-out.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "{{0}}: Anwendbares Recht und ob die deutsche Formulierung die Verbraucherschutzausnahme wahrt."
   },
   "0b8566ef2ae11361": {
     "en": "Read {{0}} for accounts whose end date is in the future, paged with the same {{1}}, {{2}} and {{3}} sentence as every other paged endpoint here",
@@ -838,12 +814,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Die Adresse bezeichnet eine reale Person"
-  },
-  "0e570ca6fabe24f9": {
-    "en": "Source",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Quelle"
   },
   "0e76960093379060": {
     "en": "History",
@@ -1072,12 +1042,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "de": "Einstellungen, Tarif"
-  },
-  "12950c33f18cebe8": {
-    "en": "§9 Cookies",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "§9 Cookies"
   },
   "12a505b345b860f2": {
     "en": "Exchanged for a new pair. Rotating — every use spends it.",
@@ -1690,12 +1654,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "Grammatikgestützte Dekodierung"
-  },
-  "1ea442a134b2a184": {
-    "en": "No",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Nein"
   },
   "1ea554b5d724e68e": {
     "en": "What it buys",
@@ -2519,12 +2477,6 @@
     "at": "2026-09-04",
     "de": "1.47 s"
   },
-  "2e53bdcd0740867b": {
-    "en": "Tool",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Werkzeug"
-  },
   "2e5d9463dcbd5e68": {
     "en": "Identifiers in a path. {{0}} and {{1}} are replaced with a placeholder before the page view is reported.",
     "model": "google/gemini-3.8-flash",
@@ -2830,12 +2782,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Backups"
-  },
-  "336f71ba95547893": {
-    "en": "How to change the German",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "So änderst du das Deutsche"
   },
   "3388ef4c0ca9543d": {
     "en": "Research contributions",
@@ -3160,12 +3106,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Führe den ausgegebenen Wiederherstellungsbefehl aus."
-  },
-  "39ef85ddc7270863": {
-    "en": "Nutzungsbedingungen §7",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Nutzungsbedingungen §7"
   },
   "3a0fadb2bcff18cd": {
     "en": "1,287 to 3,507",
@@ -3851,12 +3791,6 @@
     "at": "2026-09-06",
     "de": "Die Daten von Open Food Facts stehen unter der {{0}}, die {{1}} ist. Wenn du diese Schnittstelle aktivierst und danach eine Datenbank veröffentlichst oder weitergibst, die OFF-Daten enthält (nicht die einzelnen angezeigten Abfragen, sondern {{2}}), verpflichtet dich die ODbL, diese abgeleitete Datenbank ebenfalls unter der ODbL bereitzustellen und Open Food Facts als Quelle zu nennen."
   },
-  "4636b9fadd535730": {
-    "en": "{{0}}: only rendered when the instance actually runs analytics. It is currently NOT rendered in production. Review it anyway; it appears the moment {{1}} is set. Its CONTENT then varies with {{2}}: at {{3}} the \"what is recorded\" paragraph says no feature use is counted, at {{4}} it says feature use is counted, and every level that is on carries a paragraph stating that the amount recorded is a setting. The {{5}} level adds a further paragraph naming the health-behaviour and study events. Review all three, not just the default.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-07",
-    "de": "{{0}}: Wird nur gerendert, wenn die Instanz tatsächlich Analysen ausführt. In der Produktivumgebung wird dies derzeit NICHT gerendert. Prüfe es trotzdem, denn es erscheint, sobald {{1}} gesetzt ist. Der INHALT variiert dann mit {{2}}: Bei {{3}} besagt der Abschnitt \"Was erfasst wird\", dass keine Funktionsnutzung gezählt wird, bei {{4}} besagt er, dass Funktionsnutzung gezählt wird, und jede aktive Stufe enthält einen Abschnitt mit dem Hinweis, dass der Erfassungsumfang eine Einstellung ist. Die Stufe {{5}} fügt einen weiteren Abschnitt hinzu, der die Ereignisse zu Gesundheitsverhalten und Studien benennt. Prüfe alle drei, nicht nur den Standardwert."
-  },
   "464bebde9eb3d25e": {
     "en": "Nothing per user: no accounts, no sessions, no cookies. Model weights and a food dataset.",
     "model": "google/gemini-3.8-flash",
@@ -4096,12 +4030,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Jede Umgebungsvariable, die Content-Security-Policy, eigene und von der Instanz bereitgestellte KI-Endpunkte"
-  },
-  "499c4b8e338db0f4": {
-    "en": "{{0}} every sentence of prose. {{1}} asserts key parity in both directions, that no placeholder or markup tag was lost, and that no German entry is a copy of its English source.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}} jeder Fließtext-Satz. {{1}} stellt die Schlüssel-Parität in beide Richtungen sicher, dass kein Platzhalter und kein Markup-Tag verloren ging und dass kein deutscher Eintrag eine Kopie seiner englischen Quelle ist."
   },
   "49c57c1fb3df5284": {
     "en": "Bearer. {{0}}. Revokes the caller's token family: this device only.",
@@ -4943,12 +4871,6 @@
     "at": "2026-09-04",
     "de": "Was sich ändert, wenn die Option gesetzt ist:"
   },
-  "59ff7d4ec4178444": {
-    "en": "Not translated, and cannot be:",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Nicht übersetzt und kann nicht übersetzt werden:"
-  },
   "5a1addb6ecf62f50": {
     "en": "Any identifier. No account id, no email address, no device id.",
     "model": "google/gemini-3.8-flash",
@@ -5254,12 +5176,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Er kann deine Einträge nicht lesen."
-  },
-  "5f64cc5f38365e6f": {
-    "en": "{{0}} the operator's identity (company name, address, managing director, register number and court, VAT id). Those live in {{1}} and are rendered from one copy in both languages, so the two documents cannot name different companies. The tool never saw them.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "{{0}} die Identität des Betreibers (Unternehmensname, Adresse, Geschäftsführung, Registernummer und Registergericht, Umsatzsteuer-Identifikationsnummer). Diese liegen in {{1}} und werden in beiden Sprachen aus einer einzigen Vorlage erzeugt, sodass die beiden Dokumente keine unterschiedlichen Firmen benennen können. Das Werkzeug hat sie nie zu Gesicht bekommen."
   },
   "5f768f5a99d7875f": {
     "en": "Open the {{0}}",
@@ -5686,12 +5602,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ein NEUES Token in DERSELBEN Zeile und ein neues Ablaufdatum"
-  },
-  "665a41c497917c87": {
-    "en": "Those tests check STRUCTURE. None of them can tell you the German is legally right. That is what the review is for.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Diese Tests prüfen die STRUKTUR. Keiner von ihnen kann dir sagen, ob das Deutsch rechtlich korrekt ist. Genau dafür ist die Prüfung da."
   },
   "6677a2c16a25df6d": {
     "en": "All-or-nothing, in one database transaction.",
@@ -6575,12 +6485,6 @@
     "at": "2026-09-04",
     "de": "sync"
   },
-  "75d4f19e5aebda3a": {
-    "en": "{{0}}: the split between the app server, which stores nothing, and the separate sync service, which holds an account. This distinction is new in the English as of 2026-09-01 and is the part most likely to have been flattened in translation.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "{{0}}: Die Trennung zwischen dem App-Server, der nichts speichert, und dem separaten Synchronisierungsdienst, der ein Konto führt. Diese Unterscheidung ist im englischen Text seit dem 01.09.2026 neu und der Teil, der bei der Übersetzung am ehesten verloren gehen könnte."
-  },
   "75d75e1b1f709c06": {
     "en": "There is nothing to migrate: the app container holds no state, so a new image just replaces the old one. If you run the full stack, the sync service applies its own migrations on start.",
     "model": "google/gemini-3.8-flash",
@@ -7181,12 +7085,6 @@
     "at": "2026-09-18",
     "de": "Welches veröffentlichte Dokument der {{0}}-Bildschirm zitiert: {{1}} (DGE-Referenzwerte), {{2}} (EU) oder {{3}} (NASEM/IOM). Eine Grundlage pro Instanz für jede Sprache, da sich ein Referenzgremium danach richtet, wo eine Person lebt, und nicht danach, welche Sprache sie liest. Der Bildschirm nennt das verwendete Dokument unter jedem Betrag. Ein unbekannter Wert bricht den Startvorgang absichtlich ab."
   },
-  "8226a6aec642a9c5": {
-    "en": "Nutzungsbedingungen §11",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Nutzungsbedingungen §11"
-  },
   "823acbcf48f1d6e6": {
     "en": "Authenticated with the account's ordinary {{0}} (§4.1). An anonymous caller gets the ordinary {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -7222,12 +7120,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Das Übertragungsformat des verschlüsselten Blobs: {{0}}."
-  },
-  "82ffb877e3169491": {
-    "en": "machine translations that no lawyer has read",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "maschinelle Übersetzungen, die keine juristische Fachkraft gelesen hat"
   },
   "8314f19317dad3a8": {
     "en": "{{0}} and ODbL share-alike",
@@ -7343,12 +7235,6 @@
     "at": "2026-09-07",
     "de": "Letzte Anmeldung und ein Eintrag pro UTC-Tag über ein begrenztes Zeitfenster"
   },
-  "850994dc8d037140": {
-    "en": "{{0}}: the sync terms, including the claim that deletion is immediate with no grace period. Confirm that matches what the product does before relying on it.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "{{0}}: die Synchronisierungsbedingungen, einschließlich der Aussage, dass die Löschung sofort und ohne Übergangsfrist erfolgt. Stelle sicher, dass dies dem tatsächlichen Verhalten des Produkts entspricht, bevor du dich darauf verlässt."
-  },
   "850b400f55e59ff0": {
     "en": "What it costs, stated rather than implied.",
     "model": "google/gemini-3.8-flash",
@@ -7462,12 +7348,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Eine Instanz, die {{0}} setzt, ist eine {{1}}: Ein Administrator lädt Personen per E-Mail ein, und jedes Konto enthält ein tägliches KI-Kontingent, sodass die Anmeldung Tagebuch und KI in einem Schritt freischaltet. So arbeitet openplate.de, und die Option ist standardmäßig inaktiv, wer beim Self-Hosting nichts setzt, erhält die offene App."
-  },
-  "8722658f37d2a4b9": {
-    "en": "What is and is not machine-produced",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Was maschinell erstellt wurde und was nicht"
   },
   "87282cd904a70ab0": {
     "en": "{{0}} on the same CPU: ≈94 s / plate",
@@ -8243,12 +8123,6 @@
     "at": "2026-09-04",
     "de": "Wer welche Daten hält"
   },
-  "95e43875ca5639eb": {
-    "en": "Reviewed by a lawyer",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Von juristischer Fachkraft geprüft"
-  },
   "95f0ef2628dd2f53": {
     "en": "{{0}} A version is kept if ANY tier keeps it:",
     "model": "google/gemini-3.8-flash",
@@ -8423,12 +8297,6 @@
     "at": "2026-09-04",
     "de": "openplate-inference docs/configuration.md"
   },
-  "97de31dca16ae4ab": {
-    "en": "Legal review",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Rechtliche Prüfung"
-  },
   "97e3fe735b614015": {
     "en": "{{0}} across the 10-plate corpus",
     "model": "google/gemini-3.8-flash",
@@ -8524,12 +8392,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "{{0}} setzt {{1}} voraus (Ersteinrichtung)."
-  },
-  "99dda81b100d28c4": {
-    "en": "Datenschutzerklärung §3 and §6",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Datenschutzerklärung §3 und §6"
   },
   "99fdcee2232d8488": {
     "en": "{{0}} on a GPU: measured",
@@ -8831,12 +8693,6 @@
     "at": "2026-09-04",
     "de": "Phase 1, Gewichte herunterladen"
   },
-  "9e5bb7c6f64c3578": {
-    "en": "§9a",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "§9a"
-  },
   "9e793e927ed6387d": {
     "en": "{{0}} raise that key's limit. Takes effect immediately, no restart anywhere.",
     "model": "google/gemini-3.8-flash",
@@ -8938,12 +8794,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Requests, die das Body-Limit überschreiten, werden mit {{0}} abgewiesen."
-  },
-  "a06b92ba84fe66f6": {
-    "en": "Translated:",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Übersetzt:"
   },
   "a07c8aaf0f55ac2f": {
     "en": "replaces no credential",
@@ -9100,12 +8950,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "{{0}}, anders als §5.16. Die Rotation gehört nicht zur Freigabeoberfläche: Sie schreibt den eigenen Blob des Aufrufers und dessen zwei eigene Schlüsseldatensätze neu, Zeilen, die auf jedem Konto überall existieren, und sie ist die Antwort auf jeden Verdacht, dass ein DEK auf einer Instanz durchgesickert ist (ein wiederhergestelltes Backup, ein verlorenes Gerät), auf der nie etwas geteilt wurde. Den einzigen Mechanismus, der einen kompromittierten DEK außer Dienst stellen kann, hinter einem unbezogenen Schalter zu verstecken, nähme einer solchen betreibenden Person jede Möglichkeit, ihn zu ersetzen."
-  },
-  "a2c964598749c732": {
-    "en": "{{0}}: the four preference cookies. Whether the German supports the position that §25 TTDSG is not engaged.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-06",
-    "de": "{{0}}: die vier Einstellungs-Cookies. Prüfe, ob die deutsche Formulierung die Auffassung stützt, dass § 25 TTDSG nicht greift."
   },
   "a2daef36a0c457ca": {
     "en": "Instead of asking every visitor to bring a key, an instance can offer its own endpoint.",
@@ -9274,12 +9118,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Der Dienst läuft, die Modell-Laufzeitumgebung jedoch nicht. Prüfe Stufe 2. Prüfe im externen Modus {{0}}, siehe {{1}}."
-  },
-  "a6b3a6b04b6760d7": {
-    "en": "What a reviewer should look at first",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Worauf prüfende Personen zuerst achten sollten"
   },
   "a6c1c8a2848c59bc": {
     "en": "{{0}}, no body. Idempotent — deleting a record that does not exist is still {{1}}.",
@@ -9575,12 +9413,6 @@
     "at": "2026-09-06",
     "de": "MIT-Lizenz"
   },
-  "abbc13c13e35c899": {
-    "en": "Translated",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Übersetzt am"
-  },
   "abc35ee301bcd8d0": {
     "en": "{{0}} {{1}}, {{2}}, {{3}}, {{4}}, every bearer-guarded route and the admin tree answer {{5}} — that exact string, so a client can recognise it and say what happened. On {{6}} and the recovery paths the check runs AFTER the credential is verified, so an unknown address still gets the ordinary indistinguishable {{7}}.",
     "model": "google/gemini-3.8-flash",
@@ -9869,23 +9701,11 @@
     "at": "2026-09-09",
     "de": "Der ausgehende Aufruf hat ein explizites Timeout. Es ist kurz, da jede Route hier einer Schaltfläche entspricht, die gerade jemand gedrückt hat. Es existiert genauso, um die versteckte Obergrenze von 300 Sekunden in undici zu begrenzen, wie um einen langsamen Abrechnungsdienst einzufangen."
   },
-  "b045e1bde8b0f695": {
-    "en": "Status: AWAITING REVIEW",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Status: WARTET AUF PRÜFUNG"
-  },
   "b05dcdba5f23534b": {
     "en": "openplate can count how it is used. It counts nothing until you configure it, and it never counts what you eat.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "de": "openplate kann erfassen, wie es genutzt wird. Es erfasst nichts, bis du es konfigurierst, und es erfasst niemals, was du isst."
-  },
-  "b073f6c68ef87211": {
-    "en": "Scope",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Umfang"
   },
   "b093720ae2536364": {
     "en": "symptom",
@@ -12539,12 +12359,6 @@
     "at": "2026-09-04",
     "de": "Sollte dieser Dienst jemals dauerhaften Zustand pro Aufrufendem erhalten, wie Schlüssel-Kontingente, ein Nutzungsprotokoll oder alles, was aufgelistet oder widerrufen werden muss, sollte diese Entscheidung überprüft werden, und das ist der Auslöser, auf den zu achten ist."
   },
-  "e12f91207641dae2": {
-    "en": "2026-09-01",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "2026-09-01"
-  },
   "e170e1392576fc96": {
     "en": "Mixed: stated per endpoint",
     "model": "google/gemini-3.8-flash",
@@ -13115,12 +12929,6 @@
     "at": "2026-09-06",
     "de": "Wird gegen ein neues Paar eingetauscht. Rotierend: Jede Nutzung verbraucht es."
   },
-  "eb2865774f7c4c83": {
-    "en": "Status of the German legal text, machine-translated and awaiting a lawyer",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Status des deutschen Rechtstextes, maschinenübersetzt und zur Prüfung beim Anwalt"
-  },
   "eb2fb8f5f21799ea": {
     "en": "from your browsers",
     "model": "google/gemini-3.8-flash",
@@ -13415,12 +13223,6 @@
     "at": "2026-09-06",
     "de": "llama.cpp (MIT): wird als offizielles Upstream-Container-Image verwendet, nicht vendored."
   },
-  "efea194f7055f50a": {
-    "en": "{{0}} via OpenRouter, temperature 0",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}} über OpenRouter, Temperatur 0"
-  },
   "f01a042bbfb3dad3": {
     "en": "30 minutes",
     "model": "google/gemini-3.8-flash",
@@ -13703,12 +13505,6 @@
     "at": "2026-09-09",
     "de": "Die Account-ID stammt aus der Sitzung, und die Adresse stammt aus der Tabellenzeile."
   },
-  "f5f915e8f8ab439f": {
-    "en": "Re-run the tool. Do not hand-edit {{0}}: a hand edit is invisible to the next run and silently reverts. If a reviewer supplies a corrected sentence, change the ENGLISH source if the meaning changed, or add the correction to the tool's {{1}} and re-run.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "Lass das Tool erneut laufen. Bearbeite {{0}} nicht manuell: Eine manuelle Änderung bleibt beim nächsten Durchlauf unsichtbar und wird stillschweigend zurückgesetzt. Wenn jemand bei der Prüfung einen korrigierten Satz liefert, ändere die ENGLISCHE Quelle, falls sich die Bedeutung geändert hat, oder trage die Korrektur in {{1}} des Tools ein und lass es erneut laufen."
-  },
   "f63c891a27d36f04": {
     "en": "{{0}} ADR-0002 prohibition 8: a rotation is atomic or it does not exist, and no sequence of individually committing endpoints may be documented or used as one. A partial application is the \"logs in fine, decrypts nothing\" brick §5.14 already refuses to permit, with one more participant: a key record re-wrapped while the blob write lost its CAS strands the owner, and a share re-wrapped while the blob write lost its CAS strands the clinician.",
     "model": "google/gemini-3.8-flash",
@@ -13936,12 +13732,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Qwen3-VL-8B-Instruct, Q4_K_M + F16 mmproj"
-  },
-  "fb4a114e5eeb15cb": {
-    "en": "{{0}}, at the English text corrected the same day (M167/02 Phase A)",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}}, beim am selben Tag korrigierten englischen Text (M167/02 Phase A)"
   },
   "fb9221a461404744": {
     "en": "Settings, Sharing",
