@@ -92,7 +92,25 @@
           "pageEdge": "the page",
           "diaryEdge": "diary, encrypted",
           "photoEdge": "photo",
-          "namesEdge": "names"
+          "namesEdge": "names",
+          "steps": {
+            "log": {
+              "title": "You log a food",
+              "body": "Its name goes through the app server to the food database."
+            },
+            "scan": {
+              "title": "You scan a plate",
+              "body": "The photo goes to your AI endpoint and nowhere else."
+            },
+            "sync": {
+              "title": "If you turn on sync",
+              "body": "The diary leaves the device encrypted and goes to openplate-core."
+            },
+            "stays": {
+              "title": "Everything else stays",
+              "body": "Your diary stays on the device. Without sync, no server has a copy."
+            }
+          }
         },
         "holders": {
           "caption": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
@@ -101,7 +119,13 @@
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Food database",
-          "cloudProvider": "Cloud AI provider"
+          "cloudProvider": "Cloud AI provider",
+          "states": {
+            "legible": "Stored in plain text",
+            "sealed": "Stored encrypted",
+            "unknown": "Kept under their terms",
+            "empty": "Nothing of yours"
+          }
         }
       },
       "stack": {

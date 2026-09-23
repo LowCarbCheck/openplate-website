@@ -92,7 +92,25 @@
           "pageEdge": "sayfa",
           "diaryEdge": "günlük, şifrelenmiş",
           "photoEdge": "fotoğraf",
-          "namesEdge": "adlar"
+          "namesEdge": "adlar",
+          "steps": {
+            "log": {
+              "title": "Bir yiyecek kaydedersin",
+              "body": "Yiyeceğin adı, uygulama sunucusu üzerinden yiyecek veritabanına gider."
+            },
+            "scan": {
+              "title": "Bir tabak tararsın",
+              "body": "Fotoğraf yalnızca yapay zeka uç noktana gider, başka hiçbir yere gitmez."
+            },
+            "sync": {
+              "title": "Eşitlemeyi açarsan",
+              "body": "Günlük cihazdan şifrelenmiş olarak ayrılır ve openplate-core bileşenine gider."
+            },
+            "stays": {
+              "title": "Diğer her şey kalır",
+              "body": "Günlüğün cihazda kalır. Eşitleme olmadan hiçbir sunucuda bir kopyası bulunmaz."
+            }
+          }
         },
         "holders": {
           "caption": "Çizim, her birinin ne depoladığını gösterir. Tablo ise verilerin içinden geçerken her birinin ne gördüğünü ekler.",
@@ -101,7 +119,13 @@
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Yemek veritabanı",
-          "cloudProvider": "Bulut yapay zeka sağlayıcısı"
+          "cloudProvider": "Bulut yapay zeka sağlayıcısı",
+          "states": {
+            "legible": "Düz metin olarak saklanır",
+            "sealed": "Şifrelenmiş olarak saklanır",
+            "unknown": "Kendi koşulları kapsamında tutulur",
+            "empty": "Sana ait hiçbir şey"
+          }
         }
       },
       "stack": {

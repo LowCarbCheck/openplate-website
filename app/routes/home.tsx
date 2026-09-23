@@ -32,10 +32,10 @@ import type { Route } from './+types/home';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { FeatureGrid, type Feature } from '#app/components/feature-grid';
 import { Hero, PRIMARY_ACTION, SECONDARY_ACTION } from '#app/components/hero';
-import { DataFlow } from '#app/components/illustrations/data-flow';
-import { DataHolders } from '#app/components/illustrations/data-holders';
+import { DATA_FLOW_BOX, DataFlow, DataFlowSteps } from '#app/components/illustrations/data-flow';
+import { DATA_HOLDERS_BOX, DataHolders, DataHoldersKey } from '#app/components/illustrations/data-holders';
 import { STACK_MARKS } from '#app/components/illustrations/stack-marks';
-import { Section } from '#app/components/page';
+import { FullBleedBackdrop, MEASURE, Section } from '#app/components/page';
 import { ExampleDataNote, HeroShot } from '#app/components/shot';
 import { ExternalLink, RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
@@ -224,8 +224,8 @@ export default function HomeRoute() {
           flowchart at its natural size, so a phone drags it sideways; its colours are baked into a
           committed SVG per language per appearance, so it cannot follow the theme toggle in the
           header; and it does not move. `DataFlow` is one component, sized by a class, painted from
-          `currentColor` down, and it animates one token per arrow so a reader sees which way each
-          arrow runs before reading a word of it.
+          `currentColor` down, and it lights one step at a time with a packet on its arrow, so a
+          reader sees which way each arrow runs before reading a word of it.
 
           NOTHING ABOUT `/docs` CHANGES. The flowchart is still generated, still translated and
           still committed by `sync:docs`, and `/docs/app/architecture` still renders it. This is a
@@ -236,22 +236,46 @@ export default function HomeRoute() {
         {/* The one drawing on this page that gets a name read aloud. `frame.tsx` argues the case
             and this is the component it names: the five arrows, and which of them the app server
             is NOT on, are the page's whole claim, and the paragraphs above say it in prose but not
-            in the shape the picture says it in. */}
-        <Drawing>
-          <DataFlow
-            className="w-full"
-            label={t('pages.home.illustrations.flow.label')}
-            device={t('pages.home.illustrations.flow.device')}
-            appServer={t('pages.home.illustrations.flow.appServer')}
-            sync={t('pages.home.illustrations.flow.sync')}
-            aiEndpoint={t('pages.home.illustrations.flow.aiEndpoint')}
-            foodDb={t('pages.home.illustrations.flow.foodDb')}
-            pageEdge={t('pages.home.illustrations.flow.pageEdge')}
-            diaryEdge={t('pages.home.illustrations.flow.diaryEdge')}
-            photoEdge={t('pages.home.illustrations.flow.photoEdge')}
-            namesEdge={t('pages.home.illustrations.flow.namesEdge')}
+            in the shape the picture says it in. The legend beside it runs through the same claim
+            in four steps, lit in turn on the drawing's own clock. */}
+        <Stage>
+          <div className={`${DATA_FLOW_BOX} ${STAGED_DRAWING}`}>
+            <DataFlow
+              className="block size-full"
+              label={t('pages.home.illustrations.flow.label')}
+              device={t('pages.home.illustrations.flow.device')}
+              appServer={t('pages.home.illustrations.flow.appServer')}
+              sync={t('pages.home.illustrations.flow.sync')}
+              aiEndpoint={t('pages.home.illustrations.flow.aiEndpoint')}
+              foodDb={t('pages.home.illustrations.flow.foodDb')}
+              pageEdge={t('pages.home.illustrations.flow.pageEdge')}
+              diaryEdge={t('pages.home.illustrations.flow.diaryEdge')}
+              photoEdge={t('pages.home.illustrations.flow.photoEdge')}
+              namesEdge={t('pages.home.illustrations.flow.namesEdge')}
+            />
+          </div>
+          <DataFlowSteps
+            className={`${STAGED_LEGEND} grid gap-2 sm:grid-cols-2 lg:grid-cols-1`}
+            steps={{
+              log: {
+                title: t('pages.home.illustrations.flow.steps.log.title'),
+                body: t('pages.home.illustrations.flow.steps.log.body'),
+              },
+              scan: {
+                title: t('pages.home.illustrations.flow.steps.scan.title'),
+                body: t('pages.home.illustrations.flow.steps.scan.body'),
+              },
+              sync: {
+                title: t('pages.home.illustrations.flow.steps.sync.title'),
+                body: t('pages.home.illustrations.flow.steps.sync.body'),
+              },
+              stays: {
+                title: t('pages.home.illustrations.flow.steps.stays.title'),
+                body: t('pages.home.illustrations.flow.steps.stays.body'),
+              },
+            }}
           />
-        </Drawing>
+        </Stage>
       </Section>
 
       <Section heading={t('pages.home.stack.heading')}>
@@ -298,22 +322,35 @@ export default function HomeRoute() {
             No `label` here, unlike `DataFlow`: the table below is the same six rows in prose, so
             a reader who gets no drawing has already been given everything it says. */}
         <figure>
-          <Drawing>
-            <DataHolders
-              className="w-full"
-              labels={{
-                browser: t('pages.home.illustrations.holders.browser'),
-                appServer: t('pages.home.illustrations.holders.appServer'),
-                sync: t('pages.home.illustrations.holders.sync'),
-                inference: t('pages.home.illustrations.holders.inference'),
-                foodDb: t('pages.home.illustrations.holders.foodDb'),
-                cloudProvider: t('pages.home.illustrations.holders.cloudProvider'),
-              }}
-            />
-          </Drawing>
-          <figcaption className="mt-2 max-w-[68ch] text-sm text-muted-foreground">
-            {t('pages.home.illustrations.holders.caption')}
-          </figcaption>
+          <Stage>
+            <div className={`${DATA_HOLDERS_BOX} ${STAGED_DRAWING}`}>
+              <DataHolders
+                className="block size-full"
+                labels={{
+                  browser: t('pages.home.illustrations.holders.browser'),
+                  appServer: t('pages.home.illustrations.holders.appServer'),
+                  sync: t('pages.home.illustrations.holders.sync'),
+                  inference: t('pages.home.illustrations.holders.inference'),
+                  foodDb: t('pages.home.illustrations.holders.foodDb'),
+                  cloudProvider: t('pages.home.illustrations.holders.cloudProvider'),
+                }}
+              />
+            </div>
+            <div className={STAGED_LEGEND}>
+              <DataHoldersKey
+                className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1"
+                labels={{
+                  legible: t('pages.home.illustrations.holders.states.legible'),
+                  sealed: t('pages.home.illustrations.holders.states.sealed'),
+                  unknown: t('pages.home.illustrations.holders.states.unknown'),
+                  empty: t('pages.home.illustrations.holders.states.empty'),
+                }}
+              />
+              <figcaption className="mt-6 font-prose text-sm text-muted-foreground">
+                {t('pages.home.illustrations.holders.caption')}
+              </figcaption>
+            </div>
+          </Stage>
         </figure>
         <DocBlocks blocks={section(sections, 'holds').blocks} />
       </Section>
@@ -323,9 +360,13 @@ export default function HomeRoute() {
           An outline button: the page's one filled action is in the hero. */}
       <Section heading={t('pages.home.research.heading')}>
         <p>{t('pages.home.research.body')}</p>
-        <SiteLink to="/research" className={SECONDARY_ACTION}>
-          {t('pages.home.research.cta')}
-        </SiteLink>
+        {/* A block in `MEASURE`, because the link is inline-flex and an inline box ignores the
+            auto margins that centre the paragraph above it. */}
+        <div className={MEASURE}>
+          <SiteLink to="/research" className={SECONDARY_ACTION}>
+            {t('pages.home.research.cta')}
+          </SiteLink>
+        </div>
       </Section>
 
       {/* `holds` says who holds the reader's data; what is counted about them is the natural next
@@ -360,35 +401,42 @@ export default function HomeRoute() {
 }
 
 /**
- * The width rule for the two big drawings on this page, written once because two call sites drift.
+ * The stage for the two drawings on this page: a band of the hero's graph paper and glow across
+ * the whole window, with the drawing and its legend on it.
  *
- * ── SHRINK TO FIT IS THE WRONG DEFAULT FOR A DRAWING, AGAIN ──
- * `DataFlow` and `DataHolders` set their type at 11.5 and 12 units on a 520 unit grid, so the words
- * in them are about a forty-fourth of the rendered width. Below roughly 480 pixels that is under
- * nine pixels, which is the exact failure the mermaid flowchart had inside a 48rem measure. So the
- * floor lives on the drawing and the scroll on the wrapper, the same pairing `DocBlocks` uses for a
- * diagram, a table and a code block: on a phone the reader drags a legible picture instead of
- * squinting at a small one.
+ * ── WHY A STAGE, AND WHY THE WHOLE COLUMN ──
+ * Both drawings used to sit in the 42rem reading column, where their labels rendered at eight to
+ * ten pixels and the operator found them almost hidden. A drawing is not a sentence and does not
+ * want the reading measure. The heading and the paragraphs that introduce it stay centred in
+ * `MEASURE` above; the drawing and its legend take the 72rem column, side by side from `lg`,
+ * drawing first. Below `lg` the drawing is capped at 26rem and centred, and the legend follows it.
  *
- * ── AND A CEILING, WHICH THE DIAGRAM DID NOT NEED ──
- * A committed SVG stops at its natural size. These are vectors with no natural size at all, so in
- * a 72rem section `DataFlow` would render 1152 wide and 682 tall and own the screen. 44rem is about
- * as wide as the drawings were designed to be read at, and it is why neither of them uses
- * `FullWidth`: they want a cap, not the window. 44 and not 46, so that at a 768 pixel window the
- * drawing still fits the column and the sync box at its right edge is not against the margin.
+ * The band is decoration and takes no space: `FullBleedBackdrop` is absolute, spans this block's
+ * height, and fades out at its top and bottom so it never ends on a hard line. `isolate` gives its
+ * `-z-10` a stacking context, as in the hero.
+ *
+ * NO HORIZONTAL SCROLL any more. The old wrapper gave both drawings a 30rem floor and let a phone
+ * drag them sideways, because they were drawn 520 units wide for a desktop. Both are now drawn for
+ * a 390 pixel phone first (the file comments give the numbers), so they fit the column at every
+ * width and each wrapper reserves its box from the drawing's aspect ratio.
  */
-function Drawing({ children }: { children: ReactNode }) {
+function Stage({ children }: { children: ReactNode }) {
   return (
-    // LEFT ALIGNED, not centred. A section is 72rem and this is 46rem, so centring moves the
-    // drawing about 200 pixels right of the paragraph that introduces it and of the table that
-    // follows it, and the block reads as a floating picture rather than as part of the section.
-    //
-    // The negative margin below `sm` is the bleed `DocBlocks` gives a wide table, copied because
-    // the table it copies is the one directly under `DataHolders` on this page and two scrolling
-    // blocks that start at different left edges read as a mistake. A marketing page is `px-5`, so
-    // -1.25rem each side buys the drawing the phone's whole width instead of the column's.
-    <div className="-mx-5 max-w-[44rem] overflow-x-auto px-5 sm:mx-0 sm:px-0">
-      <div className="min-w-[30rem]">{children}</div>
+    <div className="relative isolate py-10 sm:py-14">
+      <FullBleedBackdrop className="surface-grid inset-y-0 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+        <div className="brand-glow absolute inset-0" />
+      </FullBleedBackdrop>
+      <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">{children}</div>
     </div>
   );
 }
+
+/**
+ * The drawing's box on a stage. The labels inside are sized for these widths: 26rem at most below
+ * `lg`, and 38rem at most from it, which is where the drawings step their type down. Widen either
+ * and re-measure the labels.
+ */
+const STAGED_DRAWING = 'mx-auto w-full max-w-[26rem] lg:max-w-[38rem]';
+
+/** The legend's box: under the drawing below `lg` and as wide as the reading column at most. */
+const STAGED_LEGEND = 'mx-auto w-full max-w-[26rem] sm:max-w-2xl lg:max-w-none';

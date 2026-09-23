@@ -92,7 +92,25 @@
           "pageEdge": "die Seite",
           "diaryEdge": "Tagebuch, verschlüsselt",
           "photoEdge": "Foto",
-          "namesEdge": "Namen"
+          "namesEdge": "Namen",
+          "steps": {
+            "log": {
+              "title": "Du trägst ein Lebensmittel ein",
+              "body": "Sein Name wird über den App-Server an die Lebensmitteldatenbank übertragen."
+            },
+            "scan": {
+              "title": "Du scannst einen Teller",
+              "body": "Das Foto wird an deinen KI-Endpunkt übertragen und nirgendwo sonst hin."
+            },
+            "sync": {
+              "title": "Wenn du Sync aktivierst",
+              "body": "Das Tagebuch verlässt das Gerät verschlüsselt und geht an openplate-core."
+            },
+            "stays": {
+              "title": "Alles andere bleibt",
+              "body": "Dein Tagebuch bleibt auf dem Gerät. Ohne Sync besitzt kein Server eine Kopie."
+            }
+          }
         },
         "holders": {
           "caption": "Die Zeichnung zeigt, was die einzelnen Stellen speichern. Die Tabelle ergänzt, was jede Stelle sieht, während deine Daten sie durchlaufen.",
@@ -101,7 +119,13 @@
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Lebensmitteldatenbank",
-          "cloudProvider": "Cloud-KI-Anbieter"
+          "cloudProvider": "Cloud-KI-Anbieter",
+          "states": {
+            "legible": "Im Klartext gespeichert",
+            "sealed": "Verschlüsselt gespeichert",
+            "unknown": "Nach deren Bedingungen aufbewahrt",
+            "empty": "Nichts von dir"
+          }
         }
       },
       "stack": {

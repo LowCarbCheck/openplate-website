@@ -92,7 +92,25 @@
           "pageEdge": "la pagina",
           "diaryEdge": "diario, cifrato",
           "photoEdge": "foto",
-          "namesEdge": "nomi"
+          "namesEdge": "nomi",
+          "steps": {
+            "log": {
+              "title": "Registri un alimento",
+              "body": "Il suo nome passa attraverso il server dell'applicazione fino al database degli alimenti."
+            },
+            "scan": {
+              "title": "Scansioni un piatto",
+              "body": "La foto va al tuo endpoint di intelligenza artificiale e da nessun'altra parte."
+            },
+            "sync": {
+              "title": "Se attivi la sincronizzazione",
+              "body": "Il diario lascia il dispositivo cifrato e va a openplate-core."
+            },
+            "stays": {
+              "title": "Tutto il resto rimane",
+              "body": "Il tuo diario rimane sul dispositivo. Senza sincronizzazione, nessun server ne conserva una copia."
+            }
+          }
         },
         "holders": {
           "caption": "Il disegno mostra cosa memorizza ciascun componente. La tabella aggiunge cosa vede ciascuno mentre i tuoi dati vi transitano attraverso.",
@@ -101,7 +119,13 @@
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Database degli alimenti",
-          "cloudProvider": "Provider di IA sul cloud"
+          "cloudProvider": "Provider di IA sul cloud",
+          "states": {
+            "legible": "Archiviato in testo non cifrato",
+            "sealed": "Archiviato cifrato",
+            "unknown": "Conservato secondo i loro termini",
+            "empty": "Nulla di tuo"
+          }
         }
       },
       "stack": {

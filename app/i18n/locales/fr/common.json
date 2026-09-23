@@ -92,7 +92,25 @@
           "pageEdge": "la page",
           "diaryEdge": "journal, chiffré",
           "photoEdge": "photo",
-          "namesEdge": "noms"
+          "namesEdge": "noms",
+          "steps": {
+            "log": {
+              "title": "Tu saisis un aliment",
+              "body": "Son nom transite par le serveur applicatif jusqu'à la base de données alimentaire."
+            },
+            "scan": {
+              "title": "Tu scannes une assiette",
+              "body": "La photo est envoyée à ton point de terminaison d'IA et nulle part ailleurs."
+            },
+            "sync": {
+              "title": "Si tu actives la synchronisation",
+              "body": "Le journal quitte l'appareil chiffré et part vers openplate-core."
+            },
+            "stays": {
+              "title": "Tout le reste reste local",
+              "body": "Ton journal reste sur l'appareil. Sans synchronisation, aucun serveur n'en possède de copie."
+            }
+          }
         },
         "holders": {
           "caption": "Le dessin montre ce que chacun stocke. Le tableau ajoute ce que chacun voit pendant que tes données y transitent.",
@@ -101,7 +119,13 @@
           "sync": "openplate-core",
           "inference": "openplate-inference",
           "foodDb": "Base de données alimentaire",
-          "cloudProvider": "Fournisseur d'IA dans le cloud"
+          "cloudProvider": "Fournisseur d'IA dans le cloud",
+          "states": {
+            "legible": "Stocké en texte clair",
+            "sealed": "Stocké chiffré",
+            "unknown": "Conservé selon leurs conditions",
+            "empty": "Rien de ce qui t'appartient"
+          }
         }
       },
       "stack": {

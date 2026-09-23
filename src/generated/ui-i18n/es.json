@@ -118,6 +118,13 @@
     "at": "2026-09-23",
     "es": "Buscamos universidades, investigadores de nutrición y equipos clínicos que quieran trabajar con openplate. Un diario guardado en el dispositivo del participante, código que un comité de ética puede inspeccionar y analíticas de investigación que solo registran datos con consentimiento lo convierten en una base práctica para estudios nutricionales."
   },
+  "11b7546e4e2ab252": {
+    "en": "Search the docs",
+    "path": "docs:search.placeholder",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Buscar en la documentación"
+  },
   "124e83951a633684": {
     "en": "We are looking for research partners: university groups, nutrition researchers, dietitians and public health teams who study dietary intake. openplate is an open-source food diary that runs on the participant's device, and we want it to serve research as well as daily logging.",
     "path": "common:pages.research.lead",
@@ -314,6 +321,13 @@
     "at": "2026-09-23",
     "es": "Sincroniza tu diario cifrado entre tus dispositivos."
   },
+  "365e5b093ecc3ef6": {
+    "en": "All guides ({{count}})",
+    "path": "docs:allGuides",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Todas las guías ({{count}})"
+  },
   "36a20a82f9b321e2": {
     "en": "The inference runtime",
     "path": "docs:components.inference",
@@ -383,6 +397,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Cambiar al tema claro"
+  },
+  "3ca3236c8a14f0f2": {
+    "en": "Everything else stays",
+    "path": "common:pages.home.illustrations.flow.steps.stays.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Todo lo demás se queda"
   },
   "3d8353d8651477e3": {
     "en": "openplate is free to use. A plan pays for plate scanning and the other AI features on the hosted instance at app.openplate.de.",
@@ -503,6 +524,13 @@
     "at": "2026-09-14",
     "es": "Precios"
   },
+  "4a851b0b180059e8": {
+    "en": "Your diary stays on the device. Without sync, no server has a copy.",
+    "path": "common:pages.home.illustrations.flow.steps.stays.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Tu diario se queda en el dispositivo. Sin sincronización, ningún servidor tiene una copia."
+  },
   "4cd639667a5118b4": {
     "en": "An open-source food diary that runs on your device.",
     "path": "common:site.tagline",
@@ -530,6 +558,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "La pantalla de resumen: los carbohidratos netos, calorías, proteínas, grasas y fibra del día, cada uno mostrado con una barra frente a su objetivo."
+  },
+  "4f995cf93b4289e5": {
+    "en": "Search the documentation",
+    "path": "docs:search.label",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Buscar en la documentación"
   },
   "4faf536325f6937f": {
     "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
@@ -692,6 +727,20 @@
     "at": "2026-09-14",
     "es": "Principal"
   },
+  "6611df5149c0dd7a": {
+    "en": "Could not copy",
+    "path": "docs:copy.failed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "No se pudo copiar"
+  },
+  "66524cc81e52e6fb": {
+    "en": "You scan a plate",
+    "path": "common:pages.home.illustrations.flow.steps.scan.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Escaneas un plato"
+  },
   "66b87c16e65c373c": {
     "en": "Try it free",
     "path": "common:pages.home.hero.openApp",
@@ -804,6 +853,13 @@
     "at": "2026-09-19",
     "es": "Base de datos de alimentos"
   },
+  "72de94aecb8cf143": {
+    "en": "Stored in plain text",
+    "path": "common:pages.home.illustrations.holders.states.legible",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Guardado en texto plano"
+  },
   "7452c7550822728d": {
     "en": "Write to us",
     "path": "common:pages.research.contact.button",
@@ -853,6 +909,13 @@
     "at": "2026-09-14",
     "es": "Privacidad"
   },
+  "7edbe7bd5d8c9473": {
+    "en": "Its name goes through the app server to the food database.",
+    "path": "common:pages.home.illustrations.flow.steps.log.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Su nombre pasa por el servidor de la aplicación hacia la base de datos de alimentos."
+  },
   "7f0e38c8a2e8ca40": {
     "en": "Try it free",
     "path": "common:site.nav.openApp",
@@ -888,6 +951,13 @@
     "at": "2026-09-14",
     "es": "Cada guía aquí incluida es el archivo que mantiene el propio repositorio, leído en su versión publicada y difundido sin cambios."
   },
+  "8524e75429f6df5f": {
+    "en": "Nothing of yours",
+    "path": "common:pages.home.illustrations.holders.states.empty",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Nada tuyo"
+  },
   "8532b3c79b2100b0": {
     "en": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
     "path": "common:pages.home.features.goals.body",
@@ -915,6 +985,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Runtime de inferencia"
+  },
+  "86a0ad3d1b781546": {
+    "en": "The diary leaves the device encrypted and goes to openplate-core.",
+    "path": "common:pages.home.illustrations.flow.steps.sync.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "El diario sale cifrado del dispositivo y va a openplate-core."
   },
   "876114dd3ea6eeee": {
     "en": "photo",
@@ -978,6 +1055,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Cuánto queda del límite, si se ha alcanzado el objetivo de proteínas y cuántos de los últimos siete días has registrado."
+  },
+  "8e6ebc6ab3d1b5b1": {
+    "en": "You log a food",
+    "path": "common:pages.home.illustrations.flow.steps.log.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Registras un alimento"
   },
   "9038b3b724bc35d6": {
     "en": "Researchers in human-computer interaction who study self-tracking",
@@ -1055,6 +1139,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Lee las condiciones"
+  },
+  "9c761b71c1eb7831": {
+    "en": "The photo goes to your AI endpoint and nowhere else.",
+    "path": "common:pages.home.illustrations.flow.steps.scan.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La foto va a tu endpoint de IA y a ningún otro sitio."
   },
   "9cfc6724215a5ffd": {
     "en": "Self-hosters who want plate scans with no cloud AI account and no photo leaving their network. It is not part of the hosted instance at openplate.de.",
@@ -1160,6 +1251,20 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Dietistas y equipos clínicos que realizan estudios de intervención"
+  },
+  "aaa63b289732bd1b": {
+    "en": "Start here",
+    "path": "docs:startHere",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Empieza aquí"
+  },
+  "ac129d8372fc9b34": {
+    "en": "Loading the search index",
+    "path": "docs:search.loading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Cargando el índice de búsqueda"
   },
   "ae9aa360952743ac": {
     "en": "Scan on your own hardware",
@@ -1273,6 +1378,13 @@
     "at": "2026-09-14",
     "es": "Qué haces con él"
   },
+  "c1d63240a2d6c118": {
+    "en": "If you turn on sync",
+    "path": "common:pages.home.illustrations.flow.steps.sync.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Si activas la sincronización"
+  },
   "c3706df14cc24da0": {
     "en": "We are looking for co-applicants on grant proposals and for joint publications, for example on image-based dietary assessment.",
     "path": "common:pages.research.offer.grants.body",
@@ -1286,6 +1398,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "openplate registra alimentos y, si quieres, estima los macronutrientes de un plato a partir de una foto. Busca un alimento o escanea un plato, y la entrada irá a tu diario del día. En tu propia instalación no hay pantalla de registro: abre la aplicación y empieza a registrar. En la instancia alojada, inicias sesión primero."
+  },
+  "c4c0ef34a5d4dc50": {
+    "en": "Results: {{count}}",
+    "path": "docs:search.results",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Resultados: {{count}}"
   },
   "c5dd0163f8083dce": {
     "en": "Every price is a final price in euros, German VAT included.",
@@ -1385,6 +1504,13 @@
     "at": "2026-09-23",
     "es": "Llamada inicial"
   },
+  "d07a3b2655688767": {
+    "en": "Stored encrypted",
+    "path": "common:pages.home.illustrations.holders.states.sealed",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Guardado cifrado"
+  },
   "d1357d805513167a": {
     "en": "Self-hosting",
     "path": "common:site.footer.selfHosting",
@@ -1448,6 +1574,13 @@
     "at": "2026-09-14",
     "es": "Versiones"
   },
+  "d90f25ab0a3d4d76": {
+    "en": "Kept under their terms",
+    "path": "common:pages.home.illustrations.holders.states.unknown",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Conservado según sus condiciones"
+  },
   "d9832f497c7628e5": {
     "en": "Read more",
     "path": "common:pages.home.hero.researchLink",
@@ -1490,6 +1623,13 @@
     "at": "2026-09-14",
     "es": "Los cuatro peldaños"
   },
+  "e01c9c6d30ffd3db": {
+    "en": "No pages match this search.",
+    "path": "docs:search.noResults",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Ninguna página coincide con esta búsqueda."
+  },
   "e17fbae9bcdb22ec": {
     "en": "Self-hosting",
     "path": "common:pages.deploy.links.selfHosting",
@@ -1510,6 +1650,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "es": "Escanear un plato"
+  },
+  "ecd8f8e09adaa35c": {
+    "en": "Copied",
+    "path": "docs:copy.done",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Copiado"
   },
   "edb9011ac8e721f2": {
     "en": "Renews each month until you cancel. A cancellation takes effect at the end of the paid month.",
@@ -1546,6 +1693,13 @@
     "at": "2026-09-19",
     "es": "nombres"
   },
+  "f2a7a75e64c82197": {
+    "en": "Copy code",
+    "path": "docs:copy.idle",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "Copiar código"
+  },
   "f2e090a986cb6164": {
     "en": "Monthly",
     "path": "common:pages.pricing.monthly.name",
@@ -1559,6 +1713,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "es": "Tres componentes, cada uno opcional aparte de la aplicación"
+  },
+  "f341066962b1de31": {
+    "en": "Search needs a production build.",
+    "path": "docs:search.unavailable",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "La búsqueda requiere una compilación de producción."
   },
   "f3962ef18dfab4f4": {
     "en": "Net carbs, calories, protein, fat, and fiber for the day, each shown against its target, and how many of the last seven days you logged.",
