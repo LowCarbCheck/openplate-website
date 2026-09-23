@@ -26,7 +26,10 @@
       "product": "Produkt",
       "selfHosting": "Self-Hosting",
       "project": "Projekt",
-      "legal": "Rechtliches"
+      "legal": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
     },
     "language": {
       "label": "Sprache"
@@ -228,17 +231,6 @@
     },
     "releases": {
       "title": "Versionshinweise"
-    },
-    "imprint": {
-      "title": "Impressum",
-      "representedBy": "Vertreten durch",
-      "register": "Handelsregister",
-      "vatId": "USt-IdNr.",
-      "email": "E-Mail"
-    },
-    "privacy": {
-      "title": "Datenschutz",
-      "body": "Diese Website verwendet Matomo ohne Cookies, um Besuche zu zählen. Sie verfolgt dich nicht über Websites hinweg und erstellt kein Profil von dir. Auf dieser Website selbst gibt es keine Konten. Konten gehören zur gehosteten App, nicht zu openplate.de. Welche Daten die App speichert und überträgt, steht auf der Datenschutzseite der App selbst, die in der App verlinkt ist."
     },
     "pricing": {
       "title": "Preise",

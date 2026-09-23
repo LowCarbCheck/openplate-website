@@ -1,7 +1,7 @@
 /**
  * The frame every page renders inside: a wordmark, the nav and a language
- * switcher, the page itself, and a footer with the site map, the legal pages
- * and the source.
+ * switcher, the page itself, and a footer with the site map, the links to the
+ * app's legal pages and the source.
  *
  * The switcher is a list of plain links behind a globe button: every page
  * exists as a real file in every language, so switching is a navigation and
@@ -29,7 +29,7 @@ import { useLanguage } from '#app/i18n/use-language';
 import { syncPicturesToTheme } from '#app/lib/theme';
 import { PRICING_PATH } from '#app/pricing-config';
 import type { loader as rootLoader } from '#app/root';
-import { APP_URL, REPOSITORIES } from '#app/site';
+import { APP_IMPRINT_URL, APP_TERMS_URL, APP_URL, APP_WEBSITE_PRIVACY_URL, REPOSITORIES } from '#app/site';
 
 interface NavItem {
   to: string;
@@ -496,6 +496,19 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
 
 const FOOTER_LINK = 'text-muted-foreground transition-colors hover:text-foreground';
 
+/**
+ * The Legal column, which leaves this site: the imprint, the privacy notice and the terms are the
+ * app's pages (M246, `app/site.ts` says why). Every page renders this footer, so the imprint is one
+ * click from anywhere on the site, which is what the Impressumspflicht asks for.
+ *
+ * Exported for `tests/unit/legal-links.test.ts`.
+ */
+export const LEGAL_LINKS = [
+  { href: APP_IMPRINT_URL, labelKey: 'site.footer.imprint' },
+  { href: APP_WEBSITE_PRIVACY_URL, labelKey: 'site.footer.privacy' },
+  { href: APP_TERMS_URL, labelKey: 'site.footer.terms' },
+] as const satisfies readonly { href: string; labelKey: string }[];
+
 function FooterSiteLink({ item }: { item: NavItem }) {
   const { t } = useTranslation();
   return (
@@ -554,8 +567,13 @@ function SiteFooter() {
           </li>
         </FooterColumn>
         <FooterColumn title={t('site.footer.legal')}>
-          <FooterSiteLink item={{ to: '/imprint', labelKey: 'pages.imprint.title' }} />
-          <FooterSiteLink item={{ to: '/privacy', labelKey: 'pages.privacy.title' }} />
+          {LEGAL_LINKS.map((link) => (
+            <li key={link.href}>
+              <ExternalLink href={link.href} className={FOOTER_LINK}>
+                {t(link.labelKey)}
+              </ExternalLink>
+            </li>
+          ))}
         </FooterColumn>
       </nav>
     </div>
@@ -567,7 +585,8 @@ function SiteFooter() {
  *
  * ── THREE, BECAUSE TWO STOPPED BEING ENOUGH ──
  * `reading` is one column of prose at 48rem, and it is right for a page that is
- * nothing but prose: the imprint and the privacy notice. It was also what the
+ * nothing but prose, which the imprint and the privacy notice were until they
+ * moved to the app (M246). It was also what the
  * marketing pages got, and there it was wrong, because those pages are not one
  * column: a grid of four screenshots and a row of three cards were being folded
  * into a measure chosen for sentences, and the cards came out visibly cramped.

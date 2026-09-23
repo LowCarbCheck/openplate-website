@@ -44,7 +44,7 @@
     "sync:icons": "tsx scripts/sync-icons.ts",
     "sync:shots": "tsx scripts/sync-shots.ts",
     "test": "pnpm run test:unit",
-    "test:unit": "node --import tsx --test \"tests/unit/**/*.test.ts\"",
+    "test:unit": "node --import tsx --import ./tests/unit/lib/virtual-modules.ts --test \"tests/unit/**/*.test.ts\"",
     "translate:docs": "tsx scripts/translate-docs.ts",
     "translate:ui": "tsx scripts/translate-ui.ts",
     "typecheck": "react-router typegen && tsc"

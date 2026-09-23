@@ -56,7 +56,7 @@ import type { Block, DocComponent, DocFile } from './docs';
  */
 export const STACK_PAGES = ['home', 'app', 'core', 'inference', 'deploy'] as const;
 
-/** Not every page: `/docs`, `/privacy` and the imprint are the site talking about itself. */
+/** Not every page: `/docs` and `/research` are the site talking about itself. */
 export type StackPage = (typeof STACK_PAGES)[number];
 
 export type StackManifest = Record<StackPage, SectionAddress[]>;

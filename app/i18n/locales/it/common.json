@@ -26,7 +26,10 @@
       "product": "Prodotto",
       "selfHosting": "Self-hosting",
       "project": "Progetto",
-      "legal": "Note legali"
+      "legal": "Note legali",
+      "imprint": "Colophon",
+      "privacy": "Privacy",
+      "terms": "Termini"
     },
     "language": {
       "label": "Lingua"
@@ -228,17 +231,6 @@
     },
     "releases": {
       "title": "Note di rilascio"
-    },
-    "imprint": {
-      "title": "Colophon",
-      "representedBy": "Rappresentato da",
-      "register": "Registro delle imprese",
-      "vatId": "Partita IVA",
-      "email": "Email"
-    },
-    "privacy": {
-      "title": "Privacy",
-      "body": "Questo sito usa Matomo senza cookie per contare le visite. Non ti traccia attraverso i siti e non crea un tuo profilo. Su questo sito non sono presenti account. Gli account appartengono all'app ospitata, non a openplate.de. Per i dettagli su cosa l'app memorizza e invia, consulta la pagina sulla privacy dell'app stessa, collegata dall'interno dell'app."
     },
     "pricing": {
       "title": "Prezzi",

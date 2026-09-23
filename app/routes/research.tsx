@@ -17,8 +17,8 @@ import { PRIMARY_ACTION } from '#app/components/hero';
 import { Lead, PageTitle, Section } from '#app/components/page';
 import { ExternalLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
-import { OPERATOR } from '#app/lib/operator';
 import { pageMeta } from '#app/seo';
+import { CONTACT_EMAIL } from '#app/site';
 
 export function meta({ location }: Route.MetaArgs) {
   return pageMeta({
@@ -95,7 +95,7 @@ function StepNumber({ index }: { index: number }) {
 
 function ContactPanel() {
   const { t } = useTranslation();
-  const email = OPERATOR.imprintEmail;
+  const email = CONTACT_EMAIL;
   const mailto = `mailto:${email}?subject=${encodeURIComponent(t('pages.research.contact.subject'))}`;
 
   return (

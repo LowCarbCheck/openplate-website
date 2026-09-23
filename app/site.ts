@@ -41,17 +41,35 @@ export const DOC_PATHS = {
 export const APP_URL = 'https://app.openplate.de';
 
 /**
- * The terms of use, which live in the APPLICATION and not on this site.
+ * The legal pages, which live in the APPLICATION and not on this site (M246).
  *
- * The legal documents are the app's: `openplate/app/routes/legal/terms.tsx`
- * renders them and the app's imprint names the same operator. The pricing page
- * links a reader there rather than repeating a document that would then have
- * two versions and one date.
+ * The app renders them from markdown files mounted into its container, so the
+ * text is kept out of every public repository, this one included. This site
+ * links to them and holds no copy: a second copy would be a second version with
+ * a second date. The website's own privacy notice is one of those files too,
+ * served by the app at `/privacy/website`.
  *
- * Derived from `APP_URL`: both name the CONSUMER instance now, the one a
- * payment is made to, so one written-down host serves both.
+ * All three derive from `APP_URL`, so the one written-down host is still the
+ * only place the app's address lives. `nginx.conf` sends the old `/imprint`
+ * and `/privacy` paths of this site to the same addresses, and
+ * `tests/unit/legal-links.test.ts` holds its targets to these constants,
+ * because a config file cannot import them.
+ *
+ * No language travels with the link: the app picks its language from its own
+ * cookie, not from the URL, so a reader who never set one there reads the
+ * instance's default language, whatever language this page was in.
  */
+export const APP_IMPRINT_URL = `${APP_URL}/imprint`;
+export const APP_WEBSITE_PRIVACY_URL = `${APP_URL}/privacy/website`;
 export const APP_TERMS_URL = `${APP_URL}/terms`;
+
+/**
+ * The address a reader writes to. The research page prints it as its contact.
+ *
+ * It used to be read off the imprint's operator block, which left this site
+ * with the imprint (M246).
+ */
+export const CONTACT_EMAIL = 'info@sprqvntrs.com';
 
 /** Release notes pages. The app's live on GitHub; the core service's are rendered here. */
 export const CORE_RELEASES_PATH = '/releases/core';

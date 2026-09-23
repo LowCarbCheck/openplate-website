@@ -26,7 +26,10 @@
       "product": "Ürün",
       "selfHosting": "Kendi sunucunda barındırma",
       "project": "Proje",
-      "legal": "Yasal"
+      "legal": "Yasal",
+      "imprint": "Künye",
+      "privacy": "Gizlilik",
+      "terms": "Koşullar"
     },
     "language": {
       "label": "Dil"
@@ -228,17 +231,6 @@
     },
     "releases": {
       "title": "Sürüm notları"
-    },
-    "imprint": {
-      "title": "Künye",
-      "representedBy": "Temsil eden",
-      "register": "Ticaret sicili",
-      "vatId": "KDV numarası",
-      "email": "E-posta"
-    },
-    "privacy": {
-      "title": "Gizlilik",
-      "body": "Bu site ziyaretleri saymak için çerezsiz Matomo kullanır. Seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hiçbir hesap bulunmaz. Hesaplar openplate.de sitesine değil, barındırılan uygulamaya aittir. Uygulamanın neleri sakladığını ve gönderdiğini görmek için uygulamanın içinden bağlantı verilen, uygulamanın kendi gizlilik sayfasına bak."
     },
     "pricing": {
       "title": "Fiyatlandırma",

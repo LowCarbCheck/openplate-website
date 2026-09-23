@@ -41,13 +41,6 @@
     "at": "2026-09-23",
     "tr": "Düşük karbonhidrat, kalori, yüksek protein veya basit takip. Seçtiğin tarz, günü hangi hedefin değerlendireceğini belirler ve her hedef isteğe bağlıdır."
   },
-  "095c00addbad88a7": {
-    "en": "Privacy",
-    "path": "common:pages.privacy.title",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "Gizlilik"
-  },
   "09ca0a7affd738b3": {
     "en": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one.",
     "path": "common:pages.home.features.scan.alt",
@@ -153,13 +146,6 @@
     "at": "2026-09-23",
     "tr": "openplate neden var"
   },
-  "171f2c01e4bc7a1b": {
-    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
-    "path": "common:pages.privacy.body",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "Bu site, ziyaretleri saymak için çerez kullanmadan Matomo kullanır; seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hesap bulunmaz; yalnızca davetle açılan hesaplar openplate.de adresine değil, barındırılan uygulamaya aittir. Uygulamanın ne sakladığını ve gönderdiğini görmek için, uygulama içinden bağlantı verilen uygulamanın kendi gizlilik sayfasına bak."
-  },
   "189119f99e6cdaa6": {
     "en": "What should I run?",
     "path": "common:pages.deploy.links.topologies",
@@ -244,6 +230,13 @@
     "at": "2026-09-23",
     "tr": "Araştırma"
   },
+  "279694689b9a6c57": {
+    "en": "Terms",
+    "path": "common:site.footer.terms",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "tr": "Koşullar"
+  },
   "27e0f5f4b4ddd34c": {
     "en": "How we work with researchers",
     "path": "common:pages.home.research.cta",
@@ -278,13 +271,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bu bileşen henüz sürüm notu yayımlamadı."
-  },
-  "32822427fda2ccff": {
-    "en": "This site uses Matomo without cookies to count visits. It does not track you across sites or build a profile of you. There are no accounts on this site itself. Accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
-    "path": "common:pages.privacy.body",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-23",
-    "tr": "Bu site ziyaretleri saymak için çerezsiz Matomo kullanır. Seni siteler arasında izlemez veya senin hakkında bir profil oluşturmaz. Bu sitenin kendisinde hiçbir hesap bulunmaz. Hesaplar openplate.de sitesine değil, barındırılan uygulamaya aittir. Uygulamanın neleri sakladığını ve gönderdiğini görmek için uygulamanın içinden bağlantı verilen, uygulamanın kendi gizlilik sayfasına bak."
   },
   "33c5b34914aa0287": {
     "en": "Food database",
@@ -334,6 +320,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Dil"
+  },
+  "397aba3a59e40e3d": {
+    "en": "Imprint",
+    "path": "common:site.footer.imprint",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "tr": "Künye"
   },
   "39b8c94b54cb99ac": {
     "en": "openplate for research",
@@ -510,13 +503,6 @@
     "at": "2026-09-14",
     "tr": "Belgeler"
   },
-  "53834c20d9148753": {
-    "en": "Email",
-    "path": "common:pages.imprint.email",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "E-posta"
-  },
   "546eec9185f067bb": {
     "en": "On this page",
     "path": "docs:onThisPage",
@@ -621,13 +607,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Barındırılan bulut örneği yalnızca davetiyelidir. Kendi kopyanı çalıştırmak davetiye gerektirmez."
-  },
-  "62b28e16419c7a48": {
-    "en": "Imprint",
-    "path": "common:pages.imprint.title",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "Künye"
   },
   "63c1d457074f283b": {
     "en": "The openplate diary on a phone. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets.",
@@ -937,13 +916,6 @@
     "at": "2026-09-14",
     "tr": "Bu ekranlar gerçek bir günlüğü değil, örnek verileri gösterir."
   },
-  "96c4bb298b920e67": {
-    "en": "Commercial register",
-    "path": "common:pages.imprint.register",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "Ticaret sicili"
-  },
   "97083ce3a315c3c0": {
     "en": "Access",
     "path": "common:pages.home.access.heading",
@@ -1006,13 +978,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Neleri ölçüyoruz"
-  },
-  "a5a78d259efa5f39": {
-    "en": "Represented by",
-    "path": "common:pages.imprint.representedBy",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "Temsil eden"
   },
   "a6dd790d0a85c71d": {
     "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
@@ -1146,6 +1111,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Uzaklaştır"
+  },
+  "bda88a42b27c05f4": {
+    "en": "Privacy",
+    "path": "common:site.footer.privacy",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "tr": "Gizlilik"
   },
   "bebf982115e86968": {
     "en": "Open source",
@@ -1307,13 +1279,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Kimleri arıyoruz"
-  },
-  "d5a939ca9b4f4b63": {
-    "en": "VAT ID",
-    "path": "common:pages.imprint.vatId",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-14",
-    "tr": "KDV numarası"
   },
   "d662c0b538a491be": {
     "en": "Hardware",

@@ -26,7 +26,10 @@
       "product": "Produit",
       "selfHosting": "Auto-hébergement",
       "project": "Projet",
-      "legal": "Mentions légales"
+      "legal": "Mentions légales",
+      "imprint": "Mentions légales",
+      "privacy": "Confidentialité",
+      "terms": "Conditions"
     },
     "language": {
       "label": "Langue"
@@ -228,17 +231,6 @@
     },
     "releases": {
       "title": "Notes de version"
-    },
-    "imprint": {
-      "title": "Mentions légales",
-      "representedBy": "Représentée par",
-      "register": "Registre du commerce",
-      "vatId": "Numéro de TVA",
-      "email": "E-mail"
-    },
-    "privacy": {
-      "title": "Confidentialité",
-      "body": "Ce site utilise Matomo sans cookies pour compter les visites. Il ne te piste pas sur d'autres sites et ne dresse aucun profil sur toi. Il n'y a aucun compte sur ce site lui-même. Les comptes appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application enregistre et envoie, consulte sa propre page de confidentialité, accessible par un lien depuis l'application."
     },
     "pricing": {
       "title": "Tarifs",

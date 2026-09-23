@@ -42,8 +42,6 @@ const ALWAYS_PAGES: SitePage[] = [
   { id: 'docs', path: 'docs', file: 'routes/docs.tsx' },
   { id: 'docs-page', path: 'docs/:component/:slug', file: 'routes/docs.$component.$slug.tsx' },
   { id: 'releases', path: 'releases/:component', file: 'routes/releases.$component.tsx' },
-  { id: 'imprint', path: 'imprint', file: 'routes/imprint.tsx' },
-  { id: 'privacy', path: 'privacy', file: 'routes/privacy.tsx' },
 ];
 
 /** The one conditional page. `app/pricing-config.ts` says why it is conditional. */

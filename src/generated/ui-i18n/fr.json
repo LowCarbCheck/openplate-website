@@ -41,13 +41,6 @@
     "at": "2026-09-23",
     "fr": "Pauvre en glucides, calories, riche en protéines, ou suivi simple. Le style que tu choisis définit l'objectif qui évalue la journée, et chaque objectif reste facultatif."
   },
-  "095c00addbad88a7": {
-    "en": "Privacy",
-    "path": "common:pages.privacy.title",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Confidentialité"
-  },
   "09ca0a7affd738b3": {
     "en": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one.",
     "path": "common:pages.home.features.scan.alt",
@@ -153,13 +146,6 @@
     "at": "2026-09-23",
     "fr": "Pourquoi openplate existe"
   },
-  "171f2c01e4bc7a1b": {
-    "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
-    "path": "common:pages.privacy.body",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Ce site utilise Matomo sans cookies pour compter les visites ; il ne te suit pas d'un site à l'autre et n'établit aucun profil te concernant. Ce site ne gère aucun compte en soi ; les comptes accessibles sur invitation appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application stocke et envoie, consulte sa propre page de confidentialité, accessible depuis l'application."
-  },
   "189119f99e6cdaa6": {
     "en": "What should I run?",
     "path": "common:pages.deploy.links.topologies",
@@ -244,6 +230,13 @@
     "at": "2026-09-23",
     "fr": "Recherche"
   },
+  "279694689b9a6c57": {
+    "en": "Terms",
+    "path": "common:site.footer.terms",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "fr": "Conditions"
+  },
   "27e0f5f4b4ddd34c": {
     "en": "How we work with researchers",
     "path": "common:pages.home.research.cta",
@@ -278,13 +271,6 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ce composant n'a pas encore publié de notes de version."
-  },
-  "32822427fda2ccff": {
-    "en": "This site uses Matomo without cookies to count visits. It does not track you across sites or build a profile of you. There are no accounts on this site itself. Accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
-    "path": "common:pages.privacy.body",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-23",
-    "fr": "Ce site utilise Matomo sans cookies pour compter les visites. Il ne te piste pas sur d'autres sites et ne dresse aucun profil sur toi. Il n'y a aucun compte sur ce site lui-même. Les comptes appartiennent à l'application hébergée, pas à openplate.de. Pour savoir ce que l'application enregistre et envoie, consulte sa propre page de confidentialité, accessible par un lien depuis l'application."
   },
   "33c5b34914aa0287": {
     "en": "Food database",
@@ -334,6 +320,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Langue"
+  },
+  "397aba3a59e40e3d": {
+    "en": "Imprint",
+    "path": "common:site.footer.imprint",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "fr": "Mentions légales"
   },
   "39b8c94b54cb99ac": {
     "en": "openplate for research",
@@ -510,13 +503,6 @@
     "at": "2026-09-14",
     "fr": "Documentation"
   },
-  "53834c20d9148753": {
-    "en": "Email",
-    "path": "common:pages.imprint.email",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "E-mail"
-  },
   "546eec9185f067bb": {
     "en": "On this page",
     "path": "docs:onThisPage",
@@ -621,13 +607,6 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "L'instance hébergée est accessible sur invitation. Déployer ta propre copie ne demande aucune invitation."
-  },
-  "62b28e16419c7a48": {
-    "en": "Imprint",
-    "path": "common:pages.imprint.title",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Mentions légales"
   },
   "63c1d457074f283b": {
     "en": "The openplate diary on a phone. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets.",
@@ -937,13 +916,6 @@
     "at": "2026-09-14",
     "fr": "Ces écrans affichent des données d'exemple, pas un vrai journal."
   },
-  "96c4bb298b920e67": {
-    "en": "Commercial register",
-    "path": "common:pages.imprint.register",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Registre du commerce"
-  },
   "97083ce3a315c3c0": {
     "en": "Access",
     "path": "common:pages.home.access.heading",
@@ -1006,13 +978,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "Ce que nous mesurons"
-  },
-  "a5a78d259efa5f39": {
-    "en": "Represented by",
-    "path": "common:pages.imprint.representedBy",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Représentée par"
   },
   "a6dd790d0a85c71d": {
     "en": "openplate-core carries your diary between your own devices. It stores an email address, an encrypted blob of your diary that it cannot read, and a recovery code sealed for the one case a forgotten password needs it.",
@@ -1146,6 +1111,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Réduire"
+  },
+  "bda88a42b27c05f4": {
+    "en": "Privacy",
+    "path": "common:site.footer.privacy",
+    "model": "hand-written",
+    "at": "2026-09-23",
+    "fr": "Confidentialité"
   },
   "bebf982115e86968": {
     "en": "Open source",
@@ -1307,13 +1279,6 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "Qui nous recherchons"
-  },
-  "d5a939ca9b4f4b63": {
-    "en": "VAT ID",
-    "path": "common:pages.imprint.vatId",
-    "model": "hand-written",
-    "at": "2026-09-14",
-    "fr": "Numéro de TVA"
   },
   "d662c0b538a491be": {
     "en": "Hardware",
