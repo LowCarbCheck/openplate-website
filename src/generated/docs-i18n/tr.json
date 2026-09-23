@@ -293,6 +293,12 @@
     "at": "2026-09-14",
     "tr": "İstemci artık kurtarma kodunu kişiye göstermez (§3.1), bu nedenle emanet olmadan oluşturulan bir hesap hiçbir sıfırlamanın geri getiremeyeceği bir hesaptır ve sahibine hiçbir zaman uyarı yapılmamıştır."
   },
+  "05c1154afde7cbf3": {
+    "en": "Proposals to the food database",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Yiyecek veritabanına öneriler"
+  },
   "05c643dec4f3523a": {
     "en": "{{0}} cannot validate {{1}} when {{2}} is open.",
     "model": "google/gemini-3.8-flash",
@@ -640,6 +646,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Ev halkını hiçbir sağlayıcı kontrol panelinin bulunmadığı kendi {{0}} makinene bağlıyorsan, yönetilen bir örnek, aşağıdaki {{1}} izin listesinde bulunmayan kişi başına kota ve kullanım takibini ekler."
+  },
+  "0cdb5949656b4d3b": {
+    "en": "With {{0}} and a key, openplate passes each food a person saves from a photo or a typed meal on to LowCarbCheck, through this server:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ve bir anahtar ile openplate, bir kullanıcının fotoğraftan veya yazarak girdiği öğünden kaydettiği her yiyeceği bu sunucu üzerinden LowCarbCheck'e iletir:"
   },
   "0d3d47fffef612d7": {
     "en": "Present only when the operator set {{0}}.",
@@ -1001,6 +1013,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} bir tarayıcıdan hiçbir zaman erişilebilir değildir"
   },
+  "13a143724a66a6b6": {
+    "en": "A proposal carries the names, the macros, and whether the food came from a photo or a typed meal. It carries no account, no diary entry, no photo, and no address of the person. LowCarbCheck sees your server and your key. LowCarbCheck judges each proposal with a model when it arrives and publishes what passes. A food published this way comes back from the food database marked as an estimate, and openplate shows and stores it as one, never as a curated source.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bir öneri adları, makroları ve yiyeceğin fotoğraftan mı yoksa yazılan bir öğünden mi geldiğini taşır. Hiçbir hesap, günlük girdisi, fotoğraf ve kullanıcının adresini taşımaz. LowCarbCheck sunucunu ve anahtarını görür. LowCarbCheck her öneriyi ulaştığında bir modelle değerlendirir ve onay alanları yayımlar. Bu şekilde yayımlanan bir yiyecek, yiyecek veritabanından bir tahmin olarak işaretlenmiş şekilde geri döner; openplate bunu derlenmiş bir kaynak olarak değil, her zaman bir tahmin olarak gösterir ve saklar."
+  },
   "13a5fab9c09558d2": {
     "en": "{{0}}, a uuid, and a request without one is {{1}}. The key is kept {{2}}. A repeat inside that window answers {{3}} and changes nothing, which is what makes an offline replay or a retry safe.",
     "model": "google/gemini-3.8-flash",
@@ -1318,6 +1336,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Eşitleme hizmetinde {{0}} ayarlanmış bir örnekte, bir kişi diyetisyen gibi bir klinisyenin günlüğünü okumasına izin verebilir. Klinisyen kişiye bir bağlantı linki gönderir. Kişi bu linki açar ve klinisyenin sesli okuduğu on iki karakteri yazar; böylece herhangi bir şey paylaşılmadan önce yanlış bir anahtar yakalanmış olur. Kişi daha sonra {{1}} altından paylaşım izni verir; uygulama, veri anahtarını klinisyenin genel anahtarıyla bir kez daha sarar ve bu sarılmış kopyayı yükler. Klinisyenin tarayıcısı bunu çözer ve günlüğü {{2}} adresinde gösterir. Sunucu, sarılmış kopyayı saklar ve bu kopyanın anahtarını asla tutmaz. Bir paylaşım istendiği zaman iptal edilebilir. Günlüğün özel bir bölmesi kişinin kendi paylaşım ve araştırma anahtarlarını tutar ve bir klinisyen bunu asla açamaz."
+  },
+  "19dc7b55c36987b0": {
+    "en": "Each person can switch it off for their device in {{0}}. It is off on every instance until the operator sets {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Her kullanıcı bunu kendi cihazı için {{0}} içinden kapatabilir. İşletici {{1}} ayarını yapana kadar her örnekte kapalıdır."
   },
   "19ed869677f778b1": {
     "en": "Named sections",
@@ -3107,6 +3131,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, beş dakikalık bir işlem içi önbellekten sunulur"
   },
+  "3fb5fbcecaddd9b5": {
+    "en": "A name the person typed or changed themselves is never sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kullanıcının bizzat yazdığı veya değiştirdiği bir ad asla gönderilmez."
+  },
   "3fe317e74339ac7e": {
     "en": "{{0}} shall mean annual revenue of 10 million United States dollars ($10,000,000) or more.",
     "model": "google/gemini-3.8-flash",
@@ -4132,6 +4162,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Şifreleme ve işletmecinin elinde tuttuğu veriler"
+  },
+  "525946317f9a223d": {
+    "en": "A food with no match sends its names in every app language and its macros per 100 g, so LowCarbCheck can add it. It needs an English name and all four of carbs, fat, protein and energy. A food without them is not sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Eşleşmeyen bir yiyecek, LowCarbCheck'in ekleyebilmesi için tüm uygulama dillerindeki adlarını ve 100 g başına makro değerlerini gönderir. İngilizce bir ada ve karbonhidrat, yağ, protein ile enerjinin dördüne birden ihtiyaç duyar. Bunlara sahip olmayan yiyecekler gönderilmez."
   },
   "526e0087cc3f254d": {
     "en": "Description",
@@ -8795,6 +8831,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, {{1}} modelini {{2}} ({{3}}) kapsamında kullanır. Eklenen tek bir koşulla birlikte Apache-2.0 biçimindedir, kelimesi kelimesine şöyledir:"
   },
+  "b194131fb54d8825": {
+    "en": "If more than one person scans on this instance, get a free food-database key at {{0}}, add it to the app's {{1}} block as {{2}}, and run {{3}} again. Without a key everyone on the instance shares one small anonymous allowance. See {{4}}. With a key you can also set {{5}}, which passes the foods people save from an AI answer on to LowCarbCheck as proposals. See {{6}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Bu örnekte birden fazla kişi tarama yapıyorsa, {{0}} adresinden ücretsiz bir yiyecek veritabanı anahtarı al, bunu uygulamanın {{1}} bloğuna {{2}} olarak ekle ve {{3}} komutunu yeniden çalıştır. Anahtar olmadan örnekteki herkes tek bir küçük anonim kotayı paylaşır. Bkz. {{4}}. Anahtar ile birlikte {{5}} ayarını da yapabilirsin, bu ayar kullanıcıların yapay zeka yanıtından kaydettiği yiyecekleri LowCarbCheck'e öneri olarak iletir. Bkz. {{6}}."
+  },
   "b1a98a0fbb0d2bbc": {
     "en": "Three things fit behind \"your AI endpoint\": a cloud provider you hold a key with, an openplate-inference box on your own hardware, or, on a managed instance, the sync server itself, which forwards the photo and counts it against your allowance. {{0}} draws all four ways to run openplate, one small picture each.",
     "model": "google/gemini-3.8-flash",
@@ -9598,6 +9640,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Uygulamanın çizdiği yer"
+  },
+  "c311593b608272a5": {
+    "en": "Set to {{0}} to pass foods people save from an AI answer on to LowCarbCheck as proposals, so the food database gains new foods and the titles it lacks. Needs {{1}}. Without a key it stays off. A person can still turn it off for their own device in {{2}}. See {{3}}. Any value other than {{4}} or {{5}} stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kullanıcıların yapay zeka yanıtından kaydettiği yiyecekleri LowCarbCheck'e öneri olarak iletmek ve böylece yiyecek veritabanına yeni yiyecekler ile eksik başlıkları kazandırmak için {{0}} olarak ayarla. {{1}} gerektirir. Anahtar olmadan kapalı kalır. Kullanıcı bunu {{2}} içinden kendi cihazı için kapatabilir. Bkz. {{3}}. {{4}} veya {{5}} dışındaki herhangi bir değer, önyüklemeyi bilerek durdurur."
   },
   "c31877db83a81d3c": {
     "en": "§5.12.1 {{0}}",
@@ -10786,6 +10834,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bu merdiveni tırmanma nedenin \"evimdekilerin birden fazla yapay zeka anahtarına ihtiyacı var\" idiyse, ilk yanıt bir basamak bile değildir. Bu durum, kişi başına anahtarlar ve kişi başına harcama limitleriyle doğrudan sağlayıcı tarafında çözülür ve fazladan bir yazılım gerektirmez. {{0}} adımları ve sağlayıcın limitli alt anahtarlar vermediğinde yedek seçenek olarak yönetilen bir eşitleme sunucusunu içerir ({{1}} ile 2. basamak)."
+  },
+  "d9c5d850df6cd227": {
+    "en": "A food the person matched to a LowCarbCheck row sends the food's names in every app language, so the row gains the titles it lacks.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "Kullanıcının bir LowCarbCheck satırıyla eşleştirdiği yiyecek, satırın eksik başlıkları kazanması için yiyeceğin tüm uygulama dillerindeki adlarını gönderir."
   },
   "d9e4dff12b40d263": {
     "en": "The client holds all the keys. It serializes its whole local store, gzips it, encrypts it with AES-256-GCM under a key the server has never seen, and pushes the result as one opaque blob. The server stores bytes, versions them, and refuses writes that would clobber another device's. It also stores two small {{0}} (the same data-encryption key wrapped under two different key-encryption keys, one derived from the user's passphrase and one from a recovery code) so a second device can bootstrap. The server cannot decrypt any of it. That is not a policy; it is what the math permits.",
@@ -12046,6 +12100,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "İkinci bir cihaz ekleme:"
+  },
+  "f4cc4fc71636dd53": {
+    "en": "With {{0}} it also carries proposals: the names of a food a person saved from an AI answer, in every app language, and for a food with no match its macros per 100 g. Never a name the person typed, never a photo or a diary entry. See {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "tr": "{{0}} ile birlikte önerileri de taşır: Bir kullanıcının yapay zeka yanıtından kaydettiği bir yiyeceğin tüm uygulama dillerindeki adları ve eşleşmeyen yiyecekler için 100 g başına makro değerleri. Kullanıcının yazdığı bir ad, bir fotoğraf veya bir günlük girdisi asla aktarılmaz. Bkz. {{1}}."
   },
   "f4e5f2e2f54af132": {
     "en": "If the passphrase is lost, §5.12 is the way back",

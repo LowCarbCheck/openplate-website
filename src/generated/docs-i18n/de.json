@@ -329,6 +329,12 @@
     "at": "2026-09-06",
     "de": "Der Client zeigt der Person den Wiederherstellungscode nicht mehr an (§3.1), sodass ein ohne Hinterlegung erstelltes Konto durch kein Zurücksetzen wiederhergestellt werden kann, ohne dass die Person je davor gewarnt wurde."
   },
+  "05c1154afde7cbf3": {
+    "en": "Proposals to the food database",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Vorschläge an die Lebensmitteldatenbank"
+  },
   "05c643dec4f3523a": {
     "en": "{{0}} cannot validate {{1}} when {{2}} is open.",
     "model": "google/gemini-3.8-flash",
@@ -743,6 +749,12 @@
     "at": "2026-09-04",
     "de": "Du deinen Haushalt an deinen eigenen {{0}}-Rechner anbindest, bei dem es überhaupt kein Anbieter-Dashboard gibt; eine verwaltete Instanz liefert dann das Kontingent pro Person und die Nutzungsdaten, die der unten beschriebenen {{1}}-Erlaubnisliste fehlen."
   },
+  "0cdb5949656b4d3b": {
+    "en": "With {{0}} and a key, openplate passes each food a person saves from a photo or a typed meal on to LowCarbCheck, through this server:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Mit {{0}} und einem Schlüssel leitet openplate jedes Lebensmittel, das jemand aus einem Foto oder einer eingetippten Mahlzeit speichert, über diesen Server an LowCarbCheck weiter:"
+  },
   "0d3d47fffef612d7": {
     "en": "Present only when the operator set {{0}}.",
     "model": "google/gemini-3.8-flash",
@@ -1121,6 +1133,12 @@
     "at": "2026-09-04",
     "de": "{{0}} ist über einen Browser nie erreichbar"
   },
+  "13a143724a66a6b6": {
+    "en": "A proposal carries the names, the macros, and whether the food came from a photo or a typed meal. It carries no account, no diary entry, no photo, and no address of the person. LowCarbCheck sees your server and your key. LowCarbCheck judges each proposal with a model when it arrives and publishes what passes. A food published this way comes back from the food database marked as an estimate, and openplate shows and stores it as one, never as a curated source.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Ein Vorschlag enthält die Namen, die Makronährstoffe und die Information, ob das Lebensmittel aus einem Foto oder einer eingetippten Mahlzeit stammt. Er enthält kein Konto, keinen Tagebucheintrag, kein Foto und keine Adresse der Person. LowCarbCheck sieht nur deinen Server und deinen Schlüssel. LowCarbCheck bewertet jeden Vorschlag beim Eintreffen mit einem Modell und veröffentlicht, was die Prüfung besteht. Ein so veröffentlichtes Lebensmittel kommt aus der Lebensmitteldatenbank als Schätzwert gekennzeichnet zurück, und openplate zeigt und speichert es als solchen, niemals als kuratierte Quelle."
+  },
   "13a5a79842600a2f": {
     "en": "The pseudonym defends against the {{0}}, not the server. The server authenticates the push by bearer token and therefore knows the account behind every row regardless — see §9.2.",
     "model": "google/gemini-3.8-flash",
@@ -1480,6 +1498,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "de": "Auf einer Instanz, deren Sync-Dienst {{0}} setzt, kann eine Person eine Fachkraft wie etwa eine Ernährungsberatung ihr Tagebuch lesen lassen. Die Fachkraft sendet der Person einen Connect-Link. Die Person öffnet ihn und tippt die zwölf Zeichen ein, die die Fachkraft vorliest, damit ein falscher Schlüssel bemerkt wird, bevor Daten geteilt werden. Die Person gibt die Freigabe dann unter {{1}} frei: Die App verpackt den Datenschlüssel ein weiteres Mal mit dem öffentlichen Schlüssel der Fachkraft und lädt diese verpackte Kopie hoch. Der Browser der Fachkraft entpackt sie und zeigt das Tagebuch unter {{2}} an. Der Server speichert die verpackte Kopie und niemals den passenden Schlüssel dazu. Eine Freigabe lässt sich jederzeit widerrufen. Ein privater Bereich des Tagebuchs enthält die eigenen Freigabe- und Forschungsschlüssel der Person, und eine Fachkraft kann ihn niemals öffnen."
+  },
+  "19dc7b55c36987b0": {
+    "en": "Each person can switch it off for their device in {{0}}. It is off on every instance until the operator sets {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Jede Person kann dies für ihr Gerät in {{0}} abschalten. Auf jeder Instanz ist die Funktion deaktiviert, bis der Betreiber {{1}} setzt."
   },
   "19ed869677f778b1": {
     "en": "Named sections",
@@ -3515,6 +3539,12 @@
     "at": "2026-09-12",
     "de": "{{0}} wird aus einem fünfminütigen In-Memory-Cache bedient"
   },
+  "3fb5fbcecaddd9b5": {
+    "en": "A name the person typed or changed themselves is never sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Ein Name, den die Person selbst eingetippt oder geändert hat, wird niemals übertragen."
+  },
   "3fe317e74339ac7e": {
     "en": "{{0}} shall mean annual revenue of 10 million United States dollars ($10,000,000) or more.",
     "model": "google/gemini-3.8-flash",
@@ -4660,6 +4690,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Verschlüsselung und was der Betreiber hält"
+  },
+  "525946317f9a223d": {
+    "en": "A food with no match sends its names in every app language and its macros per 100 g, so LowCarbCheck can add it. It needs an English name and all four of carbs, fat, protein and energy. A food without them is not sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Ein Lebensmittel ohne Treffer überträgt seine Namen in jeder App-Sprache und seine Makronährstoffe pro 100 g, damit LowCarbCheck es hinzufügen kann. Es benötigt einen englischen Namen sowie alle vier Angaben zu Kohlenhydraten, Fett, Eiweiß und Brennwert. Ein Lebensmittel ohne diese Angaben wird nicht übertragen."
   },
   "526e0087cc3f254d": {
     "en": "Description",
@@ -9977,6 +10013,12 @@
     "at": "2026-09-04",
     "de": "Inferenz ist die Rechenschicht, openplate-sync ist die Mandantenschicht auf einer verwalteten Instanz, und beide greifen ineinander"
   },
+  "b194131fb54d8825": {
+    "en": "If more than one person scans on this instance, get a free food-database key at {{0}}, add it to the app's {{1}} block as {{2}}, and run {{3}} again. Without a key everyone on the instance shares one small anonymous allowance. See {{4}}. With a key you can also set {{5}}, which passes the foods people save from an AI answer on to LowCarbCheck as proposals. See {{6}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Wenn mehr als eine Person auf dieser Instanz scannt, hol dir unter {{0}} einen kostenlosen Lebensmitteldatenbank-Schlüssel, trage ihn im {{1}}-Block der App als {{2}} ein und führe {{3}} erneut aus. Ohne Schlüssel teilen sich alle auf der Instanz ein einziges kleines, anonymes Kontingent. Siehe {{4}}. Mit einem Schlüssel kannst du auch {{5}} setzen. Das leitet Lebensmittel, die Personen aus einer KI-Antwort speichern, als Vorschläge an LowCarbCheck weiter. Siehe {{6}}."
+  },
   "b1a98a0fbb0d2bbc": {
     "en": "Three things fit behind \"your AI endpoint\": a cloud provider you hold a key with, an openplate-inference box on your own hardware, or, on a managed instance, the sync server itself, which forwards the photo and counts it against your allowance. {{0}} draws all four ways to run openplate, one small picture each.",
     "model": "google/gemini-3.8-flash",
@@ -10936,6 +10978,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "de": "Wo die App ihn darstellt"
+  },
+  "c311593b608272a5": {
+    "en": "Set to {{0}} to pass foods people save from an AI answer on to LowCarbCheck as proposals, so the food database gains new foods and the titles it lacks. Needs {{1}}. Without a key it stays off. A person can still turn it off for their own device in {{2}}. See {{3}}. Any value other than {{4}} or {{5}} stops the boot on purpose.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Setze dies auf {{0}}, um Lebensmittel, die Personen aus einer KI-Antwort speichern, als Vorschläge an LowCarbCheck weiterzuleiten, damit die Lebensmitteldatenbank neue Lebensmittel und fehlende Bezeichnungen erhält. Erfordert {{1}}. Ohne Schlüssel bleibt die Funktion deaktiviert. Jede Person kann sie für das eigene Gerät in {{2}} weiterhin abschalten. Siehe {{3}}. Jeder andere Wert als {{4}} oder {{5}} bricht den Startvorgang absichtlich ab."
   },
   "c31877db83a81d3c": {
     "en": "§5.12.1 {{0}}",
@@ -12310,6 +12358,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "de": "War dein Grund für diesen Schritt die Anforderung \"mein Haushalt braucht mehr als einen KI-Schlüssel\", liegt die primäre Lösung gar nicht auf dieser Skala. Das Problem lässt sich beim Anbieter lösen, mit Schlüsseln und Ausgabenlimits pro Person, ganz ohne zusätzliche Software. {{0}} beschreibt die Schritte und nennt für Fälle, in denen dein Anbieter keine begrenzten Sub-Keys bereitstellt, einen verwalteten Sync-Server als Ausweichlösung (Stufe 2, mit {{1}})."
+  },
+  "d9c5d850df6cd227": {
+    "en": "A food the person matched to a LowCarbCheck row sends the food's names in every app language, so the row gains the titles it lacks.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Bei einem Lebensmittel, das die Person einem LowCarbCheck-Eintrag zugeordnet hat, werden die Namen des Lebensmittels in jeder App-Sprache übertragen, damit der Eintrag die fehlenden Bezeichnungen erhält."
   },
   "d9e4dff12b40d263": {
     "en": "The client holds all the keys. It serializes its whole local store, gzips it, encrypts it with AES-256-GCM under a key the server has never seen, and pushes the result as one opaque blob. The server stores bytes, versions them, and refuses writes that would clobber another device's. It also stores two small {{0}} (the same data-encryption key wrapped under two different key-encryption keys, one derived from the user's passphrase and one from a recovery code) so a second device can bootstrap. The server cannot decrypt any of it. That is not a policy; it is what the math permits.",
@@ -13762,6 +13816,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Ein zweites Gerät hinzufügen:"
+  },
+  "f4cc4fc71636dd53": {
+    "en": "With {{0}} it also carries proposals: the names of a food a person saved from an AI answer, in every app language, and for a food with no match its macros per 100 g. Never a name the person typed, never a photo or a diary entry. See {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Mit {{0}} überträgt er auch Vorschläge: die Namen eines Lebensmittels, das jemand aus einer KI-Antwort gespeichert hat, in jeder App-Sprache, und bei einem Lebensmittel ohne Treffer dessen Makronährstoffe pro 100 g. Niemals einen Namen, den die Person selbst eingetippt hat, niemals ein Foto oder einen Tagebucheintrag. Siehe {{1}}."
   },
   "f4e5f2e2f54af132": {
     "en": "If the passphrase is lost, §5.12 is the way back",
