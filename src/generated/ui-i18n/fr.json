@@ -230,6 +230,13 @@
     "at": "2026-09-23",
     "fr": "Financements et publications conjoints"
   },
+  "2086ddaddee34f40": {
+    "en": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.bodyTrial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Tout le monde peut <signUp>s'inscrire</signUp> avec une adresse e-mail sur l'instance hébergée à l'adresse app.openplate.de. Aucune invitation n'est requise. Le journal, le compte et la synchronisation sont gratuits. Tout nouveau compte bénéficie de {{count}} analyses d'IA gratuites, sans limite de temps. Au-delà, l'analyse des photos d'assiette et les autres fonctionnalités d'IA nécessitent un forfait payant. Héberger ta propre instance ne coûte rien. Consulte la section <selfHosting>Auto-hébergement</selfHosting>."
+  },
   "2264c1b69805c5fa": {
     "en": "Most food trackers store your diary on their servers, where you cannot control it. openplate works the other way around. Your diary stays on your device. The source code is public, so anyone can inspect it. Every additional service, sync and photo scanning included, is optional, and you can host each part yourself.",
     "path": "common:pages.home.why.body",
@@ -636,6 +643,13 @@
     "at": "2026-09-14",
     "fr": "Tout faire tourner"
   },
+  "5e9f12ec0ba82020": {
+    "en": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
+    "path": "common:pages.pricing.trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Tout nouveau compte sur l'instance hébergée bénéficie de {{count}} analyses d'IA gratuites, sans limite de temps. Au-delà, les fonctionnalités d'IA s'interrompent tant qu'aucun forfait n'est souscrit, et le reste continue de fonctionner. <signUp>Inscris-toi</signUp> avec une adresse e-mail."
+  },
   "5ecb1c9c097c973b": {
     "en": "The eating and targets screen: eating style options, from low-carb to simple tracking, and preset daily carb limits.",
     "path": "common:pages.home.features.goals.alt",
@@ -943,6 +957,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Tu peux utiliser openplate sans rien faire tourner du tout, comme tu peux tout héberger toi-même. Quatre échelons séparent ces deux cas. Chaque échelon apporte une fonction de plus et un composant de plus à gérer, vois donc cela comme une échelle où tu as tout intérêt à t'arrêter tôt."
+  },
+  "8bc0ea32ec5efaaf": {
+    "en": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Tout le monde peut <signUp>s'inscrire</signUp> avec une adresse e-mail sur l'instance hébergée à l'adresse app.openplate.de. Aucune invitation n'est requise. Le journal, le compte et la synchronisation sont gratuits. L'analyse des photos d'assiette et les autres fonctionnalités d'IA nécessitent un forfait payant. Héberger ta propre instance ne coûte rien. Consulte la section <selfHosting>Auto-hébergement</selfHosting>."
   },
   "8e12f7921f021f22": {
     "en": "Study-specific builds",

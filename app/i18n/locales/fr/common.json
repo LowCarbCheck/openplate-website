@@ -129,8 +129,8 @@
       },
       "access": {
         "heading": "Obtenir l'accès",
-        "body": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
-        "bodyTrial": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
+        "body": "Tout le monde peut <signUp>s'inscrire</signUp> avec une adresse e-mail sur l'instance hébergée à l'adresse app.openplate.de. Aucune invitation n'est requise. Le journal, le compte et la synchronisation sont gratuits. L'analyse des photos d'assiette et les autres fonctionnalités d'IA nécessitent un forfait payant. Héberger ta propre instance ne coûte rien. Consulte la section <selfHosting>Auto-hébergement</selfHosting>.",
+        "bodyTrial": "Tout le monde peut <signUp>s'inscrire</signUp> avec une adresse e-mail sur l'instance hébergée à l'adresse app.openplate.de. Aucune invitation n'est requise. Le journal, le compte et la synchronisation sont gratuits. Tout nouveau compte bénéficie de {{count}} analyses d'IA gratuites, sans limite de temps. Au-delà, l'analyse des photos d'assiette et les autres fonctionnalités d'IA nécessitent un forfait payant. Héberger ta propre instance ne coûte rien. Consulte la section <selfHosting>Auto-hébergement</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
@@ -237,7 +237,7 @@
       "title": "Tarifs",
       "heading": "Forfaits",
       "vatNote": "Chaque prix est un prix final en euros, TVA allemande incluse.",
-      "trial": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
+      "trial": "Tout nouveau compte sur l'instance hébergée bénéficie de {{count}} analyses d'IA gratuites, sans limite de temps. Au-delà, les fonctionnalités d'IA s'interrompent tant qu'aucun forfait n'est souscrit, et le reste continue de fonctionner. <signUp>Inscris-toi</signUp> avec une adresse e-mail.",
       "termsLink": "Lire les conditions",
       "intro": "L'utilisation d'openplate est gratuite. Un forfait finance l'analyse des photos d'assiette et les autres fonctionnalités d'IA sur l'instance hébergée à l'adresse app.openplate.de.",
       "selfHost": {

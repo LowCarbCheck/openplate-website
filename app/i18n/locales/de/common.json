@@ -129,8 +129,8 @@
       },
       "access": {
         "heading": "Zugang erhalten",
-        "body": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
-        "bodyTrial": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>."
+        "body": "Jeder kann sich auf der gehosteten Instanz unter app.openplate.de mit einer E-Mail-Adresse <signUp>registrieren</signUp>. Du brauchst keine Einladung. Das Tagebuch, das Konto und die Synchronisierung sind kostenlos. Das Scannen von Tellern und die weiteren KI-Funktionen erfordern ein kostenpflichtiges Abonnement. Eine eigene Instanz zu betreiben kostet nichts. Siehe <selfHosting>Self-Hosting</selfHosting>.",
+        "bodyTrial": "Jeder kann sich auf der gehosteten Instanz unter app.openplate.de mit einer E-Mail-Adresse <signUp>registrieren</signUp>. Du brauchst keine Einladung. Das Tagebuch, das Konto und die Synchronisierung sind kostenlos. Ein neues Konto erhält ohne zeitliche Begrenzung {{count}} kostenlose KI-Scans. Danach erfordern das Scannen von Tellern und die weiteren KI-Funktionen ein kostenpflichtiges Abonnement. Eine eigene Instanz zu betreiben kostet nichts. Siehe <selfHosting>Self-Hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open Source",
@@ -237,7 +237,7 @@
       "title": "Preise",
       "heading": "Abos",
       "vatNote": "Jeder Preis ist ein Endpreis in Euro, inklusive deutscher Umsatzsteuer.",
-      "trial": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
+      "trial": "Ein neues Konto auf der gehosteten Instanz erhält ohne zeitliche Begrenzung {{count}} kostenlose KI-Scans. Danach pausieren die KI-Funktionen, bis ein Abonnement gekauft wird, während der Rest weiter funktioniert. <signUp>Registriere dich</signUp> mit einer E-Mail-Adresse.",
       "termsLink": "Bedingungen lesen",
       "intro": "openplate lässt sich kostenlos nutzen. Ein Abo deckt Teller-Scans und die weiteren KI-Funktionen auf der gehosteten Instanz unter app.openplate.de ab.",
       "selfHost": {

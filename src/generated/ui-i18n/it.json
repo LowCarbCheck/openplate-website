@@ -230,6 +230,13 @@
     "at": "2026-09-23",
     "it": "Finanziamenti e articoli congiunti"
   },
+  "2086ddaddee34f40": {
+    "en": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. A new account gets {{count}} free AI scans, with no time limit. After them, plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.bodyTrial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "it": "Chiunque può <signUp>registrarsi</signUp> con un indirizzo email sull'istanza ospitata su app.openplate.de. Non serve alcun invito. Il diario, l'account e la sincronizzazione sono gratuiti. Un nuovo account riceve {{count}} scansioni IA gratuite, senza limiti di tempo. Esaurite queste, la scansione dei piatti e le altre funzioni IA richiedono un piano a pagamento. Eseguire la propria istanza non costa nulla. Vedi <selfHosting>Self-hosting</selfHosting>."
+  },
   "2264c1b69805c5fa": {
     "en": "Most food trackers store your diary on their servers, where you cannot control it. openplate works the other way around. Your diary stays on your device. The source code is public, so anyone can inspect it. Every additional service, sync and photo scanning included, is optional, and you can host each part yourself.",
     "path": "common:pages.home.why.body",
@@ -636,6 +643,13 @@
     "at": "2026-09-14",
     "it": "Esegui tutto"
   },
+  "5e9f12ec0ba82020": {
+    "en": "A new account on the hosted instance gets {{count}} free AI scans, with no time limit. After them, AI features pause until a plan is bought, and the rest keeps working. <signUp>Sign up</signUp> with an email address.",
+    "path": "common:pages.pricing.trial",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "it": "Un nuovo account sull'istanza ospitata riceve {{count}} scansioni IA gratuite, senza limiti di tempo. Esaurite queste, le funzioni IA si sospendono fino all'acquisto di un piano, mentre il resto continua a funzionare. <signUp>Registrati</signUp> con un indirizzo email."
+  },
   "5ecb1c9c097c973b": {
     "en": "The eating and targets screen: eating style options, from low-carb to simple tracking, and preset daily carb limits.",
     "path": "common:pages.home.features.goals.alt",
@@ -943,6 +957,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "it": "Puoi usare openplate senza dover gestire alcuna infrastruttura, oppure puoi gestirne ogni singolo componente. Tra questi due estremi ci sono quattro livelli intermedi. Ciascun livello aggiunge una funzionalità e qualcosa che dovrai gestire, quindi consideralo come una scala su cui puoi decidere di fermarti quando preferisci."
+  },
+  "8bc0ea32ec5efaaf": {
+    "en": "Anyone can <signUp>sign up</signUp> with an email address on the hosted instance at app.openplate.de. No invitation is needed. The diary, the account and sync are free. Plate scanning and the other AI features come with a paid plan. Running your own copy costs nothing. See <selfHosting>Self-hosting</selfHosting>.",
+    "path": "common:pages.home.access.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "it": "Chiunque può <signUp>registrarsi</signUp> con un indirizzo email sull'istanza ospitata su app.openplate.de. Non serve alcun invito. Il diario, l'account e la sincronizzazione sono gratuiti. La scansione dei piatti e le altre funzioni IA richiedono un piano a pagamento. Eseguire la propria istanza non costa nulla. Vedi <selfHosting>Self-hosting</selfHosting>."
   },
   "8e12f7921f021f22": {
     "en": "Study-specific builds",
