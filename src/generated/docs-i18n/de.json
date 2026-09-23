@@ -965,6 +965,12 @@
     "at": "2026-09-12",
     "de": "{{0}} Nichts anderes tut dies: Ein {{1}}, ein {{2}}, ein {{3}}, ein {{4}} und jedes {{5}} sind flüchtig oder betreffen den Absender, und ein Bereinigen darauf würde die Tabelle leeren, sobald ein Schlüssel falsch eingefügt wurde."
   },
+  "0fad56ee87f92197": {
+    "en": "A scan trial nobody has paid for invites nobody.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "Ein Scan-Testzeitraum, für den noch niemand bezahlt hat, lädt niemanden ein."
+  },
   "0fae9d68b9303615": {
     "en": "What {{0}} adds",
     "model": "google/gemini-3.8-flash",
@@ -7265,6 +7271,12 @@
     "at": "2026-09-04",
     "de": "{{0}} UND {{1}} sind ERFORDERLICH"
   },
+  "7bc2deb45956c14f": {
+    "en": "{{0}} Every member invitation under {{1}} is a new scan trial, so a free account that could invite would mint more free accounts. An account that carries {{2}} and has no {{3}} in the future answers {{4}}, writes no row and sends no letter. A future date opens the route, whoever wrote it: the biller on payment, or an operator. The lifetime cap is asked first, so an account that has spent its allowance hears {{5}}, because paying would not help it. An administrator is exempt here too, and the admin mint (§5.20) is untouched. {{6}} on the account view (§5.15) says the same thing before the person tries.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "{{0}} Jede Mitgliedereinladung unter {{1}} ist ein neuer Scan-Testzeitraum, sodass ein kostenloses Konto, das einladen dürfte, weitere kostenlose Konten erzeugen würde. Ein Konto, das {{2}} aufweist und kein {{3}} in der Zukunft besitzt, antwortet mit {{4}}, schreibt keine Zeile und versendet keinen Brief. Ein zukünftiges Datum gibt die Route frei, unabhängig davon, wer es eingetragen hat: das Abrechnungssystem bei Zahlung oder ein Operator. Die Obergrenze über die Lebensdauer wird zuerst abgefragt, sodass ein Konto, das sein Kontingent aufgebraucht hat, {{5}} erhält, da eine Bezahlung ihm nicht helfen würde. Ein Administrator ist auch hier ausgenommen, und das Admin-Minting (§5.20) bleibt unberührt. {{6}} in der Kontoansicht (§5.15) besagt dasselbe, bevor die Person es versucht."
+  },
   "7be1e7a00681c4c3": {
     "en": "{{0}} No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no required secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever.",
     "model": "google/gemini-3.8-flash",
@@ -9598,6 +9610,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-04",
     "de": "Du betreibst bereits eine Modell-Laufzeitumgebung."
+  },
+  "a386354df56fb311": {
+    "en": "{{0}} is {{1}} when {{2}} is {{3}} only because the account is a scan trial nobody has paid for yet (§5.21), and {{4}} in every other case, an administrator and an instance with {{5}} included. An account is such a trial when it carries {{6}} and its {{7}} is {{8}} or already past; a future {{9}}, which is what the biller writes on payment, opens invitations again and leaves {{10}} in place. The field is additive: a client that ignores it reads {{11}}, which is still true, and a client that reads it can say that invitations open with a plan instead of saying they are all used.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "de": "{{0}} ist {{1}}, wenn {{2}} nur deshalb {{3}} ist, weil das Konto ein Scan-Testzeitraum ist, für den noch niemand bezahlt hat (§5.21), und in jedem anderen Fall {{4}}, ein Administrator und eine Instanz mit {{5}} inbegriffen. Ein Konto ist ein solcher Testzeitraum, wenn es {{6}} aufweist und sein {{7}} {{8}} oder bereits abgelaufen ist; ein zukünftiges {{9}}, das das Abrechnungssystem bei Zahlung einträgt, gibt Einladungen wieder frei und belässt {{10}}. Das Feld wirkt additiv: Ein Client, der es ignoriert, liest {{11}}, was weiterhin zutrifft, und ein Client, der es auswertet, kann melden, dass Einladungen mit einem Tarif freigeschaltet werden, statt zu melden, dass sie vollständig aufgebraucht sind."
   },
   "a3a17e0b3306422b": {
     "en": "{{0}} This is the deliberate inversion of §5.16, where {{1}} is required because §3.2's AAD binds it. Every AAD field here is reconstructible by the researcher before decryption — four ride in the response, and the fingerprint she computes locally from her own key.",

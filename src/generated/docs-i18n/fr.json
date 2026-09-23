@@ -887,6 +887,12 @@
     "at": "2026-09-12",
     "fr": "{{0}} Rien d'autre ne le fait : une erreur {{1}}, {{2}}, {{3}}, {{4}} et chaque code {{5}} sont transitoires ou concernent l'expéditeur, et purger sur ces critères viderait la table dès qu'une clé serait mal collée."
   },
+  "0fad56ee87f92197": {
+    "en": "A scan trial nobody has paid for invites nobody.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Un essai de numérisation que personne n'a payé n'invite personne."
+  },
   "0fae9d68b9303615": {
     "en": "What {{0}} adds",
     "model": "google/gemini-3.8-flash",
@@ -6617,6 +6623,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} ET {{1}} sont REQUIS"
   },
+  "7bc2deb45956c14f": {
+    "en": "{{0}} Every member invitation under {{1}} is a new scan trial, so a free account that could invite would mint more free accounts. An account that carries {{2}} and has no {{3}} in the future answers {{4}}, writes no row and sends no letter. A future date opens the route, whoever wrote it: the biller on payment, or an operator. The lifetime cap is asked first, so an account that has spent its allowance hears {{5}}, because paying would not help it. An administrator is exempt here too, and the admin mint (§5.20) is untouched. {{6}} on the account view (§5.15) says the same thing before the person tries.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "{{0}} Chaque invitation de membre sous {{1}} constitue un nouvel essai de numérisation, donc un compte gratuit autorisé à inviter créerait d'autres comptes gratuits. Un compte qui porte {{2}} et n'a aucun {{3}} dans le futur renvoie {{4}}, n'écrit aucune ligne et n'envoie aucune lettre. Une date future ouvre la route, peu importe qui l'a inscrite : le système de facturation lors du paiement, ou un opérateur. La limite à vie est vérifiée en premier, donc un compte ayant épuisé son quota reçoit {{5}}, car payer ne l'aiderait pas. Un administrateur en est ici aussi exempté, et la création par l'administrateur (§5.20) reste inchangée. {{6}} sur la vue du compte (§5.15) indique la même chose avant que la personne n'essaie."
+  },
   "7be1e7a00681c4c3": {
     "en": "{{0}} No sign-up, no login, no password: open the app and start logging. Your diary lives in your browser's own IndexedDB on the device you use, and the app server has no database at all: one stateless container, no required secrets, nothing to provision. Optional end-to-end-encrypted sync between devices is a separate service you can ignore forever.",
     "model": "google/gemini-3.8-flash",
@@ -8686,6 +8698,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Tu fais déjà tourner un moteur d'exécution de modèles."
+  },
+  "a386354df56fb311": {
+    "en": "{{0}} is {{1}} when {{2}} is {{3}} only because the account is a scan trial nobody has paid for yet (§5.21), and {{4}} in every other case, an administrator and an instance with {{5}} included. An account is such a trial when it carries {{6}} and its {{7}} is {{8}} or already past; a future {{9}}, which is what the biller writes on payment, opens invitations again and leaves {{10}} in place. The field is additive: a client that ignores it reads {{11}}, which is still true, and a client that reads it can say that invitations open with a plan instead of saying they are all used.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "{{0}} vaut {{1}} quand {{2}} vaut {{3}} uniquement parce que le compte est un essai de numérisation que personne n'a encore payé (§5.21), et {{4}} dans tous les autres cas, y compris pour un administrateur et une instance avec {{5}}. Un compte correspond à un tel essai lorsqu'il porte {{6}} et que son {{7}} vaut {{8}} ou est déjà passé ; un {{9}} futur, ce que le système de facturation inscrit lors du paiement, rouvre les invitations et laisse {{10}} en place. Le champ est additif : un client qui l'ignore lit {{11}}, ce qui reste vrai, et un client qui le lit peut indiquer que les invitations s'ouvrent avec un abonnement plutôt que de dire qu'elles sont toutes utilisées."
   },
   "a3b2e0255ff5419b": {
     "en": "{{0}} The label is its UTF-8 bytes with no terminator; {{1}} is {{2}}, never its decimal text and never a minimal-length encoding. The output is the MAC's leading 16 bytes in the Crockford base32 alphabet {{3}} (no check symbol, no hyphens), which is exactly 26 upper-case characters. A client deriving over the id's ASCII digits produces a well-formed pseudonym that joins up with nothing.",
