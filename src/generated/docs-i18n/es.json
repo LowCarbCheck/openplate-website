@@ -10289,6 +10289,12 @@
     "at": "2026-09-14",
     "es": "5. Endpoints"
   },
+  "d21b9508e7a1a43f": {
+    "en": "The example is illustrative: the biller's routes are its own. openplate's biller serves {{0}}, {{1}}, {{2}} and the portal route; its older {{3}} now answers {{4}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "es": "El ejemplo es ilustrativo: las rutas del facturador son las suyas propias. El facturador de openplate sirve {{0}}, {{1}}, {{2}} y la ruta del portal; su {{3}} anterior ahora responde {{4}}."
+  },
   "d2320c47040d9fa2": {
     "en": "Point this at an llama.cpp, Ollama or vLLM you already run, the grammar-enforcement requirement, per-runtime setup traps",
     "model": "google/gemini-3.8-flash",
