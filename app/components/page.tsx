@@ -8,11 +8,15 @@
  */
 import type { ReactNode } from 'react';
 
+import { CodeChip, HUGS_AFTER, HUGS_BEFORE } from './docs/prose';
+
 /**
  * The copy is written in the same markdown the rest of the project is written
  * in, so a few sentences carry a backticked code span (`/admin`, `lite`). This
- * renders those as `<code>` and leaves the translation strings byte-identical
- * to the reviewed English, which is what keeps the two comparable.
+ * renders those as the docs' own `CodeChip` and leaves the translation strings
+ * byte-identical to the reviewed English, which is what keeps the two
+ * comparable. The text on either side is a plain string, so the chip hugs its
+ * punctuation here exactly as it does in `DocBlocks`.
  *
  * Keys are built from the running character offset rather than the array
  * index, so they stay unique and data-dependent.
@@ -22,15 +26,18 @@ function renderCopy(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
   let offset = 0;
 
-  for (const part of parts) {
+  for (const [i, part] of parts.entries()) {
     const key = `s${offset}`;
     offset += part.length;
 
     if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
       nodes.push(
-        <code key={key} className="bg-muted px-1 py-0.5 font-mono text-[0.9em]">
-          {part.slice(1, -1)}
-        </code>,
+        <CodeChip
+          key={key}
+          text={part.slice(1, -1)}
+          hugBefore={HUGS_BEFORE.test(parts[i - 1] ?? '')}
+          hugAfter={HUGS_AFTER.test(parts[i + 1] ?? '')}
+        />,
       );
       continue;
     }
@@ -69,6 +76,15 @@ export function Lead({ text }: { text: string }) {
 }
 
 /**
+ * The reading column of a marketing page: 42rem, centred, text left aligned.
+ *
+ * `max-w-2xl` is also the width of the front page hero's words, so every page's text sits in one
+ * column. `Section` repeats the number in its child selectors, which Tailwind can only read as
+ * whole class names. Change both.
+ */
+export const MEASURE = 'mx-auto w-full max-w-2xl';
+
+/**
  * One section: the site's own heading, and whatever goes under it.
  *
  * THE HEADING IS SIZED LIKE A DOCUMENT'S `##`, and that is not decoration. Most
@@ -80,23 +96,46 @@ export function Lead({ text }: { text: string }) {
  * flat list of sections rather than two of them with subsections. One step up
  * puts the site's frame above the quoted words instead of level with them.
  *
- * ── THE SECTION IS AS WIDE AS THE PAGE, ITS PARAGRAPHS ARE NOT ──
- * A marketing page is 72rem so that a grid of screenshots and a row of cards
- * get room. A sentence does not want that room: a paragraph 1152 pixels wide is
- * one the eye loses its place in on the way back to the left edge. So a
- * paragraph written straight into a section is capped here, in the one place
- * that owns the scale, rather than by a `max-w` typed onto each page. The
- * quoted paragraphs `DocBlocks` renders already carry the same cap, and a grid,
- * a card or a picture is not a `<p>` and keeps the width it was given.
+ * ── THE SECTION IS AS WIDE AS THE PAGE, ITS WORDS ARE NOT ──
+ * A marketing page is 72rem so that a grid of screenshots and a row of cards get room. A sentence
+ * does not want that room, so the heading and every text block in a section share one measure,
+ * `MEASURE` above, CENTRED in the column. On the column's left edge it left a third of every page
+ * empty on the right, under a front page hero that is centred. The box is centred; the words in it
+ * stay left aligned.
  *
- * A paragraph written straight into a section also takes the prose face here, for the same reason
- * and in the same place. Headings, cards and tables under it keep the body's monospace.
+ * One rem width and not a `ch` cap each: the heading is monospace at 2xl and a paragraph is Inter
+ * at the body size, so two `ch` caps would give them two left edges. It overrides the `68ch` that
+ * `DocBlocks` puts on a quoted paragraph, list, fence or callout for the same reason. A `.grid`, a
+ * table, a figure or any `div` is not in the list and keeps the full width.
+ *
+ * A paragraph written straight into a section also takes the prose face here. Headings, cards and
+ * tables under it keep the body's monospace.
+ *
+ * ── `isWide`, FOR A SECTION THAT IS ONE FULL WIDTH GRID ──
+ * A heading aligns with what it heads. A prose section uses `MEASURE`; a section whose content is a
+ * full width grid puts its heading on the column's own left edge, the grid's edge. Centred over a
+ * grid it floated about 220 pixels in from the cards it names. A section that mixes a paragraph and
+ * a grid stays centred, because the heading heads the paragraph first.
+ *
+ * `className` is for the `<section>` itself, which is how `/research` puts `.reveal` on one.
  */
-export function Section({ heading, children }: { heading: string; children: ReactNode }) {
+export function Section({
+  heading,
+  isWide = false,
+  className,
+  children,
+}: {
+  heading: string;
+  isWide?: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
   return (
-    <section className="mt-12">
-      <h2 className="text-2xl font-semibold tracking-tight">{heading}</h2>
-      <div className="mt-4 space-y-4 leading-relaxed [&>p]:max-w-[68ch] [&>p]:font-prose">{children}</div>
+    <section className={`mt-12 ${className ?? ''}`}>
+      <h2 className={`${isWide ? '' : MEASURE} text-2xl font-semibold tracking-tight text-balance`}>{heading}</h2>
+      <div className="mt-4 space-y-4 leading-relaxed [&>:is(p,h3,h4,ul,ol,pre,blockquote):not(.grid)]:mx-auto [&>:is(p,h3,h4,ul,ol,pre,blockquote):not(.grid)]:max-w-2xl [&>p]:font-prose">
+        {children}
+      </div>
     </section>
   );
 }

@@ -36,7 +36,7 @@ import { useLoaderData } from 'react-router';
 
 import type { Route } from './+types/deploy';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
-import { Lead, LinkRow, PageTitle, Section } from '#app/components/page';
+import { Lead, LinkRow, MEASURE, PageTitle, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageSections } from '#app/lib/stack-sections.server';
@@ -63,8 +63,11 @@ export default function DeployRoute() {
 
   return (
     <SiteLayout width="marketing">
-      <PageTitle>{t('pages.deploy.title')}</PageTitle>
-      <Lead text={t('pages.deploy.lead')} />
+      {/* In `MEASURE`, the centred column every `Section` below sets its words in. */}
+      <div className={MEASURE}>
+        <PageTitle>{t('pages.deploy.title')}</PageTitle>
+        <Lead text={t('pages.deploy.lead')} />
+      </div>
 
       {sections.map((entry) => (
         <Section key={entry.id} heading={t(entry.headingKey)}>
@@ -72,7 +75,7 @@ export default function DeployRoute() {
         </Section>
       ))}
 
-      <div className="mt-12 space-y-2 border-t border-border pt-6">
+      <div className={`${MEASURE} mt-12 space-y-2 border-t border-border pt-6`}>
         {/* The document this whole page quotes, and the one a reader who has picked a rung needs
             next. Nothing on the page tells somebody how to bring a container up; `topologies.md`
             names the compose file per rung and `self-hosting.md` is the instructions. */}

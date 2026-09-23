@@ -13,7 +13,7 @@ import type { Route } from './+types/core';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { PageHero } from '#app/components/hero';
 import { SyncIcon } from '#app/components/icons';
-import { Copy, LinkRow, Section } from '#app/components/page';
+import { Copy, LinkRow, MEASURE, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageSections } from '#app/lib/stack-sections.server';
@@ -48,7 +48,7 @@ export default function CoreRoute() {
         </Section>
       ))}
 
-      <div className="mt-12 space-y-2 border-t border-border pt-6">
+      <div className={`${MEASURE} mt-12 space-y-2 border-t border-border pt-6`}>
         <LinkRow label={t('site.links.docsLabel')}>
           <SiteLink to={DOC_PATHS.coreProtocol}>{t('pages.core.links.protocol')}</SiteLink>
         </LinkRow>

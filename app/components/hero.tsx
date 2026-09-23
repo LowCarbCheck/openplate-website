@@ -40,7 +40,7 @@
 import type { ComponentType, ReactNode } from 'react';
 
 import type { IconProps } from './icons';
-import { FullBleedBackdrop } from './page';
+import { FullBleedBackdrop, MEASURE } from './page';
 
 /**
  * The two decorative layers behind the front page's masthead, ported with the rest of the shape.
@@ -167,6 +167,9 @@ export function Hero({
  * rather than beside it. Beside a 3xl heading a 24 unit lucide grid with a 2 unit stroke is either
  * too heavy or too small; above it, at the muted colour, it labels the page and competes with
  * nothing.
+ *
+ * The block sits in `MEASURE`, the same centred column as every `Section` under it, so the page
+ * has one left edge for its words. The words themselves stay left aligned.
  */
 export function PageHero({
   icon: Icon,
@@ -178,7 +181,7 @@ export function PageHero({
   lead: ReactNode;
 }) {
   return (
-    <section>
+    <section className={MEASURE}>
       <Icon className="h-6 w-6 text-muted-foreground" />
       <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h1>
       {/* The lead keeps a measure, and it is the SAME measure `DocBlocks` gives the quoted

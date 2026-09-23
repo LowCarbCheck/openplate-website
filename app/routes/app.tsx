@@ -18,7 +18,7 @@ import type { Route } from './+types/app';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { PageHero } from '#app/components/hero';
 import { AppIcon } from '#app/components/icons';
-import { Copy, LinkRow, Section } from '#app/components/page';
+import { Copy, LinkRow, MEASURE, Section } from '#app/components/page';
 import { ExampleDataNote, PhoneShot } from '#app/components/shot';
 import { RepoLink, SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
@@ -51,8 +51,9 @@ export default function AppRoute() {
       {/* The picture sits beside the lead rather than under the page title, so the first screen of
           this page is a claim and its evidence. `sm:grid-cols-[1fr_13rem]` and `items-start`: the
           two columns START together. Centring them against each other pushed the shot down until
-          its top edge lined up with nothing at all. */}
-      <div className="mt-10 gap-8 sm:grid sm:grid-cols-[1fr_13rem] sm:items-start">
+          its top edge lined up with nothing at all. In `MEASURE`, so the copy starts on the same
+          left edge as the hero above and the sections below. */}
+      <div className={`${MEASURE} mt-10 gap-8 sm:grid sm:grid-cols-[1fr_13rem] sm:items-start`}>
         <div className="space-y-4 leading-relaxed">
           <Copy text={t('pages.app.shotIntro')} />
           <ExampleDataNote />
@@ -70,7 +71,7 @@ export default function AppRoute() {
         </Section>
       ))}
 
-      <div className="mt-12 space-y-2 border-t border-border pt-6">
+      <div className={`${MEASURE} mt-12 space-y-2 border-t border-border pt-6`}>
         <LinkRow label={t('site.links.docsLabel')}>
           <SiteLink to={DOC_PATHS.appArchitecture}>{t('pages.app.links.architecture')}</SiteLink>
           {', '}

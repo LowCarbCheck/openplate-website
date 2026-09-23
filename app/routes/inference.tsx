@@ -13,7 +13,7 @@ import type { Route } from './+types/inference';
 import { DocBlocks } from '#app/components/docs/doc-blocks';
 import { PageHero } from '#app/components/hero';
 import { InferenceIcon } from '#app/components/icons';
-import { Copy, LinkRow, Section } from '#app/components/page';
+import { Copy, LinkRow, MEASURE, Section } from '#app/components/page';
 import { SiteLink } from '#app/components/site-link';
 import { SiteLayout } from '#app/components/site-layout';
 import { pageSections } from '#app/lib/stack-sections.server';
@@ -56,7 +56,7 @@ export default function InferenceRoute() {
         <Copy text={t('pages.inference.audience.body')} />
       </Section>
 
-      <div className="mt-12 space-y-2 border-t border-border pt-6">
+      <div className={`${MEASURE} mt-12 space-y-2 border-t border-border pt-6`}>
         <LinkRow label={t('site.links.docsLabel')}>
           <SiteLink to={DOC_PATHS.inferenceHardware}>{t('pages.inference.links.hardware')}</SiteLink>
           {', '}
