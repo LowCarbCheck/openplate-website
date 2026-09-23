@@ -7,15 +7,26 @@
     "nav": {
       "label": "Main",
       "menu": "Menu",
-      "app": "App",
+      "app": "The app",
       "core": "Sync server",
       "inference": "Inference runtime",
-      "deploy": "Deployment",
-      "docs": "Docs"
+      "deploy": "Choosing a setup",
+      "docs": "Docs",
+      "selfHosting": "Self-hosting",
+      "research": "Research",
+      "openApp": "Open the app",
+      "deployHint": "Use a hosted version, or run every component yourself.",
+      "coreHint": "Syncs your encrypted diary between your devices.",
+      "inferenceHint": "Reads plate photos on hardware you control."
     },
     "footer": {
       "label": "Footer",
-      "sourceCode": "Source code"
+      "sourceCode": "Source code",
+      "blurb": "openplate is an open-source food diary, built in Berlin. The app and the sync server are MIT licensed.",
+      "product": "Product",
+      "selfHosting": "Self-hosting",
+      "project": "Project",
+      "legal": "Legal"
     },
     "language": {
       "label": "Language"
@@ -34,21 +45,23 @@
       "title": "openplate",
       "hero": {
         "body": "openplate is an open-source food diary that runs on your device, with an optional photo scan that estimates the macros on your plate. It is for people who want to track what they eat without sending their diary to someone else's server.",
-        "lead": "It is for people who want to track what they eat without sending their diary to someone else's server.",
+        "lead": "openplate is for people who want to track what they eat without sending their data to someone else's server.",
         "openApp": "Open the app",
         "readSource": "Read the source",
         "inviteNote": "The hosted instance is invite-only. Running your own copy needs no invitation.",
-        "shotAlt": "The openplate diary for one day: a ring showing the net carbs left of the daily limit, the protein count, and the meals logged under breakfast and lunch."
+        "shotAlt": "The openplate diary for one day on a computer screen. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets. The day's food splits into carbs, fiber, protein, and fat.",
+        "researchBadge": "We are looking for research partners",
+        "researchLink": "Read more"
       },
       "whatItIs": {
         "heading": "What openplate is"
       },
       "features": {
-        "heading": "What you do with it",
+        "heading": "What you can do with openplate",
         "add": {
           "title": "Log a food",
           "body": "Search the food database, or pick something you logged before, and the entry lands in the day under the meal you chose.",
-          "alt": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs."
+          "alt": "The add-food screen: a search box, your usual dinner, a button to scan a plate, and recently logged foods with their net carbs."
         },
         "scan": {
           "title": "Scan a plate",
@@ -56,14 +69,14 @@
           "alt": "The scan screen, offering to connect an AI provider before it reads a photo, and a way to log the food without one."
         },
         "goals": {
-          "title": "Set the targets",
-          "body": "A daily carb limit and a protein target, or neither. Every goal is optional and clearing a field removes it.",
-          "alt": "The goals screen: a daily net carb limit with preset choices and a custom field, and a protein target in grams."
+          "title": "Choose how you eat",
+          "body": "Low-carb, calories, high protein, or simple tracking. The style you pick sets which goal grades the day, and every goal is optional.",
+          "alt": "The eating and targets screen: eating style options, from low-carb to simple tracking, and preset daily carb limits."
         },
         "overview": {
           "title": "See where the day stands",
-          "body": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
-          "alt": "The overview screen: a ring showing the net carbs left of the daily limit, the protein count, and a card for the last seven days."
+          "body": "Net carbs, calories, protein, fat, and fiber for the day, each shown against its target, and how many of the last seven days you logged.",
+          "alt": "The overview screen: the day's net carbs, calories, protein, fat, and fiber, each displayed with a bar against its target."
         }
       },
       "illustrations": {
@@ -90,7 +103,7 @@
         }
       },
       "stack": {
-        "heading": "The stack",
+        "heading": "Three components, each optional beyond the app",
         "app": {
           "name": "App"
         },
@@ -99,7 +112,8 @@
         },
         "inference": {
           "name": "Inference runtime"
-        }
+        },
+        "intro": "The app works on its own to keep a diary. The sync server and inference runtime add features. Both are separate programs that you can run yourself or leave out entirely."
       },
       "topology": {
         "heading": "Where your data goes"
@@ -108,23 +122,32 @@
         "heading": "Who holds what"
       },
       "analytics": {
-        "heading": "Analytics",
+        "heading": "What we measure",
         "body": "openplate records nothing until an operator turns tracking on. The hosted instance at openplate.de counts page visits and which features get used. It is never told what you eat, weigh, or log. Anyone running their own copy picks one of three levels, from page visits only up to a research level that records health behaviour for a study with consenting participants. No third party sits in the path. The numbers land in a Matomo instance we run ourselves, with cookies switched off. <configuration>Configuration</configuration> lists every event at every level."
       },
       "access": {
-        "heading": "Access",
+        "heading": "Getting access",
         "body": "The hosted instance at openplate.de is invite-only. An administrator sends the invitation; there is no open sign-up. If you would rather run your own copy, see <selfHosting>Self-hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
         "body": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      },
+      "why": {
+        "heading": "Why openplate exists",
+        "body": "Most food trackers store your diary on their servers, where you cannot control it. openplate works the other way around. Your diary stays on your device. The source code is public, so anyone can inspect it. Every additional service, sync and photo scanning included, is optional, and you can host each part yourself."
+      },
+      "research": {
+        "heading": "Research partners",
+        "body": "We are looking for universities, nutrition researchers and clinical teams who want to work with openplate. A diary stored on the participant's device, code an ethics board can inspect, and research analytics that record only with consent make it a practical base for dietary studies.",
+        "cta": "How we work with researchers"
       }
     },
     "app": {
       "title": "The app",
       "lead": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
       "shotIntro": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
-      "shotAlt": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
+      "shotAlt": "The openplate diary on a phone. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets.",
       "stores": {
         "heading": "What it stores on the device"
       },
@@ -230,6 +253,77 @@
     },
     "notFound": {
       "title": "Page not found"
+    },
+    "research": {
+      "title": "Research",
+      "heading": "openplate for research",
+      "lead": "We are looking for research partners: university groups, nutrition researchers, dietitians and public health teams who study dietary intake. openplate is an open-source food diary that runs on the participant's device, and we want it to serve research as well as daily logging.",
+      "why": {
+        "heading": "Why openplate suits a study",
+        "open": {
+          "title": "Open code",
+          "body": "The app and sync server are published under the MIT licence. An ethics board or data protection officer can inspect how the software handles data instead of relying on vendor descriptions."
+        },
+        "device": {
+          "title": "The diary stays on the device",
+          "body": "A participant's diary stays on their own phone or computer. Sync is optional and encrypted. Studies can host the sync server on their own institution's infrastructure."
+        },
+        "consent": {
+          "title": "Consent comes first",
+          "body": "The analytics have a research level that records health behaviour for a study with consenting participants. It stays off until the instance operator turns it on."
+        },
+        "photo": {
+          "title": "Logging from photos",
+          "body": "Participants can log meals by photographing their plate. Image estimates can run through a cloud model or through openplate-inference on hardware your institution controls."
+        }
+      },
+      "offer": {
+        "heading": "What we offer",
+        "base": {
+          "title": "A base to build on",
+          "body": "Deploy an instance on your institution's infrastructure and adapt it to your protocol. There are no licence fees and no vendor contracts."
+        },
+        "custom": {
+          "title": "Study-specific builds",
+          "body": "We configure openplate for your protocol, including custom dietary targets, questions, food databases and languages."
+        },
+        "export": {
+          "title": "Data export with consent",
+          "body": "Participants share diary records with the study only after granting consent. We structure exports to match your analysis pipeline."
+        },
+        "grants": {
+          "title": "Joint grants and papers",
+          "body": "We are looking for co-applicants on grant proposals and for joint publications, for example on image-based dietary assessment."
+        }
+      },
+      "seek": {
+        "heading": "Who we are looking for",
+        "nutrition": "University groups in nutrition science, medicine and public health",
+        "clinical": "Dietitians and clinical teams running intervention studies",
+        "hci": "Researchers in human-computer interaction who study self-tracking",
+        "vision": "Groups working on food recognition and portion estimation from images"
+      },
+      "process": {
+        "heading": "How a collaboration starts",
+        "write": {
+          "title": "Write to us",
+          "body": "Tell us about your group, your research questions and your timeline."
+        },
+        "call": {
+          "title": "Initial call",
+          "body": "We discuss your protocol, what openplate supports now, and what adjustments your study needs."
+        },
+        "scope": {
+          "title": "Written scope",
+          "body": "Before any work begins, we agree in writing on the deliverables, data handling procedures and result ownership."
+        }
+      },
+      "contact": {
+        "heading": "Get in touch",
+        "body": "Email <email>{{email}}</email>. A short summary is enough: your team, your research focus, and what your study requires from openplate.",
+        "button": "Write to us",
+        "subject": "Research collaboration with openplate"
+      }
     }
   }
 }

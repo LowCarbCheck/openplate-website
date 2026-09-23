@@ -61,8 +61,9 @@ not in German is a 404 that no test will catch.
   `tests/unit/sitemap.test.ts` compares the two, so a row added to
   `app/routes.ts` alone fails the unit tier. Run the unit tier before the build;
   it is the tier that catches this.
-- `app/components/site-layout.tsx`. `NAV_ITEMS`. Without it the page is
-  reachable only by typing its URL.
+- `app/components/site-layout.tsx`. `NAV_ITEMS`, or `SELF_HOSTING_ITEMS` for a
+  page about running openplate. The header, the phone panel and the footer all
+  read these. Without it the page is reachable only by typing its URL.
 
 The other three are `app/routes.ts`, the route file itself, and the English
 bundle.

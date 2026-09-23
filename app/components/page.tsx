@@ -28,7 +28,7 @@ function renderCopy(text: string): ReactNode[] {
 
     if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
       nodes.push(
-        <code key={key} className="rounded bg-muted px-1 py-0.5 font-mono text-[0.9em]">
+        <code key={key} className="bg-muted px-1 py-0.5 font-mono text-[0.9em]">
           {part.slice(1, -1)}
         </code>,
       );
@@ -42,27 +42,30 @@ function renderCopy(text: string): ReactNode[] {
 }
 
 /**
- * One paragraph of copy, on a reading measure unless the caller names another.
+ * One paragraph of copy, on a reading measure and in the prose face unless the caller names another.
  *
  * `className` REPLACES the measure rather than adding to it, which is how this
  * has always worked and is what `Lead` and the two hero leads rely on: they are
  * a type size up and stop at 60 characters instead. The default matters on the
  * marketing pages, where a paragraph written straight into a 72rem column ran
  * about a hundred characters wide with nothing in the markup asking it to.
+ *
+ * The same goes for the face: a paragraph is running copy and reads in Inter (`font-prose`), and
+ * `PageHero`'s lead is the one caller that replaces the class and pins the body's monospace on its own.
  */
 export function Copy({ text, className }: { text: string; className?: string }) {
-  return <p className={className ?? 'max-w-[68ch]'}>{renderCopy(text)}</p>;
+  return <p className={className ?? 'max-w-[68ch] font-prose'}>{renderCopy(text)}</p>;
 }
 
 export function PageTitle({ children }: { children: ReactNode }) {
-  return <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">{children}</h1>;
+  return <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{children}</h1>;
 }
 
 export function Lead({ text }: { text: string }) {
   // The same measure `PageHero` gives its lead, and for the same reason: this
   // type is a step larger than the body, so it holds fewer characters per line
   // before it stops being one paragraph and becomes a wall.
-  return <Copy text={text} className="mt-6 max-w-[60ch] text-lg leading-relaxed" />;
+  return <Copy text={text} className="mt-6 max-w-[60ch] font-prose text-lg leading-relaxed" />;
 }
 
 /**
@@ -85,12 +88,15 @@ export function Lead({ text }: { text: string }) {
  * that owns the scale, rather than by a `max-w` typed onto each page. The
  * quoted paragraphs `DocBlocks` renders already carry the same cap, and a grid,
  * a card or a picture is not a `<p>` and keeps the width it was given.
+ *
+ * A paragraph written straight into a section also takes the prose face here, for the same reason
+ * and in the same place. Headings, cards and tables under it keep the body's monospace.
  */
 export function Section({ heading, children }: { heading: string; children: ReactNode }) {
   return (
     <section className="mt-12">
-      <h2 className="font-display text-2xl font-semibold tracking-tight">{heading}</h2>
-      <div className="mt-4 space-y-4 leading-relaxed [&>p]:max-w-[68ch]">{children}</div>
+      <h2 className="text-2xl font-semibold tracking-tight">{heading}</h2>
+      <div className="mt-4 space-y-4 leading-relaxed [&>p]:max-w-[68ch] [&>p]:font-prose">{children}</div>
     </section>
   );
 }

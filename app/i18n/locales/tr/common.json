@@ -10,12 +10,23 @@
       "app": "Uygulama",
       "core": "Eşitleme sunucusu",
       "inference": "Çıkarım çalışma zamanı",
-      "deploy": "Dağıtım",
-      "docs": "Belgeler"
+      "deploy": "Bir kurulum seçimi",
+      "docs": "Belgeler",
+      "selfHosting": "Kendi sunucunda barındırma",
+      "research": "Araştırma",
+      "openApp": "Uygulamayı aç",
+      "deployHint": "Barındırılan bir sürümü kullan veya her bileşeni kendin çalıştır.",
+      "coreHint": "Şifrelenmiş günlüğünü cihazların arasında eşitler.",
+      "inferenceHint": "Tabak fotoğraflarını denetimin altındaki donanımda okur."
     },
     "footer": {
       "label": "Altbilgi",
-      "sourceCode": "Kaynak kod"
+      "sourceCode": "Kaynak kod",
+      "blurb": "openplate, Berlin'de geliştirilen açık kaynaklı bir yemek günlüğüdür. Uygulama ve eşitleme sunucusu MIT lisanslıdır.",
+      "product": "Ürün",
+      "selfHosting": "Kendi sunucunda barındırma",
+      "project": "Proje",
+      "legal": "Yasal"
     },
     "language": {
       "label": "Dil"
@@ -34,21 +45,23 @@
       "title": "openplate",
       "hero": {
         "body": "openplate, cihazında çalışan açık kaynaklı bir yemek günlüğüdür; tabağındaki makro değerlerini tahmin eden isteğe bağlı bir fotoğraf tarama özelliğine sahiptir. Günlüğünü başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
-        "lead": "Günlüğünü başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
+        "lead": "openplate, verilerini başkasının sunucusuna göndermeden ne yediğini takip etmek isteyenler içindir.",
         "openApp": "Uygulamayı aç",
         "readSource": "Kaynağı oku",
         "inviteNote": "Barındırılan bulut örneği yalnızca davetiyelidir. Kendi kopyanı çalıştırmak davetiye gerektirmez.",
-        "shotAlt": "Bir günlük openplate günlüğü: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ile kahvaltı ve öğle yemeği altına kaydedilen öğünler."
+        "shotAlt": "Bilgisayar ekranında bir günlük openplate günlüğü. Net karbonhidratlar günlük sınıra göre kaydedilir. Kalori, protein, yağ ve lif hedeflerine göre gösterilir. Günün yiyecekleri karbonhidrat, lif, protein ve yağa ayrılır.",
+        "researchBadge": "Araştırma ortakları arıyoruz",
+        "researchLink": "Daha fazla bilgi"
       },
       "whatItIs": {
         "heading": "openplate nedir"
       },
       "features": {
-        "heading": "openplate ile ne yaparsın",
+        "heading": "openplate ile neler yapabilirsin",
         "add": {
           "title": "Bir yemek kaydet",
           "body": "Besin veritabanında arama yap veya daha önce kaydettiğin bir şeyi seç; girdi, seçtiğin öğünün altına eklenir.",
-          "alt": "Yemek ekleme ekranı: bir arama kutusu, bunun yerine tabağı taramak için bir düğme ve net karbonhidratlarıyla son kaydedilen yemeklerin bir listesi."
+          "alt": "Yiyecek ekleme ekranı: bir arama kutusu, her zamanki akşam yemeğin, tabak tarama düğmesi ve net karbonhidratlarıyla birlikte son kaydedilen yiyecekler."
         },
         "scan": {
           "title": "Bir tabak tara",
@@ -56,14 +69,14 @@
           "alt": "Fotoğrafı okumadan önce bir yapay zeka sağlayıcısına bağlanmayı öneren ve sağlayıcı olmadan yiyeceği kaydetme yolu sunan tarama ekranı."
         },
         "goals": {
-          "title": "Hedefleri belirle",
-          "body": "Günlük karbonhidrat sınırı ve protein hedefi, ya da ikisi de yok. Her hedef isteğe bağlıdır, bir alanı temizlediğinde hedef kaldırılır.",
-          "alt": "Hedefler ekranı: hazır seçenekler ve özel bir alan içeren günlük net karbonhidrat sınırı ile gram cinsinden protein hedefi."
+          "title": "Nasıl beslendiğini seç",
+          "body": "Düşük karbonhidrat, kalori, yüksek protein veya basit takip. Seçtiğin tarz, günü hangi hedefin değerlendireceğini belirler ve her hedef isteğe bağlıdır.",
+          "alt": "Beslenme ve hedefler ekranı: düşük karbonhidrattan basit takibe kadar beslenme tarzı seçenekleri ve önceden ayarlanmış günlük karbonhidrat limitleri."
         },
         "overview": {
           "title": "Günün durumunu gör",
-          "body": "Sınırdan ne kadar kaldığı, protein hedefine ulaşılıp ulaşılmadığı ve son yedi günün kaçında kayıt tuttuğun.",
-          "alt": "Genel bakış ekranı: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ve son yedi güne ait bir kart."
+          "body": "Günün hedefiyle karşılaştırmalı olarak gösterilen net karbonhidrat, kalori, protein, yağ ve lif değerleri ile son yedi günün kaçında kayıt girdiğin.",
+          "alt": "Genel bakış ekranı: günün net karbonhidrat, kalori, protein, yağ ve lif değerleri, hepsi hedefine göre bir çubukla birlikte görüntülenir."
         }
       },
       "illustrations": {
@@ -90,7 +103,7 @@
         }
       },
       "stack": {
-        "heading": "Yığın",
+        "heading": "Uygulama haricinde her biri isteğe bağlı üç bileşen",
         "app": {
           "name": "Uygulama"
         },
@@ -99,7 +112,8 @@
         },
         "inference": {
           "name": "Çıkarım çalışma zamanı"
-        }
+        },
+        "intro": "Uygulama, günlük tutmak için tek başına çalışır. Eşitleme sunucusu ve çıkarım çalışma zamanı ek özellikler sunar. İkisi de kendin çalıştırabileceğin veya tamamen devre dışı bırakabileceğin ayrı programlardır."
       },
       "topology": {
         "heading": "Verilerin nereye gidiyor"
@@ -108,23 +122,32 @@
         "heading": "Kimin elinde ne var"
       },
       "analytics": {
-        "heading": "Analizler",
+        "heading": "Neleri ölçüyoruz",
         "body": "openplate, bir yönetici izlemeyi açana kadar hiçbir şey kaydetmez. openplate.de adresindeki barındırılan örnek, sayfa ziyaretlerini ve hangi özelliklerin kullanıldığını sayar. Ne yediğin, kilon veya ne kaydettiğin sunucuya asla iletilmez. Kendi kopyasını çalıştıran herkes üç düzeyden birini seçer; yalnızca sayfa ziyaretlerinden, onay veren katılımcılarla yapılan bir çalışma için sağlık davranışlarını kaydeden araştırma düzeyine kadar. Araya hiçbir üçüncü taraf girmez. Sayılar, çerezlerin kapalı olduğu ve bizzat çalıştırdığımız bir Matomo örneğine gider. <configuration>Yapılandırma</configuration> her düzeydeki tüm olayları listeler."
       },
       "access": {
-        "heading": "Erişim",
+        "heading": "Erişim sağlama",
         "body": "openplate.de adresindeki barındırılan örnek yalnızca davetiyeyle çalışır. Davetiyeyi bir yönetici gönderir, herkese açık kayıt yoktur. Kendi kopyanı çalıştırmayı tercih edersen <selfHosting>Kendi sunucunda barındırma</selfHosting> bölümüne bak."
       },
       "openSource": {
         "heading": "Açık kaynak",
         "body": "openplate ve openplate-core MIT lisanslıdır. openplate-inference, birlikte geldiği model ağırlıklarının belirlediği kendi koşullarını taşır, lisanslama kılavuzu bunları listeler. Kodu oku, değiştir, kendin çalıştır: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      },
+      "why": {
+        "heading": "openplate neden var",
+        "body": "Çoğu yemek takip uygulaması günlüğünü kendi sunucularında saklar, buraları denetleyemezsin. openplate ise tam tersi şekilde çalışır. Günlüğün cihazında kalır. Kaynak kodu herkese açıktır, böylece dileyen herkes inceleyebilir. Eşitleme ve fotoğraf tarama dahil her ek hizmet isteğe bağlıdır, her bir parçayı kendin barındırabilirsin."
+      },
+      "research": {
+        "heading": "Araştırma ortakları",
+        "body": "openplate ile çalışmak isteyen üniversiteler, beslenme araştırmacıları ve klinik ekipler arıyoruz. Katılımcının cihazında saklanan bir günlük, bir etik kurulunun inceleyebileceği kaynak kod ve yalnızca onayla kayıt yapan araştırma analitiği, bu uygulamayı beslenme araştırmaları için pratik bir temel haline getirir.",
+        "cta": "Araştırmacılarla nasıl çalışıyoruz"
       }
     },
     "app": {
       "title": "Uygulama",
       "lead": "openplate yiyecekleri kaydeder ve istersen bir fotoğraftan tabaktaki makroları tahmin eder. Bir yiyecek ara veya bir tabağı tara, girdi günün günlüğüne işlenir. Kendi kurulumunda kayıt olma ekranı yoktur: uygulamayı aç ve kaydetmeye başla. Barındırılan örnekte ise önce giriş yaparsın.",
       "shotIntro": "Günlük, her seferinde bir günü gösterir: kaydettiğin öğünler, bunların günlük sınıra göre harcadıkları ve geriye ne kaldığı.",
-      "shotAlt": "Telefonda openplate günlüğü: günlük sınırdan kalan net karbonhidratı gösteren bir halka, protein miktarı ve kahvaltı ile öğle yemeği altında gruplanmış günün öğünleri.",
+      "shotAlt": "Telefonda openplate günlüğü. Net karbonhidratlar günlük sınıra göre kaydedilir. Kalori, protein, yağ ve lif hedeflerine göre gösterilir.",
       "stores": {
         "heading": "Cihazda sakladıkları"
       },
@@ -230,6 +253,77 @@
     },
     "notFound": {
       "title": "Sayfa bulunamadı"
+    },
+    "research": {
+      "title": "Araştırma",
+      "heading": "Araştırmalar için openplate",
+      "lead": "Araştırma ortakları arıyoruz: üniversite grupları, beslenme araştırmacıları, diyetisyenler ve besin alımını inceleyen halk sağlığı ekipleri. openplate, katılımcının cihazında çalışan açık kaynaklı bir yemek günlüğüdür, günlük kayıt tutmanın yanı sıra araştırmalara da hizmet etmesini istiyoruz.",
+      "why": {
+        "heading": "openplate bir araştırmaya neden uygundur",
+        "open": {
+          "title": "Açık kod",
+          "body": "Uygulama ve eşitleme sunucusu MIT lisansı altında yayımlanır. Bir etik kurul veya veri koruma görevlisi, sağlayıcı açıklamalarına güvenmek yerine yazılımın verileri nasıl işlediğini inceleyebilir."
+        },
+        "device": {
+          "title": "Günlük cihazda kalır",
+          "body": "Katılımcının günlüğü kendi telefonunda veya bilgisayarında kalır. Eşitleme isteğe bağlıdır ve şifrelenmiştir. Çalışmalar, eşitleme sunucusunu kendi kurumlarının altyapısında barındırabilir."
+        },
+        "consent": {
+          "title": "Önce rıza gelir",
+          "body": "Analizler, rıza gösteren katılımcılarla yapılan bir çalışma için sağlık davranışlarını kaydeden bir araştırma düzeyine sahiptir. Örnek sunucu yöneticisi açana kadar kapalı kalır."
+        },
+        "photo": {
+          "title": "Fotoğraflardan kayıt tutma",
+          "body": "Katılımcılar tabaklarının fotoğrafını çekerek öğünleri kaydedebilir. Görsel tahminleri bir bulut modeli üzerinden veya kurumunun denetlediği donanım üzerindeki openplate-inference aracılığıyla çalışabilir."
+        }
+      },
+      "offer": {
+        "heading": "Sunduklarımız",
+        "base": {
+          "title": "Geliştirmeye uygun bir temel",
+          "body": "Kurumunun altyapısında bir örnek sunucu dağıt ve bunu kendi protokolüne uyarla. Lisans ücreti ve sağlayıcı sözleşmesi yoktur."
+        },
+        "custom": {
+          "title": "Çalışmaya özel derlemeler",
+          "body": "openplate uygulamasını özel beslenme hedefleri, sorular, besin veri tabanları ve diller de dahil olmak üzere protokolün için yapılandırıyoruz."
+        },
+        "export": {
+          "title": "Rıza ile veri aktarımı",
+          "body": "Katılımcılar, günlük kayıtlarını çalışmayla yalnızca rıza verdikten sonra paylaşır. Dışa aktarımları analiz iş akışına uyacak şekilde yapılandırıyoruz."
+        },
+        "grants": {
+          "title": "Ortak hibeler ve makaleler",
+          "body": "Hibe tekliflerinde ortak başvurucular ve örneğin görsel tabanlı beslenme değerlendirmesi üzerine ortak yayınlar arıyoruz."
+        }
+      },
+      "seek": {
+        "heading": "Kimleri arıyoruz",
+        "nutrition": "Beslenme bilimi, tıp ve halk sağlığı alanındaki üniversite grupları",
+        "clinical": "Müdahale çalışmaları yürüten diyetisyenler ve klinik ekipler",
+        "hci": "Kendi kendini takip üzerine çalışan insan-bilgisayar etkileşimi araştırmacıları",
+        "vision": "Görsellerden besin tanıma ve porsiyon tahmini üzerine çalışan gruplar"
+      },
+      "process": {
+        "heading": "İş birliği nasıl başlar",
+        "write": {
+          "title": "Bize yaz",
+          "body": "Bize grubundan, araştırma sorularından ve zaman çizelgenden bahset."
+        },
+        "call": {
+          "title": "İlk görüşme",
+          "body": "Protokolünü, openplate uygulamasının şu anda neleri desteklediğini ve çalışmanın hangi uyarlamalara ihtiyaç duyduğunu ele alıyoruz."
+        },
+        "scope": {
+          "title": "Yazılı kapsam",
+          "body": "Herhangi bir çalışma başlamadan önce teslimatlar, veri işleme prosedürleri ve sonuçların mülkiyeti konusunda yazılı olarak anlaşıyoruz."
+        }
+      },
+      "contact": {
+        "heading": "İletişime geç",
+        "body": "<email>{{email}}</email> adresine e-posta gönder. Kısa bir özet yeterlidir: ekibin, araştırma odağın ve çalışmanın openplate tarafından ne gerektirdiği.",
+        "button": "Bize yaz",
+        "subject": "openplate ile araştırma ortaklığı"
+      }
     }
   }
 }

@@ -29,11 +29,16 @@ import { type DocsPlace, docsNavGroups } from '#app/lib/docs-nav';
 import { type DocsIndex, spansText } from '#app/lib/docs';
 import { PAGE_TOP } from './layout';
 
+/**
+ * The application's sidebar row: square, the current page on the muted ground at medium weight,
+ * the rest at the regular weight. The weight change moves nothing, because every letter of the
+ * monospace body face is the same width at every weight.
+ */
 function rowClass(isActive: boolean): string {
-  return `block rounded-sm px-3 py-2.5 transition-colors ${isActive ? 'bg-muted' : 'hover:bg-muted/60'}`;
+  return `block px-3 py-2.5 transition-colors ${isActive ? 'bg-muted font-medium' : 'hover:bg-muted/60'}`;
 }
 
-const TITLE = 'block text-sm font-semibold leading-snug text-foreground';
+const TITLE = 'block text-sm leading-snug text-foreground';
 
 /**
  * The grouped rows without a frame, so the desktop rail and the phone's sheet
@@ -59,7 +64,7 @@ export function DocsFileList({
         <div key={group.component}>
           <p
             id={`${idPrefix}-${group.component}`}
-            className="px-3 font-display text-base font-semibold text-foreground"
+            className="px-3 text-base font-semibold text-foreground"
           >
             {t(`components.${group.component}`)}
           </p>
@@ -110,7 +115,7 @@ export function DocsSidebar({ index, place }: { index: DocsIndex; place?: DocsPl
 
   return (
     <nav aria-label={t('nav')} className={`sticky top-0 flex max-h-dvh flex-col pb-8 ${PAGE_TOP}`}>
-      <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('nav')}</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('nav')}</p>
       <div className="-mx-3 mt-4 min-h-0 overflow-y-auto overscroll-contain">
         <DocsFileList index={index} place={place} />
       </div>

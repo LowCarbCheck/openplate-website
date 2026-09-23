@@ -7,15 +7,26 @@
     "nav": {
       "label": "Principale",
       "menu": "Menu",
-      "app": "Application",
+      "app": "L'application",
       "core": "Serveur de synchronisation",
       "inference": "Moteur d'inférence",
-      "deploy": "Déploiement",
-      "docs": "Documentation"
+      "deploy": "Choisir une configuration",
+      "docs": "Documentation",
+      "selfHosting": "Auto-hébergement",
+      "research": "Recherche",
+      "openApp": "Ouvrir l'application",
+      "deployHint": "Utilise une version hébergée, ou fais tourner chaque composant toi-même.",
+      "coreHint": "Synchronise ton journal chiffré entre tes appareils.",
+      "inferenceHint": "Analyse les photos d'assiette sur du matériel que tu contrôles."
     },
     "footer": {
       "label": "Pied de page",
-      "sourceCode": "Code source"
+      "sourceCode": "Code source",
+      "blurb": "openplate est un journal alimentaire open source, développé à Berlin. L'application et le serveur de synchronisation sont sous licence MIT.",
+      "product": "Produit",
+      "selfHosting": "Auto-hébergement",
+      "project": "Projet",
+      "legal": "Mentions légales"
     },
     "language": {
       "label": "Langue"
@@ -34,21 +45,23 @@
       "title": "openplate",
       "hero": {
         "body": "openplate est un journal alimentaire open source qui tourne sur ton appareil, avec une analyse photo facultative pour estimer les macros dans ton assiette. Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers.",
-        "lead": "Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers.",
+        "lead": "openplate s'adresse aux personnes qui veulent suivre leur alimentation sans envoyer leurs données sur le serveur d'un tiers.",
         "openApp": "Ouvrir l'application",
         "readSource": "Consulter le code",
         "inviteNote": "L'instance hébergée est accessible sur invitation. Déployer ta propre copie ne demande aucune invitation.",
-        "shotAlt": "Le journal openplate pour une journée : un anneau affichant les glucides nets restants sur la limite quotidienne, le total de protéines et les repas saisis au petit-déjeuner et au déjeuner."
+        "shotAlt": "Le journal openplate pour une journée sur un écran d'ordinateur. Les glucides nets sont comptabilisés par rapport à la limite quotidienne. Les calories, les protéines, les lipides et les fibres sont comparés à leurs cibles. Les aliments de la journée se répartissent en glucides, fibres, protéines et lipides.",
+        "researchBadge": "Nous recherchons des partenaires de recherche",
+        "researchLink": "En savoir plus"
       },
       "whatItIs": {
         "heading": "Ce qu'est openplate"
       },
       "features": {
-        "heading": "Ce que tu fais avec",
+        "heading": "Ce que tu peux faire avec openplate",
         "add": {
           "title": "Enregistrer un aliment",
           "body": "Cherche dans la base d'aliments ou choisis un aliment déjà saisi, et l'entrée s'ajoute à la journée sous le repas sélectionné.",
-          "alt": "L'écran d'ajout d'aliment : un champ de recherche, un bouton pour scanner l'assiette à la place et une liste d'aliments récents avec leurs glucides nets."
+          "alt": "L'écran d'ajout d'aliment : un champ de recherche, ton dîner habituel, un bouton pour scanner une assiette, et les aliments récemment enregistrés avec leurs glucides nets."
         },
         "scan": {
           "title": "Scanner une assiette",
@@ -56,14 +69,14 @@
           "alt": "L'écran de scan, qui propose de connecter un fournisseur d'IA avant d'analyser une photo, et un moyen de consigner l'aliment sans IA."
         },
         "goals": {
-          "title": "Fixer les objectifs",
-          "body": "Une limite quotidienne de glucides et un objectif de protéines, ou aucun des deux. Chaque objectif est facultatif, vider un champ le supprime.",
-          "alt": "L'écran des objectifs : une limite quotidienne de glucides nets avec des choix prédéfinis et un champ personnalisé, ainsi qu'un objectif de protéines en grammes."
+          "title": "Choisis ta façon de manger",
+          "body": "Pauvre en glucides, calories, riche en protéines, ou suivi simple. Le style que tu choisis définit l'objectif qui évalue la journée, et chaque objectif reste facultatif.",
+          "alt": "L'écran d'alimentation et des cibles : les options de style d'alimentation, du régime pauvre en glucides au suivi simple, et les limites quotidiennes de glucides prédéfinies."
         },
         "overview": {
           "title": "Suivre la journée",
-          "body": "Ce qu'il reste de la limite, si l'objectif de protéines est atteint, et combien de jours tu as enregistrés sur les sept derniers.",
-          "alt": "L'écran de vue d'ensemble : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et une carte pour les sept derniers jours."
+          "body": "Glucides nets, calories, protéines, lipides et fibres pour la journée, chacun comparé à sa cible, et le nombre de jours enregistrés sur les sept derniers.",
+          "alt": "L'écran de vue d'ensemble : glucides nets, calories, protéines, lipides et fibres du jour, affichés chacun avec une barre par rapport à sa cible."
         }
       },
       "illustrations": {
@@ -90,7 +103,7 @@
         }
       },
       "stack": {
-        "heading": "La stack",
+        "heading": "Trois composants, tous facultatifs en dehors de l'application",
         "app": {
           "name": "Application"
         },
@@ -99,7 +112,8 @@
         },
         "inference": {
           "name": "Moteur d'inférence"
-        }
+        },
+        "intro": "L'application fonctionne seule pour tenir un journal. Le serveur de synchronisation et le moteur d'inférence ajoutent des fonctionnalités. Ce sont deux programmes distincts que tu peux exécuter toi-même ou ignorer totalement."
       },
       "topology": {
         "heading": "Où vont tes données"
@@ -108,23 +122,32 @@
         "heading": "Qui détient quoi"
       },
       "analytics": {
-        "heading": "Statistiques",
+        "heading": "Ce que nous mesurons",
         "body": "openplate n'enregistre rien tant qu'un administrateur n'active pas le suivi. L'instance hébergée sur openplate.de comptabilise les pages visitées et les fonctionnalités utilisées. Elle ne sait jamais ce que tu manges, ce que tu pèses ou ce que tu saisis. Quiconque héberge sa propre copie choisit parmi trois niveaux, des simples visites de pages jusqu'à un niveau de recherche qui enregistre les comportements liés à la santé pour une étude auprès de participants consentants. Aucun tiers n'intervient. Les données arrivent sur une instance Matomo que nous gérons nous-mêmes, cookies désactivés. <configuration>Configuration</configuration> détaille chaque événement pour chaque niveau."
       },
       "access": {
-        "heading": "Accès",
+        "heading": "Obtenir l'accès",
         "body": "L'instance hébergée sur openplate.de est accessible uniquement sur invitation. Un administrateur envoie l'invitation ; il n'y a pas d'inscription libre. Si tu préfères exécuter ta propre instance, consulte <selfHosting>Auto-hébergement</selfHosting>."
       },
       "openSource": {
         "heading": "Open source",
         "body": "openplate et openplate-core sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      },
+      "why": {
+        "heading": "Pourquoi openplate existe",
+        "body": "La plupart des applications de suivi alimentaire enregistrent ton journal sur leurs serveurs, où tu ne le contrôles pas. openplate fonctionne à l'inverse. Ton journal reste sur ton appareil. Le code source est public, donc tout le monde peut l'auditer. Chaque service supplémentaire, y compris la synchronisation et l'analyse de photos, est optionnel, et tu peux héberger chaque brique toi-même."
+      },
+      "research": {
+        "heading": "Partenaires de recherche",
+        "body": "Nous recherchons des universités, des chercheurs en nutrition et des équipes cliniques qui souhaitent travailler avec openplate. Un journal stocké sur l'appareil du participant, un code vérifiable par un comité d'éthique et des données d'étude enregistrées uniquement avec consentement en font une base pratique pour les études nutritionnelles.",
+        "cta": "Comment nous travaillons avec les chercheurs"
       }
     },
     "app": {
       "title": "L'application",
       "lead": "openplate enregistre les aliments et, si tu le souhaites, estime les macronutriments à partir d'une photo d'assiette. Cherche un aliment ou scanne une assiette, et l'entrée s'ajoute à ton journal du jour. Sur ta propre installation, aucun écran d'inscription : ouvre l'application et commence à consigner. Sur l'instance hébergée, tu te connectes d'abord.",
       "shotIntro": "Le journal fonctionne jour par jour : les repas enregistrés, ce qu'ils consomment sur la limite du jour, et ce qu'il en reste.",
-      "shotAlt": "Le journal d'openplate sur un téléphone : un anneau montrant les glucides nets restants par rapport à la limite quotidienne, le total de protéines, et les repas du jour regroupés sous petit-déjeuner et déjeuner.",
+      "shotAlt": "Le journal openplate sur un téléphone. Les glucides nets sont comptabilisés par rapport à la limite quotidienne. Les calories, les protéines, les lipides et les fibres sont comparés à leurs cibles.",
       "stores": {
         "heading": "Ce qui est stocké sur l'appareil"
       },
@@ -230,6 +253,77 @@
     },
     "notFound": {
       "title": "Page introuvable"
+    },
+    "research": {
+      "title": "Recherche",
+      "heading": "openplate pour la recherche",
+      "lead": "Nous recherchons des partenaires de recherche : des groupes universitaires, des chercheurs en nutrition, des diététiciens et des équipes de santé publique qui étudient les apports alimentaires. openplate est un journal alimentaire open source qui s'exécute sur l'appareil du participant, et nous voulons qu'il serve la recherche autant que la saisie quotidienne.",
+      "why": {
+        "heading": "Pourquoi openplate convient aux études",
+        "open": {
+          "title": "Code ouvert",
+          "body": "L'application et le serveur de synchronisation sont publiés sous licence MIT. Un comité d'éthique ou un délégué à la protection des données peut inspecter le traitement des données dans le code au lieu de se fier aux descriptions d'un fournisseur."
+        },
+        "device": {
+          "title": "Le journal reste sur l'appareil",
+          "body": "Le journal d'un participant reste sur son propre téléphone ou ordinateur. La synchronisation est facultative et chiffrée. Les études peuvent héberger le serveur de synchronisation sur l'infrastructure de leur propre établissement."
+        },
+        "consent": {
+          "title": "Le consentement avant tout",
+          "body": "Les mesures d'usage disposent d'un niveau recherche qui enregistre les comportements de santé pour une étude menée avec des participants consentants. Il reste désactivé tant que l'administrateur de l'instance ne l'active pas."
+        },
+        "photo": {
+          "title": "Saisie à partir de photos",
+          "body": "Les participants peuvent consigner leurs repas en prenant leur assiette en photo. L'estimation à partir des images peut faire appel à un modèle dans le cloud ou à openplate-inference sur du matériel géré par ton établissement."
+        }
+      },
+      "offer": {
+        "heading": "Ce que nous proposons",
+        "base": {
+          "title": "Une base pour construire",
+          "body": "Déploie une instance sur l'infrastructure de ton établissement et adapte-la à ton protocole. Il n'y a pas de frais de licence ni de contrat avec un fournisseur."
+        },
+        "custom": {
+          "title": "Versions dédiées aux études",
+          "body": "Nous configurons openplate pour ton protocole, notamment avec des objectifs nutritionnels personnalisés, des questions, des bases d'aliments et des langues adaptées."
+        },
+        "export": {
+          "title": "Export de données avec consentement",
+          "body": "Les participants ne partagent les entrées de leur journal avec l'étude qu'après avoir donné leur accord. Nous structurons les exports pour les intégrer directement dans ta chaîne d'analyse."
+        },
+        "grants": {
+          "title": "Financements et publications conjoints",
+          "body": "Nous recherchons des co-candidats pour des demandes de financement ainsi que des collaborations pour publier des articles, par exemple sur l'évaluation nutritionnelle par l'image."
+        }
+      },
+      "seek": {
+        "heading": "Qui nous recherchons",
+        "nutrition": "Des équipes universitaires en sciences de la nutrition, en médecine et en santé publique",
+        "clinical": "Des diététiciens et des équipes cliniques menant des études d'intervention",
+        "hci": "Des chercheurs en interaction humain-machine qui étudient l'auto-mesure",
+        "vision": "Des groupes travaillant sur la reconnaissance des aliments et l'estimation des portions à partir d'images"
+      },
+      "process": {
+        "heading": "Comment débute une collaboration",
+        "write": {
+          "title": "Écris-nous",
+          "body": "Présente-nous ton équipe, tes questions de recherche et ton calendrier."
+        },
+        "call": {
+          "title": "Échange initial",
+          "body": "Nous discutons de ton protocole, des fonctionnalités actuelles d'openplate et des ajustements nécessaires à ton étude."
+        },
+        "scope": {
+          "title": "Cahier des charges écrit",
+          "body": "Avant tout travail, nous définissons par écrit les livrables, les procédures de traitement des données et la propriété des résultats."
+        }
+      },
+      "contact": {
+        "heading": "Prendre contact",
+        "body": "Écris à <email>{{email}}</email>. Un bref résumé suffit : ton équipe, ton sujet de recherche, et ce que ton étude attend de openplate.",
+        "button": "Écris-nous",
+        "subject": "Collaboration de recherche avec openplate"
+      }
     }
   }
 }

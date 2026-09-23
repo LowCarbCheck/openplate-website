@@ -7,15 +7,26 @@
     "nav": {
       "label": "Principal",
       "menu": "Menú",
-      "app": "App",
+      "app": "La aplicación",
       "core": "Servidor de sincronización",
       "inference": "Runtime de inferencia",
-      "deploy": "Despliegue",
-      "docs": "Docs"
+      "deploy": "Elegir una configuración",
+      "docs": "Docs",
+      "selfHosting": "Autohospedaje",
+      "research": "Investigación",
+      "openApp": "Abre la aplicación",
+      "deployHint": "Usa una versión alojada o ejecuta cada componente tú mismo.",
+      "coreHint": "Sincroniza tu diario cifrado entre tus dispositivos.",
+      "inferenceHint": "Lee fotos del plato en hardware bajo tu control."
     },
     "footer": {
       "label": "Pie de página",
-      "sourceCode": "Código fuente"
+      "sourceCode": "Código fuente",
+      "blurb": "openplate es un diario de comidas de código abierto, creado en Berlín. La aplicación y el servidor de sincronización tienen licencia MIT.",
+      "product": "Producto",
+      "selfHosting": "Autohospedaje",
+      "project": "Proyecto",
+      "legal": "Legal"
     },
     "language": {
       "label": "Idioma"
@@ -34,21 +45,23 @@
       "title": "openplate",
       "hero": {
         "body": "openplate es un diario de alimentos de código abierto que se ejecuta en tu dispositivo, con un escaneo opcional por foto que estima los macros de tu plato. Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona.",
-        "lead": "Es para personas que quieren registrar lo que comen sin enviar su diario al servidor de otra persona.",
+        "lead": "openplate es para quienes quieren registrar lo que comen sin enviar sus datos al servidor de otra persona.",
         "openApp": "Abrir la app",
         "readSource": "Leer el código",
         "inviteNote": "La instancia alojada es solo con invitación. Ejecutar tu propia copia no necesita invitación.",
-        "shotAlt": "El diario de openplate para un día: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas registradas en el desayuno y el almuerzo."
+        "shotAlt": "El diario de openplate de un día en la pantalla de un ordenador. Los carbohidratos netos se registran frente al límite diario. Las calorías, las proteínas, las grasas y la fibra se muestran frente a sus objetivos. La comida del día se divide en carbohidratos, fibra, proteínas y grasas.",
+        "researchBadge": "Buscamos colaboradores de investigación",
+        "researchLink": "Leer más"
       },
       "whatItIs": {
         "heading": "Qué es openplate"
       },
       "features": {
-        "heading": "Qué haces con él",
+        "heading": "Qué puedes hacer con openplate",
         "add": {
           "title": "Registrar un alimento",
           "body": "Busca en la base de datos de alimentos o elige algo que registraste antes, y la entrada se añade al día bajo la comida que elegiste.",
-          "alt": "La pantalla para añadir alimentos: un cuadro de búsqueda, un botón para escanear el plato en su lugar y una lista de alimentos registrados recientemente con sus carbohidratos netos."
+          "alt": "La pantalla para añadir comida: un cuadro de búsqueda, tu cena habitual, un botón para escanear un plato y alimentos registrados recientemente con sus carbohidratos netos."
         },
         "scan": {
           "title": "Escanear un plato",
@@ -56,14 +69,14 @@
           "alt": "La pantalla de escaneo, que ofrece conectar un proveedor de IA antes de leer una foto, y una forma de registrar la comida sin él."
         },
         "goals": {
-          "title": "Define los objetivos",
-          "body": "Un límite diario de carbohidratos y un objetivo de proteínas, o ninguno de los dos. Cada objetivo es opcional y borrar un campo lo elimina.",
-          "alt": "La pantalla de objetivos: un límite diario de carbohidratos netos con opciones predefinidas y un campo personalizado, y un objetivo de proteínas en gramos."
+          "title": "Elige cómo comes",
+          "body": "Bajo en carbohidratos, calorías, alto en proteínas o seguimiento simple. El estilo que elijas define qué objetivo califica el día, y cada objetivo es opcional.",
+          "alt": "La pantalla de alimentación y objetivos: opciones de estilo de alimentación, desde bajo en carbohidratos hasta seguimiento simple, y límites diarios de carbohidratos predefinidos."
         },
         "overview": {
           "title": "Comprueba cómo va el día",
-          "body": "Cuánto queda del límite, si se ha alcanzado el objetivo de proteínas y cuántos de los últimos siete días has registrado.",
-          "alt": "La pantalla de resumen: un anillo que muestra los carbohidratos netos restantes del límite diario, el recuento de proteínas y una tarjeta con los últimos siete días."
+          "body": "Carbohidratos netos, calorías, proteínas, grasas y fibra del día, cada uno frente a su objetivo, y cuántos de los últimos siete días registraste.",
+          "alt": "La pantalla de resumen: los carbohidratos netos, calorías, proteínas, grasas y fibra del día, cada uno mostrado con una barra frente a su objetivo."
         }
       },
       "illustrations": {
@@ -90,7 +103,7 @@
         }
       },
       "stack": {
-        "heading": "La pila",
+        "heading": "Tres componentes, cada uno opcional aparte de la aplicación",
         "app": {
           "name": "Aplicación"
         },
@@ -99,7 +112,8 @@
         },
         "inference": {
           "name": "Runtime de inferencia"
-        }
+        },
+        "intro": "La aplicación funciona por sí sola para llevar un diario. El servidor de sincronización y el runtime de inferencia añaden funciones. Ambos son programas independientes que puedes ejecutar tú mismo o prescindir de ellos por completo."
       },
       "topology": {
         "heading": "Adónde van tus datos"
@@ -108,23 +122,32 @@
         "heading": "Quién guarda qué"
       },
       "analytics": {
-        "heading": "Analítica",
+        "heading": "Qué medimos",
         "body": "openplate no registra nada hasta que un operador activa el seguimiento. La instancia alojada en openplate.de cuenta las visitas a las páginas y las funciones que se utilizan. Nunca sabe lo que comes, pesas o registras. Quien ejecute su propia copia elige uno de tres niveles, desde solo visitas a la página hasta un nivel de investigación que registra conductas de salud para un estudio con participantes que dan su consentimiento. Ningún tercero interviene en la ruta. Los números llegan a una instancia de Matomo que administramos nosotros mismos, con las cookies desactivadas. <configuration>Configuración</configuration> enumera cada evento de cada nivel."
       },
       "access": {
-        "heading": "Acceso",
+        "heading": "Obtener acceso",
         "body": "La instancia alojada en openplate.de funciona solo con invitación. Un administrador envía la invitación; no hay registro abierto. Si prefieres ejecutar tu propia copia, consulta <selfHosting>Autohospedaje</selfHosting>."
       },
       "openSource": {
         "heading": "Código abierto",
         "body": "openplate y openplate-core tienen licencia MIT. openplate-inference incluye sus propios términos, fijados por los pesos de los modelos que distribuye; su guía de licencias los detalla. Lee el código, modifícalo, ejecútalo tú mismo: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      },
+      "why": {
+        "heading": "Por qué existe openplate",
+        "body": "La mayoría de las aplicaciones de registro de comidas guardan tu diario en sus servidores, donde tú no puedes controlarlo. openplate funciona al revés. Tu diario se queda en tu dispositivo. El código fuente es público, así que cualquiera puede inspeccionarlo. Cada servicio adicional, incluida la sincronización y el escaneo de fotos, es opcional, y tú puedes alojar cada parte por tu cuenta."
+      },
+      "research": {
+        "heading": "Colaboradores de investigación",
+        "body": "Buscamos universidades, investigadores de nutrición y equipos clínicos que quieran trabajar con openplate. Un diario guardado en el dispositivo del participante, código que un comité de ética puede inspeccionar y analíticas de investigación que solo registran datos con consentimiento lo convierten en una base práctica para estudios nutricionales.",
+        "cta": "Cómo trabajamos con investigadores"
       }
     },
     "app": {
       "title": "La aplicación",
       "lead": "openplate registra alimentos y, si quieres, estima los macronutrientes de un plato a partir de una foto. Busca un alimento o escanea un plato, y la entrada irá a tu diario del día. En tu propia instalación no hay pantalla de registro: abre la aplicación y empieza a registrar. En la instancia alojada, inicias sesión primero.",
       "shotIntro": "El diario muestra un día cada vez: las comidas que registraste, lo que restan del límite diario y lo que queda de él.",
-      "shotAlt": "El diario de openplate en un teléfono: un anillo que muestra los carbohidratos netos que quedan del límite diario, el recuento de proteínas y las comidas del día agrupadas en desayuno y comida.",
+      "shotAlt": "El diario de openplate en un teléfono. Los carbohidratos netos se registran frente al límite diario. Las calorías, las proteínas, las grasas y la fibra se muestran frente a sus objetivos.",
       "stores": {
         "heading": "Qué guarda en el dispositivo"
       },
@@ -230,6 +253,77 @@
     },
     "notFound": {
       "title": "Página no encontrada"
+    },
+    "research": {
+      "title": "Investigación",
+      "heading": "openplate para investigación",
+      "lead": "Buscamos colaboradores de investigación: grupos universitarios, investigadores de nutrición, dietistas y equipos de salud pública que estudian la ingesta dietética. openplate es un diario de comidas de código abierto que se ejecuta en el dispositivo del participante, y queremos que sirva tanto para la investigación como para el registro diario.",
+      "why": {
+        "heading": "Por qué openplate se adapta a un estudio",
+        "open": {
+          "title": "Código abierto",
+          "body": "La app y el servidor de sincronización se publican bajo la licencia MIT. Un comité de ética o un delegado de protección de datos puede inspeccionar cómo gestiona los datos el software en lugar de depender de descripciones del proveedor."
+        },
+        "device": {
+          "title": "El diario permanece en el dispositivo",
+          "body": "El diario de un participante permanece en su propio teléfono u ordenador. La sincronización es opcional y está cifrada. Los estudios pueden alojar el servidor de sincronización en la infraestructura de su propia institución."
+        },
+        "consent": {
+          "title": "El consentimiento es lo primero",
+          "body": "La analítica cuenta con un nivel de investigación que registra el comportamiento de salud para un estudio con participantes que dan su consentimiento. Permanece desactivada hasta que el operador de la instancia la active."
+        },
+        "photo": {
+          "title": "Registro a partir de fotos",
+          "body": "Los participantes pueden registrar comidas haciendo una foto del plato. Las estimaciones a partir de imágenes pueden ejecutarse mediante un modelo en la nube o a través de openplate-inference en hardware bajo control de tu institución."
+        }
+      },
+      "offer": {
+        "heading": "Qué ofrecemos",
+        "base": {
+          "title": "Una base sobre la que construir",
+          "body": "Despliega una instancia en la infraestructura de tu institución y adáptala a tu protocolo. No hay costes de licencia ni contratos con proveedores."
+        },
+        "custom": {
+          "title": "Versiones específicas para estudios",
+          "body": "Configuramos openplate para tu protocolo, incluyendo objetivos dietéticos personalizados, preguntas, bases de datos de alimentos e idiomas."
+        },
+        "export": {
+          "title": "Exportación de datos con consentimiento",
+          "body": "Los participantes comparten registros del diario con el estudio solo tras otorgar su consentimiento. Estructuramos las exportaciones para adaptarlas a tu pipeline de análisis."
+        },
+        "grants": {
+          "title": "Becas y publicaciones conjuntas",
+          "body": "Buscamos cosolicitantes para propuestas de subvenciones y publicaciones conjuntas, por ejemplo sobre evaluación dietética basada en imágenes."
+        }
+      },
+      "seek": {
+        "heading": "A quién buscamos",
+        "nutrition": "Grupos universitarios de ciencias de la nutrición, medicina y salud pública",
+        "clinical": "Dietistas y equipos clínicos que realizan estudios de intervención",
+        "hci": "Investigadores en interacción persona-ordenador que estudian el autorregistro",
+        "vision": "Grupos que trabajan en reconocimiento de alimentos y estimación de raciones a partir de imágenes"
+      },
+      "process": {
+        "heading": "Cómo empieza una colaboración",
+        "write": {
+          "title": "Escríbenos",
+          "body": "Cuéntanos sobre tu grupo, tus preguntas de investigación y tu calendario."
+        },
+        "call": {
+          "title": "Llamada inicial",
+          "body": "Comentamos tu protocolo, qué admite openplate actualmente y qué ajustes necesita tu estudio."
+        },
+        "scope": {
+          "title": "Alcance por escrito",
+          "body": "Antes de iniciar cualquier trabajo, acordamos por escrito los entregables, los procedimientos de tratamiento de datos y la titularidad de los resultados."
+        }
+      },
+      "contact": {
+        "heading": "Ponte en contacto",
+        "body": "Escribe a <email>{{email}}</email>. Basta con un resumen breve: tu equipo, el área de tu investigación y lo que tu estudio necesita de openplate.",
+        "button": "Escríbenos",
+        "subject": "Colaboración de investigación con openplate"
+      }
     }
   }
 }

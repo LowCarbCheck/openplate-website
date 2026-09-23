@@ -67,14 +67,14 @@ export function FeatureGrid({ features }: { features: readonly Feature[] }) {
             <RowShotColumn>
               <RowShot view={feature.view} alt={t(feature.altKey)} />
             </RowShotColumn>
-            <h3 className="mt-5 flex items-center gap-3 font-display text-lg font-semibold tracking-tight">
+            <h3 className="mt-5 flex items-center gap-3 text-lg font-semibold">
               {/* Sized in both axes rather than one. The drawing is 64 units square and carries no
                   `width`, so a class that set only one side would leave the other to the browser's
                   300 by 150 default and the row would jump. */}
               <Illustration className="h-14 w-14 shrink-0" />
               {t(feature.titleKey)}
             </h3>
-            <p className="mt-2 leading-relaxed text-muted-foreground">{t(feature.bodyKey)}</p>
+            <p className="mt-2 font-prose leading-relaxed text-muted-foreground">{t(feature.bodyKey)}</p>
           </li>
         );
       })}

@@ -146,6 +146,19 @@ export default function HomeRoute() {
           where the repetition costs nothing and the extra clause about the photo scan is worth
           having; `hero.lead` is its second sentence, the one that says who this is for. */}
       <Hero
+        badge={
+          // The one announcement on the page, above the headline and in the first paint. The whole
+          // chip is the link; only its second half is teal, because that half is the way in.
+          <SiteLink to="/research" className="inline-flex items-center gap-2 border border-border bg-card px-3 py-1 text-sm">
+            <span className="text-foreground">{t('pages.home.hero.researchBadge')}</span>
+            <span aria-hidden="true" className="text-muted-foreground">
+              ·
+            </span>
+            <span className="text-primary">
+              {t('pages.home.hero.researchLink')} <span aria-hidden="true">→</span>
+            </span>
+          </SiteLink>
+        }
         headline={t('site.tagline')}
         lead={t('pages.home.hero.lead')}
         actions={
@@ -172,6 +185,12 @@ export default function HomeRoute() {
             who scrolls past a screenshot has already believed it, so this cannot be a footnote. */}
         <ExampleDataNote className="mt-3 text-center" />
       </Hero>
+
+      {/* Why the project exists, before what it is: the reason is the site's own sentence, the
+          description under it is quoted from the app's documentation. */}
+      <Section heading={t('pages.home.why.heading')}>
+        <p>{t('pages.home.why.body')}</p>
+      </Section>
 
       <Section heading={t(section(sections, 'whatItIs').headingKey)}>
         <DocBlocks blocks={section(sections, 'whatItIs').blocks} />
@@ -225,11 +244,12 @@ export default function HomeRoute() {
       </Section>
 
       <Section heading={t('pages.home.stack.heading')}>
+        <p>{t('pages.home.stack.intro')}</p>
         <ul className="grid gap-4 sm:grid-cols-3">
           {STACK.map((component) => {
             const Mark = STACK_MARKS[component.component];
             return (
-              <li key={component.to} className="rounded-2xl border border-border bg-card p-5">
+              <li key={component.to} className="border border-border bg-card p-5 shadow-sm">
                 {/* ── A DRAWN HEADER, NOT AN ICON ──
                     This was lucide's `smartphone`, `refresh-cw` and `cpu` at 20 pixels, which say
                     "a phone", "again" and "a chip" and stop there. The marks say what each card is
@@ -240,7 +260,7 @@ export default function HomeRoute() {
                     a `viewBox` and no `width`, so one class alone would leave the other side to the
                     browser's 300 by 150 default and the three cards would not line up. */}
                 <Mark className="h-16 w-[7.5rem]" />
-                <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">
+                <h3 className="mt-3 text-lg font-semibold">
                   <SiteLink to={component.to}>{t(section(sections, component.id).headingKey)}</SiteLink>
                 </h3>
                 {/* `DocBlocks` spaces a paragraph for a document, where every paragraph has one above
@@ -287,8 +307,18 @@ export default function HomeRoute() {
         <DocBlocks blocks={section(sections, 'holds').blocks} />
       </Section>
 
+      {/* The research invitation sits after `holds`, because the claims a study depends on, the
+          diary on the device and nothing stored elsewhere, are the ones that section has just made.
+          An outline button: the page's one filled action is in the hero. */}
+      <Section heading={t('pages.home.research.heading')}>
+        <p>{t('pages.home.research.body')}</p>
+        <SiteLink to="/research" className={SECONDARY_ACTION}>
+          {t('pages.home.research.cta')}
+        </SiteLink>
+      </Section>
+
       {/* `holds` says who holds the reader's data; what is counted about them is the natural next
-          question, so analytics sits here and not at the bottom of the page. */}
+          question, so analytics follows it closely and does not wait for the bottom of the page. */}
       <Section heading={t('pages.home.analytics.heading')}>
         <p>
           <Trans

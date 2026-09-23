@@ -46,7 +46,7 @@ export function UntranslatedNotice({ translated }: { translated?: boolean }) {
   if (!needsLanguageNotice(language)) return null;
 
   return (
-    <p className="mt-6 max-w-[68ch] rounded-sm border border-border bg-muted px-4 py-3 text-sm text-muted-foreground">
+    <p className="mt-6 max-w-[68ch] border border-border bg-muted px-4 py-3 text-sm text-muted-foreground">
       {t(translated === true ? 'machineTranslated' : 'untranslated')}
     </p>
   );

@@ -53,8 +53,8 @@ export default function DocsRoute() {
   return (
     <SiteLayout width="full">
       <DocsShell index={index}>
-        <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('nav')}</p>
-        <h1 className="mt-4 text-balance font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('nav')}</p>
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           {t('title')}
         </h1>
         <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">{t('intro')}</p>
@@ -63,7 +63,7 @@ export default function DocsRoute() {
           const docs = index[component];
           return (
             <section key={component} className="mt-14 max-w-5xl">
-              <h2 className="font-display text-xl font-semibold">{t(`components.${component}`)}</h2>
+              <h2 className="text-2xl font-semibold tracking-tight">{t(`components.${component}`)}</h2>
               {/* The ref these words were read at, once per component: a reader
                   who wants provenance wants it for the set. */}
               <p className="mt-1 font-mono text-sm text-muted-foreground">

@@ -53,7 +53,7 @@ export function DocsToc({ sections, rail }: { sections: Section[]; rail: boolean
     return (
       // No rule of its own: the page draws one right above it.
       <nav aria-label={t('onThisPage')} className="mt-8 xl:hidden">
-        <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('onThisPage')}</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</p>
         <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
           {sections.map((section) => (
             <li key={section.id}>
@@ -74,7 +74,7 @@ export function DocsToc({ sections, rail }: { sections: Section[]; rail: boolean
     // `top-0` because the site header is not sticky. The list height is the
     // viewport minus this block's top padding and label.
     <nav aria-label={t('onThisPage')} className={`sticky top-0 hidden xl:block ${PAGE_TOP}`}>
-      <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t('onThisPage')}</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</p>
       <div className="mt-4 max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain pb-8">
         <DocsSectionList sections={sections} active={active} />
       </div>
@@ -108,7 +108,7 @@ export function DocsSectionList({
             aria-current={active === section.id ? 'location' : undefined}
             className={[
               'block text-sm leading-snug transition-colors',
-              touch ? 'min-h-11 rounded-sm py-3' : 'py-1',
+              touch ? 'min-h-11 py-3' : 'py-1',
               section.level === 3 ? 'pl-4' : '',
               active === section.id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
             ].join(' ')}

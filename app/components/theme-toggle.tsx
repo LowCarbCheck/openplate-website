@@ -29,7 +29,7 @@ import { toggleTheme } from '#app/lib/theme';
  * to be. `p-2` measured at 36 pixels.
  */
 const BUTTON =
-  'flex items-center rounded-full p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
+  'flex items-center p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground';
 
 export function ThemeToggle() {
   const { t } = useTranslation();

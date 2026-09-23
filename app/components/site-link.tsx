@@ -28,11 +28,22 @@ export const LINK_CLASS = 'text-primary underline underline-offset-4 decoration-
  * translated sentence is passed as an empty element and cloned with the text
  * between the sentence's tags.
  */
-export function SiteLink({ to, className, children }: { to: string; className?: string; children?: ReactNode }) {
+export function SiteLink({
+  to,
+  className,
+  onClick,
+  children,
+}: {
+  to: string;
+  className?: string;
+  /** For a menu that must close on a click, including one on the page already open. */
+  onClick?: () => void;
+  children?: ReactNode;
+}) {
   const language = useLanguage();
 
   return (
-    <Link to={localizePath(to, language)} className={className ?? LINK_CLASS}>
+    <Link to={localizePath(to, language)} className={className ?? LINK_CLASS} onClick={onClick}>
       {children}
     </Link>
   );

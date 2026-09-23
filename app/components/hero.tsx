@@ -9,17 +9,15 @@
  * locale bundle, and the pictures, which come out of `app/lib/shots.ts` in the reader's language.
  * So the two front doors stop disagreeing without either one becoming a copy of the other.
  *
- * What was deliberately left behind: the decorative plate glyph and the tinted shadows. Those are
- * the app's, and they are right there, on a page whose job is to sell. This site is text first, one
- * accent colour, no fills.
+ * What was deliberately left behind: the decorative plate glyph. That is the app's, on a page whose
+ * job is to sell. This site is text first, one accent colour, no fills.
  *
- * THE BRAND GLOW WAS ON THAT LIST AND IS NOT ANY MORE. Left out, the front page is a headline on a
- * flat field, and that was a consequence of the move rather than a decision: the designed backdrop
- * belonged to the landing page and stayed behind on the other host. `HeroBackdrop` below brings it
- * back, on the front page's `Hero` alone. It stays quiet, and the two tokens are what keep it
- * quiet: the glow tops out at a fifth of `--primary` and the texture at `--texture-opacity`, which
- * is a tenth in the light theme and less in the dark one. Both are still under the strength of the
- * one filled button above them, so the loudest thing on the first screen is still the way in.
+ * ── THE LOOK FOLLOWS THE APPLICATION'S M243 RESTYLE ──
+ * The application took its surfaces from lowcarbcheck.org, and this hero took them from the
+ * application: a muted glow and graph paper behind the words, square corners, a monospace
+ * headline, and a teal-bordered frame with a soft teal shadow around the one screenshot. The teal
+ * glow and ring texture that were here before are gone, so the loudest thing on the first screen
+ * is the one filled button, which is the way in.
  *
  * ── THE WORDMARK CAME WITH THE SHAPE AND HAS BEEN TAKEN BACK OUT ──
  * `Hero` used to open with a `title`, the word "openplate" set large in the brand colour, and that
@@ -27,7 +25,7 @@
  * pixels above it, and on a phone the two sat almost on top of each other: the reader met the name
  * twice before meeting a sentence. The `title` prop is gone and the HEADLINE is now the `h1`, which
  * is also the truer document outline, since a page's one top-level heading should say what the page
- * is about rather than repeat the site's name. It keeps the display face and the tight tracking so
+ * is about rather than repeat the site's name. It keeps the heading weight and the tight tracking so
  * it still reads as the top of a composed masthead, one step down from the wordmark it replaces
  * because it is a whole sentence and not one word, and it is NOT set in the brand colour: teal on
  * this site means "the way in", and a sentence is not a door. `PageHero` below is untouched; its
@@ -62,15 +60,16 @@ import { FullBleedBackdrop } from './page';
  * a `main` with `py-12`, so three rems up is the border and not a guess.
  *
  * ── TWO ELEMENTS, AND NOT ONE ──
- * `brand-texture` is a mask, and a mask clips the element's children with it. Painting the glow on
- * the same box would put the rings through the glow as well and lose the soft ellipse. So the
- * glow is the outer box and the texture is a full size layer over it, which is also the stacking
- * order the app uses: light first, then the pattern in it.
+ * Both surfaces are `background-image`, so on one box the second would replace the first. The grid
+ * is the outer box and the glow a full size layer over it, the application's order: the paper,
+ * then the light on it. The glow is muted, so it softens the grid behind the words rather than
+ * tinting it. The grid is faded out at the bottom so it does not stop on a hard line where the
+ * hero meets the section under it.
  */
 function HeroBackdrop() {
   return (
-    <FullBleedBackdrop className="brand-glow -top-12 bottom-0">
-      <div className="brand-texture absolute inset-0" />
+    <FullBleedBackdrop className="surface-grid -top-12 bottom-0 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
+      <div className="brand-glow absolute inset-0" />
     </FullBleedBackdrop>
   );
 }
@@ -80,32 +79,37 @@ function HeroBackdrop() {
  *
  * ONE per page, never two. Two filled buttons side by side are two offers of equal weight, and this
  * site has one thing to offer at a time. The second way out of a hero is `SECONDARY_ACTION` below,
- * which announces itself as a link and stays subordinate.
+ * which is the same shape in outline and stays subordinate.
  *
- * `rounded-full`, because the application's own buttons are pills and this button is a door into
- * it. The height is set by the padding rather than by a fixed `h-`, so it grows with the type if
- * the reader has scaled it up.
+ * Square, `h-11`, as the application's default button is since M243: 44 pixels is the smallest a
+ * touch target is allowed to be, and a fixed height keeps the pair level with each other.
  */
 export const PRIMARY_ACTION =
-  'inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition-opacity hover:opacity-90';
+  'inline-flex h-11 items-center justify-center bg-primary px-5 font-medium text-primary-foreground transition-colors hover:bg-primary/90';
 
 /**
- * The quieter half of an action pair.
+ * The quieter half of an action pair: the application's outline button.
  *
- * Body size and near full strength text, not a caption: at `text-sm` beside a filled button it read
- * as a note about the button rather than as a second thing to press. The brand is in the underline
- * alone, so teal keeps meaning "the way in" on this page as it does everywhere else on the site.
+ * The same box as the filled one, a hairline on the card ground instead of a fill. It used to be
+ * an underlined link, and beside a square button that read as a note about the button rather than
+ * as a second thing to press. No teal: the filled button is the only teal action on the page.
  */
 export const SECONDARY_ACTION =
-  'text-base text-foreground underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary';
+  'inline-flex h-11 items-center justify-center border border-border bg-card px-5 font-medium text-foreground transition-colors hover:bg-muted';
 
 export function Hero({
+  badge,
   headline,
   lead,
   actions,
   note,
   children,
 }: {
+  /**
+   * One small link above the headline, for a single announcement. It is part of the first paint,
+   * so it moves nothing when the page settles.
+   */
+  badge?: ReactNode;
   /** One sentence saying what the thing is. It is the page's `h1` and the only `h1` on it. */
   headline: string;
   /** One paragraph saying who it is for. */
@@ -135,11 +139,12 @@ export function Hero({
             furniture that bound a one-word heading to the paragraphs under it, and it worked
             because the word above it was a mark rather than a sentence. Above this headline it is a
             teal bar at the very top of the page pointing at nothing; below it, it cuts the sentence
-            off from the lead that continues it. A sentence at heading size in the display face
+            off from the lead that continues it. A sentence at heading size in the heading weight
             already reads as the top of a masthead, so the rule has no work left to do. */}
-        <h1 className="font-display text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">{headline}</h1>
+        {badge !== undefined && <div className="mb-6">{badge}</div>}
+        <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{headline}</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{lead}</p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">{actions}</div>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">{actions}</div>
         {note !== undefined && <p className="mt-4 text-sm text-muted-foreground">{note}</p>}
       </div>
       <div className="mt-10 sm:mt-12">{children}</div>
@@ -167,13 +172,14 @@ export function PageHero({
   return (
     <section>
       <Icon className="h-6 w-6 text-muted-foreground" />
-      <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
+      <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h1>
       {/* The lead keeps a measure, and it is the SAME measure `DocBlocks` gives the quoted
           paragraphs under it. Unconstrained it ran the full 48rem column while every paragraph
           below stopped at 68 characters, so the page had two different right edges and the widest
           line on it was the one nobody had chosen the width of. Fewer characters here because the
-          type is a step larger. */}
-      <div className="mt-5 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">{lead}</div>
+          type is a step larger. The lead is a short one, so it stays in the body's monospace even
+          when the caller hands in a `Copy`, whose default is the prose face for running copy. */}
+      <div className="mt-5 max-w-[60ch] text-lg leading-relaxed text-muted-foreground [&>p]:font-body">{lead}</div>
     </section>
   );
 }

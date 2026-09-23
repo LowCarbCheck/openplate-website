@@ -1,10 +1,45 @@
 {
+  "028c93e1e5da1bda": {
+    "en": "Choosing a setup",
+    "path": "common:site.nav.deploy",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Choisir une configuration"
+  },
+  "0555013a3c03def2": {
+    "en": "Written scope",
+    "path": "common:pages.research.process.scope.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Cahier des charges écrit"
+  },
+  "05da1e71f7e2a71a": {
+    "en": "Tell us about your group, your research questions and your timeline.",
+    "path": "common:pages.research.process.write.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Présente-nous ton équipe, tes questions de recherche et ton calendrier."
+  },
+  "0672d1ed2ce6a024": {
+    "en": "Groups working on food recognition and portion estimation from images",
+    "path": "common:pages.research.seek.vision",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Des groupes travaillant sur la reconnaissance des aliments et l'estimation des portions à partir d'images"
+  },
   "075e9b2b3b21aff5": {
     "en": "App",
     "path": "common:site.nav.app",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Application"
+  },
+  "08ff1b81ef9fe719": {
+    "en": "Low-carb, calories, high protein, or simple tracking. The style you pick sets which goal grades the day, and every goal is optional.",
+    "path": "common:pages.home.features.goals.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Pauvre en glucides, calories, riche en protéines, ou suivi simple. Le style que tu choisis définit l'objectif qui évalue la journée, et chaque objectif reste facultatif."
   },
   "095c00addbad88a7": {
     "en": "Privacy",
@@ -19,6 +54,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "L'écran de scan, qui propose de connecter un fournisseur d'IA avant d'analyser une photo, et un moyen de consigner l'aliment sans IA."
+  },
+  "0a483ce9dfa235b5": {
+    "en": "Participants can log meals by photographing their plate. Image estimates can run through a cloud model or through openplate-inference on hardware your institution controls.",
+    "path": "common:pages.research.why.photo.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Les participants peuvent consigner leurs repas en prenant leur assiette en photo. L'estimation à partir des images peut faire appel à un modèle dans le cloud ou à openplate-inference sur du matériel géré par ton établissement."
   },
   "0a969e231f38fb2a": {
     "en": "Your device",
@@ -41,12 +83,40 @@
     "at": "2026-09-14",
     "fr": "{{price}} par mois"
   },
+  "0f96358be8ee6221": {
+    "en": "A participant's diary stays on their own phone or computer. Sync is optional and encrypted. Studies can host the sync server on their own institution's infrastructure.",
+    "path": "common:pages.research.why.device.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal d'un participant reste sur son propre téléphone ou ordinateur. La synchronisation est facultative et chiffrée. Les études peuvent héberger le serveur de synchronisation sur l'infrastructure de leur propre établissement."
+  },
+  "0fcf8f930de1a169": {
+    "en": "The diary stays on the device",
+    "path": "common:pages.research.why.device.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal reste sur l'appareil"
+  },
   "10b1340ab1dd7a09": {
     "en": "openplate and openplate-core are MIT licensed. openplate-inference carries its own terms, set by the model weights it ships; its licensing guide lists them. Read the code, change it, run it yourself: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>.",
     "path": "common:pages.home.openSource.body",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "openplate et openplate-core sont sous licence MIT. openplate-inference a ses propres conditions, définies par les poids de modèles qu'il fournit ; son guide de licence les détaille. Lis le code, modifie-le, fais-le tourner toi-même : <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+  },
+  "119947d08711f389": {
+    "en": "We are looking for universities, nutrition researchers and clinical teams who want to work with openplate. A diary stored on the participant's device, code an ethics board can inspect, and research analytics that record only with consent make it a practical base for dietary studies.",
+    "path": "common:pages.home.research.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous recherchons des universités, des chercheurs en nutrition et des équipes cliniques qui souhaitent travailler avec openplate. Un journal stocké sur l'appareil du participant, un code vérifiable par un comité d'éthique et des données d'étude enregistrées uniquement avec consentement en font une base pratique pour les études nutritionnelles."
+  },
+  "124e83951a633684": {
+    "en": "We are looking for research partners: university groups, nutrition researchers, dietitians and public health teams who study dietary intake. openplate is an open-source food diary that runs on the participant's device, and we want it to serve research as well as daily logging.",
+    "path": "common:pages.research.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous recherchons des partenaires de recherche : des groupes universitaires, des chercheurs en nutrition, des diététiciens et des équipes de santé publique qui étudient les apports alimentaires. openplate est un journal alimentaire open source qui s'exécute sur l'appareil du participant, et nous voulons qu'il serve la recherche autant que la saisie quotidienne."
   },
   "12df54358fd39361": {
     "en": "The openplate diary on a phone: a ring showing the net carbs left of the daily limit, the protein count, and the day's meals grouped under breakfast and lunch.",
@@ -75,6 +145,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "openplate est un journal alimentaire open source qui tourne sur ton appareil, avec une analyse photo facultative pour estimer les macros dans ton assiette. Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers."
+  },
+  "167fb8cfd527a903": {
+    "en": "Why openplate exists",
+    "path": "common:pages.home.why.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Pourquoi openplate existe"
   },
   "171f2c01e4bc7a1b": {
     "en": "This site uses Matomo without cookies to count visits; it does not track you across sites or build a profile of you. There are no accounts on this site itself; invite-only accounts belong to the hosted app, not to openplate.de. For what the app stores and sends, see the app's own privacy page, linked from within the app.",
@@ -118,6 +195,41 @@
     "at": "2026-09-14",
     "fr": "Suivre la journée"
   },
+  "1dcd3aa0d3ac8d6b": {
+    "en": "Research collaboration with openplate",
+    "path": "common:pages.research.contact.subject",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Collaboration de recherche avec openplate"
+  },
+  "1e09ae63c6fc0303": {
+    "en": "Product",
+    "path": "common:site.footer.product",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Produit"
+  },
+  "1e7095463a9792a9": {
+    "en": "Consent comes first",
+    "path": "common:pages.research.why.consent.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le consentement avant tout"
+  },
+  "1e9eace75bea8167": {
+    "en": "Joint grants and papers",
+    "path": "common:pages.research.offer.grants.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Financements et publications conjoints"
+  },
+  "2264c1b69805c5fa": {
+    "en": "Most food trackers store your diary on their servers, where you cannot control it. openplate works the other way around. Your diary stays on your device. The source code is public, so anyone can inspect it. Every additional service, sync and photo scanning included, is optional, and you can host each part yourself.",
+    "path": "common:pages.home.why.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "La plupart des applications de suivi alimentaire enregistrent ton journal sur leurs serveurs, où tu ne le contrôles pas. openplate fonctionne à l'inverse. Ton journal reste sur ton appareil. Le code source est public, donc tout le monde peut l'auditer. Chaque service supplémentaire, y compris la synchronisation et l'analyse de photos, est optionnel, et tu peux héberger chaque brique toi-même."
+  },
   "257c568f3ab78eca": {
     "en": "hardware",
     "path": "common:pages.inference.links.hardware",
@@ -125,12 +237,33 @@
     "at": "2026-09-14",
     "fr": "matériel"
   },
+  "26e85a1735bb5f57": {
+    "en": "Research",
+    "path": "common:pages.research.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Recherche"
+  },
+  "27e0f5f4b4ddd34c": {
+    "en": "How we work with researchers",
+    "path": "common:pages.home.research.cta",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Comment nous travaillons avec les chercheurs"
+  },
   "291b33b732467727": {
     "en": "Page not found",
     "path": "common:pages.notFound.title",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Page introuvable"
+  },
+  "2d3c4484745e0d9a": {
+    "en": "Open code",
+    "path": "common:pages.research.why.open.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Code ouvert"
   },
   "30622ac4e100cda7": {
     "en": "the page",
@@ -152,6 +285,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "fr": "Base de données alimentaire"
+  },
+  "35d3a389c2b4d11e": {
+    "en": "Syncs your encrypted diary between your devices.",
+    "path": "common:site.nav.coreHint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Synchronise ton journal chiffré entre tes appareils."
   },
   "36a20a82f9b321e2": {
     "en": "The inference runtime",
@@ -188,12 +328,26 @@
     "at": "2026-09-14",
     "fr": "Langue"
   },
+  "39b8c94b54cb99ac": {
+    "en": "openplate for research",
+    "path": "common:pages.research.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "openplate pour la recherche"
+  },
   "39e681cf0888c2a0": {
     "en": "Who it is for",
     "path": "common:pages.inference.audience.heading",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "À qui cela s'adresse"
+  },
+  "3ae2cc8cb9f4e33d": {
+    "en": "What we offer",
+    "path": "common:pages.research.offer.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Ce que nous proposons"
   },
   "3b296948f1d706cc": {
     "en": "Switch to the light theme",
@@ -215,6 +369,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "architecture"
+  },
+  "3fd0b0eeb1dcef40": {
+    "en": "How a collaboration starts",
+    "path": "common:pages.research.process.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Comment débute une collaboration"
   },
   "4035d9eb6815a888": {
     "en": "The drawing shows what each one stores. The table adds what each one sees while your data passes through it.",
@@ -251,6 +412,20 @@
     "at": "2026-09-14",
     "fr": "Application"
   },
+  "4322dd13444e8c69": {
+    "en": "Legal",
+    "path": "common:site.footer.legal",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Mentions légales"
+  },
+  "433e3e82a5acd170": {
+    "en": "University groups in nutrition science, medicine and public health",
+    "path": "common:pages.research.seek.nutrition",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Des équipes universitaires en sciences de la nutrition, en médecine et en santé publique"
+  },
   "4367c9c7af48ab2b": {
     "en": "Your browser",
     "path": "common:pages.home.illustrations.holders.browser",
@@ -264,6 +439,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Où vont tes données"
+  },
+  "47c87aca8c078f34": {
+    "en": "Write to us",
+    "path": "common:pages.research.process.write.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Écris-nous"
   },
   "4a8332dee048e901": {
     "en": "Pricing",
@@ -292,6 +474,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "fr": "openplate-core relaie ton journal entre tes appareils. Il stocke une adresse e-mail et une copie chiffrée de ton journal. Il conserve aussi ton code de récupération, scellé sous un secret qui lui est propre, afin qu'un mot de passe oublié te permette de récupérer ton journal. Ce même code permet à la personne qui administre l'instance d'y ouvrir un journal."
+  },
+  "4e8f56203841242d": {
+    "en": "The overview screen: the day's net carbs, calories, protein, fat, and fiber, each displayed with a bar against its target.",
+    "path": "common:pages.home.features.overview.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'écran de vue d'ensemble : glucides nets, calories, protéines, lipides et fibres du jour, affichés chacun avec une barre par rapport à sa cible."
   },
   "4faf536325f6937f": {
     "en": "Four boxes and three arrows. The app server sends the page to your device. Your device sends the diary to openplate-core, encrypted. Your device sends the plate photo to the AI endpoint you chose. The app server is on neither of those two paths.",
@@ -328,12 +517,47 @@
     "at": "2026-09-14",
     "fr": "Sur cette page"
   },
+  "54b667807923d2b0": {
+    "en": "Get in touch",
+    "path": "common:pages.research.contact.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Prendre contact"
+  },
+  "553508d746d639dd": {
+    "en": "A base to build on",
+    "path": "common:pages.research.offer.base.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Une base pour construire"
+  },
+  "566a20102295879b": {
+    "en": "Project",
+    "path": "common:site.footer.project",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Projet"
+  },
+  "57de36189577f443": {
+    "en": "The openplate diary on a phone: net carbs logged against the daily limit, and meals listed under breakfast and lunch.",
+    "path": "common:pages.app.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal openplate sur un téléphone : glucides nets enregistrés par rapport à la limite quotidienne, et repas répertoriés sous le petit-déjeuner et le déjeuner."
+  },
   "598c1f9cb5f257bf": {
     "en": "Docs",
     "path": "common:site.links.docsLabel",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Documentation"
+  },
+  "59e94381624b5680": {
+    "en": "Research",
+    "path": "common:site.nav.research",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Recherche"
   },
   "59fcb335becb6269": {
     "en": "Close",
@@ -363,6 +587,13 @@
     "at": "2026-09-14",
     "fr": "Tout faire tourner"
   },
+  "5ecb1c9c097c973b": {
+    "en": "The eating and targets screen: eating style options, from low-carb to simple tracking, and preset daily carb limits.",
+    "path": "common:pages.home.features.goals.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'écran d'alimentation et des cibles : les options de style d'alimentation, du régime pauvre en glucides au suivi simple, et les limites quotidiennes de glucides prédéfinies."
+  },
   "61617f8e1db33b8c": {
     "en": "openplate app server",
     "path": "common:pages.home.illustrations.holders.appServer",
@@ -384,12 +615,26 @@
     "at": "2026-09-14",
     "fr": "Mentions légales"
   },
+  "63c1d457074f283b": {
+    "en": "The openplate diary on a phone. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets.",
+    "path": "common:pages.app.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal openplate sur un téléphone. Les glucides nets sont comptabilisés par rapport à la limite quotidienne. Les calories, les protéines, les lipides et les fibres sont comparés à leurs cibles."
+  },
   "64f70beeb0831028": {
     "en": "Main",
     "path": "common:site.nav.label",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Principale"
+  },
+  "66f8336d8ec71b34": {
+    "en": "Use a hosted version, or run every component yourself.",
+    "path": "common:site.nav.deployHint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Utilise une version hébergée, ou fais tourner chaque composant toi-même."
   },
   "671f00d7844b845b": {
     "en": "Menu",
@@ -426,12 +671,26 @@
     "at": "2026-09-14",
     "fr": "Ce qui est stocké sur l'appareil"
   },
+  "6dbcb286c2044e68": {
+    "en": "The app",
+    "path": "common:site.nav.app",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'application"
+  },
   "6e0820f1ec017f67": {
     "en": "What openplate is",
     "path": "common:pages.home.whatItIs.heading",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ce qu'est openplate"
+  },
+  "6e4daa7e85d42ce6": {
+    "en": "The openplate diary for one day on a computer screen. Net carbs are logged against the daily limit. Calories, protein, fat, and fiber are shown against their targets. The day's food splits into carbs, fiber, protein, and fat.",
+    "path": "common:pages.home.hero.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal openplate pour une journée sur un écran d'ordinateur. Les glucides nets sont comptabilisés par rapport à la limite quotidienne. Les calories, les protéines, les lipides et les fibres sont comparés à leurs cibles. Les aliments de la journée se répartissent en glucides, fibres, protéines et lipides."
   },
   "707074fc089c18b4": {
     "en": "Sync server",
@@ -460,6 +719,13 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "fr": "Base de données alimentaire"
+  },
+  "7452c7550822728d": {
+    "en": "Write to us",
+    "path": "common:pages.research.contact.button",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Écris-nous"
   },
   "78b1b2df1202318b": {
     "en": "Your AI endpoint",
@@ -531,6 +797,13 @@
     "at": "2026-09-14",
     "fr": "Une limite quotidienne de glucides et un objectif de protéines, ou aucun des deux. Chaque objectif est facultatif, vider un champ le supprime."
   },
+  "85dd94cc7986808a": {
+    "en": "The app works on its own to keep a diary. The sync server and inference runtime add features. Both are separate programs that you can run yourself or leave out entirely.",
+    "path": "common:pages.home.stack.intro",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'application fonctionne seule pour tenir un journal. Le serveur de synchronisation et le moteur d'inférence ajoutent des fonctionnalités. Ce sont deux programmes distincts que tu peux exécuter toi-même ou ignorer totalement."
+  },
   "85e83023f0314a5c": {
     "en": "The stack",
     "path": "common:pages.home.stack.heading",
@@ -551,6 +824,20 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "photo"
+  },
+  "8778a8adfaa36f0f": {
+    "en": "The openplate diary for one day on a computer screen: net carbs logged against the daily limit, calories and protein totals, and meals logged under breakfast and lunch.",
+    "path": "common:pages.home.hero.shotAlt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Le journal openplate pour une journée sur un écran d'ordinateur : glucides nets enregistrés par rapport à la limite quotidienne, totaux des calories et des protéines, et repas enregistrés sous le petit-déjeuner et le déjeuner."
+  },
+  "87c41823bd2f1036": {
+    "en": "Logging from photos",
+    "path": "common:pages.research.why.photo.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Saisie à partir de photos"
   },
   "88cb66ccd4773c31": {
     "en": "The app",
@@ -573,12 +860,40 @@
     "at": "2026-09-14",
     "fr": "Tu peux utiliser openplate sans rien faire tourner du tout, comme tu peux tout héberger toi-même. Quatre échelons séparent ces deux cas. Chaque échelon apporte une fonction de plus et un composant de plus à gérer, vois donc cela comme une échelle où tu as tout intérêt à t'arrêter tôt."
   },
+  "8e12f7921f021f22": {
+    "en": "Study-specific builds",
+    "path": "common:pages.research.offer.custom.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Versions dédiées aux études"
+  },
   "8e2818d8f9449138": {
     "en": "How much of the limit is left, whether the protein target is met, and how many of the last seven days you logged.",
     "path": "common:pages.home.features.overview.body",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ce qu'il reste de la limite, si l'objectif de protéines est atteint, et combien de jours tu as enregistrés sur les sept derniers."
+  },
+  "9038b3b724bc35d6": {
+    "en": "Researchers in human-computer interaction who study self-tracking",
+    "path": "common:pages.research.seek.hci",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Des chercheurs en interaction humain-machine qui étudient l'auto-mesure"
+  },
+  "905d86444e7648e0": {
+    "en": "The add-food screen: a search box, your usual dinner, a button to scan a plate, and recently logged foods with their net carbs.",
+    "path": "common:pages.home.features.add.alt",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'écran d'ajout d'aliment : un champ de recherche, ton dîner habituel, un bouton pour scanner une assiette, et les aliments récemment enregistrés avec leurs glucides nets."
+  },
+  "923b3e21ef3e20b8": {
+    "en": "openplate is for people who want to track what they eat without sending their data to someone else's server.",
+    "path": "common:pages.home.hero.lead",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "openplate s'adresse aux personnes qui veulent suivre leur alimentation sans envoyer leurs données sur le serveur d'un tiers."
   },
   "933981e228512a9d": {
     "en": "The diary is one day at a time: the meals you logged, what they cost against the day's limit, and what is left of it.",
@@ -608,6 +923,13 @@
     "at": "2026-09-14",
     "fr": "Accès"
   },
+  "97687f8d78f6a47b": {
+    "en": "Research partners",
+    "path": "common:pages.home.research.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Partenaires de recherche"
+  },
   "97e4f5a976d908df": {
     "en": "Skip to content",
     "path": "common:site.skipToContent",
@@ -621,6 +943,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Une seule formule"
+  },
+  "99b657c81b536c0f": {
+    "en": "Reads plate photos on hardware you control.",
+    "path": "common:site.nav.inferenceHint",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Analyse les photos d'assiette sur du matériel que tu contrôles."
   },
   "9acd01d7180b6504": {
     "en": "Read the terms",
@@ -643,6 +972,13 @@
     "at": "2026-09-14",
     "fr": "Fournisseur d'IA dans le cloud"
   },
+  "a3aa74b76c9d84f4": {
+    "en": "What we measure",
+    "path": "common:pages.home.analytics.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Ce que nous mesurons"
+  },
   "a5a78d259efa5f39": {
     "en": "Represented by",
     "path": "common:pages.imprint.representedBy",
@@ -663,6 +999,34 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Cette page est traduite automatiquement à partir de la documentation en anglais."
+  },
+  "a805977695dc8f3d": {
+    "en": "Why openplate suits a study",
+    "path": "common:pages.research.why.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Pourquoi openplate convient aux études"
+  },
+  "a8548bc0c573ca62": {
+    "en": "We discuss your protocol, what openplate supports now, and what adjustments your study needs.",
+    "path": "common:pages.research.process.call.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous discutons de ton protocole, des fonctionnalités actuelles d'openplate et des ajustements nécessaires à ton étude."
+  },
+  "a8eed070fecbb675": {
+    "en": "We are looking for research partners",
+    "path": "common:pages.home.hero.researchBadge",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous recherchons des partenaires de recherche"
+  },
+  "aa310df593e92a54": {
+    "en": "Dietitians and clinical teams running intervention studies",
+    "path": "common:pages.research.seek.clinical",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Des diététiciens et des équipes cliniques menant des études d'intervention"
   },
   "ae9aa360952743ac": {
     "en": "Scan on your own hardware",
@@ -685,6 +1049,13 @@
     "at": "2026-09-14",
     "fr": "Utiliser une instance gérée par un tiers"
   },
+  "b1ccf17bd2ac1d6d": {
+    "en": "Open the app",
+    "path": "common:site.nav.openApp",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Ouvrir l'application"
+  },
   "b25485f1ddf25f8e": {
     "en": "Zoom in",
     "path": "docs:diagramZoomIn",
@@ -699,6 +1070,13 @@
     "at": "2026-09-14",
     "fr": "Ce qu'il ne peut pas lire"
   },
+  "b3c090f854b61ce9": {
+    "en": "Data export with consent",
+    "path": "common:pages.research.offer.export.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Export de données avec consentement"
+  },
   "b4ac7b41cbc42da8": {
     "en": "Managed instances",
     "path": "common:pages.core.tenancy.heading",
@@ -712,6 +1090,13 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Il est fait pour ceux qui veulent suivre ce qu'ils mangent sans envoyer leur journal sur le serveur d'un tiers."
+  },
+  "b5b4bc19fa2bf5e6": {
+    "en": "Choose how you eat",
+    "path": "common:pages.home.features.goals.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Choisis ta façon de manger"
   },
   "b789d42d277696ae": {
     "en": "This page is not translated yet. It is shown in English.",
@@ -734,12 +1119,26 @@
     "at": "2026-09-14",
     "fr": "Open source"
   },
+  "c0f234f762bee280": {
+    "en": "openplate is an open-source food diary, built in Berlin. The app and the sync server are MIT licensed.",
+    "path": "common:site.footer.blurb",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "openplate est un journal alimentaire open source, développé à Berlin. L'application et le serveur de synchronisation sont sous licence MIT."
+  },
   "c12548bcdcb508b1": {
     "en": "What you do with it",
     "path": "common:pages.home.features.heading",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ce que tu fais avec"
+  },
+  "c3706df14cc24da0": {
+    "en": "We are looking for co-applicants on grant proposals and for joint publications, for example on image-based dietary assessment.",
+    "path": "common:pages.research.offer.grants.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous recherchons des co-candidats pour des demandes de financement ainsi que des collaborations pour publier des articles, par exemple sur l'évaluation nutritionnelle par l'image."
   },
   "c3c1ea5cee4d569f": {
     "en": "openplate logs food and, if you want it, estimates the macros on a plate from a photo. Search a food or scan a plate, and the entry lands in your diary for the day. On your own install, there is no sign-up screen: open the app and start logging. On the hosted instance, you sign in first.",
@@ -755,6 +1154,13 @@
     "at": "2026-09-14",
     "fr": "Code source"
   },
+  "c7603a45fff124a4": {
+    "en": "The app and sync server are published under the MIT licence. An ethics board or data protection officer can inspect how the software handles data instead of relying on vendor descriptions.",
+    "path": "common:pages.research.why.open.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "L'application et le serveur de synchronisation sont publiés sous licence MIT. Un comité d'éthique ou un délégué à la protection des données peut inspecter le traitement des données dans le code au lieu de se fier aux descriptions d'un fournisseur."
+  },
   "c7724a80549ebe72": {
     "en": "Edit this page on GitHub",
     "path": "docs:edit",
@@ -769,12 +1175,26 @@
     "at": "2026-09-14",
     "fr": "Le journal openplate pour une journée : un anneau affichant les glucides nets restants sur la limite quotidienne, le total de protéines et les repas saisis au petit-déjeuner et au déjeuner."
   },
+  "c80f98a61c4f24a2": {
+    "en": "Email <email>{{email}}</email>. A short summary is enough: your team, your research focus, and what your study requires from openplate.",
+    "path": "common:pages.research.contact.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Écris à <email>{{email}}</email>. Un bref résumé suffit : ton équipe, ton sujet de recherche, et ce que ton étude attend de openplate."
+  },
   "c997f2c796f0b0f8": {
     "en": "What leaves the device",
     "path": "common:pages.app.leaves.heading",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ce qui quitte l'appareil"
+  },
+  "c9a337075b1d185f": {
+    "en": "Getting access",
+    "path": "common:pages.home.access.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Obtenir l'accès"
   },
   "cc5f0850c9e34125": {
     "en": "Documentation",
@@ -804,6 +1224,20 @@
     "at": "2026-09-14",
     "fr": "Fixer les objectifs"
   },
+  "d03fc6aac257834a": {
+    "en": "Initial call",
+    "path": "common:pages.research.process.call.title",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Échange initial"
+  },
+  "d1357d805513167a": {
+    "en": "Self-hosting",
+    "path": "common:site.footer.selfHosting",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Auto-hébergement"
+  },
   "d15e074f8ed7f12b": {
     "en": "The app",
     "path": "docs:components.app",
@@ -818,12 +1252,26 @@
     "at": "2026-09-14",
     "fr": "Enregistrer un aliment"
   },
+  "d3974006117c0948": {
+    "en": "The analytics have a research level that records health behaviour for a study with consenting participants. It stays off until the instance operator turns it on.",
+    "path": "common:pages.research.why.consent.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Les mesures d'usage disposent d'un niveau recherche qui enregistre les comportements de santé pour une étude menée avec des participants consentants. Il reste désactivé tant que l'administrateur de l'instance ne l'active pas."
+  },
   "d42187a9cdf6767c": {
     "en": "The add-food screen: a search box, a button to scan the plate instead, and a list of recently logged foods with their net carbs.",
     "path": "common:pages.home.features.add.alt",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "L'écran d'ajout d'aliment : un champ de recherche, un bouton pour scanner l'assiette à la place et une liste d'aliments récents avec leurs glucides nets."
+  },
+  "d4a56d0d85ae21ec": {
+    "en": "Who we are looking for",
+    "path": "common:pages.research.seek.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Qui nous recherchons"
   },
   "d5a939ca9b4f4b63": {
     "en": "VAT ID",
@@ -839,6 +1287,13 @@
     "at": "2026-09-14",
     "fr": "Matériel"
   },
+  "d8cefdb0b2327b58": {
+    "en": "We configure openplate for your protocol, including custom dietary targets, questions, food databases and languages.",
+    "path": "common:pages.research.offer.custom.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Nous configurons openplate pour ton protocole, notamment avec des objectifs nutritionnels personnalisés, des questions, des bases d'aliments et des langues adaptées."
+  },
   "d90bd00ff660eeef": {
     "en": "Releases",
     "path": "common:site.links.releasesLabel",
@@ -846,12 +1301,26 @@
     "at": "2026-09-14",
     "fr": "Versions"
   },
+  "d9832f497c7628e5": {
+    "en": "Read more",
+    "path": "common:pages.home.hero.researchLink",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "En savoir plus"
+  },
   "d9bf2a4cbad35d78": {
     "en": "The sync server",
     "path": "common:pages.core.title",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Le serveur de synchronisation"
+  },
+  "db12799c4da73f0a": {
+    "en": "Self-hosting",
+    "path": "common:site.nav.selfHosting",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Auto-hébergement"
   },
   "de4bea7a567c9bc3": {
     "en": "release notes",
@@ -881,12 +1350,26 @@
     "at": "2026-09-14",
     "fr": "Auto-hébergement"
   },
+  "e4c9f3f7da832f60": {
+    "en": "What you can do with openplate",
+    "path": "common:pages.home.features.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Ce que tu peux faire avec openplate"
+  },
   "e53ac48abc9d6ef4": {
     "en": "Scan a plate",
     "path": "common:pages.home.features.scan.title",
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Scanner une assiette"
+  },
+  "ee1b887e7bc5365f": {
+    "en": "Participants share diary records with the study only after granting consent. We structure exports to match your analysis pipeline.",
+    "path": "common:pages.research.offer.export.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Les participants ne partagent les entrées de leur journal avec l'étude qu'après avoir donné leur accord. Nous structurons les exports pour les intégrer directement dans ta chaîne d'analyse."
   },
   "f062696f075d40b2": {
     "en": "Try it free for three days.",
@@ -909,6 +1392,20 @@
     "at": "2026-09-19",
     "fr": "noms"
   },
+  "f30921ce48dfc9c9": {
+    "en": "Three components, each optional beyond the app",
+    "path": "common:pages.home.stack.heading",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Trois composants, tous facultatifs en dehors de l'application"
+  },
+  "f3962ef18dfab4f4": {
+    "en": "Net carbs, calories, protein, fat, and fiber for the day, each shown against its target, and how many of the last seven days you logged.",
+    "path": "common:pages.home.features.overview.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Glucides nets, calories, protéines, lipides et fibres pour la journée, chacun comparé à sa cible, et le nombre de jours enregistrés sur les sept derniers."
+  },
   "f396acd84ed6cdb6": {
     "en": "Deployment",
     "path": "common:site.nav.deploy",
@@ -929,6 +1426,20 @@
     "model": "hand-written",
     "at": "2026-09-14",
     "fr": "Ajouter la synchronisation entre tes appareils"
+  },
+  "fa8bcb1c692d52eb": {
+    "en": "Deploy an instance on your institution's infrastructure and adapt it to your protocol. There are no licence fees and no vendor contracts.",
+    "path": "common:pages.research.offer.base.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Déploie une instance sur l'infrastructure de ton établissement et adapte-la à ton protocole. Il n'y a pas de frais de licence ni de contrat avec un fournisseur."
+  },
+  "fccd261d36da3d2b": {
+    "en": "Before any work begins, we agree in writing on the deliverables, data handling procedures and result ownership.",
+    "path": "common:pages.research.process.scope.body",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-23",
+    "fr": "Avant tout travail, nous définissons par écrit les livrables, les procédures de traitement des données et la propriété des résultats."
   },
   "fdc5af463a7d3709": {
     "en": "These pages document all three services: the app, the sync server, and the self-hosted inference runtime. Start with the service you are running, or with Self-hosting if you are starting from nothing.",

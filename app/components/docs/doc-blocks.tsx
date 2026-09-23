@@ -30,7 +30,7 @@ import { CodeTokens } from './code-tokens';
  * resolves to its dark value without a colour of its own.
  */
 const FENCE =
-  'doc-fence overflow-x-auto rounded-sm border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed text-foreground';
+  'doc-fence overflow-x-auto border border-border bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed text-foreground';
 
 /**
  * The punctuation a chip must sit tight against, on each side.
@@ -73,9 +73,11 @@ export function Spans({
           );
         }
         if (span.kind === 'code') {
-          // A TEAL WASH, SO A READER SCANNING FOR WHAT TO TYPE HAS A COLOUR TO
-          // FIND. The ink stays foreground: `text-primary` on this fill measures
-          // 4.2:1 in the light theme, under the 4.5 floor.
+          // A MUTED CHIP IN THE MONOSPACE FACE. It was a teal wash, and teal is
+          // rationed now to links, the one filled button, the active nav item
+          // and the wordmark. In a paragraph the face change from Inter already
+          // marks what to type, and the ground carries it in a heading, where
+          // the face is the same.
           const next = spans[i + 1];
           const previous = spans[i - 1];
           const before = previous?.kind === 'text' && HUGS_BEFORE.test(previous.text);
@@ -83,7 +85,7 @@ export function Spans({
           return (
             <code
               key={key}
-              className={`rounded-sm border border-primary/20 bg-primary/10 py-0.5 font-mono text-[0.9em] text-foreground ${before ? 'pl-0' : 'pl-1'} ${after ? 'pr-0' : 'pr-1'}`}
+              className={`border border-border bg-muted py-0.5 font-mono text-[0.9em] text-foreground ${before ? 'pl-0' : 'pl-1'} ${after ? 'pr-0' : 'pr-1'}`}
             >
               {span.text}
             </code>
@@ -186,7 +188,7 @@ function DiagramFigure({ block }: { block: DiagramBlock }) {
 
   return (
     <figure className="mt-5">
-      <div className="overflow-x-auto rounded-sm border border-border bg-card p-4">
+      <div className="overflow-x-auto border border-border bg-card p-4">
         <picture>
           <source
             srcSet={`/docs/diagrams/${block.id}-${language}-dark.svg`}
@@ -233,11 +235,11 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
               : block.level === 3 ? 'h3'
               : 'h4';
             const size =
-              block.level <= 2 ? 'mt-14 text-2xl tracking-[-0.01em]'
-              : block.level === 3 ? 'mt-10 text-xl'
+              block.level <= 2 ? 'mt-14 text-2xl tracking-tight'
+              : block.level === 3 ? 'mt-10 text-lg'
               : 'mt-8 text-base';
             return (
-              <Tag key={key} id={block.id} className={`scroll-mt-20 font-display font-semibold first:mt-0 ${size}`}>
+              <Tag key={key} id={block.id} className={`scroll-mt-20 font-semibold first:mt-0 ${size}`}>
                 {/* SPANS, NOT THE FLAT STRING. These headings carry inline code,
                     and `block.text` would put the backticks on the page. The flat
                     form is still the right thing for the anchor and the rail. */}
@@ -247,7 +249,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
           }
           case 'paragraph': {
             return (
-              <p key={key} className="mt-5 max-w-[68ch] leading-relaxed">
+              <p key={key} className="mt-5 max-w-[68ch] font-prose leading-relaxed">
                 <Spans spans={block.spans} />
               </p>
             );
@@ -271,7 +273,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                     <span aria-hidden="true" className="font-mono text-sm text-muted-foreground">
                       {block.ordered ? String(j + 1).padStart(2, '0') : '—'}
                     </span>
-                    <div>
+                    <div className="font-prose">
                       <Spans spans={item} />
                       {/* In the SAME grid cell as the item's text, so a fence
                           under step 3 keeps the step's left edge instead of
@@ -310,7 +312,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
             return (
               <blockquote
                 key={key}
-                className="mt-5 max-w-[68ch] rounded-sm border border-border bg-card px-4 py-3 leading-relaxed"
+                className="mt-5 max-w-[68ch] border border-border bg-card px-4 py-3 font-prose leading-relaxed shadow-sm"
               >
                 <Spans spans={block.spans} />
               </blockquote>
@@ -323,7 +325,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                   src={block.src}
                   alt={block.alt}
                   loading="lazy"
-                  className="max-w-full rounded-sm border border-border"
+                  className="max-w-full border border-border"
                 />
                 {block.alt !== '' && (
                   <figcaption className="mt-2 max-w-[68ch] text-center text-sm text-muted-foreground">
@@ -376,7 +378,7 @@ export function DocBlocks({ blocks }: { blocks: Block[] }) {
                         <th
                           /* oxlint-disable-next-line react/no-array-index-key -- an immutable generated tree, see the list case */
                           key={`h-${j}`}
-                          className="py-2 pr-6 text-xs font-normal uppercase tracking-[0.1em] text-muted-foreground"
+                          className="py-2 pr-6 text-xs font-semibold uppercase tracking-wide text-muted-foreground"
                         >
                           <Spans spans={cell} />
                         </th>

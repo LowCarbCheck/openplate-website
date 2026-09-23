@@ -51,10 +51,10 @@ export default function ReleasesRoute() {
   return (
     <SiteLayout width="full">
       <DocsShell index={index} place={{ kind: 'releases', component: releases.component }}>
-        <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           {t(`components.${releases.component}`)}
         </p>
-        <h1 className="mt-4 font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           {t('releases')}
         </h1>
         <UntranslatedNotice />
@@ -67,7 +67,7 @@ export default function ReleasesRoute() {
                   it: a reader scanning this page is looking for a number. */}
               <h2
                 id={`v${release.version}`}
-                className="scroll-mt-20 font-display text-2xl font-semibold tracking-[-0.01em]"
+                className="scroll-mt-20 text-2xl font-semibold tracking-tight"
               >
                 {release.version}
               </h2>

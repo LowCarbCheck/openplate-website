@@ -32,14 +32,18 @@ import stylesheet from './app.css?url';
  */
 export const links: Route.LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
-  // NO `rel="preload"` FOR THE TWO WOFF2 FILES, and it was tried. Measured on this
-  // build with `agent-browser vitals`, four runs each: 36 to 40 ms first paint
-  // without the preloads, 32 to 60 ms with them. That is noise, not a gain, because
-  // over a loopback the stylesheet that names the fonts arrives in under a
-  // millisecond and the preload wins nothing it was not already going to get. Two
-  // more requests the browser must make before it knows whether it needs them is not
-  // a cost to carry for a number nobody can show. Measure it again over a real
-  // network on the live host before adding it, and put the numbers here.
+  // `rel="preload"` FOR THE TWO LATIN WOFF2 FILES, superseding an earlier "no
+  // preload" measurement that only ever looked at first-paint timing over loopback
+  // and found it a wash. The reason for these is a different metric: layout shift.
+  // Measured 2026-09-23, CLS of 0.0107 on `/en/` and 0.0456 on `/en/research/`,
+  // caused by `font-display: swap` swapping the fallback face for the real one once
+  // it arrived. `app/app.css` now sets `font-display: optional` on every @font-face,
+  // so the real face is used only if it is already available when the browser lays
+  // out the page; these preloads are what makes that the common case, so the first
+  // paint's face is final and nothing reflows. Only the latin files: latin-ext is
+  // Turkish-only glyphs on a face most pages never print.
+  { rel: 'preload', href: '/fonts/victor-mono-latin-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
+  { rel: 'preload', href: '/fonts/inter-latin-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
   // Cache-busted (?v=2): public/favicon.ico was replaced in place this morning,
   // an unrelated red and black molecule swapped for openplate's own mark. The
   // href never changes name, so a returning visitor's cached copy would

@@ -68,13 +68,13 @@ export default function PricingRoute() {
       <PageTitle>{t('pages.pricing.title')}</PageTitle>
 
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold tracking-tight">{t('pages.pricing.heading')}</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">{t('pages.pricing.heading')}</h2>
 
         {/* THE AMOUNT AND ITS VAT LINE ARE ONE BLOCK, and they stay one. The
             large number is the only thing on this page a reader takes away at a
             glance, so the sentence that says what is included in it is the next
             line and not a footnote somewhere below the fold. */}
-        <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-primary">
+        <p className="mt-4 text-4xl font-semibold tracking-tight">
           {t('pages.pricing.price', { price })}
         </p>
         <p className="mt-2 text-sm text-muted-foreground">{t('pages.pricing.vatNote')}</p>

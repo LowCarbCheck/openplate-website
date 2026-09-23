@@ -55,13 +55,18 @@ const CROP_FADE = '[mask-image:linear-gradient(to_bottom,black_84%,transparent_1
 /**
  * The one frame every screenshot on this site sits in.
  *
- * A hairline and the card ground, which is what every other bordered thing here is: the quote
- * block, the diagram, the stack card. The app's landing page frames its shots in a brand-tinted
- * border with a shadow, because that page is a shopfront and it has one hero card to establish. It
- * would be the loudest thing on this site by a distance. The frame is here to stop a screenshot's
- * own white bleeding into a white card, not to sell it.
+ * A hairline and the card ground, square, which is what every other bordered thing here is: the
+ * quote block, the diagram, the stack card. The frame is here to stop a screenshot's own white
+ * bleeding into a white card, not to sell it. The ONE exception is `HERO_FRAME` below.
  */
-const SHOT_FRAME = 'overflow-hidden rounded-lg border border-border bg-card p-1';
+const SHOT_FRAME = 'overflow-hidden border border-border bg-card p-1';
+
+/**
+ * The hero screenshot's frame, the application landing page's since M243: a teal hairline at 55
+ * percent and a wide soft teal shadow. It is the one picture on the site that is a shopfront, and
+ * the only frame allowed to carry the accent.
+ */
+const HERO_FRAME = 'overflow-hidden border border-primary/55 bg-card p-1.5 shadow-2xl shadow-primary/20 sm:p-2';
 
 /**
  * The rendered shape every screenshot in a ROW is cut to, and the reason the row has a baseline.
@@ -120,7 +125,7 @@ export function RowShot({ view, alt }: { view: ShotView; alt: string }) {
 
   return (
     <div className={SHOT_FRAME}>
-      <div className={`relative overflow-hidden rounded-md ${ROW_SHOT_ASPECT} ${cropped ? CROP_FADE : ''}`}>
+      <div className={`relative overflow-hidden ${ROW_SHOT_ASPECT} ${cropped ? CROP_FADE : ''}`}>
         <PhonePicture view={view} alt={alt} className="absolute inset-0 h-full w-full object-cover object-top" />
       </div>
     </div>
@@ -139,7 +144,7 @@ export function PhoneShot({ view, alt, className }: { view: ShotView; alt: strin
 
   return (
     <div className={`${SHOT_FRAME} ${className ?? ''}`}>
-      <PhonePicture view={view} alt={alt} className={`w-full rounded-md ${cropped ? CROP_FADE : ''}`} />
+      <PhonePicture view={view} alt={alt} className={`w-full ${cropped ? CROP_FADE : ''}`} />
     </div>
   );
 }
@@ -174,7 +179,7 @@ export function HeroShot({ alt }: { alt: string }) {
     DESKTOP_SHOT_WIDTHS.map((width) => `${desktopShotPath(locale, theme, width)} ${width}w`).join(', ');
 
   return (
-    <div className={`${SHOT_FRAME} rounded-xl p-1.5 sm:p-2`}>
+    <div className={HERO_FRAME}>
       <picture>
         <source
           media="(prefers-color-scheme: dark) and (min-width: 40rem)"
@@ -204,7 +209,7 @@ export function HeroShot({ alt }: { alt: string }) {
           height={SHOT_SPECS.diary.height}
           decoding="async"
           fetchPriority="high"
-          className={`mx-auto w-full max-w-[17rem] rounded-lg ${CROP_FADE} sm:aspect-[3/2] sm:max-w-none sm:[mask-image:none]`}
+          className={`mx-auto w-full max-w-[17rem] ${CROP_FADE} sm:aspect-[3/2] sm:max-w-none sm:[mask-image:none]`}
         />
       </picture>
     </div>

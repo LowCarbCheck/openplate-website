@@ -7,15 +7,26 @@
     "nav": {
       "label": "Hauptnavigation",
       "menu": "Menü",
-      "app": "App",
+      "app": "Die App",
       "core": "Sync-Server",
       "inference": "Inferenz-Runtime",
-      "deploy": "Deployment",
-      "docs": "Doku"
+      "deploy": "Setup auswählen",
+      "docs": "Doku",
+      "selfHosting": "Self-Hosting",
+      "research": "Forschung",
+      "openApp": "App öffnen",
+      "deployHint": "Nutze eine gehostete Version, oder betreibe jede Komponente selbst.",
+      "coreHint": "Synchronisiert dein verschlüsseltes Tagebuch zwischen deinen Geräten.",
+      "inferenceHint": "Liest Tellerfotos auf Hardware aus, die du kontrollierst."
     },
     "footer": {
       "label": "Fußzeile",
-      "sourceCode": "Quellcode"
+      "sourceCode": "Quellcode",
+      "blurb": "openplate ist ein Open-Source-Ernährungstagebuch, entwickelt in Berlin. Die App und der Sync-Server stehen unter der MIT-Lizenz.",
+      "product": "Produkt",
+      "selfHosting": "Self-Hosting",
+      "project": "Projekt",
+      "legal": "Rechtliches"
     },
     "language": {
       "label": "Sprache"
@@ -34,21 +45,23 @@
       "title": "openplate",
       "hero": {
         "body": "openplate ist ein Open-Source-Ernährungstagebuch, das auf deinem Gerät läuft, mit einem optionalen Fotoscan, der die Makronährstoffe auf deinem Teller schätzt. Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken.",
-        "lead": "Es ist für alle gedacht, die ihre Ernährung erfassen wollen, ohne ihr Tagebuch an fremde Server zu schicken.",
+        "lead": "openplate ist für Personen gedacht, die ihre Ernährung erfassen wollen, ohne ihre Daten an fremde Server zu senden.",
         "openApp": "App öffnen",
         "readSource": "Quellcode lesen",
         "inviteNote": "Die gehostete Instanz ist nur auf Einladung zugänglich. Für deine eigene Kopie brauchst du keine Einladung.",
-        "shotAlt": "Das openplate Tagebuch für einen Tag: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den eingetragenen Mahlzeiten unter Frühstück und Mittagessen."
+        "shotAlt": "Das openplate-Tagebuch für einen Tag auf einem Computerbildschirm. Netto-Kohlenhydrate werden mit dem Tageslimit abgeglichen. Kalorien, Protein, Fett und Ballaststoffe sind ihren Zielwerten gegenübergestellt. Die Nahrung des Tages teilt sich in Kohlenhydrate, Ballaststoffe, Protein und Fett auf.",
+        "researchBadge": "Wir suchen Forschungspartner",
+        "researchLink": "Mehr lesen"
       },
       "whatItIs": {
         "heading": "Was openplate ist"
       },
       "features": {
-        "heading": "Was du damit machst",
+        "heading": "Was du mit openplate tun kannst",
         "add": {
           "title": "Essen eintragen",
           "body": "Durchsuche die Lebensmitteldatenbank oder wähle etwas aus, das du zuvor eingetragen hast, und der Eintrag landet beim gewählten Tag unter der jeweiligen Mahlzeit.",
-          "alt": "Die Ansicht „Essen eintragen“: ein Suchfeld, ein Button für „Teller scannen“ und eine Liste kürzlich eingetragener Lebensmittel mit ihren Netto-Kohlenhydraten."
+          "alt": "Die Ansicht zum Hinzufügen von Lebensmitteln: Ein Suchfeld, dein gewohntes Abendessen, eine Schaltfläche zum Scannen eines Tellers und kürzlich erfasste Lebensmittel mit ihren Netto-Kohlenhydraten."
         },
         "scan": {
           "title": "Teller scannen",
@@ -56,14 +69,14 @@
           "alt": "Die Scan-Ansicht: bietet an, einen KI-Anbieter zu verbinden, bevor ein Foto gelesen wird, sowie die Möglichkeit, das Essen ohne KI einzutragen."
         },
         "goals": {
-          "title": "Ziele festlegen",
-          "body": "Ein tägliches Kohlenhydratlimit und ein Eiweißziel, oder keines von beidem. Jedes Ziel ist optional und das Leeren eines Feldes entfernt es.",
-          "alt": "Die Ansicht „Ziele“: ein tägliches Limit für Netto-Kohlenhydrate mit Vorgaben und einem eigenen Feld sowie ein Eiweißziel in Gramm."
+          "title": "Wähle deine Ernährungsweise",
+          "body": "Low-Carb, Kalorien, viel Protein oder einfaches Erfassen. Der gewählte Stil legt fest, welches Ziel den Tag bewertet, und jedes Ziel ist optional.",
+          "alt": "Die Ansicht für Ernährung und Ziele: Optionen für den Ernährungsstil, von Low-Carb bis zu einfachem Erfassen, und voreingestellte tägliche Kohlenhydratlimits."
         },
         "overview": {
           "title": "Den Stand des Tages sehen",
-          "body": "Wie viel vom Limit noch übrig ist, ob das Eiweißziel erreicht wurde und wie viele der letzten sieben Tage du erfasst hast.",
-          "alt": "Die Übersicht: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und einer Karte für die letzten sieben Tage."
+          "body": "Netto-Kohlenhydrate, Kalorien, Protein, Fett und Ballaststoffe für den Tag, jeweils im Vergleich zum Zielwert dargestellt, und die Anzahl der letzten sieben Tage, an denen du Einträge erfasst hast.",
+          "alt": "Die Übersichtsseite: Netto-Kohlenhydrate, Kalorien, Protein, Fett und Ballaststoffe des Tages, jeweils mit einem Balken im Vergleich zum Zielwert dargestellt."
         }
       },
       "illustrations": {
@@ -90,7 +103,7 @@
         }
       },
       "stack": {
-        "heading": "Der Stack",
+        "heading": "Drei Komponenten, neben der App alle optional",
         "app": {
           "name": "App"
         },
@@ -99,7 +112,8 @@
         },
         "inference": {
           "name": "Inferenz-Runtime"
-        }
+        },
+        "intro": "Die App funktioniert alleine, um ein Tagebuch zu führen. Der Sync-Server und die Inferenz-Runtime erweitern den Funktionsumfang. Beide sind separate Programme, die du selbst betreiben oder ganz weglassen kannst."
       },
       "topology": {
         "heading": "Wohin deine Daten fließen"
@@ -108,23 +122,32 @@
         "heading": "Wer welche Daten hält"
       },
       "analytics": {
-        "heading": "Analytics",
+        "heading": "Was wir messen",
         "body": "openplate zeichnet nichts auf, bis ein Betreiber das Tracking aktiviert. Die gehostete Instanz auf openplate.de zählt Seitenaufrufe und welche Funktionen genutzt werden. Sie erfährt nie, was du isst, wiegst oder einträgst. Wer eine eigene Kopie betreibt, wählt eine von drei Stufen, von reinen Seitenaufrufen bis hin zu einer Forschungsstufe, die das Gesundheitsverhalten für eine Studie mit einwilligenden Teilnehmenden erfasst. Es sind keine Drittanbieter zwischengeschaltet. Die Zahlen landen in einer selbst betriebenen Matomo-Instanz, bei komplett deaktivierten Cookies. Die <configuration>Konfiguration</configuration> listet jedes Ereignis auf jeder Stufe auf."
       },
       "access": {
-        "heading": "Zugang",
+        "heading": "Zugang erhalten",
         "body": "Die gehostete Instanz unter openplate.de ist nur auf Einladung zugänglich. Eine Einladung wird durch die Administration verschickt, eine offene Registrierung gibt es nicht. Wenn du lieber deine eigene Kopie betreiben möchtest, siehe <selfHosting>Self-Hosting</selfHosting>."
       },
       "openSource": {
         "heading": "Open Source",
         "body": "openplate und openplate-core stehen unter der MIT-Lizenz. openplate-inference hat eigene Bedingungen, die sich nach den mitgelieferten Modellgewichten richten; der Lizenzleitfaden listet sie auf. Lies den Code, ändere ihn, betreibe ihn selbst: <repoApp>github.com/LowCarbCheck/openplate</repoApp>, <repoSync>github.com/LowCarbCheck/openplate-core</repoSync>, <repoInference>github.com/LowCarbCheck/openplate-inference</repoInference>."
+      },
+      "why": {
+        "heading": "Warum es openplate gibt",
+        "body": "Die meisten Ernährungstracker speichern dein Tagebuch auf ihren Servern, wo du keine Kontrolle darüber hast. openplate funktioniert umgekehrt. Dein Tagebuch bleibt auf deinem Gerät. Der Quellcode ist öffentlich, sodass ihn jeder prüfen kann. Jeder zusätzliche Dienst, einschließlich Synchronisierung und Foto-Scanning, ist optional, und du kannst jeden Teil selbst hosten."
+      },
+      "research": {
+        "heading": "Forschungspartner",
+        "body": "Wir suchen Universitäten, Ernährungsforscher und klinische Teams, die mit openplate arbeiten möchten. Ein Tagebuch, das auf dem Gerät der teilnehmenden Person gespeichert wird, Code, den eine Ethikkommission prüfen kann, und Forschungsanalysen, die nur mit Einwilligung aufzeichnen, machen openplate zu einer praktischen Basis für Ernährungsstudien.",
+        "cta": "Wie wir mit Forschenden zusammenarbeiten"
       }
     },
     "app": {
       "title": "Die App",
       "lead": "openplate erfasst Mahlzeiten und schätzt auf Wunsch die Makronährstoffe auf einem Teller anhand eines Fotos. Suche nach einem Lebensmittel oder scanne einen Teller, und der Eintrag landet in deinem Tagebuch für den Tag. Bei einer eigenen Installation gibt es keinen Registrierungsbildschirm: Öffne die App und leg los. Auf der gehosteten Instanz meldest du dich zuerst an.",
       "shotIntro": "Das Tagebuch zeigt jeweils einen Tag: die eingetragenen Mahlzeiten, was sie vom Tageslimit verbrauchen und was davon übrig ist.",
-      "shotAlt": "Das openplate Tagebuch auf einem Smartphone: ein Ring mit den verbleibenden Netto-Kohlenhydraten vom Tageslimit, der Eiweißmenge und den Mahlzeiten des Tages, gruppiert unter Frühstück und Mittagessen.",
+      "shotAlt": "Das openplate-Tagebuch auf einem Smartphone. Netto-Kohlenhydrate werden mit dem Tageslimit abgeglichen. Kalorien, Protein, Fett und Ballaststoffe sind ihren Zielwerten gegenübergestellt.",
       "stores": {
         "heading": "Was auf dem Gerät gespeichert wird"
       },
@@ -230,6 +253,77 @@
     },
     "notFound": {
       "title": "Seite nicht gefunden"
+    },
+    "research": {
+      "title": "Forschung",
+      "heading": "openplate für die Forschung",
+      "lead": "Wir suchen Forschungspartner: Universitätsgruppen, Ernährungsforscher, Diätassistenten und Public-Health-Teams, die die Nahrungsaufnahme untersuchen. openplate ist ein Open-Source-Ernährungstagebuch, das auf dem Gerät der teilnehmenden Person läuft, und wir möchten, dass es sowohl der Forschung als auch der täglichen Protokollierung dient.",
+      "why": {
+        "heading": "Warum sich openplate für eine Studie eignet",
+        "open": {
+          "title": "Offener Quellcode",
+          "body": "Die App und der Sync-Server sind unter der MIT-Lizenz veröffentlicht. Eine Ethikkommission oder ein Datenschutzbeauftragter kann direkt prüfen, wie die Software Daten verarbeitet, statt sich auf Herstellerangaben zu verlassen."
+        },
+        "device": {
+          "title": "Das Tagebuch bleibt auf dem Gerät",
+          "body": "Das Tagebuch der Teilnehmenden verbleibt auf deren eigenem Telefon oder Computer. Die Synchronisation ist optional und verschlüsselt. Für Studien lässt sich der Sync-Server auf der Infrastruktur der eigenen Institution betreiben."
+        },
+        "consent": {
+          "title": "Einwilligung steht an erster Stelle",
+          "body": "Die Analysefunktion bietet eine Forschungsstufe, die das Gesundheitsverhalten für Studien mit einwilligenden Teilnehmenden erfasst. Sie bleibt deaktiviert, bis die Instanzverwaltung sie einschaltet."
+        },
+        "photo": {
+          "title": "Erfassung über Fotos",
+          "body": "Teilnehmende können Mahlzeiten erfassen, indem sie ihr Tellerfoto aufnehmen. Bildschätzungen laufen wahlweise über ein Cloud-Modell oder über openplate-inference auf Hardware, die deine Institution kontrolliert."
+        }
+      },
+      "offer": {
+        "heading": "Unser Angebot",
+        "base": {
+          "title": "Eine Basis zum Weiterbauen",
+          "body": "Richte eine Instanz auf der Infrastruktur deiner Institution ein und passe sie an dein Studienprotokoll an. Es fallen weder Lizenzgebühren noch Verträge mit Drittanbietern an."
+        },
+        "custom": {
+          "title": "Studienspezifische Builds",
+          "body": "Wir konfigurieren openplate für dein Studienprotokoll, einschließlich eigener Ernährungsziele, Fragebögen, Lebensmitteldatenbanken und Sprachen."
+        },
+        "export": {
+          "title": "Datenexport mit Einwilligung",
+          "body": "Teilnehmende teilen Tagebucheinträge erst nach ausdrücklicher Einwilligung mit der Studie. Wir strukturieren Exporte so, dass sie zu deiner Analysepipeline passen."
+        },
+        "grants": {
+          "title": "Gemeinsame Anträge und Publikationen",
+          "body": "Wir suchen Mitantragstellende für Förderanträge und Co-Autoren für gemeinsame Publikationen, etwa zur bildbasierten Ernährungserfassung."
+        }
+      },
+      "seek": {
+        "heading": "Wen wir suchen",
+        "nutrition": "Universitäre Arbeitsgruppen in Ernährungswissenschaft, Medizin und Public Health",
+        "clinical": "Ernährungsfachkräfte und klinische Teams, die Interventionsstudien durchführen",
+        "hci": "Forschende im Bereich Mensch-Computer-Interaktion, die Self-Tracking untersuchen",
+        "vision": "Gruppen, die an automatischer Speisenerkennung und Portionsschätzung aus Bildern arbeiten"
+      },
+      "process": {
+        "heading": "Ablauf einer Zusammenarbeit",
+        "write": {
+          "title": "Schreib uns",
+          "body": "Erzähle uns von deiner Arbeitsgruppe, deinen Forschungsfragen und deinem Zeitplan."
+        },
+        "call": {
+          "title": "Erstgespräch",
+          "body": "Wir besprechen dein Studienprotokoll, den aktuellen Funktionsumfang von openplate und welche Anpassungen deine Studie erfordert."
+        },
+        "scope": {
+          "title": "Schriftlicher Rahmen",
+          "body": "Bevor die Arbeit beginnt, legen wir die Arbeitspakete, Verfahren zur Datenverarbeitung und Rechte an den Ergebnissen schriftlich fest."
+        }
+      },
+      "contact": {
+        "heading": "Kontakt aufnehmen",
+        "body": "Schreibe eine E-Mail an <email>{{email}}</email>. Eine kurze Zusammenfassung reicht: dein Team, dein Forschungsschwerpunkt und was deine Studie von openplate benötigt.",
+        "button": "Schreib uns",
+        "subject": "Forschungskooperation mit openplate"
+      }
     }
   }
 }

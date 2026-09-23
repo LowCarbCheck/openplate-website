@@ -63,14 +63,14 @@ export function DocPage({
 
   return (
     <DocsShell index={index} place={{ kind: 'doc', component: doc.component, slug: doc.slug }} sections={sections}>
-      <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{t(`components.${doc.component}`)}</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t(`components.${doc.component}`)}</p>
       {/* The title carries its own anchor. A doc that links to another one BY
           ITS TITLE — `sync.md#sync-across-devices` — lands on the h1, and without
           an id here that link arrives at the top of the page and scrolls
           nowhere. */}
       <h1
         id={titleId ?? slugify(doc.title)}
-        className="mt-4 scroll-mt-20 text-balance font-display text-[clamp(2rem,4.5vw,3rem)] font-semibold leading-[1.08] tracking-[-0.015em]"
+        className="mt-4 scroll-mt-20 text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
       >
         {doc.title}
       </h1>

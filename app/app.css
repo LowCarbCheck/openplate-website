@@ -4,54 +4,105 @@
 @source "../app/**/*.{js,jsx,ts,tsx}";
 
 /*
- * Fraunces, the display serif openplate uses for its wordmark and page titles.
- * Self-hosted (latin subset, wght 300..700), the same woff2 the app ships, so
- * the site needs no font host and no network call to a third party.
+ * Victor Mono, the site's voice since the M243 restyle, self-hosted like Inter.
+ *
+ * The application moved its body face to Victor Mono after lowcarbcheck.org, and
+ * this site follows it so the two front doors read as one product. The files
+ * are the `@fontsource-variable/victor-mono` 5.2.8 subsets (wght 100..700) the
+ * application ships, copied verbatim; `public/fonts/LICENSE-VictorMono-OFL.txt`
+ * carries the licence (SIL OFL 1.1). It replaced Fraunces, a display serif that
+ * only the wordmark and the headings used.
+ *
+ * TWO SUBSETS, AND THE SECOND IS FOR TURKISH. The latin file carries the same
+ * range as the Inter face below, and it holds every German, French, Italian
+ * and Spanish letter. Turkish needs ğ, ş and İ, which sit in latin-ext. Inter
+ * never needed them on a heading, because headings were Fraunces; now a Turkish
+ * heading is set in THIS face, so without the second file those three letters
+ * would each fall to a different monospace. `unicode-range` means only a page
+ * that prints one of them downloads it, so no other language pays for it.
+ *
+ * `font-display: optional`, not `swap`. Measured 2026-09-23: `swap` cost a load-time
+ * layout shift of 0.0107 on `/en/` and 0.0456 on `/en/research/`, from the fallback
+ * face being replaced once the real one arrived. `optional` plus the `rel="preload"`
+ * in `app/root.tsx` for the latin files means the real face is either ready before
+ * first paint or not used for this page view at all, so nothing reflows.
  */
 @font-face {
-  font-family: 'Fraunces';
-  src: url('/fonts/fraunces-latin-var.woff2') format('woff2');
-  font-weight: 300 700;
+  font-family: 'Victor Mono';
+  src: url('/fonts/victor-mono-latin-var.woff2') format('woff2');
+  font-weight: 100 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
   unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Victor Mono';
+  src: url('/fonts/victor-mono-latin-ext-var.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: optional;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 /*
- * Inter, the prose and UI voice, self-hosted on the same terms as Fraunces.
+ * Inter, the reading voice: running paragraphs and the documentation prose.
  *
- * ── WHY A SECOND FACE, WHEN THIS FILE ONCE ARGUED AGAINST ONE ──
- * Body copy used to fall through to the system sans, and the comment here said
- * a downloaded face "would cost more than it says". That was written without
- * the number. The latin subset is 48 KB against the 67 KB serif this site
- * already downloads, so the second face is the CHEAPER of the two, and the
- * system sans was never free: it made the site render differently on every
- * operating system, which is the one thing a wordmark and a palette exist to
- * prevent. openplate's own DESIGN.md has required Inter for body copy since
- * M129; the site was the surface that did not follow it.
+ * A monospace paragraph measures about 35 characters per line in a phone
+ * column, which is under the readable floor, so long copy opts back into this
+ * face through the `font-prose` role. The latin subset is 48 KB and covers
+ * U+0000-00FF, so German umlauts and French accents are all in this one file.
  *
- * The latin subset covers U+0000-00FF, so German umlauts and French accents
- * are all in this one file. No second request for the two prefixed languages.
+ * `font-display: optional`, paired with the preload in `app/root.tsx`: see the
+ * Victor Mono comment above for why.
  */
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-latin-var.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
     U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @theme {
-  --radius: 0.75rem;
+  /* Square corners everywhere, as in the application (its DESIGN.md section
+     5): every derived radius resolves to 0, so a `rounded-lg` that survives
+     anywhere draws no corner at all. `rounded-full` does not read these
+     tokens, and stays for the one shape that is a circle by design. */
+  --radius: 0px;
+  --radius-xs: var(--radius);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
 
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'Victor Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* The font ROLES, named as the application names them. A page asks for a
+     role, never for a face, so a taste reversal is one line here.
+
+     body:  on <body>, so headings, navigation, buttons, labels, card titles,
+            short leads and tables. Victor Mono, with Inter behind it for a
+            glyph it lacks.
+     prose: running paragraphs and the documentation text. Inter.
+     brand: the wordmark, and only the wordmark (`wordmark.tsx`). Exposed as
+            `font-display`, which no other file uses. */
+  --font-body: 'Victor Mono', 'Inter', ui-monospace, monospace;
+  --font-prose: var(--font-sans);
+  --font-brand: 'Victor Mono', ui-monospace, monospace;
+  --font-display: var(--font-brand);
 }
 
 /*
@@ -106,11 +157,6 @@
     --border: 192 22% 85%;
     --primary: 179 92% 25%;
     --primary-foreground: 0 0% 100%;
-    /* The hero texture is a mask over a --primary wash, so its strength is a
-       token like any other. Light needs MORE than dark: the dark theme's
-       --primary is far brighter than its own background, so the same alpha
-       reads about twice as strong there. Measured on the render, not guessed. */
-    --texture-opacity: 0.1;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -123,7 +169,6 @@
       --border: 192 16% 17%;
       --primary: 172 70% 52%;
       --primary-foreground: 187 90% 8%;
-      --texture-opacity: 0.06;
     }
   }
 
@@ -139,7 +184,6 @@
     --border: 192 16% 17%;
     --primary: 172 70% 52%;
     --primary-foreground: 187 90% 8%;
-    --texture-opacity: 0.06;
   }
 }
 
@@ -191,7 +235,12 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
+    @apply bg-background font-body text-foreground antialiased;
+    /* Victor Mono draws -> and <= and similar pairs as joined ligatures, and
+       the documentation prints exactly those in commands. A ligature would
+       redraw what a reader has to type, so the body turns them off, as the
+       application does. Inherited, so one declaration covers the site. */
+    font-variant-ligatures: none;
   }
 
   :focus-visible {
@@ -217,63 +266,51 @@
 
 @layer components {
   /*
-   * The branded surface treatments, ported from the application's M129 design
-   * pass (`openplate/app/app.css`).
-   *
-   * ── WHY THESE ARRIVED LATE ──
-   * This site's front page IS the application's landing page, moved to this
-   * host in M194. The SHAPE moved. These treatments did not, so the page has
-   * been flat since: a wordmark on flat black in the dark theme and flat near
-   * white in the light one, with no depth behind it. That was a regression
-   * from the move rather than a decision, and this closes it.
+   * The two hero surfaces, copied from the application (`openplate/app/app.css`)
+   * in the M243 restyle, which took both after lowcarbcheck.org.
    *
    * ── NO COLOUR LITERAL, ON PURPOSE ──
-   * Both are pure gradients over whatever background the element already has,
-   * expressed entirely in `--primary`. The token is themed, so both
-   * appearances are covered by one rule and the theme toggle re-tints them for
-   * nothing. This is the same rule the illustrations follow, and the same one
-   * `openplate-workspace/CLAUDE.md` states for every member: a brand colour is
-   * never typed into a member repository.
+   * Both are gradients over themed tokens, so both appearances are covered by
+   * one rule and the theme toggle re-tints them for nothing. A brand colour is
+   * never typed into a member repository (`openplate-workspace/CLAUDE.md`).
+   *
+   * The teal glow and the ring texture this replaces are gone. Teal is an
+   * accent here, kept for links, the one filled button, the active navigation
+   * item and the "open" of the wordmark; a teal backdrop spent it on a surface.
    */
 
-  /* The hero backdrop: a soft elliptical brand glow behind the whole
-     composition, so the page has depth behind the wordmark. */
+  /* The hero backdrop: a soft ellipse of the muted surface behind the
+     composition, so the page has depth without a colour of its own. */
   .brand-glow {
-    background-image: radial-gradient(60% 55% at 50% 38%, hsl(var(--primary) / 0.2) 0%, transparent 72%);
+    background-image: radial-gradient(60% 55% at 50% 38%, hsl(var(--muted)) 0%, transparent 72%);
+  }
+
+  /* Graph paper, 28px cells drawn in the themed `--border`, so the rule reads
+     in both themes with no second declaration. Worn by the front page's hero
+     and nothing else. */
+  .surface-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.7) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+  }
+
+  /* Long-form reading stays in Inter. `.prose` is the typography plugin's
+     class, which sets no family of its own, so this is where it gets one. */
+  .prose {
+    font-family: var(--font-prose);
   }
 
   /*
-   * The texture over the glow. `public/textures/hero-rings.webp` is a GREYSCALE
-   * ALPHA MAP, not a picture: its brightness becomes opacity and the colour
-   * comes from `--primary`, so one file serves both themes and each tints it
-   * from its own token. `public/textures/PROVENANCE.md` records the model, the
-   * prompt and the licence, and says why it must never be replaced by a
-   * coloured image.
-   *
-   * `mask-size: 100% 100%` and NOT `cover`. Stretching a soft abstract costs
-   * nothing a reader can see, while `cover` crops a 2.2:1 band to whatever the
-   * hero happens to be and throws the composition away.
-   *
-   * The second mask layer fades the bottom out so the texture does not stop on
-   * a hard horizontal edge where the hero meets the section under it. It is
-   * composited `intersect`, so a pixel survives only where BOTH the rings and
-   * the fade allow it. The gradient is read in `alpha` mode, which is why its
-   * stops are opaque black to transparent rather than white to black.
+   * The labels inside the drawings in `components/illustrations/` stay in
+   * Inter. Each one is placed at a fixed x inside a fixed viewBox, measured
+   * against Inter when it was drawn, and a monospace letter is wider: set in
+   * Victor Mono the longer German labels would run past their boxes. A label
+   * in a drawing is part of the picture, not a line of UI.
    */
-  .brand-texture {
-    background-color: hsl(var(--primary) / var(--texture-opacity));
-    mask-image: url('/textures/hero-rings.webp'), linear-gradient(to bottom, black 55%, transparent 100%);
-    mask-mode: luminance, alpha;
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    mask-composite: intersect;
-  }
-
-  /* The quiet sibling, for a secondary panel. Same idea at roughly a third of
-     the strength, brightest at the top left so a card has a light source
-     rather than reading as one uniformly tinted block. */
-  .surface-brand-soft {
-    background-image: linear-gradient(140deg, hsl(var(--primary) / 0.09) 0%, hsl(var(--primary) / 0.015) 70%);
+  svg text {
+    font-family: var(--font-prose);
   }
 
   /*
@@ -357,8 +394,8 @@
     /*
      * The label reads as a label, in the same vocabulary as the <th> it stands
      * in for: small, uppercase, tracked out, muted. Same declarations as the
-     * `text-xs uppercase tracking-[0.1em] text-muted-foreground` on the header
-     * cell, written out because a generated box cannot carry a class.
+     * `text-xs font-semibold uppercase tracking-wide text-muted-foreground` on
+     * the header cell, written out because a generated box cannot carry a class.
      */
     .doc-table td[data-label]::before {
       content: attr(data-label);
@@ -366,7 +403,8 @@
       margin-bottom: 0.125rem;
       font-size: 0.75rem;
       line-height: 1rem;
-      letter-spacing: 0.1em;
+      font-weight: 600;
+      letter-spacing: 0.025em;
       text-transform: uppercase;
       color: hsl(var(--muted-foreground));
     }

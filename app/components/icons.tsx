@@ -241,6 +241,18 @@ export function CloseIcon({ className }: IconProps) {
   );
 }
 
+/**
+ * lucide 0.475.0: `chevron-down`. Same licence and grid as the pair above. It marks the header's
+ * Self-hosting button as one that opens a list rather than a page.
+ */
+export function ChevronDownIcon({ className }: IconProps) {
+  return (
+    <svg {...SVG} {...OUTLINE} className={className}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 export function PanelLeftIcon({ className }: IconProps) {
   return (
     <svg {...SVG} {...OUTLINE} className={className}>

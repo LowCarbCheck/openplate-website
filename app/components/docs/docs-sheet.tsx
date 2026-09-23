@@ -75,13 +75,13 @@ export function DocsSheet({
       >
         <div className="flex max-h-[inherit] min-h-full flex-col px-4 pt-2">
           <div className="flex items-center justify-between gap-4">
-            <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground">{label}</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{label}</p>
             {/* First in the panel, so `showModal` focuses it rather than the
                 first link, which would scroll a long list on open. */}
             <button
               type="button"
               onClick={close}
-              className="-mr-2 flex items-center rounded-full p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="-mr-2 flex items-center p-3 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <CloseIcon className="h-5 w-5" />
               <span className="sr-only">{t('closeSheet')}</span>
