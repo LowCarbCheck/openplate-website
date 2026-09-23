@@ -10265,12 +10265,6 @@
     "at": "2026-09-12",
     "de": "{{0}} Zwei Heartbeats hinterlassen eine Zeile mit dem späteren Ablaufzeitpunkt. Die Zeile läuft {{1}} nach dem letzten Heartbeat ab, und {{2}} zählt nur nicht abgelaufene Zeilen. Die Präsenz wird über das Konto und nicht anonym zugeordnet, da Ratenbegrenzung und Deduplizierung beide eine Identität benötigen und ein anonymer Heartbeat wiederholt werden könnte, um die Zahl künstlich zu erhöhen (ADR-0007)."
   },
-  "b65563e5c9238160": {
-    "en": "{{0}} the operator's identity — company name, address, managing director, register number and court, VAT id. Those live in {{1}} and are rendered from one copy in both languages, so the two documents cannot name different companies. The tool never saw them.",
-    "model": "google/gemini-3.8-flash",
-    "at": "2026-09-04",
-    "de": "{{0}} die Identität des Betreibers, Firmenname, Adresse, Geschäftsführung, Registernummer und Registergericht, Umsatzsteuer-ID. Diese liegen in {{1}} und werden in beiden Sprachen aus einer einzigen Kopie erzeugt, sodass die beiden Dokumente keine unterschiedlichen Firmen nennen können. Das Werkzeug hat sie nie gesehen."
-  },
   "b689a4b0bdd4d0f0": {
     "en": "Per-account-and-kind CAS on key records via {{0}}, with the same \"absent field is a {{1}}\" rule.",
     "model": "google/gemini-3.8-flash",
