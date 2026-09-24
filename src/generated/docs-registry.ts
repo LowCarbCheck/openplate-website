@@ -14,6 +14,7 @@ import { DOC as app_topologies } from './docs/app/topologies';
 import { DOC as app_family_setup } from './docs/app/family-setup';
 import { DOC as app_content } from './docs/app/content';
 import { DOC as app_podman } from './docs/app/podman';
+import { DOC as app_import_from_yazio } from './docs/app/import-from-yazio';
 import { DOC as core_protocol } from './docs/core/protocol';
 import { DOC as inference_hardware } from './docs/inference/hardware';
 import { DOC as inference_runtimes } from './docs/inference/runtimes';
@@ -33,6 +34,7 @@ export const DOCS: DocsRegistry = {
     'family-setup': app_family_setup,
     'content': app_content,
     'podman': app_podman,
+    'import-from-yazio': app_import_from_yazio,
   },
   core: {
     'protocol': core_protocol,

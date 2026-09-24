@@ -131,6 +131,12 @@
     "at": "2026-09-23",
     "fr": "clé d'essai"
   },
+  "01f0298d45d1ec50": {
+    "en": "{{0}} This usually happens when YAZIO's database no longer has the food, so the export lists the diary entry without its nutrients. A food you deleted from your YAZIO diary is not skipped, because it is not in the export at all.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Cela arrive en général lorsque la base de YAZIO ne contient plus l'aliment, ce qui fait que l'export liste l'entrée du journal sans ses nutriments. Un aliment que tu as supprimé de ton journal YAZIO n'est pas ignoré, car il ne figure pas du tout dans l'export."
+  },
   "02109f95680ef8f1": {
     "en": "{{0}} needs no operator setting: each person turns it on under {{1}}. It sends rounded counts. A meal counts once with its calories rounded to 50 and its protein to 5 g. A scan counts once, and a running fast sends a heartbeat. The home screen shows the instance total for today. The server keeps day totals and a record of who contributed on each day, for 30 days.",
     "model": "google/gemini-3.8-flash",
@@ -317,11 +323,23 @@
     "at": "2026-09-12",
     "fr": "{{0}}, que le service de push a généré et qui est unique au monde. {{1}} effectue une insertion-mise à jour dessus : un appareil qui enregistre à nouveau le même endpoint reçoit {{2}} et conserve le jour de sa première apparition."
   },
+  "056404c7d5acd1e4": {
+    "en": "delivered no answer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "n'a remis aucune réponse"
+  },
   "056e2904a1f0740b": {
     "en": "The reference implementation is {{0}} in both {{1}} files, pure, total, and returning a user-presentable sentence rather than a boolean.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "L'implémentation de référence correspond à {{0}} dans les deux fichiers {{1}}, pure, totale, et renvoyant une phrase présentable à l'utilisateur plutôt qu'un booléen."
+  },
+  "056f89a9e8ee8fdb": {
+    "en": "The instance decides what one request may cost.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "L'instance détermine le coût maximal autorisé pour une requête."
   },
   "057a245751bd51be": {
     "en": "The client no longer shows the recovery code to the person (§3.1), so an account created without an escrow is one no reset can ever restore, and its owner was never warned.",
@@ -599,6 +617,12 @@
     "at": "2026-09-23",
     "fr": "Pages de contenu"
   },
+  "0a2cb61c26758d36": {
+    "en": "If it goes wrong",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "En cas de problème"
+  },
   "0a35f99d3f6e27dd": {
     "en": "{{0}} An openplate client uses exactly one of these endpoints, and only when the signed-in account is an admin: the console the app renders at {{1}}. An alternative client may ignore this section entirely.",
     "model": "google/gemini-3.8-flash",
@@ -700,6 +724,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Chaque personne la colle."
+  },
+  "0c46587e565f79a6": {
+    "en": "{{0}} The export repeats your last weight on every day until your next weigh-in. openplate keeps a day only when its weight differs from the previous day. Two consecutive weigh-ins with the exact same weight therefore import as one entry.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} L'export répète ton dernier poids chaque jour jusqu'à ta pesée suivante. openplate ne conserve un jour que si son poids diffère du jour précédent. Deux pesées consécutives affichant exactement le même poids sont donc importées sous la forme d'une seule entrée."
   },
   "0c5157aa7da6cdf9": {
     "en": "All three bearer.",
@@ -827,6 +857,12 @@
     "at": "2026-09-06",
     "fr": "Toutes les variables d'environnement, et les options de base de données d'aliments ({{0}})"
   },
+  "0e37966eba43df51": {
+    "en": "{{0}} You selected duplicate files, such as two copies of {{1}} or of {{2}}. Select one of each.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Tu as sélectionné des fichiers en double, comme deux copies de {{1}} ou de {{2}}. Sélectionne un exemplaire de chaque."
+  },
   "0e50d963916d4998": {
     "en": "The address names a person in the world",
     "model": "google/gemini-3.8-flash",
@@ -904,6 +940,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} Le service ne stocke rien entre les requêtes. Il n'y a rien à exporter, à pirater ou à réquisitionner."
+  },
+  "1029784a50387c6d": {
+    "en": "If you kept a food diary in {{0}} and want to move it into openplate, follow these steps. Install one export tool, run four commands, then select the exported files on openplate's {{1}} screen. You do not need developer experience beyond typing commands into a terminal.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Si tu tenais un journal alimentaire dans {{0}} et que tu souhaites le transférer dans openplate, suis ces étapes. Installe un outil d'exportation, exécute quatre commandes, puis sélectionne les fichiers exportés sur l'écran {{1}} d'openplate. Tu n'as besoin d'aucune compétence de développement en dehors de taper des commandes dans un terminal."
   },
   "103388af1fe1c6a0": {
     "en": "{{0}} when {{1}} is not a plausible address or {{2}} is not 32 base64-decoded bytes: the request never reaches the credential check, so this status carries no information about whether the account exists. {{3}} for an unknown account and for a wrong auth-hash, with {{4}} body text and after {{5}}, because the verifier comparison runs on both branches against a full-width stand-in. {{6}} when the account is suspended, checked AFTER the credential, so only somebody who has proved they own the account is told why the door is shut. {{7}} when throttled.",
@@ -995,6 +1037,12 @@
     "at": "2026-09-06",
     "fr": "Le code est ici, il est court, et la surface réseau se résume à un seul port."
   },
+  "10f75328491a56e0": {
+    "en": "Get your diary out of YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Exporter ton journal depuis YAZIO"
+  },
   "11239872d178729a": {
     "en": "total",
     "model": "google/gemini-3.8-flash",
@@ -1037,6 +1085,12 @@
     "at": "2026-09-06",
     "fr": "appliquée"
   },
+  "11a947f4e74687e5": {
+    "en": "Your YAZIO email and password.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ton adresse e-mail et ton mot de passe YAZIO."
+  },
   "120f302e21dc2a2d": {
     "en": "Requests spent today, after this one",
     "model": "google/gemini-3.8-flash",
@@ -1048,6 +1102,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-08",
     "fr": "La requête est effectuée par le {{0}}, pas par le navigateur, et c'est bien le but : ajouter {{1}} à la {{2}} de production élargirait la seule liste d'autorisation qui empêche un script injecté d'exfiltrer une clé BYOK. Elle ne transporte aucun jeton, aucun identifiant d'instance et aucun numéro de version, donc GitHub ne voit qu'une adresse IP et un user-agent par défaut, rien d'autre. Voir {{3}}."
+  },
+  "123391cebcea852f": {
+    "en": "Choose the YAZIO files",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Choisir les fichiers YAZIO"
   },
   "1257ac04471db97b": {
     "en": "Cap",
@@ -1271,6 +1331,12 @@
     "at": "2026-09-06",
     "fr": "second"
   },
+  "1654c6c48afd35af": {
+    "en": "/v1/admin/accounts/expiring` selects two columns in the query rather than filtering a row afterwards.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "/v1/admin/accounts/expiring` sélectionne deux colonnes dans la requête au lieu de filtrer une ligne après coup."
+  },
   "167011c0651aba97": {
     "en": "already revoked",
     "model": "google/gemini-3.8-flash",
@@ -1319,6 +1385,12 @@
     "at": "2026-09-06",
     "fr": "Le modèle identifie les aliments et estime les grammes. {{0}}"
   },
+  "16f9a9e83079b64e": {
+    "en": "Import into openplate",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Importer dans openplate"
+  },
   "1709305c9fa966d1": {
     "en": "Level",
     "model": "google/gemini-3.8-flash",
@@ -1355,6 +1427,12 @@
     "at": "2026-09-23",
     "fr": "NE DOIT PAS autoriser avec cette valeur"
   },
+  "1848d6a932b7b80b": {
+    "en": "openplate reads the files on your device and displays a preview. It shows the number of entries it will add, the number of days they cover, the first and last day, and any skipped items with the reason. If some of these days already have entries in your openplate diary, the preview shows how many. After the import, those days show both your own entries and the imported ones. With {{0}}, the preview also shows how many weigh-ins it will add and the first and last weight, in kilograms. Nothing is written to your diary yet.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate lit les fichiers sur ton appareil et affiche un aperçu. Il indique le nombre d'entrées qu'il va ajouter, le nombre de jours couverts, le premier et le dernier jour, ainsi que les éléments ignorés avec le motif associé. Si certains de ces jours contiennent déjà des entrées dans ton journal openplate, l'aperçu indique combien. Après l'import, ces jours affichent à la fois tes propres entrées et celles importées. Avec {{0}}, l'aperçu montre aussi le nombre de pesées qu'il ajoutera ainsi que le premier et le dernier poids, en kilogrammes. Rien n'est encore inscrit dans ton journal."
+  },
   "184c09c20f1c8642": {
     "en": "{{0}} takes {{1}} → {{2}} {{3}}. The key MUST be present, even as {{4}}: an absent key is a {{5}}, the same rule {{6}} and {{7}} follow, because a PATCH that quietly did nothing over a misspelled field name is a change the client believes it made.",
     "model": "google/gemini-3.8-flash",
@@ -1379,6 +1457,12 @@
     "at": "2026-09-12",
     "fr": "Un avis sur un blob, et ce n'est pas superflu."
   },
+  "18885f27b5af9012": {
+    "en": "Python",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Python"
+  },
   "188f2b4e712f5b45": {
     "en": "The whole submission commits in one transaction",
     "model": "google/gemini-3.8-flash",
@@ -1390,6 +1474,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "Les identifiants sont conservés pendant 24 heures puis supprimés (§9.2). Ils ne sont jamais journalisés."
+  },
+  "18c983de86204d7c": {
+    "en": "{{0}} One upstream key may serve every account on an instance, and a daily count of requests says nothing about what one request costs. So the service rewrites these fields before it forwards, for every account, and never refuses a request for them:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Une seule clé en amont peut servir l'ensemble des comptes d'une instance, et le décompte quotidien des requêtes n'indique rien sur le coût individuel d'une requête. Le service réécrit donc ces champs avant transmission, pour chaque compte, sans jamais rejeter une requête en raison de ces valeurs :"
   },
   "18db561339e5db4c": {
     "en": "The drawing below is the whole system in five arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core. The photo leaves for whichever AI endpoint you configured. The app server sends the page, and it passes the names of the foods you look up on to a food database. It stands on neither the diary path nor the photo path.",
@@ -1426,6 +1516,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "L'ordre des refus"
+  },
+  "19766ed6ccb2f4a3": {
+    "en": "Cancel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Annuler"
   },
   "198327c59e026441": {
     "en": "{{0}} The service makes exactly two kinds of outbound request: one-time weight downloads at first boot, and (only if you enable a networked {{1}}) a {{2}} food-name lookup. No image ever leaves the container, under any configuration.",
@@ -1504,6 +1600,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-18",
     "fr": "`{\"nutrientReferenceBasis\": \"dge\" \\"
+  },
+  "1a85d3e9ec6a35d3": {
+    "en": "To undo an import, open {{0}}. If imported entries exist, the bottom of the page displays {{1}} with the number of diary entries and weigh-ins from YAZIO. Select {{2}}, then confirm. openplate removes every entry and weigh-in from the import, including any you edited afterward. It keeps everything you logged in openplate yourself. A weigh-in you log on a day with an imported one replaces it and counts as your own. If you use sync, your other devices remove the imported entries as well.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Pour annuler une importation, ouvre {{0}}. Si des entrées importées existent, le bas de la page affiche {{1}} avec le nombre d'entrées du journal et de pesées issues de YAZIO. Sélectionne {{2}}, puis confirme. openplate supprime chaque entrée et chaque pesée issues de l'importation, y compris celles que tu as modifiées ensuite. Il conserve tout ce que tu as consigné toi-même dans openplate. Une pesée que tu ajoutes un jour qui en comporte déjà une importée remplace cette dernière et compte comme la tienne. Si tu utilises la synchronisation, tes autres appareils suppriment aussi les entrées importées."
   },
   "1a99997bc347e29d": {
     "en": "What travels between your devices",
@@ -1667,6 +1769,12 @@
     "at": "2026-09-20",
     "fr": "{{0}} Ton appareil consigne les suppressions qu'il a effectuées pour pouvoir prouver qu'elles étaient délibérées, et cette liste reste sur l'appareil. Les suppressions elles-mêmes circulent ; la liste ne circule pas."
   },
+  "1e094f9f6f7322fb": {
+    "en": "{{0}} No address, no display name, no role, no suspension, no usage, no blob. `GET",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Pas d'adresse, pas de nom d'affichage, pas de rôle, pas de suspension, pas d'utilisation, pas de blob. `GET"
+  },
   "1e0f1dd48e9dbb33": {
     "en": "Blob size",
     "model": "google/gemini-3.8-flash",
@@ -1727,6 +1835,12 @@
     "at": "2026-09-06",
     "fr": "8 041 aliments génériques"
   },
+  "1fd7bea63e7851a5": {
+    "en": "github.com/aleksandr-bogdanov/yazio-exporter",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "github.com/aleksandr-bogdanov/yazio-exporter"
+  },
   "1fd9ae1607aa3d80": {
     "en": "Invite",
     "model": "google/gemini-3.8-flash",
@@ -1756,6 +1870,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-07",
     "fr": "{{0}} rétrécit la période. {{1}} doit être un entier d'au moins 1, sinon la réponse est {{2}}. {{3}}, et {{4}} indique ce qui a réellement été extrait. Quatre-vingt-dix correspond à la durée de rétention ci-dessous, donc une frise plus longue ne ferait qu'afficher des zéros pour des lignes déjà supprimées."
+  },
+  "2021289889687945": {
+    "en": "openplate does not talk to YAZIO directly. You run a separate, open-source command line tool called {{0}}. It reads your YAZIO diary and writes it to files on your computer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate ne communique pas directement avec YAZIO. Tu exécutes un outil en ligne de commande open source distinct appelé {{0}}. Il lit ton journal YAZIO et l'écrit dans des fichiers sur ton ordinateur."
   },
   "202cdd598f68b3ca": {
     "en": "Why the CPU build dies.",
@@ -1846,6 +1966,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "0,001 $ par analyse"
+  },
+  "210e654299a8462b": {
+    "en": "{{0}} When you enter calories in YAZIO without choosing a food, the entry contains no macro data for openplate to read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Quand tu saisis des calories dans YAZIO sans choisir d'aliment, l'entrée ne contient aucun macronutriment qu'openplate puisse lire."
   },
   "2158112cfab99d9c": {
     "en": "Rootless notes",
@@ -1967,6 +2093,12 @@
     "at": "2026-09-06",
     "fr": "Dérive la preuve de récupération sous {{0}} et {{1}} envoie {{2}}. Les deux sont dérivés du même code, et envoyer la branche KEK donnerait au serveur un HMAC de la valeur qui ouvre le journal (§3.1)."
   },
+  "2387a87fa4db1771": {
+    "en": "Every food you logged in YAZIO lands in openplate on the day and in the meal you logged it, with its macros scaled to the amount you ate. Your weigh-ins can come across too. Read \"What comes across and what does not\" below before you import, because a few values read differently than they did in YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Chaque aliment consigné dans YAZIO arrive dans openplate le jour et dans le repas où tu l'as saisi, avec ses macronutriments proportionnels à la quantité consommée. Tes pesées peuvent aussi être transférées. Lis « Ce qui est transféré et ce qui ne l'est pas » ci-dessous avant d'importer, car quelques valeurs diffèrent de leur affichage dans YAZIO."
+  },
   "23bafe1c7e685329": {
     "en": "Your password never leaves your browser. It is stretched with Argon2id and split by HKDF into independent branches. Two branches stay on the device to unwrap the data key and your private settings. A third branch goes to the service as the login credential. They are cryptographic siblings, not parent and child, so holding one reveals nothing about the others. Your diary is encrypted on the device before it is uploaded and stays encrypted in transit; the service stores opaque ciphertext, and what it sees beside that is an email address plus the size and timing of your uploads.",
     "model": "google/gemini-3.8-flash",
@@ -1997,11 +2129,23 @@
     "at": "2026-09-08",
     "fr": "exactement"
   },
+  "24573f4a2228ec38": {
+    "en": "{{0}} One file is valid JSON but does not contain YAZIO export data. Check that you selected the correct files.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Un fichier est un JSON valide mais ne contient pas de données d'exportation YAZIO. Vérifie que tu as sélectionné les bons fichiers."
+  },
   "246ec991be8603d4": {
     "en": "On rung three the browser sends the photo to your own inference container, which looks the macros up in a bundled dataset.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Au niveau trois, le navigateur envoie la photo à ton propre conteneur d'inférence, qui recherche les macronutriments dans un jeu de données intégré."
+  },
+  "24895a9829a8d11d": {
+    "en": "{{0}} This action overwrites any manual edits you made to an imported entry or weigh-in.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Cette action écrase toutes les modifications manuelles apportées à une entrée ou une pesée importée."
   },
   "24b1c139a9923e76": {
     "en": "{{0}} Adds {{1}} and Postgres. You gain encrypted sync across devices and an optional shared AI bill. You risk data loss if you do not back up the database, the secret, and your recovery key.",
@@ -2116,6 +2260,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "instance gérée"
+  },
+  "26a63cfd138cbd07": {
+    "en": "What comes across and what does not",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ce qui est importé et ce qui ne l'est pas"
   },
   "26b7fe47d778f39a": {
     "en": "enrolled, withdrawn, contribution sent",
@@ -2351,6 +2501,12 @@
     "at": "2026-09-06",
     "fr": "Ce dont elle a besoin"
   },
+  "2bac4a1ff61dd105": {
+    "en": "openplate open in a browser, on the same device or on a device you can copy the files to.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate ouvert dans un navigateur, sur le même appareil ou sur un appareil vers lequel tu peux copier les fichiers."
+  },
   "2c0a545f90cadbf7": {
     "en": "absent, never {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -2398,6 +2554,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} C'est l'inversion délibérée du §5.16, où {{1}} est requis car l'AAD du §3.2 le lie. Ici, chaque champ de l'AAD peut être reconstruit par le chercheur avant le déchiffrement, quatre figurent dans la réponse, et l'empreinte qu'elle calcule localement à partir de sa propre clé."
+  },
+  "2cfdbf69561bd1dc": {
+    "en": "Bringing a YAZIO diary into openplate with the open-source {{0}} tool, and what does and does not come across",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Importer un journal YAZIO dans openplate avec l'outil open source {{0}}, et ce qui est transféré ou non"
   },
   "2d16128811807999": {
     "en": "The code in this repository is MIT",
@@ -2525,6 +2687,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} Chacun de ces événements révoque {{1}} les jetons {{2}} et {{3}} actifs du compte :"
   },
+  "2f6baad6c5656cc7": {
+    "en": "Review the preview, then select {{0}}. Select {{1}} to stop without changing anything.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Vérifie l'aperçu, puis sélectionne {{0}}. Sélectionne {{1}} pour interrompre sans rien modifier."
+  },
   "2f9dddcb5a67f570": {
     "en": "Rootless Postgres.",
     "model": "google/gemini-3.8-flash",
@@ -2542,6 +2710,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Identification de photo d'assiette par IA avec ta propre clé (BYOK)"
+  },
+  "2fc50ad7e64099f5": {
+    "en": "\"One of those files isn't a YAZIO export. Pick only days.json, products.json and, if you want your weigh-ins, weight.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "« L'un de ces fichiers n'est pas une exportation YAZIO. Choisis uniquement days.json, products.json et, si tu souhaites tes pesées, weight.json. »"
   },
   "3009be769fb8f956": {
     "en": "network",
@@ -2903,6 +3077,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} est facultatif. Si tu le pointes vers un second environnement d'exécution compatible OpenAI qui sert {{1}} (par exemple {{2}}), la recherche devient {{3}} : l'évaluateur lexical trouve des candidats et le modèle de plongement les reclasse, ce qui permet à « haut de cuisse de poulet grillé » de correspondre à la bonne ligne même si la formulation de la base diffère. Si tu le laisses non défini, son état par défaut, la recherche reste uniquement lexicale, ce qui donne un classement légèrement moins bon mais ne provoque jamais d'erreur. Si l'environnement de plongement est injoignable, le système repasse en recherche purement lexicale avec un simple avertissement, sans jamais faire échouer un scan."
   },
+  "36424a3f7a68548c": {
+    "en": "{{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}"
+  },
   "3642860f623dd009": {
     "en": "one keyed hash of the mailbox is kept, and nothing else",
     "model": "google/gemini-3.8-flash",
@@ -2932,6 +3112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "Généralement vide."
+  },
+  "370cf5923a46e621": {
+    "en": "{{0}} YAZIO has no fibre value for many foods. When that happens, openplate marks fibre as unknown instead of zero.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} YAZIO ne renseigne pas les fibres pour beaucoup d'aliments. Dans ce cas, openplate marque les fibres comme inconnues plutôt qu'à zéro."
   },
   "371a286d5872a373": {
     "en": "base64",
@@ -2987,11 +3173,23 @@
     "at": "2026-09-06",
     "fr": "{{0}} le blob constitue souvent l'unique copie des données de l'utilisateur. Un client qui pousse une enveloppe tramée différemment par un service plus récent, ou qui déchiffre une enveloppe qu'il ne comprend qu'à moitié, risque de corrompre cette copie de manière irréversible. Une synchronisation refusée représente un désagrément visible ; une synchronisation silencieusement erronée constitue un incident de perte de données découvert des semaines plus tard. Ce protocole choisit systématiquement le désagrément."
   },
+  "389a86ba79436a59": {
+    "en": "openplate reads the values in {{0}} as kilograms.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate lit les valeurs dans {{0}} en kilogrammes."
+  },
   "389d8d52305c6ba7": {
     "en": "66 MiB",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-12",
     "fr": "66 MiB"
+  },
+  "38a6eb5394985e18": {
+    "en": "{{0}}, {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, {{1}}"
   },
   "38e72eaa934cf040": {
     "en": "No database, no accounts, no diary. At most one secret: the operator's key for the food database.",
@@ -3088,6 +3286,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Une particularité de vLLM à connaître."
+  },
+  "3a7e805d803b7df5": {
+    "en": "Install Python 3.11 or newer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Installe Python 3.11 ou plus récent"
   },
   "3a9a2c3b684479ad": {
     "en": "All request and response bodies are {{0}}.",
@@ -3304,6 +3508,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-12",
     "fr": "Et il ne peut toujours pas en agréger un."
+  },
+  "3e5c44ae5db6edfe": {
+    "en": "{{0}}, because {{1}} takes it as plain text on the command line rather than at a hidden prompt. On macOS and Linux, you have two ways to keep it out: type a space before the command if your shell ignores lines starting with a space, or run {{2}} right after to clear your session history. On Windows, closing PowerShell does not clear it. PowerShell's PSReadLine module keeps a persistent history file at {{3}}. Open that file afterward and delete the line with your password.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, car {{1}} le prend en texte clair sur la ligne de commande au lieu d'une invite masquée. Sur macOS et Linux, tu as deux manières de l'éviter : tape un espace avant la commande si ton shell ignore les lignes commençant par un espace, ou exécute {{2}} juste après pour effacer l'historique de ta session. Sur Windows, fermer PowerShell ne l'efface pas. Le module PSReadLine de PowerShell conserve un fichier d'historique persistant à l'emplacement {{3}}. Ouvre ce fichier ensuite et supprime la ligne contenant ton mot de passe."
   },
   "3e5e38d4aae2f107": {
     "en": "{{0}} It holds no database and writes no state: a destroyed app container loses nothing.",
@@ -3533,6 +3743,12 @@
     "at": "2026-09-06",
     "fr": "Stocké dans"
   },
+  "432c93eb3bc60346": {
+    "en": "removed.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "supprimé."
+  },
   "433f1d083cc8a40d": {
     "en": "If your provider will not issue capped sub-keys (Mistral, most direct provider APIs), the sub-key recipe above has nothing to work with. That is what a {{0}} openplate-sync instance is for: set {{1}} (requires {{2}}), and the account service your household already uses for sync also becomes the AI proxy, with a daily request allowance per account.",
     "model": "google/gemini-3.8-flash",
@@ -3569,6 +3785,12 @@
     "at": "2026-09-06",
     "fr": "Un {{0}}"
   },
+  "43daee5e89607585": {
+    "en": "Your password remains in your terminal command history",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ton mot de passe reste dans l'historique de commandes de ton terminal"
+  },
   "4403eb5ce3561a27": {
     "en": "6.3 GB",
     "model": "google/gemini-3.8-flash",
@@ -3604,6 +3826,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "fr": "{{0}} Il est unique par compte. Un second envoi avec une clé existante renvoie {{1}} avec le signalement stocké au lieu de {{2}}. Il ne stocke aucun second signalement et ne compte pas dans la limite quotidienne. Il réécrit la photographie si elle était fournie. Cela répare un signalement dont la première écriture de photographie a été interrompue."
+  },
+  "44746d619126aae1": {
+    "en": "An account may carry free AI scans with no end date ({{0}}, §5.15), granted by the instance's trial ({{1}}, §5.6). {{2}}, and one action may be more than one upstream request: a client may retry once without {{3}} after a provider refusal. (A retry after a stale bearer is refused by the bearer check, §4.1, before any claim.) {{4}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Un compte peut bénéficier d'analyses IA gratuites sans date de fin ({{0}}, §5.15), accordées par la période d'essai de l'instance ({{1}}, §5.6). {{2}}, et une action peut représenter plusieurs requêtes en amont : un client peut faire une nouvelle tentative sans {{3}} après un refus du fournisseur. (Une nouvelle tentative après un bearer expiré est rejetée par la vérification du bearer, §4.1, avant toute réclamation.) {{4}}"
   },
   "4475930a8570f4f2": {
     "en": "identical work",
@@ -3827,6 +4055,12 @@
     "at": "2026-09-06",
     "fr": "Si tu fais aussi tourner le service de synchronisation, son Postgres mérite un dump planifié, tout comme le {{0}}, qui est inutilisable sans la base de données et réciproquement :"
   },
+  "47c805bb0679c4a6": {
+    "en": "Remove YAZIO entries",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Supprimer les entrées YAZIO"
+  },
   "47de566ccbc724ab": {
     "en": "It is an ACKNOWLEDGEMENT, not a verdict. A client sets it {{0}} exactly when it emits deletions from state it positively trusts, and a client that cannot make that claim omits the field and takes the refusal. The service holds ciphertext and cannot tell a deliberate deletion from a client that lost its local store and believes everything was deleted; those are the same bytes. So it asks, and a client that says nothing gets a refusal rather than a wipe.",
     "model": "google/gemini-3.8-flash",
@@ -3965,6 +4199,12 @@
     "at": "2026-09-06",
     "fr": "Toutes les variables d'environnement, la Content-Security-Policy, et les points de terminaison d'IA personnalisés ou fournis par l'instance"
   },
+  "49aff4418afee05b": {
+    "en": "If the preview reports skipped entries, see \"What comes across and what does not\" above for details.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Si l'aperçu indique des entrées ignorées, consulte la section « Ce qui est transféré et ce qui ne l'est pas » ci-dessus pour plus de détails."
+  },
   "49c57c1fb3df5284": {
     "en": "Bearer. {{0}}. Revokes the caller's token family: this device only.",
     "model": "google/gemini-3.8-flash",
@@ -4048,6 +4288,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "4"
+  },
+  "4b242f653c4a302f": {
+    "en": "{{0}}, when present.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, s'il est présent."
   },
   "4b42c3571fe2d44e": {
     "en": "{{0}} is public.",
@@ -4216,6 +4462,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} propose exactement deux actions : {{1}}, et {{2}} (qui prend un lien collé et le transmet à {{3}}). Il n'y a pas d'option \"Commencer\"."
+  },
+  "4e48d019a0514d6f": {
+    "en": "openplate confirms how many entries and weigh-ins it imported. Open your diary and verify a day you remember.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate confirme le nombre d'entrées et de pesées importées. Ouvre ton journal et vérifie un jour dont tu te souviens."
   },
   "4e545960f1bffc13": {
     "en": "Unit",
@@ -4469,6 +4721,12 @@
     "at": "2026-09-06",
     "fr": "Un pseudonyme par étude, imposé par la base de données."
   },
+  "5200cad4b14e481e": {
+    "en": "{{0}} The import never replaces a weight you logged in openplate. The preview displays the count of those days.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} L'importation ne remplace jamais un poids que tu as saisi dans openplate. L'aperçu affiche le nombre de ces jours."
+  },
   "521723455c911fcc": {
     "en": "Encryption, and what the operator holds",
     "model": "google/gemini-3.8-flash",
@@ -4498,6 +4756,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un conteneur sans état"
+  },
+  "52b707da769b01c0": {
+    "en": "Entries imported from YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Entrées importées depuis YAZIO"
   },
   "52f5a1cf92a70778": {
     "en": "{{0}} Measured 2026-08-13 through the {{1}} service: this exact code, its 896 px downscale, its grammar, its output mapping, 50/50 images, 0 errors, sequential requests over loopback.",
@@ -4661,6 +4925,12 @@
     "at": "2026-09-06",
     "fr": "Débit limité. {{0}} en secondes."
   },
+  "561254a33504afb6": {
+    "en": "An amount in millilitres counts as the same number of grams.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Une quantité en millilitres est comptée comme le même nombre de grammes."
+  },
   "564016e0ab5bf85b": {
     "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. This is what openplate.de is, and it is off by default: a self-hoster who sets nothing gets the open app.",
     "model": "google/gemini-3.8-flash",
@@ -4678,6 +4948,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "code"
+  },
+  "56b21e26ffd86001": {
+    "en": "Replace {{0}} and {{1}} with your YAZIO sign-in details. This command connects only to YAZIO's server, {{2}}. Nothing goes to openplate during this step.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Remplace {{0}} et {{1}} par tes identifiants de connexion YAZIO. Cette commande se connecte uniquement au serveur de YAZIO, {{2}}. Rien n'est envoyé à openplate durant cette étape."
   },
   "57524903ef924d0b": {
     "en": "Do not use the instance-provided-AI shortcut for this.",
@@ -4756,6 +5032,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "La contrepartie, en toute franchise : une instance de démonstration publique n'offre aucune garantie de disponibilité et rien n'y est sauvegardé pour toi. Ton journal se trouve dans ce navigateur, et vider le navigateur le supprime. Exporte régulièrement le JSON depuis {{0}}, ou passe au niveau 1."
+  },
+  "5944c86468ebc0a8": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a person may ask for an account here (§5.8.3), {{13}} says what that request needs, {{14}} promises the free scans a new account gets (§5.19), {{15}} says whether a biller stands behind this instance so {{16}} exists (§5.22), {{17}} says whether this instance can send web push so {{18}} exists (§5.24), {{19}} says whose micronutrient reference values it shows, and {{20}} is {{21}} when no upstream key is configured. {{22}} is the model the proxy sends every request to (§5.19), or {{23}} when the operator named none and the caller's own model is sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} décrit la nature et les capacités de ce déploiement, et vaut {{1}} : un service antérieur au champ l'omet, et un client qui l'exigerait refuserait de communiquer avec toute instance de ce type. {{2}} est le libellé attribué à l'instance par la personne qui l'administre, {{3}} est l'un de {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (les six langues d'envoi de ses courriels ; un client l'affiche sans jamais l'utiliser comme condition de branchement, donc une septième langue ne modifie pas le protocole), {{10}} indique si l'envoi de courriels est possible, {{11}} indique si un membre ordinaire peut inviter des personnes ici (§5.21), {{12}} indique si une personne peut demander un compte ici (§5.8.3), {{13}} précise les éléments requis par cette demande, {{14}} garantit les analyses gratuites accordées à un nouveau compte (§5.19), {{15}} indique si un service de facturation prend en charge cette instance pour que {{16}} existe (§5.22), {{17}} indique si cette instance peut envoyer des notifications push web pour que {{18}} existe (§5.24), {{19}} précise les valeurs de référence en micronutriments affichées, et {{20}} vaut {{21}} lorsqu'aucune clé en amont n'est configurée. {{22}} correspond au modèle auquel le proxy transmet chaque requête (§5.19), ou {{23}} si l'administrateur n'en a défini aucun et que le propre modèle de l'appelant est transmis."
   },
   "596902cb508aea4d": {
     "en": "60-minute",
@@ -5014,6 +5296,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Ceci est un résumé de licence, pas un conseil juridique. Si ce plafond peut te concerner, lis la licence et consulte ton propre avocat."
+  },
+  "5e9f3025ad879a2f": {
+    "en": "openplate treats YAZIO's carb number as already excluding fibre, the EU style, and does not subtract fibre again.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate considère que la valeur en glucides de YAZIO exclut déjà les fibres, selon la convention européenne, et ne soustrait pas les fibres une seconde fois."
   },
   "5ed0a3efcef1784c": {
     "en": "{{0}} is {{1}} whenever nothing is wrong, so alerting on {{2}} is safe. A wrong {{3}} shows up here and nowhere else: it degrades ranking rather than failing scans.",
@@ -5309,6 +5597,12 @@
     "at": "2026-09-12",
     "fr": "La rétention est échelonnée (M224)."
   },
+  "63bb4908e2b67987": {
+    "en": "{{0}} and install the export tool:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} et installe l'outil d'exportation :"
+  },
   "63bceba91702ebec": {
     "en": "What {{0}} counts",
     "model": "google/gemini-3.8-flash",
@@ -5572,6 +5866,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Limite"
+  },
+  "675684661176aeb7": {
+    "en": "A recipe's weight comes from the sum of its ingredients.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Le poids d'une recette correspond à la somme de ses ingrédients."
   },
   "677feadb135cf232": {
     "en": "{{0}} That domain separation is load-bearing, not tidiness. The KEK branch derives the key that opens the diary; were the same output also sent to the server, this service would store an HMAC of the material that unwraps a DEK, and \"the operator cannot read your data\" would rest on SHA-256 being one-way rather than on the operator never having held the value. Both labels are frozen, neither is derived from the other, and a future change to either is a new {{1}} label rather than a redefinition (ADR-0004).",
@@ -6275,6 +6575,12 @@
     "at": "2026-09-06",
     "fr": "Trois propriétés qu'une implémentation conforme DOIT respecter, et chacune existe parce que le corps de la requête est une photo de la nourriture de quelqu'un :"
   },
+  "74a883a037bc227f": {
+    "en": "Settings",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Paramètres"
+  },
   "74a9e70831088571": {
     "en": "For a new address the service mints an ordinary addressed invite and mails it",
     "model": "google/gemini-3.8-flash",
@@ -6329,6 +6635,12 @@
     "at": "2026-09-07",
     "fr": "Pages vues uniquement. Aucun événement fonctionnel n'est jamais déclenché."
   },
+  "759fe20381f4c823": {
+    "en": "Importing the same files again updates existing entries instead of creating duplicates.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Importer à nouveau les mêmes fichiers met à jour les entrées existantes au lieu de créer des doublons."
+  },
   "75b38c876a58011b": {
     "en": "Licensing",
     "model": "google/gemini-3.8-flash",
@@ -6382,6 +6694,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "un seul"
+  },
+  "76aa42de78398368": {
+    "en": "python.org downloads page",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "page de téléchargements de python.org"
   },
   "76c036ac14230581": {
     "en": "Unauthenticated, IP-throttled. Returns the Argon2id salt and parameters a device needs to derive {{0}} before it can log in.",
@@ -6575,6 +6893,12 @@
     "at": "2026-09-06",
     "fr": "Les données les plus complètes des trois (sélectionnées + BLS + USDA), et uniquement à distance en permanence, car BLS 4.0 interdit la redistribution. L'attribution est transmise dans la réponse pour atteindre l'interface."
   },
+  "7a6343e9210c5ef8": {
+    "en": "The files stay on your device. openplate reads them locally in your browser and does not upload them to a server.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Les fichiers restent sur ton appareil. openplate les lit localement dans ton navigateur sans les téléverser vers un serveur."
+  },
   "7a80e05b636718c8": {
     "en": "5.3 {{0}}: list",
     "model": "google/gemini-3.8-flash",
@@ -6670,6 +6994,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "5.2 {{0}} : récupération"
+  },
+  "7d84d7db80bb846d": {
+    "en": "the instance's model, {{0}}, the same value {{1}} publishes (§5.6). When the operator set none, the caller's {{2}} is sent unchanged.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "le modèle de l'instance, {{0}}, soit la valeur publiée par {{1}} (§5.6). Si l'administrateur n'en a défini aucun, la valeur {{2}} de l'appelant est transmise telle quelle."
   },
   "7d8a64eccd2680e3": {
     "en": "{{0}} point it at the same {{1}} and sign in with the same email address and password you used on the first one. That is the whole procedure, and nothing has to be copied off the first device.",
@@ -6881,6 +7211,12 @@
     "at": "2026-09-08",
     "fr": "Définis sur {{0}} pour empêcher le serveur de demander à GitHub si une version plus récente d'openplate existe. Voir {{1}} ci-dessous."
   },
+  "80d0de6788ceffbc": {
+    "en": "{{0}}, on the day and in the meal you logged it in YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, le jour et au repas où tu l'as saisi dans YAZIO."
+  },
   "80def1fadf5f5eb8": {
     "en": "The app plus your own sync service",
     "model": "google/gemini-3.8-flash",
@@ -7061,6 +7397,12 @@
     "at": "2026-09-07",
     "fr": "Dernière connexion, et une entrée par jour UTC sur une période délimitée"
   },
+  "84c333b139e50940": {
+    "en": "at most {{0}} (default 8192). A value above it, or one that is not a number, becomes the ceiling. A body with neither gets {{1}} written in.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "au maximum {{0}} (valeur par défaut : 8192). Une valeur supérieure, ou qui n'est pas un nombre, devient le plafond. Si le corps ne contient aucun des deux, la valeur {{1}} y est inscrite."
+  },
   "850b400f55e59ff0": {
     "en": "What it costs, stated rather than implied.",
     "model": "google/gemini-3.8-flash",
@@ -7072,6 +7414,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-12",
     "fr": "14"
+  },
+  "8527b3d304ea0aac": {
+    "en": "{{0}} You selected only {{1}}. Select both files together.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Tu as uniquement sélectionné {{1}}. Sélectionne les deux fichiers ensemble."
   },
   "85af567742b9f53f": {
     "en": "openplate-core, managed",
@@ -7120,6 +7468,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Profites-en pour définir une limite de dépenses."
+  },
+  "868b862117071b9c": {
+    "en": "ties each give-back and each delivery to the claim it belongs to, so a request that fails late never returns a scan a newer request on the same id claimed;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "associe chaque restitution et chaque remise à l'attribution correspondante, pour qu'une requête qui échoue tardivement ne renvoie jamais un scan déjà attribué à une requête plus récente sur le même id ;"
   },
   "86b20007b18a2e08": {
     "en": "{{0}} is {{1}}, {{2}} or {{3}}: which body's micronutrient reference values every client on this instance shows, the German DGE, the EU's EFSA, or the US NASEM figures. It is {{4}}, so a service built before the field omits it and a client that has never heard of it ignores it. It is {{5}}: language and reference body are orthogonal, and a locale-following default would be a per-person basis in disguise.",
@@ -7324,6 +7678,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Étiquettes {{0}} HKDF"
+  },
+  "8a8e8cd1fa6978ed": {
+    "en": "\"One of those files isn't valid JSON. Pick the days.json and products.json the exporter wrote.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "« L'un de ces fichiers n'est pas un JSON valide. Choisis les fichiers days.json et products.json générés par l'outil d'exportation. »"
   },
   "8a9b8334ad4b50ef": {
     "en": "per plate",
@@ -8399,6 +8759,12 @@
     "at": "2026-09-06",
     "fr": "Serveur d'application openplate"
   },
+  "9dc6893f214a469f": {
+    "en": "openplate verifies the files before it displays a preview. Here is what each message means:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "openplate vérifie les fichiers avant d'afficher un aperçu. Voici la signification de chaque message :"
+  },
   "9dd6955d3560332d": {
     "en": "{{0}}, and a submission missing either is a {{1}} that names the field. A rotation always mints a fresh recovery code, because the {{2}} key record it re-wraps is sealed under a KEK derived from that code; the server therefore replaces {{3}} and the escrow (§3.1) {{4}} as the blob, the key records and the shares. A rotation that left those two on the OLD code produced an account whose escrowed code authenticated and then unwrapped nothing, latent from the moment the recovery code became the second authenticator, and fatal once a mailed reset (§5.12) began handing that code to people. The client does not show the new code to the person; it goes into the escrow and stays there.",
     "model": "google/gemini-3.8-flash",
@@ -8495,17 +8861,35 @@
     "at": "2026-09-12",
     "fr": "Les limites de débit s'appliquent par compte"
   },
+  "9f4a096782858520": {
+    "en": "Quick entries are skipped.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Les entrées rapides sont ignorées."
+  },
   "9f6e6104d59b8599": {
     "en": "The allowance is spent. {{0}} is seconds to the next UTC midnight",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le quota est épuisé. {{0}} correspond au nombre de secondes jusqu'à minuit UTC"
   },
+  "9fc0c7f6162ce11d": {
+    "en": "{{0}} is a third-party tool.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} est un outil tiers."
+  },
   "9fc1bd39f85cf5d1": {
     "en": "pre-1.0 and do not bump {{0}}",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "antérieures à la version 1.0 et n'incrémentent pas {{0}}"
+  },
+  "9fd46407535647e2": {
+    "en": "{{0}} {{1}} writes {{2}}. {{3}} writes {{4}}. {{5}} writes {{6}}. The files appear in the folder where you ran the commands. You need {{7}} and {{8}}. {{9}} is optional and brings your weigh-ins.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} {{1}} génère {{2}}. {{3}} génère {{4}}. {{5}} génère {{6}}. Les fichiers apparaissent dans le dossier où tu as exécuté les commandes. Tu as besoin de {{7}} et {{8}}. {{9}} est facultatif et transfère tes pesées."
   },
   "9fd728c66c9a256b": {
     "en": "Add",
@@ -8753,6 +9137,12 @@
     "at": "2026-09-14",
     "fr": "Podman lance ceci de la même manière : {{0}}."
   },
+  "a4bb1397a9a2c8c2": {
+    "en": "What the provider receives",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ce que le fournisseur reçoit"
+  },
   "a4c0a05b5351cc95": {
     "en": "The field is {{0}}, on an instance that accepts no reports. {{1}} is a statement every instance makes; this is a promise, and an instance with the feature off has none to make, so it adds no key at all and stays indistinguishable from one built before the field existed, exactly as its {{2}} tree stays indistinguishable from one where the feature was never written.",
     "model": "google/gemini-3.8-flash",
@@ -8764,6 +9154,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "en mode intégré aussi"
+  },
+  "a4f9ccea26c563c3": {
+    "en": "The ceiling applies with or without a model. A client that needs a longer answer than the ceiling allows gets a truncated one, and the operator raises {{0}}. A self-hosted instance that wants its people to pick the model leaves {{1}} unset.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Le plafond s'applique avec ou sans modèle. Un client qui a besoin d'une réponse plus longue que ce que permet le plafond reçoit une réponse tronquée, et l'opérateur augmente {{0}}. Une instance auto-hébergée qui souhaite laisser ses utilisateurs choisir le modèle ne définit pas {{1}}."
   },
   "a511aeeeb8a11993": {
     "en": "because",
@@ -8849,6 +9245,12 @@
     "at": "2026-09-06",
     "fr": "Compteur monotone par compte. Le jeton de compare-and-swap."
   },
+  "a717454571794953": {
+    "en": "Authenticated with the account's ordinary {{0}} (§4.1). The body is an OpenAI-compatible chat-completion request and this specification does not constrain it further: the service checks only that it is a JSON object, because a stricter schema would reject every field the next provider adds. It then rewrites the few fields that set what one request costs (below) and forwards every other field as it came. The response is the provider's, relayed with its status.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Authentifié avec le {{0}} ordinaire du compte (§4.1). Le corps est une requête de complétion de discussion compatible avec OpenAI, et cette spécification ne lui impose aucune contrainte supplémentaire : le service vérifie uniquement qu'il s'agit d'un objet JSON, car un schéma plus strict rejetterait tout champ ajouté par un nouveau fournisseur. Il réécrit ensuite les quelques champs fixant le coût d'une requête (ci-dessous) et transmet tous les autres tels qu'il les a reçus. La réponse est celle du fournisseur, relayée avec son code d'état."
+  },
   "a720889d657d21a7": {
     "en": "{{0}}, 8 MB by default, and applies to this route only. It sits above the image cap because base64 grows by a third. A larger body is {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -8890,6 +9292,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} La valeur par défaut, {{1}}, correspond à l'identifiant servi par openplate-inference, et elle est transmise textuellement. Si tu diriges l'URL de base vers Ollama, vLLM ou LM Studio, tu dois définir cette valeur sur le nom servi par ce moteur d'exécution, sous peine de voir échouer chaque requête."
+  },
+  "a8810e8ea80baf5a": {
+    "en": "{{0}} 3.11 or newer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} 3.11 ou plus récent."
   },
   "a883368e301d875e": {
     "en": "{{0}} ({{1}}, RFC 1952) is applied to the plaintext {{2}} encryption. Ciphertext is incompressible, so it is compress-first or not at all. See §8 for why this matters and §9.2 for the honest statement of what it leaks.",
@@ -8944,6 +9352,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "non pris, ou libéré"
+  },
+  "a902232b74898492": {
+    "en": "at most the same ceiling. {{0}} is kept.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "au maximum le même plafond. {{0}} est conservé."
   },
   "a90cfbb2a37916a6": {
     "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
@@ -9137,6 +9551,12 @@
     "at": "2026-09-06",
     "fr": "Au-delà, les clients reçoivent 429 + {{0}}."
   },
+  "ac0496f6de975889": {
+    "en": "The {{0}} command saves a token to a file named {{1}} in your current folder. The other commands use this file so they do not ask for your password again. Your system creates this file readable only by your user account, but it is not encrypted. Delete {{2}} once you finish the export.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "La commande {{0}} enregistre un jeton dans un fichier nommé {{1}} dans ton dossier actuel. Les autres commandes exploitent ce fichier pour ne pas redemander ton mot de passe. Ton système crée ce fichier avec les droits de lecture réservés à ton compte utilisateur, mais il n'est pas chiffré. Supprime {{2}} dès que tu as terminé l'exportation."
+  },
   "ac0a31df0c2cd9fe": {
     "en": "Admission refused because the request cannot finish inside {{0}} (only when that ceiling is enabled).",
     "model": "google/gemini-3.8-flash",
@@ -9262,6 +9682,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "L'export JSON par appareil constitue la vraie sauvegarde"
+  },
+  "ad8803fa3b8fbe16": {
+    "en": "{{0}} One of the files is not valid JSON. Select the files exactly as {{1}} created them, without edits.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} L'un des fichiers n'est pas un JSON valide. Sélectionne les fichiers exactement tels que {{1}} les a créés, sans modification."
   },
   "ad95d5fa651ba86d": {
     "en": "free",
@@ -9407,6 +9833,12 @@
     "at": "2026-09-07",
     "fr": "openplate peut mesurer la façon dont il est utilisé. Il n'enregistre rien tant que tu ne le configures pas, et il ne mesure jamais ce que tu manges."
   },
+  "b065dcbb2be7cf0f": {
+    "en": "Under {{0}}, select {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Sous {{0}}, sélectionne {{1}}."
+  },
   "b093720ae2536364": {
     "en": "symptom",
     "model": "google/gemini-3.8-flash",
@@ -9478,6 +9910,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "troisième"
+  },
+  "b23157de962a3741": {
+    "en": "A computer where you can open a terminal and install Python. A phone will not work for the export step. You can move the files to your phone afterward if you use openplate there.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Un ordinateur sur lequel tu peux ouvrir un terminal et installer Python. Un téléphone ne conviendra pas pour l'étape d'exportation. Tu pourras ensuite transférer les fichiers sur ton téléphone si tu y utilises openplate."
   },
   "b239ecb13dfa34ce": {
     "en": "{{0}}: unauthenticated, throttled per (IP, email), NEVER cleared on success.",
@@ -10127,6 +10565,12 @@
     "at": "2026-09-09",
     "fr": "{{0}} Une nouvelle adresse, une adresse associée à une invitation en attente et une adresse associée à un compte existant reçoivent un seul {{1}} avec un seul corps. Il s'agit de la propriété anti-énumération des §5.7 et §5.12 appliquée à l'unique point d'entrée qu'un membre pointe vers la boîte aux lettres de quelqu'un d'autre : une personne qui saisit l'adresse de son collègue ne doit pas déduire d'un code d'état, d'un corps ou d'un en-tête que ce collègue est déjà présent. Le {{2}} de création d'invitation administrateur en est exempté, uniquement parce qu'il se trouve derrière les identifiants de l'opérateur."
   },
+  "bd7137bcb52ee648": {
+    "en": "\"days.json is missing. Pick it together with products.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "« Le fichier days.json est manquant. Choisis-le en même temps que products.json. »"
+  },
   "bd731f6aaea4d648": {
     "en": "{{0}} Without one the whole subtree answers the ordinary unknown-path {{1}}, to everybody, credentialed or not, and {{2}} is {{3}} on the handshake (§5.6). An implementation of this protocol MAY omit the subtree entirely; a client MUST read {{4}} before offering a plan door rather than probing the path.",
     "model": "google/gemini-3.8-flash",
@@ -10229,6 +10673,12 @@
     "at": "2026-09-07",
     "fr": "Matomo"
   },
+  "bf9189ce2273d026": {
+    "en": "Import from YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Importer depuis YAZIO"
+  },
   "bfa87a1b46e94b9a": {
     "en": "You own the hardware.",
     "model": "google/gemini-3.8-flash",
@@ -10253,6 +10703,12 @@
     "at": "2026-09-06",
     "fr": "Licence"
   },
+  "c04184be1d5c4f5c": {
+    "en": "An entry is skipped when its food is missing from {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Une entrée est ignorée quand son aliment est manquant dans {{0}}."
+  },
   "c0602a968569bcb9": {
     "en": "Keep the export as private as the diary.",
     "model": "google/gemini-3.8-flash",
@@ -10270,6 +10726,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "URL de base d'un service {{0}}. Voir {{1}}. Son origine est ajoutée automatiquement à la CSP de production. Une valeur mal formée bloque volontairement le démarrage."
+  },
+  "c0c5d3378fac340f": {
+    "en": "Find the files.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Localise les fichiers."
   },
   "c0deb669a7707a72": {
     "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is {{4}} or {{5}} (the two languages its mail is written in), {{6}} says whether it can send a letter at all, {{7}} says whether an ordinary member may invite people here (§5.21), and {{8}} is {{9}} when no upstream key is configured.",
@@ -10619,6 +11081,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} (facultatif)"
   },
+  "c8300dc870e3ba51": {
+    "en": "{{0}} A recipe without an ingredient list in the export file is skipped. Recipe numbers are the least certain part of this import, so check an imported recipe against YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Une recette sans liste d'ingrédients dans le fichier d'export est ignorée. Les valeurs des recettes sont la partie la moins fiable de cet import, vérifie donc une recette importée par rapport à YAZIO."
+  },
   "c85700f1d5f6f0a3": {
     "en": "Note on that swap: {{0}} It is the official Apache-2.0 Qwen3-VL sibling in the same size class, from the same family as the {{1}} model, with first-class llama.cpp support and an official GGUF release. We expect it to be at least comparable and we have not proven it. If accuracy matters more than the small-model convenience, {{2}} is the measured Apache-2.0 answer.",
     "model": "google/gemini-3.8-flash",
@@ -10967,6 +11435,12 @@
     "at": "2026-09-06",
     "fr": "Composant"
   },
+  "ce5d4182b8949672": {
+    "en": "{{0}} The export does not state which unit it uses. If you weigh yourself in pounds in YAZIO, check the first and last weight in the preview before you confirm. openplate skips and counts any value below 20 or above 350.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} L'export ne précise pas l'unité employée. Si tu te pèses en livres dans YAZIO, vérifie le premier et le dernier poids dans l'aperçu avant de confirmer. openplate ignore et comptabilise toute valeur inférieure à 20 ou supérieure à 350."
+  },
   "ceb52f5889cbf17f": {
     "en": "BYOK is the zero-server path",
     "model": "google/gemini-3.8-flash",
@@ -11164,6 +11638,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "Slug"
+  },
+  "d1a5bc42044ebd8b": {
+    "en": "YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "YAZIO"
   },
   "d1cd8d987ad6206c": {
     "en": "ADR-0012",
@@ -11669,6 +12149,12 @@
     "at": "2026-09-06",
     "fr": "Étapes de démarrage, tableau des symptômes, installation hors ligne / pré-remplie"
   },
+  "daa00645608e1dc0": {
+    "en": "{{0}} openplate and YAZIO did not make it, and nobody involved in openplate maintains it. It can stop working if YAZIO changes its app. The project is at {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Ni openplate ni YAZIO ne l'ont créé, et aucun contributeur d'openplate ne le maintient. Il peut cesser de fonctionner si YAZIO modifie son application. Le projet se trouve sur {{1}}."
+  },
   "dac9f8b92c25b2cc": {
     "en": "It runs on the server rather than in the browser. This keeps the key off the page, and lets the operator's setting decide whether names leave at all. The key is {{0}}. Without one the instance uses LowCarbCheck's anonymous tier; {{1}} lists the tiers.",
     "model": "google/gemini-3.8-flash",
@@ -11795,6 +12281,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} requiert {{1}}. C'est le compte qui porte à la fois le journal et le quota ; déclarer {{2}} sans serveur de synchronisation bloque le démarrage au lieu de ne rien activer à moitié."
   },
+  "dd6b8f18603a1572": {
+    "en": "Remove an import",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Supprimer une importation"
+  },
   "ddcbd1bcd564d705": {
     "en": "A {{0}} record is what lets the passphrase decrypt anything; without it the account logs in and reads nothing, and the client has discarded the passphrase by the time it would find out.",
     "model": "google/gemini-3.8-flash",
@@ -11831,6 +12323,12 @@
     "at": "2026-09-19",
     "fr": "{{0}}, sur un déploiement avec {{1}} activé (§5.25, ADR-0006) : les chiffres de chaque entrée qu'une personne a choisi de signaler, la photo d'assiette quand l'appareil en avait encore une, l'identifiant du compte, l'enregistrement du consentement et l'heure d'arrivée, tous lisibles. Ils sont conservés pendant {{2}}, puis supprimés par un nettoyage, et ils disparaissent avec le compte. Un opérateur peut les lire via le §5.20, et chaque lecture d'une photographie est journalisée. Un déploiement sans cette option n'a aucun signalement ni aucune photographie à conserver."
   },
+  "de84ecf74f108e6e": {
+    "en": "{{0}}, if you do not have it yet. The {{1}} has installers for Windows, macOS, and Linux.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}}, si tu ne l'as pas encore. La {{1}} propose des installateurs pour Windows, macOS et Linux."
+  },
   "deb3cd28290d2feb": {
     "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
     "model": "google/gemini-3.8-flash",
@@ -11848,6 +12346,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "openplate charge les pages légales depuis des fichiers markdown que tu montes dans le conteneur. Le dépôt ne contient aucun texte légal en propre. Tu rédiges les conditions, la politique de confidentialité, les mentions légales, et les pages des deux boutons légaux. Ils décrivent ton instance et te désignent comme exploitant."
+  },
+  "deed675610612596": {
+    "en": "{{0}} Nobody knows for certain which style YAZIO uses. If YAZIO's number actually includes fibre, the US style, your net carbs in openplate will read higher than they really are, never lower. That is the safer error for a low-carb tracker.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} Personne ne sait exactement quelle méthode utilise YAZIO. Si la valeur de YAZIO inclut en réalité les fibres, selon la convention américaine, tes glucides nets dans openplate apparaîtront plus élevés qu'ils ne le sont en réalité, jamais plus bas. Pour un suivi pauvre en glucides, c'est l'erreur la plus sûre."
   },
   "def48e9264b06cb1": {
     "en": "keyed one-way hash of its mailbox",
@@ -11915,6 +12419,12 @@
     "at": "2026-09-06",
     "fr": "Un partage (§5.16) ne compte pas ici comme un enregistrement de clé."
   },
+  "e0284e3a347c1f2d": {
+    "en": "A nutrient YAZIO does not carry shows as unknown in openplate, never as zero.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Un nutriment absent de YAZIO apparaît comme inconnu dans openplate, jamais comme zéro."
+  },
   "e07a8650a5b1a419": {
     "en": "Three things never travel, whatever you switch on:",
     "model": "google/gemini-3.8-flash",
@@ -11950,6 +12460,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "fr": "refusé, non réparé"
+  },
+  "e17c85cc990b6b6f": {
+    "en": "What you need",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ce dont tu as besoin"
   },
   "e1870a8256b9926e": {
     "en": "Neither quotes the input back",
@@ -12209,6 +12725,12 @@
     "at": "2026-09-06",
     "fr": "L'authentificateur par code de récupération, et les deux rotations d'identifiants. {{0}} et {{1}} prennent la même forme de soumission car ils font la même chose, seule la preuve diffère."
   },
+  "e64f74013a362b01": {
+    "en": "Each weigh-in becomes an entry in your weight log.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Chaque pesée devient une entrée dans ton suivi de poids."
+  },
   "e6636733ea60fa82": {
     "en": "p95 per scan",
     "model": "google/gemini-3.8-flash",
@@ -12316,6 +12838,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Un seul jeton actif par compte"
+  },
+  "e87bc26db2a8f36d": {
+    "en": "lets a later request with the same id ride on that scan while the id is younger than 30 minutes, has carried fewer than 2 requests and has {{0}}; a request after a delivered answer, a third request, or one after 30 minutes is a new action with a new scan, refused with {{1}} when none is left;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "permet à une requête ultérieure avec le même id de réutiliser ce scan tant que l'id a moins de 30 minutes, a porté moins de 2 requêtes et a {{0}} ; une requête après une réponse remise, une troisième requête ou une requête après 30 minutes constitue une nouvelle action avec un nouveau scan, refusée avec {{1}} s'il n'en reste plus ;"
   },
   "e88655806147386e": {
     "en": "The default model is {{0}}",
@@ -12569,6 +13097,12 @@
     "at": "2026-09-14",
     "fr": "{{0}} La personne invitée obtient son propre compte et son propre journal, ainsi que {{1}} requêtes d'IA par jour pendant {{2}} jours après son inscription. Une fois la période terminée, le proxy d'IA renvoie 403. Son journal continue de fonctionner. La synchronisation n'est jamais conditionnée par un quota. La personne qui invite ne choisit rien de tout cela. Elle envoie une adresse, rien de plus."
   },
+  "ed2ff950dceaa682": {
+    "en": "\"You picked two files of the same kind. Pick one days.json and one products.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "« Tu as choisi deux fichiers du même type. Choisis un seul days.json et un seul products.json. »"
+  },
   "ed4044c1941760fa": {
     "en": "{{0}} {{1}} is rounded to the nearest 50 and clamped to 0 to 5000; {{2}} is rounded to the nearest 5 and clamped to 0 to 500. A device that sends an exact figure, a negative one or an absurd one still lands on the grid everybody else is on. A body that is not two finite numbers is {{3}}.",
     "model": "google/gemini-3.8-flash",
@@ -12640,6 +13174,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "{{0}} (§5.15). Une session est toujours délivrée, il ne reste rien à confirmer."
+  },
+  "ee5d026b4e6dfa51": {
+    "en": "A day that already has a weigh-in in openplate keeps it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Un jour qui contient déjà une pesée dans openplate la conserve."
   },
   "ee6eead86666bb9f": {
     "en": "Three configuration traps",
@@ -12737,6 +13277,12 @@
     "at": "2026-09-06",
     "fr": "llama.cpp (MIT) : utilisé sous forme de l'image de conteneur officielle en amont, non intégré au dépôt."
   },
+  "eff720f4e91b4b25": {
+    "en": "In the file picker, select {{0}} and {{1}} together, and {{2}} too if you want your weigh-ins, then confirm your selection.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Dans le sélecteur de fichiers, sélectionne {{0}} et {{1}} ensemble, ainsi que {{2}} si tu veux aussi tes pesées, puis confirme ton choix."
+  },
   "f01a042bbfb3dad3": {
     "en": "30 minutes",
     "model": "google/gemini-3.8-flash",
@@ -12803,6 +13349,12 @@
     "at": "2026-09-06",
     "fr": "La vitesse de génération sur une requête unique est limitée par la bande passante : chaque jeton parcourt l'ensemble complet des poids actifs. Les deux cartes mesurées sont toutes les deux à peu près dans la {{0}} (RTX 4090 ≈ 1008 GB/s, RTX 3090 ≈ 936 GB/s), et leurs p50 mesurés suivent cette tendance : 0,94 s contre 1,72 s."
   },
+  "f14f1b5acd8bda5d": {
+    "en": "Open a terminal",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ouvre un terminal"
+  },
   "f165d6c05be2b651": {
     "en": "\"Threshold\"",
     "model": "google/gemini-3.8-flash",
@@ -12820,6 +13372,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "Le graphe d'étude"
+  },
+  "f194e3568b9c2587": {
+    "en": "{{0}} openplate stores weight only in grams.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "{{0}} openplate enregistre le poids uniquement en grammes."
   },
   "f1bfefe0d2fabca9": {
     "en": "{{0}} is bounded exactly as it is for an operator. The credential relaxes no validation.",
@@ -12862,6 +13420,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "fr": "Tous les fichiers compose dans openplate, openplate-core et openplate-inference utilisent {{0}} pour conditionner le démarrage d'un service au test de santé de Postgres. Exécute {{1}}, pas {{2}}, sauf si tu as vérifié que ton installation de {{3}} gère bien cette condition."
+  },
+  "f2839cd911d4a26d": {
+    "en": "Data & backup",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Données et sauvegarde"
   },
   "f290c4d7180db565": {
     "en": "Each entry is {{0}} and {{1}} and nothing else. The address, the name and the allowance belong to {{2}}, which the caller is already reading.",
@@ -12911,6 +13475,12 @@
     "at": "2026-09-06",
     "fr": "{{0}} avec un {{1}} non nul (le chemin de récupération utilise uniquement HKDF, il n'y a aucun paramètre à enregistrer)"
   },
+  "f3d786d8c8f05505": {
+    "en": "Add to my diary",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ajouter à mon journal"
+  },
   "f3e918574f778e73": {
     "en": "{{0}} They live in a separate database on the device that took them, they are excluded from the sync payload and from every backup file, and they clear themselves out on a schedule you set.",
     "model": "google/gemini-3.8-flash",
@@ -12946,6 +13516,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "l'activité"
+  },
+  "f45fc1dfdc96db27": {
+    "en": "Field",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Champ"
   },
   "f490882338338064": {
     "en": "Adding a second device:",
@@ -13115,6 +13691,12 @@
     "at": "2026-09-12",
     "fr": "{{0}} n'est pas un entier positif ou nul, {{1}} n'est pas un entier strictement positif, {{2}} est absent, n'est pas du base64 ou est vide, ou {{3}} est présent et n'est pas un booléen."
   },
+  "f8f269745fd9a9a7": {
+    "en": "Each food becomes its own entry",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Chaque aliment devient une entrée distincte"
+  },
   "f8fb8d884f17e827": {
     "en": "Space-separated extra origins for the production CSP's {{0}}. Needed when your own AI endpoint is a {{1}} host. See {{2}}.",
     "model": "google/gemini-3.8-flash",
@@ -13253,11 +13835,23 @@
     "at": "2026-09-07",
     "fr": "jeûne commencé (immédiat ou programmé), jeûne terminé"
   },
+  "fca261b5356ce398": {
+    "en": "Log in, then export your days, products and weight:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Connecte-toi, puis exporte tes journées, tes aliments et ton poids :"
+  },
   "fcc36c36dc255182": {
     "en": "openplate shows no \"this instance provides its own AI\" card",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-06",
     "fr": "openplate n'affiche aucun encart « cette instance fournit sa propre IA »"
+  },
+  "fcd143b54ae386ad": {
+    "en": "One scan buys one delivered answer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Une analyse donne droit à une réponse livrée."
   },
   "fce28242846d9697": {
     "en": "{{0}} If you have llama.cpp, Ollama, or vLLM-on-GPU up today, set {{1}} and {{2}}: openplate-inference then downloads nothing and starts no second model, and just wraps what you have. Check the {{3}} first; vLLM's {{4}} build cannot run this.",
@@ -13282,6 +13876,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-09",
     "fr": "{{0}} est un instant ISO ou {{1}}, et {{2}} signifie que le quota pour l'IA n'a pas de date de fin, ce qu'utilise une instance auto-hébergée. À partir de cet instant, le proxy du §5.19 répond {{3}}. {{4}} : la synchronisation continue de fonctionner après cette date, car le journal appartient au compte et un nouvel appareil doit pouvoir le récupérer. Un client peut afficher la date et ne doit pas s'en servir pour autoriser, c'est au niveau du proxy que vit la règle."
+  },
+  "fdc4fd1eb5fb726d": {
+    "en": "Open openplate and go to {{0}}, then {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "Ouvre openplate et va dans {{0}}, puis dans {{1}}."
   },
   "fdcd6d67ef213edd": {
     "en": "Rate-limit by source address",
@@ -13318,6 +13918,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "fr": "Ce service définit {{0}} sur {{1}} dans un enregistrement d'aliment lorsque la base de données alimentaire fournit ses macros. Il ajoute une chaîne {{2}} quand la source en requiert une, voir {{3}}. Si rien ne résout l'élément, les deux champs sont omis et {{4}} est null. Ce service n'émet jamais {{5}}, car le contrat partagé réserve cette valeur à un fournisseur cloud. Une défaillance de la source, comme un délai d'attente dépassé, un refus ou une erreur réseau, produit le même résultat qu'une absence de correspondance : {{6}} est null, la réponse reste {{7}}, et rien dans la réponse n'indique ce qui s'est produit."
+  },
+  "fe9f8e9274fd6265": {
+    "en": "\"products.json is missing. Pick it together with days.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "fr": "« Le fichier products.json est manquant. Choisis-le en même temps que days.json. »"
   },
   "fef26d4ac5ed9ffa": {
     "en": "{{0}} The tier name is metadata, not content (it travels in the clear and the server already stores it) and without this check ADR-0003's prohibition 1 has no teeth anywhere but the client. An unknown tier is {{1}}.",

@@ -131,6 +131,12 @@
     "at": "2026-09-23",
     "tr": "deneme anahtarı"
   },
+  "01f0298d45d1ec50": {
+    "en": "{{0}} This usually happens when YAZIO's database no longer has the food, so the export lists the diary entry without its nutrients. A food you deleted from your YAZIO diary is not skipped, because it is not in the export at all.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Bu durum genellikle YAZIO veri tabanında yiyecek artık bulunmadığında gerçekleşir, bu yüzden dışa aktarma dosyası günlük girdisini besin ögeleri olmadan listeler. YAZIO günlüğünden sildiğin bir yiyecek atlanmaz, çünkü dışa aktarma dosyasında hiç yer almaz."
+  },
   "02109f95680ef8f1": {
     "en": "{{0}} needs no operator setting: each person turns it on under {{1}}. It sends rounded counts. A meal counts once with its calories rounded to 50 and its protein to 5 g. A scan counts once, and a running fast sends a heartbeat. The home screen shows the instance total for today. The server keeps day totals and a record of who contributed on each day, for 30 days.",
     "model": "google/gemini-3.8-flash",
@@ -305,11 +311,23 @@
     "at": "2026-09-14",
     "tr": "Anlık bildirim servisinin ürettiği ve küresel olarak benzersiz olan {{0}}. {{1}} bunun üzerinde bir upsert işlemidir: Aynı uç noktayı tekrar kaydeden bir cihaz {{2}} alır ve ilk görüldüğü günü korur."
   },
+  "056404c7d5acd1e4": {
+    "en": "delivered no answer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "yanıt teslim edilmedi"
+  },
   "056e2904a1f0740b": {
     "en": "The reference implementation is {{0}} in both {{1}} files, pure, total, and returning a user-presentable sentence rather than a boolean.",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Referans uygulama, her iki {{1}} dosyasında da bulunan, saf, bütünsel ve bir boolean yerine kullanıcıya gösterilebilir bir cümle döndüren {{0}} fonksiyonudur."
+  },
+  "056f89a9e8ee8fdb": {
+    "en": "The instance decides what one request may cost.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Tek bir isteğin neye mal olabileceğine örnek karar verir."
   },
   "057a245751bd51be": {
     "en": "The client no longer shows the recovery code to the person (§3.1), so an account created without an escrow is one no reset can ever restore, and its owner was never warned.",
@@ -575,6 +593,12 @@
     "at": "2026-09-23",
     "tr": "İçerik sayfaları"
   },
+  "0a2cb61c26758d36": {
+    "en": "If it goes wrong",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir sorun çıkarsa"
+  },
   "0a35f99d3f6e27dd": {
     "en": "{{0}} An openplate client uses exactly one of these endpoints, and only when the signed-in account is an admin: the console the app renders at {{1}}. An alternative client may ignore this section entirely.",
     "model": "google/gemini-3.8-flash",
@@ -670,6 +694,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Her kişi bunu yapıştırır."
+  },
+  "0c46587e565f79a6": {
+    "en": "{{0}} The export repeats your last weight on every day until your next weigh-in. openplate keeps a day only when its weight differs from the previous day. Two consecutive weigh-ins with the exact same weight therefore import as one entry.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Dışa aktarma dosyası, bir sonraki tartı gününe kadar son kilonu her gün tekrarlar. openplate bir günü yalnızca kilosu önceki günden farklı olduğunda saklar. Dolayısıyla, tamamen aynı kiloya sahip art arda iki tartı kaydı tek bir girdi olarak içe aktarılır."
   },
   "0c5157aa7da6cdf9": {
     "en": "All three bearer.",
@@ -797,6 +827,12 @@
     "at": "2026-09-14",
     "tr": "Tüm ortam değişkenleri ve gıda veritabanı ({{0}}) seçenekleri"
   },
+  "0e37966eba43df51": {
+    "en": "{{0}} You selected duplicate files, such as two copies of {{1}} or of {{2}}. Select one of each.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} {{1}} veya {{2}} kopyalarından iki tane seçmek gibi, yinelenen dosyalar seçtin. Her birinden birer tane seç."
+  },
   "0e50d963916d4998": {
     "en": "The address names a person in the world",
     "model": "google/gemini-3.8-flash",
@@ -874,6 +910,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Servis istekler arasında hiçbir şey saklamaz. Dışa aktarılacak, sızdırılacak veya mahkeme celbine konu olacak hiçbir şey yoktur."
+  },
+  "1029784a50387c6d": {
+    "en": "If you kept a food diary in {{0}} and want to move it into openplate, follow these steps. Install one export tool, run four commands, then select the exported files on openplate's {{1}} screen. You do not need developer experience beyond typing commands into a terminal.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} içinde bir yemek günlüğü tuttuysan ve bunu openplate'e taşımak istiyorsan bu adımları izle. Bir dışa aktarma aracı kur, dört komut çalıştır, ardından openplate'in {{1}} ekranında dışa aktarılan dosyaları seç. Bir terminale komut yazmanın ötesinde bir geliştirici deneyimine ihtiyacın yok."
   },
   "103388af1fe1c6a0": {
     "en": "{{0}} when {{1}} is not a plausible address or {{2}} is not 32 base64-decoded bytes: the request never reaches the credential check, so this status carries no information about whether the account exists. {{3}} for an unknown account and for a wrong auth-hash, with {{4}} body text and after {{5}}, because the verifier comparison runs on both branches against a full-width stand-in. {{6}} when the account is suspended, checked AFTER the credential, so only somebody who has proved they own the account is told why the door is shut. {{7}} when throttled.",
@@ -965,6 +1007,12 @@
     "at": "2026-09-14",
     "tr": "Kod burada, küçük ve ağ yüzeyi tek bir bağlantı noktasından ibaret."
   },
+  "10f75328491a56e0": {
+    "en": "Get your diary out of YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Günlüğünü YAZIO'dan çıkar"
+  },
   "11239872d178729a": {
     "en": "total",
     "model": "google/gemini-3.8-flash",
@@ -1007,6 +1055,12 @@
     "at": "2026-09-14",
     "tr": "zorunlu"
   },
+  "11a947f4e74687e5": {
+    "en": "Your YAZIO email and password.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO e-postan ve şifren."
+  },
   "120f302e21dc2a2d": {
     "en": "Requests spent today, after this one",
     "model": "google/gemini-3.8-flash",
@@ -1018,6 +1072,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "İstek tarayıcı tarafından değil, {{0}} tarafından yapılır ve önemli olan da budur: üretimdeki {{2}} yapısına {{1}} eklemek, eklenen zararlı bir betiğin BYOK anahtarını dışarı sızdırmasını engelleyen tek izin listesini genişletmiş olurdu. İstek belirteç, örnek tanımlayıcısı ve sürüm numarası taşımaz; bu sayede GitHub yalnızca bir IP adresi ile varsayılan bir kullanıcı aracısı görür, başka hiçbir şey görmez. {{3}} bölümüne bak."
+  },
+  "123391cebcea852f": {
+    "en": "Choose the YAZIO files",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO dosyalarını seç"
   },
   "1257ac04471db97b": {
     "en": "Cap",
@@ -1235,6 +1295,12 @@
     "at": "2026-09-14",
     "tr": "ikinci"
   },
+  "1654c6c48afd35af": {
+    "en": "/v1/admin/accounts/expiring` selects two columns in the query rather than filtering a row afterwards.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "/v1/admin/accounts/expiring`, sonradan bir satırı filtrelemek yerine sorguda iki sütun seçer."
+  },
   "167011c0651aba97": {
     "en": "already revoked",
     "model": "google/gemini-3.8-flash",
@@ -1283,6 +1349,12 @@
     "at": "2026-09-14",
     "tr": "Model gıdaları tanımlar ve gramaj tahmin eder. {{0}}"
   },
+  "16f9a9e83079b64e": {
+    "en": "Import into openplate",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate'e aktar"
+  },
   "1709305c9fa966d1": {
     "en": "Level",
     "model": "google/gemini-3.8-flash",
@@ -1319,6 +1391,12 @@
     "at": "2026-09-23",
     "tr": "buna göre yetkilendirme YAPILMAMALIDIR"
   },
+  "1848d6a932b7b80b": {
+    "en": "openplate reads the files on your device and displays a preview. It shows the number of entries it will add, the number of days they cover, the first and last day, and any skipped items with the reason. If some of these days already have entries in your openplate diary, the preview shows how many. After the import, those days show both your own entries and the imported ones. With {{0}}, the preview also shows how many weigh-ins it will add and the first and last weight, in kilograms. Nothing is written to your diary yet.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate dosyaları cihazında okur ve bir önizleme gösterir. Eklenecek girdi sayısını, bunların kaç günü kapsadığını, ilk ve son günü ve atlanan ögeleri gerekçesiyle listeler. Bu günlerden bazılarında openplate günlüğünde zaten girdiler varsa, önizleme bunların sayısını da gösterir. İçe aktarmadan sonra o günlerde hem kendi girdilerin hem de içe aktarılanlar görünür. {{0}} dosyasıyla birlikte önizleme, kaç tartı kaydı ekleyeceğini ve kilogram cinsinden ilk ve son kiloyu da gösterir. Günlüğüne henüz hiçbir şey yazılmaz."
+  },
   "184c09c20f1c8642": {
     "en": "{{0}} takes {{1}} → {{2}} {{3}}. The key MUST be present, even as {{4}}: an absent key is a {{5}}, the same rule {{6}} and {{7}} follow, because a PATCH that quietly did nothing over a misspelled field name is a change the client believes it made.",
     "model": "google/gemini-3.8-flash",
@@ -1337,6 +1415,12 @@
     "at": "2026-09-14",
     "tr": "Bir blob hakkında tek bir fikir ve bu beşinci bir açık değil."
   },
+  "18885f27b5af9012": {
+    "en": "Python",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Python"
+  },
   "188f2b4e712f5b45": {
     "en": "The whole submission commits in one transaction",
     "model": "google/gemini-3.8-flash",
@@ -1348,6 +1432,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Kimlikler 24 saat boyunca saklanır ve ardından silinir (§9.2). Asla günlüğe kaydedilmezler."
+  },
+  "18c983de86204d7c": {
+    "en": "{{0}} One upstream key may serve every account on an instance, and a daily count of requests says nothing about what one request costs. So the service rewrites these fields before it forwards, for every account, and never refuses a request for them:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Tek bir yukarı akış anahtarı bir örnekteki her hesaba hizmet verebilir ve günlük istek sayısı, tek bir isteğin maliyeti hakkında hiçbir şey söylemez. Bu nedenle servis, iletmeden önce her hesap için bu alanları yeniden yazar ve bunlar için bir isteği asla geri çevirmez:"
   },
   "18db561339e5db4c": {
     "en": "The drawing below is the whole system in five arrows. Your device holds the diary and the plate photo. The diary leaves encrypted, for openplate-core. The photo leaves for whichever AI endpoint you configured. The app server sends the page, and it passes the names of the foods you look up on to a food database. It stands on neither the diary path nor the photo path.",
@@ -1384,6 +1474,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Retlerin sırası"
+  },
+  "19766ed6ccb2f4a3": {
+    "en": "Cancel",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "İptal"
   },
   "198327c59e026441": {
     "en": "{{0}} The service makes exactly two kinds of outbound request: one-time weight downloads at first boot, and (only if you enable a networked {{1}}) a {{2}} food-name lookup. No image ever leaves the container, under any configuration.",
@@ -1462,6 +1558,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-18",
     "tr": "`{\"nutrientReferenceBasis\": \"dge\" \\"
+  },
+  "1a85d3e9ec6a35d3": {
+    "en": "To undo an import, open {{0}}. If imported entries exist, the bottom of the page displays {{1}} with the number of diary entries and weigh-ins from YAZIO. Select {{2}}, then confirm. openplate removes every entry and weigh-in from the import, including any you edited afterward. It keeps everything you logged in openplate yourself. A weigh-in you log on a day with an imported one replaces it and counts as your own. If you use sync, your other devices remove the imported entries as well.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir içe aktarmayı geri almak için {{0}} sayfasını aç. İçe aktarılmış girdiler varsa, sayfanın alt kısmında YAZIO kaynaklı günlük girdilerinin ve kilo kayıtlarının sayısıyla birlikte {{1}} görüntülenir. {{2}} seçeneğini seç, ardından onayla. openplate, sonradan düzenlediklerin de dahil olmak üzere içe aktarmadaki her girdiyi ve kilo kaydını kaldırır. openplate içinde bizzat kaydettiğin her şeyi saklar. İçe aktarılmış bir kaydın olduğu güne bizzat girdiğin bir kilo kaydı onun yerine geçer ve sana ait sayılır. Eşitleme kullanıyorsan, diğer cihazların da içe aktarılan girdileri kaldırır."
   },
   "1a99997bc347e29d": {
     "en": "What travels between your devices",
@@ -1625,6 +1727,12 @@
     "at": "2026-09-20",
     "tr": "{{0}} Cihazın, kasıtlı olduklarını kanıtlayabilmek için gerçekleştirdiği silme işlemlerini kaydeder ve bu liste cihazda kalır. Silme işlemlerinin kendisi aktarılır, liste aktarılmaz."
   },
+  "1e094f9f6f7322fb": {
+    "en": "{{0}} No address, no display name, no role, no suspension, no usage, no blob. `GET",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Adres yok, görünen ad yok, rol yok, askıya alma yok, kullanım yok, blob yok. `GET"
+  },
   "1e0f1dd48e9dbb33": {
     "en": "Blob size",
     "model": "google/gemini-3.8-flash",
@@ -1685,6 +1793,12 @@
     "at": "2026-09-14",
     "tr": "8.041 genel gıda"
   },
+  "1fd7bea63e7851a5": {
+    "en": "github.com/aleksandr-bogdanov/yazio-exporter",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "github.com/aleksandr-bogdanov/yazio-exporter"
+  },
   "1fd9ae1607aa3d80": {
     "en": "Invite",
     "model": "google/gemini-3.8-flash",
@@ -1714,6 +1828,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} aralığı daraltır. {{1}} en az 1 olan bir tamsayı olmalıdır, aksi halde yanıt {{2}} olur. {{3}} ve {{4}} gerçekte neyin çizildiğini bildirir. Doksan, aşağıdaki saklama aralığıdır, bu yüzden daha uzun bir şerit yalnızca silinmiş satırlar için sıfırlardan ibaret olabilir."
+  },
+  "2021289889687945": {
+    "en": "openplate does not talk to YAZIO directly. You run a separate, open-source command line tool called {{0}}. It reads your YAZIO diary and writes it to files on your computer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate doğrudan YAZIO ile iletişim kurmaz. {{0}} adında ayrı, açık kaynaklı bir komut satırı aracı çalıştırırsın. Bu araç YAZIO günlüğünü okur ve bilgisayarındaki dosyalara yazar."
   },
   "202cdd598f68b3ca": {
     "en": "Why the CPU build dies.",
@@ -1798,6 +1918,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Tarama başına $0.001"
+  },
+  "210e654299a8462b": {
+    "en": "{{0}} When you enter calories in YAZIO without choosing a food, the entry contains no macro data for openplate to read.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} YAZIO içinde bir yiyecek seçmeden kalori girdiğinde, kayıt openplate tarafından okunabilecek hiçbir makro verisi içermez."
   },
   "2158112cfab99d9c": {
     "en": "Rootless notes",
@@ -1919,6 +2045,12 @@
     "at": "2026-09-14",
     "tr": "Kurtarma kanıtını {{0}} altında türet ve {{2}} değerini {{1}} gönderme. İkisi aynı kod üzerindeki kardeşlerdir ve KEK dalını göndermek, günlüğü açan değerin bir HMAC'ini sunucuya teslim etmek anlamına gelir (§3.1)."
   },
+  "2387a87fa4db1771": {
+    "en": "Every food you logged in YAZIO lands in openplate on the day and in the meal you logged it, with its macros scaled to the amount you ate. Your weigh-ins can come across too. Read \"What comes across and what does not\" below before you import, because a few values read differently than they did in YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO'da kaydettiğin her yiyecek; yediğin miktara göre ölçeklendirilmiş makrolarıyla birlikte, kaydettiğin gün ve öğünle openplate'e aktarılır. Tartı ölçümlerin de aktarılabilir. Birkaç değer YAZIO'dakinden farklı göründüğü için içe aktarmadan önce aşağıdaki \"Neler aktarılır, neler aktarılmaz\" bölümünü oku."
+  },
   "23bafe1c7e685329": {
     "en": "Your password never leaves your browser. It is stretched with Argon2id and split by HKDF into independent branches. Two branches stay on the device to unwrap the data key and your private settings. A third branch goes to the service as the login credential. They are cryptographic siblings, not parent and child, so holding one reveals nothing about the others. Your diary is encrypted on the device before it is uploaded and stays encrypted in transit; the service stores opaque ciphertext, and what it sees beside that is an email address plus the size and timing of your uploads.",
     "model": "google/gemini-3.8-flash",
@@ -1948,6 +2080,18 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "tam olarak"
+  },
+  "24573f4a2228ec38": {
+    "en": "{{0}} One file is valid JSON but does not contain YAZIO export data. Check that you selected the correct files.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Bir dosya geçerli bir JSON formatında ancak YAZIO dışa aktarma verisi içermiyor. Doğru dosyaları seçtiğini kontrol et."
+  },
+  "24895a9829a8d11d": {
+    "en": "{{0}} This action overwrites any manual edits you made to an imported entry or weigh-in.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Bu işlem, içe aktarılmış bir girdide veya kilo kaydında yaptığın tüm manuel düzenlemelerin üzerine yazar."
   },
   "24b1c139a9923e76": {
     "en": "{{0}} Adds {{1}} and Postgres. You gain encrypted sync across devices and an optional shared AI bill. You risk data loss if you do not back up the database, the secret, and your recovery key.",
@@ -2062,6 +2206,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "yönetilen örnek"
+  },
+  "26a63cfd138cbd07": {
+    "en": "What comes across and what does not",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Neler aktarılır, neler aktarılmaz"
   },
   "26b7fe47d778f39a": {
     "en": "enrolled, withdrawn, contribution sent",
@@ -2291,6 +2441,12 @@
     "at": "2026-09-14",
     "tr": "Gerekenler"
   },
+  "2bac4a1ff61dd105": {
+    "en": "openplate open in a browser, on the same device or on a device you can copy the files to.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Aynı cihazda veya dosyaları kopyalayabileceğin bir cihazda, tarayıcıda açık bir openplate."
+  },
   "2c0a545f90cadbf7": {
     "en": "absent, never {{0}}",
     "model": "google/gemini-3.8-flash",
@@ -2338,6 +2494,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Bu durum §5.16'nın bilinçli bir tersine çevrilmiş halidir, orada §3.2'nin AAD'si bağladığı için {{1}} zorunludur. Buradaki her AAD alanı şifre çözme işleminden önce araştırmacı tarafından yeniden oluşturulabilir: dördü yanıtta taşınır ve parmak izini araştırmacı kendi anahtarından yerel olarak hesaplar."
+  },
+  "2cfdbf69561bd1dc": {
+    "en": "Bringing a YAZIO diary into openplate with the open-source {{0}} tool, and what does and does not come across",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Açık kaynaklı {{0}} aracıyla bir YAZIO günlüğünü openplate'e aktarma ve nelerin aktarılıp nelerin aktarılmadığı"
   },
   "2d16128811807999": {
     "en": "The code in this repository is MIT",
@@ -2465,6 +2627,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Bunların her biri, hesap için bekleyen {{1}} {{2}} ve {{3}} belirteçlerini iptal eder:"
   },
+  "2f6baad6c5656cc7": {
+    "en": "Review the preview, then select {{0}}. Select {{1}} to stop without changing anything.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Önizlemeyi incele, ardından {{0}} seçeneğini seç. Hiçbir şeyi değiştirmeden durdurmak için {{1}} seçeneğini seç."
+  },
   "2f9dddcb5a67f570": {
     "en": "Rootless Postgres.",
     "model": "google/gemini-3.8-flash",
@@ -2482,6 +2650,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kendi anahtarını getir (BYOK) mantığıyla yapay zeka destekli tabak tanımlama"
+  },
+  "2fc50ad7e64099f5": {
+    "en": "\"One of those files isn't a YAZIO export. Pick only days.json, products.json and, if you want your weigh-ins, weight.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "\"Bu dosyalardan biri YAZIO dışa aktarması değil. Yalnızca days.json, products.json ve kilo kayıtlarını istiyorsan weight.json dosyalarını seç.\""
   },
   "3009be769fb8f956": {
     "en": "network",
@@ -2831,6 +3005,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} isteğe bağlıdır. Bunu {{1}} sunan OpenAI uyumlu ikinci bir çalışma zamanına yönlendirirsen (örneğin {{2}}), geri getirme işlemi {{3}} hale gelir: sözcüksel puanlayıcı adayları bulur ve yerleştirme modeli bunları yeniden sıralar, böylece veritabanında farklı ifade edilse bile \"ızgara tavuk pirzola\" doğru satırla eşleşir. Boş bırakırsan (varsayılan değer) geri getirme yalnızca sözcüksel olur, bu da sıralamayı biraz zayıflatır ancak asla bir hataya yol açmaz. Erişilemeyen bir yerleştirme çalışma zamanı, tek bir uyarıyla yalnızca sözcüksel moda geçer; taramayı hiçbir zaman aksatmaz."
   },
+  "36424a3f7a68548c": {
+    "en": "{{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}}, {{1}}, {{2}}, {{3}}, {{4}}, {{5}}"
+  },
   "3642860f623dd009": {
     "en": "one keyed hash of the mailbox is kept, and nothing else",
     "model": "google/gemini-3.8-flash",
@@ -2860,6 +3040,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Genellikle boş."
+  },
+  "370cf5923a46e621": {
+    "en": "{{0}} YAZIO has no fibre value for many foods. When that happens, openplate marks fibre as unknown instead of zero.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} YAZIO birçok yiyecek için lif değerine sahip değildir. Bu durumda openplate, lifi sıfır yerine bilinmiyor olarak işaretler."
   },
   "371a286d5872a373": {
     "en": "base64",
@@ -2915,11 +3101,23 @@
     "at": "2026-09-14",
     "tr": "{{0}} blob çoğu zaman kullanıcının verisinin tek kopyasıdır. Daha yeni bir servisin farklı çerçevelediği bir zarfı gönderen veya yarım anladığı bir zarfın şifresini çözen bir istemci, o kopyayı geri döndürülemez biçimde bozabilir. Reddedilen bir eşitleme, görünür bir aksaklıktır; sessizce yanlış yapılan bir eşitleme ise haftalar sonra fark edilen bir veri kaybı vakasıdır. Bu protokol her seferinde aksaklığı seçer."
   },
+  "389a86ba79436a59": {
+    "en": "openplate reads the values in {{0}} as kilograms.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate, {{0}} içindeki değerleri kilogram olarak okur."
+  },
   "389d8d52305c6ba7": {
     "en": "66 MiB",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "66 MiB"
+  },
+  "38a6eb5394985e18": {
+    "en": "{{0}}, {{1}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}}, {{1}}"
   },
   "38e72eaa934cf040": {
     "en": "No database, no accounts, no diary. At most one secret: the operator's key for the food database.",
@@ -3016,6 +3214,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bilinmesinde fayda olan bir vLLM garipliği."
+  },
+  "3a7e805d803b7df5": {
+    "en": "Install Python 3.11 or newer",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Python 3.11 veya daha yenisini kur"
   },
   "3a9a2c3b684479ad": {
     "en": "All request and response bodies are {{0}}.",
@@ -3226,6 +3430,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Üstelik yine de tek bir tanesini bile birleştiremez."
+  },
+  "3e5c44ae5db6edfe": {
+    "en": "{{0}}, because {{1}} takes it as plain text on the command line rather than at a hidden prompt. On macOS and Linux, you have two ways to keep it out: type a space before the command if your shell ignores lines starting with a space, or run {{2}} right after to clear your session history. On Windows, closing PowerShell does not clear it. PowerShell's PSReadLine module keeps a persistent history file at {{3}}. Open that file afterward and delete the line with your password.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}}, çünkü {{1}} bunu gizli bir istem yerine komut satırında düz metin olarak alır. macOS ve Linux'ta bunu geçmişin dışında tutmanın iki yolu vardır: kabuğun boşlukla başlayan satırları yok sayıyorsa komuttan önce bir boşluk yaz ya da oturum geçmişini temizlemek için hemen ardından {{2}} komutunu çalıştır. Windows'ta PowerShell'i kapatmak geçmişi temizlemez. PowerShell'in PSReadLine modülü, {{3}} konumunda kalıcı bir geçmiş dosyası tutar. İşin bittiğinde bu dosyayı aç ve şifreni içeren satırı sil."
   },
   "3e5e38d4aae2f107": {
     "en": "{{0}} It holds no database and writes no state: a destroyed app container loses nothing.",
@@ -3449,6 +3659,12 @@
     "at": "2026-09-14",
     "tr": "Saklandığı yer"
   },
+  "432c93eb3bc60346": {
+    "en": "removed.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "kaldırıldı."
+  },
   "43a93baacb71ebf6": {
     "en": "{{0}} defaults to {{1}}. A box that shed load at some threshold would refuse requests it is perfectly capable of serving, and on CPU a scan legitimately takes seconds to minutes. The UX that fits is asynchronous: take the photo, put the phone away, the plate is analysed when you look again. What does not fit on CPU is a live preview that redraws as you frame the shot.",
     "model": "google/gemini-3.8-flash",
@@ -3478,6 +3694,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bir {{0}}"
+  },
+  "43daee5e89607585": {
+    "en": "Your password remains in your terminal command history",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Şifren terminal komut geçmişinde kalır"
   },
   "4403eb5ce3561a27": {
     "en": "6.3 GB",
@@ -3514,6 +3736,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "{{0}} Hesap başına benzersizdir. Var olan bir anahtarla yapılan ikinci bir gönderim, {{2}} yerine saklanan bildirimle birlikte {{1}} yanıtını verir. İkinci bir bildirim saklamaz ve günlük sınıra dahil edilmez. Eğer bir fotoğraf eklenmişse fotoğrafı tekrar yazar. Bu, ilk fotoğraf yazma işlemi yarıda kesilmiş bir bildirimi onarır."
+  },
+  "44746d619126aae1": {
+    "en": "An account may carry free AI scans with no end date ({{0}}, §5.15), granted by the instance's trial ({{1}}, §5.6). {{2}}, and one action may be more than one upstream request: a client may retry once without {{3}} after a provider refusal. (A retry after a stale bearer is refused by the bearer check, §4.1, before any claim.) {{4}}",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir hesap, örneğin deneme süresince tanımlanan ({{1}}, §5.6), bitiş tarihi olmayan ücretsiz yapay zeka taramalarına sahip olabilir ({{0}}, §5.15). {{2}} ve bir eylem birden fazla yukarı akış isteği anlamına gelebilir: İstemci, bir sağlayıcı reddinden sonra {{3}} olmadan bir kez yeniden deneyebilir. (Süresi geçmiş bir taşıyıcıdan sonraki yeniden deneme, herhangi bir hak talebinden önce taşıyıcı kontrolü tarafından reddedilir, §4.1.) {{4}}"
   },
   "4475930a8570f4f2": {
     "en": "identical work",
@@ -3737,6 +3965,12 @@
     "at": "2026-09-14",
     "tr": "Eşitleme servisini de çalıştırıyorsan, onun Postgres veritabanı {{0}} ile birlikte zamanlanmış bir döküm almaya değer; zira veritabanı olmadan o, o olmadan da veritabanı işe yaramaz:"
   },
+  "47c805bb0679c4a6": {
+    "en": "Remove YAZIO entries",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO girdilerini kaldır"
+  },
   "47de566ccbc724ab": {
     "en": "It is an ACKNOWLEDGEMENT, not a verdict. A client sets it {{0}} exactly when it emits deletions from state it positively trusts, and a client that cannot make that claim omits the field and takes the refusal. The service holds ciphertext and cannot tell a deliberate deletion from a client that lost its local store and believes everything was deleted; those are the same bytes. So it asks, and a client that says nothing gets a refusal rather than a wipe.",
     "model": "google/gemini-3.8-flash",
@@ -3869,6 +4103,12 @@
     "at": "2026-09-14",
     "tr": "Tüm ortam değişkenleri, Content-Security-Policy, özel ve sunucu örneği tarafından sağlanan yapay zeka uç noktaları"
   },
+  "49aff4418afee05b": {
+    "en": "If the preview reports skipped entries, see \"What comes across and what does not\" above for details.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Önizleme atlanan girdiler bildiriyorsa, ayrıntılar için yukarıdaki \"Neler aktarılır, neler aktarılmaz\" bölümüne bak."
+  },
   "49c57c1fb3df5284": {
     "en": "Bearer. {{0}}. Revokes the caller's token family: this device only.",
     "model": "google/gemini-3.8-flash",
@@ -3946,6 +4186,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "4"
+  },
+  "4b242f653c4a302f": {
+    "en": "{{0}}, when present.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Varsa {{0}}."
   },
   "4b42c3571fe2d44e": {
     "en": "{{0}} is public.",
@@ -4114,6 +4360,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} tam olarak iki eylem sunar: {{1}} ve {{2}} (yapıştırılan bir bağlantıyı alır ve {{3}} adresine iletir). \"Başla\" yoktur."
+  },
+  "4e48d019a0514d6f": {
+    "en": "openplate confirms how many entries and weigh-ins it imported. Open your diary and verify a day you remember.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate kaç girdi ve tartı kaydı içe aktardığını doğrular. Günlüğünü aç ve hatırladığın bir günü kontrol et."
   },
   "4e545960f1bffc13": {
     "en": "Unit",
@@ -4361,6 +4613,12 @@
     "at": "2026-09-14",
     "tr": "Veritabanı tarafından zorunlu kılınan, araştırma başına bir takma ad."
   },
+  "5200cad4b14e481e": {
+    "en": "{{0}} The import never replaces a weight you logged in openplate. The preview displays the count of those days.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} İçe aktarma işlemi, openplate içinde kaydettiğin bir kilonun yerine asla geçmez. Önizleme bu günlerin sayısını gösterir."
+  },
   "521723455c911fcc": {
     "en": "Encryption, and what the operator holds",
     "model": "google/gemini-3.8-flash",
@@ -4390,6 +4648,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Durumsuz tek bir konteyner"
+  },
+  "52b707da769b01c0": {
+    "en": "Entries imported from YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO üzerinden içe aktarılan girdiler"
   },
   "52f5a1cf92a70778": {
     "en": "{{0}} Measured 2026-08-13 through the {{1}} service: this exact code, its 896 px downscale, its grammar, its output mapping, 50/50 images, 0 errors, sequential requests over loopback.",
@@ -4553,6 +4817,12 @@
     "at": "2026-09-14",
     "tr": "Hız sınırına takıldı. Saniye cinsinden {{0}}."
   },
+  "561254a33504afb6": {
+    "en": "An amount in millilitres counts as the same number of grams.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Milisaniye cinsinden bir miktar, aynı sayıda gram olarak kabul edilir."
+  },
   "564016e0ab5bf85b": {
     "en": "An instance that sets {{0}} is a {{1}}: an administrator invites people by email, and each account carries a daily AI allowance, so signing in gives a person both the diary and the AI in one step. This is what openplate.de is, and it is off by default: a self-hoster who sets nothing gets the open app.",
     "model": "google/gemini-3.8-flash",
@@ -4570,6 +4840,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "kod"
+  },
+  "56b21e26ffd86001": {
+    "en": "Replace {{0}} and {{1}} with your YAZIO sign-in details. This command connects only to YAZIO's server, {{2}}. Nothing goes to openplate during this step.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} ve {{1}} değerlerini YAZIO giriş bilgilerinle değiştir. Bu komut yalnızca YAZIO'nun sunucusu olan {{2}} adresine bağlanır. Bu adım sırasında openplate'e hiçbir şey gitmez."
   },
   "57524903ef924d0b": {
     "en": "Do not use the instance-provided-AI shortcut for this.",
@@ -4648,6 +4924,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Açıkça belirtmek gerekirse, herkese açık bir demo örneği için çalışma süresi taahhüdü verilmez ve buradaki hiçbir veri senin için yedeklenmez. Günlüğün o tarayıcıda tutulur ve tarayıcıyı temizlediğinde silinir. Düzenli olarak {{0}} üzerinden JSON dışa aktarımı al veya basamak 1'e geç."
+  },
+  "5944c86468ebc0a8": {
+    "en": "{{0}} describes what this deployment is and what it can do, and it is {{1}}: a service older than the field omits it, and a client that requires it would refuse to talk to every such instance. {{2}} is the operator's label for the instance, {{3}} is one of {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} (the six languages its mail is written in; a client shows it and never branches on it, so a seventh is not a protocol change), {{10}} says whether it can send a letter at all, {{11}} says whether an ordinary member may invite people here (§5.21), {{12}} says whether a person may ask for an account here (§5.8.3), {{13}} says what that request needs, {{14}} promises the free scans a new account gets (§5.19), {{15}} says whether a biller stands behind this instance so {{16}} exists (§5.22), {{17}} says whether this instance can send web push so {{18}} exists (§5.24), {{19}} says whose micronutrient reference values it shows, and {{20}} is {{21}} when no upstream key is configured. {{22}} is the model the proxy sends every request to (§5.19), or {{23}} when the operator named none and the caller's own model is sent.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}}, bu dağıtımın ne olduğunu ve ne yapabileceğini açıklar, ayrıca {{1}} niteliğindedir: alandan daha eski bir servis bunu atlarken, bunu zorunlu kılan bir istemci bu türdeki tüm örneklerle konuşmayı reddeder. {{2}} işleticinin örnek için belirlediği etikettir; {{3}} ise {{4}}, {{5}}, {{6}}, {{7}}, {{8}}, {{9}} seçeneklerinden biridir (postalarının yazıldığı altı dil; istemci bunu gösterir ve asla buna göre dallanma yapmaz, dolayısıyla yedinci bir dil bir protokol değişikliği değildir), {{10}} bir mektup gönderip gönderemeyeceğini belirtir, {{11}} sıradan bir üyenin buraya kişi davet edip edemeyeceğini belirtir (§5.21), {{12}} bir kişinin burada hesap talep edip edemeyeceğini belirtir (§5.8.3), {{13}} bu talebin ne gerektirdiğini belirtir, {{14}} yeni bir hesabın alacağı ücretsiz taramaları taahhüt eder (§5.19), {{15}} bu örneğin arkasında bir faturalandırıcının durup durmadığını ve dolayısıyla {{16}} alanının mevcut olup olmadığını belirtir (§5.22), {{17}} bu örneğin web push gönderip gönderemeyeceğini ve dolayısıyla {{18}} alanının mevcut olup olmadığını belirtir (§5.24), {{19}} kimin mikro besin referans değerlerini gösterdiğini belirtir ve {{20}}, bir yukarı akış anahtarı yapılandırılmadığında {{21}} değerini alır. {{22}}, vekil sunucunun her isteği gönderdiği modeldir (§5.19) ya da işletici bir model belirtmediğinde ve arayanın kendi modeli gönderildiğinde {{23}} olur."
   },
   "596902cb508aea4d": {
     "en": "60-minute",
@@ -4888,6 +5170,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bu bir lisans özetidir, hukuki tavsiye değildir. Sınır seni bağlayabilecek durumdaysa, lisansı oku ve kendi avukatına danış."
+  },
+  "5e9f3025ad879a2f": {
+    "en": "openplate treats YAZIO's carb number as already excluding fibre, the EU style, and does not subtract fibre again.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate, YAZIO karbonhidrat değerini lifi zaten hariç tutan AB biçimi gibi ele alır ve lifi tekrar çıkarmaz."
   },
   "5ed0a3efcef1784c": {
     "en": "{{0}} is {{1}} whenever nothing is wrong, so alerting on {{2}} is safe. A wrong {{3}} shows up here and nowhere else: it degrades ranking rather than failing scans.",
@@ -5183,6 +5471,12 @@
     "at": "2026-09-14",
     "tr": "Saklama katmanlıdır (M224)."
   },
+  "63bb4908e2b67987": {
+    "en": "{{0}} and install the export tool:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} ve dışa aktarma aracını kur:"
+  },
   "63bceba91702ebec": {
     "en": "What {{0}} counts",
     "model": "google/gemini-3.8-flash",
@@ -5440,6 +5734,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Sınır"
+  },
+  "675684661176aeb7": {
+    "en": "A recipe's weight comes from the sum of its ingredients.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir tarifin ağırlığı, malzemelerinin toplamından gelir."
   },
   "677feadb135cf232": {
     "en": "{{0}} That domain separation is load-bearing, not tidiness. The KEK branch derives the key that opens the diary; were the same output also sent to the server, this service would store an HMAC of the material that unwraps a DEK, and \"the operator cannot read your data\" would rest on SHA-256 being one-way rather than on the operator never having held the value. Both labels are frozen, neither is derived from the other, and a future change to either is a new {{1}} label rather than a redefinition (ADR-0004).",
@@ -6137,6 +6437,12 @@
     "at": "2026-09-14",
     "tr": "Uyumlu bir uygulamanın SAĞLAMASI GEREKEN üç özellik vardır ve istek gövdesi birinin yemeğinin fotoğrafı olduğu için bunların her biri mevcuttur:"
   },
+  "74a883a037bc227f": {
+    "en": "Settings",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Ayarlar"
+  },
   "74a9e70831088571": {
     "en": "For a new address the service mints an ordinary addressed invite and mails it",
     "model": "google/gemini-3.8-flash",
@@ -6191,6 +6497,12 @@
     "at": "2026-09-14",
     "tr": "Yalnızca sayfa görüntülemeleri. Hiçbir özellik olayı tetiklenmez."
   },
+  "759fe20381f4c823": {
+    "en": "Importing the same files again updates existing entries instead of creating duplicates.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Aynı dosyaları tekrar içe aktarmak, kopyalar oluşturmak yerine mevcut girdileri günceller."
+  },
   "75b38c876a58011b": {
     "en": "Licensing",
     "model": "google/gemini-3.8-flash",
@@ -6244,6 +6556,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "bir"
+  },
+  "76aa42de78398368": {
+    "en": "python.org downloads page",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "python.org indirmeler sayfası"
   },
   "76c036ac14230581": {
     "en": "Unauthenticated, IP-throttled. Returns the Argon2id salt and parameters a device needs to derive {{0}} before it can log in.",
@@ -6437,6 +6755,12 @@
     "at": "2026-09-14",
     "tr": "Üçü arasındaki en geniş veridir (küratörlü + BLS + USDA) ve BLS 4.0 yeniden dağıtımı yasakladığı için kalıcı olarak yalnızca uzaktandır. Arayüze ulaşması için atıf yanıta iletilir."
   },
+  "7a6343e9210c5ef8": {
+    "en": "The files stay on your device. openplate reads them locally in your browser and does not upload them to a server.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Dosyalar cihazında kalır. openplate bunları tarayıcında yerel olarak okur ve bir sunucuya yüklemez."
+  },
   "7a80e05b636718c8": {
     "en": "5.3 {{0}}: list",
     "model": "google/gemini-3.8-flash",
@@ -6526,6 +6850,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "5.2 {{0}}: pull"
+  },
+  "7d84d7db80bb846d": {
+    "en": "the instance's model, {{0}}, the same value {{1}} publishes (§5.6). When the operator set none, the caller's {{2}} is sent unchanged.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "örneğin modeli, {{0}}, {{1}} tarafından yayımlanan değerin aynısı (§5.6). İşletici bir değer ayarlamadığında, arayanın {{2}} değeri değiştirilmeden gönderilir."
   },
   "7d8a64eccd2680e3": {
     "en": "{{0}} point it at the same {{1}} and sign in with the same email address and password you used on the first one. That is the whole procedure, and nothing has to be copied off the first device.",
@@ -6719,6 +7049,12 @@
     "at": "2026-09-14",
     "tr": "Sunucunun GitHub'a daha yeni bir openplate sürümü olup olmadığını sormasını durdurmak için {{0}} olarak ayarla. Aşağıdaki {{1}} bölümüne bak."
   },
+  "80d0de6788ceffbc": {
+    "en": "{{0}}, on the day and in the meal you logged it in YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}}, YAZIO uygulamasında kaydettiğin günde ve öğünde."
+  },
   "80def1fadf5f5eb8": {
     "en": "The app plus your own sync service",
     "model": "google/gemini-3.8-flash",
@@ -6893,6 +7229,12 @@
     "at": "2026-09-14",
     "tr": "Son oturum açma ve sınırlı bir pencere boyunca UTC günü başına bir girdi"
   },
+  "84c333b139e50940": {
+    "en": "at most {{0}} (default 8192). A value above it, or one that is not a number, becomes the ceiling. A body with neither gets {{1}} written in.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "en fazla {{0}} (varsayılan 8192). Bunun üzerindeki bir değer veya sayı olmayan bir değer üst sınır haline gelir. İkisini de içermeyen bir gövdeye {{1}} yazılır."
+  },
   "850b400f55e59ff0": {
     "en": "What it costs, stated rather than implied.",
     "model": "google/gemini-3.8-flash",
@@ -6904,6 +7246,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "14"
+  },
+  "8527b3d304ea0aac": {
+    "en": "{{0}} You selected only {{1}}. Select both files together.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Yalnızca {{1}} seçtin. İki dosyayı birlikte seç."
   },
   "85af567742b9f53f": {
     "en": "openplate-core, managed",
@@ -6952,6 +7300,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Oradayken bir harcama limiti belirle."
+  },
+  "868b862117071b9c": {
+    "en": "ties each give-back and each delivery to the claim it belongs to, so a request that fails late never returns a scan a newer request on the same id claimed;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "her geri vermeyi ve her teslimatı ait olduğu hak talebine bağlar, böylece geç başarısız olan bir istek, aynı kimlik üzerindeki daha yeni bir isteğin talep ettiği taramayı asla geri döndürmez;"
   },
   "86b20007b18a2e08": {
     "en": "{{0}} is {{1}}, {{2}} or {{3}}: which body's micronutrient reference values every client on this instance shows, the German DGE, the EU's EFSA, or the US NASEM figures. It is {{4}}, so a service built before the field omits it and a client that has never heard of it ignores it. It is {{5}}: language and reference body are orthogonal, and a locale-following default would be a per-person basis in disguise.",
@@ -7156,6 +7510,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "HKDF {{0}} etiketleri"
+  },
+  "8a8e8cd1fa6978ed": {
+    "en": "\"One of those files isn't valid JSON. Pick the days.json and products.json the exporter wrote.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "\"Bu dosyalardan biri geçerli bir JSON değil. Dışa aktarma aracının yazdığı days.json ve products.json dosyalarını seç.\""
   },
   "8a9b8334ad4b50ef": {
     "en": "per plate",
@@ -8219,6 +8579,12 @@
     "at": "2026-09-14",
     "tr": "openplate uygulama sunucusu"
   },
+  "9dc6893f214a469f": {
+    "en": "openplate verifies the files before it displays a preview. Here is what each message means:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate bir önizleme göstermeden önce dosyaları doğrular. Her iletinin anlamı şöyledir:"
+  },
   "9dd6955d3560332d": {
     "en": "{{0}}, and a submission missing either is a {{1}} that names the field. A rotation always mints a fresh recovery code, because the {{2}} key record it re-wraps is sealed under a KEK derived from that code; the server therefore replaces {{3}} and the escrow (§3.1) {{4}} as the blob, the key records and the shares. A rotation that left those two on the OLD code produced an account whose escrowed code authenticated and then unwrapped nothing, latent from the moment the recovery code became the second authenticator, and fatal once a mailed reset (§5.12) began handing that code to people. The client does not show the new code to the person; it goes into the escrow and stays there.",
     "model": "google/gemini-3.8-flash",
@@ -8315,17 +8681,35 @@
     "at": "2026-09-14",
     "tr": "Hız sınırları hesap başınadır"
   },
+  "9f4a096782858520": {
+    "en": "Quick entries are skipped.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Hızlı girdiler atlanır."
+  },
   "9f6e6104d59b8599": {
     "en": "The allowance is spent. {{0}} is seconds to the next UTC midnight",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Kota tükendi. {{0}}, bir sonraki UTC gece yarısına kalan saniyedir"
   },
+  "9fc0c7f6162ce11d": {
+    "en": "{{0}} is a third-party tool.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} üçüncü taraf bir araçtır."
+  },
   "9fc1bd39f85cf5d1": {
     "en": "pre-1.0 and do not bump {{0}}",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "1.0 öncesidir ve {{0}} değerini artırmaz"
+  },
+  "9fd46407535647e2": {
+    "en": "{{0}} {{1}} writes {{2}}. {{3}} writes {{4}}. {{5}} writes {{6}}. The files appear in the folder where you ran the commands. You need {{7}} and {{8}}. {{9}} is optional and brings your weigh-ins.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} {{1}}, {{2}} dosyasını yazar. {{3}}, {{4}} dosyasını yazar. {{5}}, {{6}} dosyasını yazar. Dosyalar komutları çalıştırdığın klasörde görünür. {{7}} ve {{8}} dosyalarına ihtiyacın var. {{9}} isteğe bağlıdır ve tartı ölçümlerini getirir."
   },
   "9fd728c66c9a256b": {
     "en": "Add",
@@ -8573,6 +8957,12 @@
     "at": "2026-09-14",
     "tr": "Podman bunu aynı şekilde çalıştırır: {{0}}."
   },
+  "a4bb1397a9a2c8c2": {
+    "en": "What the provider receives",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Sağlayıcının aldığı"
+  },
   "a4c0a05b5351cc95": {
     "en": "The field is {{0}}, on an instance that accepts no reports. {{1}} is a statement every instance makes; this is a promise, and an instance with the feature off has none to make, so it adds no key at all and stays indistinguishable from one built before the field existed, exactly as its {{2}} tree stays indistinguishable from one where the feature was never written.",
     "model": "google/gemini-3.8-flash",
@@ -8584,6 +8974,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "paketlenmiş modda da"
+  },
+  "a4f9ccea26c563c3": {
+    "en": "The ceiling applies with or without a model. A client that needs a longer answer than the ceiling allows gets a truncated one, and the operator raises {{0}}. A self-hosted instance that wants its people to pick the model leaves {{1}} unset.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Üst sınır, bir model olsun veya olmasın geçerlidir. Üst sınırın izin verdiğinden daha uzun bir yanıta ihtiyaç duyan istemci kesilmiş bir yanıt alır ve operatör {{0}} değerini artırır. Kullanıcılarının modeli seçmesini isteyen, kendi barındırılan bir örnek {{1}} değerini boş bırakır."
   },
   "a511aeeeb8a11993": {
     "en": "because",
@@ -8669,6 +9065,12 @@
     "at": "2026-09-14",
     "tr": "Hesap başına monotonik sayaç. Karşılaştır ve değiştir belirteci."
   },
+  "a717454571794953": {
+    "en": "Authenticated with the account's ordinary {{0}} (§4.1). The body is an OpenAI-compatible chat-completion request and this specification does not constrain it further: the service checks only that it is a JSON object, because a stricter schema would reject every field the next provider adds. It then rewrites the few fields that set what one request costs (below) and forwards every other field as it came. The response is the provider's, relayed with its status.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Hesabın sıradan {{0}} değeriyle kimlik doğrulaması yapılır (§4.1). Gövde OpenAI uyumlu bir chat-completion isteğidir ve bu belirtim bunu daha fazla kısıtlamaz: servis yalnızca bir JSON nesnesi olduğunu kontrol eder, çünkü daha katı bir şema bir sonraki sağlayıcının ekleyeceği her alanı reddeder. Ardından, bir isteğin neye mal olduğunu belirleyen birkaç alanı yeniden yazar (aşağıda) ve diğer tüm alanları geldiği gibi iletir. Yanıt sağlayıcıya aittir, durum koduyla birlikte aktarılır."
+  },
   "a720889d657d21a7": {
     "en": "{{0}}, 8 MB by default, and applies to this route only. It sits above the image cap because base64 grows by a third. A larger body is {{1}}.",
     "model": "google/gemini-3.8-flash",
@@ -8710,6 +9112,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} Varsayılan değer olan {{1}}, openplate-inference tarafından sunulan kimliktir ve olduğu gibi gönderilir. Temel URL'yi bunun yerine Ollama, vLLM veya LM Studio'ya yönlendirirsen, bunu o çalışma zamanının sunduğu kendi adına ayarlamalısın, aksi takdirde tüm istekler başarısız olur."
+  },
+  "a8810e8ea80baf5a": {
+    "en": "{{0}} 3.11 or newer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} 3.11 veya daha yenisi."
   },
   "a883368e301d875e": {
     "en": "{{0}} ({{1}}, RFC 1952) is applied to the plaintext {{2}} encryption. Ciphertext is incompressible, so it is compress-first or not at all. See §8 for why this matters and §9.2 for the honest statement of what it leaks.",
@@ -8764,6 +9172,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "alınmadı veya serbest bırakıldı"
+  },
+  "a902232b74898492": {
+    "en": "at most the same ceiling. {{0}} is kept.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "en fazla aynı tavan sınır. {{0}} korunur."
   },
   "a90cfbb2a37916a6": {
     "en": "The cost is equally plain: forget the passphrase and lose the recovery code, and the data is gone, to you and to us. An email reset restores the {{0}}, never the {{1}}.",
@@ -8951,6 +9365,12 @@
     "at": "2026-09-14",
     "tr": "Bu aşıldığında çağıranlar 429 + {{0}} alır."
   },
+  "ac0496f6de975889": {
+    "en": "The {{0}} command saves a token to a file named {{1}} in your current folder. The other commands use this file so they do not ask for your password again. Your system creates this file readable only by your user account, but it is not encrypted. Delete {{2}} once you finish the export.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} komutu, bulunduğun klasördeki {{1}} adlı bir dosyaya bir belirteç kaydeder. Diğer komutlar şifreni tekrar sormamak için bu dosyayı kullanır. Sistemin bu dosyayı yalnızca senin kullanıcı hesabın tarafından okunabilecek şekilde oluşturur, ancak dosya şifrelenmemiştir. Dışa aktarmayı bitirdikten sonra {{2}} dosyasını sil."
+  },
   "ac0a31df0c2cd9fe": {
     "en": "Admission refused because the request cannot finish inside {{0}} (only when that ceiling is enabled).",
     "model": "google/gemini-3.8-flash",
@@ -9076,6 +9496,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Asıl önemli yedek cihaz başına alınan JSON dışa aktarımıdır"
+  },
+  "ad8803fa3b8fbe16": {
+    "en": "{{0}} One of the files is not valid JSON. Select the files exactly as {{1}} created them, without edits.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Dosyalardan biri geçerli bir JSON değil. Dosyaları üzerinde değişiklik yapmadan, tam olarak {{1}} tarafından oluşturuldukları haliyle seç."
   },
   "ad95d5fa651ba86d": {
     "en": "free",
@@ -9221,6 +9647,12 @@
     "at": "2026-09-14",
     "tr": "openplate nasıl kullanıldığını sayabilir. Sen yapılandırana kadar hiçbir şey saymaz ve ne yediğini asla saymaz."
   },
+  "b065dcbb2be7cf0f": {
+    "en": "Under {{0}}, select {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} altında {{1}} seçeneğini seç."
+  },
   "b093720ae2536364": {
     "en": "symptom",
     "model": "google/gemini-3.8-flash",
@@ -9286,6 +9718,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "üçüncü"
+  },
+  "b23157de962a3741": {
+    "en": "A computer where you can open a terminal and install Python. A phone will not work for the export step. You can move the files to your phone afterward if you use openplate there.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Terminal açabileceğin ve Python kurabileceğin bir bilgisayar. Dışa aktarma adımı için telefon çalışmaz. openplate'i telefonda kullanıyorsan dosyaları sonradan oraya taşıyabilirsin."
   },
   "b239ecb13dfa34ce": {
     "en": "{{0}}: unauthenticated, throttled per (IP, email), NEVER cleared on success.",
@@ -9923,6 +10361,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Yeni bir adres, bekleyen bir daveti zaten tutan bir adres ve bir hesabı zaten tutan bir adres, tek bir gövdeye sahip tek bir {{1}} durumundadır. Bu, §5.7 ve §5.12'deki numaralandırma önleme özelliğinin, bir üyenin başka birinin posta kutusunu işaret ettiği tek uç noktaya uygulanmış halidir: İş arkadaşının adresini yazan bir kişi, iş arkadaşının zaten burada olduğunu bir durum kodundan, gövdeden veya başlıktan öğrenmemelidir. Yönetici üretiminin {{2}} değeri bundan muaftır, bunun tek nedeni de işletmecinin kendi kimlik bilgisinin arkasında yer almasıdır."
   },
+  "bd7137bcb52ee648": {
+    "en": "\"days.json is missing. Pick it together with products.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "\"days.json eksik. products.json ile birlikte seç.\""
+  },
   "bd731f6aaea4d648": {
     "en": "{{0}} Without one the whole subtree answers the ordinary unknown-path {{1}}, to everybody, credentialed or not, and {{2}} is {{3}} on the handshake (§5.6). An implementation of this protocol MAY omit the subtree entirely; a client MUST read {{4}} before offering a plan door rather than probing the path.",
     "model": "google/gemini-3.8-flash",
@@ -10025,6 +10469,12 @@
     "at": "2026-09-14",
     "tr": "Matomo"
   },
+  "bf9189ce2273d026": {
+    "en": "Import from YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO'dan içe aktarma"
+  },
   "bfa87a1b46e94b9a": {
     "en": "You own the hardware.",
     "model": "google/gemini-3.8-flash",
@@ -10049,6 +10499,12 @@
     "at": "2026-09-14",
     "tr": "Lisans"
   },
+  "c04184be1d5c4f5c": {
+    "en": "An entry is skipped when its food is missing from {{0}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Yiyeceği {{0}} içinde eksik olan girdiler atlanır."
+  },
   "c0602a968569bcb9": {
     "en": "Keep the export as private as the diary.",
     "model": "google/gemini-3.8-flash",
@@ -10066,6 +10522,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Bir {{0}} servisinin temel URL adresi. Bkz. {{1}}. Kaynağı üretim CSP'sine otomatik eklenir. Hatalı biçimlendirilmiş bir değer, başlatmayı kasıtlı olarak durdurur."
+  },
+  "c0c5d3378fac340f": {
+    "en": "Find the files.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Dosyaları bul."
   },
   "c0fd766f2255dabf": {
     "en": "KEKs are 256-bit AES-GCM keys, imported non-extractable.",
@@ -10390,6 +10852,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} (isteğe bağlı)"
+  },
+  "c8300dc870e3ba51": {
+    "en": "{{0}} A recipe without an ingredient list in the export file is skipped. Recipe numbers are the least certain part of this import, so check an imported recipe against YAZIO.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Dışa aktarma dosyasında malzeme listesi bulunmayan tarifler atlanır. Tarif değerleri bu içe aktarmanın en belirsiz kısmıdır, bu nedenle içe aktarılan bir tarifi YAZIO ile karşılaştır."
   },
   "c85700f1d5f6f0a3": {
     "en": "Note on that swap: {{0}} It is the official Apache-2.0 Qwen3-VL sibling in the same size class, from the same family as the {{1}} model, with first-class llama.cpp support and an official GGUF release. We expect it to be at least comparable and we have not proven it. If accuracy matters more than the small-model convenience, {{2}} is the measured Apache-2.0 answer.",
@@ -10721,6 +11189,12 @@
     "at": "2026-09-14",
     "tr": "Bileşen"
   },
+  "ce5d4182b8949672": {
+    "en": "{{0}} The export does not state which unit it uses. If you weigh yourself in pounds in YAZIO, check the first and last weight in the preview before you confirm. openplate skips and counts any value below 20 or above 350.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} Dışa aktarma dosyası hangi birimi kullandığını belirtmez. YAZIO içinde kilonu libre olarak takip ediyorsan, onaylamadan önce önizlemedeki ilk ve son kiloyu kontrol et. openplate, 20 altındaki veya 350 üzerindeki tüm değerleri atlar ve sayar."
+  },
   "ceb52f5889cbf17f": {
     "en": "BYOK is the zero-server path",
     "model": "google/gemini-3.8-flash",
@@ -10918,6 +11392,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "Kısaltma"
+  },
+  "d1a5bc42044ebd8b": {
+    "en": "YAZIO",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO"
   },
   "d1cd8d987ad6206c": {
     "en": "ADR-0012",
@@ -11411,6 +11891,12 @@
     "at": "2026-09-14",
     "tr": "Önyükleme aşamaları, belirti tablosu, çevrimdışı / önceden doldurulmuş kurulum"
   },
+  "daa00645608e1dc0": {
+    "en": "{{0}} openplate and YAZIO did not make it, and nobody involved in openplate maintains it. It can stop working if YAZIO changes its app. The project is at {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} openplate ve YAZIO tarafından geliştirilmemiştir ve openplate ile bağlantılı hiç kimse bu aracın bakımını yapmaz. YAZIO uygulamasını değiştirirse çalışmayı durdurabilir. Proje {{1}} adresindedir."
+  },
   "dac9f8b92c25b2cc": {
     "en": "It runs on the server rather than in the browser. This keeps the key off the page, and lets the operator's setting decide whether names leave at all. The key is {{0}}. Without one the instance uses LowCarbCheck's anonymous tier; {{1}} lists the tiers.",
     "model": "google/gemini-3.8-flash",
@@ -11537,6 +12023,12 @@
     "at": "2026-09-14",
     "tr": "{{0}}, {{1}} gerektirir. Günlük ile kotayı bir arada taşıyan şey hesaptır; bir eşitleme sunucusu olmadan {{2}} tanımlamak, bir şeyleri yarım yamalak etkinleştirmek yerine önyüklemeyi durdurur."
   },
+  "dd6b8f18603a1572": {
+    "en": "Remove an import",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir içe aktarmayı kaldır"
+  },
   "ddcbd1bcd564d705": {
     "en": "A {{0}} record is what lets the passphrase decrypt anything; without it the account logs in and reads nothing, and the client has discarded the passphrase by the time it would find out.",
     "model": "google/gemini-3.8-flash",
@@ -11573,6 +12065,12 @@
     "at": "2026-09-19",
     "tr": "{{1}} ayarlanmış bir dağıtımda (§5.25, ADR-0006) {{0}}: bir kişinin bildirmeyi seçtiği her bir girdinin sayısal verileri, cihazda hala varsa tabak fotoğrafı, hesap kimliği, onay kaydı ve varış zamanı, hepsi okunabilir durumdadır. {{2}} boyunca saklanır, ardından bir temizlikle silinir ve hesapla birlikte giderler. Bir işletmeci bunları §5.20 aracılığıyla okuyabilir ve bir fotoğrafın her okunması günlüğe kaydedilir. Bu bayrağın bulunmadığı bir dağıtımda tutulacak hiçbir bildirim ve fotoğraf bulunmaz."
   },
+  "de84ecf74f108e6e": {
+    "en": "{{0}}, if you do not have it yet. The {{1}} has installers for Windows, macOS, and Linux.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Henüz kurulu değilse {{0}}. {{1}} Windows, macOS ve Linux için yükleyicilere sahiptir."
+  },
   "deb3cd28290d2feb": {
     "en": "Two things worth knowing before you rely on it. The allowance counts {{0}}, so keep a hard spend cap on the upstream key at the provider as well: only the provider can stop the money. And a person's allowance is set explicitly per account; there is no unlimited default.",
     "model": "google/gemini-3.8-flash",
@@ -11590,6 +12088,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "openplate, yasal sayfaları konteyner içine bağladığın markdown dosyalarından yükler. Deponun kendisinde hiçbir yasal metin bulunmaz. Şartları, gizlilik politikasını, künyeyi ve yasal zorunluluğu olan iki butonun sayfalarını sen yazarsın. Bunlar senin kurulumunu tanımlar ve seni işletmeci olarak belirtir."
+  },
+  "deed675610612596": {
+    "en": "{{0}} Nobody knows for certain which style YAZIO uses. If YAZIO's number actually includes fibre, the US style, your net carbs in openplate will read higher than they really are, never lower. That is the safer error for a low-carb tracker.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} YAZIO uygulamasının hangi biçimi kullandığını kimse kesin olarak bilmiyor. YAZIO değeri lifi fiilen içeriyorsa, yani ABD biçimiyse, openplate içindeki net karbonhidrat değerin gerçekte olduğundan yüksek görünür, asla düşük görünmez. Düşük karbonhidrat takipçisi için bu daha güvenli bir hatadır."
   },
   "def48e9264b06cb1": {
     "en": "keyed one-way hash of its mailbox",
@@ -11657,6 +12161,12 @@
     "at": "2026-09-14",
     "tr": "Burada bir paylaşım (§5.16) anahtar kaydı sayılmaz."
   },
+  "e0284e3a347c1f2d": {
+    "en": "A nutrient YAZIO does not carry shows as unknown in openplate, never as zero.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "YAZIO bünyesinde bulunmayan bir besin ögesi openplate içinde asla sıfır olarak değil, bilinmiyor olarak görünür."
+  },
   "e07a8650a5b1a419": {
     "en": "Three things never travel, whatever you switch on:",
     "model": "google/gemini-3.8-flash",
@@ -11692,6 +12202,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-23",
     "tr": "onarılmaz, reddedilir"
+  },
+  "e17c85cc990b6b6f": {
+    "en": "What you need",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Gereksinimler"
   },
   "e1870a8256b9926e": {
     "en": "Neither quotes the input back",
@@ -11933,6 +12449,12 @@
     "at": "2026-09-14",
     "tr": "Kurtarma kodu kimlik doğrulayıcısı ve iki kimlik bilgisi rotasyonu. {{0}} ve {{1}} aynı gönderim biçimini alır çünkü aynı şeyi yaparlar; yalnızca kanıt farklıdır."
   },
+  "e64f74013a362b01": {
+    "en": "Each weigh-in becomes an entry in your weight log.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Her tartı kaydı, kilo günlüğünde bir girdi haline gelir."
+  },
   "e6636733ea60fa82": {
     "en": "p95 per scan",
     "model": "google/gemini-3.8-flash",
@@ -12040,6 +12562,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Hesap başına tek bir etkin belirteç"
+  },
+  "e87bc26db2a8f36d": {
+    "en": "lets a later request with the same id ride on that scan while the id is younger than 30 minutes, has carried fewer than 2 requests and has {{0}}; a request after a delivered answer, a third request, or one after 30 minutes is a new action with a new scan, refused with {{1}} when none is left;",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "kimlik 30 dakikadan daha yeniyken, 2'den az istek taşımışken ve {{0}} durumundayken, aynı kimliğe sahip sonraki bir isteğin bu taramadan yararlanmasını sağlar; teslim edilen bir yanıttan sonraki bir istek, üçüncü bir istek ya da 30 dakikadan sonraki bir istek, yeni bir taramaya sahip yeni bir eylemdir ve hiç kalmadığında {{1}} ile reddedilir;"
   },
   "e88655806147386e": {
     "en": "The default model is {{0}}",
@@ -12293,6 +12821,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} Davet edilen kişi kendi hesabını ve kendi günlüğünü alır, ayrıca kaydolduktan sonra {{2}} gün boyunca günde {{1}} yapay zeka isteği elde eder. Bu süre dolduğunda, yapay zeka vekili 403 yanıtı verir. Günlükleri çalışmaya devam eder. Eşitleme hiçbir zaman bir kotaya bağlanmaz. Davet eden kişi bunların hiçbirini seçemez. Yalnızca bir adres gönderir, başka bir şey değil."
   },
+  "ed2ff950dceaa682": {
+    "en": "\"You picked two files of the same kind. Pick one days.json and one products.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "\"Aynı türden iki dosya seçtin. Bir days.json ve bir products.json seç.\""
+  },
   "ed4044c1941760fa": {
     "en": "{{0}} {{1}} is rounded to the nearest 50 and clamped to 0 to 5000; {{2}} is rounded to the nearest 5 and clamped to 0 to 500. A device that sends an exact figure, a negative one or an absurd one still lands on the grid everybody else is on. A body that is not two finite numbers is {{3}}.",
     "model": "google/gemini-3.8-flash",
@@ -12364,6 +12898,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} (§5.15). Her zaman bir oturum açılır; onaylanacak hiçbir şey kalmamıştır."
+  },
+  "ee5d026b4e6dfa51": {
+    "en": "A day that already has a weigh-in in openplate keeps it.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate içinde zaten bir kilo kaydı bulunan bir gün bu kaydı korur."
   },
   "ee6eead86666bb9f": {
     "en": "Three configuration traps",
@@ -12461,6 +13001,12 @@
     "at": "2026-09-14",
     "tr": "llama.cpp (MIT): resmi yukarı akış (upstream) konteyner kalıbı olarak kullanılır, depoya doğrudan dahil edilmemiştir."
   },
+  "eff720f4e91b4b25": {
+    "en": "In the file picker, select {{0}} and {{1}} together, and {{2}} too if you want your weigh-ins, then confirm your selection.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Dosya seçicide {{0}} ve {{1}} dosyalarını birlikte seç, tartı kayıtlarını da istiyorsan {{2}} dosyasını da seç, ardından seçimini onayla."
+  },
   "f01a042bbfb3dad3": {
     "en": "30 minutes",
     "model": "google/gemini-3.8-flash",
@@ -12527,6 +13073,12 @@
     "at": "2026-09-14",
     "tr": "Tek bir istekteki üretim hızı bant genişliğine bağlıdır: her belirteç etkin ağırlık kümesinin tamamını dolaşır. Ölçülen iki kart da kabaca {{0}} sınıfındadır (RTX 4090 ≈ 1008 GB/sn, RTX 3090 ≈ 936 GB/sn) ve ölçülen p50 değerleri bunu takip eder: 0,94 sn ve 1,72 sn."
   },
+  "f14f1b5acd8bda5d": {
+    "en": "Open a terminal",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir terminal aç"
+  },
   "f165d6c05be2b651": {
     "en": "\"Threshold\"",
     "model": "google/gemini-3.8-flash",
@@ -12544,6 +13096,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "Çalışma grafiği"
+  },
+  "f194e3568b9c2587": {
+    "en": "{{0}} openplate stores weight only in grams.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "{{0}} openplate ağırlığı yalnızca gram cinsinden saklar."
   },
   "f1bfefe0d2fabca9": {
     "en": "{{0}} is bounded exactly as it is for an operator. The credential relaxes no validation.",
@@ -12586,6 +13144,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "openplate, openplate-core ve openplate-inference içindeki her compose dosyası, bir hizmeti Postgres'in sağlık kontrolüne bağlamak için {{0}} kullanır. {{3}} kurulumunun bu koşulu işlediğini doğrulamadığın sürece {{2}} değil, {{1}} çalıştır."
+  },
+  "f2839cd911d4a26d": {
+    "en": "Data & backup",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Veri ve yedekleme"
   },
   "f290c4d7180db565": {
     "en": "Each entry is {{0}} and {{1}} and nothing else. The address, the name and the allowance belong to {{2}}, which the caller is already reading.",
@@ -12635,6 +13199,12 @@
     "at": "2026-09-14",
     "tr": "null olmayan bir {{1}} ile {{0}} (kurtarma yolu yalnızca HKDF kullanır, kaydedilecek parametre yoktur)"
   },
+  "f3d786d8c8f05505": {
+    "en": "Add to my diary",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Günlüğüme ekle"
+  },
   "f3e918574f778e73": {
     "en": "{{0}} They live in a separate database on the device that took them, they are excluded from the sync payload and from every backup file, and they clear themselves out on a schedule you set.",
     "model": "google/gemini-3.8-flash",
@@ -12664,6 +13234,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "canlılık"
+  },
+  "f45fc1dfdc96db27": {
+    "en": "Field",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Alan"
   },
   "f490882338338064": {
     "en": "Adding a second device:",
@@ -12821,6 +13397,12 @@
     "at": "2026-09-14",
     "tr": "{{0}} negatif olmayan bir tamsayı değil, {{1}} pozitif bir tamsayı değil, {{2}} eksik/base64 değil veya boş, ya da {{3}} mevcut ve bir boolean değil."
   },
+  "f8f269745fd9a9a7": {
+    "en": "Each food becomes its own entry",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Her yiyecek ayrı bir girdi haline gelir"
+  },
   "f8fb8d884f17e827": {
     "en": "Space-separated extra origins for the production CSP's {{0}}. Needed when your own AI endpoint is a {{1}} host. See {{2}}.",
     "model": "google/gemini-3.8-flash",
@@ -12953,11 +13535,23 @@
     "at": "2026-09-14",
     "tr": "açlık başladı (şimdi veya planlanmış), açlık bitti"
   },
+  "fca261b5356ce398": {
+    "en": "Log in, then export your days, products and weight:",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Giriş yap, ardından günlerini, ürünlerini ve kilonu dışa aktar:"
+  },
   "fcc36c36dc255182": {
     "en": "openplate shows no \"this instance provides its own AI\" card",
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "openplate \"bu örnek kendi yapay zekasını sağlar\" kartını göstermiyor"
+  },
+  "fcd143b54ae386ad": {
+    "en": "One scan buys one delivered answer.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "Bir tarama, teslim edilen bir yanıt satın alır."
   },
   "fce28242846d9697": {
     "en": "{{0}} If you have llama.cpp, Ollama, or vLLM-on-GPU up today, set {{1}} and {{2}}: openplate-inference then downloads nothing and starts no second model, and just wraps what you have. Check the {{3}} first; vLLM's {{4}} build cannot run this.",
@@ -12982,6 +13576,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-14",
     "tr": "{{0}} bir ISO anı ya da {{1}} değeridir; {{2}} ise yapay zekâ kotasının bir bitiş tarihi olmadığı anlamına gelir ki kendi sunucunu barındırdığın bir örneğin tuttuğu da budur. O andan itibaren, §5.19 içindeki vekil {{3}} yanıtını verir. {{4}}: eşitleme bu tarihten sonra da çalışmayı sürdürür, çünkü günlük hesaba aittir ve yeni bir cihazın onu çekebilmesi gerekir. Bir istemci tarihi ekrana çizebilir ve buna dayanarak yetkilendirme yapmamalıdır; kural vekil üzerinde yer alır."
+  },
+  "fdc4fd1eb5fb726d": {
+    "en": "Open openplate and go to {{0}}, then {{1}}.",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "openplate uygulamasını aç, {{0}} bölümüne ve ardından {{1}} bölümüne git."
   },
   "fdcd6d67ef213edd": {
     "en": "Rate-limit by source address",
@@ -13018,6 +13618,12 @@
     "model": "google/gemini-3.8-flash",
     "at": "2026-09-19",
     "tr": "Besin veritabanı makro değerlerini sağladığında, bu servis bir besin kaydındaki {{0}} alanını {{1}} olarak ayarlar. Kaynak gerektirdiğinde bir {{2}} dizesi ekler, bkz. {{3}}. Öğeyi hiçbir şey çözümleyemediğinde iki alan da atlanır ve {{4}} null olur. Bu servis hiçbir zaman {{5}} değerini üretmez, çünkü paylaşılan sözleşme bu değeri bir bulut sağlayıcısına ayırır. Zaman aşımı, ret veya ağ hatası gibi bir kaynak arızası, eşleşme bulunamamasıyla aynı görünür: {{6}} null olur, yanıt yine {{7}} döner ve yanıttaki hiçbir şey hangisinin gerçekleştiğini belirtmez."
+  },
+  "fe9f8e9274fd6265": {
+    "en": "\"products.json is missing. Pick it together with days.json.\"",
+    "model": "google/gemini-3.8-flash",
+    "at": "2026-09-24",
+    "tr": "\"products.json eksik. days.json ile birlikte seç.\""
   },
   "fef26d4ac5ed9ffa": {
     "en": "{{0}} The tier name is metadata, not content (it travels in the clear and the server already stores it) and without this check ADR-0003's prohibition 1 has no teeth anywhere but the client. An unknown tier is {{1}}.",
